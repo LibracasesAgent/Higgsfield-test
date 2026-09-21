@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "test:connection": "node src/test-connection.js",
-    "generate:seedance": "tsx index.ts"
+    "generate:seedance": "tsx index.ts",
+    "generate:image": "tsx image.ts"
   },
   "repository": {
     "type": "git",

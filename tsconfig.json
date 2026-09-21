@@ -10,5 +10,5 @@
     "outDir": "dist",
     "noEmit": true
   },
-  "include": ["index.ts"]
+  "include": ["index.ts", "image.ts"]
 }
