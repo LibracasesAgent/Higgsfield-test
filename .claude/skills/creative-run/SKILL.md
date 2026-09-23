@@ -51,6 +51,11 @@ Creative Tests. For each product pick a **template ad**: the test's benchmark ad
 or else that product's best winning ad by ROAS. If the product has no winning ad
 of its own (a new product), use the best overall winning ad as the template.
 
+Video type per product: if the template ad already shows this product, the
+product swap changes it to **another colourway** from the library (e.g. brown to
+black). If there is no other colourway photo, use image-to-video from the best
+static instead. If the product is new (not in the template), swap it in directly.
+
 Per product make `statics_per_test` statics and `videos_per_test` videos, then cut
 the whole list down to `max_statics_per_run` / `max_videos_per_run`, keeping the
 highest-ROAS templates first.

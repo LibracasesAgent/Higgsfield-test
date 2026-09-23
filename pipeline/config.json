@@ -45,7 +45,7 @@
     "image_to_video_model": "seedance_2_5",
     "resolution": "720p",
     "aspect_ratio": "9:16",
-    "clip_seconds": 15,
+    "clip_seconds": 12,
     "_help": "Winning videos are cut to clip_seconds (4-30) straight from Drive before the product swap."
   }
 }
