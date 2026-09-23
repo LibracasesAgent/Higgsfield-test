@@ -1,0 +1,51 @@
+{
+  "mode": "plan",
+  "_mode_help": "plan = pick assets, write the plan and cost estimate, generate nothing. live = also generate, check and deliver. A routine run can override this with 'mode: live' or 'mode: plan' in its fire payload.",
+
+  "drive": {
+    "research_briefs_folder": "15O4eWnDekrabwlp3SFByf0BlgVwqpasG",
+    "outputs_folder": "1k6VzbHgOoIAFDAVWQeaf6xx-_mJh98sK",
+    "outputs_winner_images": "1P_kCu-weSAFCb8aBnSh8aMuSFa8HgOYv",
+    "outputs_winner_videos": "19tSCZ5NZ7MXEUEcUozQC1kenUJhurRvc",
+    "outputs_test_images": "1v_Nps7JncF7qu-5RhjFA-QbB8FfzCloC",
+    "outputs_test_videos": "1kuv4LX3CRHkTDWD2N5UvziTnDRgIHlq6",
+    "approved_folder": "1huq8gOqNhesc8nWemXadBF_-qgkP4ce_",
+    "asset_library_root": "1KUX5zbiob8W8Jo1tH7iFToOen7-c80w_"
+  },
+
+  "products": {
+    "Hobo Bag": ["Raw files/Hobo Bag", "Raw files/Wouter sister content"],
+    "Hobo 2.0": ["Raw files/HOBO 2.0", "Raw files/ACH Creative Delivery/*Hobo 2.0"],
+    "Hobo Bag 3-Piece Set": ["Raw files/Hobo Bag 3 Piece Set + Hooks"],
+    "Slouchy Vintage Bag": ["Raw files/Slouchy", "Raw files/Vintage Bag", "Raw files/ACH Creative Delivery/* Vintage Bag"],
+    "2in1 Backpack": ["Raw files/2in1 Backpack", "Raw files/Wouter sister content"]
+  },
+  "_products_help": "Product name as written in the brief -> library folders to take reference photos and clips from. Add new products here.",
+
+  "new_products": [],
+  "_new_products_help": "Products to make NEW creatives for, using the week's winning ads as the template. Empty = use the products in the brief's 'Creative Tests for Next Week'.",
+
+  "budget": {
+    "max_credits_per_run": 400,
+    "max_statics_per_run": 12,
+    "max_videos_per_run": 4,
+    "statics_per_test": 3,
+    "videos_per_test": 1,
+    "max_retries_per_output": 1
+  },
+
+  "statics": {
+    "model": "nano_banana_pro",
+    "resolution": "2k",
+    "aspect_ratios": ["4:5", "9:16"]
+  },
+
+  "videos": {
+    "product_swap_model": "ad_multiplier",
+    "image_to_video_model": "seedance_2_5",
+    "resolution": "720p",
+    "aspect_ratio": "9:16",
+    "clip_seconds": 15,
+    "_help": "Winning videos are cut to clip_seconds (4-30) straight from Drive before the product swap."
+  }
+}
