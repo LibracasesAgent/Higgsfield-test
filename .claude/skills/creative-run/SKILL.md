@@ -86,7 +86,10 @@ hero and must match it exactly: shape, colour, hardware, straps, stitching, logo
 Recreate the winning ad's concept from the last reference image: <setting,
 composition, mood you observed>. Headline text, large and legible, spelled exactly:
 "<hook from brief>". Clean premium lifestyle photography, natural light,
-realistic hands and skin, no extra logos, no other text. resolution: 2k"
+realistic hands, no people's faces, no extra logos, no other text. resolution: 2k"
+**Statics never show a human face** (client rule): product-only scenes (flat-lay,
+workbench, tabletop, hanging, styled surfaces) or at most hands/torso cropped below
+the chin. Reject any static where a face appears.
 Vary setting/composition across variants; never produce near-duplicates.
 
 **Product-swap video (ad_multiplier):** "Replace the bag carried in @Video1 with
@@ -126,8 +129,12 @@ start image = the best finished static; prompt describes a subtle 5–10 s motio
 5. Write every job id into your notes immediately. Poll with `jobs_wait` (≤12 jobs,
    `timeout_seconds` 15, respect `poll_after_seconds`). Videos can take 10+ minutes.
    Stop polling after 40 minutes; list unfinished job ids as **pending** in the report.
-6. If a submission returns `unlim_choice`, resubmit with `use_unlim: false`.
+6. Always pass `use_unlim: false`. If a submission fails with "Preset ... was
+   recommended instead of submitting a job", nothing was charged: resubmit the same
+   request with the `declined_preset_id` the error names.
    Stop the run on billing, quota or safety errors and report them.
+7. The job status may report a different model than requested (e.g. nano_banana_pro
+   ran as nano_banana_2). Record the reported model in the report.
 
 ## Step 7: Check every result (live mode)
 
