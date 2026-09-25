@@ -1,0 +1,196 @@
+{
+ "ads": [
+  {
+   "name": "S1_postit_note_to_self",
+   "base": "st_postit.png",
+   "elements": [
+    {
+     "type": "postit",
+     "text": "back pocket = passport. side zips = keys. don't overthink it.",
+     "x": 395,
+     "y": 560,
+     "w": 300,
+     "angle": -5,
+     "size": 44
+    },
+    {
+     "type": "caption",
+     "text": "note to self (for the airport)",
+     "y": 70,
+     "size": 54
+    }
+   ]
+  },
+  {
+   "name": "S2_clipboard_checklist",
+   "base": "st_clipboard.png",
+   "elements": [
+    {
+     "type": "handwrite",
+     "x": 748,
+     "y": 640,
+     "size": 39,
+     "angle": -1,
+     "ticks": [
+      1,
+      2,
+      3,
+      4,
+      5
+     ],
+     "lines": [
+      "HOBO BAG",
+      "back pocket",
+      "2 side zips",
+      "gold D-rings",
+      "soft + slouchy",
+      "shoulder strap"
+     ]
+    },
+    {
+     "type": "caption",
+     "text": "the everyday bag checklist",
+     "y": 70,
+     "size": 56
+    }
+   ]
+  },
+  {
+   "name": "S3_rides_up_front",
+   "base": "C_2kmed.png",
+   "focus": [
+    0.5,
+    0.45
+   ],
+   "elements": [
+    {
+     "type": "caption",
+     "text": "she gets her own seat now",
+     "y": 70,
+     "size": 58
+    },
+    {
+     "type": "marker",
+     "text": "belted in.",
+     "x": 90,
+     "y": 1090,
+     "size": 56,
+     "angle": -5
+    },
+    {
+     "type": "arrow",
+     "from": [
+      330,
+      1080
+     ],
+     "to": [
+      640,
+      930
+     ]
+    }
+   ]
+  },
+  {
+   "name": "S4_what_goes_where",
+   "base": "st_flatlay.png",
+   "elements": [
+    {
+     "type": "caption",
+     "text": "what goes where",
+     "y": 60,
+     "size": 60
+    },
+    {
+     "type": "marker",
+     "text": "passport: back pocket",
+     "x": 30,
+     "y": 420,
+     "size": 40,
+     "angle": -3,
+     "max_w": 340
+    },
+    {
+     "type": "marker",
+     "text": "keys: side zip",
+     "x": 770,
+     "y": 560,
+     "size": 40,
+     "angle": 4,
+     "max_w": 300
+    },
+    {
+     "type": "arrow",
+     "from": [
+      860,
+      670
+     ],
+     "to": [
+      760,
+      780
+     ]
+    },
+    {
+     "type": "circle",
+     "box": [
+      500,
+      680,
+      790,
+      830
+     ]
+    },
+    {
+     "type": "marker",
+     "text": "phone: front zip",
+     "x": 300,
+     "y": 1150,
+     "size": 42,
+     "angle": -2
+    },
+    {
+     "type": "arrow",
+     "from": [
+      520,
+      1140
+     ],
+     "to": [
+      600,
+      840
+     ]
+    }
+   ]
+  },
+  {
+   "name": "S5_gate_boarding_pass",
+   "base": "A_4klow.png",
+   "focus": [
+    0.5,
+    0.55
+   ],
+   "elements": [
+    {
+     "type": "receipt",
+     "x": 560,
+     "y": 50,
+     "w": 480,
+     "angle": 3,
+     "lines": [
+      "BOARDING PASS|",
+      "---",
+      "GATE|B12",
+      "SEAT|14A",
+      "CARRY-ON|HOBO BAG",
+      "PASSPORT|BACK POCKET",
+      "---",
+      "STATUS|ZIPPED"
+     ]
+    },
+    {
+     "type": "caption",
+     "text": "the pocket nobody checks",
+     "y": 1170,
+     "size": 56
+    }
+   ]
+  }
+ ]
+}

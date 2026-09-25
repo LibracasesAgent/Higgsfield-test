@@ -1,0 +1,10 @@
+{"hook":"the pocket nobody checks","hook_until":1.0,"audio":"natural","vo":"vo_maeve.mp3","vo_start":1.6,"bed_gain":0.3,"segments":[
+ {"src":"shotB_bridge.mp4","start":0.0,"dur":1.6,"focus":[0.5,0.5]},
+ {"src":"1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06","start":3.6,"dur":3.75,"focus":[0.5,0.45],"zoom":[1.0,1.08],"caption":"pocket on the BACK"},
+ {"src":"shotA_gate.mp4","start":0.0,"dur":2.64,"speed":1.5,"focus":[0.5,0.5],"caption":"passport in. zip it flat."},
+ {"src":"1JIEAwHHQq-euKPoS9A91KQSmMEGg7EPj","start":0.2,"dur":2.1,"focus":[0.5,0.5],"caption":"keys → gold side zip"},
+ {"src":"1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X","start":1.5,"dur":1.44,"speed":1.5,"focus":[0.5,0.5],"zoom":[1.0,1.06],"caption":"one on each side"},
+ {"src":"1CcakagPN5oiWEneKORpvJblnPYnQvWHI","start":8.6,"dur":2.2,"focus":[0.5,0.5],"zoom":[1.0,1.06],"caption":"soft + slouchy"},
+ {"src":"1Mtx32enLMlOkpIfl_Cr1EYezTdody3E1","start":1.0,"dur":1.6,"focus":[0.3,0.55],"caption":"Meet Hobo Bag."},
+ {"src":"1U7B7nHcDvGaoiw5E_jTKSQ3D7oTBrq60","start":0.0,"dur":1.8,"focus":[0.35,0.5],"caption":"link below"}
+]}

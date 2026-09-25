@@ -10,6 +10,9 @@ EDL format:
   "hook": "the pocket nobody checks",          # plate in the top third during the first segment(s)
   "hook_until": 2.2,                            # seconds the hook plate stays on
   "audio": "natural" | "mute",                  # default natural (clip sound); per-segment "mute": true
+  "vo": "voiceover.mp3",                        # optional narrator track (path relative to the EDL)
+  "vo_start": 1.8,                              # seconds into the ad the VO starts
+  "bed_gain": 0.3,                              # clip sound level under the VO (foley bed)
   "segments": [
     {"src": "<drive id or file>", "start": 3.0, "dur": 1.6,
      "focus": [0.5, 0.5],       # crop centre (fractions) for the 9:16 crop
@@ -127,15 +130,26 @@ def main():
     edl = json.load(open(a.edl))
     tmp = tempfile.mkdtemp(prefix="recut_")
     t, parts = 0.0, []
+    edl_dir = os.path.dirname(os.path.abspath(a.edl))
     for i, seg in enumerate(edl["segments"]):
+        local = os.path.join(edl_dir, seg["src"])
+        if not DRIVE_ID.match(seg["src"]) and os.path.exists(local):
+            seg = dict(seg, src=local)  # local files resolve relative to the EDL
         hook = edl.get("hook") if t < float(edl.get("hook_until", 2.0)) else None
         parts.append(render_segment(seg, i, tmp, hook, edl.get("audio", "natural")))
         t += float(seg["dur"])
     lst = os.path.join(tmp, "list.txt")
     open(lst, "w").write("".join(f"file '{p}'\n" for p in parts))
     os.makedirs(os.path.dirname(os.path.abspath(a.out)), exist_ok=True)
-    subprocess.run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", lst,
-                    "-af", "loudnorm=I=-14:TP=-1.5:LRA=11", "-c:v", "libx264", "-preset", "slow", "-crf", "18",
+    inputs, af = ["-f", "concat", "-safe", "0", "-i", lst], "loudnorm=I=-14:TP=-1.5:LRA=11"
+    if edl.get("vo"):
+        vo = os.path.join(os.path.dirname(os.path.abspath(a.edl)), edl["vo"])
+        ms = int(float(edl.get("vo_start", 0)) * 1000)
+        inputs += ["-i", vo]
+        af = (f"[0:a]volume={edl.get('bed_gain', 0.3)}[bed];[1:a]aresample=48000,adelay={ms}|{ms}[vo];"
+              f"[bed][vo]amix=inputs=2:duration=first:normalize=0,{af}[aout]")
+    subprocess.run(["ffmpeg", "-hide_banner", "-loglevel", "error", *inputs,
+                    *(["-filter_complex", af, "-map", "0:v", "-map", "[aout]"] if edl.get("vo") else ["-af", af]), "-c:v", "libx264", "-preset", "slow", "-crf", "18",
                     "-pix_fmt", "yuv420p", "-r", str(FPS), "-c:a", "aac", "-b:a", "160k", "-ar", "48000",
                     "-movflags", "+faststart", "-y", a.out], check=True, timeout=1800)
     print(json.dumps(dict(out=a.out, seconds=round(t, 2), segments=len(parts))))

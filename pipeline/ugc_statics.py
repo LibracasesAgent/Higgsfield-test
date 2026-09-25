@@ -14,6 +14,8 @@ Element types (coordinates are pixels on the 1080x1350 canvas):
   notes     {"x", "y", "w", "title", "lines", "struck"}   Notes-style card; struck = indexes crossed out
   receipt   {"x", "y", "w", "lines", "angle"}             thermal receipt (Courier Prime)
   letters   {"items": [{"t": "A", "x", "y"}], "size"}     big handwritten letters on the photo
+  handwrite {"lines", "x", "y", "size", "angle", "ticks"}  pen handwriting (Caveat) straight onto paper in the photo;
+                                                          ticks = indexes that get a red hand-drawn check mark
   strip     {"frames": [paths], "labels": [..]}           2x2 frame-by-frame grid (base may be null)
 """
 import argparse
@@ -186,6 +188,23 @@ def el_receipt(c, e):
             rw = d.textlength(right, font=f)
             d.text((w - 30 - rw, y), right, font=f, fill=(30, 30, 30, 255))
     paste_rotated(c, rc, e["x"], e["y"], e.get("angle", 3))
+
+
+def el_handwrite(c, e):
+    f = font("Caveat.ttf", e.get("size", 44), "Bold")
+    lh = int(f.size * 1.25)
+    d0 = ImageDraw.Draw(c)
+    lw = int(max(d0.textlength(l, font=f) for l in e["lines"])) + 90
+    lay = Image.new("RGBA", (lw, lh * len(e["lines"]) + 20), (0, 0, 0, 0))
+    d = ImageDraw.Draw(lay)
+    for i, ln in enumerate(e["lines"]):
+        y = i * lh
+        d.text((0, y), ln, font=f, fill=tuple(e.get("color", (24, 40, 96))) + (255,))
+        if i in e.get("ticks", []):
+            x = d.textlength(ln, font=f) + 18
+            d.line([(x, y + lh * 0.55), (x + 12, y + lh * 0.8), (x + 40, y + lh * 0.2)], fill=RED + (255,), width=6,
+                   joint="curve")
+    paste_rotated(c, lay, e["x"], e["y"], e.get("angle", 0), shadow=False)
 
 
 def el_letters(c, e):

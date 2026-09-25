@@ -1,0 +1,89 @@
+{
+ "hook": "7:40. she rides up front.",
+ "hook_until": 1.0,
+ "audio": "natural",
+ "vo": "vo_f3_maeve.mp3",
+ "vo_start": 0.3,
+ "bed_gain": 0.3,
+ "segments": [
+  {
+   "src": "shotC_seatbelt.mp4",
+   "start": 0.0,
+   "dur": 4.08,
+   "focus": [
+    0.5,
+    0.5
+   ]
+  },
+  {
+   "src": "1YrDKa4bX4W_GiRkdf3iFDVGFg-PW4cbt",
+   "start": 6.0,
+   "dur": 1.32,
+   "mute": true,
+   "caption": "everything zipped"
+  },
+  {
+   "src": "1rTljXS3QBebptAP6GxvST3ithqFmc6IY",
+   "start": 0.0,
+   "dur": 2.81,
+   "speed": 0.9,
+   "focus": [
+    0.5,
+    0.5
+   ],
+   "zoom": [
+    1.0,
+    1.06
+   ],
+   "caption": "back pocket = the good stuff"
+  },
+  {
+   "src": "1fUhovMajs9q_WS55_Hn1HMjL7zqKyFE2",
+   "start": 1.0,
+   "dur": 1.2,
+   "focus": [
+    0.5,
+    0.5
+   ],
+   "caption": "6:05. train."
+  },
+  {
+   "src": "1YrDKa4bX4W_GiRkdf3iFDVGFg-PW4cbt",
+   "start": 35.0,
+   "dur": 1.09,
+   "mute": true,
+   "caption": "one hand free"
+  },
+  {
+   "src": "1f6kyaiBCEWKytXqZIqUsR1vZ6dL0HyAl",
+   "start": 12.0,
+   "dur": 1.32,
+   "focus": [
+    0.5,
+    0.5
+   ],
+   "caption": "one bag, all day"
+  },
+  {
+   "src": "1d-NfhyXONZdjfr9UBSKd99VUPx9mK7HB",
+   "start": 33.0,
+   "dur": 1.96,
+   "focus": [
+    0.5,
+    0.45
+   ],
+   "zoom": [
+    1.0,
+    1.08
+   ],
+   "caption": "Hobo 2.0"
+  },
+  {
+   "src": "1YrDKa4bX4W_GiRkdf3iFDVGFg-PW4cbt",
+   "start": 42.0,
+   "dur": 2.8,
+   "mute": true,
+   "caption": "link below"
+  }
+ ]
+}
