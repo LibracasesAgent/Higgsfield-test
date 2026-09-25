@@ -1,4 +1,4 @@
-# Round 2 — more UGC formats (13.2 credits)
+# Round 2 — more UGC formats (13.75 credits)
 
 Videos: stop-motion unboxing (4 AI stills + click SFX + real clips), "POV: your old bag" vs this one
 (AI generic-tote rummage + real clips + AI cafe), brown-or-black poll (real clip + Kling colour swap + split screen).
