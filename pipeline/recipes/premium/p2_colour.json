@@ -1,0 +1,85 @@
+{
+ "grade": "none",
+ "grain": 5,
+ "vignette": false,
+ "shots": [
+  {
+   "src": "v_tt_brown.mp4",
+   "start": 0.0,
+   "dur": 4.0
+  },
+  {
+   "src": "v_tt_black.mp4",
+   "start": 0.0,
+   "dur": 4.0
+  },
+  {
+   "src": "duo.png",
+   "dur": 4.0,
+   "zoom": [
+    1.06,
+    1.0
+   ]
+  }
+ ],
+ "transitions": [
+  {
+   "type": "hblur",
+   "dur": 0.6
+  },
+  {
+   "type": "fade",
+   "dur": 0.5
+  }
+ ],
+ "titles": [
+  {
+   "text": "Brown.",
+   "sub": "THE HOBO BAG",
+   "at": 0.6,
+   "dur": 2.8,
+   "y": 260,
+   "size": 100,
+   "color": "#3a2a1f",
+   "shadow": false
+  },
+  {
+   "text": "Black.",
+   "sub": "THE HOBO BAG",
+   "at": 4.0,
+   "dur": 2.8,
+   "y": 260,
+   "size": 100,
+   "color": "#3a2a1f",
+   "shadow": false
+  },
+  {
+   "text": "Which one's yours?",
+   "at": 7.3,
+   "dur": 3.6,
+   "y": 260,
+   "size": 88,
+   "color": "#3a2a1f",
+   "shadow": false
+  }
+ ],
+ "cta": {
+  "text": "Shop both",
+  "at": 8.2,
+  "dur": 2.7,
+  "y": 1660,
+  "color": "#3a2a1f"
+ },
+ "sfx": [
+  {
+   "src": "whoosh.wav",
+   "at": 3.1,
+   "gain": 0.8
+  },
+  {
+   "src": "whoosh.wav",
+   "at": 6.7,
+   "gain": 0.5
+  }
+ ]
+}

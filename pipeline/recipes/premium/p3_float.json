@@ -1,0 +1,79 @@
+{
+ "grade": "warm",
+ "grain": 6,
+ "vignette": true,
+ "letterbox": 110,
+ "shots": [
+  {
+   "src": "v_float.mp4",
+   "start": 0.0,
+   "dur": 3.6,
+   "speed": 0.75,
+   "smooth": true
+  },
+  {
+   "src": "v_zip.mp4",
+   "start": 1.0,
+   "dur": 2.6,
+   "speed": 0.8,
+   "smooth": true
+  },
+  {
+   "src": "float.png",
+   "dur": 3.6,
+   "zoom": [
+    1.12,
+    1.0
+   ]
+  }
+ ],
+ "transitions": [
+  {
+   "type": "fadewhite",
+   "dur": 0.4
+  },
+  {
+   "type": "circleopen",
+   "dur": 0.6
+  }
+ ],
+ "leaks": [
+  3.3
+ ],
+ "titles": [
+  {
+   "text": "Effortless.",
+   "at": 0.8,
+   "dur": 2.2,
+   "y": 1380,
+   "size": 96
+  },
+  {
+   "text": "Every detail, considered.",
+   "at": 3.6,
+   "dur": 1.9,
+   "y": 1380,
+   "size": 80
+  },
+  {
+   "text": "The Hobo Bag.",
+   "at": 5.9,
+   "dur": 2.9,
+   "y": 1450,
+   "size": 90
+  }
+ ],
+ "cta": {
+  "text": "Shop now",
+  "at": 6.6,
+  "dur": 2.2,
+  "y": 1600
+ },
+ "sfx": [
+  {
+   "src": "whoosh.wav",
+   "at": 3.0,
+   "gain": 0.8
+  }
+ ]
+}

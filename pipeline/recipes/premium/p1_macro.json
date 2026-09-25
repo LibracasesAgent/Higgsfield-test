@@ -1,0 +1,102 @@
+{
+ "grade": "warm",
+ "grain": 7,
+ "vignette": true,
+ "shots": [
+  {
+   "src": "v_seam.mp4",
+   "start": 0.0,
+   "dur": 2.8,
+   "speed": 0.8,
+   "smooth": true
+  },
+  {
+   "src": "v_zip.mp4",
+   "start": 0.3,
+   "dur": 2.8,
+   "speed": 0.8,
+   "smooth": true
+  },
+  {
+   "src": "v_dring.mp4",
+   "start": 0.3,
+   "dur": 2.6,
+   "speed": 0.8,
+   "smooth": true
+  },
+  {
+   "src": "v_hero.mp4",
+   "start": 0.0,
+   "dur": 5.0
+  }
+ ],
+ "transitions": [
+  {
+   "type": "fade",
+   "dur": 0.5
+  },
+  {
+   "type": "fadewhite",
+   "dur": 0.3
+  },
+  {
+   "type": "zoomin",
+   "dur": 0.5
+  }
+ ],
+ "leaks": [
+  2.4,
+  6.9
+ ],
+ "titles": [
+  {
+   "text": "Soft leather.",
+   "at": 1.0,
+   "dur": 1.6,
+   "y": 1400,
+   "size": 88
+  },
+  {
+   "text": "Gold detail.",
+   "at": 2.9,
+   "dur": 1.8,
+   "y": 1400,
+   "size": 88
+  },
+  {
+   "text": "Made for every day.",
+   "at": 5.1,
+   "dur": 1.9,
+   "y": 1400,
+   "size": 84
+  },
+  {
+   "text": "The Hobo Bag.",
+   "at": 7.6,
+   "dur": 4.2,
+   "y": 330,
+   "size": 96
+  }
+ ],
+ "cta": {
+  "text": "Shop now",
+  "at": 9.4,
+  "dur": 2.4,
+  "y": 1650
+ },
+ "sfx": [
+  {
+   "src": "whoosh.wav",
+   "at": 4.6,
+   "gain": 0.7
+  },
+  {
+   "src": "whoosh.wav",
+   "at": 6.8,
+   "gain": 0.7
+  }
+ ],
+ "vo": "vo_p1.mp3",
+ "vo_start": 1.2,
+ "bed_gain": 0.6
+}
