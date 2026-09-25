@@ -239,7 +239,8 @@ def main():
     os.makedirs(os.path.dirname(os.path.abspath(a.out)), exist_ok=True)
     r = subprocess.run(["ffmpeg", "-hide_banner", "-loglevel", "error", *inputs, "-filter_complex", ";".join(fc),
                         "-map", "[vout]", "-map", "[aout]", "-t", f"{total:.3f}", "-c:v", "libx264", "-preset", "slow",
-                        "-crf", "17", "-pix_fmt", "yuv420p", "-r", str(FPS), "-c:a", "aac", "-b:a", "192k",
+                        "-crf", "18", "-maxrate", "12M", "-bufsize", "24M", "-pix_fmt", "yuv420p", "-r", str(FPS),
+                        "-c:a", "aac", "-b:a", "192k",
                         "-movflags", "+faststart", "-y", a.out], capture_output=True, text=True, timeout=1800)
     if r.returncode:
         raise RuntimeError(r.stderr[-1500:])
