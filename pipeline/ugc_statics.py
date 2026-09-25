@@ -16,6 +16,9 @@ Element types (coordinates are pixels on the 1080x1350 canvas):
   letters   {"items": [{"t": "A", "x", "y"}], "size"}     big handwritten letters on the photo
   handwrite {"lines", "x", "y", "size", "angle", "ticks"}  pen handwriting (Caveat) straight onto paper in the photo;
                                                           ticks = indexes that get a red hand-drawn check mark
+  chat      {"y", "msgs": [{"from": "them"|"me", "text"}]}   phone text-message bubbles (grey left, blue right)
+  search    {"y", "query", "suggest": [..]}               generic search bar with a typed query + suggestions
+  split     {"images": [a, b], "dir": "h"|"v", "labels": [..], "focus": [[x, y], [x, y]]}   two photos side by side
   strip     {"frames": [paths], "labels": [..]}           2x2 frame-by-frame grid (base may be null)
 """
 import argparse
@@ -215,6 +218,70 @@ def el_letters(c, e):
         d.text((it["x"], it["y"]), it["t"], font=f, fill=(255, 255, 255, 255), stroke_width=4, stroke_fill=(0, 0, 0, 255))
 
 
+def el_chat(c, e):
+    f = font("Inter.ttf", e.get("size", 40), "Medium")
+    d0 = ImageDraw.Draw(c)
+    y = e["y"]
+    for m in e["msgs"]:
+        lines = wrap(d0, m["text"], f, 620)
+        tw = max(d0.textlength(l, font=f) for l in lines)
+        lh = int(f.size * 1.3)
+        bw, bh = int(tw) + 56, lh * len(lines) + 34
+        me = m["from"] == "me"
+        x = W - 60 - bw if me else 60
+        bub = Image.new("RGBA", (bw, bh), (0, 0, 0, 0))
+        d = ImageDraw.Draw(bub)
+        d.rounded_rectangle([0, 0, bw - 1, bh - 1], radius=40, fill=(10, 132, 255, 255) if me else (233, 233, 235, 255))
+        for i, ln in enumerate(lines):
+            d.text((28, 15 + i * lh), ln, font=f, fill=(255, 255, 255, 255) if me else (0, 0, 0, 255))
+        paste_rotated(c, bub, x, y, 0)
+        y += bh + 22
+
+
+def el_search(c, e):
+    d = ImageDraw.Draw(c)
+    f = font("Inter.ttf", e.get("size", 38), "Regular")
+    x0, x1, y = 60, W - 60, e["y"]
+    h = 100
+    sug = e.get("suggest", [])
+    d.rounded_rectangle([x0 + 6, y + 10, x1 + 6, y + h + 12 + len(sug) * 86], radius=34, fill=(0, 0, 0, 60))
+    d.rounded_rectangle([x0, y, x1, y + h + len(sug) * 86], radius=34, fill=(255, 255, 255, 250))
+    cx, cy = x0 + 48, y + h / 2 - 4          # magnifier icon
+    d.ellipse([cx - 16, cy - 16, cx + 12, cy + 12], outline=(95, 99, 104, 255), width=5)
+    d.line([(cx + 9, cy + 9), (cx + 24, cy + 24)], fill=(95, 99, 104, 255), width=6)
+    q = e["query"]
+    d.text((x0 + 96, y + (h - f.size) / 2 - 4), q, font=f, fill=(32, 33, 36, 255))
+    tx = x0 + 96 + d.textlength(q, font=f) + 4
+    d.line([(tx, y + 28), (tx, y + h - 28)], fill=(26, 115, 232, 255), width=3)   # text cursor
+    fs = font("Inter.ttf", e.get("size", 38) - 4, "Regular")
+    for i, t in enumerate(sug):
+        yy = y + h + i * 86
+        d.line([(x0 + 30, yy), (x1 - 30, yy)], fill=(232, 234, 237, 255), width=2)
+        d.text((x0 + 96, yy + 24), t, font=fs, fill=(60, 64, 67, 255))
+
+
+def el_split(c, e, spec_dir):
+    horiz = e.get("dir", "h") == "h"
+    cw, ch = (W // 2, H) if horiz else (W, H // 2)
+    f = font("Montserrat.ttf", 54, "ExtraBold")
+    d = ImageDraw.Draw(c)
+    for i, fp in enumerate(e["images"][:2]):
+        fc = tuple(e.get("focus", [[0.5, 0.5], [0.5, 0.5]])[i])
+        im = ImageOps.fit(ImageOps.exif_transpose(Image.open(os.path.join(spec_dir, fp))).convert("RGB"), (cw, ch),
+                          Image.LANCZOS, centering=fc)
+        x, y = (i * cw, 0) if horiz else (0, i * ch)
+        c.paste(im, (x, y))
+    if horiz:
+        d.line([(W // 2, 0), (W // 2, H)], fill=(255, 255, 255, 255), width=8)
+    else:
+        d.line([(0, H // 2), (W, H // 2)], fill=(255, 255, 255, 255), width=8)
+    for i, lab in enumerate(e.get("labels", [])[:2]):
+        tw = d.textlength(lab, font=f)
+        x, y = ((i * cw + (cw - tw) / 2), H - 230) if horiz else ((W - tw) / 2, i * ch + ch - 120)
+        d.rounded_rectangle([x - 24, y - 12, x + tw + 24, y + f.size + 18], radius=18, fill=(255, 255, 255, 248))
+        d.text((x, y), lab, font=f, fill=(0, 0, 0, 255))
+
+
 def el_strip(c, e, spec_dir):
     cw, ch = 510, 600
     f = font("Caveat.ttf", 80, "Bold")
@@ -231,8 +298,8 @@ def render(ad, spec_dir):
     c = base_image(ad, spec_dir).convert("RGBA")
     for e in ad["elements"]:
         t = e["type"]
-        if t == "strip":
-            el_strip(c, e, spec_dir)
+        if t in ("strip", "split"):
+            globals()[f"el_{t}"](c, e, spec_dir)
         else:
             globals()[f"el_{t}"](c, e)
     return c.convert("RGB")

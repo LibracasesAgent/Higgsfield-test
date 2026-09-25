@@ -1,0 +1,7 @@
+{"hook":"POV: your old bag","hook_until":1.0,"audio":"natural","vo":"vo_oldbag.mp3","vo_start":0.3,"bed_gain":0.55,"segments":[
+ {"src":"oldbag.mp4","start":0.0,"dur":3.4},
+ {"src":"1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06","start":3.6,"dur":1.5,"focus":[0.5,0.45],"caption":"vs. this one"},
+ {"src":"1JIEAwHHQq-euKPoS9A91KQSmMEGg7EPj","start":0.2,"dur":1.65,"caption":"keys: back pocket, zipped"},
+ {"src":"cafe.mp4","start":1.8,"dur":1.65,"speed":1.2,"caption":"card out in a second"},
+ {"src":"unbox4.png","dur":2.6,"focus":[0.5,0.52],"zoom":[1.0,1.1],"caption":"Hobo Bag. link below"}
+]}

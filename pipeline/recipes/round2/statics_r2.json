@@ -1,0 +1,14 @@
+{"ads":[
+{"name":"T1_text_thread","base":"cafe.png","focus":[0.5,0.6],"elements":[
+  {"type":"chat","y":90,"msgs":[{"from":"them","text":"where's your card?? we're holding up the line"},{"from":"me","text":"side zip. already paid."},{"from":"them","text":"ok I need that bag"}]}]},
+{"name":"T2_search_bar","base":"unbox4.png","focus":[0.5,0.6],"elements":[
+  {"type":"search","y":80,"query":"slouchy bag with a back zip pocket","suggest":["slouchy bag with a back zip pocket","slouchy bag with gold side zips","slouchy bag that isn't a backpack"]}]},
+{"name":"T3_brown_or_black_split","base":null,"elements":[
+  {"type":"split","images":["fr_brown.jpg","fr_black.jpg"],"dir":"h","labels":["brown","black"],"focus":[[0.62,0.45],[0.62,0.45]]},
+  {"type":"caption","text":"same bag. which one?","y":70,"size":58}]},
+{"name":"T4_unboxing_4_frames","base":null,"elements":[
+  {"type":"strip","frames":["unbox1.png","unbox2.png","unbox3.png","unbox4.png"],"labels":["1","2","3","4"]},
+  {"type":"caption","text":"unboxing in 4 frames","y":36,"size":54}]},
+{"name":"T5_old_bag_vs_this","base":null,"elements":[
+  {"type":"split","images":["fr_oldbag.jpg","cafe.png"],"dir":"v","labels":["my old bag","this one"],"focus":[[0.5,0.55],[0.5,0.45]]}]}
+]}

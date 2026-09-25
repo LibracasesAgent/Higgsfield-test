@@ -1,0 +1,6 @@
+{"hook":"same bag. help me pick","hook_until":1.0,"audio":"natural","vo":"vo_poll.mp3","vo_start":0.2,"bed_gain":0.3,"segments":[
+ {"src":"split.mp4","start":0.0,"dur":2.3},
+ {"src":"brown.mp4","start":1.0,"dur":1.2,"caption":"brown..."},
+ {"src":"black.mp4","start":1.0,"dur":1.0,"caption":"...or black?"},
+ {"src":"split.mp4","start":2.3,"dur":2.6,"caption":"tell me below"}
+]}
