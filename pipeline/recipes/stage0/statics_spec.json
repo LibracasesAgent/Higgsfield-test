@@ -1,0 +1,37 @@
+{"ads":[
+{"name":"01_postit","base":"photos/p31.jpg","focus":[0.55,0.62],"elements":[
+  {"type":"postit","text":"note to self: zip it. sling it. go.","x":470,"y":560,"w":330,"angle":-6,"size":58}]},
+{"name":"02_frame_by_frame","base":null,"elements":[
+  {"type":"strip","frames":["photos/strip_1.5.jpg","photos/strip_4.0.jpg","photos/strip_5.5.jpg","photos/strip_8.0.jpg"],"labels":["1","2","3","4"]},
+  {"type":"caption","text":"frame by frame: the back pocket","y":36,"size":50}]},
+{"name":"03_marker_callouts","base":"photos/p29.jpg","focus":[0.4,0.62],"elements":[
+  {"type":"marker","text":"2 gold side zips","x":40,"y":210,"size":48,"angle":-4},
+  {"type":"arrow","from":[230,300],"to":[340,620]},
+  {"type":"marker","text":"D-rings","x":440,"y":150,"size":48,"angle":3},
+  {"type":"arrow","from":[500,230],"to":[395,470]},
+  {"type":"marker","text":"tassels, obviously","x":620,"y":300,"size":46,"angle":-3},
+  {"type":"arrow","from":[800,390],"to":[805,640]},
+  {"type":"circle","box":[740,600,880,850]}]},
+{"name":"04_feature_receipt","base":"photos/p82.jpg","focus":[0.5,0.6],"elements":[
+  {"type":"receipt","x":500,"y":60,"w":500,"angle":4,"lines":["LIBRA HOBO BAG|1","GOLD SIDE ZIPS|2","BACK ZIP POCKET|1","D-RINGS|2","---","DIGGING FOR KEYS|0","---","TOTAL: ONE BAG|"]}]},
+{"name":"05_colour_pick","base":"photos/lineup.jpg","focus":[0.5,0.6],"elements":[
+  {"type":"caption","text":"pick one. comment the letter","y":70,"size":54},
+  {"type":"letters","size":130,"items":[{"t":"A","x":330,"y":330},{"t":"B","x":470,"y":650},{"t":"C","x":860,"y":560}]}]},
+{"name":"06_rides_shotgun","base":"photos/p122.jpg","focus":[0.5,0.45],"elements":[
+  {"type":"caption","text":"she rides shotgun now","y":70,"size":58},
+  {"type":"marker","text":"back zip pocket","x":560,"y":1010,"size":48,"angle":-4},
+  {"type":"arrow","from":[640,1000],"to":[430,850]}]},
+{"name":"07_pocket_nobody_checks","base":"photos/p128.jpg","focus":[0.5,0.5],"elements":[
+  {"type":"caption","text":"the pocket nobody checks","y":90,"size":60},
+  {"type":"marker","text":"(it's on the back)","x":120,"y":1010,"size":52,"angle":-6},
+  {"type":"arrow","from":[420,990],"to":[560,700]}]},
+{"name":"08_black_or_brown","base":"photos/p7.jpg","focus":[0.5,0.55],"elements":[
+  {"type":"caption","text":"black or brown?","y":80,"size":64},
+  {"type":"caption","text":"wrong answers only","y":1170,"size":48}]},
+{"name":"09_weekend_flatlay","base":"photos/p40.jpg","focus":[0.5,0.6],"elements":[
+  {"type":"caption","text":"weekend bag check","y":60,"size":56},
+  {"type":"marker","text":"+ the little pouch","x":30,"y":1080,"size":48,"angle":-5},
+  {"type":"arrow","from":[190,1070],"to":[220,930]}]},
+{"name":"10_bags_i_tried","base":"photos/p90.jpg","focus":[0.5,0.6],"elements":[
+  {"type":"notes","x":190,"y":80,"w":700,"title":"bags I tried this year","lines":["tote #1","bucket bag","another tote","this one."],"struck":[0,1,2],"angle":-2}]}
+]}

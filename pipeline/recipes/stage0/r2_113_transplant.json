@@ -1,0 +1,8 @@
+{"hook":"brown or black?","hook_until":1.5,"audio":"natural","segments":[
+ {"src":"1BidTuA7vhnKJ0W923VLBYlXX0LIIueg5","start":0.3,"dur":1.5,"focus":[0.45,0.45],"zoom":[1.05,1.15]},
+ {"src":"1uyGfb81M5nKpoV13GS70UFVo0KH1YW2l","start":0.0,"dur":3.0,"mute":true,"caption":"brown or black?"},
+ {"src":"1uyGfb81M5nKpoV13GS70UFVo0KH1YW2l","start":3.0,"dur":3.0,"mute":true,"zoom":[1.0,1.06],"caption":"2 gold side zips"},
+ {"src":"1uyGfb81M5nKpoV13GS70UFVo0KH1YW2l","start":6.5,"dur":3.0,"mute":true,"caption":"back zip pocket"},
+ {"src":"1uyGfb81M5nKpoV13GS70UFVo0KH1YW2l","start":10.0,"dur":2.5,"mute":true,"caption":"soft, slouchy shape"},
+ {"src":"1uyGfb81M5nKpoV13GS70UFVo0KH1YW2l","start":13.0,"dur":2.5,"mute":true,"zoom":[1.0,1.05],"caption":"Meet Hobo Bag."}
+]}

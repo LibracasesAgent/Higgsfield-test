@@ -1,0 +1,1 @@
+Fonts are from Google Fonts (github.com/google/fonts): Montserrat, Caveat, Cormorant Garamond, Inter, Courier Prime (SIL Open Font License 1.1) and Permanent Marker (Apache 2.0). Free for commercial use, including ads. Stand-ins until the client supplies brand fonts.
