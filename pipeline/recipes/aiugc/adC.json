@@ -1,0 +1,8 @@
+{"hook":"POV: your bag has a pocket nobody checks","hook_until":1.0,"hook_y":1150,"audio":"mute","vo":"mono_voice.wav","vo_start":0.0,"bed_gain":0.0,"segments":[
+ {"src":"mono.mp4","start":0.0,"dur":3.1},
+ {"src":"real_backpocket.mp4","start":3.6,"dur":2.8,"focus":[0.5,0.45],"zoom":[1.0,1.08],"caption":"on the back · right against you"},
+ {"src":"shotA_gate.mp4","start":0.0,"dur":2.7,"speed":1.5,"caption":"passport, cards · zipped flat"},
+ {"src":"v_zip.mp4","start":0.0,"dur":3.7,"zoom":[1.0,1.1],"caption":"keys → gold side zip"},
+ {"src":"v_hero.mp4","start":0.5,"dur":2.2,"caption":"Hobo Bag · link below"},
+ {"src":"mono.mp4","start":14.46,"dur":0.54,"caption":"Hobo Bag · link below"}
+]}
