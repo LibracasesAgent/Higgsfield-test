@@ -1,0 +1,48 @@
+{
+ "hook": "stop carrying a bag that swallows your keys",
+ "hook_until": 1.0,
+ "audio": "natural",
+ "vo": "vo_b_body.mp3",
+ "vo_start": 3.55,
+ "bed_gain": 1.0,
+ "segments": [
+  {
+   "src": "wB_hook.mp4",
+   "start": 0.0,
+   "dur": 3.55
+  },
+  {
+   "src": "v_zip.mp4",
+   "start": 0.3,
+   "dur": 2.35,
+   "mute": true,
+   "zoom": [
+    1.0,
+    1.08
+   ],
+   "caption": "keys \u2192 gold side zip"
+  },
+  {
+   "src": "shotA_gate.mp4",
+   "start": 0.0,
+   "dur": 2.45,
+   "speed": 1.5,
+   "mute": true,
+   "caption": "passport \u2192 back pocket"
+  },
+  {
+   "src": "cafe.mp4",
+   "start": 1.0,
+   "dur": 2.6,
+   "mute": true,
+   "caption": "everything else \u2192 main zip"
+  },
+  {
+   "src": "wB_close.mp4",
+   "start": 0.0,
+   "dur": 4.9,
+   "caption": "Hobo Bag \u00b7 link below"
+  }
+ ],
+ "hook_y": 1060
+}

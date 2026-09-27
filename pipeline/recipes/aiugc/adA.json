@@ -1,0 +1,7 @@
+{"hook":"3 things to check before buying any slouchy bag","hook_until":1.0,"hook_y":1060,"audio":"natural","vo":"vo_a_body_tight.wav","vo_start":4.4,"bed_gain":1.0,"segments":[
+ {"src":"kA_hook.mp4","start":0.0,"dur":4.4},
+ {"src":"real_backpocket.mp4","start":3.6,"dur":2.4,"mute":true,"focus":[0.5,0.45],"caption":"1 · zip pocket on the back"},
+ {"src":"v_zip.mp4","start":0.0,"dur":4.55,"mute":true,"zoom":[1.0,1.1],"caption":"2 · gold side zips, one each side"},
+ {"src":"v_dring.mp4","start":0.5,"dur":2.25,"mute":true,"caption":"3 · adjustable strap"},
+ {"src":"kA_close.mp4","start":0.0,"dur":4.5,"caption":"Hobo Bag · link below"}
+]}

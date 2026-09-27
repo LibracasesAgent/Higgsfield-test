@@ -9,6 +9,7 @@ EDL format:
 {
   "hook": "the pocket nobody checks",          # plate in the top third during the first segment(s)
   "hook_until": 2.2,                            # seconds the hook plate stays on
+  "hook_y": 380,                                # hook plate centre; use ~1060 over a talking face
   "audio": "natural" | "mute",                  # default natural (clip sound); per-segment "mute": true
   "vo": "voiceover.mp3",                        # optional narrator track (path relative to the EDL)
   "vo_start": 1.8,                              # seconds into the ad the VO starts
@@ -76,11 +77,11 @@ def boxed_text(d, text, cy, size, weight="ExtraBold", max_w=900):
         y += lh + 14
 
 
-def overlay_png(path, caption=None, hook=None):
+def overlay_png(path, caption=None, hook=None, hook_y=380):
     im = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(im)
     if hook:
-        boxed_text(d, hook, 380, 72)          # top third, below the 270 px UI zone
+        boxed_text(d, hook, hook_y, 72)       # default top third, below the 270 px UI zone
     if caption:
         boxed_text(d, caption, 1030, 62)      # caption band, above the bottom 35 % UI zone
     im.save(path)
@@ -127,7 +128,7 @@ def source(s):
     return direct_url(s)
 
 
-def render_segment(seg, i, tmp, hook, audio_mode):
+def render_segment(seg, i, tmp, hook, audio_mode, hook_y=380):
     speed = float(seg.get("speed", 1.0))
     dur = float(seg["dur"])
     fx, fy = seg.get("focus", [0.5, 0.5])
@@ -141,7 +142,7 @@ def render_segment(seg, i, tmp, hook, audio_mode):
         f"'max(0,min(iw-ow,iw*{fx}-ow/2))':'max(0,min(ih-oh,ih*{fy}-oh/2))',"
         f"scale={W}:{H}:flags=lanczos,setsar=1,format=yuv420p"
     )
-    ov = overlay_png(os.path.join(tmp, f"ov{i}.png"), seg.get("caption"), hook)
+    ov = overlay_png(os.path.join(tmp, f"ov{i}.png"), seg.get("caption"), hook, hook_y)
     mute = audio_mode == "mute" or seg.get("mute")
     out = os.path.join(tmp, f"seg{i:02d}.mp4")
     still = seg["src"].lower().endswith((".png", ".jpg", ".jpeg"))
@@ -163,7 +164,7 @@ def render_segment(seg, i, tmp, hook, audio_mode):
         time.sleep(3 * (attempt + 1))
     if r.returncode and not mute:  # clip without an audio stream: retry silent
         seg = dict(seg, mute=True)
-        return render_segment(seg, i, tmp, hook, audio_mode)
+        return render_segment(seg, i, tmp, hook, audio_mode, hook_y)
     if r.returncode:
         raise RuntimeError(f"segment {i} failed: {r.stderr[-400:]}")
     return out
@@ -183,7 +184,7 @@ def main():
         if not DRIVE_ID.match(seg["src"]) and os.path.exists(local):
             seg = dict(seg, src=local)  # local files resolve relative to the EDL
         hook = edl.get("hook") if t < float(edl.get("hook_until", 2.0)) else None
-        parts.append(render_segment(seg, i, tmp, hook, edl.get("audio", "natural")))
+        parts.append(render_segment(seg, i, tmp, hook, edl.get("audio", "natural"), edl.get("hook_y", 380)))
         t += float(seg["dur"])
     lst = os.path.join(tmp, "list.txt")
     open(lst, "w").write("".join(f"file '{p}'\n" for p in parts))
