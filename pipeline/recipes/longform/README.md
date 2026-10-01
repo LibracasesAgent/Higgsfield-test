@@ -15,3 +15,12 @@ Winner anatomy measured from the client's own library: 172-H4 = 50 s / 29 cuts (
   clone of her voice (element 241459b6, 40 credits one-time), real 4K B-roll (zip pulled down = fixes the zipper note),
   3 real review cards, offer + end card. Presenter-safe script (no ownership/experience claims).
 Sources referenced by full path under pipeline/cache/media/ (gitignored; re-cache with recut.source()).
+
+## gift_angle.json — "The gift she'll actually use" (62 s, 1.35 credits)
+New angle (no discount, no listicle): Christmas gifting. ~90 % real library footage of real women receiving/unboxing the bag:
+black_gift = 18all7GUEBLsxxS0JCAl8t-yEOsC6r52T (birthday gift + hug), testi_blue = 1B_A8E6o9m6B4sNNiDeSS81TdU_oEeu9i
+("If you're looking for a thoughtful gift..."), unbox_novoice = 1rRkDw8UM4ZlQpO3c6Bv3_gT1_1-n8qYH, testi_black =
+11yX8EI6ZI6Ewyc-Io7PfrwC12vTVUEGY (opens it as a gift, real voice), unbox_brown = 1wE0AQvyBkxmh0-_ftpXmjG4v-pHMMPfG,
+black_detail = 1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx. Local names are symlinks into pipeline/cache/media/.
+Brand-narrator lines in the persona-3 clone (0bd256df, cd5fd094, 6d76c17c, 3813d9d9, 5616d6bf). Real review: Felicia S.
+Edited out her "anti-theft" / "pickpocketers" lines (unconfirmed claims). Mentions the free wallet, not the 50 % discount.

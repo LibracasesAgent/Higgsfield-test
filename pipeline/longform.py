@@ -187,6 +187,10 @@ def end_png(path, o):
     y = o.get("y", 1180)
     t, s = o.get("title", "The Hobo Bag"), o.get("sub", "Tap the link below")
     d.rectangle([0, y - 60, W, y + 330], fill=(18, 14, 12, 200))
+    size = 120
+    while d.textlength(t, font=ft) > W - 100 and size > 60:   # shrink long titles to fit
+        size -= 6
+        ft = font("CormorantGaramond.ttf", size, "SemiBold")
     tw = d.textlength(t, font=ft)
     d.text(((W - tw) / 2, y - 20), t, font=ft, fill=(250, 244, 236, 255))
     sw = d.textlength(s, font=fs)
