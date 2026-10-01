@@ -1,0 +1,237 @@
+{
+ "audio": "mute",
+ "vo": "swap_audio.wav",
+ "vo_start": 0.0,
+ "bed_gain": 0.0,
+ "segments": [
+  {
+   "src": "transform.mp4",
+   "start": 1.9,
+   "dur": 3.1,
+   "mute": true
+  },
+  {
+   "src": "f_tidy.png",
+   "start": 0,
+   "dur": 1.5,
+   "mute": true,
+   "zoom": [
+    1.0,
+    1.06
+   ]
+  },
+  {
+   "src": "oldbag.mp4",
+   "start": 0.3,
+   "dur": 3.246,
+   "mute": true,
+   "fx": "bw",
+   "zoom": [
+    1.0,
+    1.08
+   ]
+  },
+  {
+   "src": "f_mess.png",
+   "start": 0,
+   "dur": 3.246,
+   "mute": true,
+   "fx": "bw",
+   "zoom": [
+    1.0,
+    1.12
+   ]
+  },
+  {
+   "src": "f_tidy.png",
+   "start": 0,
+   "dur": 2.024,
+   "mute": true,
+   "zoom": [
+    1.12,
+    1.0
+   ]
+  },
+  {
+   "src": "shotA_gate.mp4",
+   "start": 0,
+   "dur": 1.875,
+   "mute": true,
+   "speed": 1.4
+  },
+  {
+   "src": "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06.mp4",
+   "start": 3.6,
+   "dur": 2.291,
+   "mute": true,
+   "focus": [
+    0.5,
+    0.45
+   ]
+  },
+  {
+   "src": "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X.mp4",
+   "start": 8.0,
+   "dur": 3.226,
+   "mute": true
+  },
+  {
+   "src": "testi_black.mp4",
+   "start": 34.9,
+   "dur": 2.22,
+   "mute": true
+  },
+  {
+   "src": "black_detail.mp4",
+   "start": 5.0,
+   "dur": 3.33,
+   "mute": true
+  },
+  {
+   "src": "1StPro8S4b5_LUICHyivAkrFna1M1k3ao.mp4",
+   "start": 0.3,
+   "dur": 1.528,
+   "mute": true
+  },
+  {
+   "src": "1StPro8S4b5_LUICHyivAkrFna1M1k3ao.mp4",
+   "start": 5.0,
+   "dur": 1.528,
+   "mute": true
+  },
+  {
+   "src": "1StPro8S4b5_LUICHyivAkrFna1M1k3ao.mp4",
+   "start": 8.5,
+   "dur": 1.528,
+   "mute": true
+  },
+  {
+   "src": "testi_black.mp4",
+   "start": 56.9,
+   "dur": 3.062,
+   "mute": true
+  },
+  {
+   "src": "black_detail.mp4",
+   "start": 9.5,
+   "dur": 3.062,
+   "mute": true
+  },
+  {
+   "src": "testi_black.mp4",
+   "start": 63.3,
+   "dur": 2.625,
+   "mute": true
+  },
+  {
+   "src": "1CcakagPN5oiWEneKORpvJblnPYnQvWHI.mp4",
+   "start": 0.0,
+   "dur": 1.7,
+   "mute": true,
+   "zoom": [
+    1.0,
+    1.08
+   ]
+  },
+  {
+   "src": "1MtOonVbf-pqmrcU5DUgY6995LObDfwn7.mp4",
+   "start": 0.5,
+   "dur": 3.853,
+   "mute": true
+  },
+  {
+   "src": "1MtOonVbf-pqmrcU5DUgY6995LObDfwn7.mp4",
+   "start": 8.0,
+   "dur": 1.848,
+   "mute": true
+  },
+  {
+   "src": "1Mtx32enLMlOkpIfl_Cr1EYezTdody3E1.mp4",
+   "start": 1.0,
+   "dur": 1.848,
+   "mute": true,
+   "focus": [
+    0.3,
+    0.55
+   ]
+  },
+  {
+   "src": "k_cta.mp4",
+   "start": 0.1,
+   "dur": 4.8,
+   "mute": true
+  }
+ ],
+ "overlays": [
+  {
+   "type": "label",
+   "at": 0.05,
+   "text": "THE BAG SWAP",
+   "dur": 1.8,
+   "y": 300
+  },
+  {
+   "type": "tag",
+   "at": 13.17,
+   "text": "PASSPORT \u2192 BACK POCKET",
+   "dur": 3.6
+  },
+  {
+   "type": "tag",
+   "at": 17.33,
+   "text": "KEYS \u2192 GOLD SIDE ZIP",
+   "dur": 2.8
+  },
+  {
+   "type": "tag",
+   "at": 26.11,
+   "text": "EVERYTHING ELSE \u2192 MAIN ZIP",
+   "dur": 4.0,
+   "size": 54
+  },
+  {
+   "type": "tag",
+   "at": 39.44,
+   "text": "ZIPPED. DONE.",
+   "dur": 1.7
+  },
+  {
+   "type": "review",
+   "at": 41.14,
+   "n": 10,
+   "dur": 3.8,
+   "y": 330
+  },
+  {
+   "type": "review",
+   "at": 44.99,
+   "n": 3,
+   "dur": 3.6,
+   "y": 330
+  },
+  {
+   "type": "end",
+   "title": "Everything has a spot.",
+   "sub": "Tap the link below",
+   "at": 51.04,
+   "dur": 2.4
+  }
+ ],
+ "caption_y": 1010,
+ "keywords": [
+  "bottomless",
+  "keys",
+  "passport",
+  "back",
+  "gold",
+  "zip",
+  "both",
+  "sides",
+  "pockets",
+  "room",
+  "everything",
+  "spot",
+  "nothing",
+  "many"
+ ]
+}

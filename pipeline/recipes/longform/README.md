@@ -24,3 +24,12 @@ black_gift = 18all7GUEBLsxxS0JCAl8t-yEOsC6r52T (birthday gift + hug), testi_blue
 black_detail = 1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx. Local names are symlinks into pipeline/cache/media/.
 Brand-narrator lines in the persona-3 clone (0bd256df, cd5fd094, 6d76c17c, 3813d9d9, 5616d6bf). Real review: Felicia S.
 Edited out her "anti-theft" / "pickpocketers" lines (unconfirmed claims). Mentions the free wallet, not the 50 % discount.
+
+## bag_swap — "The Bag Swap" (53 s, 19.65 credits): organisation angle, semi-AI / semi-real
+Visual hook in the first second: AI transformation (kling3_0 pro 5 s, start_image 92af4a1e messy black tote with spilled items ->
+end_image 2345a92e tidy Libra Hobo; job 21d93c1c; clip trimmed to start at 1.9 s where the motion begins).
+Then B&W problem (AI oldbag + still), item -> pocket tags over real footage (back pocket, keys into gold side zip, items into main
+zip, zip pulled shut), two real lines from the gift testimony (both side zips; interior pockets), real reviews Margie B. + M B.,
+persona-3 CTA reused from Test B. Narration: persona-3 clone (86d5bb24 ... aa88f408).
+bag_swap_build.py rebuilds the audio track + swap.json (run it in a folder with the media symlinked as in the script).
+Fixes made here: amix duration=longest (hook narration was being cut), captions now use whisper small.en.

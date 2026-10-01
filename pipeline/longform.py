@@ -15,6 +15,7 @@ ad.json (paths relative to the JSON):
   "caption_y": 1000,  "no_captions": [[t0, t1], ...],        # caption band centre; windows to skip
   "overlays": [
     {"type": "label",  "text": "NUMBER ONE", "at": 2.3, "dur": 1.2},
+    {"type": "tag",    "text": "KEYS → GOLD SIDE ZIP", "at": 20, "dur": 2.5},
     {"type": "review", "n": 7, "at": 40.0, "dur": 3.0},      # from pipeline/data/reviews.json (verbatim)
     {"type": "offer",  "title": "50% OFF", "sub": "+ FREE WALLET WITH EVERY ORDER", "at": 50, "dur": 4},
     {"type": "end",    "title": "The Hobo Bag", "sub": "Tap the link below", "at": 56, "dur": 3}
@@ -46,7 +47,7 @@ def font(name, size, weight=None):
 # ---------- captions ----------
 def words_of(path):
     from faster_whisper import WhisperModel
-    m = WhisperModel("base.en", device="cpu", compute_type="int8")
+    m = WhisperModel(os.environ.get("WHISPER_MODEL", "small.en"), device="cpu", compute_type="int8")  # small.en: fewer caption typos than base.en
     segs, _ = m.transcribe(path, word_timestamps=True)
     return [dict(w=w.word.strip(), s=w.start, e=w.end) for s in segs for w in s.words if w.word.strip()]
 
@@ -114,6 +115,18 @@ def label_png(path, o):
     tw = d.textlength(o["text"], font=f)
     y = o.get("y", 520)
     d.rounded_rectangle([(W - tw) / 2 - 34, y - 14, (W + tw) / 2 + 34, y + 112], radius=22, fill=RED + (255,))
+    d.text(((W - tw) / 2, y), o["text"], font=f, fill=(255, 255, 255, 255))
+    im.save(path)
+
+
+def tag_png(path, o):
+    """Item -> pocket tag: dark pill with white text, e.g. 'PASSPORT → BACK POCKET'."""
+    im = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    d = ImageDraw.Draw(im)
+    f = font("Montserrat.ttf", o.get("size", 60), "ExtraBold")
+    tw = d.textlength(o["text"], font=f)
+    y = o.get("y", 330)
+    d.rounded_rectangle([(W - tw) / 2 - 36, y - 16, (W + tw) / 2 + 36, y + f.size + 22], radius=40, fill=(20, 16, 14, 235))
     d.text(((W - tw) / 2, y), o["text"], font=f, fill=(255, 255, 255, 255))
     im.save(path)
 
@@ -271,7 +284,7 @@ def main():
     reviews = json.load(open(os.path.join(HERE, "data", "reviews.json")))["reviews"]
     for j, o in enumerate(e.get("overlays", [])):
         png = os.path.join(tmp, f"ov{j:02d}.png")
-        {"label": label_png, "offer": offer_png, "end": end_png}.get(o["type"], lambda p, o: review_png(p, o, reviews))(png, o)
+        {"label": label_png, "offer": offer_png, "end": end_png, "tag": tag_png}.get(o["type"], lambda p, o: review_png(p, o, reviews))(png, o)
         events.append((o["at"], o["at"] + o["dur"], png, 2))
 
     lst = build_overlay_track(events, tmp, total)
