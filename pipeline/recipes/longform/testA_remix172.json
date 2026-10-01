@@ -1,0 +1,124 @@
+{
+ "audio": "natural",
+ "vo": "vo_reviews_maeve.mp3",
+ "vo_start": 40.7,
+ "bed_gain": 1.0,
+ "segments": [
+  {
+   "src": "raw172.mp4",
+   "start": 40.4,
+   "dur": 2.45
+  },
+  {
+   "src": "raw172.mp4",
+   "start": 2.2,
+   "dur": 38.1
+  },
+  {
+   "src": "raw172.mp4",
+   "start": 0.0,
+   "dur": 5.25,
+   "speed": 0.6,
+   "mute": true,
+   "zoom": [
+    1.0,
+    1.08
+   ]
+  },
+  {
+   "src": "raw172.mp4",
+   "start": 35.0,
+   "dur": 6.48,
+   "speed": 0.7,
+   "mute": true,
+   "zoom": [
+    1.05,
+    1.0
+   ]
+  },
+  {
+   "src": "raw172.mp4",
+   "start": 43.1,
+   "dur": 4.85
+  }
+ ],
+ "overlays": [
+  {
+   "type": "label",
+   "text": "NUMBER ONE",
+   "at": 2.55,
+   "dur": 1.3,
+   "y": 300
+  },
+  {
+   "type": "label",
+   "text": "NUMBER TWO",
+   "at": 16.45,
+   "dur": 1.3,
+   "y": 300
+  },
+  {
+   "type": "label",
+   "text": "NUMBER THREE",
+   "at": 28.75,
+   "dur": 1.3,
+   "y": 300
+  },
+  {
+   "type": "review",
+   "n": 7,
+   "at": 42.48,
+   "dur": 3.16,
+   "y": 330
+  },
+  {
+   "type": "review",
+   "n": 8,
+   "at": 45.64,
+   "dur": 3.62,
+   "y": 330
+  },
+  {
+   "type": "review",
+   "n": 9,
+   "at": 49.26,
+   "dur": 2.97,
+   "y": 330
+  },
+  {
+   "type": "offer",
+   "title": "50% OFF",
+   "sub": "+ FREE WALLET WITH EVERY ORDER",
+   "at": 52.38,
+   "dur": 2.7,
+   "y": 420
+  },
+  {
+   "type": "end",
+   "title": "The Hobo Bag 2.0",
+   "sub": "Tap the link below",
+   "at": 55.13,
+   "dur": 2.0
+  }
+ ],
+ "caption_y": 1010,
+ "keywords": [
+  "number",
+  "one",
+  "two",
+  "three",
+  "1",
+  "2",
+  "3",
+  "regret",
+  "sooner",
+  "safe",
+  "50%",
+  "off",
+  "free",
+  "wallet",
+  "best",
+  "expensive",
+  "compartments"
+ ]
+}

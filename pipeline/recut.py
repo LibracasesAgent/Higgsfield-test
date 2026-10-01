@@ -21,7 +21,8 @@ EDL format:
      "zoom": [1.0, 1.08],       # punch-in from -> to over the segment (1.0 = full 9:16 crop)
      "speed": 1.0,              # >1 faster (source seconds consumed = dur * speed)
      "caption": "on the BACK",  # boxed caption in the caption band (y ~ 900-1150)
-     "mute": false}             # src may also be a still image (.png/.jpg): held for dur, silent
+     "mute": false,             # src may also be a still image
+     "fx": "bw"}                # optional look: "bw" (black & white problem shot) or "warm" (.png/.jpg): held for dur, silent
   ]
 }
 """
@@ -136,11 +137,12 @@ def render_segment(seg, i, tmp, hook, audio_mode, hook_y=380):
     n = max(int(round(dur * FPS)), 1)
     # 9:16 crop around the focus point, then a smooth punch-in via per-frame crop scale.
     zoom = f"({z0}+({z1}-{z0})*n/{n})"
+    look = {"bw": "hue=s=0,eq=contrast=1.08,", "warm": "colorbalance=rs=0.04:bs=-0.04,"}.get(seg.get("fx", ""), "")
     vf = (
         f"setpts=PTS/{speed},fps={FPS},"
         f"crop='min(iw,ih*9/16)/{zoom}':'min(ih,iw*16/9)/{zoom}':"
         f"'max(0,min(iw-ow,iw*{fx}-ow/2))':'max(0,min(ih-oh,ih*{fy}-oh/2))',"
-        f"scale={W}:{H}:flags=lanczos,setsar=1,format=yuv420p"
+        f"scale={W}:{H}:flags=lanczos,setsar=1,{look}format=yuv420p"
     )
     ov = overlay_png(os.path.join(tmp, f"ov{i}.png"), seg.get("caption"), hook, hook_y)
     mute = audio_mode == "mute" or seg.get("mute")
@@ -156,7 +158,7 @@ def render_segment(seg, i, tmp, hook, audio_mode, hook_y=380):
            f"[0:v]{vf}[v];[1:v]format=rgba,fade=t=in:st=0:d=0.12:alpha=1[o];[v][o]overlay=0:0:shortest=1[vo]" +
            ("" if mute else f";[0:a]atempo={min(max(speed, 0.5), 2.0)},aresample=48000,apad[a]"),
            "-map", "[vo]", "-map", "2:a" if mute else "[a]", "-t", f"{dur:.3f}",
-           "-c:v", "libx264", "-preset", "veryfast", "-crf", "17", "-c:a", "aac", "-ar", "48000", "-ac", "2", "-y", out]
+           "-c:v", "libx264", "-preset", "veryfast", "-crf", "14", "-c:a", "aac", "-ar", "48000", "-ac", "2", "-y", out]
     for attempt in range(3):  # Drive range reads occasionally fail to open; retry before giving up
         r = subprocess.run(cmd, capture_output=True, text=True, timeout=900)
         if not any(m in r.stderr for m in ("Error opening input", "Invalid data found")):
