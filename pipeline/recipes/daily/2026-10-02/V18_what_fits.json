@@ -63,13 +63,13 @@
    "vo": "n_fit2.mp3",
    "broll": [
     [
-     "site/hobo_07.jpg",
+     "sw/fits_info.jpg",
      0,
      5.6,
      {
       "zoom": [
        1.0,
-       1.1
+       1.04
       ]
      }
     ],
