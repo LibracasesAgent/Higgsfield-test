@@ -52,7 +52,7 @@ def words_of(path):
     return [dict(w=w.word.strip(), s=w.start, e=w.end) for s in segs for w in s.words if w.word.strip()]
 
 
-CAPTION_FIX = [["xa,", "X A.,"], ["have mercy,", "Mercy,"], ["ask customers", "asked customers"]]  # known whisper slips on our VO
+CAPTION_FIX = [["2 .0", "2.0"], ["2 .0?", "2.0?"], ["2 .0.", "2.0."], ["xa,", "X A.,"], ["have mercy,", "Mercy,"], ["ask customers", "asked customers"]]  # known whisper slips on our VO
 
 
 def fix_words(words, fixes):
