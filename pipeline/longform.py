@@ -48,7 +48,7 @@ def font(name, size, weight=None):
 def words_of(path):
     from faster_whisper import WhisperModel
     m = WhisperModel(os.environ.get("WHISPER_MODEL", "small.en"), device="cpu", compute_type="int8")  # small.en: fewer caption typos than base.en
-    segs, _ = m.transcribe(path, word_timestamps=True)
+    segs, _ = m.transcribe(path, word_timestamps=True, condition_on_previous_text=False)  # True can silently drop a closing sentence
     return [dict(w=w.word.strip(), s=w.start, e=w.end) for s in segs for w in s.words if w.word.strip()]
 
 
