@@ -40,8 +40,8 @@
    "dur": 2.8
   },
   {
-   "src": "hobo2_beige_360.mp4",
-   "start": 0.0,
+   "src": "k_h2_brown.mp4",
+   "start": 1.4,
    "dur": 3.4
   }
  ],
@@ -81,9 +81,9 @@
    "sub": "6-LAYER SECURITY EDITION",
    "at": 0.5,
    "dur": 3.4,
-   "y": 1380,
+   "y": 1600,
    "size": 96,
-   "color": "#faf4ec"
+   "color": "#2a1f18"
   },
   {
    "text": "Lockable zippers.",
@@ -97,9 +97,9 @@
    "text": "RFID lining.",
    "at": 9.3,
    "dur": 2.4,
-   "y": 1380,
+   "y": 1600,
    "size": 76,
-   "color": "#faf4ec"
+   "color": "#2a1f18"
   },
   {
    "text": "Cut-resistant strap.",
@@ -122,8 +122,8 @@
   "text": "50% off \u00b7 Shop now",
   "at": 20.4,
   "dur": 2.8,
-  "y": 1560,
-  "color": "#faf4ec"
+  "y": 1640,
+  "color": "#2a1f18"
  },
  "vo": "n_h2ab.mp3",
  "vo_start": 0.4,
