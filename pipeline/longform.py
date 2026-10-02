@@ -280,7 +280,7 @@ def main():
     # 1) base cut without any text
     base_edl = {k: v for k, v in e.items() if k in ("segments", "audio", "vo", "vo_start", "bed_gain", "sfx")}
     base_edl["segments"] = [{k: v for k, v in s.items() if k != "caption"} for s in e["segments"]]
-    bj = os.path.join(edl_dir, "_base_edl.json")
+    bj = os.path.join(edl_dir, f"_base_edl_{os.getpid()}.json")  # unique: several renders may share a folder
     json.dump(base_edl, open(bj, "w"))
     base = os.path.join(tmp, "base.mp4")
     subprocess.run([sys.executable, os.path.join(HERE, "recut.py"), bj, "--out", base], check=True)
