@@ -72,8 +72,14 @@ def fix_words(words, fixes):
 
 
 def phrases(words, max_words=4):
+    glued = []
+    for w in words:                              # "50" + "%" -> "50%" before splitting, so it never breaks across phrases
+        if w["w"].startswith("%") and glued:
+            glued[-1] = dict(glued[-1], w=glued[-1]["w"] + w["w"], e=w["e"])
+        else:
+            glued.append(w)
     out, cur = [], []
-    for w in words:
+    for w in glued:
         cur.append(w)
         if len(cur) >= max_words or re.search(r"[.?!,:]$", w["w"]):
             out.append(cur)
