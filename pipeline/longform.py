@@ -147,8 +147,13 @@ def tag_png(path, o):
     """Item -> pocket tag: dark pill with white text, e.g. 'PASSPORT → BACK POCKET'."""
     im = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(im)
-    f = font("Montserrat.ttf", o.get("size", 60), "ExtraBold")
+    size = o.get("size", 60)
+    f = font("Montserrat.ttf", size, "ExtraBold")
     tw = d.textlength(o["text"], font=f)
+    while tw > W - 150 and size > 36:          # long tags shrink to fit the frame
+        size -= 3
+        f = font("Montserrat.ttf", size, "ExtraBold")
+        tw = d.textlength(o["text"], font=f)
     y = o.get("y", 330)
     d.rounded_rectangle([(W - tw) / 2 - 36, y - 16, (W + tw) / 2 + 36, y + f.size + 22], radius=40, fill=(20, 16, 14, 235))
     d.text(((W - tw) / 2, y), o["text"], font=f, fill=(255, 255, 255, 255))
