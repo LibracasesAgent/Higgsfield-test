@@ -130,10 +130,15 @@ def caption_png(path, words, keywords, y):
 def label_png(path, o):
     im = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(im)
-    f = font("Montserrat.ttf", 92, "Black")
+    size = 92
+    f = font("Montserrat.ttf", size, "Black")
     tw = d.textlength(o["text"], font=f)
-    y = o.get("y", 520)
-    d.rounded_rectangle([(W - tw) / 2 - 34, y - 14, (W + tw) / 2 + 34, y + 112], radius=22, fill=RED + (255,))
+    while tw > W - 140 and size > 48:          # long labels shrink to fit the frame
+        size -= 4
+        f = font("Montserrat.ttf", size, "Black")
+        tw = d.textlength(o["text"], font=f)
+    y = o.get("y", 520) + (92 - size) // 2
+    d.rounded_rectangle([(W - tw) / 2 - 34, y - 14, (W + tw) / 2 + 34, y + int(size * 1.22)], radius=22, fill=RED + (255,))
     d.text(((W - tw) / 2, y), o["text"], font=f, fill=(255, 255, 255, 255))
     im.save(path)
 
