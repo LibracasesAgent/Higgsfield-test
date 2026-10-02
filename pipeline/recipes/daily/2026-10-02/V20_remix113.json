@@ -1,0 +1,92 @@
+{
+ "raw": "raw113_H2.mp4",
+ "insert_at": 10.72,
+ "offer_word": "deal",
+ "offer_after": 0,
+ "keywords": [
+  "50%",
+  "free",
+  "wallet",
+  "hidden",
+  "pocket",
+  "leather",
+  "lockable",
+  "rfid",
+  "gift",
+  "christmas",
+  "room",
+  "colour",
+  "color"
+ ],
+ "reviews": {
+  "vo": "vo_revAB.mp3",
+  "cards": [
+   {
+    "n": 7,
+    "word": "carol"
+   },
+   {
+    "n": 12,
+    "word": "jenny"
+   },
+   {
+    "n": 8,
+    "word": "beverly"
+   },
+   {
+    "n": 6,
+    "word": "mercy"
+   },
+   {
+    "n": 9,
+    "word": "felicia"
+   },
+   {
+    "n": 10,
+    "word": "margie"
+   }
+  ],
+  "broll": [
+   [
+    "1CcakagPN5oiWEneKORpvJblnPYnQvWHI.mp4",
+    0.5
+   ],
+   [
+    "set3_brown_room_outside.mp4",
+    21.0
+   ],
+   [
+    "1MtOonVbf-pqmrcU5DUgY6995LObDfwn7.mp4",
+    3.0
+   ],
+   [
+    "1Mtx32enLMlOkpIfl_Cr1EYezTdody3E1.mp4",
+    1.0
+   ],
+   [
+    "1nnsvEIfgqziYdrmeUrrtgL3Qo3YHV7Sw.mp4",
+    4.0
+   ],
+   [
+    "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06.mp4",
+    6.0
+   ],
+   [
+    "testi_black.mp4",
+    56.9
+   ],
+   [
+    "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X.mp4",
+    2.0
+   ],
+   [
+    "unbox_novoice.mp4",
+    30.0
+   ],
+   [
+    "black_detail.mp4",
+    9.5
+   ]
+  ]
+ }
+}

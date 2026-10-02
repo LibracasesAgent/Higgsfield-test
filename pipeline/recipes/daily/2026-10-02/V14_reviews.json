@@ -1,0 +1,149 @@
+{
+ "blocks": [
+  {
+   "vo": "vo_revA.mp3",
+   "broll": [
+    [
+     "1CcakagPN5oiWEneKORpvJblnPYnQvWHI.mp4",
+     0.5
+    ],
+    [
+     "set3_brown_room_outside.mp4",
+     21.0
+    ],
+    [
+     "1MtOonVbf-pqmrcU5DUgY6995LObDfwn7.mp4",
+     3.0
+    ],
+    [
+     "1Mtx32enLMlOkpIfl_Cr1EYezTdody3E1.mp4",
+     1.0
+    ],
+    [
+     "1nnsvEIfgqziYdrmeUrrtgL3Qo3YHV7Sw.mp4",
+     4.0
+    ],
+    [
+     "black_detail.mp4",
+     9.5
+    ]
+   ]
+  },
+  {
+   "clip": "testi_black.mp4",
+   "range": [
+    33.1,
+    41.7
+   ]
+  },
+  {
+   "clip": "testi_black.mp4",
+   "range": [
+    41.6,
+    52.5
+   ]
+  },
+  {
+   "vo": "vo_revB.mp3",
+   "broll": [
+    [
+     "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06.mp4",
+     6.0
+    ],
+    [
+     "testi_black.mp4",
+     56.9
+    ],
+    [
+     "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X.mp4",
+     2.0
+    ],
+    [
+     "unbox_novoice.mp4",
+     30.0
+    ],
+    [
+     "1Mtx32enLMlOkpIfl_Cr1EYezTdody3E1.mp4",
+     4.0
+    ]
+   ]
+  }
+ ],
+ "overlays": [
+  {
+   "type": "label",
+   "text": "REAL REVIEWS",
+   "block": 0,
+   "at": 0.1,
+   "dur": 2.0
+  },
+  {
+   "type": "review",
+   "n": 7,
+   "block": 0,
+   "word": "carol",
+   "dur": 4.3
+  },
+  {
+   "type": "review",
+   "n": 12,
+   "block": 0,
+   "word": "jenny",
+   "dur": 5.8
+  },
+  {
+   "type": "review",
+   "n": 8,
+   "block": 0,
+   "word": "beverly",
+   "until_block_end": true
+  },
+  {
+   "type": "label",
+   "text": "REAL CUSTOMER",
+   "block": 1,
+   "at": 0.2,
+   "dur": 2.0
+  },
+  {
+   "type": "review",
+   "n": 6,
+   "block": 3,
+   "word": "mercy",
+   "dur": 4.1
+  },
+  {
+   "type": "review",
+   "n": 9,
+   "block": 3,
+   "word": "felicia",
+   "dur": 3.9
+  },
+  {
+   "type": "review",
+   "n": 10,
+   "block": 3,
+   "word": "margie",
+   "dur": 2.9
+  }
+ ],
+ "offer": {
+  "block": 3,
+  "word": "read"
+ },
+ "keywords": [
+  "50%",
+  "free",
+  "wallet",
+  "hidden",
+  "pocket",
+  "leather",
+  "lockable",
+  "rfid",
+  "gift",
+  "christmas",
+  "room",
+  "colour",
+  "color"
+ ]
+}

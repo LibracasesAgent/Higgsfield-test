@@ -1,0 +1,186 @@
+{
+ "blocks": [
+  {
+   "vo": "n_col1.mp3",
+   "broll": [
+    [
+     "set3_brown_room_outside.mp4",
+     0.5,
+     2.25
+    ],
+    [
+     "sw/h_brown.jpg",
+     0,
+     1.4,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ]
+     }
+    ],
+    [
+     "set3_brown_room_outside.mp4",
+     42.0,
+     1.9
+    ],
+    [
+     "sw/h_black.jpg",
+     0,
+     1.4,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ]
+     }
+    ],
+    [
+     "testi_black.mp4",
+     56.9,
+     1.7
+    ],
+    [
+     "sw/h_grey.jpg",
+     0,
+     0.75
+    ],
+    [
+     "sw/h_blue.jpg",
+     0,
+     0.6
+    ],
+    [
+     "sw/h_burg.jpg",
+     0,
+     0.55
+    ],
+    [
+     "sw/h_red.jpg",
+     0,
+     2.7,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ]
+     }
+    ]
+   ]
+  },
+  {
+   "clip": "testi_black.mp4",
+   "range": [
+    41.6,
+    52.5
+   ]
+  },
+  {
+   "vo": "vo_rev_xa_margie.mp3",
+   "broll": [
+    [
+     "1CcakagPN5oiWEneKORpvJblnPYnQvWHI.mp4",
+     4.0
+    ],
+    [
+     "1MtOonVbf-pqmrcU5DUgY6995LObDfwn7.mp4",
+     8.0
+    ],
+    [
+     "1nnsvEIfgqziYdrmeUrrtgL3Qo3YHV7Sw.mp4",
+     9.0
+    ]
+   ]
+  },
+  {
+   "vo": "n_col2.mp3",
+   "broll": [
+    [
+     "black_gift.mp4",
+     28.6,
+     2.4
+    ],
+    [
+     "1nnsvEIfgqziYdrmeUrrtgL3Qo3YHV7Sw.mp4",
+     12.0,
+     2.8
+    ],
+    [
+     "set3_brown_room_outside.mp4",
+     105.0,
+     3.1
+    ]
+   ]
+  }
+ ],
+ "overlays": [
+  {
+   "type": "label",
+   "text": "WHICH COLOUR ARE YOU?",
+   "block": 0,
+   "at": 0.1,
+   "dur": 2.1
+  },
+  {
+   "type": "tag",
+   "text": "BROWN",
+   "block": 0,
+   "word": "brown",
+   "dur": 2.0
+  },
+  {
+   "type": "tag",
+   "text": "BLACK",
+   "block": 0,
+   "word": "black",
+   "dur": 2.0
+  },
+  {
+   "type": "tag",
+   "text": "GREY \u00b7 BLUE \u00b7 BURGUNDY \u00b7 RED",
+   "block": 0,
+   "word": "gray",
+   "dur": 3.6
+  },
+  {
+   "type": "label",
+   "text": "REAL CUSTOMER",
+   "block": 1,
+   "at": 0.2,
+   "dur": 2.0
+  },
+  {
+   "type": "review",
+   "n": 2,
+   "block": 2,
+   "word": "xa",
+   "dur": 3.9
+  },
+  {
+   "type": "review",
+   "n": 10,
+   "block": 2,
+   "word": "margie",
+   "until_block_end": true
+  }
+ ],
+ "offer": {
+  "block": 3,
+  "word": "50"
+ },
+ "keywords": [
+  "50%",
+  "free",
+  "wallet",
+  "hidden",
+  "pocket",
+  "leather",
+  "lockable",
+  "rfid",
+  "gift",
+  "christmas",
+  "room",
+  "colour",
+  "color"
+ ]
+}

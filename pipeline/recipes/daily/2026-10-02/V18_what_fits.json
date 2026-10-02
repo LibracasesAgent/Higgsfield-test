@@ -1,0 +1,149 @@
+{
+ "blocks": [
+  {
+   "vo": "n_fit1.mp3",
+   "broll": [
+    [
+     "1StPro8S4b5_LUICHyivAkrFna1M1k3ao.mp4",
+     0.3,
+     1.75
+    ],
+    [
+     "1StPro8S4b5_LUICHyivAkrFna1M1k3ao.mp4",
+     5.0,
+     1.75
+    ],
+    [
+     "1StPro8S4b5_LUICHyivAkrFna1M1k3ao.mp4",
+     8.5,
+     1.5
+    ],
+    [
+     "1StPro8S4b5_LUICHyivAkrFna1M1k3ao.mp4",
+     11.5,
+     1.3
+    ],
+    [
+     "1StPro8S4b5_LUICHyivAkrFna1M1k3ao.mp4",
+     14.0,
+     1.4
+    ],
+    [
+     "testi_black.mp4",
+     64.8,
+     1.72
+    ]
+   ]
+  },
+  {
+   "clip": "testi_black.mp4",
+   "range": [
+    41.6,
+    52.5
+   ]
+  },
+  {
+   "vo": "vo_rev_xa_margie.mp3",
+   "broll": [
+    [
+     "1CcakagPN5oiWEneKORpvJblnPYnQvWHI.mp4",
+     4.0
+    ],
+    [
+     "1MtOonVbf-pqmrcU5DUgY6995LObDfwn7.mp4",
+     8.0
+    ],
+    [
+     "1nnsvEIfgqziYdrmeUrrtgL3Qo3YHV7Sw.mp4",
+     9.0
+    ]
+   ]
+  },
+  {
+   "vo": "n_fit2.mp3",
+   "broll": [
+    [
+     "site/hobo_07.jpg",
+     0,
+     5.6,
+     {
+      "zoom": [
+       1.0,
+       1.1
+      ]
+     }
+    ],
+    [
+     "black_gift.mp4",
+     28.6,
+     2.2
+    ],
+    [
+     "sw/h_brown.jpg",
+     0,
+     2.0,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ]
+     }
+    ],
+    [
+     "set3_brown_room_outside.mp4",
+     42.0,
+     3.85
+    ]
+   ]
+  }
+ ],
+ "overlays": [
+  {
+   "type": "label",
+   "text": "WHAT FITS?",
+   "block": 0,
+   "at": 0.1,
+   "dur": 2.4
+  },
+  {
+   "type": "label",
+   "text": "REAL CUSTOMER",
+   "block": 1,
+   "at": 0.2,
+   "dur": 2.0
+  },
+  {
+   "type": "review",
+   "n": 2,
+   "block": 2,
+   "word": "xa",
+   "dur": 3.9
+  },
+  {
+   "type": "review",
+   "n": 10,
+   "block": 2,
+   "word": "margie",
+   "until_block_end": true
+  }
+ ],
+ "offer": {
+  "block": 3,
+  "word": "50"
+ },
+ "keywords": [
+  "50%",
+  "free",
+  "wallet",
+  "hidden",
+  "pocket",
+  "leather",
+  "lockable",
+  "rfid",
+  "gift",
+  "christmas",
+  "room",
+  "colour",
+  "color"
+ ]
+}

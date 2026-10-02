@@ -1,0 +1,131 @@
+{
+ "grade": "none",
+ "grain": 0,
+ "vignette": true,
+ "letterbox": 0,
+ "shots": [
+  {
+   "src": "k_h2_brown.mp4",
+   "start": 0,
+   "dur": 4.6
+  },
+  {
+   "src": "hobo2_lockable_zippers.mp4",
+   "start": 28.1,
+   "dur": 3.2
+  },
+  {
+   "src": "hobo2_lockable_zippers.mp4",
+   "start": 31.6,
+   "dur": 2.6
+  },
+  {
+   "src": "k_h2_black.mp4",
+   "start": 0.6,
+   "dur": 3.6
+  },
+  {
+   "src": "hobo2_beige_360.mp4",
+   "start": 12.0,
+   "dur": 2.6
+  },
+  {
+   "src": "hobo2_table_strap.mp4",
+   "start": 18.9,
+   "dur": 3.0
+  },
+  {
+   "src": "hobo2_table_strap.mp4",
+   "start": 0.0,
+   "dur": 2.8
+  },
+  {
+   "src": "hobo2_beige_360.mp4",
+   "start": 0.0,
+   "dur": 3.4
+  }
+ ],
+ "transitions": [
+  {
+   "type": "fade",
+   "dur": 0.35
+  },
+  {
+   "type": "fade",
+   "dur": 0.35
+  },
+  {
+   "type": "fade",
+   "dur": 0.35
+  },
+  {
+   "type": "fade",
+   "dur": 0.35
+  },
+  {
+   "type": "fade",
+   "dur": 0.35
+  },
+  {
+   "type": "fade",
+   "dur": 0.35
+  },
+  {
+   "type": "fade",
+   "dur": 0.35
+  }
+ ],
+ "titles": [
+  {
+   "text": "Hobo 2.0",
+   "sub": "6-LAYER SECURITY EDITION",
+   "at": 0.5,
+   "dur": 3.4,
+   "y": 1380,
+   "size": 96,
+   "color": "#faf4ec"
+  },
+  {
+   "text": "Lockable zippers.",
+   "at": 6.2,
+   "dur": 2.6,
+   "y": 1380,
+   "size": 76,
+   "color": "#faf4ec"
+  },
+  {
+   "text": "RFID lining.",
+   "at": 9.3,
+   "dur": 2.4,
+   "y": 1380,
+   "size": 76,
+   "color": "#faf4ec"
+  },
+  {
+   "text": "Cut-resistant strap.",
+   "at": 13.3,
+   "dur": 2.4,
+   "y": 1380,
+   "size": 76,
+   "color": "#faf4ec"
+  },
+  {
+   "text": "Table security strap.",
+   "at": 17.6,
+   "dur": 3.0,
+   "y": 1380,
+   "size": 76,
+   "color": "#faf4ec"
+  }
+ ],
+ "cta": {
+  "text": "50% off \u00b7 Shop now",
+  "at": 20.4,
+  "dur": 2.8,
+  "y": 1560,
+  "color": "#faf4ec"
+ },
+ "vo": "n_h2ab.mp3",
+ "vo_start": 0.4,
+ "bed_gain": 0.0
+}

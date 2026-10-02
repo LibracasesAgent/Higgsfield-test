@@ -52,6 +52,25 @@ def words_of(path):
     return [dict(w=w.word.strip(), s=w.start, e=w.end) for s in segs for w in s.words if w.word.strip()]
 
 
+CAPTION_FIX = [["xa,", "X A.,"], ["have mercy,", "Mercy,"], ["ask customers", "asked customers"]]  # known whisper slips on our VO
+
+
+def fix_words(words, fixes):
+    """caption_fix: [["have mercy,", "Mercy:"], ["xa,", "X A.:"]]: replace whisper word runs (case-insensitive)."""
+    out, i = [], 0
+    while i < len(words):
+        for src, dst in fixes:
+            n = len(src.split())
+            if [w["w"].lower() for w in words[i:i + n]] == src.lower().split():
+                out += [dict(w=t, s=words[i]["s"], e=words[i + n - 1]["e"]) for t in dst.split()]
+                i += n
+                break
+        else:
+            out.append(words[i])
+            i += 1
+    return out
+
+
 def phrases(words, max_words=4):
     out, cur = [], []
     for w in words:
@@ -273,7 +292,7 @@ def main():
     events = []
     kw = {k.lower() for k in e.get("keywords", [])}
     skip = e.get("no_captions", [])
-    for i, p in enumerate(phrases(words_of(base), e.get("max_words", 4))):
+    for i, p in enumerate(phrases(fix_words(words_of(base), CAPTION_FIX + e.get("caption_fix", [])), e.get("max_words", 4))):
         if any(s0 <= p["s"] < s1 for s0, s1 in skip):
             continue
         png = os.path.join(tmp, f"cap{i:03d}.png")

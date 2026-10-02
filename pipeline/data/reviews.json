@@ -1,27 +1,115 @@
 {
  "source": "Client Drive library folder 'Raw files/Reviews' (Review 1..10 PNG screenshots, ~520 px wide). Client (Wouter) approved showing all 10 with names on 2026-09-28 ('Yes on all'). Text transcribed verbatim from the screenshots; keep wording exactly as written.",
  "reviews": [
-  {"n": 1, "name": "M A.", "verified": false, "product": "Hobo Bag (brown)", "photo": true, "drive_id": "1xEC1A2zjv_nq0Xy8IGd9yx4zgBob6MeR",
+  {
+   "n": 1,
+   "name": "M A.",
+   "verified": false,
+   "product": "Hobo Bag (brown)",
+   "photo": true,
+   "drive_id": "1xEC1A2zjv_nq0Xy8IGd9yx4zgBob6MeR",
    "text": "The Hobo Shoulder Bag is a stylish and practical choice! It holds everything I need for my daily outings, and I love that I received a free gift with my order.",
-   "note": "mentions a free gift: only use if that offer is still running"},
-  {"n": 2, "name": "X A.", "verified": false, "product": "Hobo Bag (brown)", "photo": true, "drive_id": "1GXC7rFpu9kh09K5h-zUTInXiZxqWz2kd",
-   "text": "The quality of the Hobo Shoulder Bag is amazing! It fits all my essentials, and the strong strap is super comfortable. I can't recommend it enough!"},
-  {"n": 3, "name": "M B.", "verified": false, "product": "Hobo Bag (brown)", "photo": true, "drive_id": "1wMO87aRta0SnVhlz-sQ2sN11nx02OUc0",
-   "text": "The Hobo Shoulder Bag is perfect for my busy lifestyle! It holds all my daily essentials and looks chic. I can't wait to show it off to my friends!"},
-  {"n": 4, "name": "M A.", "verified": false, "product": "Slouchy bag (apricot/grey) - NOT the Hobo", "photo": true, "drive_id": "1bmvz9wO2CNvhfG7ZTXKIejnf7U2uA3Dq",
+   "note": "mentions a free gift: only use if that offer is still running"
+  },
+  {
+   "n": 2,
+   "name": "X A.",
+   "verified": false,
+   "product": "Hobo Bag (brown)",
+   "photo": true,
+   "drive_id": "1GXC7rFpu9kh09K5h-zUTInXiZxqWz2kd",
+   "text": "The quality of the Hobo Shoulder Bag is amazing! It fits all my essentials, and the strong strap is super comfortable. I can't recommend it enough!"
+  },
+  {
+   "n": 3,
+   "name": "M B.",
+   "verified": false,
+   "product": "Hobo Bag (brown)",
+   "photo": true,
+   "drive_id": "1wMO87aRta0SnVhlz-sQ2sN11nx02OUc0",
+   "text": "The Hobo Shoulder Bag is perfect for my busy lifestyle! It holds all my daily essentials and looks chic. I can't wait to show it off to my friends!"
+  },
+  {
+   "n": 4,
+   "name": "M A.",
+   "verified": false,
+   "product": "Slouchy bag (apricot/grey) - NOT the Hobo",
+   "photo": true,
+   "drive_id": "1bmvz9wO2CNvhfG7ZTXKIejnf7U2uA3Dq",
    "text": "I'm absolutely in love with my Hobo Shoulder Bag! The quality is fantastic, and it fits all my essentials perfectly. Quick shipping from Libracases made it even better!",
-   "note": "file name says slouchy apricot; photo shows a grey/apricot slouchy bag; use only in slouchy-bag ads or check with client"},
-  {"n": 5, "name": "C H.", "verified": false, "product": "Hobo Bag (brown)", "photo": true, "drive_id": "1UEjy9m4Vk_5QPnmmNM-3C1OQvcemeayP",
-   "text": "I'm so happy with my Hobo Shoulder Bag! Quick shipping and good quality make it a standout purchase. I can't wait to use it everywhere!"},
-  {"n": 6, "name": "Mercy A.", "verified": false, "product": "any", "photo": false, "drive_id": "1qO0pzXa7a9_kIHPgSpu9HgTUvpXpbjRo",
-   "text": "The best bag for travel and every day use. I love it! Plus they have the best customer service that can't be beat."},
-  {"n": 7, "name": "Carol R.", "verified": false, "product": "any", "photo": false, "drive_id": "1VEO7TYrZ0zGossdPuuhXD7HU8azUNh0X",
-   "text": "Love this bag. Best bag I have ever bought. Don't ever think of discontinuing amazing bag. Will definitely be purchasing more. Already bought for friends."},
-  {"n": 8, "name": "Beverly D.", "verified": true, "product": "any", "photo": false, "drive_id": "1F1xbNrQpY-orAT3oKCkYrFIzPos-7_mJ",
-   "text": "Love my Libra bag, will buy again. Looks expensive but price was so nice. We need more companies like yours. BevDavis"},
-  {"n": 9, "name": "Felicia S.", "verified": true, "product": "any", "photo": false, "drive_id": "1LoWLzyzccPY--9iRfubNGAeSEkURme7H",
-   "text": "Got this bag for my daughter for Christmas and she adores it.  It's really stylish and versatile.  Love all the compartments too!"},
-  {"n": 10, "name": "Margie B.", "verified": true, "product": "any", "photo": false, "drive_id": "1_o9Y7cBnwdi0OGnVz1hkLOqRxELQBX1T",
-   "text": "I am very pleased with my handbag that I purchased. It holds many things.Has other zipper compartments for other essentials. Thank you so much."}
+   "note": "file name says slouchy apricot; photo shows a grey/apricot slouchy bag; use only in slouchy-bag ads or check with client"
+  },
+  {
+   "n": 5,
+   "name": "C H.",
+   "verified": false,
+   "product": "Hobo Bag (brown)",
+   "photo": true,
+   "drive_id": "1UEjy9m4Vk_5QPnmmNM-3C1OQvcemeayP",
+   "text": "I'm so happy with my Hobo Shoulder Bag! Quick shipping and good quality make it a standout purchase. I can't wait to use it everywhere!"
+  },
+  {
+   "n": 6,
+   "name": "Mercy A.",
+   "verified": false,
+   "product": "any",
+   "photo": false,
+   "drive_id": "1qO0pzXa7a9_kIHPgSpu9HgTUvpXpbjRo",
+   "text": "The best bag for travel and every day use. I love it! Plus they have the best customer service that can't be beat."
+  },
+  {
+   "n": 7,
+   "name": "Carol R.",
+   "verified": false,
+   "product": "any",
+   "photo": false,
+   "drive_id": "1VEO7TYrZ0zGossdPuuhXD7HU8azUNh0X",
+   "text": "Love this bag. Best bag I have ever bought. Don't ever think of discontinuing amazing bag. Will definitely be purchasing more. Already bought for friends."
+  },
+  {
+   "n": 8,
+   "name": "Beverly D.",
+   "verified": true,
+   "product": "any",
+   "photo": false,
+   "drive_id": "1F1xbNrQpY-orAT3oKCkYrFIzPos-7_mJ",
+   "text": "Love my Libra bag, will buy again. Looks expensive but price was so nice. We need more companies like yours. BevDavis"
+  },
+  {
+   "n": 9,
+   "name": "Felicia S.",
+   "verified": true,
+   "product": "any",
+   "photo": false,
+   "drive_id": "1LoWLzyzccPY--9iRfubNGAeSEkURme7H",
+   "text": "Got this bag for my daughter for Christmas and she adores it.  It's really stylish and versatile.  Love all the compartments too!"
+  },
+  {
+   "n": 10,
+   "name": "Margie B.",
+   "verified": true,
+   "product": "any",
+   "photo": false,
+   "drive_id": "1_o9Y7cBnwdi0OGnVz1hkLOqRxELQBX1T",
+   "text": "I am very pleased with my handbag that I purchased. It holds many things.Has other zipper compartments for other essentials. Thank you so much."
+  },
+  {
+   "n": 11,
+   "name": "Sarah M.",
+   "verified": true,
+   "product": "Hobo 2.0",
+   "photo": false,
+   "source": "libracases.com Hobo 2.0 product page (2026-10-02)",
+   "text": "I travel solo a lot and this bag has completely changed how safe I feel. The lockable zippers and RFID lining are genuinely incredible."
+  },
+  {
+   "n": 12,
+   "name": "Jenny H.",
+   "verified": true,
+   "product": "Hobo Bag (black)",
+   "photo": false,
+   "source": "libracases.com Hobo Bag product page (2026-10-02)",
+   "text": "I love my black Libra Handbag! It's spacious, lightweight, and super functional with lots of pockets. I've received so many compliments, and my order arrived in just four days with a free wallet."
+  }
  ]
 }

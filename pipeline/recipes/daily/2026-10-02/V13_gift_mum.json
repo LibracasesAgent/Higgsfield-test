@@ -1,0 +1,194 @@
+{
+ "blocks": [
+  {
+   "vo": "n_gift1.mp3",
+   "broll": [
+    [
+     "black_gift.mp4",
+     19.0
+    ],
+    [
+     "testi_blue.mp4",
+     0.65
+    ]
+   ]
+  },
+  {
+   "vo": "n_gift2.mp3",
+   "broll": [
+    [
+     "unbox_novoice.mp4",
+     2.0,
+     2.2
+    ],
+    [
+     "unbox_novoice.mp4",
+     12.0,
+     2.4
+    ],
+    [
+     "1CcakagPN5oiWEneKORpvJblnPYnQvWHI.mp4",
+     0.5,
+     1.4
+    ],
+    [
+     "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06.mp4",
+     3.6,
+     2.4
+    ],
+    [
+     "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X.mp4",
+     8.0,
+     2.4
+    ],
+    [
+     "black_detail.mp4",
+     5.0,
+     3.6
+    ]
+   ]
+  },
+  {
+   "clip": "testi_blue.mp4",
+   "range": [
+    0.6,
+    6.0
+   ]
+  },
+  {
+   "vo": "vo_revB.mp3",
+   "vo_range": [
+    4.1,
+    7.6
+   ],
+   "broll": [
+    [
+     "testi_black.mp4",
+     64.8
+    ],
+    [
+     "testi_black.mp4",
+     68.8
+    ]
+   ]
+  },
+  {
+   "vo": "vo_revA.mp3",
+   "vo_range": [
+    3.9,
+    7.5
+   ],
+   "broll": [
+    [
+     "unbox_novoice.mp4",
+     30.0
+    ],
+    [
+     "1Mtx32enLMlOkpIfl_Cr1EYezTdody3E1.mp4",
+     1.0
+    ]
+   ]
+  },
+  {
+   "clip": "testi_black.mp4",
+   "range": [
+    78.5,
+    82.95
+   ]
+  },
+  {
+   "vo": "n_gift3.mp3",
+   "broll": [
+    [
+     "black_gift.mp4",
+     28.6
+    ],
+    [
+     "unbox_novoice.mp4",
+     40.0
+    ],
+    [
+     "sw/h_brown.jpg",
+     0,
+     1,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ]
+     }
+    ]
+   ]
+  }
+ ],
+ "overlays": [
+  {
+   "type": "label",
+   "text": "GIFT IDEA",
+   "block": 0,
+   "at": 0.1,
+   "dur": 1.8
+  },
+  {
+   "type": "tag",
+   "text": "HIDDEN BACK POCKET",
+   "block": 1,
+   "word": "hidden",
+   "dur": 2.3
+  },
+  {
+   "type": "tag",
+   "text": "GOLD SIDE ZIPS",
+   "block": 1,
+   "word": "gold",
+   "dur": 2.3
+  },
+  {
+   "type": "label",
+   "text": "REAL CUSTOMER",
+   "block": 2,
+   "at": 0.2,
+   "dur": 2.0
+  },
+  {
+   "type": "review",
+   "n": 9,
+   "block": 3,
+   "at": 0.1,
+   "until_block_end": true
+  },
+  {
+   "type": "review",
+   "n": 7,
+   "block": 4,
+   "at": 0.1,
+   "until_block_end": true
+  },
+  {
+   "type": "label",
+   "text": "HER REACTION",
+   "block": 5,
+   "at": 0.1,
+   "dur": 2.0
+  }
+ ],
+ "offer": {
+  "block": 6,
+  "word": "50"
+ },
+ "keywords": [
+  "50%",
+  "free",
+  "wallet",
+  "hidden",
+  "pocket",
+  "leather",
+  "lockable",
+  "rfid",
+  "gift",
+  "christmas",
+  "room",
+  "colour",
+  "color"
+ ]
+}

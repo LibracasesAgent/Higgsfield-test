@@ -1,0 +1,75 @@
+{
+ "raw": "raw158_H2.mp4",
+ "cold_open": [
+  46.6,
+  54.0
+ ],
+ "hook_label": "SPOT THE FAKE",
+ "cut": [
+  [
+   3.86,
+   9.98
+  ],
+  [
+   54.12,
+   60.08
+  ]
+ ],
+ "insert_at": 66.8,
+ "reviews": {
+  "vo": "vo_rev_xa_margie.mp3",
+  "cards": [
+   {
+    "n": 2,
+    "word": "xa"
+   },
+   {
+    "n": 10,
+    "word": "margie"
+   }
+  ],
+  "broll": [
+   [
+    "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06.mp4",
+    8.0
+   ],
+   [
+    "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X.mp4",
+    6.0
+   ],
+   [
+    "1CcakagPN5oiWEneKORpvJblnPYnQvWHI.mp4",
+    8.0
+   ]
+  ]
+ },
+ "labels": [
+  {
+   "text": "1. NO MARKETPLACES",
+   "word": "first",
+   "after": 30
+  },
+  {
+   "text": "2. THE FAKES",
+   "word": "second",
+   "after": 30
+  },
+  {
+   "text": "3. HANDMADE",
+   "word": "third",
+   "after": 30
+  }
+ ],
+ "offer_word": "50",
+ "keywords": [
+  "50%",
+  "free",
+  "wallet",
+  "hidden",
+  "pocket",
+  "leather",
+  "forever",
+  "good",
+  "real"
+ ]
+}

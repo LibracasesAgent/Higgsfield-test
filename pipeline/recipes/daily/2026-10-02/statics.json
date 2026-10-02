@@ -1,0 +1,432 @@
+{
+ "ads": [
+  {
+   "name": "S01_meet_hobo_brown",
+   "layout": "hero",
+   "photo": "site/hobo_05.jpg",
+   "headline": "Meet Hobo Bag.",
+   "sub": "Soft leather, gold hardware, and a pocket for everything.",
+   "cta": "Shop now \u00b7 50% off",
+   "badge": {
+    "top": "NOW",
+    "big": "50%",
+    "bottom": "OFF"
+   }
+  },
+  {
+   "name": "S02_meet_hobo_black",
+   "layout": "hero",
+   "photo": "site/hobo_08.jpg",
+   "headline": "Meet Hobo Bag.",
+   "sub": "In black, with a free matching pouch wallet.",
+   "cta": "Shop now",
+   "bg": [
+    238,
+    236,
+    232
+   ]
+  },
+  {
+   "name": "S03_promo_free_wallet",
+   "layout": "promo",
+   "photo": "site/hobo_09.jpg",
+   "headline": "The Luxury Hobo Bag",
+   "sub": "+ FREE matching pouch wallet",
+   "features": [
+    "Hidden anti-theft pocket",
+    "Water-resistant leather",
+    "Wear it 3 ways"
+   ],
+   "badge": {
+    "top": "SAVE",
+    "big": "50%",
+    "bottom": "TODAY"
+   },
+   "cta": "Shop the sale"
+  },
+  {
+   "name": "S04_hobo2_6layer",
+   "layout": "callouts",
+   "photo": "site/hobo2_00.jpg",
+   "headline": "6 layers of security.\nZero bulky clips.",
+   "photo_box": [
+    290,
+    300,
+    790,
+    1100
+   ],
+   "points": [
+    {
+     "text": "RFID-blocking lining",
+     "x": 0.5,
+     "y": 0.5,
+     "tx": 36,
+     "ty": 360
+    },
+    {
+     "text": "Lockable zippers",
+     "x": 0.1,
+     "y": 0.4,
+     "tx": 36,
+     "ty": 600
+    },
+    {
+     "text": "Table security strap",
+     "x": 0.18,
+     "y": 0.85,
+     "tx": 36,
+     "ty": 900
+    },
+    {
+     "text": "Cut-resistant strap",
+     "x": 0.55,
+     "y": 0.05,
+     "tx": 1044,
+     "ty": 330
+    },
+    {
+     "text": "Hidden pockets",
+     "x": 0.88,
+     "y": 0.5,
+     "tx": 1044,
+     "ty": 600
+    },
+    {
+     "text": "Smart compartments",
+     "x": 0.62,
+     "y": 0.78,
+     "tx": 1044,
+     "ty": 880
+    }
+   ],
+   "cta": "Shop Hobo 2.0 \u00b7 50% off",
+   "psize": 36
+  },
+  {
+   "name": "S05_would_you_try_hobo2",
+   "layout": "bold",
+   "photo": "site/hobo2_13.jpg",
+   "lines": [
+    "WOULD YOU",
+    "TRY HOBO 2.0?"
+   ],
+   "accent_lines": [
+    1
+   ],
+   "sub": "Looks like a classic leather hobo. Built like a travel bag.",
+   "cta": "Shop Hobo 2.0",
+   "dots": [
+    [
+     25,
+     25,
+     25
+    ],
+    [
+     150,
+     95,
+     55
+    ]
+   ]
+  },
+  {
+   "name": "S06_set3_card1",
+   "layout": "carousel",
+   "photo": "site/set3_11.jpg",
+   "headline": "Which 3-Piece Set would you choose?",
+   "label": "A",
+   "sub": "Red \u00b7 bag + crossbody + pouch"
+  },
+  {
+   "name": "S06_set3_card2",
+   "layout": "carousel",
+   "photo": "site/set3_13.jpg",
+   "headline": "Which 3-Piece Set would you choose?",
+   "label": "B",
+   "sub": "Navy \u00b7 bag + crossbody + pouch"
+  },
+  {
+   "name": "S06_set3_card3",
+   "layout": "carousel",
+   "photo": "site/set3_15.jpg",
+   "headline": "Which 3-Piece Set would you choose?",
+   "label": "C",
+   "sub": "Black \u00b7 bag + crossbody + pouch"
+  },
+  {
+   "name": "S07_set3_value",
+   "layout": "bold",
+   "photo": "site/set3_14.jpg",
+   "lines": [
+    "3 BAGS.",
+    "1 PRICE."
+   ],
+   "accent_lines": [
+    1
+   ],
+   "sub": "Hobo bag + crossbody + pouch. The Hobo Bag 3-Piece Set.",
+   "cta": "Shop the set \u00b7 50% off",
+   "accent": [
+    200,
+    22,
+    40
+   ]
+  },
+  {
+   "name": "S08_slouchy_closer_look",
+   "layout": "hero",
+   "photo": "site/slouchy_12.jpg",
+   "headline": "Take a closer look.",
+   "sub": "The Slouchy Soft Hobo 3-Piece Set: soft, roomy, made for every day.",
+   "cta": "Shop the Slouchy Set",
+   "bg": [
+    243,
+    236,
+    228
+   ]
+  },
+  {
+   "name": "S09_pick_your_colour",
+   "layout": "colours",
+   "headline": "Pick your colour.",
+   "sub": "Every Hobo Bag comes with a free matching pouch.",
+   "photos": [
+    {
+     "src": "site/hobo_05.jpg",
+     "name": "Brown"
+    },
+    {
+     "src": "site/hobo_08.jpg",
+     "name": "Black"
+    },
+    {
+     "src": "site/hobo_10.jpg",
+     "name": "Blue"
+    },
+    {
+     "src": "site/hobo_09.jpg",
+     "name": "Grey"
+    },
+    {
+     "src": "site/hobo_11.jpg",
+     "name": "Burgundy"
+    },
+    {
+     "src": "site/hobo_12.jpg",
+     "name": "Red"
+    }
+   ],
+   "cta": "Find your colour"
+  },
+  {
+   "name": "S10_review_carol",
+   "layout": "review",
+   "review_n": 7,
+   "photo": "site/hobo_05.jpg",
+   "headline": "Real customers. Real words."
+  },
+  {
+   "name": "S11_review_beverly",
+   "layout": "review",
+   "review_n": 8,
+   "photo": "site/hobo_08.jpg",
+   "bg": [
+    232,
+    226,
+    218
+   ]
+  },
+  {
+   "name": "S12_review_jenny",
+   "layout": "review",
+   "quote": "I love my black Libra Handbag! It's spacious, lightweight, and super functional with lots of pockets. I've received so many compliments.",
+   "verified": true,
+   "photo": "site/hobo_08.jpg",
+   "qsize": 50,
+   "author": "Jenny H."
+  },
+  {
+   "name": "S13_compare",
+   "layout": "compare",
+   "photo": "site/hobo_05.jpg",
+   "headline": "Your everyday bag vs. Hobo Bag",
+   "left_title": "Most bags",
+   "left": [
+    "Keys lost at the bottom",
+    "One big empty space",
+    "Wallet sold separately"
+   ],
+   "right_title": "Hobo Bag",
+   "right": [
+    "Gold side zips for keys",
+    "Hidden back pocket",
+    "Free matching pouch"
+   ],
+   "cta": "Make the switch \u00b7 50% off"
+  },
+  {
+   "name": "S14_lifestyle_street",
+   "layout": "lifestyle",
+   "photo": "site/hobo_02.jpg",
+   "crop": [
+    0,
+    0.12,
+    1,
+    1
+   ],
+   "headline": "Goes with everything you own.",
+   "sub": "The Luxury Hobo Bag, now 50% off.",
+   "cta": "Shop now"
+  },
+  {
+   "name": "S15_lifestyle_back",
+   "layout": "lifestyle",
+   "photo": "site/set3_06.jpg",
+   "headline": "Carry it every day.",
+   "sub": "Hobo shoulder, crossbody or handbag: two straps included.",
+   "cta": "Shop the set",
+   "text_pos": "bottom"
+  },
+  {
+   "name": "S16_hobo2_beige",
+   "layout": "hero",
+   "photo": "site/hobo2_12.jpg",
+   "headline": "Quiet luxury.\nSerious security.",
+   "sub": "Hobo 2.0 with RFID lining and lockable zippers.",
+   "cta": "Shop Hobo 2.0",
+   "bg": [
+    244,
+    239,
+    232
+   ],
+   "hsize": 96
+  },
+  {
+   "name": "S17_trust",
+   "layout": "promo",
+   "photo": "site/hobo_05.jpg",
+   "headline": "Order with confidence",
+   "sub": "The Luxury Hobo Bag + FREE pouch wallet",
+   "features": [
+    "Free U.S. shipping",
+    "1-year warranty",
+    "Easy returns"
+   ],
+   "badge": {
+    "top": "SALE",
+    "big": "50%",
+    "bottom": "OFF"
+   },
+   "cta": "Shop now"
+  },
+  {
+   "name": "S18_selling_fast",
+   "layout": "bold",
+   "photo": "site/hobo_12.jpg",
+   "lines": [
+    "SELLING",
+    "FAST."
+   ],
+   "accent_lines": [
+    1
+   ],
+   "sub": "Final clearance: 50% off + free shipping while stock lasts.",
+   "cta": "Shop before it's gone",
+   "dots": [
+    [
+     120,
+     66,
+     36
+    ],
+    [
+     25,
+     25,
+     25
+    ],
+    [
+     40,
+     52,
+     90
+    ],
+    [
+     110,
+     110,
+     112
+    ],
+    [
+     96,
+     28,
+     44
+    ],
+    [
+     170,
+     26,
+     36
+    ]
+   ]
+  },
+  {
+   "name": "S19_bag_swap",
+   "layout": "split",
+   "left": "f_mess.png",
+   "right": "f_tidy.png",
+   "headline": "Same stuff. Different bag.",
+   "sub": "Smart compartments give everything its own spot.",
+   "left_label": "YOUR BAG",
+   "right_label": "HOBO BAG",
+   "cta": "50% off + free wallet"
+  },
+  {
+   "name": "S20_what_fits",
+   "layout": "lifestyle",
+   "photo": "ai_flatlay.png",
+   "headline": "Everything fits.\nNothing gets lost.",
+   "sub": "Phone, wallet, keys, sunglasses and more.",
+   "cta": "Shop 50% off",
+   "text_pos": "top",
+   "hsize": 88,
+   "focus": [
+    0.5,
+    0.62
+   ]
+  }
+ ],
+ "masks": {
+  "site/hobo2_00.jpg": [
+   [
+    0,
+    0.095,
+    0.27,
+    0.2
+   ]
+  ],
+  "site/hobo2_12.jpg": [
+   [
+    0,
+    0.095,
+    0.27,
+    0.2
+   ]
+  ],
+  "site/hobo2_13.jpg": [
+   [
+    0,
+    0.095,
+    0.27,
+    0.2
+   ]
+  ],
+  "site/hobo_00_clean.jpg": [
+   [
+    0,
+    0.05,
+    0.43,
+    0.125
+   ]
+  ]
+ },
+ "card_photos": [
+  "site/hobo2_00.jpg",
+  "site/hobo2_12.jpg"
+ ],
+ "crops": {}
+}

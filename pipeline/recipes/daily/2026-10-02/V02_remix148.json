@@ -1,0 +1,81 @@
+{
+ "raw": "raw148_H5.mp4",
+ "insert_at": 16.5,
+ "reviews": {
+  "vo": "vo_rev_combo.mp3",
+  "cards": [
+   {
+    "n": 2,
+    "word": "xa"
+   },
+   {
+    "n": 10,
+    "word": "margie"
+   },
+   {
+    "n": 8,
+    "word": "beverly"
+   },
+   {
+    "n": 9,
+    "word": "felicia"
+   }
+  ],
+  "broll": [
+   [
+    "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X.mp4",
+    2.0
+   ],
+   [
+    "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06.mp4",
+    4.0
+   ],
+   [
+    "1MtOonVbf-pqmrcU5DUgY6995LObDfwn7.mp4",
+    3.0
+   ],
+   [
+    "1CcakagPN5oiWEneKORpvJblnPYnQvWHI.mp4",
+    5.0
+   ],
+   [
+    "1Mtx32enLMlOkpIfl_Cr1EYezTdody3E1.mp4",
+    2.0
+   ],
+   [
+    "1nnsvEIfgqziYdrmeUrrtgL3Qo3YHV7Sw.mp4",
+    9.0
+   ]
+  ]
+ },
+ "labels": [
+  {
+   "text": "STEP 1",
+   "word": "first",
+   "after": 0
+  },
+  {
+   "text": "STEP 2",
+   "word": "second",
+   "after": 0
+  },
+  {
+   "text": "STEP 3",
+   "word": "third",
+   "after": 0
+  }
+ ],
+ "offer_word": "50",
+ "offer_after": 20,
+ "keywords": [
+  "50%",
+  "free",
+  "wallet",
+  "hidden",
+  "pocket",
+  "leather",
+  "forever",
+  "good",
+  "real"
+ ]
+}

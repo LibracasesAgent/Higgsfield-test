@@ -1,0 +1,175 @@
+{
+ "blocks": [
+  {
+   "vo": "n_det1.mp3",
+   "broll": [
+    [
+     "1CcakagPN5oiWEneKORpvJblnPYnQvWHI.mp4",
+     0.5,
+     2.5
+    ],
+    [
+     "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06.mp4",
+     1.0,
+     3.4
+    ],
+    [
+     "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06.mp4",
+     6.0,
+     3.4
+    ],
+    [
+     "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X.mp4",
+     2.0,
+     2.95
+    ],
+    [
+     "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X.mp4",
+     8.0,
+     3.0
+    ]
+   ]
+  },
+  {
+   "clip": "testi_black.mp4",
+   "range": [
+    33.1,
+    41.7
+   ]
+  },
+  {
+   "vo": "vo_rev_bev_fel.mp3",
+   "broll": [
+    [
+     "1Mtx32enLMlOkpIfl_Cr1EYezTdody3E1.mp4",
+     1.0
+    ],
+    [
+     "1nnsvEIfgqziYdrmeUrrtgL3Qo3YHV7Sw.mp4",
+     4.0
+    ],
+    [
+     "black_detail.mp4",
+     12.0
+    ]
+   ]
+  },
+  {
+   "vo": "n_det2.mp3",
+   "broll": [
+    [
+     "testi_black.mp4",
+     63.3,
+     2.0
+    ],
+    [
+     "black_detail.mp4",
+     9.5,
+     1.9
+    ],
+    [
+     "testi_black.mp4",
+     54.0,
+     2.4
+    ],
+    [
+     "set3_brown_room_outside.mp4",
+     21.0,
+     2.6
+    ],
+    [
+     "black_gift.mp4",
+     28.6,
+     2.0
+    ],
+    [
+     "1nnsvEIfgqziYdrmeUrrtgL3Qo3YHV7Sw.mp4",
+     12.0,
+     2.3
+    ],
+    [
+     "1BidTuA7vhnKJ0W923VLBYlXX0LIIueg5.mp4",
+     0.0,
+     1.8
+    ]
+   ]
+  }
+ ],
+ "overlays": [
+  {
+   "type": "label",
+   "text": "LOOK CLOSER",
+   "block": 0,
+   "at": 0.1,
+   "dur": 1.8
+  },
+  {
+   "type": "tag",
+   "text": "HIDDEN BACK POCKET",
+   "block": 0,
+   "word": "hidden",
+   "dur": 3.0
+  },
+  {
+   "type": "tag",
+   "text": "GOLD SIDE ZIPS",
+   "block": 0,
+   "word": "gold",
+   "dur": 3.0
+  },
+  {
+   "type": "label",
+   "text": "REAL CUSTOMER",
+   "block": 1,
+   "at": 0.2,
+   "dur": 2.0
+  },
+  {
+   "type": "review",
+   "n": 8,
+   "block": 2,
+   "word": "beverly",
+   "dur": 3.9
+  },
+  {
+   "type": "review",
+   "n": 9,
+   "block": 2,
+   "word": "felicia",
+   "until_block_end": true
+  },
+  {
+   "type": "tag",
+   "text": "DIVIDED COMPARTMENTS",
+   "block": 3,
+   "word": "divided",
+   "dur": 2.6
+  },
+  {
+   "type": "tag",
+   "text": "2 STRAPS \u00b7 3 WAYS TO WEAR",
+   "block": 3,
+   "word": "two",
+   "dur": 3.6
+  }
+ ],
+ "offer": {
+  "block": 3,
+  "word": "50"
+ },
+ "keywords": [
+  "50%",
+  "free",
+  "wallet",
+  "hidden",
+  "pocket",
+  "leather",
+  "lockable",
+  "rfid",
+  "gift",
+  "christmas",
+  "room",
+  "colour",
+  "color"
+ ]
+}

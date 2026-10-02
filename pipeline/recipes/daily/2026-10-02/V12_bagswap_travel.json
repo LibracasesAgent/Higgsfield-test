@@ -1,0 +1,166 @@
+{
+ "blocks": [
+  {
+   "vo": "n_trav1.mp3",
+   "broll": [
+    [
+     "transform.mp4",
+     1.2,
+     3.75
+    ],
+    [
+     "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06.mp4",
+     3.6,
+     2.4
+    ],
+    [
+     "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X.mp4",
+     8.0,
+     3.6
+    ],
+    [
+     "1StPro8S4b5_LUICHyivAkrFna1M1k3ao.mp4",
+     5.0,
+     1.8
+    ],
+    [
+     "testi_black.mp4",
+     63.3,
+     3.7
+    ]
+   ]
+  },
+  {
+   "clip": "testi_black.mp4",
+   "range": [
+    15.0,
+    31.5
+   ]
+  },
+  {
+   "vo": "vo_rev_mercy_carol.mp3",
+   "broll": [
+    [
+     "1MtOonVbf-pqmrcU5DUgY6995LObDfwn7.mp4",
+     3.0
+    ],
+    [
+     "1Mtx32enLMlOkpIfl_Cr1EYezTdody3E1.mp4",
+     1.0
+    ],
+    [
+     "1nnsvEIfgqziYdrmeUrrtgL3Qo3YHV7Sw.mp4",
+     4.0
+    ]
+   ]
+  },
+  {
+   "vo": "n_trav2.mp3",
+   "broll": [
+    [
+     "black_gift.mp4",
+     28.6
+    ],
+    [
+     "1CcakagPN5oiWEneKORpvJblnPYnQvWHI.mp4",
+     2.0
+    ]
+   ]
+  },
+  {
+   "vo": "n_gift3.mp3",
+   "vo_range": [
+    0.0,
+    5.0
+   ],
+   "broll": [
+    [
+     "sw/h_brown.jpg",
+     0,
+     1,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ]
+     }
+    ],
+    [
+     "set3_brown_room_outside.mp4",
+     42.0,
+     1
+    ]
+   ]
+  },
+  {
+   "clip": "k_cta.mp4",
+   "range": [
+    0,
+    2.6
+   ]
+  }
+ ],
+ "overlays": [
+  {
+   "type": "label",
+   "text": "TRAVEL DAY",
+   "block": 0,
+   "at": 0.1,
+   "dur": 1.8
+  },
+  {
+   "type": "tag",
+   "text": "PASSPORT \u2192 BACK POCKET",
+   "block": 0,
+   "word": "passport",
+   "dur": 2.6
+  },
+  {
+   "type": "tag",
+   "text": "KEYS \u2192 GOLD SIDE ZIPS",
+   "block": 0,
+   "word": "keys",
+   "dur": 3.0
+  },
+  {
+   "type": "label",
+   "text": "REAL CUSTOMER",
+   "block": 1,
+   "at": 0.3,
+   "dur": 2.0
+  },
+  {
+   "type": "review",
+   "n": 6,
+   "block": 2,
+   "word": "mercy",
+   "dur": 3.6
+  },
+  {
+   "type": "review",
+   "n": 7,
+   "block": 2,
+   "word": "carol",
+   "until_block_end": true
+  }
+ ],
+ "offer": {
+  "block": 4,
+  "word": "50"
+ },
+ "keywords": [
+  "50%",
+  "free",
+  "wallet",
+  "hidden",
+  "pocket",
+  "leather",
+  "lockable",
+  "rfid",
+  "gift",
+  "christmas",
+  "room",
+  "colour",
+  "color"
+ ]
+}

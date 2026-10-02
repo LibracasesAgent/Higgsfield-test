@@ -1,0 +1,171 @@
+{
+ "end_title": "The Vintage Bag",
+ "blocks": [
+  {
+   "vo": "n_vin1.mp3",
+   "broll": [
+    [
+     "vin_clasp_brown.mp4",
+     0,
+     2.4
+    ],
+    [
+     "vin_details_brown.mp4",
+     3.5,
+     2.2
+    ],
+    [
+     "vin_open_inside_brown.mp4",
+     6.6,
+     1.6
+    ],
+    [
+     "vin_open_inside_brown.mp4",
+     9.3,
+     2.6
+    ],
+    [
+     "vin_strap_brown.mp4",
+     0.5,
+     3.0
+    ],
+    [
+     "vin_tryon_brown.mp4",
+     0.0,
+     3.4
+    ]
+   ]
+  },
+  {
+   "clip": "vin_becky_testimony.mp4",
+   "range": [
+    5.8,
+    14.45
+   ]
+  },
+  {
+   "clip": "vin_becky_testimony.mp4",
+   "range": [
+    15.4,
+    30.4
+   ]
+  },
+  {
+   "clip": "vin_becky_testimony.mp4",
+   "range": [
+    39.6,
+    48.6
+   ]
+  },
+  {
+   "vo": "n_vin2.mp3",
+   "broll": [
+    [
+     "sw/v_ginger.jpg",
+     0,
+     1.1,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ]
+     }
+    ],
+    [
+     "sw/v_black.jpg",
+     0,
+     0.9,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ]
+     }
+    ],
+    [
+     "sw/v_choc.jpg",
+     0,
+     0.75,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ]
+     }
+    ],
+    [
+     "sw/v_red.jpg",
+     0,
+     0.6,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ]
+     }
+    ],
+    [
+     "vin_tryon_brown.mp4",
+     12.4,
+     4.6
+    ]
+   ]
+  }
+ ],
+ "overlays": [
+  {
+   "type": "label",
+   "text": "TAKE A CLOSER LOOK",
+   "block": 0,
+   "at": 0.1,
+   "dur": 1.8
+  },
+  {
+   "type": "tag",
+   "text": "ONE-HAND CLASP",
+   "block": 0,
+   "word": "clasp",
+   "dur": 2.4
+  },
+  {
+   "type": "tag",
+   "text": "ADJUSTABLE STRAP",
+   "block": 0,
+   "word": "adjustable",
+   "dur": 2.4
+  },
+  {
+   "type": "label",
+   "text": "REAL CUSTOMER",
+   "block": 1,
+   "at": 0.3,
+   "dur": 2.0
+  },
+  {
+   "type": "tag",
+   "text": "2 WAYS TO WEAR",
+   "block": 3,
+   "word": "handbag",
+   "dur": 3.0
+  }
+ ],
+ "offer": {
+  "block": 4,
+  "word": "50"
+ },
+ "keywords": [
+  "50%",
+  "free",
+  "wallet",
+  "hidden",
+  "pocket",
+  "leather",
+  "lockable",
+  "rfid",
+  "gift",
+  "christmas",
+  "room",
+  "colour",
+  "color"
+ ]
+}

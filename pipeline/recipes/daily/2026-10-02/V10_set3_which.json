@@ -1,0 +1,209 @@
+{
+ "end_title": "The Hobo 3-Piece Set",
+ "blocks": [
+  {
+   "vo": "n_set1.mp3",
+   "broll": [
+    [
+     "sw/s_brown.jpg",
+     0,
+     3.3,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ]
+     }
+    ],
+    [
+     "set3_brown_room_outside.mp4",
+     0.5,
+     2.2
+    ],
+    [
+     "site/set3_02.jpg",
+     0,
+     1.4,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ]
+     }
+    ],
+    [
+     "sw/s_black.jpg",
+     0,
+     1.2,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ]
+     }
+    ],
+    [
+     "set3_brown_room_outside.mp4",
+     21.0,
+     1.8
+    ],
+    [
+     "set3_brown_room_outside.mp4",
+     63.0,
+     2.0
+    ],
+    [
+     "set3_black_hanging.mp4",
+     1.0,
+     2.6
+    ],
+    [
+     "set3_brown_room_outside.mp4",
+     98.0,
+     1.2
+    ]
+   ]
+  },
+  {
+   "vo": "vo_revA.mp3",
+   "broll": [
+    [
+     "set3_brown_room_outside.mp4",
+     31.0
+    ],
+    [
+     "set3_brown_room_outside.mp4",
+     73.0
+    ],
+    [
+     "set3_black_door.mp4",
+     0.0
+    ],
+    [
+     "set3_brown_room_outside.mp4",
+     42.0
+    ],
+    [
+     "set3_brown_room_outside.mp4",
+     105.0
+    ]
+   ]
+  },
+  {
+   "vo": "n_set2b.mp3",
+   "broll": [
+    [
+     "sw/s_brown.jpg",
+     0,
+     0.66
+    ],
+    [
+     "sw/s_black.jpg",
+     0,
+     0.82
+    ],
+    [
+     "sw/s_blue.jpg",
+     0,
+     0.92
+    ],
+    [
+     "sw/s_grey.jpg",
+     0,
+     0.7
+    ],
+    [
+     "sw/s_pred.jpg",
+     0,
+     1.1
+    ],
+    [
+     "sw/s_red.jpg",
+     0,
+     1.0
+    ],
+    [
+     "set3_brown_room_outside.mp4",
+     52.0,
+     3.0
+    ],
+    [
+     "set3_brown_room_outside.mp4",
+     113.0,
+     4.85
+    ]
+   ]
+  }
+ ],
+ "overlays": [
+  {
+   "type": "tag",
+   "text": "1. THE HOBO BAG",
+   "block": 0,
+   "word": "hobo",
+   "nth": 1,
+   "dur": 1.2
+  },
+  {
+   "type": "tag",
+   "text": "2. THE CROSSBODY",
+   "block": 0,
+   "word": "crossbody",
+   "dur": 1.6
+  },
+  {
+   "type": "tag",
+   "text": "3. THE MATCHING POUCH",
+   "block": 0,
+   "word": "matching",
+   "dur": 1.6
+  },
+  {
+   "type": "review",
+   "n": 7,
+   "block": 1,
+   "word": "carol",
+   "dur": 4.3
+  },
+  {
+   "type": "review",
+   "n": 12,
+   "block": 1,
+   "word": "jenny",
+   "dur": 5.8
+  },
+  {
+   "type": "review",
+   "n": 8,
+   "block": 1,
+   "word": "beverly",
+   "until_block_end": true
+  },
+  {
+   "type": "label",
+   "text": "WHICH ONE?",
+   "block": 2,
+   "at": 0.0,
+   "dur": 4.9
+  }
+ ],
+ "offer": {
+  "block": 2,
+  "word": "50"
+ },
+ "keywords": [
+  "50%",
+  "free",
+  "wallet",
+  "hidden",
+  "pocket",
+  "leather",
+  "lockable",
+  "rfid",
+  "gift",
+  "christmas",
+  "room",
+  "colour",
+  "color"
+ ]
+}

@@ -1,0 +1,160 @@
+{
+ "end_title": "Hobo 2.0",
+ "blocks": [
+  {
+   "vo": "n_h2a.mp3",
+   "broll": [
+    [
+     "k_h2_brown.mp4",
+     0.0,
+     4.6
+    ],
+    [
+     "hobo2_lockable_zippers.mp4",
+     0.0,
+     1.3
+    ],
+    [
+     "hobo2_lockable_zippers.mp4",
+     28.1,
+     1.6
+    ],
+    [
+     "hobo2_lockable_zippers.mp4",
+     31.6,
+     1.6
+    ],
+    [
+     "k_h2_black.mp4",
+     0.6,
+     3.4
+    ]
+   ]
+  },
+  {
+   "vo": "n_h2b.mp3",
+   "broll": [
+    [
+     "hobo2_beige_360.mp4",
+     12.0,
+     2.0
+    ],
+    [
+     "hobo2_table_strap.mp4",
+     12.6,
+     1.1
+    ],
+    [
+     "hobo2_beige_360.mp4",
+     6.85,
+     1.7
+    ],
+    [
+     "hobo2_table_strap.mp4",
+     18.9,
+     2.6
+    ],
+    [
+     "hobo2_table_strap.mp4",
+     0.0,
+     2.55
+    ]
+   ]
+  },
+  {
+   "vo": "n_h2c.mp3",
+   "broll": [
+    [
+     "hobo2_table_strap.mp4",
+     28.4,
+     3.1
+    ],
+    [
+     "hobo2_beige_360.mp4",
+     0.0,
+     3.1
+    ],
+    [
+     "k_h2_black.mp4",
+     1.0,
+     3.2
+    ],
+    [
+     "hobo2_lockable_zippers.mp4",
+     35.1,
+     3.1
+    ]
+   ]
+  }
+ ],
+ "overlays": [
+  {
+   "type": "label",
+   "text": "6-LAYER SECURITY",
+   "block": 0,
+   "at": 2.0,
+   "dur": 2.4
+  },
+  {
+   "type": "tag",
+   "text": "LOCKABLE ZIPPERS",
+   "block": 0,
+   "word": "lockable",
+   "dur": 2.8
+  },
+  {
+   "type": "tag",
+   "text": "RFID LINING",
+   "block": 0,
+   "word": "rfid",
+   "dur": 2.8
+  },
+  {
+   "type": "tag",
+   "text": "CUT-RESISTANT STRAP",
+   "block": 1,
+   "word": "cut",
+   "dur": 1.9
+  },
+  {
+   "type": "tag",
+   "text": "HIDDEN POCKETS",
+   "block": 1,
+   "word": "hidden",
+   "dur": 1.1
+  },
+  {
+   "type": "tag",
+   "text": "TABLE SECURITY STRAP",
+   "block": 1,
+   "word": "table",
+   "dur": 3.5
+  },
+  {
+   "type": "review",
+   "n": 11,
+   "block": 2,
+   "word": "sarah",
+   "dur": 6.1
+  }
+ ],
+ "offer": {
+  "block": 2,
+  "word": "50"
+ },
+ "keywords": [
+  "50%",
+  "free",
+  "wallet",
+  "hidden",
+  "pocket",
+  "leather",
+  "lockable",
+  "rfid",
+  "gift",
+  "christmas",
+  "room",
+  "colour",
+  "color"
+ ]
+}

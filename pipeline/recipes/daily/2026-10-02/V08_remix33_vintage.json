@@ -1,0 +1,66 @@
+{
+ "raw": "raw33_H5.mp4",
+ "cold_open": [
+  29.9,
+  33.9
+ ],
+ "hook_label": "BETTER EVERY YEAR",
+ "insert_at": 48.2,
+ "end_title": "The Vintage Bag",
+ "reviews": {
+  "vo": "vo_rev_mercy_carol.mp3",
+  "cards": [
+   {
+    "n": 6,
+    "word": "mercy"
+   },
+   {
+    "n": 7,
+    "word": "carol"
+   }
+  ],
+  "broll": [
+   [
+    "vin_open_inside_brown.mp4",
+    2.0
+   ],
+   [
+    "vin_details_brown.mp4",
+    4.0
+   ],
+   [
+    "vin_strap_brown.mp4",
+    1.0
+   ]
+  ]
+ },
+ "labels": [
+  {
+   "text": "REASON 1",
+   "word": "1",
+   "after": 7
+  },
+  {
+   "text": "REASON 2",
+   "word": "2",
+   "after": 7
+  },
+  {
+   "text": "REASON 3",
+   "word": "3",
+   "after": 7
+  }
+ ],
+ "offer_word": "50",
+ "keywords": [
+  "50%",
+  "free",
+  "wallet",
+  "hidden",
+  "pocket",
+  "leather",
+  "forever",
+  "good",
+  "real"
+ ]
+}

@@ -1,0 +1,83 @@
+{
+ "raw": "raw94_H4.mp4",
+ "cold_open": [
+  12.4,
+  16.1
+ ],
+ "hook_label": "10 YEARS LATER",
+ "insert_at": 44.3,
+ "reviews": {
+  "vo": "vo_rev_cbf.mp3",
+  "cards": [
+   {
+    "n": 7,
+    "word": "carol"
+   },
+   {
+    "n": 8,
+    "word": "beverly"
+   },
+   {
+    "n": 9,
+    "word": "felicia"
+   }
+  ],
+  "broll": [
+   [
+    "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06.mp4",
+    1.0
+   ],
+   [
+    "1CcakagPN5oiWEneKORpvJblnPYnQvWHI.mp4",
+    2.0
+   ],
+   [
+    "1Mtx32enLMlOkpIfl_Cr1EYezTdody3E1.mp4",
+    1.0
+   ],
+   [
+    "1nnsvEIfgqziYdrmeUrrtgL3Qo3YHV7Sw.mp4",
+    4.0
+   ]
+  ]
+ },
+ "labels": [
+  {
+   "text": "REASON 1",
+   "word": "one",
+   "after": 7
+  },
+  {
+   "text": "REASON 2",
+   "word": "two",
+   "after": 7
+  },
+  {
+   "text": "REASON 3",
+   "word": "three",
+   "after": 7
+  },
+  {
+   "text": "REASON 4",
+   "word": "four",
+   "after": 7
+  },
+  {
+   "text": "REASON 5",
+   "word": "five",
+   "after": 7
+  }
+ ],
+ "offer_word": "50",
+ "keywords": [
+  "50%",
+  "free",
+  "wallet",
+  "hidden",
+  "pocket",
+  "leather",
+  "forever",
+  "good",
+  "real"
+ ]
+}
