@@ -8,6 +8,8 @@ Needs three environment variables in the Claude cloud environment (never in the 
           Read-only: confirms the variables, gets an access token, lists the Outputs folders.
   upload  python3 pipeline/drive_upload.py upload <file> --folder <folder_id> [--name "x.mp4"]
           Resumable upload, works for large videos. Prints the new file's id and link.
+  mkdir   python3 pipeline/drive_upload.py mkdir "<name>" --parent <folder_id>
+          Find-or-create a folder; prints its id.
 
 Exit code 3 means the variables are missing, so the caller falls back to delivering links.
 """
@@ -92,6 +94,19 @@ def cmd_upload(a):
     print(json.dumps(dict(ok=True, id=info["id"], name=info["name"], link=info.get("webViewLink"))))
 
 
+def cmd_mkdir(a):
+    """Find-or-create a folder by name under a parent; prints its id (safe to re-run)."""
+    token = access_token()
+    for f in list_children(token, a.parent):
+        if f["name"] == a.name and f["mimeType"] == "application/vnd.google-apps.folder":
+            print(f["id"])
+            return
+    meta = json.dumps(dict(name=a.name, parents=[a.parent], mimeType="application/vnd.google-apps.folder")).encode()
+    with api("POST", f"{API}/drive/v3/files?supportsAllDrives=true&fields=id", token, data=meta,
+             headers={"Content-Type": "application/json; charset=UTF-8"}) as r:
+        print(json.load(r)["id"])
+
+
 def main():
     ap = argparse.ArgumentParser()
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -100,8 +115,11 @@ def main():
     u.add_argument("file")
     u.add_argument("--folder", required=True)
     u.add_argument("--name", default="")
+    m = sub.add_parser("mkdir")
+    m.add_argument("name")
+    m.add_argument("--parent", required=True)
     a = ap.parse_args()
-    {"check": cmd_check, "upload": cmd_upload}[a.cmd](a)
+    {"check": cmd_check, "upload": cmd_upload, "mkdir": cmd_mkdir}[a.cmd](a)
 
 
 if __name__ == "__main__":
