@@ -6,6 +6,13 @@ and every bug we hit and how it was fixed. `CLAUDE.md` is the short checklist; t
 
 ---
 
+## 0. Lesson from the first Slack run (2026-10-06)
+
+A Slack session that did not use this repo spent ~160 credits on GPT images, Seedance and 10 s Kling
+clips and produced dark, off-brand ads. The client's look is: real product photos + real footage,
+cream/white brand layouts, captions, review cards, offer and end card. That is why `CLAUDE.md` now
+forces `pipeline/make_batch.py` (templates, no AI images/video) for every normal request.
+
 ## 1. Client and brand
 
 - **Client:** Libra Cases (owner Wouter). DTC handbags sold on libracases.com, ads on Facebook/Instagram.

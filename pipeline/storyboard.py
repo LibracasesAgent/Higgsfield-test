@@ -105,7 +105,7 @@ def build(b, d):
     if b.get("offer"):
         at = word_time(b["offer"]["block"], b["offer"].get("word", "50"))
         if at is not None:
-            ov.append(dict(type="offer", title="50% OFF", sub=b["offer"].get("sub", "+ FREE MATCHING WALLET"),
+            ov.append(dict(type="offer", title=b["offer"].get("title", "50% OFF"), sub=b["offer"].get("sub", "+ FREE MATCHING WALLET"),
                            at=round(at - 0.2, 2), dur=3.2, y=420))
     ov.append(dict(type="end", title=b.get("end_title", "The Luxury Hobo Bag"), sub="Tap the link below",
                    at=round(t - 2.6, 2), dur=2.6))
