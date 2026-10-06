@@ -214,17 +214,32 @@ def review_png(path, o, reviews):
 
 
 def offer_png(path, o):
+    """Red offer card. Long titles like "BLACK FRIDAY 50% OFF" become a small kicker line + "50% OFF"."""
     im = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(im)
-    ft, fs = font("Montserrat.ttf", 170, "Black"), font("Montserrat.ttf", 50, "ExtraBold")
+    fs = font("Montserrat.ttf", 50, "ExtraBold")
     y = o.get("y", 560)
     t, s = o.get("title", "50% OFF"), o.get("sub", "+ FREE WALLET WITH EVERY ORDER")
+    kicker = ""
+    ft = font("Montserrat.ttf", 170, "Black")
+    if d.textlength(t, font=ft) > W - 200 and "50%" in t and not t.startswith("50%"):
+        kicker, t = t[:t.index("50%")].strip(" :-·"), t[t.index("50%"):]
+    size = 170
+    while d.textlength(t, font=ft) > W - 200 and size > 90:
+        size -= 10
+        ft = font("Montserrat.ttf", size, "Black")
+    fk = font("Montserrat.ttf", 64, "Black")
+    kh = 84 if kicker else 0
     tw, sw = d.textlength(t, font=ft), d.textlength(s, font=fs)
-    bw = max(tw, sw) + 120
-    d.rounded_rectangle([(W - bw) / 2, y, (W + bw) / 2, y + 330], radius=40, fill=RED + (250,))
-    d.text(((W - tw) / 2, y + 30), t, font=ft, fill=(255, 255, 255, 255))
-    d.rounded_rectangle([(W - sw) / 2 - 24, y + 236, (W + sw) / 2 + 24, y + 306], radius=16, fill=(255, 255, 255, 255))
-    d.text(((W - sw) / 2, y + 242), s, font=fs, fill=RED + (255,))
+    kw = d.textlength(kicker, font=fk) if kicker else 0
+    bw = min(max(tw, sw, kw) + 120, W - 40)
+    d.rounded_rectangle([(W - bw) / 2, y, (W + bw) / 2, y + 330 + kh], radius=40, fill=RED + (250,))
+    if kicker:
+        d.text(((W - kw) / 2, y + 26), kicker, font=fk, fill=(255, 255, 255, 255))
+    d.text(((W - tw) / 2, y + 30 + kh + (170 - size) // 2), t, font=ft, fill=(255, 255, 255, 255))
+    d.rounded_rectangle([(W - sw) / 2 - 24, y + 236 + kh, (W + sw) / 2 + 24, y + 306 + kh], radius=16,
+                        fill=(255, 255, 255, 255))
+    d.text(((W - sw) / 2, y + 242 + kh), s, font=fs, fill=RED + (255,))
     im.save(path)
 
 
