@@ -25,6 +25,19 @@ Default product when none is named: Hobo Bag. Default offer: 50% off + free matc
 wallet + free US shipping (check libracases.com banner; a theme like Black Friday changes the
 wording, not the discount, unless the request gives one).
 
+## Tools you will use (all in `pipeline/`)
+
+- `data/clip_bank.json`: every vetted clip (winner RAWs, real 4K details, real customer videos, AI hero
+  shots) with Drive id, good start times, mute flags and notes. **Put the `id` straight into a spec as
+  `src`**: Drive ids and https links are downloaded automatically (safe 1 MB chunks, cached).
+- `data/transcripts/`: word timings for the winner RAWs and customer clips (copy as `<file>_words.json`
+  next to a downloaded RAW to skip re-transcribing; otherwise remix/storyboard transcribe on their own).
+- `data/reviews.json`: 12 verbatim named reviews (cards: `{"type":"review","n":7}`).
+- `site_assets.py "<product>" --out /tmp/run/site`: product photos + facts (price, colours, text)
+  from libracases.com.
+- `brand_statics.py spec.json --outdir out/`: statics. `remix.py`: winner variations.
+  `storyboard.py`: VO/clip-block videos. `premium.py`: product films. `drive_upload.py`: Drive.
+
 ## 2. Setup (every session starts on a fresh machine)
 
 1. `bash .claude/hooks/session-start.sh` if `ffmpeg -version` fails;

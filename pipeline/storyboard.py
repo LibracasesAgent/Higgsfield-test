@@ -27,7 +27,7 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
-from remix import dur, mix_audio, words  # noqa: E402
+from remix import dur, loc, mix_audio, words  # noqa: E402
 
 
 def norm(w):
@@ -52,7 +52,7 @@ def build(b, d):
             audio.append(("silence", blk.get("pad", pad)))
             spans.append((t, L, blk["vo"], a))
         elif "vo" in blk:
-            L = dur(os.path.join(d, blk["vo"])) + blk.get("pad", pad)
+            L = dur(loc(d, blk["vo"])) + blk.get("pad", pad)
             br = [x if len(x) > 2 else x + [1.0] for x in blk["broll"]]
             tot = sum(x[2] for x in br)
             for src, st, wgt, *ex in br:
@@ -83,7 +83,7 @@ def build(b, d):
         t0, L, src, off = spans[k]
         if not src:
             return None
-        hits = [x["s"] - off for x in words(os.path.join(d, src)) if off <= x["s"] < off + L
+        hits = [x["s"] - off for x in words(loc(d, src)) if off <= x["s"] < off + L
                 and (norm(x["w"]).startswith(w) or (w == "50" and norm(x["w"]).startswith("fifty")))]
         return t0 + hits[nth] if len(hits) > nth else None
 

@@ -1,0 +1,70 @@
+{
+ "_help": "Vetted clips from the client's Drive library (and our own Higgsfield renders). Use 'id' directly as a segment 'src' in remix/storyboard/premium specs: recut.source() downloads Drive ids in safe 1 MB chunks and caches them; https URLs are read directly. 'good' lists start times (s) of usable moments. 'mute': the clip's own audio is unusable. Transcripts: pipeline/data/transcripts/<name>_words.json (copy next to the downloaded file as <file>_words.json for remix.py).",
+
+ "winner_raws": {
+  "raw94_H4":  {"id": "1LEOgUgU_hBiRceIx-SW4za6XJZlCQNrH", "dur": 55.9, "ad": "MAX-94-H4", "product": "Hobo Bag", "notes": "Susan, 5 reasons. Cold open 12.4-16.1 'Most bags look terrible after a year. Mine looks better after a decade.' Reviews before 44.3. Labels: words one..five after 7 s."},
+  "raw148_H5": {"id": "1_4f-FZM8Oqsve8xTALY_8C53Ycn9lVvh", "dur": 30.5, "ad": "YEVH-148-H5", "product": "Hobo Bag", "notes": "Lowest price in 3 steps. Reviews at 16.5. Labels first/second/third."},
+  "raw121_H2": {"id": "1mbr41C4_O9UoOMZrwBr7CJLef08Qe4ir", "dur": 94.6, "ad": "MAX-121-H2", "product": "Hobo Bag", "notes": "Grandma dialogue. HAS BURNED-IN CAPTIONS (burned_captions:true). Opening 0-4.3 is duplicated: start at 4.3. Cut 57.12-61.2. Reviews at 74.8."},
+  "raw147_H1": {"id": "1wnFUVYm8C8vmAqwbGtc5BmU1Y_H1apya", "dur": 66.1, "ad": "MAX-147-H1", "product": "Hobo Bag", "notes": "Cold open 22.42-24.95 'less than 100 luxury hobo bags left'. Reviews at 50.18."},
+  "raw158_H2": {"id": "1Y-MO87nS_0iTji0HWmG8yh6BrmHBaGfY", "dur": 85.5, "ad": "MAX-158-H2", "product": "Hobo Bag", "notes": "Fakes warning. Cold open 46.6-54.0. Cuts 3.86-9.98 and 54.12-60.08. Reviews at 66.8."},
+  "raw139_H4": {"id": "1SUjoSGlQgAm40fxDJkZeHVqDIYSTmYBm", "dur": 54.4, "ad": "MAX-139-H4", "product": "Hobo Bag", "notes": "Cold open 6.2-8.1 'My old bag was one big black hole.' Reviews at 36.1."},
+  "raw123_H4": {"id": "1kLqrrgE55dACVzNgmvW35_US3Vb7KlEc", "dur": 81.3, "ad": "123-H4", "product": "Hobo Bag", "notes": "Susan. Cold open 37.0-40.1 'hidden back pocket ... sister was robbed'. Cut 55.42-61.72. Reviews at 52.7. Offer word at 19.4 (offer_after 19)."},
+  "raw33_H5":  {"id": "1yvkXUyJ-2BP6c-tK8ofH8tT21oal14pC", "dur": 60.2, "ad": "MAX-33-H5", "product": "Vintage Bag", "notes": "Cold open 29.9-33.9 'Most bags look worse every month...'. Reviews at 48.2. Labels words 1/2/3."},
+  "raw113_H2": {"id": "1uyGfb81M5nKpoV13GS70UFVo0KH1YW2l", "dur": 16.0, "ad": "113-H2", "product": "Hobo Bag", "notes": "'This crazy deal ends tonight' talking head. Insert reviews at 10.72. Great for urgency / Black Friday."}
+ },
+
+ "hobo_bag": {
+  "back_pocket_4k":   {"id": "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06", "dur": 13.0, "good": [1.0, 3.6, 6.0, 9.0], "notes": "hand opens hidden back zip pocket, 4K"},
+  "side_zip_keys_4k": {"id": "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X", "dur": 13.1, "good": [1.0, 2.0, 6.0, 8.0], "notes": "keys into gold side zip, 4K"},
+  "details_macro_4k": {"id": "1CcakagPN5oiWEneKORpvJblnPYnQvWHI", "dur": 11.2, "good": [0.5, 2.0, 4.0], "notes": "leather/zip macro, 4K"},
+  "metal_details_4k": {"id": "1nnsvEIfgqziYdrmeUrrtgL3Qo3YHV7Sw", "dur": 20.5, "good": [4.0, 9.0, 12.0, 15.0], "notes": "gold hardware macro, 4K"},
+  "back_zip_macro_4k":{"id": "1BidTuA7vhnKJ0W923VLBYlXX0LIIueg5", "dur": 3.4, "good": [0.0], "notes": "back zip macro, 4K"},
+  "cafe_chair_4k":    {"id": "1Mtx32enLMlOkpIfl_Cr1EYezTdody3E1", "dur": 7.9, "good": [1.0, 3.5, 4.0], "notes": "bag on cafe chair"},
+  "walking_113H3":    {"id": "1MtOonVbf-pqmrcU5DUgY6995LObDfwn7", "dur": 16.8, "good": [3.0, 8.0, 12.0], "notes": "walking with bag"},
+  "packing_113H1":    {"id": "1StPro8S4b5_LUICHyivAkrFna1M1k3ao", "dur": 17.3, "good": [0.3, 5.0, 8.5, 11.5, 14.0], "mute": true, "notes": "packing the bag; her voice is a different script, keep shots short (<=1.8 s) so lips don't read"},
+  "black_detail":     {"id": "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx", "dur": 29.4, "good": [5.0, 9.5, 12.0], "notes": "black hobo interior/detail"},
+  "black_gift":       {"id": "18all7GUEBLsxxS0JCAl8t-yEOsC6r52T", "dur": 36.0, "good": [19.0, 28.6], "notes": "gift reveal; 28.6 shows the pouch wallet"},
+  "kate_gift":        {"id": "1U5e0VpcAFm07iWXfWFMPe8jiYRd5LmhZ", "dur": 22.4, "notes": "gift reaction"},
+  "unbox_novoice":    {"id": "1rRkDw8UM4ZlQpO3c6Bv3_gT1_1-n8qYH", "dur": 66.5, "good": [2.0, 12.0, 30.0, 40.0], "notes": "unboxing, no voice"},
+  "unbox_brown":      {"id": "1wE0AQvyBkxmh0-_ftpXmjG4v-pHMMPfG", "dur": 194.9, "notes": "long unboxing brown"},
+  "testi_black":      {"id": "11yX8EI6ZI6Ewyc-Io7PfrwC12vTVUEGY", "dur": 86.3, "notes": "REAL CUSTOMER unboxing, own audio. Good ranges: 15.0-31.5 (anti-theft, travel, pickpockets), 33.1-41.7 (zips both sides), 41.6-52.5 (soft, lots of room), 78.5-82.95 (thank you, exactly what I wanted). Silent B-roll: 54.0 strap, 56.9, 63.3 inside, 64.8, 68.8."},
+  "testi_blue":       {"id": "1B_A8E6o9m6B4sNNiDeSS81TdU_oEeu9i", "dur": 6.2, "notes": "REAL CUSTOMER, own audio 0.6-6.0: 'If you're looking for a thoughtful gift, this is such a beautiful and elegant choice.'"}
+ },
+
+ "hobo_3piece_set": {
+  "brown_room_outside": {"id": "1DbVATxAeMvr_FnP999-dnJymLQ7pn9H8", "dur": 126.6, "good": [0.5, 21.0, 31.0, 42.0, 52.0, 63.0, 73.0, 98.0, 105.0, 113.0], "mute": true, "notes": "woman with brown hobo, porch / street / home; many usable moments"},
+  "black_hanging":      {"id": "1KrT_V2zVfWbAJ_QciTDEhWMundQHepPY", "dur": 6.7, "good": [1.0], "notes": "black hobo hanging on a hook"},
+  "black_door":         {"id": "1XnGy8b5SEh634ZaranWYRHLwOQQrtgXd", "dur": 4.6, "good": [0.0], "notes": "walking into a cafe with black set"}
+ },
+
+ "slouchy_set": {
+  "flatlay":          {"id": "1BQxRGh_Sqno6MqEBabVBpaCT0bLXQ8pw", "dur": 16.4, "notes": "brown slouchy set flatlay"},
+  "all3_crossbody":   {"id": "1h2OlHfArKnmuzQRP-gdEeIcVg6vDNLEB", "dur": 12.3, "notes": "pink set, all 3 pieces"},
+  "brown_lifestyle":  {"id": "1JYB-5m6zU71bzzE8KgBeDvr0eEzimWb0", "dur": 19.4, "notes": "brown slouchy worn outdoors"},
+  "coffee_run":       {"id": "1AERMmWiNKyEvkgDEHUXcMvoq8cgQZbdg", "dur": 15.7, "notes": "pink slouchy, street coffee run"}
+ },
+
+ "hobo_2_0": {
+  "lockable_zippers": {"id": "1d-NfhyXONZdjfr9UBSKd99VUPx9mK7HB", "dur": 42.1, "good": [0.0, 17.5, 28.1, 31.6, 35.1], "mute": true, "notes": "tan Hobo 2.0, hands lock the zippers. AUDIO IS AN UNRELATED TV AD: ALWAYS MUTE."},
+  "table_strap":      {"id": "1PkP56aGjs6ZI2Hr3tRpJz4Qyy8hSN5qT", "dur": 37.9, "good": [0.0, 12.6, 18.9, 22.0, 28.4], "mute": true, "notes": "table security strap around a chair, back zip pocket"},
+  "beige_360":        {"id": "1EUn2G9e3MybyEgwQsdUaXgsbXu3bQXfa", "dur": 20.6, "good": [0.0, 3.4, 6.85, 12.0], "notes": "beige Hobo 2.0 held and turned; 12.0 = strap close-up"},
+  "ai_brown_pushin_1080p": {"id": "https://d8j0ntlcm91z4.cloudfront.net/user_3JUZZGXHJSYkeCjDtRgPvtCUUic/hf_20261002_091947_69168839-a42b-4ca6-ab5d-bb74ddc74f12.mp4", "dur": 5.0, "notes": "AI (Kling pro) studio push-in, brown, white background"},
+  "ai_black_dollyin_1080p": {"id": "https://d8j0ntlcm91z4.cloudfront.net/user_3JUZZGXHJSYkeCjDtRgPvtCUUic/hf_20261002_091947_5216e6e3-512a-4814-a200-d2d709843cde.mp4", "dur": 5.0, "notes": "AI studio dolly-in, black; first 0.5 s has a padding seam, start at 0.6"}
+ },
+
+ "vintage_bag": {
+  "open_inside_brown": {"id": "10aSieQA3Lb3YEflOG3dXN2sIgckqMv4f", "dur": 15.9, "good": [2.0, 6.6, 9.3], "notes": "opening, interior"},
+  "clasp_brown":       {"id": "1zWksUIjdI39dANvjXlGZoTaY11CJrBRZ", "dur": 6.4, "good": [0.0], "notes": "clasp snapping"},
+  "details_brown":     {"id": "1RvlXOQ5hCCqLQm-paz6wpMtJaH_gT5FG", "dur": 14.1, "good": [3.5, 4.0], "notes": "hardware details"},
+  "compare_black_brown": {"id": "1MZAWlWRBKJG8JFCvqC_wl8NPm8LyN8ZE", "dur": 4.3, "good": [0.0], "notes": "both colours worn"},
+  "flatlay":           {"id": "1dth2GGvV8qdLLg4SGXId1S_m09SCj9vw", "dur": 5.9, "good": [1.0], "notes": "black + brown flatlay"},
+  "tryon_brown":       {"id": "1fOAl6lU85JwItepfKYB6gm4m_6S5vXVW", "dur": 16.6, "good": [0.0, 9.6, 12.4], "notes": "try-on, face visible"},
+  "strap_brown":       {"id": "1-rzfYRYKmmUocjp-CfJnrVDnsUBGq_t-", "dur": 6.4, "good": [0.5, 1.0], "notes": "strap adjust"},
+  "becky_testimony":   {"id": "1c6sVRtKd9c3J3jtLicNjBoh96EdmGVcb", "dur": 89.1, "notes": "REAL CUSTOMER Becky (red Vintage bag), own audio. Ranges: 5.8-14.45 'new vintage Libra bag ... new go-to', 15.4-30.4 'opens up, everything fits', 39.6-48.6 'straps come off, handbag or crossbody'."}
+ },
+
+ "voices": {
+  "brand_voice": {"voice_type": "element", "voice_id": "241459b6-b4e8-4a2a-9868-da8bcdcd0558"},
+  "review_narrator_maeve": {"voice_type": "preset", "voice_id": "64cf4f1a-61c8-5938-9aea-83d12b2e1d13"}
+ }
+}

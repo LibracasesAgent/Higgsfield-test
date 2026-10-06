@@ -28,6 +28,26 @@ import sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 
 
+def loc(d, s):
+    """Local file for s: a path relative to the spec, a Drive file id (downloaded in safe chunks and cached),
+    or an https URL (downloaded once and cached). Needed wherever audio is mixed or speech is transcribed."""
+    p = os.path.join(d, s)
+    if os.path.exists(p):
+        return p
+    sys.path.insert(0, HERE)
+    import recut
+    if s.startswith("http"):
+        import hashlib
+        import urllib.request
+        os.makedirs(recut.MEDIA_CACHE, exist_ok=True)
+        f = os.path.join(recut.MEDIA_CACHE, hashlib.md5(s.encode()).hexdigest() + os.path.splitext(s.split("?")[0])[1])
+        if not os.path.exists(f):
+            urllib.request.urlretrieve(s, f)
+        return f
+    recut.LOCAL_MAX = max(recut.LOCAL_MAX, 600 * 2**20)
+    return recut.source(s)
+
+
 def dur(f):
     return float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", f],
                                 capture_output=True, text=True).stdout)
@@ -47,7 +67,7 @@ def words(path):
 
 def build(r, d):
     raw = r["raw"]
-    R = dur(os.path.join(d, raw))
+    R = dur(loc(d, raw))
     start, end = r.get("start", 0.0), r.get("end") or R
     cuts = sorted(r.get("cut", []))
     ins = r.get("insert_at")
@@ -84,7 +104,7 @@ def build(r, d):
     for p in body:
         if p == "REVIEWS":
             rv = r["reviews"]
-            L = dur(os.path.join(d, rv["vo"])) + 0.4
+            L = dur(loc(d, rv["vo"])) + 0.4
             review_at = t
             br = rv["broll"]
             for k, (src, st) in enumerate(br):
@@ -103,8 +123,8 @@ def build(r, d):
     # review cards synced to the narration words
     if review_at is not None:
         rv = r["reviews"]
-        vw = words(os.path.join(d, rv["vo"]))
-        L = dur(os.path.join(d, rv["vo"]))
+        vw = words(loc(d, rv["vo"]))
+        L = dur(loc(d, rv["vo"]))
         starts = []
         for c in rv["cards"]:
             s0 = next((x["s"] for x in vw if x["w"].lower().strip(".,:").startswith(c["word"])), None)
@@ -114,7 +134,7 @@ def build(r, d):
             b = review_at + 0.1 + (starts[k + 1] if k + 1 < len(starts) else L + 0.2)
             ov.append(dict(type="review", n=c["n"], at=round(a, 2), dur=round(b - a, 2), y=330))
     # number labels and offer card from the RAW transcript
-    ws = words(os.path.join(d, raw))
+    ws = words(loc(d, raw))
     for lb in r.get("labels", []):
         w0 = next((x for x in ws if x["s"] >= lb.get("after", 0) and x["w"].lower().strip(".,") == lb["word"]), None)
         if w0 and out_time(w0["s"]) is not None:
@@ -133,7 +153,7 @@ def mix_audio(audio, d, out):
     inputs, fc, k = [], [], 0
     for p in audio:
         if p[0] == "slice":
-            inputs += ["-i", os.path.join(d, p[1])]
+            inputs += ["-i", loc(d, p[1])]
             L = p[3] - p[2]
             fc.append(f"[{k}:a]atrim={p[2]}:{p[3]},asetpts=N/SR/TB,aresample=48000,aformat=channel_layouts=stereo,"
                       f"afade=t=in:d=0.02,afade=t=out:st={max(L - 0.03, 0):.3f}:d=0.03,apad=whole_dur={L:.3f},atrim=0:{L:.3f}[p{k}]")
@@ -141,7 +161,7 @@ def mix_audio(audio, d, out):
             inputs += ["-f", "lavfi", "-t", f"{p[1]:.3f}", "-i", "anullsrc=r=48000:cl=stereo"]
             fc.append(f"[{k}:a]atrim=0:{p[1]:.3f}[p{k}]")
         else:
-            inputs += ["-i", os.path.join(d, p[1])]
+            inputs += ["-i", loc(d, p[1])]
             fc.append(f"[{k}:a]aresample=48000,aformat=channel_layouts=stereo,apad=whole_dur={p[2]:.3f},atrim=0:{p[2]:.3f}[p{k}]")
         k += 1
     fc.append("".join(f"[p{i}]" for i in range(k)) + f"concat=n={k}:v=0:a=1,loudnorm=I=-16[o]")
