@@ -7,7 +7,8 @@ your own, never ask follow-up questions, and report at the end.
 
 Always work on branch `claude/loving-meitner-4amjii` (`git fetch origin claude/loving-meitner-4amjii
 && git checkout claude/loving-meitner-4amjii`) unless the request names another branch.
-Background: `HANDOFF.md`. Last full run (20 statics + 20 videos), the best reference for
+**Before making anything, read `docs/PLAYBOOK.md`** (client preferences, approved claims, recipes, scripts,
+quality checklist, known bugs). Older background: `HANDOFF.md`. Last full run (20 statics + 20 videos), the best reference for
 every format: `pipeline/recipes/daily/2026-10-02/` (statics.json, V01-V20 json, ads_meta.json).
 
 ## 1. Read the request

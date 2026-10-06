@@ -1,5 +1,9 @@
 # Handoff — Libra Cases AI ad pipeline (state as of 2026-09-29)
 
+> **Superseded in parts.** The current rules, approvals and recipes are in `docs/PLAYBOOK.md` and `CLAUDE.md`.
+> Since this was written the client approved the 50% offer, "anti-theft", the Susan/closing-down story and all
+> named reviews; Drive uploads work via `pipeline/drive_upload.py`.
+
 Read this first. It replaces the chat history of the session that built this repo.
 
 ## The project

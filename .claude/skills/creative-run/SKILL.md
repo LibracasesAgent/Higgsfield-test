@@ -5,6 +5,10 @@ description: Libra Cases automated ad-creative run. Reads the newest weekly Face
 
 # Creative run
 
+> **Note:** for one-line requests (Slack / app) and the current formats, follow `CLAUDE.md` and
+> `docs/PLAYBOOK.md`; they replace the older generation steps below where they differ.
+
+
 You turn the weekly ads brief into new static and video ads. This runs unattended
 (a routine, nobody watching), so follow these steps in order, decide on your own,
 and record everything in the run report. Tools: the Google Drive and Higgsfield
