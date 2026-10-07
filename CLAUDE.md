@@ -24,6 +24,9 @@ client's feedback, approved claims, the reference run, and every bug we already 
    Drive Outputs → a new folder → `Statics` / `Videos`. Never only post files in the chat.
 5. Never publish anywhere. Never delete or move Drive files.
 
+**Naming:** every ad follows `docs/NAMING.md` (`LC_<YYMMDD>_<Product>_<Theme>_<S01|V01>_<angle>`). `make_batch.py plan` generates
+the names; use `--rev 2` when redoing a batch; hand-built remix specs use the same pattern. In the reply, list ads by these names.
+
 ## THE STANDARD PATH (use it for every normal request)
 
 ```

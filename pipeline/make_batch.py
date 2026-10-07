@@ -214,6 +214,18 @@ def short_quote(text, n_words=14):
     return " ".join(w[:n_words]).rstrip(",;") if len(w) > n_words else first
 
 
+# ---------------------------------------------------------------- naming
+def slug(text):
+    """CamelCase, letters/digits only: 'Hobo 2.0' -> 'Hobo20', 'black friday' -> 'BlackFriday'."""
+    return "".join(w.capitalize() if w.islower() else w for w in re.findall(r"[A-Za-z0-9]+", text))
+
+
+def ad_prefix(product, theme_key, rev=1):
+    """LC_<YYMMDD>_<Product>_<Theme>[_v2]: see docs/NAMING.md. The ad id (S01_hero / V01_features) follows it."""
+    d = datetime.date.today().strftime("%y%m%d")
+    return f"LC_{d}_{slug(product)}_{slug(theme_key) if theme_key != 'default' else 'Evergreen'}" + (f"_v{rev}" if rev > 1 else "")
+
+
 # ---------------------------------------------------------------- plan
 def plan(a):
     out = os.path.abspath(a.out)
@@ -225,6 +237,7 @@ def plan(a):
     over = json.load(open(a.lines)) if a.lines else {}
     rng = random.Random(a.seed)
     fill = lambda s: s.format(short=pr["short"], name=pr["name"])
+    prefix = ad_prefix(pr["name"], theme_key, a.rev)
 
     # site photos + facts
     site = os.path.join(out, "site")
@@ -244,7 +257,7 @@ def plan(a):
     for i in range(a.statics):
         lay = layouts[i % len(layouts)]
         photo = rel(packs[i % len(packs)])
-        name = f"S{i + 1:02d}_{lay}"
+        name = f"{prefix}_S{i + 1:02d}_{lay}"
         if lay == "hero":
             s = dict(layout="hero", photo=photo, headline=over.get("hero", fill(th["hero"])),
                      sub=f"{feats[0].capitalize()}, {feats[1].lower()} and a free matching pouch wallet.",
@@ -344,12 +357,12 @@ def plan(a):
         spec = dict(blocks=blocks, overlays=ov, end_title=pr["end"],
                     offer=dict(block=len(blocks) - 1, word="50", title=th["offer_title"], sub=th["offer_sub"]),
                     keywords=["50%", "free", "wallet", "hidden", "pocket", "leather", "black", "friday", "gift"])
-        name = f"{vid}_{fmt}"
+        name = f"{prefix}_{vid}_{fmt}"
         json.dump(spec, open(os.path.join(out, name + ".json"), "w"), indent=1)
-        videos.append(dict(name=name, format=fmt, hook=hook))
+        videos.append(dict(name=name, id=vid, format=fmt, hook=hook))
 
     json.dump(tts, open(os.path.join(out, "tts_needed.json"), "w"), indent=1)
-    p = dict(created=datetime.date.today().isoformat(), request=a.request or "", product=pr["name"], theme=theme_key,
+    p = dict(prefix=prefix, created=datetime.date.today().isoformat(), request=a.request or "", product=pr["name"], theme=theme_key,
              statics=[s["name"] for s in statics], videos=videos, tts_lines=len(tts),
              est_credits=round(0.35 * len(tts), 1), colour_images=dict(colour_imgs), packshots=packs)
     json.dump(p, open(os.path.join(out, "plan.json"), "w"), indent=1)
@@ -394,14 +407,14 @@ def render(a):
                     "--outdir", os.path.join(out, "statics")], check=True)
     report = []
     for v in p["videos"]:
-        if a.only and not v["name"].startswith(a.only):
+        if a.only and not v["id"].startswith(a.only):
             continue
         f = os.path.join(out, "videos", v["name"] + ".mp4")
         r = subprocess.run([sys.executable, os.path.join(HERE, "storyboard.py"), os.path.join(out, v["name"] + ".json"),
                             "--out", f], capture_output=True, text=True)
-        open(os.path.join(out, "qa", v["name"] + ".log"), "w").write(r.stdout + r.stderr)
+        open(os.path.join(out, "qa", v["id"] + ".log"), "w").write(r.stdout + r.stderr)
         ok = r.returncode == 0 and os.path.exists(f)
-        L = contact_sheet(f, os.path.join(out, "qa", v["name"] + ".jpg")) if ok else 0
+        L = contact_sheet(f, os.path.join(out, "qa", v["id"] + ".jpg")) if ok else 0
         problems = [] if ok else ["render failed (see qa/*.log)"]
         if ok and not 25 <= L <= 95:
             problems.append(f"length {L:.0f}s")
@@ -454,6 +467,7 @@ def main():
     pl.add_argument("--request", default="", help="the user's message, for the folder name and report")
     pl.add_argument("--lines", help="json with overrides: hero, bold, colours, V01_hook, V01_close ...")
     pl.add_argument("--seed", type=int, default=1)
+    pl.add_argument("--rev", type=int, default=1, help="revision of an earlier batch with the same product+theme+date: adds _v2, _v3")
     pl.add_argument("--out", required=True)
     r = sub.add_parser("render")
     r.add_argument("--out", required=True)
