@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Find the right files in the library index (built by index_library.py).
 
-  ad      Match ad names from the brief to their source video files.
+  ad      Match ad names from the brief to their source video files. RAW versions (in a /RAW/ folder or
+          named "... RAW", "-RAW", "(RAW)") come first; --edited prefers the captioned export instead.
           python3 pipeline/find_assets.py ad "ACH-YEVH-123-H4 - Copy" "C9_V2_HappyWrong - Copy"
 
   product List candidate reference photos and videos for a product (names from config.json).
@@ -31,14 +32,30 @@ def load_index():
         return [i for i in json.load(f)["items"] if i["kind"] == "file"]
 
 
-def norm(s):
+RAW_TAG = re.compile(r"(?:[\s._-]+\(?raw\)?|\(raw\))$", re.I)
+
+
+def strip_name(s):
+    """File or ad name without extension, ' - Copy', a RAW tag or a Drive duplicate ' (1)'."""
     s = re.sub(r"\.(mp4|mov|m4v|jpg|jpeg|png)$", "", s.strip(), flags=re.I)
-    s = re.sub(r"\s*-\s*copy(\s*\d+)?\s*$", "", s, flags=re.I)
-    return re.sub(r"[^a-z0-9]", "", s.lower())
+    for _ in range(3):
+        s = re.sub(r"\s*-\s*copy(\s*\d+)?$", "", s.rstrip(" ."), flags=re.I)
+        s = RAW_TAG.sub("", s.rstrip(" ."))
+        s = re.sub(r"\s+\(\d+\)$", "", s)
+    return s
+
+
+def norm(s):
+    return re.sub(r"[^a-z0-9]", "", strip_name(s).lower())
+
+
+def is_raw(i):
+    name = i["path"].rsplit("/", 1)[-1]
+    return "/raw/" in i["path"].lower() or bool(RAW_TAG.search(re.sub(r"(\s+\(\d+\))?\.\w+$", "", name).rstrip(" .")))
 
 
 def describe(i, with_size=True):
-    out = dict(id=i["id"], path=i["path"], mime=i["mime"], url=direct_url(i["id"]), thumb=i.get("thumb", ""))
+    out = dict(id=i["id"], path=i["path"], mime=i["mime"], raw=is_raw(i), url=direct_url(i["id"]), thumb=i.get("thumb", ""))
     size = i.get("size")
     if size is None and with_size:
         size = file_size(i["id"])
@@ -46,21 +63,22 @@ def describe(i, with_size=True):
     return out
 
 
-def match_ad(name, files):
-    """Exact normalized name match, preferring edited exports over RAW folders."""
+def match_ad(name, files, prefer="raw"):
+    """Exact normalized name match (RAW tags, ' - Copy' and ' (1)' ignored); RAW versions first unless prefer='edited'."""
     key = norm(name)
     hits = [i for i in files if norm(i["path"].rsplit("/", 1)[-1]) == key]
     if not hits:
         hits = [i for i in files if key and key in norm(i["path"].rsplit("/", 1)[-1])]
     hits = [i for i in hits if i["mime"].startswith("video")] or hits
-    hits.sort(key=lambda i: ("/raw/" in i["path"].lower(), len(i["path"])))
+    hits.sort(key=lambda i: (is_raw(i) != (prefer == "raw"), bool(re.search(r"copy|\s\(\d+\)\.\w+$", i["path"], re.I)),
+                             len(i["path"])))
     return hits
 
 
 def cmd_ad(args, files):
     result = []
     for name in args.names:
-        hits = match_ad(name, files)
+        hits = match_ad(name, files, "edited" if args.edited else "raw")
         result.append(dict(
             ad=name,
             matched=bool(hits),
@@ -113,6 +131,7 @@ def main():
     sub = ap.add_subparsers(dest="cmd", required=True)
     a = sub.add_parser("ad")
     a.add_argument("names", nargs="+")
+    a.add_argument("--edited", action="store_true", help="prefer the edited (captioned) export over the RAW")
     p = sub.add_parser("product")
     p.add_argument("name")
     p.add_argument("--images", type=int, default=12)
