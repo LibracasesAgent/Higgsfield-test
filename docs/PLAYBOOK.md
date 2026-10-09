@@ -25,8 +25,10 @@ forces `pipeline/make_batch.py` (templates, no AI images/video) for every normal
   | Slouchy Soft 3-Piece Set | $69.95 | | |
   | Vintage Bag | $44.95 | Ginger Brown, Black, Chocolate, Red | one-hand clasp, compartments, adjustable/removable strap |
   Always re-check with `pipeline/site_assets.py` (prices change).
-- **Offer:** 50% off + free matching pouch wallet + free US shipping. Site banner: "FINAL CLEARANCE SALE
-  ENDS TODAY 50% OFF + FREE SHIPPING".
+- **Offer (per product, 2026-10):** Hobo Bag 50% off + free matching pouch wallet; Hobo 2.0 50% off + free pouch
+  wallet; Vintage 50% off (no gift); Hobo 3-Piece Set and Slouchy Set 60% off ($69.95 vs $174.88; the pouch is one of
+  the three pieces, not a gift). Free US shipping store-wide. Site banner: "FINAL CLEARANCE SALE ENDS TODAY 50% OFF +
+  FREE SHIPPING". `make_batch.py plan` reads the % and the gift from the site on every run.
 - **Approved by the client (allowed in ads):** the 50% offer, "anti-theft", the Susan / workshop-closing /
   arthritis story used in his own RAW ads, all 10 customer reviews with names ("Yes on all"), plus the two
   reviews on the website (Jenny H., Sarah M.). "Use everything on libracases.com."
@@ -160,6 +162,9 @@ dark/bold statics (`bold` layout, red accent). Christmas/Mother's Day: gift angl
 | Clip audio | Hobo 2.0 zipper clip has an unrelated TV ad | mute flags in `clip_bank.json` |
 | Silent talking clips | lips moving under another voice | keep such shots ≤1.8 s |
 | Statics author line | file name printed as author | use `author` |
+| No faces in statics | site lifestyle photos with faces in new-product statics | site photos never become lifestyle statics by themselves; DNN face check at plan time and on every rendered static (hard failure) |
+| Offer per product | every bag got "50% off + free wallet" | offer from the site per product; theme lines are templates |
+| No wrong claims in RAWs | C9_V2 says "two-year warranty" (site: 1 year) | cut 28.16-30.3 in `clip_bank.json` |
 Always look at a contact sheet of every video and a grid of every static before upload.
 
 ## 7. Technical gotchas

@@ -59,7 +59,7 @@ def api(method, url, token, data=None, headers=None):
 
 
 FOLDER = "application/vnd.google-apps.folder"
-FIELDS = "id,name,mimeType,size,createdTime,modifiedTime,webViewLink"
+FIELDS = "id,name,mimeType,size,md5Checksum,createdTime,modifiedTime,webViewLink"
 
 
 def query(token, q):
@@ -99,6 +99,12 @@ def download(token, file_id, dest, chunk=8 * 2**20):
     size = int(meta.get("size", 0))
     os.makedirs(os.path.dirname(os.path.abspath(dest)), exist_ok=True)
     part = dest + ".part"
+    import fcntl
+    had = os.path.exists(dest)
+    lock = open(dest + ".lock", "w")
+    fcntl.flock(lock, fcntl.LOCK_EX)           # one writer per file: parallel renders may want the same clip
+    if not had and os.path.exists(dest):       # another process finished it while we waited
+        return dest
     have = os.path.getsize(part) if os.path.exists(part) else 0
     with open(part, "ab") as f:
         while have < size:

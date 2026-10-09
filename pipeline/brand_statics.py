@@ -24,12 +24,13 @@ import json
 import math
 import os
 
-from PIL import Image, ImageChops, ImageDraw, ImageFilter, ImageFont, ImageOps
+from PIL import Image, ImageChops, ImageDraw, ImageFilter, ImageFont, ImageOps, features
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 FONTS = os.path.join(HERE, "assets", "fonts")
 CREAM, SAND, ESPRESSO, INK = (246, 241, 234), (236, 226, 212), (58, 40, 28), (24, 20, 18)
 RED, GOLD, WHITE = (200, 22, 40), (184, 137, 59), (255, 255, 255)
+FEAT = {"features": ["lnum"]} if features.check("raqm") else {}   # lining figures: Cormorant's old-style '2in1' reads '2ını'
 
 
 def font(name, size, weight=None):
@@ -76,6 +77,17 @@ def whiten(im, sample=12, knee=236):
         return im
     lut = [v if v < knee else int(knee + (v - knee) * (255 - knee) / max(250 - knee, 1)) if v < 250 else 255 for v in range(256)]
     return im.point(lut * 3)
+
+
+def textured(path, band=0.06):
+    """A light but not white backdrop (grey paper or plaster): even after whiten() a multiply blend would leave a visible
+    grey box, so it goes in a framed photo card. True when over 30% of the border band stays below 246."""
+    im = whiten(ImageOps.exif_transpose(Image.open(path)).convert("RGB")).convert("L")
+    im.thumbnail((300, 300))
+    w, h = im.size
+    b = max(1, int(min(w, h) * band))
+    px = [im.getpixel((x, y)) for y in range(h) for x in range(w) if x < b or y < b or x >= w - b or y >= h - b]
+    return sum(v < 246 for v in px) / max(len(px), 1) > 0.3
 
 
 def trim_white(im, thresh=245, pad=12):
@@ -125,7 +137,7 @@ def wrap(d, text, f, max_w):
         cur = ""
         for w in para.split():
             t = (cur + " " + w).strip()
-            if cur and d.textlength(t, font=f) > max_w:
+            if cur and d.textlength(t, font=f, **FEAT) > max_w:
                 out.append(cur)
                 cur = w
             else:
@@ -136,16 +148,18 @@ def wrap(d, text, f, max_w):
 
 def text_c(d, W, y, text, f, fill, max_w=None, lh=1.12):
     lines = wrap(d, text, f, max_w or W - 120)
+    bottom = y
     for ln in lines:
-        tw = d.textlength(ln, font=f)
-        d.text(((W - tw) / 2, y), ln, font=f, fill=fill)
+        tw = d.textlength(ln, font=f, **FEAT)
+        d.text(((W - tw) / 2, y), ln, font=f, fill=fill, **FEAT)
+        bottom = d.textbbox(((W - tw) / 2, y), ln, font=f, **FEAT)[3] if ln.strip() else y
         y += int(f.size * lh)
-    return y
+    return max(y, bottom + 10)      # a descender ('p', 'y') of the last line never touches what comes next
 
 
 def fit_font(d, text, maker, size, max_w, min_size=40):
     f = maker(size)
-    longest = lambda f: max(d.textlength(t, font=f) for t in text.split("\n"))  # noqa: E731
+    longest = lambda f: max(d.textlength(t, font=f, **FEAT) for t in text.split("\n"))  # noqa: E731
     while longest(f) > max_w and size > min_size:
         size -= 4
         f = maker(size)
@@ -295,7 +309,7 @@ def l_review(a, sd):
     stars(d, 130, cy0 + 60)
     yy = cy0 + 130
     for ln in lines:
-        d.text((130, yy), ln, font=fq, fill=INK)
+        d.text((130, yy), ln, font=fq, fill=INK, **FEAT)
         yy += int(fq.size * 1.12)
     fn = SANS(34, "SemiBold")
     d.text((130, yy + 24), "— " + name, font=fn, fill=ESPRESSO)

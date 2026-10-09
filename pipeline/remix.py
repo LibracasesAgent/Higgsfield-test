@@ -53,8 +53,9 @@ def loc(d, s):
         os.makedirs(recut.MEDIA_CACHE, exist_ok=True)
         f = os.path.join(recut.MEDIA_CACHE, hashlib.md5(s.encode()).hexdigest() + os.path.splitext(s.split("?")[0])[1])
         if not os.path.exists(f):
-            urllib.request.urlretrieve(s, f + ".part")
-            os.replace(f + ".part", f)
+            part = f"{f}.part.{os.getpid()}"            # per process: parallel renders may fetch the same URL
+            urllib.request.urlretrieve(s, part)
+            os.replace(part, f)
         return f
     recut.LOCAL_MAX = max(recut.LOCAL_MAX, 600 * 2**20)
     f = recut.source(s)
@@ -136,8 +137,11 @@ def clean(w):
 
 
 def hit(w, word):
+    """Whisper token w is the card word: same start, or a close spelling ('jenny'/'jennie') with the same first letter
+    and length (so 'every' never stands in for 'beverly')."""
     w = clean(w)
-    return w.startswith(word) or (len(word) >= 5 and difflib.SequenceMatcher(None, w, word).ratio() >= 0.75)
+    return w.startswith(word) or (len(word) >= 5 and w[:1] == word[:1] and abs(len(w) - len(word)) <= 2
+                                  and difflib.SequenceMatcher(None, w, word).ratio() >= 0.75)
 
 
 def card_starts(vw, cards, text, L):
@@ -146,14 +150,14 @@ def card_starts(vw, cards, text, L):
     starts, k, tp = [], 0, 0
     toks = [clean(t) for t in (text or "").split()]
     for c in cards:
-        pos = next((i for i in range(tp, len(toks)) if toks[i].startswith(c["word"])), None)
+        pos = next((i for i in range(tp, len(toks)) if hit(toks[i], c["word"])), None)
         tp = tp if pos is None else pos + 1
         j = next((i for i in range(k, len(vw)) if hit(vw[i]["w"], c["word"])), None)
         if j is not None:
             starts.append(vw[j]["s"])
             k = j + 1
             continue
-        print(f"overlay anchor not found: review card {c['n']} word {c['word']!r} (placed by the script)", file=sys.stderr)
+        print(f"review card {c['n']} placed by its script position (whisper did not hear {c['word']!r})", file=sys.stderr)
         est = L * pos / len(toks) if pos is not None else (starts[-1] + 1.5 if starts else 0.2)
         est = max(est, starts[-1] + 0.8 if starts else 0.2)
         starts.append(round(min(est, max(L - 1.0, 0.2)), 2))
@@ -242,7 +246,13 @@ def build(r, d):
         else:
             print(f"overlay anchor not found: label {lb['text']!r} (word {lb['word']!r})", file=sys.stderr)
     title, sub = r.get("offer_title", "50% OFF"), r.get("offer_sub", "+ FREE MATCHING WALLET")
-    if r.get("offer_word") and title:
+    review_end = review_at + dur(loc(d, r["reviews"]["vo"])) + 0.4 if review_at is not None else 0
+    if title and not r.get("offer_word"):    # the RAW never says the offer: the card goes with its call to action,
+        a = max(review_end, t - 2.6 - 3.4)   # just before the end card, so the theme and the offer still show
+        ov.append(dict(type="offer", title=title, sub=sub, at=round(a, 2), dur=3.2, y=420) if sub else
+                  dict(type="label", text=title, at=round(a, 2), dur=3.2, y=470))
+        print(f"offer card placed before the end card at {a:.1f}s (the RAW has no offer word)", file=sys.stderr)
+    elif r.get("offer_word") and title:
         after = r.get("offer_after")
         after = (ins or 0) - 1 if after is None else after
         cands = [x for x in ws if r["offer_word"] in x["w"] and out_time(x["s"]) is not None and x["s"] >= after]
@@ -255,8 +265,10 @@ def build(r, d):
     if hook:                       # label box ends at y~412, the offer card starts at 420: both can show at once
         ov.insert(0, hook)
     ov.append(dict(type="end", title=r.get("end_title", "The Luxury Hobo Bag"), sub=r.get("end_sub", "Tap the link below"),
-                   at=round(t - 2.6, 2), dur=2.6))
-    return segs, audio, ov, t
+                   at=round(t - 2.6, 2), dur=2.6, opaque=bool(r.get("burned_captions"))))   # covers the RAW's own captions
+    breaks = sorted({round(x[2], 2) for x in raw_to_out} | ({round(review_at, 2), round(review_end, 2)} if review_at is not None
+                                                              else set()))
+    return segs, audio, ov, t, breaks
 
 
 def mix_audio(audio, d, out):
@@ -286,14 +298,14 @@ def main():
     a = ap.parse_args()
     r = json.load(open(a.remix))
     d = os.path.dirname(os.path.abspath(a.remix))
-    segs, audio, ov, total = build(r, d)
+    segs, audio, ov, total, breaks = build(r, d)
     name = os.path.splitext(os.path.basename(a.remix))[0]
     wav = f"_{name}_audio.wav"
     mix_audio(audio, d, os.path.join(d, wav))
     for s in segs:
         s["mute"] = True
     edl = dict(audio="mute", vo=wav, vo_start=0.0, bed_gain=0.0, segments=segs, overlays=ov, caption_y=r.get("caption_y", 1010),
-               keywords=r.get("keywords", []), max_words=r.get("max_words", 4))
+               keywords=r.get("keywords", []), max_words=r.get("max_words", 4), breaks=breaks)
     if r.get("burned_captions"):
         edl["no_captions"] = [[0, 9999]]
     lj = os.path.join(d, f"_{name}_longform.json")

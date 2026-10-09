@@ -32,8 +32,14 @@ sys.path.insert(0, HERE)
 from remix import STILL, dur, fit, loc, mix_audio, words  # noqa: E402
 
 
-NUMS = {"10": "ten", "15": "fifteen", "20": "twenty", "25": "twenty", "30": "thirty", "35": "thirty", "40": "forty",
-        "45": "forty", "50": "fifty", "60": "sixty", "70": "seventy"}
+TENS = "_ ten twenty thirty forty fifty sixty seventy eighty ninety".split()
+
+
+def num_word(w):
+    """First spoken word of a number: '50' -> 'fifty', '65' -> 'sixty', '15' -> 'fifteen'."""
+    if not w.isdigit() or not 10 <= int(w) < 100:
+        return None
+    return "fifteen" if w == "15" else TENS[int(w) // 10]
 
 
 def norm(w):
@@ -95,7 +101,7 @@ def build(b, d):
         if not src:
             return None
         hits = [x["s"] - off for x in words(loc(d, src)) if off <= x["s"] < off + L
-                and (norm(x["w"]).startswith(w) or (w in NUMS and norm(x["w"]).startswith(NUMS[w])))]
+                and (norm(x["w"]).startswith(w) or (num_word(w) and norm(x["w"]).startswith(num_word(w))))]
         return t0 + hits[nth] if len(hits) > nth else None
 
     ov = []
@@ -125,7 +131,7 @@ def build(b, d):
     ov.append(dict(type="end", title=b.get("end_title", "The Luxury Hobo Bag"), sub=b.get("end_sub", "Tap the link below"),
                    at=round(t - 2.6, 2), dur=2.6))
     nocap = [[round(spans[k][0], 2), round(spans[k][0] + spans[k][1], 2)] for k in b.get("no_captions_blocks", [])]
-    return segs, audio, ov, t, nocap
+    return segs, audio, ov, t, nocap, [round(x[0], 2) for x in spans[1:]]
 
 
 def main():
@@ -135,12 +141,12 @@ def main():
     a = ap.parse_args()
     b = json.load(open(a.board))
     d = os.path.dirname(os.path.abspath(a.board))
-    segs, audio, ov, total, nocap = build(b, d)
+    segs, audio, ov, total, nocap, breaks = build(b, d)
     name = os.path.splitext(os.path.basename(a.board))[0]
     wav = f"_{name}_audio.wav"
     mix_audio(audio, d, os.path.join(d, wav))
     edl = dict(audio="mute", vo=wav, vo_start=0.0, bed_gain=0.0, segments=segs, overlays=ov,
-               caption_y=b.get("caption_y", 1010), keywords=b.get("keywords", []), max_words=b.get("max_words", 4), caption_fix=b.get("caption_fix", []))
+               caption_y=b.get("caption_y", 1010), keywords=b.get("keywords", []), max_words=b.get("max_words", 4), caption_fix=b.get("caption_fix", []), breaks=breaks)   # a caption never runs across two blocks
     if nocap:
         edl["no_captions"] = nocap
     lj = os.path.join(d, f"_{name}_longform.json")

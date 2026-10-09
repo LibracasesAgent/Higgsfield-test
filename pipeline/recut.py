@@ -119,12 +119,11 @@ def source(s):
 
         with cf.ThreadPoolExecutor(8) as ex:
             parts = list(ex.map(part, range(0, size, chunk)))
-        ok = all(p is not None for p in parts)
-        if ok:
-            with open(local + ".part", "wb") as out:
+        if all(p is not None for p in parts):
+            tmp = f"{local}.part.{os.getpid()}"            # per process: parallel renders may fetch the same clip
+            with open(tmp, "wb") as out:
                 out.write(b"".join(parts))
-        if ok:
-            os.replace(local + ".part", local)
+            os.replace(tmp, local)
             return local
     return direct_url(s)
 

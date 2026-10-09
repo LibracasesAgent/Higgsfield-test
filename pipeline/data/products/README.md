@@ -37,9 +37,10 @@ so they only work in the current session.
 | `aliases` | Other words that should find this product in a request (`"silhouette"`, the site handle). Keep them specific: never just "bag" or "tote". |
 | `name` / `short` / `end` | Display name ("The Silhouette Bag"), the short form used in spoken lines and headlines ("Silhouette Bag"), and the end-card title. |
 | `site` | The Shopify handle on libracases.com, or `null` when the product is not on the site. `site_assets.py` downloads the site photos, price and colours from it at plan time. |
-| `photos` | The client's photos from the Drive folder: `id` (Drive file id), `name`, `clean` (1.0 = plain packshot on white with empty corners, from `site_assets.clean_score`), `faces` (number of faces found; **more than 0 = never use in statics**), `w`, `h`, `path` (cached copy). |
+| `photos` | The client's photos from the Drive folder: `id` (Drive file id), `name`, `clean` (1.0 = plain packshot on white with empty corners, from `site_assets.clean_score`), `faces` (number of faces found; **more than 0 = never use in statics**), `w`, `h`, `path` (cached copy). Client photos with `faces` 0 that are not packshots become the lifestyle statics. |
+| `site_lifestyle` | Optional. Site photos Claude has looked at in `overview.jpg` and wants as lifestyle statics, by their number there: `["S3", "S7"]` (never `S0`: it carries the sale badges). Without it, site photos are only used as packshots, never as lifestyle photos. |
 | `clips` | The client's videos: `id`, `name`, `dur`, `w`, `h`, `good` (3 proposed start times in seconds, each leaving about 2.5 s of footage), `mute` (true: the clip's own sound is not used), `audio`, `path`, `sheet` (contact sheet). |
-| `offer.badge` | The corner badge on statics, e.g. `{"top": "NOW", "big": "50%", "bottom": "OFF"}`, or `null` when there is no discount. |
+| `offer.badge` | The corner badge on statics, e.g. `{"top": "NOW", "big": "50%", "bottom": "OFF"}`, or `null` when there is no discount. For a product with a `site` page, `plan` re-reads the price and compare-at price and uses the site's % if it changed (and says so). |
 | `offer.gift` | The free extra exactly as the site or the notes word it (`"free matching pouch"`), or `null`. |
 | `offer.offer_title` / `offer.offer_sub` | Text of the offer card in videos: `"50% OFF"` / `"+ FREE MATCHING POUCH"` (both `""` when there is nothing to offer). |
 | `offer.statics_sub` | One short line under the headline on statics. |
@@ -49,7 +50,7 @@ so they only work in the current session.
 | `features` | 3-5 entries `["spoken line", "TAG", [pick, ...]]`. The line is one short spoken sentence; the TAG is the 2-3 word uppercase label shown with it ("CONVERTIBLE STRAPS"). |
 | `customer` | Real customer clips `[section, key, start, end]` from `clip_bank.json`. Empty for new products. |
 | `broll` | Shots used under review cards and the close. |
-| `reviews` | Review numbers from `pipeline/data/reviews.json`, **only if the review is about this product**. Empty by default. |
+| `reviews` | Review numbers from `pipeline/data/reviews.json`, **only if the review is about this product** (its `product` names this product). Empty by default. Reviews 6-10 (`"product": "any"`) are store reviews the client approved for the built-in bags: never in a product file (`check` refuses them, `plan` drops them). |
 | `facts` | What the claims may be based on: `price`, `compare_at`, `colours`, `description` (site), `notes` (the client's notes), `title`, `url`. |
 | `source` | Where the intake read from: `drive_folder`, `folder_name`, `site_url`, `site_match`, `cache`, `overview`, `added`. |
 | `status` | `"draft"` straight after the intake, `"ready"` once Claude has checked features and offer. |
@@ -64,11 +65,15 @@ A **pick** says which footage to show:
 ## Rules the intake keeps (and `check` enforces)
 
 - **No invented offers.** The intake fills in a percentage only from the site's compare-at price (at least
-  10% above the price, rounded down). A gift is only used when a phrase like "free pouch / wallet / purse /
-  gift" appears on the site or in the notes. When the product is not on the site, a percentage the client
-  wrote in the notes is listed under `offer.evidence`; Claude may copy it into the badge, and `check`
-  accepts that.
-- **No faces in statics.** `faces` comes from OpenCV face detection, with a skin-tone check to drop false hits on
-  bag charms. Look at `overview.jpg` anyway: red labels mark photos with faces.
+  10% above the price, rounded down to a multiple of 5). A gift is only used when a phrase like "free pouch /
+  wallet / purse / gift" appears on the site or in the notes. When the product is not on the site, a percentage
+  the client wrote in the notes is listed under `offer.evidence`; Claude may copy it into the badge, and `check`
+  accepts that. `check` also reads every line a customer sees (name, features and tags, `statics_sub`, `close`,
+  offer card): a %, "free ..." or sale words ("deal", "last call", "selling fast") the offer does not back are a
+  problem. A product with no offer cannot run a Black Friday / Cyber Monday batch (`plan` exits 2).
+- **No faces in statics.** `faces` comes from a DNN face detector (OpenCV YuNet, `pipeline/assets/models`), on the
+  photo and its mirror image; lifestyle photos also get the strict check (Haar frontal + profile cascades,
+  mirrored, no skin-tone filter). `plan` re-checks every photo it uses, and `render` checks every finished static:
+  a face there is a hard failure that `upload` never sends. Look at `overview.jpg` anyway: red labels mark faces.
 - **Only true claims.** The draft features are copied from the site description and the notes. Rewrite
   them to sound spoken, but never add a claim that is not in `facts`.

@@ -166,6 +166,63 @@ def clean_score(path):
     return round(border * corners, 3)
 
 
+def corner_badges(path, size=240):
+    """Baked-in sale tags in the top corners of a packshot, as (side, [x0, y0, x1, y1] fractions): dark/coloured blobs
+    that touch the left or right edge and stay in the top third ('NEW', 'BEST SELLER', the round 'CLEARANCE SALE')."""
+    from PIL import Image
+    im = Image.open(path).convert("RGB")
+    im.thumbnail((size, size))
+    w, h = im.size
+    px = im.load()
+    dark = bytearray(min(px[x, y]) < 215 for y in range(h) for x in range(w))
+    seen, out = bytearray(w * h), []
+    for y in range(int(h * .16)):
+        for x in list(range(int(w * .25))) + list(range(int(w * .75), w)):
+            i = y * w + x
+            if not dark[i] or seen[i]:
+                continue
+            st, comp, seen[i] = [i], [], 1
+            while st and len(comp) < w * h * .2:     # flood fill (8-connected)
+                j = st.pop()
+                comp.append(j)
+                for dx in (-1, 0, 1):
+                    for dy in (-1, 0, 1):
+                        nx, ny = j % w + dx, j // w + dy
+                        k = ny * w + nx
+                        if 0 <= nx < w and 0 <= ny < h and dark[k] and not seen[k]:
+                            seen[k] = 1
+                            st.append(k)
+            xs, ys = [j % w for j in comp], [j // w for j in comp]
+            box = [min(xs) / w, min(ys) / h, (max(xs) + 1) / w, (max(ys) + 1) / h]
+            if st or box[3] > .35 or len(comp) < w * h * .001 or (box[0] > .05 and box[2] < .95):
+                continue                             # the product itself (runs down), a speck, or away from the edge
+            pad = .015
+            out.append(("left" if box[0] <= .05 else "right",
+                        [round(max(box[0] - pad, 0), 3), round(max(box[1] - pad, 0), 3), round(min(box[2] + pad, 1), 3),
+                         round(min(box[3] + pad, 1), 3)]))
+    return out
+
+
+def unbadged(path, out_dir):
+    """A copy of a site photo without its baked-in tag, or None when it cannot be cleaned. Rectangular tags on the
+    left edge ('NEW', 'BEST SELLER') are covered with the backdrop just below them; a photo with a round sale badge
+    on the right ('CLEARANCE SALE 50% OFF') is refused (masking leaves a ghost of it). Clean photos come back as is."""
+    from PIL import Image
+    tags = corner_badges(path)
+    if not tags:
+        return path
+    if any(side == "right" for side, _ in tags):
+        return None
+    im = Image.open(path).convert("RGB")
+    for _, (x0, y0, x1, y1) in tags:
+        b = [int(x0 * im.width), int(y0 * im.height), int(x1 * im.width), int(y1 * im.height)]
+        im.paste(im.crop((b[0], b[3], b[2], b[3] + b[3] - b[1])), (b[0], b[1]))
+    os.makedirs(out_dir, exist_ok=True)
+    f = os.path.join(out_dir, os.path.basename(path))
+    im.save(f, quality=95)
+    return None if corner_badges(f) else f
+
+
 def bullets(body):
     """Feature-ish snippets from the product HTML: <li> items, else sentences; plus the bold phrases."""
     body = body or ""

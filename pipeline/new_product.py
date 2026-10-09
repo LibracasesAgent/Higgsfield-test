@@ -67,7 +67,9 @@ CLIP_TOPICS = [  # words that link a feature line to a clip file name
     {"pocket", "pockets", "zip", "zipper", "keys", "wallet", "phone", "back"},
     {"outfit", "style", "styling", "sleek", "look", "looks", "blazer", "dress"},
 ]
-HAAR_URL = "https://raw.githubusercontent.com/opencv/opencv/4.10.0/data/haarcascades/haarcascade_frontalface_default.xml"
+HAAR_URL = "https://raw.githubusercontent.com/opencv/opencv/4.10.0/data/haarcascades/"
+YUNET = "face_detection_yunet_2023mar.onnx"   # committed in pipeline/assets/models (MIT, opencv_zoo)
+YUNET_URL = "https://media.githubusercontent.com/media/opencv/opencv_zoo/main/models/face_detection_yunet/" + YUNET
 HOOKY = re.compile(r"wear|walk|styl|outfit|carry|street|outside", re.I)
 
 
@@ -254,49 +256,78 @@ def to_jpg(src, dst, warn):
     return dst
 
 
-_DET = []
+_DET = {}
 
 
-def face_detector():
-    """Haar frontal-face cascade: from cv2.data, else pipeline/cache/models (downloaded once: opencv 5 wheels ship none)."""
-    if _DET:
-        return _DET[0]
+def model_file(name, url):
+    """Model file: pipeline/assets/models, cv2.data, else pipeline/cache/models (downloaded once)."""
     import cv2
-    name = "haarcascade_frontalface_default.xml"
     local = os.path.join(HERE, "cache", "models", name)
-    path = next((p for p in (os.path.join(getattr(getattr(cv2, "data", None), "haarcascades", ""), name), local)
-                 if os.path.exists(p)), None)
-    if not path:
-        os.makedirs(os.path.dirname(local), exist_ok=True)
-        open(local, "wb").write(site_assets.get(HAAR_URL))
-        path = local
-    det = cv2.CascadeClassifier(path)
-    _DET.append(None if det.empty() else det)
-    return _DET[0]
+    for p in (os.path.join(HERE, "assets", "models", name), os.path.join(getattr(getattr(cv2, "data", None), "haarcascades", ""), name),
+              local):
+        if os.path.exists(p) and os.path.getsize(p) > 10000:
+            return p
+    os.makedirs(os.path.dirname(local), exist_ok=True)
+    open(local, "wb").write(site_assets.get(url))
+    return local
 
 
-def count_faces(path):
+def detectors():
+    """(YuNet DNN face detector or None, [Haar frontal, Haar profile cascades])."""
+    if not _DET:
+        import cv2
+        try:
+            cv2.utils.logging.setLogLevel(cv2.utils.logging.LOG_LEVEL_ERROR)
+        except Exception:  # noqa: BLE001
+            pass
+        try:
+            _DET["dnn"] = cv2.FaceDetectorYN.create(model_file(YUNET, YUNET_URL), "", (320, 320), 0.7, 0.3, 5000)
+        except Exception:  # noqa: BLE001  (old opencv, or the model could not be fetched)
+            _DET["dnn"] = None
+        _DET["haar"] = []
+        for n in ("haarcascade_frontalface_default.xml", "haarcascade_profileface.xml"):
+            try:
+                c = cv2.CascadeClassifier(model_file(n, HAAR_URL + n))
+                _DET["haar"] += [] if c.empty() else [c]
+            except Exception:  # noqa: BLE001
+                pass
+    return _DET["dnn"], _DET["haar"]
+
+
+def count_faces(path, strict=False):
+    """Faces in a photo or a rendered static (None: no detector, or the file can't be read).
+    The DNN (YuNet, on the photo and its mirror image, at a few sizes) finds frontal, turned, small and sunglasses faces and does not
+    fire on bags, so it is the check for packshots and the render QA of every static. strict=True is the 'safe' check
+    for lifestyle photos (a false hit only costs one photo): it also counts every Haar frontal/profile hit, mirrored
+    too, minNeighbors 3, no skin-tone filter. Without the DNN (old opencv) every check is the strict one."""
     try:
         import cv2
-        det = face_detector()
-    except Exception:  # noqa: BLE001  (no opencv, or the cascade could not be fetched)
+        dnn, haar = detectors()
+    except Exception:  # noqa: BLE001  (no opencv)
         return None
-    img = cv2.imread(path)
-    if img is None or det is None:
+    img0 = cv2.imread(path)
+    if img0 is None or (dnn is None and not haar):
         return None
-    s = 900 / max(img.shape[:2])
-    if s < 1:
-        img = cv2.resize(img, None, fx=s, fy=s, interpolation=cv2.INTER_AREA)
-    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    m = max(24, int(min(gray.shape) * 0.06))
-    boxes = det.detectMultiScale(cv2.equalizeHist(gray), scaleFactor=1.1, minNeighbors=6, minSize=(m, m))
-    if not len(boxes) or cv2.cvtColor(img, cv2.COLOR_BGR2HSV)[..., 1].mean() < 20:  # none, or a b/w photo: trust Haar
-        return len(boxes)
-    ycc = cv2.cvtColor(img, cv2.COLOR_BGR2YCrCb)
     n = 0
-    for x, y, w, h in boxes:  # a real face box is mostly skin; bag charms / buckles / stitching are not
-        r = ycc[y + h // 5:y + 4 * h // 5, x + w // 5:x + 4 * w // 5]
-        n += ((r[..., 1] >= 135) & (r[..., 1] <= 180) & (r[..., 2] >= 85) & (r[..., 2] <= 135)).mean() >= 0.25
+    for size in ((640, 900, 1350, 1800) if strict else (900, 1350)) if dnn is not None else ():
+        s = size / max(img0.shape[:2])          # the DNN sees a face at some scales only: try a few
+        if s > 1.01 and size > 900:
+            continue
+        img = cv2.resize(img0, None, fx=s, fy=s, interpolation=cv2.INTER_AREA)
+        h, w = img.shape[:2]
+        dnn.setInputSize((w, h))
+        for im in (img, cv2.flip(img, 1)):
+            f = dnn.detect(im)[1]
+            n = max(n, sum(min(x[2], x[3]) >= 0.02 * min(w, h) for x in (f if f is not None else [])))
+    s = 900 / max(img0.shape[:2])
+    img = cv2.resize(img0, None, fx=s, fy=s, interpolation=cv2.INTER_AREA) if s < 1 else img0
+    h, w = img.shape[:2]
+    if strict or dnn is None:
+        g = cv2.equalizeHist(cv2.cvtColor(img, cv2.COLOR_BGR2GRAY))
+        m = max(24, int(min(h, w) * 0.06))
+        hits = [b for c in haar for gg in (g, cv2.flip(g, 1)) for b in c.detectMultiScale(gg, scaleFactor=1.1, minNeighbors=3,
+                                                                                            minSize=(m, m))]
+        n = max(n, len(hits))
     return int(n)
 
 
@@ -452,9 +483,43 @@ def sentence_around(text, m):
     return re.sub(r"\s+", " ", text[a:(min(e) + 1 if e else len(text))]).strip()[:160]
 
 
+def site_pct(price, was):
+    """Discount from the site prices, rounded down to a multiple of 5 (52.50 vs 105.00 -> 50; 69.95 vs 174.88 -> 60);
+    0 when there is no real compare-at price."""
+    price, was = money(price), money(was)
+    return int(math.floor(round(100 * (1 - price / was), 1) / 5) * 5) if price and was and was >= price * 1.1 else 0
+
+
+GIFT_ONLY = re.compile(r"pouch|wallet|purse", re.I)
+SALEY = re.compile(r"\bdeals?\b|\bsales?\b|came early|last call|selling (?:fast|out)|sold out|clearance|ends tonight|"
+                   r"today only|limited time|half (?:price|off)", re.I)
+
+
+def unbacked(s, pct=None, gift=None):
+    """What s claims that the offer does not back (None when it is honest): a % off without a discount (or another %),
+    something free without a gift, sale/urgency words ('deal', 'last call', 'selling fast') without any deal."""
+    s = s or ""
+    if re.search(r"half (?:price|off)", s, re.I) and str(pct) != "50":
+        return "half price"
+    for m in re.finditer(r"(\d+)\s*%\s*(?:off|discount)|\bsave (\d+)\s*%|(\d+)\s*% (?:sale|deal)", s, re.I):
+        n = next(g for g in m.groups() if g)
+        if str(n) != str(pct):
+            return f"{n}% off"
+    if re.search(r"percent off", s, re.I) and not pct:
+        return "a discount"
+    if pct and re.search(r"percent", s, re.I) and say(int(pct)) + " percent" not in s.lower():
+        return "another percent"
+    if not gift and re.search(r"(?<![-\w])free\b(?!\s+(?:shipping|delivery))|\b(?:comes|arrives) with an? (?:\w+ ){0,2}"
+                              r"(?:pouch|wallet|purse)|\bincludes? an? (?:\w+ ){0,2}(?:pouch|wallet|purse)", s, re.I):
+        return "a free gift"
+    if not (pct or gift) and SALEY.search(s):
+        return "a sale"
+    return None
+
+
 def draft_offer(facts, notes, short):
     price, was = money(facts.get("price")), money(facts.get("compare_at"))
-    pct = int(math.floor(round(100 * (1 - price / was), 1))) if price and was and was >= price * 1.1 else 0
+    pct = site_pct(price, was)
     sources = [("site title", facts.get("title", "")), ("site variants", " | ".join(facts.get("variant_titles", []))),
                ("site description", facts.get("description", "")), ("notes", notes)]
     hits = [(m.group(0), src, sentence_around(txt, m)) for src, txt in sources for m in GIFT.finditer(txt or "")]
@@ -662,8 +727,9 @@ def cmd_intake(a):
         if dst:
             from PIL import Image
             w, h = Image.open(dst).size
-            photos.append(dict(id=f["id"], name=os.path.basename(dst), clean=site_assets.clean_score(dst),
-                               faces=count_faces(dst), w=w, h=h, path=rel(dst)))
+            sc = site_assets.clean_score(dst)
+            photos.append(dict(id=f["id"], name=os.path.basename(dst), clean=sc, faces=count_faces(dst, strict=sc < 0.8),
+                               w=w, h=h, path=rel(dst)))
     photos.sort(key=lambda p: (bool(p["faces"]), -p["clean"]))
     if any(p["faces"] is None for p in photos):
         warn("face check unavailable (opencv or its face model missing): look at every photo before using it in statics")
@@ -697,7 +763,7 @@ def cmd_intake(a):
     if len(feats) < 3:
         warn(f"only {len(feats)} feature lines found: write 3-5 from the facts / notes before setting status ready")
     sc = facts.get("scores", {})
-    site_imgs = [(f, sc.get(f, 0), count_faces(f)) for f in facts.get("images", [])[:16]]
+    site_imgs = [(f, sc.get(f, 0), count_faces(f, strict=True)) for f in facts.get("images", [])[:16]]
     title = f"{name}  |  {facts.get('url', 'no site page')}  |  {len(photos)} photos, {len(clips)} clips"
     ov = overview(photos, clips, site_imgs, good_frames, os.path.join(cache, "overview.jpg"), title)
     if not photos and not clips and not handle:
@@ -744,11 +810,27 @@ def cmd_intake(a):
           f"sets status ready, then runs make_batch.py plan --product \"{key}\"")
 
 
+def review_about(n, d, revs=None):
+    """reviews.json review n is about this product (its 'product' names the product's name, short name or key)."""
+    revs = revs or {r["n"]: r.get("product") or "" for r in json.load(open(os.path.join(HERE, "data", "reviews.json")))["reviews"]}
+    rp = re.sub(r"\s*\(.*$|\s+-.*$", "", revs.get(n, "")).lower().strip()
+    if not rp or rp == "any":
+        return False
+    names = {(x or "").lower().strip() for x in (d.get("name"), d.get("short"), d.get("key"))} - {""}
+    return any(rp in x or x in rp for x in names)
+
+
+def site_index(x):
+    """'S3' / 3 -> 3 (a site image number in overview.jpg); None for S0 (the sale-badge photo) or junk."""
+    m = re.fullmatch(r"[sS]?(\d+)", str(x).strip())
+    return int(m.group(1)) if m and int(m.group(1)) > 0 else None
+
+
 def validate(d):
     """(problems, warnings) for a product dict against the schema in pipeline/data/products/README.md."""
     P, W = [], []
     bank = json.load(open(os.path.join(HERE, "data", "clip_bank.json")))
-    review_ns = {r["n"] for r in json.load(open(os.path.join(HERE, "data", "reviews.json")))["reviews"]}
+    review_ns = {r["n"]: r.get("product") or "" for r in json.load(open(os.path.join(HERE, "data", "reviews.json")))["reviews"]}
     for k in ("key", "name", "short", "end"):
         if not isinstance(d.get(k), str) or not d.get(k).strip():
             P.append(f"'{k}' must be a non-empty string")
@@ -797,6 +879,8 @@ def validate(d):
                                                                                                          "winner_raws"):
             if not isinstance(p[2], (int, float)):
                 P.append(f"{where}: {p!r} start must be a number")
+            if str(p[1]).startswith("ai_") or str(bank[p[0]][p[1]].get("id", "")).startswith("http"):
+                P.append(f"{where}: {p!r} is an AI clip: real footage only")
         else:
             P.append(f"{where}: {p!r} is not a clip_bank section/key, a clip or a photo pick")
     feats = d.get("features", [])
@@ -826,8 +910,15 @@ def validate(d):
     bad = [n for n in d.get("reviews", []) if n not in review_ns]
     if bad:
         P.append(f"reviews {bad} do not exist in reviews.json")
-    if d.get("reviews"):
-        W.append(f"reviews {d['reviews']} set: only keep reviews that are about this product")
+    for n in d.get("reviews", []):
+        if n in review_ns and not review_about(n, d):
+            P.append(f"review {n} is about '{review_ns[n]}', not this product: product files only list reviews of the product "
+                     f"itself (store reviews 6-10 are for the built-in bags)")
+    sl = d.get("site_lifestyle") or []
+    if not isinstance(sl, list) or any(site_index(x) is None for x in sl):
+        P.append("'site_lifestyle' must be a list of site image numbers from overview.jpg (S1, S2 ... or 1, 2 ...; never S0)")
+    elif sl and not d.get("site"):
+        P.append("'site_lifestyle' needs a 'site' page")
     o = d.get("offer")
     if not isinstance(o, dict):
         P.append("'offer' missing")
@@ -846,7 +937,8 @@ def validate(d):
                 price, was = money(f.get("price")), money(f.get("compare_at"))
                 real = 100 * (1 - price / was) if price and was else None
                 said = re.findall(r"(\d{1,2})\s*%\s*off", f.get("notes") or "", re.I)  # client-stated offer
-                if m and (real is None or abs(int(m.group(1)) - real) > 2) and m.group(1) not in said:
+                ok = real is not None and (abs(int(m.group(1)) - real) <= 2 or 0 <= real - int(m.group(1)) < 5.5)
+                if m and not ok and m.group(1) not in said:
                     P.append(f"offer.badge {b['big']} is backed neither by the site prices ({f.get('price')} vs "
                              f"{f.get('compare_at')}) nor by the client's notes")
                 if m and m.group(1) not in o.get("offer_title", ""):
@@ -859,6 +951,15 @@ def validate(d):
             P.append(f"offer.gift {g!r} is not found in the site text or notes: never invent gifts")
         if not g and re.search(r"\bfree\b", o.get("close", "") + o.get("offer_sub", ""), re.I):
             P.append("offer mentions something free but gift is null")
+        pm = re.match(r"(\d+)%", (b or {}).get("big", "") if isinstance(b, dict) else "")
+        texts = [("name", d.get("name")), ("short", d.get("short")), ("end", d.get("end"))] + \
+                [(f"offer.{k}", o.get(k)) for k in ("statics_sub", "close", "offer_title", "offer_sub")] + \
+                [(f"feature {i + 1} {'line' if k == 0 else 'tag'}", f[k]) for i, f in enumerate(feats)
+                 if isinstance(f, list) and len(f) == 3 for k in (0, 1)]
+        for where, t in texts:
+            why = unbacked(t if isinstance(t, str) else "", pm.group(1) if pm else None, g)
+            if why:
+                P.append(f"{where} claims {why} that the offer does not back: {t!r}")
     if d.get("status") not in ("draft", "ready"):
         P.append("'status' must be draft or ready")
     elif d["status"] == "draft":

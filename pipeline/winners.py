@@ -29,6 +29,63 @@ def raws(bank=None):
     return {k: e for k, e in b.get("winner_raws", {}).items() if isinstance(e, dict) and e.get("edit") and not e.get("draft")}
 
 
+def not_ready(key, bank=None):
+    """Why a winner_raws entry exists but cannot be remixed yet (draft / no edit data), or None."""
+    e = (bank or json.load(open(BANK))).get("winner_raws", {}).get(key)
+    if not isinstance(e, dict) or (e.get("edit") and not e.get("draft")):
+        return None
+    return ("winner_raws entry is still a draft: check its edit (pipeline/winner_prep.py --check " + key + ") and remove "
+            "\"draft\"" if e.get("edit") else "winner_raws entry has no edit data yet: run pipeline/winner_prep.py")
+
+
+def in_library(names):
+    """{ad name: path of its video in the Drive library index, or None} (find_assets.match_ad). A missing or day-old index
+    is rebuilt once (index_library.py, ~30 s) when a name is not in it. {} when the library can't be read."""
+    import subprocess
+    import time
+    from find_assets import match_ad
+    from index_library import CACHE
+
+    def look():
+        files = [i for i in json.load(open(CACHE))["items"] if i["kind"] == "file"]
+        return {n: (match_ad(n, files) or [{}])[0].get("path") for n in names}
+    try:
+        res = look() if os.path.exists(CACHE) else None
+        if res is None or (not all(res.values()) and time.time() - os.path.getmtime(CACHE) > 86400):
+            subprocess.run([sys.executable, os.path.join(HERE, "index_library.py")], stdout=sys.stderr, stderr=sys.stderr,
+                           check=True, timeout=900)
+            res = look()
+        return res
+    except (Exception, SystemExit):  # noqa: BLE001
+        return {}
+
+
+def explain(unmatched):
+    """Winners that can't be remixed: 'why' says what the session can do, 'client' is the run-report wording. A RAW that
+    is not in the clip bank is looked up in the Drive library: prepare it (winner_prep.py) or ask the client for it."""
+    todo = [u for u in unmatched if re.match(r"RAW not in clip bank|no winner_raws entry", u.get("why") or "")]
+    lib = in_library([u["name"] for u in todo]) if todo else {}
+    for u in todo:
+        if not lib:
+            u["why"] += " (the Drive library could not be checked for its RAW)"
+            u["client"] = "not set up for remixing yet"
+        elif lib.get(u["name"]):
+            u["why"] = (f"RAW found in the Drive library ({lib[u['name']]}) but not prepared yet: python3 pipeline/winner_prep.py "
+                        f"\"{u['name']}\" --write (about 10 min), review it, then plan again")
+            u["client"] = "its video is in the library but not set up for remixing yet (we can prepare it)"
+        else:
+            u["why"] = ("RAW not found in the Drive library: the client must add the RAW video (without captions) and say its "
+                        "concept/hook code (e.g. 94-H4); winner_prep.py can't help until then")
+            u["client"] = ("we could not find its RAW video in the Drive library: please add the version without captions "
+                           "and tell us its concept/hook code (e.g. 94-H4)")
+    for u in unmatched:
+        w = u.get("why") or ""
+        u.setdefault("client", "its edit is still being checked (a human must finish it)" if "draft" in w else
+                     "this hook's video is not set up for remixing yet" if "different hook" in w or "no hook code" in w else
+                     "not set up for remixing yet")
+    return unmatched
+
+
 def row(key, e, **ex):
     return dict(dict(key=key, name=e.get("ad", key), roas=None, action=None, product=e.get("product"),
                      concept=e.get("concept"), hook=e.get("hook")), **ex)
@@ -51,6 +108,7 @@ def by_code(tok, rw):
 
 
 def select(arg="latest", bank=None):
+    bank = bank or json.load(open(BANK))
     rw = raws(bank)
     out = dict(source=None, winners=[], brief=None, unmatched=[], note=None)
     arg = (arg or "latest").strip()
@@ -66,11 +124,17 @@ def select(arg="latest", bank=None):
             out["unmatched"] = [{k: u.get(k) for k in ("name", "roas", "action", "product", "why")} for u in b.get("unmatched", [])]
             seen = set()
             for m in b.get("matched", []):
-                if m["key"] in rw and m["key"] not in seen:
+                why = not_ready(m["key"], bank)
+                if why and m["key"] not in seen:          # in the bank, but its edit is not ready: a human must look
+                    seen.add(m["key"])
+                    out["unmatched"].append(dict(name=m["name"], roas=m.get("roas"), action=m.get("action"),
+                                                 product=m.get("product"), why=why))
+                elif m["key"] in rw and m["key"] not in seen:
                     seen.add(m["key"])
                     out["winners"].append(row(m["key"], rw[m["key"]], name=m["name"], roas=m.get("roas"), action=m.get("action"),
                                               product=rw[m["key"]].get("product") or m.get("product")))
             out["source"] = "brief"
+            explain(out["unmatched"])
             if not out["winners"]:
                 out["note"] = "the brief matched no winner in clip_bank winner_raws"
         except (Exception, SystemExit) as e:  # noqa: BLE001 - Drive login/read/parse problem: fall back, never stop the run
@@ -80,15 +144,19 @@ def select(arg="latest", bank=None):
         return out
     toks = [t for t in re.split(r"[,;]+", arg) if t.strip()]
     seen = set()
+    allw = {k: e for k, e in bank.get("winner_raws", {}).items() if isinstance(e, dict)}
     for t in toks:
         k = by_code(t, rw)
         if k and k not in seen:
             seen.add(k)
             out["winners"].append(row(k, rw[k]))
         elif not k:
-            out["unmatched"].append(dict(name=t.strip(), roas=None, action=None, product=None,
-                                         why="no winner_raws entry with this code: run pipeline/winner_prep.py"))
+            d = by_code(t, allw)
+            out["unmatched"].append(dict(name=t.strip(), roas=None, action=None, product=(allw.get(d) or {}).get("product"),
+                                         why=not_ready(d, bank) if d else "no winner_raws entry with this code: run "
+                                                                          "pipeline/winner_prep.py"))
     out["source"] = "codes"
+    explain(out["unmatched"])
     if not out["winners"]:
         known = ", ".join(f"{e.get('concept')}{'' if (e.get('hook') or '(').startswith('(') else '-'}{e.get('hook') or ''}"
                           for e in rw.values())

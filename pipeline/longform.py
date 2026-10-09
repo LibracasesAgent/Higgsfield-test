@@ -36,6 +36,11 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 import recut  # noqa: E402
 
 W, H, FPS = 1080, 1920, 30
+try:
+    from PIL import features as _pf
+    FEAT = {"features": ["lnum"]} if _pf.check("raqm") else {}   # lining figures in Cormorant titles ('Hobo 2.0')
+except ImportError:
+    FEAT = {}
 HERE = os.path.dirname(os.path.abspath(__file__))
 RED, INK, GOLD = (226, 30, 36), (17, 17, 17), (245, 180, 0)
 
@@ -71,7 +76,8 @@ def fix_words(words, fixes):
     return out
 
 
-def phrases(words, max_words=4):
+def phrases(words, max_words=4, breaks=()):
+    """Caption phrases: up to max_words, ended by punctuation, and never across a break (a block / speaker change)."""
     glued = []
     for w in words:                              # "50" + "%" -> "50%" before splitting, so it never breaks across phrases
         if w["w"].startswith("%") and glued:
@@ -80,6 +86,9 @@ def phrases(words, max_words=4):
             glued.append(w)
     out, cur = [], []
     for w in glued:
+        if cur and any(cur[-1]["s"] < b - 0.15 <= w["s"] for b in breaks):
+            out.append(cur)
+            cur = []
         cur.append(w)
         if len(cur) >= max_words or re.search(r"[.?!,:]$", w["w"]):
             out.append(cur)
@@ -222,8 +231,9 @@ def offer_png(path, o):
     t, s = o.get("title", "50% OFF"), o.get("sub", "+ FREE WALLET WITH EVERY ORDER")
     kicker = ""
     ft = font("Montserrat.ttf", 170, "Black")
-    if d.textlength(t, font=ft) > W - 200 and "50%" in t and not t.startswith("50%"):
-        kicker, t = t[:t.index("50%")].strip(" :-·"), t[t.index("50%"):]
+    m = re.search(r"\d+%", t)
+    if d.textlength(t, font=ft) > W - 200 and m and m.start():           # "BLACK FRIDAY 60% OFF": kicker + "60% OFF"
+        kicker, t = t[:m.start()].strip(" :-·"), t[m.start():]
     size = 170
     while d.textlength(t, font=ft) > W - 200 and size > 90:
         size -= 10
@@ -233,13 +243,14 @@ def offer_png(path, o):
     tw, sw = d.textlength(t, font=ft), d.textlength(s, font=fs)
     kw = d.textlength(kicker, font=fk) if kicker else 0
     bw = min(max(tw, sw, kw) + 120, W - 40)
-    d.rounded_rectangle([(W - bw) / 2, y, (W + bw) / 2, y + 330 + kh], radius=40, fill=RED + (250,))
+    d.rounded_rectangle([(W - bw) / 2, y, (W + bw) / 2, y + (330 if s else 236) + kh], radius=40, fill=RED + (250,))
     if kicker:
         d.text(((W - kw) / 2, y + 26), kicker, font=fk, fill=(255, 255, 255, 255))
     d.text(((W - tw) / 2, y + 30 + kh + (170 - size) // 2), t, font=ft, fill=(255, 255, 255, 255))
-    d.rounded_rectangle([(W - sw) / 2 - 24, y + 236 + kh, (W + sw) / 2 + 24, y + 306 + kh], radius=16,
-                        fill=(255, 255, 255, 255))
-    d.text(((W - sw) / 2, y + 242 + kh), s, font=fs, fill=RED + (255,))
+    if s:                                             # no sub (no gift): title only, no empty white pill
+        d.rounded_rectangle([(W - sw) / 2 - 24, y + 236 + kh, (W + sw) / 2 + 24, y + 306 + kh], radius=16,
+                            fill=(255, 255, 255, 255))
+        d.text(((W - sw) / 2, y + 242 + kh), s, font=fs, fill=RED + (255,))
     im.save(path)
 
 
@@ -249,13 +260,13 @@ def end_png(path, o):
     ft, fs = font("CormorantGaramond.ttf", 120, "SemiBold"), font("Montserrat.ttf", 54, "ExtraBold")
     y = o.get("y", 1180)
     t, s = o.get("title", "The Hobo Bag"), o.get("sub", "Tap the link below")
-    d.rectangle([0, y - 60, W, y + 330], fill=(18, 14, 12, 200))
+    d.rectangle([0, y - 60, W, y + 330], fill=(18, 14, 12, 255 if o.get("opaque") else 200))   # opaque: hides burned captions
     size = 120
-    while d.textlength(t, font=ft) > W - 100 and size > 60:   # shrink long titles to fit
+    while d.textlength(t, font=ft, **FEAT) > W - 100 and size > 60:   # shrink long titles to fit
         size -= 6
         ft = font("CormorantGaramond.ttf", size, "SemiBold")
-    tw = d.textlength(t, font=ft)
-    d.text(((W - tw) / 2, y - 20), t, font=ft, fill=(250, 244, 236, 255))
+    tw = d.textlength(t, font=ft, **FEAT)
+    d.text(((W - tw) / 2, y - 20), t, font=ft, fill=(250, 244, 236, 255), **FEAT)
     sw = d.textlength(s, font=fs)
     d.rounded_rectangle([(W - sw) / 2 - 44, y + 170, (W + sw) / 2 + 44, y + 270], radius=50, fill=RED + (255,))
     d.text(((W - sw) / 2, y + 186), s, font=fs, fill=(255, 255, 255, 255))
@@ -323,7 +334,8 @@ def main():
     events = []
     kw = {k.lower() for k in e.get("keywords", [])}
     skip = e.get("no_captions", [])
-    for i, p in enumerate(phrases(fix_words(words_of(base), CAPTION_FIX + e.get("caption_fix", [])), e.get("max_words", 4))):
+    for i, p in enumerate(phrases(fix_words(words_of(base), CAPTION_FIX + e.get("caption_fix", [])), e.get("max_words", 4),
+                                  e.get("breaks", []))):
         if any(s0 <= p["s"] < s1 for s0, s1 in skip):
             continue
         png = os.path.join(tmp, f"cap{i:03d}.png")

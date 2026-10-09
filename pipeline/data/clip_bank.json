@@ -118,8 +118,8 @@
      {"range": [20.32, 24.61], "label": "FITS MY WHOLE LIFE", "line": "I thought a secure bag meant a tiny, cramped one. But this fits my whole life."}],
     "review_intro": ["And she's not the only one.", "And customers agree.", "Here's what customers are saying."], "min_reviews": 3}},
   "c9_V2": {"id": "1xW7W1s-Zv-5UEHNYlSZmlBy3r1A30TVl", "dur": 33.4, "ad": "C9_V2_HappyWrong", "product": "Vintage Bag", "concept": "C9", "hook": "V2",
-   "notes": "Vintage Bag (Kate Creatives). No RAW in the library: edited export with BURNED-IN CAPTIONS and a music bed, several women. Opens strongly ('I almost didn't buy this because I'm 44... never been so happy to be wrong'). Cold-open and insert points sit on caption/shot changes (black frame at 6.27, no caption 25.17-25.43). RAW also says 'flash sale tonight' and 'two-year warranty'. File: Raw files/Kate Creatives/March/Proj 3/C9_V2_HappyWrong.mp4.",
-   "edit": {"start": 0.0, "end": null, "cut": [], "insert_at": 25.22, "offer_word": "50", "offer_after": null, "burned_captions": true,
+   "notes": "Vintage Bag (Kate Creatives). No RAW in the library: edited export with BURNED-IN CAPTIONS and a music bed, several women. Opens strongly ('I almost didn't buy this because I'm 44... never been so happy to be wrong'). Cold-open and insert points sit on caption/shot changes (black frame at 6.27, no caption 25.17-25.43). RAW also says 'flash sale tonight' and 'two-year warranty' (cut 28.16-30.3: the site gives 1 year; 30.3 is the first frame after the warranty caption, 'Don't miss' caption from 30.5). File: Raw files/Kate Creatives/March/Proj 3/C9_V2_HappyWrong.mp4.",
+   "edit": {"start": 0.0, "end": null, "cut": [[28.16, 30.3]], "insert_at": 25.22, "offer_word": "50", "offer_after": null, "burned_captions": true,
     "labels": [],
     "end_title": "The Vintage Bag",
     "cold_opens": [
