@@ -1,0 +1,118 @@
+{
+ "_help": "Hook lines for project mode (pipeline/projects.py expand): every planned storyboard video becomes a project of 4 versions (H1-H4) that differ only in the first 2-5 s: the spoken hook line, the opening shot and the label on screen. H1 is the planned hook; H2-H4 come from here, 4 DIFFERENT types per project, theme hooks first (make_batch.py THEMES), then the product's own lines, then the generic ones. Rules for every line: brand voice, short, spoken; only claims from docs/PLAYBOOK.md section 1 or the product's features; no fake testimonials ('I bought', 'my sister'), no invented numbers or superlatives ('10,000 women', 'best-selling'). Offer lines only through the placeholders make_batch.offer_vars() fills from the product's real offer ({P} '50%', {off_sp} 'fifty percent off', {price_sp} 'half price' at 50% else '<n> percent off', {gift_sp} 'a free matching pouch wallet', {GIFT_W} 'WALLET'; a [...] part drops out when its value is empty, a line whose value is empty outside [...] is skipped), and projects.py also drops any line or label new_product.unbacked() flags. Fields: text, type (one of 'types'), labels (2-4 words, uppercase, truthful; the first one not used yet in the project is shown), feature (a TAG of the product's features: the opening shot comes from that feature's picks when it can), formats (only for these storyboard formats: features / reviews / colours), per_feature (generic only: one line per product-file feature, {line} = its spoken line, {TAG} = its tag; a feature line may open a version even though the body says it later, never when block 1 says it). Product files have no entry under 'products': their own optional 'hooks' list (pipeline/data/products/README.md, checked by new_product.py check) comes first, then the per-feature and generic lines. Each line is at most 15 spoken words (projects.MAX_WORDS; colours videos add 'Which colour are you?'). Across a batch the least-used line is chosen first; a line repeated in another project gets another label (its own, then its type's) and another opening shot.",
+ "types": {
+  "problem": ["SOUND FAMILIAR?", "BEEN THERE?", "STOP SCROLLING"],
+  "curiosity": ["WAIT FOR IT", "LOOK CLOSER", "WATCH THIS"],
+  "question": ["BE HONEST", "QUICK QUESTION", "YOUR ANSWER?"],
+  "feature": ["LOOK CLOSER", "THE DETAILS", "IN DETAIL"],
+  "offer": ["{P} OFF", "FREE {GIFT_W}"],
+  "gift": ["GIFT IDEA", "GIFT SORTED", "GIFT GUIDE"],
+  "travel": ["TRAVEL DAY", "PACK SMARTER", "ON THE GO"],
+  "POV": ["POV"],
+  "story": ["THE STORY", "WAIT FOR IT"]
+ },
+ "theme_prefs": {
+  "default": {"prefer": ["problem", "curiosity", "feature", "question", "POV", "offer", "travel", "gift"], "avoid": []},
+  "black friday": {"prefer": ["offer", "curiosity", "problem", "feature", "question", "POV", "gift"], "avoid": ["travel"]},
+  "cyber monday": {"prefer": ["offer", "curiosity", "problem", "feature", "question", "POV", "gift"], "avoid": ["travel"]},
+  "cyber week": {"prefer": ["offer", "curiosity", "problem", "feature", "question", "POV", "gift"], "avoid": ["travel"]},
+  "christmas": {"prefer": ["gift", "question", "problem", "curiosity", "feature", "POV", "offer"], "avoid": ["travel"]},
+  "gift": {"prefer": ["gift", "question", "problem", "curiosity", "feature", "POV", "offer"], "avoid": ["travel"]},
+  "mothers day": {"prefer": ["gift", "question", "problem", "curiosity", "feature", "POV", "offer"], "avoid": ["travel"]},
+  "travel": {"prefer": ["travel", "problem", "feature", "question", "curiosity", "POV", "offer"], "avoid": ["gift"]}
+ },
+ "theme_hooks": {
+  "_help": "make_batch.py THEMES hooks (template text as written there) -> type and labels. A theme hook missing here is typed by projects.classify() and gets its type's labels.",
+  "Here's what makes the {short} different.": {"type": "curiosity", "labels": ["LOOK CLOSER", "WAIT FOR IT"]},
+  "Stop carrying a bag that swallows your keys.": {"type": "problem", "labels": ["STOP DIGGING", "SOUND FAMILIAR?"]},
+  "This might be the most practical bag you'll see today.": {"type": "curiosity", "labels": ["WAIT FOR IT", "WATCH THIS"]},
+  "Black Friday came early.": {"type": "curiosity", "labels": ["BLACK FRIDAY", "EARLY BLACK FRIDAY"]},
+  "This is the Black Friday deal you've been waiting for.": {"type": "offer", "labels": ["BLACK FRIDAY DEAL", "{P} OFF"]},
+  "Black Friday: the bag everyone asks about is {price_sp}.": {"type": "offer", "labels": ["{P} OFF", "BLACK FRIDAY DEAL"]},
+  "Cyber Monday: last call on our biggest sale.": {"type": "offer", "labels": ["LAST CALL", "CYBER MONDAY"]},
+  "Cyber Week: our biggest sale is still on.": {"type": "offer", "labels": ["CYBER WEEK", "{P} OFF"]},
+  "Still looking for the perfect Christmas gift?": {"type": "question", "labels": ["GIFT IDEA", "STILL LOOKING?"]},
+  "Most gifts end up in a drawer. Not this one.": {"type": "gift", "labels": ["GIFT SORTED", "GIFT IDEA"]},
+  "Looking for a gift that actually gets used?": {"type": "question", "labels": ["GIFT IDEA", "STILL LOOKING?"]},
+  "Still trying to figure out what to get your mum?": {"type": "question", "labels": ["FOR MUM", "GIFT FOR MUM"]},
+  "Here's a gift your mum will actually use every day.": {"type": "gift", "labels": ["GIFT FOR MUM", "FOR MUM"]},
+  "Travel day is where a bottomless bag really hurts.": {"type": "problem", "labels": ["TRAVEL DAY", "SOUND FAMILIAR?"]},
+  "Heading away soon? Here's the bag to take.": {"type": "travel", "labels": ["TRAVEL DAY", "PACK SMARTER"]},
+  "Packing for a trip? Start with the bag.": {"type": "question", "labels": ["PACK SMARTER", "TRAVEL TIP"]},
+  "Be honest. Which colour are you?": {"type": "question", "labels": ["WHICH ONE?", "BE HONEST"]},
+  "Which colour would you pick?": {"type": "question", "labels": ["WHICH ONE?", "PICK ONE"]}
+ },
+ "products": {
+  "hobo bag": [
+   {"text": "Stop digging for your keys at the bottom of your bag.", "type": "problem", "labels": ["STOP DIGGING"], "feature": "GOLD SIDE ZIPS"},
+   {"text": "If your bag is one big black hole, this is for you.", "type": "problem", "labels": ["SOUND FAMILIAR?"], "feature": "SMART COMPARTMENTS"},
+   {"text": "Most bags look the same from the front. Turn this one around.", "type": "curiosity", "labels": ["TURN IT AROUND", "LOOK CLOSER"], "feature": "HIDDEN BACK POCKET"},
+   {"text": "This bag has a pocket you can't see from the front.", "type": "curiosity", "labels": ["LOOK CLOSER", "HIDDEN POCKET"], "feature": "HIDDEN BACK POCKET"},
+   {"text": "Be honest: how long does it take you to find your keys?", "type": "question", "labels": ["BE HONEST"], "feature": "GOLD SIDE ZIPS"},
+   {"text": "Where do you keep your cards when you're out?", "type": "question", "labels": ["QUICK QUESTION"], "feature": "HIDDEN BACK POCKET"},
+   {"text": "One bag, three ways to wear it.", "type": "feature", "labels": ["3 WAYS TO WEAR"], "feature": "3 WAYS TO WEAR"},
+   {"text": "Soft leather that's water-resistant and scratch-proof.", "type": "feature", "labels": ["SCRATCH-PROOF LEATHER", "SOFT LEATHER"], "feature": "SOFT LEATHER"},
+   {"text": "The Hobo Bag is {price_sp}[, with {gift_sp}].", "type": "offer", "labels": ["{P} OFF"]},
+   {"text": "Need a gift for someone who carries everything?", "type": "gift", "labels": ["GIFT IDEA"], "feature": "SMART COMPARTMENTS"},
+   {"text": "Travelling soon? Your passport goes in a pocket that sits flat against you.", "type": "travel", "labels": ["TRAVEL TIP"], "feature": "HIDDEN BACK POCKET"},
+   {"text": "You reach for your keys and they're right where you left them.", "type": "POV", "labels": ["POV: NO MORE DIGGING"], "feature": "GOLD SIDE ZIPS"}
+  ],
+  "hobo 2.0": [
+   {"text": "It looks like a normal leather bag. Look closer.", "type": "curiosity", "labels": ["LOOK CLOSER"], "feature": "LOCKABLE ZIPPERS"},
+   {"text": "Six layers of security, inside a classic leather hobo bag.", "type": "curiosity", "labels": ["6-LAYER SECURITY", "WAIT FOR IT"]},
+   {"text": "Worried about pickpockets in a crowd? These zippers lock.", "type": "problem", "labels": ["LOCKABLE ZIPPERS", "SOUND FAMILIAR?"], "feature": "LOCKABLE ZIPPERS"},
+   {"text": "An open bag in a crowd is an easy target.", "type": "problem", "labels": ["LOCK IT UP", "SOUND FAMILIAR?"], "feature": "LOCKABLE ZIPPERS"},
+   {"text": "Would you carry a bag that locks?", "type": "question", "labels": ["WOULD YOU?"], "feature": "LOCKABLE ZIPPERS"},
+   {"text": "Does your bag block card scanners?", "type": "question", "labels": ["QUICK QUESTION"], "feature": "RFID LINING"},
+   {"text": "This bag's lining blocks card scanners.", "type": "feature", "labels": ["RFID LINING"], "feature": "RFID LINING"},
+   {"text": "This bag straps to your chair.", "type": "feature", "labels": ["TABLE STRAP"], "feature": "TABLE SECURITY STRAP"},
+   {"text": "Hobo 2.0 is {price_sp} right now[, with {gift_sp}].", "type": "offer", "labels": ["{P} OFF"]},
+   {"text": "A gift for anyone who travels: a bag with lockable zippers.", "type": "gift", "labels": ["GIFT IDEA"], "feature": "LOCKABLE ZIPPERS"},
+   {"text": "Heading somewhere crowded? Lock your zips before you go.", "type": "travel", "labels": ["TRAVEL TIP"], "feature": "LOCKABLE ZIPPERS"},
+   {"text": "You sit down at a cafe and your bag stays strapped to the chair.", "type": "POV", "labels": ["POV: IT STAYS PUT"], "feature": "TABLE SECURITY STRAP"}
+  ],
+  "3-piece set": [
+   {"text": "Which would you carry first: the hobo, the crossbody or the pouch?", "type": "question", "labels": ["PICK ONE"], "feature": "3 BAGS, 1 PRICE"},
+   {"text": "You don't get one bag here. You get three.", "type": "curiosity", "labels": ["WAIT FOR IT"], "feature": "3 BAGS, 1 PRICE"},
+   {"text": "This is what a matching three-piece set looks like.", "type": "curiosity", "labels": ["LOOK CLOSER"]},
+   {"text": "Switching bags shouldn't mean emptying everything out.", "type": "problem", "labels": ["EASY SWITCH", "SOUND FAMILIAR?"], "feature": "MATCHING POUCH"},
+   {"text": "A hobo for every day, a crossbody for going light, and a matching pouch.", "type": "feature", "labels": ["3 PIECES"], "feature": "HOBO + CROSSBODY"},
+   {"text": "Soft, scratch-proof leather, in a set of three.", "type": "feature", "labels": ["SCRATCH-PROOF LEATHER"], "feature": "SCRATCH-PROOF LEATHER"},
+   {"text": "The 3-piece set is {off_sp} right now.", "type": "offer", "labels": ["{P} OFF"]},
+   {"text": "One gift, three matching pieces.", "type": "gift", "labels": ["3-IN-1 GIFT", "GIFT IDEA"], "feature": "3 BAGS, 1 PRICE"},
+   {"text": "Travel tip: take the crossbody out, leave the big bag behind.", "type": "travel", "labels": ["TRAVEL LIGHT"], "feature": "HOBO + CROSSBODY"},
+   {"text": "Your hobo, your crossbody and your pouch, all matching.", "type": "POV", "labels": ["POV: IT ALL MATCHES"], "feature": "3 BAGS, 1 PRICE"}
+  ],
+  "vintage": [
+   {"text": "Take a closer look at the Vintage Bag.", "type": "curiosity", "labels": ["LOOK CLOSER"]},
+   {"text": "Classic on the outside. Organised on the inside.", "type": "curiosity", "labels": ["LOOK INSIDE"], "feature": "ROOM FOR EVERYTHING"},
+   {"text": "One hand, one snap, and it's shut.", "type": "feature", "labels": ["ONE-HAND CLASP"], "feature": "ONE-HAND CLASP"},
+   {"text": "Does your bag close with one hand?", "type": "question", "labels": ["QUICK QUESTION"], "feature": "ONE-HAND CLASP"},
+   {"text": "Handbag or crossbody? With this one, you don't have to choose.", "type": "question", "labels": ["WHY NOT BOTH?"], "feature": "ADJUSTABLE STRAP"},
+   {"text": "Phone, wallet and keys all loose at the bottom of your bag?", "type": "problem", "labels": ["SOUND FAMILIAR?"], "feature": "ROOM FOR EVERYTHING"},
+   {"text": "The Vintage Bag is {price_sp} right now.", "type": "offer", "labels": ["{P} OFF"]},
+   {"text": "Looking for a gift with a vintage look?", "type": "gift", "labels": ["GIFT IDEA"]},
+   {"text": "Day trip? Adjust the strap and wear it crossbody.", "type": "travel", "labels": ["CROSSBODY READY", "DAY TRIP"], "feature": "ADJUSTABLE STRAP"},
+   {"text": "You snap it shut with one hand and you're out the door.", "type": "POV", "labels": ["POV: ONE HAND"], "feature": "ONE-HAND CLASP"}
+  ],
+  "slouchy": [
+   {"text": "Soft, slouchy, and it comes as a set of three.", "type": "curiosity", "labels": ["WAIT FOR IT"], "feature": "3-PIECE SET"},
+   {"text": "A soft, slouchy silhouette with a relaxed, unstructured shape.", "type": "feature", "labels": ["SOFT + SLOUCHY"], "feature": "SOFT + SLOUCHY"},
+   {"text": "Anti-theft zips on a bag this relaxed? Look closer.", "type": "curiosity", "labels": ["LOOK CLOSER", "ANTI-THEFT ZIPS"], "feature": "ANTI-THEFT ZIPS"},
+   {"text": "Be honest: do you like your bag soft and slouchy?", "type": "question", "labels": ["BE HONEST"]},
+   {"text": "Everything sinking to the bottom of your bag? Thoughtful pockets fix that.", "type": "problem", "labels": ["SOUND FAMILIAR?", "STAY ORGANISED"], "feature": "STAYS ORGANISED"},
+   {"text": "A big, open bag with your valuables on show? Not with these anti-theft zips.", "type": "problem", "labels": ["ANTI-THEFT ZIPS", "BEEN THERE?"], "feature": "ANTI-THEFT ZIPS"},
+   {"text": "The Slouchy Set is {off_sp} right now.", "type": "offer", "labels": ["{P} OFF"]},
+   {"text": "One gift, three matching pieces.", "type": "gift", "labels": ["3-IN-1 GIFT", "GIFT IDEA"], "feature": "3-PIECE SET"},
+   {"text": "Out all day? Anti-theft zips keep your valuables protected.", "type": "travel", "labels": ["DAY OUT", "OUT ALL DAY"], "feature": "ANTI-THEFT ZIPS"},
+   {"text": "You found a bag that goes with every outfit.", "type": "POV", "labels": ["POV: GOES WITH EVERYTHING"], "feature": "TIMELESS LOOK"}
+  ]
+ },
+ "generic": [
+  {"text": "Take a closer look at the {short}.", "type": "curiosity", "labels": ["LOOK CLOSER"]},
+  {"text": "Have you seen the {short} yet?", "type": "question", "labels": ["QUICK QUESTION"]},
+  {"text": "The {short} is {price_sp}[, with {gift_sp}].", "type": "offer", "labels": ["{P} OFF"]},
+  {"text": "Looking for a gift? Meet the {short}.", "type": "gift", "labels": ["GIFT IDEA"]},
+  {"text": "{line}", "type": "feature", "labels": ["{TAG}", "LOOK CLOSER"], "per_feature": true}
+ ]
+}

@@ -24,8 +24,11 @@ The repo's default branch is `claude/loving-meitner-4amjii`. Read `docs/PLAYBOOK
    `Videos` + a run report). Never only post files in the chat.
 5. Never publish anywhere. Never delete or move Drive files.
 
-File names are automatic (`docs/NAMING.md`: `LC_<YYMMDD>_<Product>_<Theme>_<S01|V01>_<angle>`); list ads
-by these names in the reply.
+**Videos come in projects** (the client's agency format): one project = one video body in 4 versions
+H1-H4 that differ only in the hook (opening line, opening shot, on-screen label). `plan` does this by
+default (`--hooks 4`); a request for N videos means N projects (4N video files). File names are automatic
+(`docs/NAMING.md`: `LC_<YYMMDD>_<Product>_<Theme>_S01_<layout>` / `..._P01_H1_<angle>`); list ads by these
+names in the reply.
 
 ## 0. Setup (fresh container, about a minute)
 
@@ -41,14 +44,16 @@ python3 pipeline/drive_upload.py check                          # Drive login ok
 
 | Request says | `make_batch.py plan` flags |
 |---|---|
-| "N statics and M videos" | `--statics N --videos M` |
+| "N statics and M videos" (or "M projects") | `--statics N --videos M` → M projects × 4 hook versions |
+| "single videos" / "no hook versions" | add `--hooks 1` (V01, V02 … as before) |
 | a product | `--product "<name>"`: Hobo Bag (default), Hobo 2.0, 3-piece set, vintage, slouchy, or any product file in `pipeline/data/products/` |
-| a theme | `--theme "<words>"`: black friday, cyber monday, christmas, gift, mother's day, travel are built in; any other theme: `--theme "<words>"` plus your own short lines with `--lines` (keys `hero`, `bold`, `colours`, `V01_hook`, `V01_close` …) |
-| "winners" / "from the brief" / "new versions of our best ads" | `--winner-videos W` (+ `--statics S` / `--videos M` if asked). No numbers: `--winner-videos 6 --statics 4` |
-| specific winners ("3 versions of 94-H4 and 2 of 148-H5") | `--winner-videos 5 --winners "94-H4,148-H5"` (cycles through the list in order) |
+| a theme | `--theme "<words>"`: black friday, cyber monday, christmas, gift, mother's day, travel are built in; any other theme: `--theme "<words>"` plus your own short lines with `--lines` (keys `hero`, `bold`, `colours`, `P01_hook` / `V01_hook`, `P01_close` …) |
+| "winners" / "from the brief" / "new versions of our best ads" | `--winner-videos W` = W winner projects, one per winner in brief order, each holding that winner's cold-open hooks (2-4) (+ `--statics S` / `--videos M` if asked). No numbers: `--winner-videos 3 --statics 4` |
+| specific winners ("versions of 94-H4 and 148-H5") | `--winner-videos 2 --winners "94-H4,148-H5"`: one project per winner (a winner never gets a second project with the same openings; plan warns what it left out) |
 | "new product …" / "I added a product" | section 3 first, then `--product "<key>"` |
-| "batch" with no numbers | `--statics 20 --videos 10` |
-| "redo / another version of V02" (in the thread) | same plan flags with `--seed <N+1> --only V02` into a new `--out` (only V02 is voiced, rendered, uploaded; the name moves to `_v2` by itself) |
+| "batch" with no numbers | `--statics 20 --videos 5` (5 projects = 20 videos) |
+| "redo project 2" (in the thread) | same plan flags with `--seed <N+1> --only P02` into a new `--out` (only P02 is voiced, rendered, uploaded; names move to `_v2` by themselves) |
+| "another hook for P02 H3" | same plan flags with `--hook-seed <N+1> --only P02H3` (same body, a new hook; exits 2 if no unused hook is left: say so) |
 
 `plan` exits 2 with a clear message when something is wrong (unknown product → section 3, draft product
 file, too many credits, a sale theme for a product without a deal). Read it and act on it.
@@ -66,18 +71,22 @@ python3 pipeline/make_batch.py plan <flags> --request "<the request text>" --out
    `text2speech_v2`, variant `elevenlabs`, `use_unlim: false`, `voice_type` + `voice_id` from the item,
    prompt = item `text`; max 12 per call; resubmit any that fail with 429), `jobs_wait`, then download each
    result url to `$OUT/<item file>` (`curl -sSL -o`). Identical lines are listed once; render copies them.
-3. **Render** (about 1 min per static, about 10 min per video, 2 videos at a time), detached:
+3. **Render** (about 1 min per static, about 20 min per project of 4 versions, 2 videos at a time), detached:
    `setsid nohup python3 pipeline/make_batch.py render --out $OUT > $OUT/render.log 2>&1 < /dev/null &`
-   then check the log every couple of minutes until it prints `QA:`. More than 10 videos: render and
+   then check the log every couple of minutes until it prints `QA:`. More than 3 projects: render and
    upload the statics first (`render --only S`, `upload --only S`), then the videos (`render --only V`,
    `upload --only V`). Use a fresh `$OUT` for every request.
-4. **QA:** Read `$OUT/qa/statics.jpg`, every `$OUT/qa/V*.jpg` and `$OUT/qa/report.json`. Text off-frame,
-   wrong product, black frames, a face: fix (`--lines`, edit the spec JSON) and `render --only <id>`, or
+4. **QA:** Read `$OUT/qa/statics.jpg`, every `$OUT/qa/P*.jpg` (one per project: the 4 hooks side by side
+   + the body + a 'body vs H1' number per version: under 10 = same body) and `$OUT/qa/report.json`. Text off-frame, wrong product, black frames, a face: fix a hook in
+   its `..._P01_H3_...json`, a body problem in `$OUT/_before_hooks/<V01 spec>.json` then re-run
+   `python3 pipeline/projects.py expand --out $OUT` (all 4 versions get it), and `render --only <id>`; or
    leave it out and say so. A face in a static or a failed render is never uploaded; length/anchor flags
    are uploaded and listed in the run report: mention them in the reply.
 5. **Upload:** `python3 pipeline/make_batch.py upload --out $OUT --name "<short request name>"` → prints the
    Drive folder link and the uploaded ads. Higgsfield `balance` again.
-6. **Reply** (one short message): Drive folder link · one line per ad (name, angle, length) · credits used
+6. **Reply** (one short message): Drive folder link · statics one line each · videos one block per project
+   ("P01 – <angle>" + winner and ROAS, then per version: H#, label, spoken line, length) · plan warnings
+   (fewer than 4 versions, openings already used in an earlier batch) · credits used
    (balance before → after) · brief used and if it is stale · winners skipped (unmatched) and why ·
    anything else skipped, failed or needing a human.
 7. Commit the specs (JSON only, no media, no secrets):

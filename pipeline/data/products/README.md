@@ -19,7 +19,8 @@ our voiceover, captions, tags, review cards, offer card, end card. No AI images 
    compare-at price, colours, description), scores the photos, proposes clip start times, makes
    `overview.jpg` plus one contact sheet per clip, and writes `<slug>.json` with `"status": "draft"`.
 3. **Claude reviews the draft.** It opens `overview.jpg` and the sheets, then rewrites the features
-   (3-5, only true claims from the site or the notes) and checks the offer. When it is happy it sets
+   (3-5, only true claims from the site or the notes), checks the offer and may add 6-10 `hooks` (opening
+   lines of different types, so each video's 4 hook versions differ). When it is happy it sets
    `"status": "ready"`.
 4. `python3 pipeline/new_product.py check <slug>` must show `"ok": true`.
 5. Commit the JSON file (never the media). Then use the standard path:
@@ -48,6 +49,7 @@ so they only work in the current session.
 | `offer.evidence` | Where the offer came from (prices, quoted phrases). Only for review: never shown in ads. |
 | `hook_clips` | Shots for the first second of a video (picks, see below). |
 | `features` | 3-5 entries `["spoken line", "TAG", [pick, ...]]`. The line is one short spoken sentence; the TAG is the 2-3 word uppercase label shown with it ("CONVERTIBLE STRAPS"). |
+| `hooks` | Optional. 6-10 opening lines for the hook versions (H2-H4) of each video project (`pipeline/projects.py`): `"line"` or `{"text": "...", "type": "problem", "labels": ["SOUND FAMILIAR?"], "feature": "ZIP TOP"}`. One spoken line of 15 words at most; `type` one of problem, curiosity, question, feature, offer, gift, travel, POV, story (left out: guessed from the words); `labels` 1-4 UPPERCASE words shown on screen; `feature` a feature TAG whose footage opens the version. Only true claims from `facts`; an offer only through `{P}` / `{off_sp}` / `{price_sp}` / `{gift_sp}` (filled from the real offer, as in `pipeline/data/hooks.json`). Without it, the hook versions use the feature lines and a few generic lines. |
 | `customer` | Real customer clips `[section, key, start, end]` from `clip_bank.json`. Empty for new products. |
 | `broll` | Shots used under review cards and the close. |
 | `reviews` | Review numbers from `pipeline/data/reviews.json`, **only if the review is about this product** (its `product` names this product). Empty by default. Reviews 6-10 (`"product": "any"`) are store reviews the client approved for the built-in bags: never in a product file (`check` refuses them, `plan` drops them). |
@@ -68,9 +70,9 @@ A **pick** says which footage to show:
   10% above the price, rounded down to a multiple of 5). A gift is only used when a phrase like "free pouch /
   wallet / purse / gift" appears on the site or in the notes. When the product is not on the site, a percentage
   the client wrote in the notes is listed under `offer.evidence`; Claude may copy it into the badge, and `check`
-  accepts that. `check` also reads every line a customer sees (name, features and tags, `statics_sub`, `close`,
-  offer card): a %, "free ..." or sale words ("deal", "last call", "selling fast") the offer does not back are a
-  problem. A product with no offer cannot run a Black Friday / Cyber Monday batch (`plan` exits 2).
+  accepts that. `check` also reads every line a customer sees (name, features and tags, `hooks` and their labels,
+  `statics_sub`, `close`, offer card): a %, "free ..." or sale words ("deal", "last call", "selling fast") the
+  offer does not back are a problem. A product with no offer cannot run a Black Friday / Cyber Monday batch (`plan` exits 2).
 - **No faces in statics.** `faces` comes from a DNN face detector (OpenCV YuNet, `pipeline/assets/models`), on the
   photo and its mirror image; lifestyle photos also get the strict check (Haar frontal + profile cascades,
   mirrored, no skin-tone filter). `plan` re-checks every photo it uses, and `render` checks every finished static:

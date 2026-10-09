@@ -490,6 +490,7 @@ def site_pct(price, was):
     return int(math.floor(round(100 * (1 - price / was), 1) / 5) * 5) if price and was and was >= price * 1.1 else 0
 
 
+HOOK_TYPES = ("problem", "curiosity", "question", "feature", "offer", "gift", "travel", "POV", "story")   # = projects.TYPES
 GIFT_ONLY = re.compile(r"pouch|wallet|purse", re.I)
 SALEY = re.compile(r"\bdeals?\b|\bsales?\b|came early|last call|selling (?:fast|out)|sold out|clearance|ends tonight|"
                    r"today only|limited time|half (?:price|off)", re.I)
@@ -899,6 +900,25 @@ def validate(d):
             P.append(f"feature {i + 1}: line must be one short spoken sentence ending in . ! or ?")
         for p in f[2]:
             pick_ok(p, f"feature {i + 1}")
+    hooks = d.get("hooks", [])
+    if not isinstance(hooks, list):
+        P.append("'hooks' must be a list")
+        hooks = []
+    for i, h in enumerate(hooks):            # optional opening lines for project mode (pipeline/projects.py)
+        h = {"text": h} if isinstance(h, str) else h
+        if not (isinstance(h, dict) and isinstance(h.get("text"), str) and h["text"].strip()):
+            P.append(f"hook {i + 1}: must be \"line\" or {{\"text\": ..., \"type\": ..., \"labels\": [...]}}")
+            continue
+        if len(h["text"].split()) > 15 or h["text"].strip()[-1:] not in ".!?":
+            P.append(f"hook {i + 1}: must be one short spoken line (15 words at most) ending in . ! or ?")
+        if h.get("type") is not None and h["type"] not in HOOK_TYPES:
+            P.append(f"hook {i + 1}: type {h['type']!r} is not one of {', '.join(HOOK_TYPES)}")
+        labs = h.get("labels") or []
+        if not isinstance(labs, list) or any(not isinstance(x, str) or x != x.upper() or not 1 <= len(x.split()) <= 4
+                                             for x in labs):
+            P.append(f"hook {i + 1}: labels must be a list of 1-4 word UPPERCASE texts")
+        if h.get("feature") and h["feature"] not in {f[1] for f in feats if isinstance(f, list) and len(f) == 3}:
+            W.append(f"hook {i + 1}: feature {h['feature']!r} is not a feature TAG (its opening shot is picked without it)")
     for fld in ("hook_clips", "broll"):
         if not d.get(fld):
             P.append(f"'{fld}' needs at least one pick")
@@ -955,7 +975,9 @@ def validate(d):
         texts = [("name", d.get("name")), ("short", d.get("short")), ("end", d.get("end"))] + \
                 [(f"offer.{k}", o.get(k)) for k in ("statics_sub", "close", "offer_title", "offer_sub")] + \
                 [(f"feature {i + 1} {'line' if k == 0 else 'tag'}", f[k]) for i, f in enumerate(feats)
-                 if isinstance(f, list) and len(f) == 3 for k in (0, 1)]
+                 if isinstance(f, list) and len(f) == 3 for k in (0, 1)] + \
+                [(f"hook {i + 1}", x) for i, h in enumerate(hooks) for x in
+                 ([h] if isinstance(h, str) else [h.get("text")] + list(h.get("labels") or []) if isinstance(h, dict) else [])]
         for where, t in texts:
             why = unbacked(t if isinstance(t, str) else "", pm.group(1) if pm else None, g)
             if why:

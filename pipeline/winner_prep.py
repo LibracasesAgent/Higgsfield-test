@@ -10,17 +10,19 @@ winner_raws entry (pipeline/data/clip_bank.json) for Claude to review like an ed
      small.en, word timestamps) -> pipeline/data/transcripts/<key>_words.json
   3. Contact sheet with timestamps -> <outdir>/<key>_sheet.jpg (Read it: speaker, product, burned captions).
   4. Draft entry (printed with the timed transcript): concept/hook, product, dur, cold_opens (top 3 hook-like
-     sentences of 2-7 s after 5 s), insert_at (sentence holding the offer), offer_word, labels (REASON/STEP n),
-     review_intro, min_reviews, "draft": true. Ranges sit on word boundaries (first word -0.08 s, last word
+     sentences of 2-7 s after 5 s, each with a proposed hook "type", one of projects.TYPES), insert_at (sentence
+     holding the offer), offer_word, labels (REASON/STEP n), review_intro, min_reviews, "draft": true. Ranges sit on word boundaries (first word -0.08 s, last word
      +0.15 s); where whisper's timing lands in audible speech the point moves to the real pause nearby.
      --write puts it into winner_raws (other entries untouched; a reviewed entry is never overwritten).
-     Then review it: fix ranges/labels/insert point/cuts, set end_title, delete "draft" (edit the JSON).
+     Then review it: fix ranges/labels/types/insert point/cuts, set end_title, delete "draft" (edit the JSON).
      Burned-caption files: put every boundary on a caption change (look at the frames), not just the words.
 
   python3 pipeline/winner_prep.py --check [raw94_H4 ...]
           Verify entries against their transcripts: words inside every cold open, words around insert_at and
           cuts, the word each label and the offer card land on, RAW body length vs min_reviews, and (when the
-          file is cached) the audio level at every boundary: a cut inside speech is a WARNING (exit 1).
+          file is cached) the audio level at every boundary: a cut inside speech is a WARNING (exit 1), and so are a
+          cold open without a valid "type" and a cold open whose first/last frames show the neighbouring shot (cut
+          as the render cuts it; the first frame is the version's thumbnail).
   python3 pipeline/winner_prep.py --format
           Rewrite the winner_raws section in the standard layout (nothing else in the file changes).
 """
@@ -96,6 +98,24 @@ def load_audio(path):
                          capture_output=True).stdout
     import numpy as np
     return np.frombuffer(raw, np.int16).astype(np.float32) / 32768
+
+
+def edge_flash(path, r, n=6):
+    """Frames of a neighbouring shot at the edges of a cold open, as the render cuts it (recut: -ss/-t, fps 30): a jump
+    in the first/last n frames that stands out (> 25 and 4x the cold open's median frame change, 2x its neighbours'). The
+    first frame is also the version's thumbnail. Returns [("start"|"end", frames of the other shot, s of the cut)]."""
+    import numpy as np
+    W, H = 64, 114
+    raw = subprocess.run(["ffmpeg", "-v", "error", "-ss", str(r[0]), "-t", f"{r[1] - r[0]:.3f}", "-i", path,
+                          "-vf", f"fps=30,scale={W}:{H}", "-f", "rawvideo", "-pix_fmt", "gray", "-"], capture_output=True).stdout
+    k = len(raw) // (W * H)
+    if k < 3:
+        return []
+    d = np.abs(np.diff(np.frombuffer(raw[:k * W * H], np.uint8).reshape(k, H, W).astype(np.float32), axis=0)).mean(axis=(1, 2))
+    thr = max(25.0, 4 * float(np.median(d)))
+    jump = [i for i in range(len(d)) if d[i] > thr and d[i] > 2 * max([d[j] for j in (i - 1, i + 1) if 0 <= j < len(d)])]
+    return ([("start", i + 1, round(r[0] + (i + 1) / 30, 2)) for i in jump if i < n] +
+            [("end", len(d) - i, round(r[0] + (i + 1) / 30, 2)) for i in jump if i >= len(d) - n])
 
 
 def db(x, t, w=0.02):
@@ -317,13 +337,20 @@ def contact_sheet(path, dur, out, cols=6, n=36):
     return out
 
 
+def hook_type(line, label):
+    """Proposed hook type of a cold open (projects.TYPES; the editor corrects it: plan/report show it per version)."""
+    import projects
+    return projects.classify(f"{line} {label}".strip())
+
+
 def draft(name, fid, path, ws, dur, raw, product=None, x=None):
     concept, hook = parse_code(name)
     product = product or guess_product(path, " ".join(w["w"] for w in ws))
     ins, offer_word, offer_after = offer_and_insert(ws, dur, x)
     edit = dict(start=0.0, end=None, cut=[], insert_at=ins, offer_word=offer_word, offer_after=offer_after,
                 burned_captions=not raw, labels=number_labels(ws), end_title=END.get(product, f"The {product}"),
-                cold_opens=[{k: c[k] for k in ("range", "label", "line")} for c in cold_open_candidates(ws, dur, x=x)])
+                cold_opens=[dict({k: c[k] for k in ("range", "label", "line")}, type=hook_type(c["line"], c["label"]))
+                            for c in cold_open_candidates(ws, dur, x=x)])
     first_person = len(re.findall(r"\b(i|i'm|my|me|mine)\b", " ".join(clean(w["w"]) for w in ws))) >= 4
     edit["review_intro"] = (["Don't just take her word for it."] if first_person else []) + [
         "And customers agree.", "Here's what customers are saying."]
@@ -418,14 +445,22 @@ def check(key, e):
             warn.append(f"boundary {t} is in speech ({db(x, t):.0f} dB; pause at {q:.2f}, {db(x, q):.0f} dB)")
         return f" [{db(x, t):.0f}/{db(x, q):.0f} dB]"
 
+    import projects
     for c in ed.get("cold_opens", []):
         r = c["range"]
+        if c.get("type") not in projects.TYPES:
+            warn.append(f"cold open {c['label']!r}: type {c.get('type')!r} is not one of {', '.join(projects.TYPES)} "
+                        f"(the hook type plan and the run report show for its version)")
         if r is None:
-            print(f"   cold open: none, label {c['label']!r} at 0.1 s")
+            print(f"   cold open: none, label {c['label']!r} at 0.1 s [{c.get('type')}]")
             continue
         got = " ".join(w["w"] for w in ws if w["s"] >= r[0] - 0.05 and w["e"] <= r[1] + 0.05)
         lv = level(r[0]) + level(r[1])
-        print(f"   cold open {r[0]:6.2f}-{r[1]:6.2f} ({r[1] - r[0]:.1f}s){lv} {c['label']!r}: {got}")
+        print(f"   cold open {r[0]:6.2f}-{r[1]:6.2f} ({r[1] - r[0]:.1f}s){lv} {c['label']!r} [{c.get('type')}]: {got}")
+        for edge, nf, t in edge_flash(f, r) if x is not None else []:
+            warn.append(f"cold open {r} {c['label']!r}: its {'first' if edge == 'start' else 'last'} {nf} frame(s) show "
+                        f"the {'previous' if edge == 'start' else 'next'} shot (cut at ~{t} s): "
+                        f"{'start just after' if edge == 'start' else 'end ~0.05 s before'} the cut, outside the words")
         for t in r:
             if inside(t) and x is None:
                 warn.append(f"cold open {r} boundary {t} cuts the word {inside(t)['w']!r}")

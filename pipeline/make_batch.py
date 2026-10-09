@@ -7,30 +7,48 @@ videos re-edit the winning RAW (pipeline/remix.py) with a new cold open and a na
 No AI images or AI video are made here. The only paid step is the voiceover lines (~0.3 credits each),
 which Claude generates with Higgsfield between `plan` and `render`.
 
+Videos are delivered as PROJECTS, the client's agency format ('ACH - MAX - 94 - H4' = project 94, hook 4): every
+planned video is one body (story, features, reviews, offer, end card) made in --hooks versions H1-H4 (default 4) that
+differ only in the first 2-5 s: the spoken opening line, the opening shot and the hook label; a winner remix gets
+another cold open per version. pipeline/projects.py makes the versions (hook lines: pipeline/data/hooks.json). Ids
+P01H1 .. P01H4, names LC_<date>_<Product>_<Theme>_P01_H1_<angle>. --hooks 1 = single videos V01, V02 ... as before.
+
   1) python3 pipeline/make_batch.py plan --statics 3 --videos 4 --product "Hobo Bag" \
-         --theme "black friday" --out /tmp/run
+         --theme "black friday" --out /tmp/run [--hooks 4]
          [--winner-videos 6 [--winners latest | "94-H4,148-H5" | "94,148" | brief.json | all]]
-     -> /tmp/run/plan.json, statics.json, <name>.json per video, tts_needed.json (lines to voice, with voice ids)
-     Winner videos come first (V01..), one per winner in brief order (cycling, each reuse gets another cold
-     open + other reviews); storyboard videos follow. --product omitted: the top winner's product, else Hobo Bag.
+     -> /tmp/run/plan.json (videos: one entry per version; projects: P01.. with their hooks), statics.json, one spec
+        <name>.json per version, tts_needed.json (lines to voice, with voice ids; the H2-H4 hook lines included)
+     Winner videos come first (P01..), one project per winner in brief order: a project holds up to --hooks of its
+     winner's cold opens, so a winner gets a 2nd project only when its RAW has --hooks more (else the extra projects
+     are left out with a warning: they would repeat its openings; --hooks 1: cycling, each reuse gets another cold open
+     + other reviews); storyboard videos follow. --product omitted: the top winner's product, else Hobo Bag.
+     Winner openings that already went out in a committed batch (pipeline/recipes/daily) are named in a warning.
      Products: the built-in bags below or pipeline/data/products/<slug>.json (new_product.py); an unknown or
-     draft product exits 2. Refuses (exit 2) when the voiceover would cost more than 40 credits (--budget X).
+     draft product exits 2. Refuses (exit 2) when the voiceover, hook lines included, would cost more than 40
+     credits (--budget X).
   2) Claude: for each item in tts_needed.json -> Higgsfield generate_audio_batch (model text2speech_v2,
      variant elevenlabs, use_unlim false, voice from the item) -> download the mp3 to /tmp/run/<file>
-     (identical lines are listed once; render copies them to the other file names)
-  3) python3 pipeline/make_batch.py render --out /tmp/run [--jobs 2] [--only V03]
-     (statics, then videos in parallel, + QA sheets and qa/report.json)
+     (identical lines are listed once; render copies them to the other file names; the versions of a project share
+     their body lines, so only the hook lines are new)
+  3) python3 pipeline/make_batch.py render --out /tmp/run [--jobs 2] [--only P03 | P03H2 | V | S]
+     (statics, then videos in parallel, + QA: qa/statics.jpg, one contact sheet per version qa/P01H1.jpg ..., one
+     sheet per project qa/P01.jpg (its versions side by side, the body once, body match < 10 = same body), and
+     qa/report.json)
   4) Claude looks at /tmp/run/qa/*.jpg; re-render (--only) or drop anything broken
-  5) python3 pipeline/make_batch.py upload --out /tmp/run --name "Black Friday test" [--only S|V|V03] [--include-flagged]
-     -> Drive Outputs/<date> – <name>/{Statics,Videos} + "run report <HHMM>.txt"; prints the folder link and the ad list
+  5) python3 pipeline/make_batch.py upload --out /tmp/run --name "Black Friday test" [--only S|V|P03|P03H2] [--include-flagged]
+     -> Drive Outputs/<date> – <name>/{Statics, Videos/<P01 – angle>/ (one folder per project)} + "run report <HHMM>.txt"
+     (one block per project: each version's hook type, label, line and length); prints the folder link and the ad list
      (only the files plan.json lists; hard QA failures stay out: render failed, file missing, a face in a static, a
      video under 25 s;
      length / anchor flags are uploaded and listed in the report; ads not rendered yet are listed as still being made)
   6) python3 pipeline/make_batch.py specs --out /tmp/run --dest pipeline/recipes/daily/<date>/<name>   (JSON to commit)
-A redo of one ad: the same plan command with --seed <N+1> --rev 2 --only V02 (voices, renders and uploads only V02).
+A redo of a whole project: the same plan command with --seed <N+1> --rev 2 --only P02 (voices, renders and uploads only
+P02's versions; with --hooks 1: --only V02). A redo of one version on the same body: the same plan command (same
+--seed) with --hook-seed <N+1> --rev 2 --only P02H3. --only V02 in project mode means P02.
 
-Optional --lines lines.json overrides headlines and spoken lines: hero, bold, colours, V03_hook / V03_close (video id)
-or B01_hook / B01_close (storyboard 1, whatever its V number after the winner videos); unused keys are warned about.
+Optional --lines lines.json overrides headlines and spoken lines: hero, bold, colours, V03_hook / V03_close (video id;
+P03_hook / P03_close the same: the H1 line and the close every version shares) or B01_hook / B01_close (storyboard 1,
+whatever its number after the winner videos); unused keys are warned about.
 Offers come from libracases.com at plan time (each product's own %, a gift only when the site says so); names move to
 the first _vN that is not in Drive yet.
 """
@@ -241,10 +259,10 @@ PRODUCTS = {
         name="Slouchy Soft 3-Piece Set", short="Slouchy Set", site="slouchy", end="The Slouchy Soft Set",
         hook_clips=[["slouchy_set", "brown_lifestyle", 8.0], ["slouchy_set", "coffee_run", 6.5]],
         features=[
-            ("Soft, slouchy leather that moulds to you.", "SOFT SLOUCHY LEATHER", [["slouchy_set", "brown_lifestyle", 11.3]]),
+            ("Effortlessly stylish, with a soft, slouchy silhouette.", "SOFT + SLOUCHY", [["slouchy_set", "brown_lifestyle", 11.3]]),
             ("Three pieces in every set: the bag, a crossbody, and a pouch.", "3-PIECE SET",
              [["slouchy_set", "flatlay", 1.0], ["slouchy_set", "all3_crossbody", 4.0]]),
-            ("Big enough for everything, light enough for all day.", "ROOMY + LIGHT", [["slouchy_set", "coffee_run", 11.8]]),
+            ("Thoughtful pockets keep everything beautifully organised.", "STAYS ORGANISED", [["slouchy_set", "coffee_run", 11.8]]),
             ("Secure anti-theft zips and thoughtful pockets keep your valuables safe.", "ANTI-THEFT ZIPS",
              [["slouchy_set", "all3_crossbody", 0.5], ["slouchy_set", "flatlay", 3.5]]),
             ("A relaxed, timeless shape that goes with any outfit.", "TIMELESS LOOK",
@@ -333,7 +351,7 @@ def product(pk, files, warnings=None):
                 customer=d.get("customer") or [], broll=d.get("broll") or [], reviews=revs, offer=d.get("offer") or {},
                 photos=d.get("photos") or [], clips=d.get("clips") or [], source=d.get("_path") or "product file",
                 status=d.get("status"), notes=(d.get("facts") or {}).get("notes") or "", facts=d.get("facts") or {},
-                site_lifestyle=d.get("site_lifestyle") or [])
+                site_lifestyle=d.get("site_lifestyle") or [], hooks=d.get("hooks") or [])   # hooks: project-mode lines
 
 
 def honest(pr, warnings):
@@ -648,6 +666,29 @@ def safe_name(s):
     return re.sub(r"[^A-Za-z0-9._-]+", "_", s).strip("_") or "file"
 
 
+def only_ids(only, projects):
+    """--only 'S01,V02,P03H2' -> upper-case id prefixes in the plan's own terms (an ad is picked when its id starts with
+    one). Project mode (video ids P01H1 ..): V02 = project P02 (all its versions), V / P = every video. Single videos
+    (--hooks 1, ids V01 ..): P02 / P02H1 = V02 (a P02H3 matches nothing: there are no hook versions)."""
+    ids = []
+    for x in re.sub(r"\s+", "", (only or "").upper()).split(","):
+        if x[:1] == "V" and projects:
+            x = "P" + x[1:]
+        elif x[:1] == "P" and not projects:
+            m = re.match(r"P(\d*)(?:H1)?$", x)
+            x = "V" + m.group(1) if m else x
+        ids += [x] if x else []
+    return ids
+
+
+def picked(i, ids):
+    return any(i.startswith(x) for x in ids)
+
+
+def static_id(name):
+    return re.findall(r"_(S\d+)_", name)[-1]
+
+
 # ---------------------------------------------------------------- plan
 def plan(a):
     out = os.path.abspath(a.out)
@@ -782,7 +823,24 @@ def plan(a):
             warnings.append(msg)
             W = 0
         sel["winners"] = keep
-    wkeys = [sel["winners"][i % len(sel["winners"])]["key"] for i in range(W)] if W else []
+    wrows = [sel["winners"][i % len(sel["winners"])] for i in range(W)] if W else []   # cycling through the winners
+    if W and a.hooks > 1:   # project mode: a project holds up to --hooks of its winner's cold opens (projects.py); another
+        # project of the same winner only when its RAW has --hooks more, else it would repeat them under new names
+        def n_cos(k):
+            return len({(json.dumps(c.get("range")), (c.get("label") or "").upper())
+                        for c in rw[k]["edit"].get("cold_opens") or []}) or 1
+        cap = {w["key"]: max(1, n_cos(w["key"]) // a.hooks) for w in sel["winners"]}
+        wrows = [w for r_ in range(max(cap.values())) for w in sel["winners"] if cap[w["key"]] > r_][:W]
+        if len(wrows) < W:
+            held = ", ".join(f"{w.get('name') or w['key']}: {n_cos(w['key'])}" for w in {x["key"]: x for x in wrows}.values())
+            warnings.append(f"--winner-videos {W}: {len(wrows)} winner project{'s' if len(wrows) > 1 else ''} "
+                            f"({'one per winner' if max(cap.values()) == 1 else 'per winner as its cold opens allow'}; cold "
+                            f"opens {held}): a project holds up to {a.hooks} of its winner's cold opens, so another project "
+                            f"of the same winner would repeat its openings under new names (only the narrated reviews "
+                            f"differ); {W - len(wrows)} left out. More projects of a winner need new cold opens first "
+                            f"(python3 pipeline/winner_prep.py)")
+        W = len(wrows)
+    wkeys = [w["key"] for w in wrows]
     if need:
         need_deal(pr)
     for k in wkeys:
@@ -987,7 +1045,7 @@ def plan(a):
     # winner remixes first: V01..VW
     used_sets, uses = set(), {}
     for i in range(W):
-        w = sel["winners"][i % len(sel["winners"])]
+        w = wrows[i]
         e = rw[w["key"]]
         ed = e["edit"]
         j = uses.get(w["key"], 0) + a.seed - 1
@@ -1090,7 +1148,8 @@ def plan(a):
                      [h + " Which colour are you?" for h in hooks])
         o2 = o + o // len(hooks)
         o3 = o + o // max(len(fs), 1)
-        hook = ov(hooks[(v + o) % len(hooks)], f"{vid}_hook", f"{bid}_hook")
+        pid = "P" + vid[1:]               # project mode: P03_hook = V03_hook (H1's line; H2.. come from projects.py)
+        hook = ov(hooks[(v + o) % len(hooks)], f"{vid}_hook", f"{pid}_hook", f"{bid}_hook")
         hcs = rot(pr["hook_clips"], v + o)
         hc = next((h for h in hcs if tuple(h) not in feat_picks), hcs[0] if hcs else None)   # not a shot a feature shows
         shown = {tuple(hc)} if hc else set()
@@ -1159,7 +1218,7 @@ def plan(a):
             add_reviews(3); add_customer(); add_features(nfeat)  # noqa: E702
         else:
             add_colours(); add_customer(); add_reviews(2); add_features(nfeat)  # noqa: E702
-        close = ov(tx["close"], f"{vid}_close", f"{bid}_close")
+        close = ov(tx["close"], f"{vid}_close", f"{pid}_close", f"{bid}_close")
 
         def est_now():
             return sum(len(said.get(x.get("vo"), "").split()) / WPS + 0.25 if "vo" in x else x["range"][1] - x["range"][0]
@@ -1176,7 +1235,7 @@ def plan(a):
                 add_customer()
             if len(blocks) == nb:
                 break
-        if (f"{vid}_close" in used or f"{bid}_close" in used) and tx["offer_title"] and tx["offer_word"]:
+        if {f"{vid}_close", f"{pid}_close", f"{bid}_close"} & used and tx["offer_title"] and tx["offer_word"]:
             ow = tx["offer_word"]
             if ow not in close.lower() and (not ow.isdigit() or new_product.say(int(ow)).split("-")[0] not in close.lower()):
                 warnings.append(f"{vid}: the --lines close has no '{ow}' (or its spoken word): the offer card will not show")
@@ -1230,17 +1289,30 @@ def plan(a):
         videos.append(ventry)
     unused = sorted(set(over) - used)
     if unused:
-        ids = ", ".join(f"{v['id']} (= B{k + 1:02d})" for k, v in enumerate(x for x in videos if x["engine"] == "storyboard"))
+        ids = ", ".join(f"{v['id']} (= B{k + 1:02d}{', P' + v['id'][1:] if a.hooks > 1 else ''})"
+                        for k, v in enumerate(x for x in videos if x["engine"] == "storyboard"))
         warnings.append(f"--lines keys not used: {', '.join(unused)}. Keys: hero, bold, colours, <id>_hook / <id>_close for "
                         f"the storyboard videos {ids or '(none in this plan)'}")
+    pm = a.hooks > 1 and bool(videos)   # project mode: every video becomes project Pnn in a.hooks versions (projects.py)
+    keep, ponly = videos, None          # keep: the videos this plan makes; ponly: --only for projects.expand (P02, P02H3)
     if a.only:      # a redo of some ads: only these are voiced, rendered and uploaded (their names keep their numbers)
-        ids = [x.strip().upper() for x in a.only.split(",") if x.strip()]
-        statics = [s for s in statics if any(re.findall(r"_(S\d+)_", s["name"])[-1].startswith(x) for x in ids)]
-        videos = [v for v in videos if any(v["id"].startswith(x) for x in ids)]
-        specs = {v["name"]: specs[v["name"]] for v in videos}
-        tts = [t for t in tts if any(t["file"].startswith(v["id"] + "_") for v in videos)]
-        if not statics and not videos:
-            print(f"--only {a.only}: no static or video with that id in this plan", file=sys.stderr)
+        ids, statics_all, videos_all = only_ids(a.only, pm), statics, videos
+        statics = [s for s in statics if picked(static_id(s["name"]), ids)]
+        if pm:      # every video is still planned and expanded, so the kept versions get the hooks the full plan gives them
+            pids = [re.match(r"P\d*", x).group(0) for x in ids if x[:1] == "P"]
+            keep = [v for v in videos if picked("P" + v["id"][1:], pids)]
+            ponly = None if "P" in ids else ",".join(x for x in ids if x[:1] == "P")
+            if not keep:
+                videos, specs, tts, pm = [], {}, [], False
+        else:
+            keep = videos = [v for v in videos if picked(v["id"], ids)]
+            specs = {v["name"]: specs[v["name"]] for v in videos}
+            tts = [t for t in tts if any(t["file"].startswith(v["id"] + "_") for v in videos)]
+        if not statics and not keep:
+            have = [static_id(s["name"]) for s in statics_all] + [("P" + v["id"][1:]) if a.hooks > 1 else v["id"] for v in videos_all]
+            print(f"--only {a.only}: no static or video with that id in this plan (ids: {', '.join(have) or 'none'}"
+                  f"{'; --hooks 1 makes single videos, no hook versions' if a.hooks <= 1 and 'H' in a.only.upper() else ''})",
+                  file=sys.stderr)
             sys.exit(2)
 
     # ---------- voiceover: one line per (text, voice); budget
@@ -1252,31 +1324,34 @@ def plan(a):
         else:
             uniq[k] = t
     tts_u = list(uniq.values())
+    vname = lambda v: ("P" + v["id"][1:]) if pm else v["id"]  # noqa: E731 - how the reply and Drive call this video
     for v in videos:
         v["est_seconds"] = est_seconds(specs[v["name"]], said, rw)
         lo, hi = (35, 110) if v["engine"] == "remix" else (35, 95)
-        if not lo <= v["est_seconds"] <= hi:
+        if v in keep and not lo <= v["est_seconds"] <= hi and not (pm and v["est_seconds"] < lo):  # (expand: per version)
             fix = ("" if v["engine"] == "remix" else ": add lines with --lines" if pr["source"] == "built-in" else
                    ": the product file needs more features/clips, or add lines with --lines")
-            warnings.append(f"{v['id']} will run about {v['est_seconds']:.0f} s (QA wants {lo}-{hi} s){fix}")
-    short = [v for v in videos if v["engine"] == "storyboard" and v["est_seconds"] < MIN_SECONDS]
+            warnings.append(f"{vname(v)} will run about {v['est_seconds']:.0f} s (QA wants {lo}-{hi} s){fix}")
+    short = [v for v in keep if v["engine"] == "storyboard" and v["est_seconds"] < MIN_SECONDS]
     if short:
-        print(f"{', '.join(v['id'] + ' ~' + str(round(v['est_seconds'])) + ' s' for v in short)}: under the {MIN_SECONDS} s floor, "
-              f"too short to run as an ad. " + ("Add hook/close lines with --lines, or make fewer videos." if pr["source"] ==
-                                               "built-in" else f"{pr['source']} needs more features, clips or photos "
-                                               "(new_product.py check), or longer lines with --lines."), file=sys.stderr)
+        print(f"{', '.join(vname(v) + ' ~' + str(round(v['est_seconds'])) + ' s' for v in short)}: under the {MIN_SECONDS} s "
+              f"floor, too short to run as an ad. " + ("Add hook/close lines with --lines, or make fewer videos." if pr["source"] ==
+                                                      "built-in" else f"{pr['source']} needs more features, clips or photos "
+                                                      "(new_product.py check), or longer lines with --lines."), file=sys.stderr)
         sys.exit(2)
     est = round(0.35 * len(tts_u), 1)
     limit = a.budget if a.budget is not None else MAX_CREDITS
     pct, gift = deal_of(pr["offer"])
     warnings[:] = list(dict.fromkeys(warnings))
-    summary = dict(statics=len(statics), videos=len(videos), tts_lines=len(tts_u), est_credits=est, budget=limit,
+    summary = dict(statics=len(statics), **({"projects": len(keep), "hooks": a.hooks} if pm else {}), videos=len(videos),
+                   tts_lines=len(tts_u), est_credits=est, budget=limit,
                    theme=theme_key, theme_name=tname, product=pr["name"], product_source=pr["source"],
                    offer=" + ".join(x for x in (f"{pct}% off" if pct else "no discount", gift) if x), names=prefix)
-    if est > limit:
+    if est > limit and not (pm and a.only):   # project mode: projects.expand checks again with the hook lines (and --only)
         print(json.dumps(summary, indent=1), file=sys.stderr)
-        print(f"voiceover would cost ~{est} credits, over the {limit}-credit budget: make fewer videos, or pass "
-              f"--budget {math.ceil(est)} if the request names a bigger budget", file=sys.stderr)
+        print(f"voiceover would cost ~{est} credits{f' before the H2-H{a.hooks} hook lines' if pm else ''}, over the "
+              f"{limit}-credit budget: make fewer videos{' or fewer --hooks' if pm else ''}, or pass --budget "
+              f"{math.ceil(est)}{' or more' if pm else ''} if the request names a bigger budget", file=sys.stderr)
         sys.exit(2)
 
     rp, now = os.path.join(out, "tts_said.json"), {t["file"]: f"{t['voice_id']}|{t['text']}" for t in tts}
@@ -1298,14 +1373,95 @@ def plan(a):
              budget=limit, colour_images=dict(colour_imgs), packshots=packs, brief=brief,
              winners_source=sel["source"] if sel else None, winners_note=sel["note"] if sel else None,
              winners_used=[dict(key=w["key"], name=w.get("name"), roas=w.get("roas"), action=w.get("action"))
-                           for w in (sel["winners"][:W] if sel else [])],
-             unmatched_winners=sel["unmatched"] if sel else [], warnings=warnings)
+                           for w in {x["key"]: x for x in wrows}.values()],
+             unmatched_winners=sel["unmatched"] if sel else [], warnings=warnings,
+             hooks=a.hooks if pm else 1)     # hooks > 1 and no "projects": the expansion below failed, render refuses it
     json.dump(p, open(os.path.join(out, "plan.json"), "w"), indent=1)
+    if pm:          # Vnn -> project Pnn: H1 = this plan's video, H2.. = other hook lines/shots/cold opens, same body
+        import projects
+        p0 = p        # the plan without hook versions (render refuses it): written back when no version can be made
+
+        def expand(seed, only, budget):
+            try:          # (re-running restores the plan from $OUT/_before_hooks first: each call starts from this plan)
+                projects.expand(out, hooks=a.hooks, seed=seed, only=only, budget=budget, quiet=True)
+            except SystemExit as e:
+                if e.code in (None, 0):
+                    raise
+                if not isinstance(e.code, int):
+                    print(e.code, file=sys.stderr)
+                print(f"no hook versions were made, so {os.path.join(out, 'plan.json')} can't be rendered: fix the request "
+                      f"(see above) and re-run plan", file=sys.stderr)
+                sys.exit(2)
+            return json.load(open(os.path.join(out, "plan.json")))   # versions, projects, tts lines + credits with the hooks
+
+        def sig(x, h):    # what makes a version another hook: its spoken line (storyboard), its cold open + label (remix)
+            return (json.dumps(h.get("cold_open")), h["label"].upper()) if x["engine"] == "remix" else projects.norm(h["hook_text"])
+        hseed = a.seed if a.hook_seed is None else a.hook_seed
+        if ponly and hseed != a.seed:
+            # a redo of some hook versions on the same bodies (same --seed): they must not repeat a version the project has
+            # already (its hooks with hook seed = --seed), so the next hook seeds are tried until none does
+            had = {x["id"]: {sig(x, h): h["hook"] for h in x["hooks"]} for x in expand(a.seed, None, 1e9)["projects"]}
+
+            def repeats(p):   # the redone versions that open exactly like a version their project already has
+                return [(h, x) for x in p["projects"] for h in x["hooks"] if h["hook"] != "H1" and sig(x, h) in had.get(x["id"], {})]
+            tries = []
+            for t in range(12):
+                p = expand(hseed + t, ponly, a.budget)
+                rep = repeats(p)
+                tries.append((len(rep), t))
+                if not rep:
+                    break
+            if rep:           # every hook seed repeats something: the one with the fewest repeats, named from that plan
+                t = min(tries)[1]
+                p = expand(hseed + t, ponly, a.budget)
+                rep = repeats(p)
+                desc = "; ".join(f"{h['id']} \"{h['label']}\" = " + (
+                    "the one it has" if x["id"] + had[x["id"]][sig(x, h)] == h["id"] else x["id"] + had[x["id"]][sig(x, h)])
+                    for h, x in rep)
+                redone = [h for x in p["projects"] for h in x["hooks"] if h["hook"] != "H1"]
+                if len(rep) == len(redone):
+                    with open(os.path.join(out, "plan.json"), "w") as f_:
+                        json.dump(p0, f_, indent=1)     # not renderable (hooks > 1, no projects): nothing to voice or render
+                    print(f"--hook-seed: no new hook left for {', '.join(h['id'] for h, _ in rep)}: every option repeats a "
+                          f"version its project already has ({desc}). Add hook lines (hooks.json, a product file's 'hooks', "
+                          f"--lines P01_hook) or, for a winner, cold opens (python3 pipeline/winner_prep.py); nothing was "
+                          f"made", file=sys.stderr)
+                    sys.exit(2)
+                p["warnings"].append(f"--hook-seed: no new hook left for {', '.join(h['id'] for h, _ in rep)} (repeats "
+                                     f"{desc}), hook seed {hseed + t} used: leave {'it' if len(rep) == 1 else 'them'} out or "
+                                     f"add hook lines (hooks.json / cold opens)")
+            elif t:
+                p["warnings"].append(f"--hook-seed {hseed} gave a hook these projects already have: hook seed {hseed + t} "
+                                     f"used (re-plan with --hook-seed {hseed + t + 1} for another)")
+            if any(h["hook"] == "H1" for x in p["projects"] for h in x["hooks"]):
+                p["warnings"].append("H1 is the planned video itself: --hook-seed never changes it (its hook: --lines "
+                                     "V<nn>_hook; a new body: another --seed)")
+            json.dump(p, open(os.path.join(out, "plan.json"), "w"), indent=1, ensure_ascii=False)
+        else:
+            p = expand(hseed, ponly, a.budget)
+        dupes, warnings = p.get("tts_dupes") or {}, p.get("warnings") or []
+        summary.update(projects=len(p["projects"]), videos=len(p["videos"]), tts_lines=p["tts_lines"],
+                       est_credits=p["est_credits"])
+        vs = {v["name"]: v for v in p["videos"]}
+
+        listing = dict(project_hooks=[])
+        for x in p["projects"]:       # P01 – features: H1 [question] GIFT IDEA: "Still looking ...?" (~38 s) ...
+            w, e = x.get("winner") or {}, dict(project=f"{x['id']} – {x['angle']}")
+            if x["engine"] == "remix":
+                e["winner"] = f"{w.get('brief_name') or w.get('key')}" + (f" (ROAS {w['roas']})" if w.get("roas") is not None else "")
+            e["versions"] = []
+            for h in x["hooks"]:
+                r = h.get("cold_open")
+                co = (f", cold open {r[0]:.1f}-{r[1]:.1f} s" if r else ", no cold open") if x["engine"] == "remix" else ""
+                e["versions"].append(f"{h['hook']} [{h['type']}] {h['label']}: \"{h['hook_text']}\" "
+                                     f"(~{(vs.get(h['name']) or {}).get('est_seconds') or 0:.0f} s{co})")
+            listing["project_hooks"].append(e)
+    else:
+        listing = dict(winner_videos=[f"{v['name']} ({v['winner']['brief_name']}, " + (
+            f"cold open: {v['hook_label']}" if v["winner"]["cold_open"] else f"no cold open, label {v['hook_label']}") + ")"
+            for v in videos if v["engine"] == "remix"])
     print(json.dumps(dict(plan=os.path.join(out, "plan.json"), **summary, tts_needed=os.path.join(out, "tts_needed.json"),
-                          tts_duplicates=len(dupes), brief=brief, winners_source=p["winners_source"],
-                          winner_videos=[f"{v['name']} ({v['winner']['brief_name']}, " + (f"cold open: {v['hook_label']}" if
-                                         v["winner"]["cold_open"] else f"no cold open, label {v['hook_label']}") + ")"
-                                         for v in videos if v["engine"] == "remix"],
+                          tts_duplicates=len(dupes), brief=brief, winners_source=p["winners_source"], **listing,
                           unmatched_winners=[f"{u['name']} (ROAS {u.get('roas')}): {u.get('why')}" for u in p["unmatched_winners"]],
                           warnings=warnings), indent=1, ensure_ascii=False))
 
@@ -1403,29 +1559,44 @@ def static_qa(out, names):
     return rep
 
 
+def load_plan(out):
+    """plan.json, refused when it asked for hook versions but has none (a plan whose projects.expand step was refused or
+    undone lists the bare V01 .. videos: they must never be rendered or uploaded as if they were the batch)."""
+    p = json.load(open(os.path.join(out, "plan.json")))
+    if (p.get("hooks") or 1) > 1 and p["videos"] and not p.get("projects"):
+        sys.exit(f"{out}/plan.json was planned with --hooks {p['hooks']} but has no hook versions (the plan was refused, or "
+                 f"a projects.py expand was undone): re-run make_batch.py plan")
+    return p
+
+
 def render(a):
     out = os.path.abspath(a.out)
-    p = json.load(open(os.path.join(out, "plan.json")))
-    only = (a.only or "").upper()
-    vids = [] if only.startswith("S") else [v for v in p["videos"] if not only or v["id"].startswith(only)]
+    p = load_plan(out)
+    ids = only_ids(a.only, bool(p.get("projects")))
+    vids = [v for v in p["videos"] if not ids or picked(v["id"], ids)]
+    if ids and not vids and not any(x[:1] == "S" for x in ids):
+        sys.exit(f"--only {a.only}: no video with that id in plan.json (videos: {', '.join(v['id'] for v in p['videos']) or 'none'})")
     import filecmp
-    for dup, src in (p.get("tts_dupes") or {}).items():       # identical lines were voiced once; a copy left from an
+    dupes = p.get("tts_dupes") or {}
+    for dup, src in dupes.items():                            # identical lines were voiced once; a copy left from an
         s_, d_ = os.path.join(out, src), os.path.join(out, dup)  # earlier plan into this --out may say other words
         if os.path.exists(s_) and not (os.path.exists(d_) and filecmp.cmp(s_, d_, shallow=False)):
             shutil.copy(s_, d_)
-    want = [t["file"] for t in json.load(open(os.path.join(out, "tts_needed.json")))] + list(p.get("tts_dupes") or {})
-    if only:
-        want = [f for f in want if any(f.startswith(v["id"] + "_") for v in vids)]
-    missing = [f for f in want if not os.path.exists(os.path.join(out, f))]
+    if ids:             # what these videos' specs use: the versions of a project share their body lines (V01_feat0.mp3 ..)
+        import projects
+        want = projects.voice_files(out, vids)
+    else:
+        want = [t["file"] for t in json.load(open(os.path.join(out, "tts_needed.json")))] + list(dupes)
+    missing = sorted({dupes.get(f, f) for f in want if not os.path.exists(os.path.join(out, f))})
     if missing:
-        sys.exit(f"voiceover files missing (generate them first): {missing}")
+        sys.exit(f"voiceover files missing (generate them first, tts_needed.json): {missing}")
     for d in ("statics", "videos", "qa"):
         os.makedirs(os.path.join(out, d), exist_ok=True)
     swatches(out, p["colour_images"])
     rp = os.path.join(out, "qa", "report.json")
-    old = {r["name"]: r for r in json.load(open(rp))} if only and os.path.exists(rp) else {}
+    old = {r["name"]: r for r in json.load(open(rp))} if ids and os.path.exists(rp) else {}
     report = {}
-    if (not only or only.startswith("S")) and p["statics"]:
+    if (not ids or any(x[:1] == "S" for x in ids)) and p["statics"]:
         import new_product
         try:
             dnn = new_product.detectors()[0]
@@ -1460,7 +1631,16 @@ def render(a):
         for k, im in enumerate(ims):
             g.paste(im, ((k % cols) * 270, (k // cols) * 338))
         g.save(os.path.join(out, "qa", "statics.jpg"), quality=88)
-    print("QA: look at", os.path.join(out, "qa"), "(statics.jpg + one contact sheet per video) before uploading")
+    sheets = []
+    if p.get("projects") and vids:      # one image per project: its versions side by side, the body once, body match
+        import projects
+        try:
+            sheets = projects.sheet(out, ",".join(sorted({v["project"] for v in vids})) if ids else None)
+        except Exception as e:  # noqa: BLE001 - the renders and qa/report.json are done; say so and carry on
+            print(f"project QA sheets failed ({type(e).__name__}: {e}): look at the per-version contact sheets", file=sys.stderr)
+    print("QA: look at", os.path.join(out, "qa"), "(statics.jpg + one contact sheet per video" +
+          (f" + one sheet per project, {', '.join(os.path.basename(s['sheet']) for s in sheets)}: its hook versions side by "
+           f"side, the body once, body match under 10 = the same body" if sheets else "") + ") before uploading")
 
 
 # ---------------------------------------------------------------- upload
@@ -1484,15 +1664,42 @@ def run_report(p, report, uploaded, skipped, name, flagged=(), notes=(), pending
     L += [f"  {d}  static 1080x1350, layout {n.rsplit('_', 1)[-1]}" for n, d in st]
     vs = {v["name"]: v for v in p["videos"]}
     vu = [(n, d) for n, k, d in uploaded if k == "video"]
-    L.append(f"\nVideos ({len(vu)}):")
-    for n, dn in vu:
+    length = lambda n: f"{report[n].get('seconds', 0):.0f} s" if report.get(n) else "length ?"  # noqa: E731
+    rest = vu
+    if p.get("projects"):      # one block per project (its folder), one line per version: name, length, hook
+        got = dict(vu)
+        ps = [x for x in p["projects"] if any(h["name"] in got for h in x["hooks"])]
+        L.append(f"\nVideos ({len(vu)}): {len(ps)} project(s), each one body in up to {p.get('hooks')} hook versions (only the "
+                 f"first seconds differ: the opening line, shot and label), one folder per project in Videos")
+        for x in ps:
+            w, n_up = x.get("winner") or {}, sum(h["name"] in got for h in x["hooks"])
+            nrev = len(((vs.get(x["hooks"][0]["name"]) or {}).get("winner") or {}).get("reviews") or [])
+            L.append(f"  {project_folder(x)}: " + (
+                f"remix of {w.get('brief_name') or w.get('ad') or w.get('key')}" +
+                (f" (ROAS {w['roas']}, {w.get('action') or '-'})" if w.get("roas") is not None else "") +
+                f", {nrev} narrated reviews" if x["engine"] == "remix" else f"new storyboard video, {x.get('format') or x['angle']} angle") +
+                f" · {n_up} of its {len(x['hooks'])} versions in this upload")
+            for h in x["hooks"]:
+                if h["name"] not in got:
+                    continue
+                r = h.get("cold_open")
+                co = (f", cold open {r[0]:.1f}-{r[1]:.1f} s" if r else ", no cold open (the RAW from its start)") \
+                    if x["engine"] == "remix" else ""
+                L.append(f"    {got[h['name']]}  {length(h['name'])}, {h['hook']} [{h['type']}] {h['label']}: "
+                         f"\"{h['hook_text']}\"{co}")
+        inp = {h["name"] for x in p["projects"] for h in x["hooks"]}
+        rest = [(n, d) for n, d in vu if n not in inp]
+    else:
+        L.append(f"\nVideos ({len(vu)}):")
+    for n, dn in rest:
         v, r = vs.get(n, {}), report.get(n, {})
-        secs = f"{r.get('seconds', 0):.0f} s" if r else "length ?"
+        secs = length(n)
         if v.get("engine") == "remix":
             w = v["winner"]
             hook = f'cold open "{v.get("hook_label")}": "{v.get("hook")}"' if w.get("cold_open") else f'label "{v.get("hook_label")}" (no cold open)'
-            L.append(f"  {dn}  video {secs}, remix of {w.get('brief_name') or w.get('ad')} (ROAS {w.get('roas')}), {hook}, "
-                     f"{len(w.get('reviews') or [])} reviews")
+            L.append(f"  {dn}  video {secs}, remix of {w.get('brief_name') or w.get('ad')}" +
+                     (f" (ROAS {w['roas']})" if w.get("roas") is not None else "") +
+                     f", {hook}, {len(w.get('reviews') or [])} reviews")
         else:
             L.append(f"  {dn}  video {secs}, {v.get('format', '?')}, hook: \"{v.get('hook', '')}\"")
     if flagged:
@@ -1519,12 +1726,18 @@ def md5(f):
     return h.hexdigest()
 
 
+def project_folder(x):
+    """Drive folder of a project's versions, inside the batch's Videos folder: 'P01 – features'."""
+    return f"{x['id']} – {x['angle']}"
+
+
 def upload(a):
     """Uploads the files plan.json lists (never leftovers in the folder). Hard QA failures (render failed, file
     missing, a face in a static) stay out; length / anchor flags are uploaded and listed. A same-named file already
-    in Drive is skipped when identical; a newer local render with other content is uploaded under a suffix, loudly."""
+    in Drive is skipped when identical; a newer local render with other content is uploaded under a suffix, loudly.
+    Project mode: each project's versions go in their own folder Videos/<P01 – angle>."""
     out = os.path.abspath(a.out)
-    p = json.load(open(os.path.join(out, "plan.json")))
+    p = load_plan(out)
     rp = os.path.join(out, "qa", "report.json")
     report = {r["name"]: r for r in json.load(open(rp))} if os.path.exists(rp) else {}
     up = [sys.executable, os.path.join(HERE, "drive_upload.py")]
@@ -1532,13 +1745,14 @@ def upload(a):
     now = datetime.datetime.now()
     name = f"{now.date().isoformat()} – {a.name or p.get('request') or p['product']}"
     run = lambda *x: subprocess.run(up + list(x), capture_output=True, text=True, check=True).stdout.strip()  # noqa: E731
-    want = [(os.path.join(out, "statics", n + ".png"), "static") for n in p["statics"]] + \
-           [(os.path.join(out, "videos", v["name"] + ".mp4"), "video") for v in p["videos"]]
-    listed = {f for f, _ in want}
-    if a.only:        # same ids as render --only: S, V, V03, 'S01,V02'
-        ids = [x.strip().upper() for x in a.only.split(",") if x.strip()]
-        aid = lambda f: re.findall(r"_([SV]\d+)_", os.path.basename(f))[-1]  # noqa: E731
-        want = [(f, k) for f, k in want if any(aid(f).startswith(x) for x in ids)]
+    projs = {x["id"]: x for x in p.get("projects") or []}
+    vproj = {v["name"]: projs.get(v.get("project")) for v in p["videos"]}
+    want = [(os.path.join(out, "statics", n + ".png"), "static", static_id(n)) for n in p["statics"]] + \
+           [(os.path.join(out, "videos", v["name"] + ".mp4"), "video", v["id"]) for v in p["videos"]]
+    listed = {f for f, _, _ in want}
+    if a.only:        # same ids as render --only: S, V/P, P03, P03H2, 'S01,P02' (--hooks 1 plans: V03)
+        ids = only_ids(a.only, bool(projs))
+        want = [w for w in want if picked(w[2], ids)]
     stray = sorted(f for d, ext in (("statics", "png"), ("videos", "mp4")) for f in glob.glob(os.path.join(out, d, "*." + ext))
                    if f not in listed)
     for f in stray:
@@ -1546,9 +1760,22 @@ def upload(a):
     folder = run("mkdir", name, "--parent", cfg["drive"]["outputs_folder"]).splitlines()[-1]
     dest = {"static": run("mkdir", "Statics", "--parent", folder).splitlines()[-1],
             "video": run("mkdir", "Videos", "--parent", folder).splitlines()[-1]}
-    there = {k: {f["name"]: f for f in json.loads(run("ls", d) or "[]")} for k, d in dest.items()}
+    sub, there = {}, {}
+
+    def dest_of(n, kind):             # a project's versions: Videos/<P01 – angle>, found or made once per upload
+        x = vproj.get(n) if kind == "video" else None
+        if not x:
+            return dest[kind]
+        if x["id"] not in sub:
+            sub[x["id"]] = run("mkdir", project_folder(x), "--parent", dest["video"]).splitlines()[-1]
+        return sub[x["id"]]
+
+    def in_drive(d):                  # the files already in a Drive folder, read once
+        if d not in there:
+            there[d] = {f["name"]: f for f in json.loads(run("ls", d) or "[]")}
+        return there[d]
     uploaded, skipped, flagged, existed, renamed, notes, pending = [], [], [], [], [], [], []
-    for f, kind in want:
+    for f, kind, _ in want:
         n = os.path.splitext(os.path.basename(f))[0]
         r = report.get(n) or {}
         hard = r.get("hard", [x for x in r.get("problems", []) if x.startswith(HARD)])
@@ -1563,13 +1790,13 @@ def upload(a):
             continue
         if r.get("problems"):
             flagged.append(dict(name=n, problems=r["problems"]))
-        base, h = os.path.basename(f), md5(f)
-        same = next((x["name"] for x in there[kind].values() if x["name"].startswith(n) and x.get("md5Checksum") == h), None)
+        base, h, d = os.path.basename(f), md5(f), dest_of(n, kind)
+        same = next((x["name"] for x in in_drive(d).values() if x["name"].startswith(n) and x.get("md5Checksum") == h), None)
         if same:                                        # this exact file is in Drive already (maybe as _updHHMM)
             existed.append(n)
             uploaded.append((n, kind, same))
             continue
-        old = there[kind].get(base)
+        old = in_drive(d).get(base)
         if old:
             t_drive = datetime.datetime.fromisoformat(old["modifiedTime"].replace("Z", "+00:00")).timestamp()
             if os.path.getmtime(f) <= t_drive:
@@ -1583,7 +1810,7 @@ def upload(a):
             renamed.append(base)
             notes.append(msg)
             print("WARNING " + msg, file=sys.stderr)
-        res = json.loads(run("upload", f, "--folder", dest[kind], "--name", base, "--skip-existing").splitlines()[-1])
+        res = json.loads(run("upload", f, "--folder", d, "--name", base, "--skip-existing").splitlines()[-1])
         if res.get("skipped"):
             existed.append(n)
         uploaded.append((n, kind, base))
@@ -1595,6 +1822,8 @@ def upload(a):
     open(txt, "w").write(run_report(p, report, uploaded, skipped, name, flagged, notes, pending))
     run("upload", txt, "--folder", folder)          # a fresh report every upload, never skipped
     print(json.dumps(dict(folder=f"https://drive.google.com/drive/folders/{folder}", name=name, files=len(uploaded),
+                          **({"project_folders": {f"Videos/{project_folder(projs[k])}": f"https://drive.google.com/drive/folders/{d}"
+                                                  for k, d in sub.items()}} if projs else {}),
                           uploaded=[d for _, _, d in uploaded], already_there=existed, renamed=renamed,
                           flagged=flagged, skipped=skipped, not_rendered_yet=pending,
                           not_in_plan=[os.path.relpath(f, out) for f in stray], report=txt),
@@ -1618,33 +1847,44 @@ def main():
     sub = ap.add_subparsers(dest="cmd", required=True)
     pl = sub.add_parser("plan")
     pl.add_argument("--statics", type=int, default=0)
-    pl.add_argument("--videos", type=int, default=0, help="storyboard (new-angle) videos")
-    pl.add_argument("--winner-videos", type=int, default=0, help="winner remixes (remix.py), numbered first")
+    pl.add_argument("--videos", type=int, default=0, help="storyboard (new-angle) videos: each one is a project of --hooks versions")
+    pl.add_argument("--winner-videos", type=int, default=0, help="winner remixes (remix.py), numbered first: each one is a "
+                    "project of --hooks versions (another cold open each); one project per winner unless its RAW has "
+                    "--hooks more cold opens")
+    pl.add_argument("--hooks", type=int, default=4, help="hook versions per video (default 4, the client's H1-H4: one body, "
+                    "another opening line + shot + label per version; ids P01H1 ..); 1 = single videos V01 .. as before")
+    pl.add_argument("--hook-seed", type=int, help="variation of the hook versions only (default: --seed); the same --seed "
+                    "with another --hook-seed keeps every body and changes the H2-H4 hooks")
     pl.add_argument("--winners", default="latest", help="latest (newest brief) | all | brief.json | '94-H4,148-H5' | '94,148'")
     pl.add_argument("--product", help="built-in bag or a pipeline/data/products file (default: top winner's, else Hobo Bag)")
     pl.add_argument("--products-dir", help="product files folder (default pipeline/data/products, or $LC_PRODUCTS_DIR)")
     pl.add_argument("--allow-draft", action="store_true", help="build from a product file still marked draft")
     pl.add_argument("--theme", default="")
     pl.add_argument("--request", default="", help="the user's message, for the folder name and report")
-    pl.add_argument("--lines", help="json with overrides: hero, bold, colours, V01_hook, V01_close ...")
-    pl.add_argument("--seed", type=int, default=1, help="variation: another seed gives other winner cold opens/reviews, other "
-                    "storyboard hooks, feature order, reviews and B-roll, and other static photos/headlines")
-    pl.add_argument("--only", help="keep only these ads (V02, S03, 'V02,S01', V = all videos, S = all statics): a redo voices, "
-                    "renders and uploads just them")
+    pl.add_argument("--lines", help="json with overrides: hero, bold, colours, V01_hook, V01_close ... (P01_hook = V01_hook: "
+                    "project P01's H1 line)")
+    pl.add_argument("--seed", type=int, default=1, help="variation: another seed gives other winner reviews (a winner project holds every "
+                    "cold open its RAW has: only H1 changes; --hooks 1: other cold opens), other "
+                    "storyboard hooks, feature order, reviews and B-roll, other static photos/headlines, and other hook "
+                    "versions (unless --hook-seed)")
+    pl.add_argument("--only", help="keep only these ads (P02 = project 2's versions, P02H3 = one version, S03, 'P02H3,S01', "
+                    "V/P = all videos, S = all statics; V02 = P02; --hooks 1: V02): a redo voices, renders and uploads just them")
     pl.add_argument("--rev", type=int, default=1, help="revision of an earlier batch with the same product+theme+date: adds _v2, _v3"
                     " (plan also moves to the first _vN not in Drive yet)")
     pl.add_argument("--no-name-check", action="store_true", help="don't look in Drive for today's names (offline tests)")
-    pl.add_argument("--budget", type=float, help=f"credits the request allows for voiceover (default {MAX_CREDITS})")
+    pl.add_argument("--budget", type=float, help=f"credits the request allows for voiceover, hook lines included "
+                    f"(default {MAX_CREDITS})")
     pl.add_argument("--out", required=True)
     r = sub.add_parser("render")
     r.add_argument("--out", required=True)
-    r.add_argument("--only", help="V03 (one video), V (all videos) or S (statics only)")
+    r.add_argument("--only", help="P03 (one project's versions), P03H2 (one version), V or P (all videos), S (statics only), "
+                   "'S,P02H1'; --hooks 1 plans: V03")
     r.add_argument("--jobs", type=int, default=2, help="videos rendered in parallel")
     u = sub.add_parser("upload")
     u.add_argument("--out", required=True)
     u.add_argument("--name", default="")
     u.add_argument("--include-flagged", action="store_true", help="also upload videos with a hard QA failure (the file must exist)")
-    u.add_argument("--only", help="as render --only: S (statics), V (videos), V03, 'S01,V02'")
+    u.add_argument("--only", help="as render --only: S (statics), V or P (videos), P03, P03H2, 'S01,P02'; --hooks 1 plans: V03")
     sp = sub.add_parser("specs", help="copy the batch's spec JSONs (no media, no render files) for committing")
     sp.add_argument("--out", required=True)
     sp.add_argument("--to", "--dest", dest="to", required=True, help="e.g. pipeline/recipes/daily/<YYYY-MM-DD>/<short-name>")
