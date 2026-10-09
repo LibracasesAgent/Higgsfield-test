@@ -1,94 +1,118 @@
-# Libra Cases ad pipeline: how to handle requests (Slack DM / Claude app)
+# Libra Cases ad pipeline: how to handle requests (Slack / Claude app)
 
-You turn short requests ("make 3 statics and 4 videos, Black Friday sale style") into finished
-Facebook ads for Libra Cases (handbags) and upload them to Google Drive. Nobody is watching:
-never ask follow-up questions, decide sensibly, and reply once at the end.
+You turn one-line requests ("make 3 statics and 4 videos, Black Friday", "new batch for the winners",
+"new product Silhouette Bag: 6 statics 2 videos") into finished Facebook ads for Libra Cases (handbags)
+and upload them to Google Drive. Every batch starts from a message: there is no daily automatic run.
+Nobody is watching: never ask follow-up questions, decide sensibly, and reply once at the end.
 
-Work on branch `claude/loving-meitner-4amjii` (`git fetch origin claude/loving-meitner-4amjii &&
-git checkout claude/loving-meitner-4amjii`). Read `docs/PLAYBOOK.md` once per session: it holds the
-client's feedback, approved claims, the reference run, and every bug we already fixed.
+The repo's default branch is `claude/loving-meitner-4amjii`. Read `docs/PLAYBOOK.md` once per session
+(client feedback, approved claims, recipes, every bug already fixed).
 
-## HARD RULES (a previous run broke these and produced dark, off-brand AI junk for ~160 credits)
+## HARD RULES
 
-1. **Statics are never AI-generated.** No GPT/Nano Banana/Seedream/Flux images for ads. Statics are
-   built by `pipeline/brand_statics.py` from the real product photos on libracases.com (via the batch
-   command below). Light cream/white brand look, espresso + red accents. No faces.
-2. **Videos are built from real footage**, not generated: clips from `pipeline/data/clip_bank.json`,
-   our voiceover, captions, tags, review cards, offer card, end card (`storyboard.py` / `remix.py`).
-   **Never use Seedance, Veo, Wan or Kling 10 s / 4k.** Kling 1080p 5 s (`kling3_0`, mode `pro`) only when
-   the request explicitly asks for AI, or a product has no real footage at all: max 2 clips per run.
-3. **The only routine Higgsfield spend is voiceover lines** (text2speech_v2, ~0.3 credits each).
-   Budget: a normal request costs **under 15 credits**; hard stop at **40 credits** unless the request
-   names a bigger budget. Check `balance` before and after; report both.
-4. Every file is uploaded with `pipeline/make_batch.py upload` (or `drive_upload.py`) into
-   Drive Outputs → a new folder → `Statics` / `Videos`. Never only post files in the chat.
+1. **No AI images, no AI video.** Higgsfield's image and video generators are blocked for this project
+   (`.claude/settings.json` and the connector settings): don't call them, don't look for a way around it.
+   Statics come from real product photos, videos from real footage, both through `make_batch.py`.
+2. **The only Higgsfield calls:** `generate_audio_batch` (text2speech_v2) for the lines in
+   `tts_needed.json`, `jobs_wait`, `balance`, `transactions`. A normal request costs under 15 credits;
+   `plan` refuses more than 40 unless you pass `--budget X`, which you only do when the request names a
+   bigger budget. Check `balance` before and after; report both.
+3. **Only true claims.** Offers, gifts and reviews come from the product data (`make_batch.py` handles
+   it). Any line you write yourself (`--lines`, product files) uses only facts from libracases.com, the
+   client's notes or `docs/PLAYBOOK.md` §1. No faces in statics.
+4. Upload everything with `make_batch.py upload` (Drive Outputs → `<date> – <name>` → `Statics` /
+   `Videos` + a run report). Never only post files in the chat.
 5. Never publish anywhere. Never delete or move Drive files.
 
-**Naming:** every ad follows `docs/NAMING.md` (`LC_<YYMMDD>_<Product>_<Theme>_<S01|V01>_<angle>`). `make_batch.py plan` generates
-the names; use `--rev 2` when redoing a batch; hand-built remix specs use the same pattern. In the reply, list ads by these names.
+File names are automatic (`docs/NAMING.md`: `LC_<YYMMDD>_<Product>_<Theme>_<S01|V01>_<angle>`); list ads
+by these names in the reply.
 
-## THE STANDARD PATH (use it for every normal request)
+## 0. Setup (fresh container, about a minute)
 
 ```
-cd <repo> && mkdir -p /tmp/run
-bash .claude/hooks/session-start.sh            # if ffmpeg is missing
-pip install -q faster-whisper pillow numpy     # if missing
-python3 pipeline/drive_upload.py check         # Drive access ok?
-
-# 1. plan: product, theme, counts -> specs + the list of voiceover lines to make
-python3 pipeline/make_batch.py plan --statics N --videos M --product "<product>" \
-    --theme "<theme words from the request>" --request "<the request text>" --out /tmp/run
-# 2. voiceovers: for EVERY item in /tmp/run/tts_needed.json call Higgsfield generate_audio_batch
-#    (model text2speech_v2, variant elevenlabs, use_unlim false, voice_type + voice_id from the item,
-#    prompt = item text; max 12 per call; resubmit any 429 failures), jobs_wait, then download each
-#    result_url to /tmp/run/<item file>. Same text twice -> generate once, copy the file.
-# 3. render (takes ~1 min per static + ~10 min per video; run detached, wait for the log)
-setsid nohup python3 pipeline/make_batch.py render --out /tmp/run > /tmp/run/render.log 2>&1 < /dev/null &
-# 4. QA: open /tmp/run/qa/statics.jpg and every /tmp/run/qa/V*.jpg (Read the image) and
-#    /tmp/run/qa/report.json. Fix or drop anything broken (text off-frame, wrong product, black frames).
-# 5. upload + reply
-python3 pipeline/make_batch.py upload --out /tmp/run --name "<short request name>"
+cd <repo>
+command -v ffmpeg || bash .claude/hooks/session-start.sh        # Slack sessions don't run hooks
+python3 -c "import faster_whisper, PIL, numpy, cv2" 2>/dev/null || \
+    pip install -q faster-whisper pillow numpy pillow-heif opencv-python-headless
+python3 pipeline/drive_upload.py check                          # Drive login ok?
 ```
 
-Mapping the request to flags:
+## 1. Request → plan command
 
-| Request says | Flags |
+| Request says | `make_batch.py plan` flags |
 |---|---|
 | "N statics and M videos" | `--statics N --videos M` |
-| "batch" with no numbers | `--statics 20 --videos 20` (split into 2 render runs of 10 videos if time is short) |
-| only statics / only videos | the other count 0 |
-| product: "Hobo 2.0", "3-piece set", "vintage", "slouchy", default "Hobo Bag" | `--product "<name>"` |
-| theme: Black Friday, Cyber Monday, Christmas/gift, Mother's Day, travel | `--theme "<words>"` (built-in themes; any other theme: write your own lines with `--lines`) |
-| "winners" / "from the brief" | Winner path below |
-| "new product(s)" / "I added …" | New-product path below |
+| a product | `--product "<name>"`: Hobo Bag (default), Hobo 2.0, 3-piece set, vintage, slouchy, or any product file in `pipeline/data/products/` |
+| a theme | `--theme "<words>"`: black friday, cyber monday, christmas, gift, mother's day, travel are built in; any other theme: `--theme "<words>"` plus your own short lines with `--lines` (keys `hero`, `bold`, `colours`, `V01_hook`, `V01_close` …) |
+| "winners" / "from the brief" / "new versions of our best ads" | `--winner-videos W` (+ `--statics S` / `--videos M` if asked). No numbers: `--winner-videos 6 --statics 4` |
+| specific winners ("3 versions of 94-H4 and 2 of 148-H5") | `--winner-videos 5 --winners "94-H4,148-H5"` (cycles through the list in order) |
+| "new product …" / "I added a product" | section 3 first, then `--product "<key>"` |
+| "batch" with no numbers | `--statics 20 --videos 10` |
+| "redo / another version of V02" (in the thread) | same plan with `--seed <N+1>` and `--rev 2`, then `render --only V02` |
 
-`--lines lines.json` lets you replace any wording while keeping the look: keys `hero`, `bold`
-(list of 2 words/lines), `colours`, and per video `V01_hook`, `V01_close` ... Use it for themes or
-angles that aren't built in (e.g. "Valentine's", "back to school", "workwear"): keep lines short and
-spoken, and only use claims from the site / `docs/PLAYBOOK.md`.
+`plan` exits 2 with a clear message when something is wrong (unknown product → section 3, draft product
+file, too many credits, a sale theme for a product without a deal). Read it and act on it.
 
-## WINNER PATH ("new batch for the winners")
+## 2. The run (every request)
 
-1. Newest Google Doc in the Research Briefs folder (`pipeline/config.json` → `drive.research_briefs_folder`):
-   take the "increase budget" / "keep" ads.
-2. For each winner whose RAW is in `clip_bank.json` → `winner_raws`, copy the matching spec from
-   `pipeline/recipes/daily/2026-10-02/` (V01-V08, V20) and vary it: new cold open, different review
-   cards/VO, new hook label. Replace local file names with the clip-bank `id` (Drive ids download
-   automatically). New review VO lines: Higgsfield TTS (narrator voice). Render with `remix.py`.
-3. Fill the rest of the request with the standard path (statics + storyboard videos).
+```
+OUT=/tmp/run/<short-name>; mkdir -p $OUT
+python3 pipeline/make_batch.py plan <flags> --request "<the request text>" --out $OUT
+```
+1. Read the plan output: product, theme, brief (name, age, `stale`), winners used, `unmatched` winners,
+   `est_credits`, length warnings. Higgsfield `balance` → note it.
+2. **Voiceovers:** for every item in `$OUT/tts_needed.json` call `generate_audio_batch` (model
+   `text2speech_v2`, variant `elevenlabs`, `use_unlim: false`, `voice_type` + `voice_id` from the item,
+   prompt = item `text`; max 12 per call; resubmit any that fail with 429), `jobs_wait`, then download each
+   result url to `$OUT/<item file>` (`curl -sSL -o`). Identical lines are listed once; render copies them.
+3. **Render** (about 1 min per static, about 10 min per video, 2 videos at a time), detached:
+   `setsid nohup python3 pipeline/make_batch.py render --out $OUT > $OUT/render.log 2>&1 < /dev/null &`
+   then check the log every couple of minutes until it prints `QA:`. More than 10 videos: render and
+   upload the statics first (`render --only S`, `upload`), then the videos (`render --only V`, `upload`).
+4. **QA:** Read `$OUT/qa/statics.jpg`, every `$OUT/qa/V*.jpg` and `$OUT/qa/report.json`. Text off-frame,
+   wrong product, black frames, a face: fix (`--lines`, edit the spec JSON) and `render --only <id>`, or
+   leave it out and say so.
+5. **Upload:** `python3 pipeline/make_batch.py upload --out $OUT --name "<short request name>"` → prints the
+   Drive folder link and the uploaded ads. Higgsfield `balance` again.
+6. **Reply** (one short message): Drive folder link · one line per ad (name, angle, length) · credits used
+   (balance before → after) · brief used and if it is stale · winners skipped (unmatched) and why ·
+   anything else skipped, failed or needing a human.
+7. Commit the specs (JSON only, no media, no secrets): copy `$OUT/*.json` to
+   `pipeline/recipes/daily/<YYYY-MM-DD>/<short-name>/`, plus any new or changed product file; commit, push.
 
-## NEW-PRODUCT PATH ("I added 2 new products")
+## 3. New products
 
-1. Drive: find the folder titled `New Products` (search by title); each subfolder = one product
-   (photos, clips, a link or notes). Newest first, or the ones named.
-2. If the product is on libracases.com and in `make_batch.py` PRODUCTS: use the standard path.
-3. Otherwise: download its photos (Drive) and facts (site/notes); add an entry to `PRODUCTS` in
-   `pipeline/make_batch.py` (name, short, site handle, 3-5 feature lines with tags, clips = its own
-   clips uploaded to the clip bank, or its photos as stills) and commit it, then run the standard path.
-   No footage at all → up to 2 Kling 1080p 5 s shots from its best packshot (rule 2).
+The client puts one folder per product in Drive `Ad Creative Pipeline / New Products` (photos, clips, a
+note with the site link, offer, colours and features).
+```
+python3 pipeline/new_product.py list                       # folders, newest first, and which are done
+python3 pipeline/new_product.py intake "<folder name>"     # or --latest, or --site <libracases.com url|handle>
+```
+1. Read the printed summary, `overview.jpg` and the clip sheets it names.
+2. Edit `pipeline/data/products/<slug>.json`: 3-5 `features` (one short spoken sentence each + a 2-3 word
+   uppercase TAG + picks of the clips/photos that show it), only true claims from `facts` (site / notes).
+   Check the `offer` block against the site and notes (never invent a % or a free gift). Keep
+   `reviews: []`. Set `"status": "ready"`. Schema: `pipeline/data/products/README.md`.
+3. `python3 pipeline/new_product.py check <slug>` must report ok. Then section 2 with `--product "<key>"`.
+4. A product that is on the site but unknown to `plan` ("unknown product"): `intake --site <name or url>`.
+   No photos, no clips and not on the site: make nothing and say what is needed.
 
-## Reply (one short message)
+## 4. Winners
 
-Drive folder link · one line per ad (name, format, length) · credits used (balance before → after) ·
-anything skipped, failed or that needs a human. Then commit any new specs (`pipeline/recipes/daily/<date>/`,
-JSON only, no media, no secrets) and push.
+`--winner-videos` reads the newest brief in Drive `Research Briefs` (the n8n weekly report), takes the
+"increase budget" and "keep" ads and matches them to the winning RAW videos in `clip_bank.json`
+(`winner_raws`, with cold opens, cuts, review insert points). Each video re-edits a RAW with another
+cold open, a narrated review section and the theme's offer card (`remix.py`).
+- `stale: true` (brief older than 8 days): still run it, and say so in the reply.
+- `unmatched` winners have no prepared RAW. List them in the reply. If the request is only about winners
+  and one of them has a RAW in the library, you may prepare it (about 10 min):
+  `python3 pipeline/winner_prep.py "<ad name>" --write`, review the draft like an editor (transcript +
+  contact sheet: cold opens, insert point, labels, cuts, burned captions), remove `"draft"`,
+  `python3 pipeline/winner_prep.py --check <key>`, commit, then plan again.
+- New batch for the same winners as an earlier request: pass `--seed <day of the year>` so the cold
+  opens and review sets differ from last time.
+
+## Other references
+
+`docs/PLAYBOOK.md` (memory), `docs/NAMING.md`, `docs/CLIENT_GUIDE.md` (what the client can type),
+`docs/SLACK_SETUP.md` (owner setup), `pipeline/data/products/README.md` (product files).
