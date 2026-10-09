@@ -45,7 +45,12 @@ usage balance, so fund it and set a monthly limit.
    - Connections: Google Drive and Higgsfield.
    - Respond automatically: off (Claude only works when someone writes `@Claude`).
    - Channel member edits: Block (the client can't change the instructions or the model).
-   - Spend: fund the usage balance, set a monthly limit and a limit for this channel.
+   - Model (General tab): Claude Sonnet 5.5 (the scripts do the creative work; about 40% cheaper than Opus).
+     Keep Claude Sonnet 5 enabled in the org: the permission checker runs on it.
+   - Spend: fund the usage balance, set a monthly limit and a limit for this channel. Channel work is billed
+     at API list price. Estimate on Sonnet: ~$1 per small request, ~$3-4 per batch of 20 statics + 10 videos,
+     ~$120-150 a month for 5 batches a week. Check the real spend per channel at
+     claude.ai/analytics/claude-tag (daily) or claude.ai/admin-settings/usage/claude-tag.
 3. Channel instructions (paste):
    > For every request use the GitHub repo LibracasesAgent/Higgsfield-test and follow its CLAUDE.md
    > exactly. Ads are made with pipeline/make_batch.py from real product photos and real footage. The
