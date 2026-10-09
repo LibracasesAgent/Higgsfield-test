@@ -15,9 +15,11 @@ board.json (paths relative to the JSON):
   "overlays": [{"type": "tag", "text": "LOCKABLE ZIPPERS", "block": 0, "word": "lockable", "dur": 2.2},
                {"type": "review", "n": 11, "block": 2, "word": "sarah", "until_block_end": true},
                {"type": "label", "text": "REAL CUSTOMER", "block": 1, "at": 0.2, "dur": 2.0}],
-  "offer": {"block": 4, "word": "50"},               # offer card at that word ("fifty" also matches)
-  "end_title": "The Vintage Bag", "keywords": [...], "no_captions_blocks": [3]
+  "offer": {"block": 4, "word": "50", "title": "50% OFF", "sub": "+ FREE MATCHING WALLET"},
+                                                     # offer card at that word ("fifty" also matches); "" sub: title only
+  "end_title": "The Vintage Bag", "end_sub": "Tap the link below", "keywords": [...], "no_captions_blocks": [3]
 }
+B-roll that would run past the end of its clip starts earlier (or plays slower), so picture and sound stay in sync.
 """
 import argparse
 import json
@@ -27,11 +29,32 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
-from remix import dur, loc, mix_audio, words  # noqa: E402
+from remix import STILL, dur, fit, loc, mix_audio, words  # noqa: E402
+
+
+NUMS = {"10": "ten", "15": "fifteen", "20": "twenty", "25": "twenty", "30": "thirty", "35": "thirty", "40": "forty",
+        "45": "forty", "50": "fifty", "60": "sixty", "70": "seventy"}
 
 
 def norm(w):
     return w.lower().strip(".,:;!?\"'")
+
+
+def broll_segs(d, br, L):
+    out = []
+    br = [x if len(x) > 2 else x + [1.0] for x in br]
+    tot = sum(x[2] for x in br)
+    for src, st, wgt, *ex in br:
+        sd = round(L * wgt / tot, 3)
+        if not str(src).lower().endswith(STILL):
+            st, sp = fit(d, src, st, sd)
+            if sp != 1.0:
+                ex = [dict(ex[0] if ex else {}, speed=sp)]
+        s = dict(src=src, start=st, dur=sd, mute=True)
+        if ex:
+            s.update(ex[0])
+        out.append(s)
+    return out
 
 
 def build(b, d):
@@ -41,25 +64,13 @@ def build(b, d):
         if "vo" in blk and "vo_range" in blk:     # slice of a longer VO file
             a, e = blk["vo_range"]
             L = e - a + blk.get("pad", pad)
-            br = [x if len(x) > 2 else x + [1.0] for x in blk["broll"]]
-            tot = sum(x[2] for x in br)
-            for src, st, wgt, *ex in br:
-                s = dict(src=src, start=st, dur=round(L * wgt / tot, 3), mute=True)
-                if ex:
-                    s.update(ex[0])
-                segs.append(s)
+            segs += broll_segs(d, blk["broll"], L)
             audio.append(("slice", blk["vo"], a, e))
             audio.append(("silence", blk.get("pad", pad)))
             spans.append((t, L, blk["vo"], a))
         elif "vo" in blk:
             L = dur(loc(d, blk["vo"])) + blk.get("pad", pad)
-            br = [x if len(x) > 2 else x + [1.0] for x in blk["broll"]]
-            tot = sum(x[2] for x in br)
-            for src, st, wgt, *ex in br:
-                s = dict(src=src, start=st, dur=round(L * wgt / tot, 3), mute=True)
-                if ex:
-                    s.update(ex[0])
-                segs.append(s)
+            segs += broll_segs(d, blk["broll"], L)
             audio.append(("file", blk["vo"], L))
             spans.append((t, L, blk["vo"], 0.0))
         else:
@@ -84,7 +95,7 @@ def build(b, d):
         if not src:
             return None
         hits = [x["s"] - off for x in words(loc(d, src)) if off <= x["s"] < off + L
-                and (norm(x["w"]).startswith(w) or (w == "50" and norm(x["w"]).startswith("fifty")))]
+                and (norm(x["w"]).startswith(w) or (w in NUMS and norm(x["w"]).startswith(NUMS[w])))]
         return t0 + hits[nth] if len(hits) > nth else None
 
     ov = []
@@ -102,12 +113,16 @@ def build(b, d):
         o.setdefault("dur", 2.2)
         o.setdefault("y", 330 if o["type"] == "review" else 300)
         ov.append(o)
-    if b.get("offer"):
-        at = word_time(b["offer"]["block"], b["offer"].get("word", "50"))
-        if at is not None:
-            ov.append(dict(type="offer", title=b["offer"].get("title", "50% OFF"), sub=b["offer"].get("sub", "+ FREE MATCHING WALLET"),
-                           at=round(at - 0.2, 2), dur=3.2, y=420))
-    ov.append(dict(type="end", title=b.get("end_title", "The Luxury Hobo Bag"), sub="Tap the link below",
+    of = b.get("offer")
+    if of and of.get("title", "50% OFF"):
+        at = word_time(of["block"], str(of.get("word", "50")).lower())
+        title, sub = of.get("title", "50% OFF"), of.get("sub", "+ FREE MATCHING WALLET")
+        if at is None:
+            print("overlay anchor not found: offer", of, file=sys.stderr)
+        else:
+            ov.append(dict(type="offer", title=title, sub=sub, at=round(at - 0.2, 2), dur=3.2, y=420) if sub else
+                      dict(type="label", text=title, at=round(at - 0.2, 2), dur=3.2, y=470))
+    ov.append(dict(type="end", title=b.get("end_title", "The Luxury Hobo Bag"), sub=b.get("end_sub", "Tap the link below"),
                    at=round(t - 2.6, 2), dur=2.6))
     nocap = [[round(spans[k][0], 2), round(spans[k][0] + spans[k][1], 2)] for k in b.get("no_captions_blocks", [])]
     return segs, audio, ov, t, nocap

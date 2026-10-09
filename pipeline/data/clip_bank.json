@@ -126,7 +126,7 @@
      {"range": null, "label": "HAPPY TO BE WRONG", "line": ""},
      {"range": [6.3, 8.95], "label": "SURPRISING QUALITY", "line": "I honestly didn't expect this quality for the price."},
      {"range": [9.0, 14.25], "label": "NO MORE SAGGING", "line": "The leather is thick, sturdy, and it actually holds its shape instead of sagging like most bags."}],
-    "review_intro": ["Don't just take her word for it.", "And customers agree.", "Here's what customers are saying."], "min_reviews": 3}}
+    "offer_sub": "", "review_intro": ["Don't just take her word for it.", "And customers agree.", "Here's what customers are saying."], "min_reviews": 3}}
  },
 
  "hobo_bag": {
