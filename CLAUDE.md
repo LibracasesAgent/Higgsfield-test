@@ -48,7 +48,7 @@ python3 pipeline/drive_upload.py check                          # Drive login ok
 | specific winners ("3 versions of 94-H4 and 2 of 148-H5") | `--winner-videos 5 --winners "94-H4,148-H5"` (cycles through the list in order) |
 | "new product …" / "I added a product" | section 3 first, then `--product "<key>"` |
 | "batch" with no numbers | `--statics 20 --videos 10` |
-| "redo / another version of V02" (in the thread) | same plan with `--seed <N+1>` and `--rev 2`, then `render --only V02` |
+| "redo / another version of V02" (in the thread) | same plan flags with `--seed <N+1> --only V02` into a new `--out` (only V02 is voiced, rendered, uploaded; the name moves to `_v2` by itself) |
 
 `plan` exits 2 with a clear message when something is wrong (unknown product → section 3, draft product
 file, too many credits, a sale theme for a product without a deal). Read it and act on it.
@@ -59,8 +59,9 @@ file, too many credits, a sale theme for a product without a deal). Read it and 
 OUT=/tmp/run/<short-name>; mkdir -p $OUT
 python3 pipeline/make_batch.py plan <flags> --request "<the request text>" --out $OUT
 ```
-1. Read the plan output: product, theme, brief (name, age, `stale`), winners used, `unmatched` winners,
-   `est_credits`, length warnings. Higgsfield `balance` → note it.
+1. Read the plan output and every warning: product, theme, `offer` (read from libracases.com), brief
+   (name, age, `stale`), winners used, `unmatched` winners, `est_credits`, length warnings, `names`.
+   Higgsfield `balance` → note it.
 2. **Voiceovers:** for every item in `$OUT/tts_needed.json` call `generate_audio_batch` (model
    `text2speech_v2`, variant `elevenlabs`, `use_unlim: false`, `voice_type` + `voice_id` from the item,
    prompt = item `text`; max 12 per call; resubmit any that fail with 429), `jobs_wait`, then download each
@@ -68,17 +69,20 @@ python3 pipeline/make_batch.py plan <flags> --request "<the request text>" --out
 3. **Render** (about 1 min per static, about 10 min per video, 2 videos at a time), detached:
    `setsid nohup python3 pipeline/make_batch.py render --out $OUT > $OUT/render.log 2>&1 < /dev/null &`
    then check the log every couple of minutes until it prints `QA:`. More than 10 videos: render and
-   upload the statics first (`render --only S`, `upload`), then the videos (`render --only V`, `upload`).
+   upload the statics first (`render --only S`, `upload --only S`), then the videos (`render --only V`,
+   `upload --only V`). Use a fresh `$OUT` for every request.
 4. **QA:** Read `$OUT/qa/statics.jpg`, every `$OUT/qa/V*.jpg` and `$OUT/qa/report.json`. Text off-frame,
    wrong product, black frames, a face: fix (`--lines`, edit the spec JSON) and `render --only <id>`, or
-   leave it out and say so.
+   leave it out and say so. A face in a static or a failed render is never uploaded; length/anchor flags
+   are uploaded and listed in the run report: mention them in the reply.
 5. **Upload:** `python3 pipeline/make_batch.py upload --out $OUT --name "<short request name>"` → prints the
    Drive folder link and the uploaded ads. Higgsfield `balance` again.
 6. **Reply** (one short message): Drive folder link · one line per ad (name, angle, length) · credits used
    (balance before → after) · brief used and if it is stale · winners skipped (unmatched) and why ·
    anything else skipped, failed or needing a human.
-7. Commit the specs (JSON only, no media, no secrets): copy `$OUT/*.json` to
-   `pipeline/recipes/daily/<YYYY-MM-DD>/<short-name>/`, plus any new or changed product file; commit, push.
+7. Commit the specs (JSON only, no media, no secrets):
+   `python3 pipeline/make_batch.py specs --out $OUT --to pipeline/recipes/daily/<YYYY-MM-DD>/<short-name>`,
+   plus any new or changed product file; commit, push.
 
 ## 3. New products
 

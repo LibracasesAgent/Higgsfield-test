@@ -26,7 +26,7 @@ which Claude generates with Higgsfield between `plan` and `render`.
      (only the files plan.json lists; hard QA failures stay out: render failed, file missing, a face in a static, a
      video under 25 s;
      length / anchor flags are uploaded and listed in the report; ads not rendered yet are listed as still being made)
-  6) python3 pipeline/make_batch.py specs --out /tmp/run --to pipeline/recipes/daily/<date>/<name>   (JSON to commit)
+  6) python3 pipeline/make_batch.py specs --out /tmp/run --dest pipeline/recipes/daily/<date>/<name>   (JSON to commit)
 A redo of one ad: the same plan command with --seed <N+1> --rev 2 --only V02 (voices, renders and uploads only V02).
 
 Optional --lines lines.json overrides headlines and spoken lines: hero, bold, colours, V03_hook / V03_close (video id)
@@ -102,13 +102,15 @@ THEMES = {
                "[It arrives with {gift_sp}. ]Tap the link below."],
         sub="{P} off[ + {gift_sp} in the box].", cta="Shop the gift", lead="It makes a gift that gets used every day."),
     "mothers day": dict(
-        label="FOR MUM", hooks=["Still trying to figure out what to get your mum?"],
+        label="FOR MUM", hooks=["Still trying to figure out what to get your mum?", "Most gifts end up in a drawer. Not this one.",
+                                 "Here's a gift your mum will actually use every day."],
         hero="For the mum who carries everything.", bold=["FOR", "MUM."], offer_title="{P} OFF", offer_sub="[{card}]",
         close=["[It arrives with {gift_sp}, and ]it's {off_sp} right now. Tap the link below.",
                "[It arrives with {gift_sp}. ]Tap the link below."],
         sub="{P} off[ + {gift_sp}].", cta="Shop for mum", lead="It makes the perfect gift for mum."),
     "travel": dict(
-        label="TRAVEL DAY", hooks=["Travel day is where a bottomless bag really hurts."],
+        label="TRAVEL DAY", hooks=["Travel day is where a bottomless bag really hurts.",
+                                   "Heading away soon? Here's the bag to take.", "Packing for a trip? Start with the bag."],
         hero="Made for travel day.", bold=["PACK", "SMARTER."], offer_title="{P} OFF", offer_sub="[{card}]",
         close=["It's {off_sp} right now[, with {gift_sp}]. Tap the link below.", "[It comes with {gift_sp}. ]Tap the link below."],
         sub="{feats}.", cta=["Shop now · {P} off", "Shop now"], lead=""),
@@ -145,6 +147,7 @@ def theme_name(text, key):
     if key in NAMED:
         return slug(key)
     t = re.sub(r"'s\b", "s", re.sub(r"[\u2018\u2019`\u00b4]", "'", (text or "").lower()))     # "Valentine's" -> valentines
+    t = re.sub(r"\bvalentines?(?:[\s-]*day)?\b", "valentines day", t)                    # one name: ValentinesDay
     words = [w for w in re.findall(r"[a-z0-9]+", t) if w not in FILLER]
     return slug(" ".join(words[:3])) if words else ("Evergreen" if key == "default" else slug(key))
 
@@ -817,7 +820,8 @@ def plan(a):
                 token[:] = token or [access_token()]
                 return download(token[0], item["id"], src or dest)
         except (Exception, SystemExit) as e:  # noqa: BLE001
-            warnings.append(f"{item.get('name')}: Drive download failed ({e})")
+            warnings.append(f"{item.get('name')}: Drive download failed "
+                            f"({'no Drive login: python3 pipeline/drive_upload.py check' if isinstance(e, SystemExit) else e})")
             return None
 
     import new_product
@@ -895,7 +899,7 @@ def plan(a):
            ["lifestyle", "bold", "hero", "lifestyle", "compare", "review", "lifestyle", "bold", "hero", "lifestyle"])
     if not clean_mode and a.statics:
         warnings.append(f"only {len(packs)} clean packshot(s): statics use the client's lifestyle photos and framed photo cards")
-    statics, n_life, seen_s = [], 0, set()
+    statics, n_life, seen_s, nlay = [], 0, set(), {}
     import brand_statics as bs
     cards = {rel(f) for f in packs if bs.textured(f)}     # light textured backdrop: a framed card, never a grey box
     hero = ov(tx["hero"], "hero") if a.statics else tx["hero"]
@@ -953,10 +957,10 @@ def plan(a):
         else:
             warnings.append(f"static {i + 1}: no usable photo (no clean packshot, no faceless client photo): skipped")
             continue
-        rnd = i // len(seq) + a.seed - 1
+        rnd, hv0 = i // len(seq) + a.seed - 1, nlay.get(lay, 0) + a.seed - 1   # hv0: the 2nd hero/promo/... gets another headline
         for t in range(len(photos) * 4):
             photo = photos[(i + rnd + t) % len(photos)]
-            s = static(lay, rel(photo), rnd + t // len(photos))
+            s = static(lay, rel(photo), hv0 + t // len(photos))
             sig = json.dumps(s, sort_keys=True)
             if sig not in seen_s:
                 break
@@ -965,6 +969,7 @@ def plan(a):
                             f"for {a.statics} different statics of {pr['name']})")
             continue
         seen_s.add(sig)
+        nlay[lay] = nlay.get(lay, 0) + 1
         if card:
             cards.add(rel(photo))
         s["name"] = f"{prefix}_S{len(statics) + 1:02d}_{lay}"
@@ -1005,6 +1010,9 @@ def plan(a):
                     end_title=ed.get("end_title") or wp["end"],
                     offer_title=ed.get("offer_title", wtx["offer_title"]), offer_sub=ed.get("offer_sub", wtx["offer_sub"]),
                     keywords=list(dict.fromkeys(wtx["keywords"] + THEME_WORDS[theme_key])))
+        if not ed.get("offer_word") and spec["offer_title"] and uses[w["key"]] == 1:
+            warnings.append(f"{w['key']}: the RAW never says the offer: its '{spec['offer_title']}' card shows after the review "
+                            f"section, just before the end card")
         if co.get("range"):
             spec["cold_open"] = co["range"]
         if co.get("label"):
@@ -1067,19 +1075,22 @@ def plan(a):
     feat_gift = bool(gnoun) and any(re.search(r"\bfree\b.*\b" + gnoun, f[0], re.I) for f in fs)
     colours_tail = "Which one is yours?" if feat_gift else tx["colours_line"]       # the gift is said twice at most
 
-    def board(v, vid, bid, o):
+    def fmt_of(v):
         fmt = formats[v % len(formats)]
         if fmt == "colours" and len(colour_imgs) < 3:
             fmt = "features"
-        if fmt == "reviews" and not pr["reviews"]:
-            fmt = "features"
+        return "features" if fmt == "reviews" and not pr["reviews"] else fmt
+
+    def board(v, vid, bid, fmt, o):
+        # o: this format's earlier videos + (--seed - 1) + retries. Every step moves the hook line and clip, the close
+        # B-roll, where the features start and where the reviews start, so a later pass or another seed differs everywhere
         hooks = tx["hooks"]
-        o2 = o // len(hooks)                      # variation o: the hook first, then where features/reviews start
-        o3 = o2 + o2 // max(len(fs), 1)
-        hook = ov(hooks[(v + o) % len(hooks)], f"{vid}_hook", f"{bid}_hook")
         if fmt == "colours":
-            hook = ov("Be honest. Which colour are you?" if theme_key == "default" else hooks[0] + " Which colour are you?",
-                      f"{vid}_hook", f"{bid}_hook")
+            hooks = (["Be honest. Which colour are you?", "Which colour would you pick?"] if theme_key == "default" else
+                     [h + " Which colour are you?" for h in hooks])
+        o2 = o + o // len(hooks)
+        o3 = o + o // max(len(fs), 1)
+        hook = ov(hooks[(v + o) % len(hooks)], f"{vid}_hook", f"{bid}_hook")
         hcs = rot(pr["hook_clips"], v + o)
         hc = next((h for h in hcs if tuple(h) not in feat_picks), hcs[0] if hcs else None)   # not a shot a feature shows
         shown = {tuple(hc)} if hc else set()
@@ -1169,8 +1180,10 @@ def plan(a):
             ow = tx["offer_word"]
             if ow not in close.lower() and (not ow.isdigit() or new_product.say(int(ow)).split("-")[0] not in close.lower()):
                 warnings.append(f"{vid}: the --lines close has no '{ow}' (or its spoken word): the offer card will not show")
-        cl = ([[rel(packs[(v + o) % len(packs)]), 0, 1.0, {"zoom": [1.0, 1.06]}]] if packs else []) + \
-            picks([cb] if cb else [], fallback=False, w=1.2)
+        on = {rel(pool[p[1] % len(pool)]) for p in shown if p and p[0] == "photo"} if pool else set()
+        ph = next((f for f in rot([rel(f) for f in packs], v + o) if f not in on), rel(packs[(v + o) % len(packs)]) if packs else None)
+        cl = ([[ph, 0, 1.0, {"zoom": [1.0, 1.06]}]] if ph else []) + \
+            [x for x in picks([cb] if cb else [], fallback=False, w=1.2) if x[0] != ph]
         blocks.append(dict(vo=line(vid, "close", close, BRAND_VOICE), broll=cl or picks([])))
         if any(not blk.get("broll") for blk in blocks if "vo" in blk):
             sys.exit(f"{pr['name']}: no footage or photo to show under the voiceover (product has no clips, no clean "
@@ -1181,23 +1194,36 @@ def plan(a):
                     keywords=list(dict.fromkeys(tx["keywords"] + THEME_WORDS[theme_key])))
         return f"{prefix}_{vid}_{fmt}", spec, dict(name=f"{prefix}_{vid}_{fmt}", id=vid, format=fmt, engine="storyboard", hook=hook)
 
-    seen_v, nsb = {}, 0
+    seen_v, seen_sc, nsb, per_fmt = {}, set(), 0, {}
+
+    def sigs(spec):                       # (script: the words, customer clips and on-screen texts; everything incl. B-roll)
+        sc = [said.get(x["vo"]) if "vo" in x else [x["clip"], x["range"]] for x in spec["blocks"]] + \
+            [[x.get("type"), x.get("text"), x.get("n")] for x in spec["overlays"]]
+        return json.dumps(sc), json.dumps([sc, [x.get("broll") for x in spec["blocks"]]])
     for v in range(a.videos):
-        vid, bid = f"V{W + nsb + 1:02d}", f"B{nsb + 1:02d}"
+        vid, bid, fmt = f"V{W + nsb + 1:02d}", f"B{nsb + 1:02d}", fmt_of(v)
+        c, per_fmt[fmt] = per_fmt.get(fmt, 0), per_fmt.get(fmt, 0) + 1
+        alt = None                        # another script first; same words over other footage only when nothing else is left
         for t in range(min(60, max(12, len(tx["hooks"]) * max(len(fs), 1) * max(len(pr["reviews"]), 1)))):
             n0, s0 = len(tts), dict(said)
-            name, spec, ventry = board(v, vid, bid, v // len(formats) + a.seed - 1 + t)
-            sig = json.dumps([[said.get(x["vo"]) if "vo" in x else [x["clip"], x["range"]], x.get("broll")] for x in spec["blocks"]]
-                             + [[x.get("type"), x.get("text"), x.get("n")] for x in spec["overlays"]])
-            if sig not in seen_v:
+            name, spec, ventry = board(v, vid, bid, fmt, c + a.seed - 1 + t)
+            ssig, sig = sigs(spec)
+            if ssig not in seen_sc:
                 break
-            del tts[n0:]                  # an exact repeat of an earlier video: take its lines back, start elsewhere
+            alt = t if alt is None and sig not in seen_v else alt
+            del tts[n0:]                  # a repeat of an earlier video's script: take its lines back, start elsewhere
             said.clear()
             said.update(s0)
         else:
-            warnings.append(f"storyboard video {v + 1} would repeat {seen_v[sig]} exactly: left out ({pr['name']} has only "
-                            f"enough features, reviews and clips for {nsb} different storyboard videos)")
-            continue
+            if alt is None:
+                warnings.append(f"storyboard video {v + 1} would repeat {seen_v.get(sig, 'an earlier video')} exactly: left out "
+                                f"({pr['name']} has only enough features, reviews and clips for {nsb} different storyboard videos)")
+                continue
+            name, spec, ventry = board(v, vid, bid, fmt, c + a.seed - 1 + alt)
+            ssig, sig = sigs(spec)
+            warnings.append(f"{vid} says the same words as an earlier video over other footage ({pr['name']} has few "
+                            f"features/reviews/hooks): add hooks/closes with --lines for more variety")
+        seen_sc.add(ssig)
         seen_v[sig] = vid
         nsb += 1
         specs[name] = spec
@@ -1562,6 +1588,8 @@ def upload(a):
             existed.append(n)
         uploaded.append((n, kind, base))
     txt = os.path.join(out, f"run report {now:%H%M}.txt")
+    if a.only:
+        notes.insert(0, f"this upload covers only {a.only.upper()} of the batch (other ads: earlier/later run reports here)")
     if pending:
         print(f"not rendered yet, so not uploaded now: {', '.join(pending)}", file=sys.stderr)
     open(txt, "w").write(run_report(p, report, uploaded, skipped, name, flagged, notes, pending))
@@ -1619,7 +1647,7 @@ def main():
     u.add_argument("--only", help="as render --only: S (statics), V (videos), V03, 'S01,V02'")
     sp = sub.add_parser("specs", help="copy the batch's spec JSONs (no media, no render files) for committing")
     sp.add_argument("--out", required=True)
-    sp.add_argument("--to", required=True, help="e.g. pipeline/recipes/daily/<YYYY-MM-DD>/<short-name>")
+    sp.add_argument("--to", "--dest", dest="to", required=True, help="e.g. pipeline/recipes/daily/<YYYY-MM-DD>/<short-name>")
     a = ap.parse_args()
     {"plan": plan, "render": render, "upload": upload, "specs": specs_copy}[a.cmd](a)
 

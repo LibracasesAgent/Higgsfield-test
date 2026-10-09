@@ -20,7 +20,7 @@ forces `pipeline/make_batch.py` (templates, no AI images/video) for every normal
   | Product | Price (was) | Colours | Key claims |
   |---|---|---|---|
   | Luxury Leather Hobo Anti-Theft Handbag ("Hobo Bag") | $52.50 ($105) | Brown, Black, Blue, Grey, Burgundy, Red | hidden anti-theft back pocket, smart compartments, soft water-resistant scratch-proof leather, 2 adjustable straps (handbag / shoulder / crossbody), free matching pouch wallet, free US shipping, 1-year warranty, easy returns |
-  | Hobo 2.0 "6-Layer Security Edition" | $79.95 ($159.90) | Black, Brown (Beige sold out) | RFID protection, lockable zippers, cut-resistant strap, hidden pockets, smart compartments, table security strap |
+  | Hobo 2.0 "6-Layer Security Edition" | $79.95 ($159.90) | Black, Brown, Beige (Beige was sold out in early Oct, back on the site by 10-09; `plan` reads the colours from the site) | RFID protection, lockable zippers, cut-resistant strap, hidden pockets, smart compartments, table security strap |
   | Hobo Bag 3-Piece Set | $69.95 | Brown, Black, Blue, Grey, Purple Red, Red | hobo + crossbody + matching pouch |
   | Slouchy Soft 3-Piece Set | $69.95 | | |
   | Vintage Bag | $44.95 | Ginger Brown, Black, Chocolate, Red | one-hand clasp, compartments, adjustable/removable strap |
@@ -41,8 +41,8 @@ forces `pipeline/make_batch.py` (templates, no AI images/video) for every normal
 2. Wants UGC-style videos, not studio films; AI UGC that hooks well.
 3. "Yes on all" to showing the 10 customer reviews with names.
 4. "The quality is definitely too low." Cause: 720p AI clips, low-quality start images, 8 Mbps exports.
-   Fix that worked: real 1080p/4K library footage, site photos for statics, Kling **pro** (1080p) for AI,
-   GPT image **high** for AI stills, exports at CRF 17 / ~10-14 Mbps.
+   Fix that worked: real 1080p/4K library footage, site photos for statics, exports at CRF 17 / ~10-14 Mbps.
+   (The 10-02 test also used Kling pro and GPT image high for AI shots: historical, AI images/video are not allowed now.)
 5. Videos too short: winners run **50 s to 1:25**. Target ~1 min with more elements (hook, labels, tags,
    reviews, real customer clips, offer card, end card). Statics "look acceptable".
 6. The zipper didn't move in an early AI ad: AI hands/zips are unreliable, use real footage for mechanics.
@@ -60,9 +60,9 @@ Delivered: Drive Outputs / "oct 3 test" / Statics (22 files) + Videos (20). Cost
 
 | Ads | Type | Engine |
 |---|---|---|
-| S01-S20 | statics (hero, promo, callouts, carousel, bold, colours, reviews, compare, lifestyle, trust, before/after, AI flatlay) | `brand_statics.py` |
+| S01-S20 | statics (hero, promo, callouts, carousel, bold, colours, reviews, compare, lifestyle, trust, before/after, AI flatlay (historical, not allowed now)) | `brand_statics.py` |
 | V01-V08, V20 | winner variations of RAW ads 94-H4, 148-H5, 121-H2, 147-H1, 158-H2, 139-H4, 123-H4, 33-H5, 113-H2 | `remix.py` |
-| V09-V18 | new angles: Vintage showcase, 3-Piece "which would you choose", Hobo 2.0 "would you try", travel Bag Swap, gift for mum, reviews compilation, colour pick, feature walkthrough, AI presenter, what fits | `storyboard.py` |
+| V09-V18 | new angles: Vintage showcase, 3-Piece "which would you choose", Hobo 2.0 "would you try", travel Bag Swap, gift for mum, reviews compilation, colour pick, feature walkthrough, AI presenter (historical, not allowed now), what fits | `storyboard.py` |
 | V19 | premium Hobo 2.0 film (23 s) | `premium.py` |
 
 ## 4. Recipes
@@ -97,7 +97,7 @@ Formats that worked (scripts in section 5):
 - **Reviews compilation:** 6 named reviews + real customer unboxing clips (V14).
 - **Colour pick:** "Be honest. Which colour are you?" with swatch frames + tags (V15).
 - **Feature walkthrough** on 4K macro clips with tags (V16).
-- **AI presenter:** Kling hook ≤ 2.75 s on face then cutaway, body over real footage, Kling CTA at the end (V17).
+- **AI presenter (V17, historical: not allowed).** CLAUDE.md hard rule 1 forbids AI images and AI video; never remake it.
 - **What fits:** packing shots + the site's "what fits" infographic padded to 9:16 (V18).
 
 ### 4c. Statics (`brand_statics.py`)
@@ -110,7 +110,9 @@ Layouts: `hero`, `promo` (badge), `callouts`, `review`, `compare`, `colours`, `b
   `card_photos` (shown as a framed card).
 - Review static: `review_n` from reviews.json, or `quote` + `author` (never put the file name as author).
 
-### 4d. AI shots (Higgsfield)
+### 4d. AI shots (Higgsfield): HISTORICAL, NOT ALLOWED
+Kept only as a record of the 10-02 test. CLAUDE.md hard rule 1: no AI images, no AI video, the Higgsfield image and
+video tools are blocked. Do not follow these steps.
 - Upload the site photo padded to 9:16 (`media_upload` → PUT with headers `Content-Type` and
   `If-None-Match: *` → `media_confirm`).
 - `kling3_0`, `mode: pro`, 5 s, 9:16, `start_image`. Prompt pattern: "Premium studio product film. The
@@ -156,7 +158,7 @@ dark/bold statics (`bold` layout, red accent). Christmas/Mother's Day: gift angl
 | Captions to the last word | whisper dropped a closing sentence | `condition_on_previous_text=False` |
 | Caption spelling | "Hobo 2 0", "XA", "have mercy", "50 %" | `CAPTION_FIX` + "%" glue in `longform.py` |
 | No old captions flashing at cuts (burned-caption RAWs) | 0.25-0.5 s flash | cut ≥0.3 s before the next burned caption appears |
-| Offer card not over a face | covered AI presenter | drop the offer card when the speaker says the offer |
+| Offer card not over a face | covered the (historical) AI presenter | drop the offer card when the speaker says the offer |
 | Titles readable | cream text on white | dark titles on light shots |
 | Graphics not cropped | square infographic cut to 9:16 | pad onto a 9:16 background |
 | Clip audio | Hobo 2.0 zipper clip has an unrelated TV ad | mute flags in `clip_bank.json` |
@@ -178,11 +180,12 @@ Always look at a contact sheet of every video and a grid of every static before 
 - **Higgsfield:** `use_unlim:false` always; batch tools max 12 per call; jobs_wait to poll; TTS rate limit
   (429) → resubmit the failed ones; preset "IN THE DARK" → `declined_preset_id`. MCP connectors sometimes
   disconnect: reload tools and continue.
-- **Costs (credits):** TTS 0.15-0.45/line; Kling pro 5 s 12.5; Kling pro 5 s with sound ~12.5-15; GPT image
-  2K high 2.75; voice clone 40 (one-time). Real-footage edits cost nothing. 40 ads ≈ 70-200 credits.
+- **Costs (credits):** TTS 0.15-0.45/line (`plan` estimates 0.35/line; a 20 statics + 10 videos batch is ~13-27
+  lines, 5-10 credits). Statics and real-footage edits cost nothing. Historical, not allowed now: Kling pro 5 s 12.5,
+  GPT image 2K high 2.75 (the 10-02 test with AI shots cost 70-200 credits for 40 ads).
 
 ## 8. Reply format (Slack / app)
 
 One short message: Drive folder link; one line per ad (name, angle, length); credits used (balance before
-and after); anything skipped, failed or needing a human (e.g. "V17 has an AI presenter: turn on Meta's
-AI label").
+and after); anything skipped, failed or needing a human (e.g. "V03 is 31 s, under the 35 s target: the product
+file needs more clips").
