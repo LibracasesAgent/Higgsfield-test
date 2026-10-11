@@ -5,11 +5,14 @@ offer, end card); its versions differ ONLY in the first 2-5 s: the spoken openin
 hook label on screen. Statics are not touched.
 
   python3 pipeline/projects.py expand --out $OUT [--hooks 4] [--seed N] [--only P02H3] [--budget X]
-      After `make_batch.py plan`: Vnn -> project Pnn with hooks H1..H4.
+      After `make_batch.py plan`: Vnn -> project Pnn with hooks H1..H4. The command (not the library call) then writes
+      the ad copy again (ad_copy.csv) and re-runs the compliance check (exit 2 on a problem), as plan does.
       H1 = the planned spec, unchanged (renamed <prefix>_P01_H1_<angle>). H2..H4 = copies where only the hook differs:
         storyboard specs: blocks[0] (a new spoken hook from pipeline/data/hooks.json, voiced in the same voice as the
           planned hook, over another opening shot from the product's hook clips / B-roll / feature picks / photos, never
-          the planned hook's shot or block 1's first clip) and the block-0 label; every other block, overlay, the offer
+          the planned hook's shot or block 1's first clip; a long line also gets a 'spare' 2nd shot, used only if its voice
+          runs past 4 s; the hook pad stays, so the line finishes before the body) and the block-0 label; every other
+          block, overlay, the offer
           and the end card stay byte-identical, so the body voiceovers are shared (only P01H2_hook.mp3 ... are new);
         remix specs (winner videos): another entry of clip_bank winner_raws[key].edit.cold_opens per hook
           (its range + label + type; range null = no cold open, the RAW's own first line under that label); two cold
@@ -37,7 +40,18 @@ hook label on screen. Statics are not touched.
   python3 pipeline/projects.py check --out $OUT [--build]
       Before render: H1..Hn differ only in the hook, bodies identical, hook texts/labels/shots distinct, hook types
       distinct (storyboard), no new opening on block 1's shot, cold opens not overlapping (remix), overlay blocks valid, every source resolves, every voiceover is in tts_needed (or a
-      duplicate). --build also runs storyboard.build / remix.build on every spec (needs the voiceover mp3s).
+      duplicate). --build also runs storyboard.build / remix.build on every spec (needs the voiceover mp3s) and checks the
+      client's cadence and pacing rules: no piece of someone's speech starting/ending mid-sentence, no B-roll shot over
+      MAX_SHOT s, no picture at all over MAX_VISUAL s without a cut (a customer's clip included), >= remix.PAUSE s after
+      the hook line before the body, >= storyboard.CLIP_PAD s after a customer's last word before the narrator speaks
+      again, >= remix.TAIL s after the last line.
+  python3 pipeline/projects.py cadence [raw94_H4 ...]
+      Audits the clip bank: every winner_raws cold open, body piece (cuts; the insert point used by --winner-reviews) and
+      every real-customer range (built-in products, product files) starts at a sentence start and ends at a sentence end
+      (final punctuation and remix.PAUSE s before the next word, or the recording's end), on the committed transcripts.
+      Also: no product's B-roll / hook / feature pick is a real customer's own clip or a moment someone talks (a word of
+      its committed transcript within the shot): muted under the narrator, her lips would move under another voice.
+      Exit 1 on any problem. (winner_prep.py --check then measures the audio and the edge frames at each boundary.)
 
 Library use (make_batch.py): `projects.expand(out, hooks=4, seed=a.seed, budget=a.budget)` returns the summary dict;
 `projects.voice_files(out, videos)` lists the mp3s a set of plan.json video entries needs.
@@ -67,6 +81,8 @@ DRIVE_ID = re.compile(r"^[A-Za-z0-9_-]{20,}$")
 STILL = (".png", ".jpg", ".jpeg", ".webp")
 CREDITS_PER_LINE = 0.35            # as make_batch.plan's estimate
 SAME_SHOT = 2.5                     # two picks of one clip closer than this (s) are the same shot
+MAX_SHOT = 4.0                      # longest B-roll shot (remix.MAX_SHOT / storyboard)
+MAX_VISUAL = 5.0                    # longest picture without a cut, a customer's clip included (storyboard reframes it)
 COLOUR_Q = "Which colour are you?"
 MAX_WORDS = 15                      # longest hook line (~5.5 s at make_batch.WPS)
 B1_SCENE = 8.0                      # an opener this close (s) to block 1's first shot in the same clip is the same scene
@@ -76,7 +92,7 @@ RECIPES = os.path.join(HERE, "recipes", "daily")   # committed batches (make_bat
 
 
 def mb():
-    import make_batch               # read-only use: THEMES, PRODUCTS, product files, offer templates
+    import make_batch               # THEMES, PRODUCTS, product files, offer templates; copy_and_check after expand
     return make_batch
 
 
@@ -286,15 +302,29 @@ class Ctx:
             if pk[0] == "clip" and isinstance(pk[1], int) and 0 <= pk[1] < len(pr.get("clips") or []):
                 return pr["clips"][pk[1]].get("good") or []
             return []
+        cust = {(c[0], c[1]) for c in pr.get("customer") or []}
+        talk = {}
+
+        def talks(s):                 # someone speaks on camera there (committed transcript): never a muted opening shot
+            if s["still"]:
+                return False
+            if s["src"] not in talk:
+                import remix
+                talk[s["src"]] = remix.committed(str(s["src"])) or []
+            a = float(s["start"])
+            return any(w["e"] > a - 0.3 and w["s"] < a + MAX_SHOT + 0.3 for w in talk[s["src"]])
         res, more = [], []
         for kind, ps in (("hook", [(None, x) for x in pr["hook_clips"]]), ("broll", [(None, x) for x in pr["broll"]]),
                          ("feature", [(f[1], x) for f in pr["features"] for x in f[2]])):
             for tag, pk in ps:
-                s = resolve(pk)
+                s = resolve(pk) if pk and (pk[0], pk[1]) not in cust else None   # a customer's clip is her scene only
+                if s and talks(s):
+                    s = None
                 if s:
                     res.append(dict(s, kind=kind, tag=tag))
                     if not s["still"]:
-                        more += [dict(s, start=g, kind="more", tag=tag) for g in good_of(pk, s) if abs(g - float(pk[2])) >= SAME_SHOT]
+                        more += [dict(s, start=g, kind="more", tag=tag) for g in good_of(pk, s) if abs(g - float(pk[2])) >= SAME_SHOT
+                                 and not talks(dict(s, start=g))]
         for i, c in enumerate(file_clips):    # every product-file clip's proposed starts, also of clips no pick uses
             if c:
                 more += [dict(src=c, start=g, still=False, kind="more", tag=None) for g in pr["clips"][i].get("good") or []]
@@ -438,8 +468,12 @@ def raw_first_line(key, spec):
 
 
 def cold_open_options(key, spec):
+    """The winner's cold opens as hook options: never one whose words make a health claim or whose label names a health
+    condition, a medical story one (its words name a condition: 'The arthritis has won.') last (compliance.cold_opens,
+    Julian's health rule)."""
+    import compliance
     raws = json.load(open(BANK)).get("winner_raws", {})
-    cos = ((raws.get(key) or {}).get("edit") or {}).get("cold_opens") or []
+    cos = compliance.cold_opens(key, ((raws.get(key) or {}).get("edit") or {}).get("cold_opens") or [])
     opts, seen = [], set()
     for c in cos:
         r = c.get("range")
@@ -451,7 +485,8 @@ def cold_open_options(key, spec):
         if not r:
             line = raw_first_line(key, spec) or line
         typ = c.get("type") if c.get("type") in TYPES else classify(f"{line} {c.get('label') or ''}".strip())
-        opts.append(dict(range=r, label=c.get("label") or "", text=line, type=typ))   # type: the editor's (winner_prep)
+        opts.append(dict(range=r, label=c.get("label") or "", text=line, type=typ,   # type: the editor's (winner_prep)
+                         **({"medical": True} if c.get("medical") else {})))
     return opts
 
 
@@ -630,7 +665,8 @@ def expand(out, hooks=4, seed=1, only=None, budget=None, quiet=False):
             if sent is None:
                 sent = sent_openings()
             out_before = (lambda o: [d for r, _, d in sent.get(key, []) if same_opening(o["range"], r)])
-            rest.sort(key=lambda o: bool(out_before(o)))     # openings not delivered in an earlier batch first
+            rest.sort(key=lambda o: (bool(o.get("medical")), bool(out_before(o))))   # a medical story opening last
+            # (Julian's health rule), then the openings not delivered in an earlier batch first
             chosen, types = [], {h1["type"]}
             for strict in (True, False):              # different hook types first, then whatever is left
                 for o in rest:
@@ -643,6 +679,14 @@ def expand(out, hooks=4, seed=1, only=None, budget=None, quiet=False):
                     chosen.append(o)
                     types.add(o["type"])
             who = w.get("brief_name") or key
+            try:                                      # the client's cadence rule on every opening (projects.py cadence)
+                import remix
+                wsk = remix._norm(json.load(open(os.path.join(TRANS, f"{key}_words.json"))))
+                for o in [h1] + chosen:
+                    for x in remix.cadence(wsk, *o["range"], f"cold open {o['label']!r}") if o.get("range") else []:
+                        warnings.append(f"{pid} ({who}): cadence: {x}")
+            except (OSError, ValueError, TypeError):
+                pass
             if len(chosen) < n - 1:
                 warnings.append(f"{pid} ({who}): only {len(chosen) + 1} different cold opens in clip_bank winner_raws: "
                                 f"{len(chosen) + 1} hook versions (add cold opens to make {n})")
@@ -687,7 +731,8 @@ def expand(out, hooks=4, seed=1, only=None, budget=None, quiet=False):
                 said_b1 = set(said[:1]) if len(blocks) > 1 and blocks[1].get("vo") else set()
                 picked = pick_hooks(ctx, cands, h1, n, fmt, kk, uses, line_labels, said_b1, set(said))
                 b1 = first_shot(blocks[1]) if len(blocks) > 1 else None
-                taken, body, got = [], body_shots(blocks[1:]), {}
+                taken, got = [], {}
+                body = body_shots(blocks[1:]) + [(x[0], x[1]) for x in spec.get("spare_broll") or []]   # (spares: maybe)
                 scenes = {b_["clip"] for b_ in blocks[1:] if b_.get("clip")}    # clips the body plays as scenes
                 hinted = {j for j, c in enumerate(picked) if c.get("feature") and any(x["tag"] == c["feature"] for x in shots)}
                 for j in sorted(range(len(picked)), key=lambda j: (j not in hinted, j)):   # feature hooks choose first
@@ -717,7 +762,12 @@ def expand(out, hooks=4, seed=1, only=None, budget=None, quiet=False):
                         new_tts.append(dict(file=f, text=text, **voice))
                     note_use(c["text"], c["label"], shot)
                     s = copy.deepcopy(spec)
-                    s["blocks"][0] = dict(vo=f, broll=[shot])
+                    s["blocks"][0] = dict(vo=f, broll=[shot], pad=blocks[0].get("pad", 0.35))
+                    if say_secs(text) + 0.35 > MAX_SHOT - 0.7:   # a 2nd opening shot, used only if the voice runs > 4 s
+                        sp = pick_shot(shots, c, orig, b1, taken + [shot[:2]], body, kk + j + 5,
+                                       line_shots.get(norm(c["text"]), ()), scenes)
+                        if sp and not same_shot(dict(src=sp[0], start=sp[1], still=len(sp) > 3), shot[0], shot[1]):
+                            s["blocks"][0]["spare"] = [sp]
                     if lab_i is not None:
                         s["overlays"][lab_i] = dict(s["overlays"][lab_i], text=c["label"])
                     else:
@@ -742,13 +792,17 @@ def expand(out, hooks=4, seed=1, only=None, budget=None, quiet=False):
                                       type=fields["hook_type"], **({"cold_open": fields["cold_open"]} if eng == "remix" else
                                                                     {"shot": fields["opening_shot"]}),
                                       est_seconds=fields["est_seconds"]))
-        short = [(h["hook"], h["est_seconds"]) for h in proj["hooks"] if (h["est_seconds"] or 99) < 35]
+        floor = 15 if eng == "remix" else 60 if v.get("format") == "story" else 35   # (make_batch QA_SECONDS: a winner
+        #                                                       body is as long as it is; the story format runs 1.5-2 min)
+        short = [(h["hook"], h["est_seconds"]) for h in proj["hooks"] if (h["est_seconds"] or 99) < floor]
         if short:                             # one line per project (make_batch leaves short videos to this check)
             lo, hi = round(min(x for _, x in short)), round(max(x for _, x in short))
-            fix = "" if eng == "remix" else ": add lines with --lines" if ctx.pr["source"] == "built-in" else \
-                ": the product file needs more features/clips, or add lines with --lines"
+            fix = "" if eng == "remix" else (": the story format runs as long as the product's real material (features, "
+                                             "customer clips, reviews) allows; add lines with --lines or use the showcase "
+                                             "format") if v.get("format") == "story" else ": add lines with --lines" \
+                if ctx.pr["source"] == "built-in" else ": the product file needs more features/clips, or add lines with --lines"
             warnings.append(f"{pid} ({', '.join(h for h, _ in short)}) will run about {lo}{'' if lo == hi else f'-{hi}'} s "
-                            f"(QA wants 35+ s){fix}")
+                            f"(QA wants {floor}+ s){fix}")
         types = [h["type"] for h in proj["hooks"]]
         if eng != "remix" and len(set(types)) < len(types):
             warnings.append(f"{pid}: hook types repeat ({', '.join(types)})")
@@ -781,12 +835,13 @@ def expand(out, hooks=4, seed=1, only=None, budget=None, quiet=False):
     gone = [f"{pid_} {who_} {', '.join(h for h, _ in hs)} ({', '.join(sorted({d for _, d in hs}))})" for pid_, who_, hs in gone if hs]
     if gone:
         warnings.append(f"winner versions that open like ads already delivered (pipeline/recipes/daily): {'; '.join(gone)}: "
-                        f"they differ from those ads only in the narrated reviews and the offer card; new openings need "
-                        f"new cold opens (python3 pipeline/winner_prep.py)")
+                        f"they differ from those ads only in the offer card and end card (and the review section those had); "
+                        f"new openings need new cold opens (python3 pipeline/winner_prep.py)")
     for pid_, who_, key_, n_ in all_used if only else []:
         if pid_ in kept_h:
             warnings.append(f"{pid_} ({who_}) is a winner project: it holds every cold open {key_} has ({n_}), so a redo "
-                            f"with another --seed changes only its narrated reviews and which opening is H1; new openings "
+                            f"with another --seed changes only which opening is H1 (and the narrated reviews with "
+                            f"--winner-reviews); new openings "
                             f"need new cold opens (python3 pipeline/winner_prep.py)")
 
     # voiceover: the plan's lines + the new hooks; only the lines the kept versions use
@@ -999,13 +1054,28 @@ def check(out, build=False):
                                 f"@{h['shot'][1]}): no other shot was left")
         res = dict(project=pr["id"], angle=pr["angle"], versions=len(hs), problems=probs, notes=info)
         if build:
+            import remix
             res["build"] = {}
             for hid, s in sp.items():
-                res["build"][hid] = build_dry(out, s)
-                if res["build"][hid].get("error"):
-                    probs.append(f"{hid}: build failed: {res['build'][hid]['error']}")
-                elif res["build"][hid].get("anchors_missing"):
-                    probs.append(f"{hid}: {res['build'][hid]['anchors_missing']} overlay anchor(s) not found")
+                bd = res["build"][hid] = build_dry(out, s)
+                if bd.get("error"):
+                    probs.append(f"{hid}: build failed: {bd['error']}")
+                    continue
+                if bd.get("anchors_missing"):
+                    probs.append(f"{hid}: {bd['anchors_missing']} overlay anchor(s) not found")
+                probs += [f"{hid}: cadence: {x}" for x in bd.get("cadence") or []]
+                if bd.get("longest_shot", 0) > MAX_SHOT + 0.1:
+                    probs.append(f"{hid}: a B-roll shot runs {bd['longest_shot']} s (max {MAX_SHOT}: no spare shot left)")
+                if bd.get("longest_visual", 0) > MAX_VISUAL:
+                    probs.append(f"{hid}: one picture runs {bd['longest_visual']} s without a cut (max {MAX_VISUAL}: Julian's "
+                                 f"3-5 s pacing)")
+                if bd.get("hook_gap") is not None and bd["hook_gap"] < remix.PAUSE:
+                    probs.append(f"{hid}: only {bd['hook_gap']} s after the hook line before the body starts")
+                if bd.get("handoff_gap") is not None and bd["handoff_gap"] < 0.45:
+                    probs.append(f"{hid}: only {bd['handoff_gap']} s between a customer's last word and the narrator's next "
+                                 f"line (want storyboard.CLIP_PAD: her sentence lands, a breath, then the next voice)")
+                if bd.get("tail") is not None and bd["tail"] < remix.TAIL:
+                    probs.append(f"{hid}: the last line ends {bd['tail']} s before the video ends (want {remix.TAIL})")
         bad += bool(probs)
         rep.append(res)
         print(json.dumps(res, ensure_ascii=False), flush=True)
@@ -1013,22 +1083,69 @@ def check(out, build=False):
     return not bad
 
 
+def speech_end(f, floor=-40.0):
+    """Seconds into a voiceover mp3 where its last sound above `floor` dB ends (TTS files are clean: no bed)."""
+    import numpy as np
+    raw = subprocess.run(["ffmpeg", "-v", "error", "-i", f, "-ac", "1", "-ar", "16000", "-f", "s16le", "-"],
+                         capture_output=True).stdout
+    x = np.frombuffer(raw, np.int16).astype(np.float32) / 32768
+    if not len(x):
+        return 0.0
+    hop = 160                                           # 10 ms frames
+    n = len(x) // hop
+    lv = 20 * np.log10(np.sqrt((x[:n * hop].reshape(n, hop) ** 2).mean(axis=1)) + 1e-9)
+    loud = np.nonzero(lv > max(floor, float(lv.max()) - 45))[0]
+    return float((loud[-1] + 1) * hop / 16000) if len(loud) else 0.0
+
+
 def build_dry(out, s):
-    """storyboard.build / remix.build without rendering: total length, overlays, missing anchors."""
+    """storyboard.build / remix.build without rendering: total length, overlays, missing anchors, and the client's
+    cadence and pacing rules: 'cadence:' lines (a piece of speech starting/ending mid-sentence), the longest B-roll shot
+    (MAX_SHOT), the silence after the hook line (storyboard; remix: build adds the beat) and after the last line (TAIL)."""
     err = io.StringIO()
     try:
         with contextlib.redirect_stderr(err):
             if "raw" in s:
                 import remix
                 segs, audio, ov, total, _ = remix.build(s, out)
+                broll = [x for x in segs if x["src"] != s["raw"] and not str(x["src"]).startswith("_hold_")]
             else:
                 import storyboard
-                segs, audio, ov, total, _, _ = storyboard.build(s, out)
+                binfo = {}
+                segs, audio, ov, total, _, _ = storyboard.build(s, out, binfo)
+                clips = [(b["clip"], float(b["range"][0]), float(b["range"][1])) for b in s["blocks"] if b.get("clip")]
+                broll = [x for x in segs if not any(x["src"] == c and a - 0.01 <= float(x["start"]) < e for c, a, e in clips)]
     except Exception as e:  # noqa: BLE001
         return dict(error=f"{type(e).__name__}: {e}")
     hook = next((o for o in ov if o.get("type") == "label" and o.get("at", 9) <= 0.2), None)
-    return dict(seconds=round(total, 1), segments=len(segs), overlays=len(ov), hook_label=(hook or {}).get("text"),
-                anchors_missing=err.getvalue().count("anchor not found"))
+    res = dict(seconds=round(total, 1), segments=len(segs), overlays=len(ov), hook_label=(hook or {}).get("text"),
+               anchors_missing=err.getvalue().count("anchor not found"),
+               cadence=[x.split("cadence:", 1)[1].strip() for x in err.getvalue().splitlines() if x.startswith("cadence:")],
+               longest_shot=round(max([x["dur"] for x in broll] or [0]), 2))
+    if "blocks" in s:                 # every picture change, a customer's clip included (Julian: a new shot every 3-5 s)
+        res["longest_visual"] = round(max([x["dur"] for x in segs] or [0]), 2)
+        import remix
+        hand = []                     # a real customer hands back to the narrator: silence after her last word
+        for k in range(1, len(s["blocks"])):
+            pb, b_ = s["blocks"][k - 1], s["blocks"][k]
+            if "vo" in b_ and pb.get("clip") and not pb.get("mute"):
+                ws = [w for w in remix.words(remix.loc(out, pb["clip"])) if pb["range"][0] < w["e"] and w["s"] < pb["range"][1]]
+                if ws:
+                    hand.append(round(max(pb["range"][1] - ws[-1]["e"], 0) + (binfo.get("leads") or [0] * 99)[k], 2))
+        if hand:
+            res["handoff_gap"] = min(hand)
+    if "blocks" in s and s["blocks"]:
+        import storyboard
+        bl = s["blocks"]
+        pad = s.get("pad", 0.25)
+        for k, key in ((0, "hook_gap"), (len(bl) - 1, "tail")):
+            blk = bl[k]
+            f = os.path.join(out, blk.get("vo") or "")
+            if blk.get("vo") and "vo_range" not in blk and os.path.exists(f):
+                bp = blk.get("pad", pad)
+                bp = max(bp, storyboard.HOOK_PAD) if k == 0 and len(bl) > 1 else max(bp, storyboard.END_PAD) if k == len(bl) - 1 else bp
+                res[key] = round(ffdur(f) + bp - speech_end(f), 2)
+    return res
 
 
 # ---------------------------------------------------------------- sheet
@@ -1171,6 +1288,87 @@ def body_match(vids, ends, lens, ref="H1"):
     return res
 
 
+# ---------------------------------------------------------------- cadence (clip bank audit)
+def cadence_audit(keys=None):
+    """The client's cadence rule over everything real people say in our videos: every winner_raws cold open, body piece
+    (around its cuts, and around the insert point with --winner-reviews) and every real-customer range (built-in products
+    and product files) must start at a sentence start and end at a sentence end (remix.cadence: final punctuation and
+    remix.PAUSE s before the next word, or the recording's last word), on the committed transcripts. Prints one line per
+    problem; returns the number of problems."""
+    import remix
+    bank = json.load(open(BANK))
+
+    def ws_of(names):
+        for n in names:
+            f = os.path.join(TRANS, f"{n}_words.json")
+            if os.path.exists(f):
+                return remix._norm(json.load(open(f)))
+        return None
+    bad = 0
+    for key, e in (bank.get("winner_raws") or {}).items():
+        if keys and key not in keys:
+            continue
+        ws, ed = ws_of([key]), e.get("edit") or {}
+        if ws is None:
+            print(f"{key}: no transcript in {TRANS}")
+            bad += 1
+            continue
+        probs = []
+        for c in ed.get("cold_opens") or []:
+            if c.get("range"):
+                probs += remix.cadence(ws, *c["range"], f"cold open {c.get('label')!r}")
+        spec = dict(ed, cold_open=None, reviews=None)
+        probs += remix.remix_cadence(spec, ws, e.get("dur") or 9999, with_reviews=False)
+        if ed.get("insert_at") is not None:
+            probs += [p for p in remix.remix_cadence(spec, ws, e.get("dur") or 9999, with_reviews=True) if "review" in p]
+        for p in dict.fromkeys(probs):
+            print(f"{key}: {p}")
+        bad += len(set(probs))
+        print(f"{key}: {'ok' if not probs else f'{len(set(probs))} problem(s)'} ({len(ed.get('cold_opens') or [])} openings, "
+              f"{len(ed.get('cut') or [])} cuts)")
+    if keys:
+        return bad
+    m = mb()
+    files = m.product_files(m.products_dir(None))
+    ranges = [(f"{p['name']}", c) for p in m.PRODUCTS.values() for c in p.get("customer") or []]
+    ranges += [(d.get("name") or k, c) for k, d in files.items() for c in d.get("customer") or []]
+    for who, c in ranges:
+        e = ((bank.get(c[0]) or {}).get(c[1]) or {}) if isinstance(c[0], str) else {}
+        ws = ws_of([x for x in (e.get("transcript"), c[1]) if x])
+        if ws is None:
+            print(f"{who} customer {c[0]}/{c[1]}: no committed transcript (render transcribes it)")
+            continue
+        probs = remix.cadence(ws, c[2], c[3], f"customer {c[1]}")
+        for p in probs:
+            print(f"{who}: {p}")
+        bad += len(probs)
+        if not probs:
+            print(f"{who}: customer {c[1]} {c[2]}-{c[3]} ok")
+    # B-roll picks (muted under the narrator) must never show someone talking or a customer's own clip (her scene)
+    prods = [(p["name"], p) for p in m.PRODUCTS.values()] + [(d.get("name") or k, d) for k, d in files.items()]
+    for who, p in prods:
+        cust = {(c[0], c[1]) for c in p.get("customer") or []}
+        picks = [("hook clip", x) for x in p.get("hook_clips") or []] + [("B-roll", x) for x in p.get("broll") or []]
+        for f in p.get("features") or []:
+            f = f if isinstance(f, (list, tuple)) else (f.get("line"), f.get("tag"), f.get("picks"))
+            picks += [(f"feature {f[1]!r}", x) for x in f[2] or []]
+        for what, x in picks:
+            if not x or not isinstance(x[0], str) or x[0] in ("photo", "clip"):
+                continue
+            e = (bank.get(x[0]) or {}).get(x[1]) or {}
+            if (x[0], x[1]) in cust:
+                print(f"{who}: {what} pick {x[0]}/{x[1]} @{x[2]} is a real customer's own clip (her scene, never muted B-roll)")
+                bad += 1
+                continue
+            ws = ws_of([y for y in (e.get("transcript"), x[1]) if y])
+            said = [w["w"] for w in ws or [] if w["e"] > float(x[2]) - 0.3 and w["s"] < float(x[2]) + MAX_SHOT + 0.3]
+            if said:
+                print(f"{who}: {what} pick {x[0]}/{x[1]} @{x[2]}: someone talks there ({' '.join(said[:8])}): lips moving "
+                      f"under the narrator; use a silent moment")
+                bad += 1
+    return bad
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -1186,16 +1384,29 @@ def main():
     sh = sub.add_parser("sheet", help="after render: one QA image per project (qa/P01.jpg ...)")
     sh.add_argument("--out", required=True)
     sh.add_argument("--only", help="P01 or 'P01,P03'")
+    cd = sub.add_parser("cadence", help="audit the clip bank: every cold open, cut, insert point and customer range on a "
+                        "sentence boundary")
+    cd.add_argument("keys", nargs="*", help="winner_raws keys (default: all, plus every customer range)")
     c = sub.add_parser("check", help="before render: versions differ only in the hook, sources resolve")
     c.add_argument("--out", required=True)
     c.add_argument("--build", action="store_true", help="also run storyboard/remix build on every spec (needs the mp3s)")
     a = ap.parse_args()
     if a.cmd == "expand":
         expand(a.out, a.hooks, a.seed, a.only, a.budget)
+        mb_ = mb()            # the versions' names and hook lines changed: new ad copy, and every text checked again
+        out = os.path.abspath(a.out)
+        ac, cr = mb_.copy_and_check(out, seed=(load_json(os.path.join(out, "plan.json"), {}) or {}).get("seed") or 1)
+        print(json.dumps(mb_.copy_summary(ac, cr), indent=1, ensure_ascii=False))
+        if not cr["ok"]:
+            print(f"compliance: {len(cr['problems'])} problem(s):\n  - " + "\n  - ".join(mb_.compliance_lines(cr)) +
+                  f"\n{mb_.COMPLIANCE_FIX}.", file=sys.stderr)
+            sys.exit(2)
     elif a.cmd == "show":
         describe(a.out, a.json)
     elif a.cmd == "sheet":
         sheet(a.out, a.only)
+    elif a.cmd == "cadence":
+        sys.exit(1 if cadence_audit(a.keys) else 0)
     else:
         sys.exit(0 if check(a.out, a.build) else 1)
 

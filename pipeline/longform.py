@@ -2,17 +2,35 @@
 """Long-form (45-90 s) direct-response ad, built like the client's winning ads.
 
 Pipeline: base cut (recut.py segments + voice/sfx mix, no text)  ->  word-level transcript of the
-final audio (faster-whisper)  ->  phrase captions every 2-4 words with red keywords  ->  timed
-overlays (number labels, review cards, offer card, end card)  ->  one high-quality encode.
+final audio (faster-whisper)  ->  timed overlays (number labels, tags, review cards, offer card, end card)  ->
+captions placed clear of them  ->  one high-quality encode. The words come from the EDL's "transcript" when the engine
+knows them (storyboard: the script on its voiceover's timings; remix: the RAW's committed transcript), else whisper.
+
+Captions (like the top Reels ads): up to 8 words (9 for a whole sentence) on at most 2 balanced lines, broken at
+sentence ends, commas and pauses (never "hand making these / bags", never "the Black / Friday deal", one word alone only
+as a whole sentence), at least 0.8 s on screen, no dashes or stray symbols, red keywords. They sit
+low in the 9:16 safe zone (centre y 1150, box ~1065-1235: Meta's Reels UI covers the top ~14 % and the bottom ~35 %,
+Stories the bottom ~20 %; the lowest that suits both) and move up or
+down while an overlay would be under them; no caption over the end card (it carries the CTA): one mostly under it is
+left out, one that runs into it ends where the card starts. The opening line stays one caption (<= 10 words, at 52 px
+when 60 px is too wide for two lines).
 
   python3 pipeline/longform.py ad.json --out ad.mp4
 
 ad.json (paths relative to the JSON):
 {
-  "segments": [ ...recut.py segments (src/start/dur/speed/focus/zoom/mute/fx)... ],
+  "segments": [ ...recut.py segments (src/start/dur/speed/focus/zoom/mute/fx)...,
+                {..., "caption_pos": "top"} ],                # captions in the upper area while this segment plays
   "audio": "natural", "vo": "...", "vo_start": 0, "bed_gain": 1.0, "sfx": [...],      # as recut.py
   "keywords": ["number", "one", "50%", "off", "free"],      # words drawn in red (case-insensitive)
-  "caption_y": 1000,  "no_captions": [[t0, t1], ...],        # caption band centre; windows to skip
+  "caption_top": [[t0, t1], ...],                            # windows with captions in the upper area (briefly)
+  "no_captions": [[t0, t1], ...],                            # windows without captions
+  "breaks": [t, ...],                                        # block / speaker changes: no caption runs across one
+  "transcript": [{"w": "Take", "s": 0.1, "e": 0.3, "k": "script"}, ...],   # the words said (ad seconds); else whisper
+  "caption_words": 7,                                        # max words per caption
+  "caption_fix": [["have mercy,", "Mercy,"]],                # whisper slips (+ CAPTION_FIX)
+  "caption_y": 1000, "caption_y_force": true,                # old fixed caption centre: used only with caption_y_force
+                                                             # (older EDLs always wrote caption_y and max_words: ignored)
   "overlays": [
     {"type": "label",  "text": "NUMBER ONE", "at": 2.3, "dur": 1.2},
     {"type": "tag",    "text": "KEYS → GOLD SIDE ZIP", "at": 20, "dur": 2.5},
@@ -57,7 +75,22 @@ def words_of(path):
     return [dict(w=w.word.strip(), s=w.start, e=w.end) for s in segs for w in s.words if w.word.strip()]
 
 
-CAPTION_FIX = [["2 .0", "2.0"], ["2 .0?", "2.0?"], ["2 .0.", "2.0."], ["xa,", "X A.,"], ["have mercy,", "Mercy,"], ["ask customers", "asked customers"]]  # known whisper slips on our VO
+CAPTION_FIX = [["2 .0", "2.0"], ["2 .0?", "2.0?"], ["2 .0.", "2.0."], ["xa,", "X A.,"], ["have mercy,", "Mercy,"], ["ask customers", "asked customers"],
+               ["Libra -Hobo", "Libra Hobo"], ["phobo", "Hobo"]]  # known whisper slips (our VO, the clips' transcripts)
+
+
+def fix_known(words, fixes):
+    """fix_words on the words a transcript gave (whisper's slips), never on a script's own words (k == 'script')."""
+    out, run = [], []
+    for w in words + [None]:
+        if w is None or w.get("k") == "script":
+            out += fix_words(run, fixes) if run else []
+            run = []
+            if w is not None:
+                out.append(w)
+        else:
+            run.append(w)
+    return out
 
 
 def fix_words(words, fixes):
@@ -76,69 +109,349 @@ def fix_words(words, fixes):
     return out
 
 
-def phrases(words, max_words=4, breaks=()):
-    """Caption phrases: up to max_words, ended by punctuation, and never across a break (a block / speaker change)."""
-    glued = []
-    for w in words:                              # "50" + "%" -> "50%" before splitting, so it never breaks across phrases
-        if w["w"].startswith("%") and glued:
-            glued[-1] = dict(glued[-1], w=glued[-1]["w"] + w["w"], e=w["e"])
-        else:
-            glued.append(w)
-    out, cur = [], []
-    for w in glued:
+# Caption layout, like the top Reels ads: low in the 9:16 safe zone (Meta Reels keeps the top ~14 % and the bottom ~35 %
+# clear of text, Stories the bottom ~20 %), fuller phrases on at most two balanced lines, each on screen long enough to read.
+CAP_SIZE, CAP_MAXW, CAP_ONE_LINE = 60, 840, 700   # Montserrat ExtraBold px; max line width; wider phrases take two lines
+CAP_LINE_H, CAP_GAP = 80, 10                      # one boxed line; gap between the two lines
+CAP_Y, CAP_Y_TOP = 1150, 420                      # default caption centre (2 lines: box ~1065-1235); "top" captions (briefly)
+SAFE_TOP, SAFE_BOTTOM = 270, 1250                 # caption boxes stay between these rows (Reels: nothing below ~1250)
+CAP_MARGIN = 24                                   # clear rows between a caption and an overlay (label, tag, card)
+CAP_WORDS, CAP_MIN_S, CAP_HOLD = 8, 0.8, 0.6      # words per caption; min seconds on screen; hold after the last word
+HOOK_WORDS, HOOK_SIZE = 10, 52                    # the opening line stays one caption up to this many words (at HOOK_SIZE
+#                                                   px when it is too wide for two lines at CAP_SIZE)
+NO_END = set(("a an the of to for with and or but nor so as than if then plus your my her his its their our these those "
+              "in on at by from into onto about over under after before until without through during since across around "
+              "can will would could should "
+              "not no i we she he they it's that's there's here's what's who's let's i'm you're we're they're "
+              "every each some any very just more most you've we've they've i've i'd you'd we'd they'd she'd he'd "
+              "depending according").split())   # never the last word of a caption or a line
+SOFT_END = set("this that all is are was were be been am has have had do does did".split())   # "buy this", "it has": rather not
+NO_START = set("it them him me us too up off out of".split())       # never the first word ("wear / it", "50% / off")
+AUX = set("can can't will won't would could should is are was were have has had do don't does did 'll".split())
+SUBJ = set("i you we they she he it".split())
+CLAUSE = set("i you we they she he i've you've we've they've i'm you're we're they're she's he's".split())   # a clause
+#                                                       starts here: "the Black Friday deal / you've been waiting for"
+NUMS = set("one two three four five six seven eight nine ten twenty thirty forty fifty sixty hundred".split())
+MODS = set(("great new old last other first next best little big small whole same own wonderful beautiful perfect real "
+            "true favourite favorite luxury leather soft hidden secret only entire extra free matching single double "
+            "brand").split())                     # rather not end a line on a modifier: "this great / new purse"
+LINK = set("look looks looked feel feels felt seem seems get gets got become becomes stay stays".split())   # "look / terrible"
+LEADS = set(("for with without to in on at from into through during since across around about and but or so because "
+             "that which who when while if as than like after before until plus").split())   # a new phrase starts here: a fine break
+DETS = set("the a an your my her his our their every each".split())   # a noun phrase starts here: an ok break
+DASH = re.compile(r"[‒-―]|-{2,}")                     # figure/en/em dashes, '--': a pause, never shown
+QUOTES = "\"'‘’“”"
+
+
+def clean_word(t):
+    """Caption text of one word: letters, digits, %, $, &, #1, apostrophes, in-word hyphens and slashes, number points
+    ('2.0', '1,400'); no dashes, quotes, brackets or other stray symbols, no punctuation (cap_words keeps that apart)."""
+    t = re.sub(r"(?<=\d)([.,])(?=\d)", lambda m: "\x01" if m.group(1) == "." else "\x02", DASH.sub("", t))
+    t = re.sub(r"(?<=\w)/(?=\w)", "\x03", re.sub(r"#(?=\d)", "\x04", t))
+    t = re.sub(r"[^\w%$&'’\x01-\x04-]|_", "", t).strip("-").lstrip("'’")
+    if t[-1:] in "'’" and not t[-2:-1] in ("s", "S"):     # a closing quote, not "customers'"
+        t = t.rstrip("'’")
+    return t.replace("\x01", ".").replace("\x02", ",").replace("\x03", "/").replace("\x04", "#")
+
+
+def stop(raw):
+    """(strength, mark) of the punctuation ending a whisper word: strength 2 sentence end, 1 clause (comma, colon, dash,
+    '...'), 0 none; mark is what a caption may show after the word (',', ':', '.', '?', '!' or '')."""
+    raw = raw.rstrip(QUOTES + ")]")
+    if re.search(r"(\.\.\.|…)$", raw):
+        return 1, ""
+    if re.search(r"([‒-―]|-)$", raw):
+        return 1, ","
+    m = re.search(r"[,;:.?!]$", raw)
+    if not m:
+        return 0, ""
+    c = {";": ","}.get(m.group(0), m.group(0))
+    return (2 if c in ".?!" else 1), c
+
+
+def cap_words(words):
+    """Whisper words -> caption words dict(t=text, m=punctuation mark, p=stop strength, s, e): '%' glued to its number,
+    'go' + '-to' glued, a word with a dash inside split in two (the dash is a pause), dash-only and symbol-only tokens
+    dropped (the word before gets the pause)."""
+    out = []
+    for w in words:
+        prev = out[-1] if out else None
+        if prev and (w["w"].startswith("%") or re.match(r"-\w", w["w"]) and not prev["p"] and w["s"] - prev["e"] < 0.05):
+            p, m = stop(w["w"])                               # whisper writes "50 %" and "go -to"
+            tail = "%" if w["w"].startswith("%") else "-" + clean_word(w["w"])
+            out[-1] = dict(prev, t=prev["t"] + tail, p=max(prev["p"], p), m=m or prev["m"], e=w["e"])
+            continue
+        parts = DASH.split(re.sub(r"(?<=\d)[‒-―](?=\d)", "-", w["w"]))   # "2–3" stays "2-3"
+        span, n = w["e"] - w["s"], sum(len(x) for x in parts) or 1
+        t0 = w["s"]
+        for k, raw in enumerate(parts):
+            t1 = w["e"] if k == len(parts) - 1 else t0 + span * len(raw) / n
+            p, m = stop(raw) if k == len(parts) - 1 else (1, ",")
+            txt = clean_word(raw)
+            if txt:
+                out.append(dict(t=txt, m=m, p=p, s=round(t0, 3), e=round(t1, 3)))
+            elif out and p and not out[-1]["p"]:
+                out[-1].update(p=p, m=m)
+            t0 = t1
+    return out
+
+
+_MEASURE = {}
+
+
+def cap_font(size=CAP_SIZE):
+    return font("Montserrat.ttf", size, "ExtraBold")
+
+
+def text_w(s, size=CAP_SIZE):
+    if size not in _MEASURE:
+        _MEASURE[size] = (ImageDraw.Draw(Image.new("RGBA", (8, 8))), cap_font(size))
+    d, f = _MEASURE[size]
+    return d.textlength(s, font=f)
+
+
+def nude(t):
+    return t.lower().replace("’", "'").rstrip(",:.?!").strip("'")
+
+
+def end_cost(a, b):
+    """Cost of a caption or line ending between words a and b (no punctuation between): never after 'the' / 'your' /
+    'can', rather not after 'is' / 'this' (fine when a new phrase starts: "buy this / because"), never before 'it' /
+    'off' / 'of', never between 'you' and 'can' or '3' and 'reasons'."""
+    x, y = nude(a["t"]), nude(b["t"])
+    return ((4 if x in NO_END else 1.5 if x in SOFT_END and y not in LEADS else 0) + (2.5 if y in NO_START else 0) +
+            (3 if x in SUBJ and y in AUX else 0) +                                   # "and you / can wear it"
+            (3 if (x in NUMS or x.rstrip("%").isdigit()) and y not in LEADS else 0) +   # "here are 3 / reasons"
+            (2 if (x in MODS or x in LINK) and y not in LEADS and y not in NO_END else 0))   # "my other / purse"
+
+
+def name_pair(a, b):
+    """'Vintage Bag', 'Hobo 2.0': two words of one name (never split over two lines or two captions)."""
+    return not a["p"] and a["t"][:1].isupper() and nude(a["t"]) != "i" and (b["t"][:1].isupper() or b["t"][:1].isdigit())
+
+
+def shown(line):
+    """Text of one caption line: punctuation kept inside the line, at its end only '?' and '!' (the break is the pause)."""
+    return [w["t"] + (w["m"] if k < len(line) - 1 or w["m"] in "?!" else "") for k, w in enumerate(line)]
+
+
+def cap_lines(p, size=CAP_SIZE):
+    """Caption words -> (lines of shown words, score): one line when it is short, else two balanced lines broken at
+    punctuation or a pause, never after 'the' / 'these', never before 'it' / 'off' and never one word alone on a line
+    ("hand making / these bags"). None: too wide for two lines (at `size` px)."""
+    one = shown(p)
+    full = text_w(" ".join(one), size)
+    if full <= CAP_ONE_LINE or (len(p) <= 4 and full <= CAP_MAXW) or len(p) == 1:
+        return [one], 0.0
+    best = None
+    for k in range(1, len(p)):
+        l1, l2 = shown(p[:k]), shown(p[k:])
+        w1, w2 = text_w(" ".join(l1), size), text_w(" ".join(l2), size)
+        if max(w1, w2) > CAP_MAXW:
+            continue
+        sc = abs(w1 - w2) / 200
+        if not p[k - 1]["p"]:
+            sc += end_cost(p[k - 1], p[k]) * 2
+        sc += 5 if name_pair(p[k - 1], p[k]) else 0                # never "the Black / Friday deal"
+        sc += (1.5 if k == 1 and p[0]["p"] else 4.5) if k == 1 or len(p) - k == 1 else 0   # one word alone on a line
+        #                                                         ("Inside, / divided compartments" is fine)
+        sc -= (3 if p[k - 1]["p"] == 2 else 2 if p[k - 1]["p"] else 0.8 if p[k]["s"] - p[k - 1]["e"] >= 0.3 or
+               nude(p[k]["t"]) in LEADS | DETS else 0)
+        if best is None or sc < best[1]:
+            best = ([l1, l2], sc)
+    if full <= CAP_MAXW and (best is None or best[1] >= 3):       # no good break: one (wide) line
+        return [one], 1.0
+    return (best[0], max(best[1], 0.0)) if best else None
+
+
+SIZE_COST = {1: 6.0, 2: 1.2, 3: 0.5, 4: 0.1, 5: 0.0, 6: 0.0, 7: 0.2, 8: 0.4, 9: 0.7}     # one word alone flashes by: only a whole sentence
+
+
+def cap_cost(u, i, j):
+    """Cost of showing u[i:j] as one caption (None: does not fit two lines). Prefers 4-6 words, an end at a sentence
+    end, comma or pause (or before 'for' / 'because' ...), never ends on 'the' / 'your' ..., never starts with 'it' /
+    'off', never splits 'Vintage Bag', never runs across a sentence end or a long pause, and keeps the caption on screen
+    at least CAP_MIN_S (too-fast fragments merge)."""
+    p, last, n = u[i:j], u[j - 1], len(u)
+    lay = cap_lines(p)
+    if lay is None:
+        return None
+    whole = last["p"] and (i == 0 or u[i - 1]["p"])                 # a whole clause: "Not worse." "Shop now."
+    sent = last["p"] == 2 and (i == 0 or u[i - 1]["p"] == 2)         # a whole sentence ("Ooh." "Brown.")
+    c = 0.5 + (0.6 if j - i == 1 and sent else SIZE_COST.get(j - i, 0.4) * (0.5 if whole else 1)) + lay[1]
+    if j < n:
+        gap, lead = u[j]["s"] - last["e"], nude(u[j]["t"])
+        c += (0 if last["p"] == 2 else 1.2 if last["p"] and lead in ("and", "or") else 0.4 if last["p"] or gap >= 0.45
+              else 1.2 if gap >= 0.25 else 1.5 if lead in LEADS else 2.0 if lead in CLAUSE
+              else 2.5 if lead in DETS or lead.endswith("ing") else 5.0)   # ", and keys": the list goes on
+        if not last["p"]:
+            c += end_cost(last, u[j]) + (3 if name_pair(last, u[j]) else 0)
+    for k in range(len(p) - 1):
+        c += (3.5 if p[k]["p"] == 2 else 0) + (5 if p[k + 1]["s"] - p[k]["e"] > 0.7 else 0)
+    on = (u[j]["s"] if j < n else last["e"] + CAP_HOLD) - p[0]["s"]
+    return c + max(0.0, CAP_MIN_S - on) * 6 + max(0.0, 0.5 - on) * 20 + max(0.0, last["e"] - p[0]["s"] - 3.6) * 3
+
+
+def split_unit(u, max_words):
+    """Cheapest split of one stretch of speech (no break inside) into captions (dynamic programming over cap_cost)."""
+    n, inf = len(u), float("inf")
+    best, back = [0.0] + [inf] * n, [0] * (n + 1)
+    for j in range(1, n + 1):
+        for i in range(max(0, j - max_words - 1), j):
+            if j - i > max_words and not (u[j - 1]["p"] == 2 and (i == 0 or u[i - 1]["p"] == 2)):
+                continue                  # one more word only for a whole sentence
+            c = cap_cost(u, i, j) if best[i] < inf else None
+            if c is not None and best[i] + c < best[j]:
+                best[j], back[j] = best[i] + c, i
+    cuts, j = [], n
+    while j > 0:
+        cuts.append((back[j], j))
+        j = back[j]
+    return [u[i:j] for i, j in reversed(cuts)]
+
+
+def phrases(words, max_words=CAP_WORDS, breaks=()):
+    """Caption phrases: up to max_words words on at most two lines, never across a break (a block / speaker change).
+    -> [dict(words, lines, s, e)]: on screen from the first word until the next caption (at least CAP_MIN_S, held
+    CAP_HOLD after the last word, not past the next break unless that is needed for CAP_MIN_S)."""
+    units, cur = [], []
+    for w in cap_words(words):
         if cur and any(cur[-1]["s"] < b - 0.15 <= w["s"] for b in breaks):
-            out.append(cur)
+            units.append(cur)
             cur = []
         cur.append(w)
-        if len(cur) >= max_words or re.search(r"[.?!,:]$", w["w"]):
-            out.append(cur)
-            cur = []
     if cur:
-        out.append(cur)
+        units.append(cur)
+    groups, size = [], {}
+    for k, u in enumerate(units):     # the hook (the first stretch) stays one caption when it fits (a little smaller
+        hook = k == 0 and len(u) <= HOOK_WORDS and u[-1]["e"] - u[0]["s"] <= 4.5 and \
+            not any(w["p"] == 2 for w in u[:-1])     # when it must): never "the Black / Friday deal you've been waiting for"
+        sz = next((z for z in (CAP_SIZE, HOOK_SIZE) if cap_lines(u, z) is not None), None) if hook else None
+        if sz:
+            size[len(groups)] = sz
+            groups.append(u)
+        else:
+            groups += split_unit(u, max_words)
     res = []
-    for i, p in enumerate(out):
-        end = out[i + 1][0]["s"] if i + 1 < len(out) else p[-1]["e"] + 0.3
-        res.append(dict(words=[w["w"] for w in p], s=p[0]["s"], e=min(end, p[-1]["e"] + 0.6)))
+    for i, p in enumerate(groups):
+        s, last = p[0]["s"], p[-1]
+        e = last["e"] + CAP_HOLD
+        nb = min([b for b in breaks if b - 0.15 > last["s"]], default=None)
+        if nb is not None:
+            e = min(e, max(nb, last["e"] + 0.1))
+        e = max(e, s + CAP_MIN_S)
+        if i + 1 < len(groups):
+            nxt = groups[i + 1][0]["s"]
+            e = nxt if nxt - e < 0.25 else min(e, nxt)            # no blink between two captions
+        sz = size.get(i, CAP_SIZE)
+        res.append(dict(words=[w["t"] for w in p], lines=cap_lines(p, sz)[0], s=s, e=e, **({"size": sz} if sz != CAP_SIZE else {})))
     return res
 
 
-def caption_png(path, words, keywords, y):
+def caption_png(path, lines, keywords, cy, size=CAP_SIZE):
+    """Boxed caption lines (white boxes, ink text, red keywords) centred on row cy. -> the text shown."""
     im = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(im)
-    f = font("Montserrat.ttf", 64, "ExtraBold")
-    toks = [re.sub(r"[^\w%'’-]", "", w) or w for w in words]
-    merged = []                                  # whisper writes "50 %": glue the sign back on
-    for t in toks:
-        if t == "%" and merged:
-            merged[-1] += "%"
-        else:
-            merged.append(t)
-    toks = merged
-    text = " ".join(toks).strip()
-    # wrap to <= 860 px
-    lines, cur = [], []
-    for t in toks:
-        trial = " ".join(cur + [t])
-        if cur and d.textlength(trial, font=f) > 860:
-            lines.append(cur)
-            cur = [t]
-        else:
-            cur.append(t)
-    lines.append(cur)
-    lh = 84
-    top = y - lh * len(lines) / 2
+    f = cap_font(size)
+    lh, gap = line_h(size)
+    top = cy - cap_height(len(lines), size) / 2
+    _, ga, _, gd = f.getbbox("Hg", anchor="ls")
+    base = (lh - (gd - ga)) / 2 - ga + 1                          # baseline: caps and descenders centred in the box
     for li, ln in enumerate(lines):
         s = " ".join(ln)
         tw = d.textlength(s, font=f)
-        x0, yy = (W - tw) / 2, top + li * (lh + 10)
-        d.rounded_rectangle([x0 - 26, yy - 10, x0 + tw + 26, yy + 74], radius=18, fill=(255, 255, 255, 250))
+        x0, yy = (W - tw) / 2, top + li * (lh + gap)
+        d.rounded_rectangle([x0 - 26, yy, x0 + tw + 26, yy + lh], radius=18, fill=(255, 255, 255, 250))
         x = x0
         for t in ln:
-            col = RED if t.lower().strip("'’") in keywords else INK
-            d.text((x, yy), t, font=f, fill=col + (255,))
+            col = RED if nude(t) in keywords else INK
+            d.text((x, yy + base), t, font=f, fill=col + (255,), anchor="ls")
             x += d.textlength(t + " ", font=f)
     im.save(path)
-    return text
+    return " / ".join(" ".join(ln) for ln in lines)
+
+
+def line_h(size=CAP_SIZE):
+    """(boxed line height, gap between lines) at caption size `size`."""
+    return round(CAP_LINE_H * size / CAP_SIZE), round(CAP_GAP * size / CAP_SIZE)
+
+
+def cap_height(nlines, size=CAP_SIZE):
+    lh, gap = line_h(size)
+    return nlines * lh + (nlines - 1) * gap
+
+
+def cap_centre(h, pref, blocked, lo=SAFE_TOP, hi=SAFE_BOTTOM):
+    """Centre row for a caption box of height h: the one nearest pref that keeps the box between rows lo and hi and
+    CAP_MARGIN clear of every blocked (top, bottom) row range. None: no room."""
+    def free(c):
+        return lo - 0.5 <= c - h / 2 and c + h / 2 <= hi + 0.5 and all(
+            c + h / 2 + CAP_MARGIN <= a + 0.5 or c - h / 2 - CAP_MARGIN >= b - 0.5 for a, b in blocked)
+    cands = [pref, min(max(pref, lo + h / 2), hi - h / 2)] + [a - CAP_MARGIN - h / 2 for a, _ in blocked] + \
+        [b + CAP_MARGIN + h / 2 for _, b in blocked]
+    ok = [c for c in cands if free(c)]
+    return min(ok, key=lambda c: abs(c - pref)) if ok else None
+
+
+def alpha_rows(png):
+    """(top, bottom) rows an overlay PNG covers (alpha > 40), or None when it is empty."""
+    a = Image.open(png).getchannel("A").point(lambda v: 255 if v > 40 else 0).getbbox()
+    return (a[1], a[3]) if a else None
+
+
+def top_windows(e):
+    """Windows where captions go to the upper area: EDL "caption_top": [[t0, t1], ...] plus segments with
+    "caption_pos": "top" (something important low in the frame)."""
+    win, t = [list(map(float, w)) for w in e.get("caption_top", [])], 0.0
+    for s in e["segments"]:
+        if s.get("caption_pos") == "top":
+            win.append([t, t + float(s["dur"])])
+        t += float(s["dur"])
+    return win
+
+
+def bare(s):
+    return re.sub(r"[^a-z0-9% ]", "", s.lower()).split()
+
+
+def caption_events(e, words, ovs, tmp):
+    """Caption PNG events [(t0, t1, png, 1)] + stats. ovs: [(t0, t1, overlay dict, rows)]. Each caption sits at the
+    default row (or "caption_top" / caption_y with "caption_y_force"), moved up or down to keep clear of every overlay
+    on screen with it; a caption that only repeats the end card's text is left out."""
+    kw = {k.lower() for k in e.get("keywords", [])}
+    skip, tops = e.get("no_captions", []), top_windows(e)
+    forced = e.get("caption_y_force") and e.get("caption_y") is not None
+    base_y = float(e["caption_y"]) if forced else CAP_Y
+    lo, hi = (0, H) if forced else (SAFE_TOP, SAFE_BOTTOM)
+    events, st = [], dict(captions=0, caption_moved=0, caption_top=0, caption_hidden=0, caption_dropped=0)
+    for i, p in enumerate(phrases(words, int(e.get("caption_words", CAP_WORDS)), e.get("breaks", []))):
+        if any(s0 <= p["s"] < s1 for s0, s1 in skip):
+            continue
+        span = p["e"] - p["s"]
+        # the end card (it carries the CTA and sits where the captions are): no caption over it. One mostly under it is
+        # left out; one that only runs into it ends where the card starts (never pushed up to mid-screen)
+        ends = [t0 for t0, t1, o, rows in ovs if o["type"] == "end" and min(t1, p["e"]) - max(t0, p["s"]) > 0.05]
+        if ends and (min(ends) - p["s"] < max(span / 2, 0.5)):
+            st["caption_dropped"] += 1
+            continue
+        if ends:
+            p = dict(p, e=min(ends))
+            span = p["e"] - p["s"]
+        top = any(t0 <= p["s"] < t1 or min(t1, p["e"]) - max(t0, p["s"]) >= span / 2 for t0, t1 in tops)
+        live = [(o, rows) for t0, t1, o, rows in ovs if rows and min(t1, p["e"]) - max(t0, p["s"]) > 0.05]
+        pref = CAP_Y_TOP if top else base_y
+        cy = cap_centre(cap_height(len(p["lines"]), p.get("size", CAP_SIZE)), pref, [r for _, r in live], lo, hi)
+        if cy is None:
+            st["caption_hidden"] += 1
+            print(f"caption hidden (no room next to the overlays) at {p['s']:.2f}s: {' '.join(p['words'])}", file=sys.stderr)
+            continue
+        png = os.path.join(tmp, f"cap{i:03d}.png")
+        caption_png(png, p["lines"], kw, cy, p.get("size", CAP_SIZE))
+        events.append((p["s"], p["e"], png, 1))
+        st["captions"] += 1
+        st["caption_top"] += top
+        st["caption_moved"] += abs(cy - pref) > 1
+    return events, st
 
 
 # ---------- overlays ----------
@@ -310,6 +623,19 @@ def build_overlay_track(events, tmp, total):
     return lst
 
 
+def text_events(e, words, tmp):
+    """Overlay and caption PNG events [(t0, t1, png, layer)] (overlays layer 2, drawn over captions) + caption stats."""
+    events, ovs = [], []
+    reviews = json.load(open(os.path.join(HERE, "data", "reviews.json")))["reviews"]
+    for j, o in enumerate(e.get("overlays", [])):
+        png = os.path.join(tmp, f"ov{j:02d}.png")
+        {"label": label_png, "offer": offer_png, "end": end_png, "tag": tag_png}.get(o["type"], lambda p, o: review_png(p, o, reviews))(png, o)
+        events.append((o["at"], o["at"] + o["dur"], png, 2))
+        ovs.append((o["at"], o["at"] + o["dur"], o, alpha_rows(png)))
+    caps, st = caption_events(e, words, ovs, tmp)
+    return caps + events, st
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("edl")
@@ -321,7 +647,7 @@ def main():
 
     # 1) base cut without any text
     base_edl = {k: v for k, v in e.items() if k in ("segments", "audio", "vo", "vo_start", "bed_gain", "sfx")}
-    base_edl["segments"] = [{k: v for k, v in s.items() if k != "caption"} for s in e["segments"]]
+    base_edl["segments"] = [{k: v for k, v in s.items() if k not in ("caption", "caption_pos")} for s in e["segments"]]
     bj = os.path.join(edl_dir, f"_base_edl_{os.getpid()}.json")  # unique: several renders may share a folder
     json.dump(base_edl, open(bj, "w"))
     base = os.path.join(tmp, "base.mp4")
@@ -330,24 +656,12 @@ def main():
     total = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", base],
                                  capture_output=True, text=True).stdout)
 
-    # 2) captions from the final audio
-    events = []
-    kw = {k.lower() for k in e.get("keywords", [])}
-    skip = e.get("no_captions", [])
-    for i, p in enumerate(phrases(fix_words(words_of(base), CAPTION_FIX + e.get("caption_fix", [])), e.get("max_words", 4),
-                                  e.get("breaks", []))):
-        if any(s0 <= p["s"] < s1 for s0, s1 in skip):
-            continue
-        png = os.path.join(tmp, f"cap{i:03d}.png")
-        caption_png(png, p["words"], kw, e.get("caption_y", 1000))
-        events.append((p["s"], p["e"], png, 1))
-
-    # 3) overlays
-    reviews = json.load(open(os.path.join(HERE, "data", "reviews.json")))["reviews"]
-    for j, o in enumerate(e.get("overlays", [])):
-        png = os.path.join(tmp, f"ov{j:02d}.png")
-        {"label": label_png, "offer": offer_png, "end": end_png, "tag": tag_png}.get(o["type"], lambda p, o: review_png(p, o, reviews))(png, o)
-        events.append((o["at"], o["at"] + o["dur"], png, 2))
+    # 2) overlays, then captions from the final audio, placed clear of them
+    if e.get("transcript"):          # what is said, known: the script on its voiceover timings, committed transcripts
+        ws = fix_words(fix_known(e["transcript"], CAPTION_FIX), e.get("caption_fix", []))
+    else:                            # (older EDLs) transcribe the final mix
+        ws = fix_words(words_of(base), CAPTION_FIX + e.get("caption_fix", []))
+    events, st = text_events(e, ws, tmp)
 
     lst = build_overlay_track(events, tmp, total)
     os.makedirs(os.path.dirname(os.path.abspath(a.out)), exist_ok=True)
@@ -356,8 +670,7 @@ def main():
                     "-map", "[v]", "-map", "0:a", "-c:v", "libx264", "-preset", "slow", "-crf", "17", "-maxrate", "14M",
                     "-bufsize", "28M", "-r", "30", "-c:a", "copy", "-movflags", "+faststart", "-t", f"{total:.3f}", "-y", a.out],
                    check=True, timeout=3600)
-    print(json.dumps(dict(out=a.out, seconds=round(total, 2), captions=sum(1 for x in events if x[3] == 1),
-                          overlays=len(e.get("overlays", [])))))
+    print(json.dumps(dict(out=a.out, seconds=round(total, 2), overlays=len(e.get("overlays", [])), **st)))
 
 
 if __name__ == "__main__":

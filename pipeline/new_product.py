@@ -510,7 +510,7 @@ def unbacked(s, pct=None, gift=None):
         return "a discount"
     if pct and re.search(r"percent", s, re.I) and say(int(pct)) + " percent" not in s.lower():
         return "another percent"
-    if not gift and re.search(r"(?<![-\w])free\b(?!\s+(?:shipping|delivery))|\b(?:comes|arrives) with an? (?:\w+ ){0,2}"
+    if not gift and re.search(r"(?<![-\w])free\b(?!\s+(?:US\s+|U\.S\.\s+)?(?:shipping|delivery))|\b(?:comes|arrives) with an? (?:\w+ ){0,2}"
                               r"(?:pouch|wallet|purse)|\bincludes? an? (?:\w+ ){0,2}(?:pouch|wallet|purse)", s, re.I):
         return "a free gift"
     if not (pct or gift) and SALEY.search(s):

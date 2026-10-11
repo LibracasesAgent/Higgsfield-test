@@ -52,6 +52,26 @@ forces `pipeline/make_batch.py` (templates, no AI images/video) for every normal
    text with colour dots, branded promo frame card, lifestyle photo, Black Friday static; mostly videos.
 9. Wants ~200+ ads a week (40/day), budget 1,400 Higgsfield credits a week (~200/day). Wants one-line
    requests (Slack DM) or a daily automatic run, with output saved into Drive as Statics / Videos folders.
+10. **Julian (media buyer), 2026-10-09, on the first AI batch** (and what the pipeline does about it since):
+   - Statics: good potential (bottom of funnel; a Hobo Bag static performs). More space between headline and sub,
+     smaller headline, bigger small text, nothing crowded, no letter touching the line below -> brand_statics type
+     rules; the Hobo Bag cycle leans on offer / stars / checklist.
+   - Video cadence: never cut a line before the speaker finishes; the hook and the CTA finish; every cut on a sentence
+     end -> remix/storyboard cadence checks, HOOK_PAD / END_PAD, a 0.5 s breath after a customer's clip (CLIP_PAD).
+   - Never switch point of view: no second narrator reading reviews inside Susan's RAW (winner bodies play intact;
+     `--winner-reviews` only on request); one brand voice per storyboard, a real customer only in her own introduced
+     clip, never as muted B-roll while she talks. Agencies split-test hooks/CTA on a proven body: keep bodies intact.
+   - Captions low in the safe zone (centre y 1150, box ~1065-1235: above Meta's Reels UI, which covers the bottom ~35 %),
+     phrases kept together, no stray dashes, fuller phrases (up to 8 words; the hook one caption, up to 10 words, a bit
+     smaller when it must), never over the end card; the words come from the script / committed transcripts, not from
+     transcribing the mix.
+   - Pacing: a new shot every 3-5 s (a customer's long clip changes framing every ~3 s); ~1 min middle/bottom of
+     funnel, 1.5-2 min for storytelling (`--story`).
+   - A video without music felt off -> storyboard videos get a music bed (`pipeline/music.py`).
+   - Names always contain the product (LC_ naming). Wouter: ad copy too (`ad_copy.csv`, section 10).
+   - Compliance: AI is fine, never health/medical claims, prescription drugs, politics, religion, blood (section 9),
+     not even inside the client's own RAW audio.
+   - The one first-batch video with spend: V09 Vintage showcase (ROAS 1.54): the `showcase` format starts from it.
 
 ## 3. The 2026-10-02 test run (reference for every format)
 
@@ -74,13 +94,24 @@ Delivered: Drive Outputs / "oct 3 test" / Statics (22 files) + Videos (20). Cost
 2. **Cold open:** a 2-7 s line from later in the RAW that works alone as a hook ("Most bags look terrible
    after a year. Mine looks better after a decade."). Add `hook_label` (2-4 words, e.g. "10 YEARS LATER").
 3. **Cuts:** drop slow or repeated parts (keep sentences whole; cut on word boundaries from the transcript).
-4. **Reviews section** inserted just before the offer: a review VO (narrator Maeve) over real B-roll, with
-   review cards synced to each name. Opening lines that work: "Don't just take her word for it." (after a
-   woman speaking), "And customers agree.", "Here's what customers are saying."
+   **Claim cuts** (`claim_cuts`): a health claim inside the proven body is cut out, on word boundaries and in
+   silence, with a 0.6 s beat after it (Julian's rule, section 9): 94 "an adjustable strap[ that prevents shoulder
+   pain.]", 86_2 "adjustable strap[ that prevents pain.]" and its "the strap hurts your shoulder" exchange. Plan and
+   the run report list each claim cut for a human to listen to once; a RAW whose body still makes a health claim is
+   left out of the batch (unmatched) until it has one (`winner_prep.py --check` warns).
+4. **Proven body intact (default since 2026-10-09):** no review section, no second voice: one speaker, the RAW as
+   the client proved it (only its editorial and claim cuts, a new cold open, offer card and end card). The old
+   **reviews section** (`plan --winner-reviews`, only when a request asks for it): a review VO (narrator Maeve) over
+   real B-roll before the offer, review cards synced to each name ("Don't just take her word for it.").
 5. **Labels** from RAW words ("REASON 1-5", "STEP 1-3"): match the word without punctuation ("one", not "one,").
 6. Offer card at the first "50" after the insert (`offer_after` if the offer comes earlier). End card auto.
 7. RAW with burned-in captions (121-H2): `burned_captions: true` (ours are skipped).
-8. Target 45-90 s.
+8. Target 45-90 s (a winner runs as long as its body).
+9. Captions come from the RAW's committed transcript through the edit (punctuated sentences, nothing transcribed
+   again). Cold opens whose words name a health condition ("The arthritis has won.") are used last (H4), never H1, and
+   listed for a human; a cold open with a health claim is never used, and no on-screen label names a condition (that
+   cold open is labelled "HER LAST COLLECTION"; a medical label is skipped and `winner_prep.py --check` warns). Winners
+   keep the RAW's own sound (most RAWs have their own music bed); a RAW without one gets a soft bed (`music.py`).
 
 ### 4b. New-angle video (`storyboard.py`)
 Blocks in order: `{"vo": file, "broll": [[src, start, weight], ...]}` (VO length split over the clips by
@@ -99,10 +130,30 @@ Formats that worked (scripts in section 5):
 - **Feature walkthrough** on 4K macro clips with tags (V16).
 - **AI presenter (V17, historical: not allowed).** CLAUDE.md hard rule 1 forbids AI images and AI video; never remake it.
 - **What fits:** packing shots + the site's "what fits" infographic padded to 9:16 (V18).
+- **Story** (`plan --story`, or a request that asks for a story / long video): 1.5-2 min, QA 60-130 s: every feature,
+  the real customer in full, the colours, as many reviews as fit, the offer. It runs as long as the real material
+  allows (Hobo Bag ~105 s, Vintage ~75 s; a bag without customer clips ~45-55 s: plan warns, add `--lines` or use the
+  showcase).
+Rules since Julian's feedback (2026-10-09), enforced in `make_batch.py` / `storyboard.py` / `projects.py check`:
+- **No talking B-roll:** a real customer's own clip is her scene only (introduced by the narrator, with sound); no
+  B-roll pick is a moment where someone talks (committed transcript). `projects.py cadence` audits every pick.
+- **Pacing:** no B-roll shot over 4 s, no picture over 5 s: a customer's long clip changes framing about every 3.2 s on
+  her pauses (wide / closer on the bag / closer on her, the sound runs on); at most 2 shots of one clip per block, 4 s
+  apart, the second one closer.
+- **Handoffs:** 0.5 s between a customer's last word and the narrator's next line.
+- **Colours:** every site colour has a swatch (a packshot with a sale badge gets it painted out: `site_assets.
+  badge_free`) and the names are said in swatch order, each swatch timed to its name.
+- **Captions** use the script on the voiceover's word timings and the clips' committed transcripts ("Hobo Bag", not
+  whisper's "phobo bag"; "50%" for "fifty percent").
+- **Music:** a bed under the voice (`pipeline/music.py`): the client's licensed tracks in `pipeline/assets/music/` if
+  any, else a generated soft groove (synthesised, nothing to license), -15 dB and ducked while someone speaks; the
+  4 versions of a project share it. `plan --no-music` for none.
 
 ### 4c. Statics (`brand_statics.py`)
 Layouts: `hero`, `promo` (badge), `callouts`, `review`, `compare`, `colours`, `bold` (+ colour dots),
-`lifestyle` (photo + panel), `carousel` (A/B/C cards), `split` (before/after). 1080x1350.
+`lifestyle` (photo + panel), `carousel` (A/B/C cards), `split` (before/after), and bottom of funnel: `offer` (the
+site's real %, price with the old price struck through), `stars` (verbatim review snippets), `checklist` (the
+product's feature tags as ticks + the offer pill). 1080x1350.
 - Photos from `site_assets.py`. Image 00 usually has "BEST SELLER" / "CLEARANCE SALE" badges: use a later
   image, or `masks` (the badge rect is covered by the area just below it). A faint ghost of the round
   clearance badge stays even after masking: use another image for heroes.
@@ -147,8 +198,9 @@ Examples that were used:
   link below."
 Write "fifty percent" in TTS text (spoken correctly); captions turn it into "50%".
 **Themes:** apply to hook, headline, offer wording and end card. Black Friday: "Black Friday: 50% off + free
-wallet", "Our biggest sale of the year", urgency lines ("ends tonight": 113-H2 is the best winner for this),
-dark/bold statics (`bold` layout, red accent). Christmas/Mother's Day: gift angle (V13 recipe).
+wallet", urgency lines ("ends tonight": 113-H2 is the best winner for this), dark/bold statics (`bold` layout, red
+accent). Never "our biggest sale (of the year)": the same % runs all year (site banner), so it is unprovable
+(compliance flags it). Christmas/Mother's Day: gift angle (V13 recipe).
 
 ## 6. Quality checklist (each item was a real bug once)
 
@@ -167,6 +219,17 @@ dark/bold statics (`bold` layout, red accent). Christmas/Mother's Day: gift angl
 | No faces in statics | site lifestyle photos with faces in new-product statics | site photos never become lifestyle statics by themselves; DNN face check at plan time and on every rendered static (hard failure) |
 | Offer per product | every bag got "50% off + free wallet" | offer from the site per product; theme lines are templates |
 | No wrong claims in RAWs | C9_V2 says "two-year warranty" (site: 1 year) | cut 28.16-30.3 in `clip_bank.json` |
+| No health claim in a RAW body | 94 "a strap that prevents shoulder pain" shipped with "Compliance: ok" | `compliance.raw_audit` scans the RAW words each version plays; `claim_cuts` in `clip_bank.json`; plan leaves out a winner that still has one |
+| No talking customer as B-roll | her lips moved under the narrator before she was introduced (54.0 / 63.3 were not silent) | transcript check on every pick (`make_batch` / `projects.py cadence`), her clip is her scene only |
+| No 11-15 s single shot | the customer section was two unbroken shots (38% of the ad) | `storyboard.cut_points`: a new framing every ~3.2 s; `projects.py check --build` flags any picture over 5 s |
+| Customer -> narrator handoff | the narrator started 0.1 s after her last word | `storyboard.CLIP_PAD` 0.5 s |
+| Caption wording | whisper on the final mix: "phobo bag", lost punctuation, phrases split mid-sentence | captions from the script / committed transcripts (`transcript` in the EDL) |
+| Captions over the end card | moved up to mid-screen during the last 2.6 s | dropped (or ended) where the end card starts |
+| Captions in the Reels UI | 2-line captions reached y 1355 (Reels covers the bottom ~35 %) | `longform.CAP_Y` 1150, `SAFE_BOTTOM` 1250 |
+| Hook split over 2 captions | "This is the Black Friday / deal you've been" + "waiting for" | the opening line is one caption (<= 10 words, 52 px when needed) |
+| Medical hook label | "THE ARTHRITIS HAS WON" on screen | labels never name a condition (`compliance.LABEL_STORY`): "HER LAST COLLECTION" |
+| One colour said, another shown | "Brown" over a black bag (badge photo had no swatch) | `site_assets.badge_free` + names in swatch order, swatches timed to the names |
+| No music | "felt off" (Julian) | `pipeline/music.py` bed under every storyboard video |
 Always look at a contact sheet of every video and a grid of every static before upload.
 
 ## 7. Technical gotchas
@@ -189,3 +252,66 @@ Always look at a contact sheet of every video and a grid of every static before 
 One short message: Drive folder link; one line per ad (name, angle, length); credits used (balance before
 and after); anything skipped, failed or needing a human (e.g. "V03 is 31 s, under the 35 s target: the product
 file needs more clips").
+
+## 9. Compliance (Julian, media buyer, 2026-10-09)
+
+AI is fine (the client's Susan persona is AI), but never, in a creative or in ad copy: health or medical claims (cure,
+heals, pain relief, arthritis relief, doctor-recommended, therapeutic, posture ...), prescription drugs, politics,
+religion, blood or violence (not even a drop of blood), profanity. On top of that (CLAUDE.md rule 3): no invented
+numbers or stats, no claim the facts don't back ('waterproof', 'handmade', 'best-selling', '10,000 customers', RFID on a
+bag that has none), no fake testimonial in the brand voice ('I bought mine', 'my sister'), nothing beyond the real offer.
+
+`make_batch.py plan` (and `projects.py expand`) run it at the end and exit 2 on a problem; `render` runs it again and
+refuses until it passes; by hand: `python3 pipeline/compliance.py --out $OUT` (after editing a line or `ad_copy.csv`).
+It scans every voiceover line in `tts_needed.json`, every visible text of the statics and the video specs (overlays,
+offer and end cards), `ad_copy.csv` and the RAW audio of every winner version, writes `$OUT/compliance.json` and exits
+1 on a problem. For lines you are about to write yourself
+(`--lines`, a product file's hooks): `python3 pipeline/compliance.py --text "..." --product "<name>"`.
+- **What counts as evidence:** the site facts (`$OUT/site/<key>_facts.json`), the product's row and the offer bullet of
+  section 1, the product's data (features, product-file facts). Our own hook lines (`hooks.json`) are checked, never
+  evidence. Numbers allowed: the ones in those facts, the real %, price, colour count, 0, 1, this year and next.
+- **The client's RAW ads:** the Susan / workshop-closing / arthritis / "her sister was robbed" story is approved as RAW
+  audio, but a health CLAIM is never allowed, not even there: the RAW words each winner version plays (cold open +
+  body minus its cuts) are scanned (`raw_audit`); a line that says the bag helps the body ("a strap that prevents
+  shoulder pain", "the strap hurts your shoulder") or a drugs / politics / religion / blood word is a problem (render
+  refuses it) until `claim_cuts` removes it, and plan leaves such a winner out. The story's own health / crime words
+  ("The arthritis has won.", "her doctor told her to stop") play as they are and are listed under `raw_story` (plan
+  warnings, the run report: "needs a human"); the claim cuts under `raw_cuts`. An on-screen label that repeats its RAW
+  ("HER SISTER WAS ROBBED", "10 YEARS LATER") is allowed when the RAW transcript says it, listed under `allowed`; a
+  label never names a health condition, not even the RAW's ("THE ARTHRITIS HAS WON" is a problem: "HER LAST
+  COLLECTION"), and a cold open whose words name one opens the last version only. New text we write never uses those words: a
+  narrated line, a static, ad copy (a RAW cold open quoted in ad copy with "arthritis" or "anxious" is left out).
+- **Reviews:** verbatim review text and a brand-voice line that names the customer and adds nothing ("Carol calls it
+  the best bag she has ever bought.") are allowed; a review that mentions a gift the product doesn't have is not.
+- **Not a problem:** "anti-theft", pickpockets, crowds, Christmas / Mother's Day themes (built in, the client asked
+  for them), "Free US shipping" (store-wide, section 1).
+- **A problem:** reword the line (or drop the ad) and re-run; never upload a creative or copy with a problem. Read the
+  `allowed` list once per batch: it is what a human would want to glance at (RAW story words, review superlatives).
+
+## 10. Ad copy (Meta primary texts, headlines, descriptions; Wouter asked 2026-10-09)
+
+`make_batch.py plan` writes it at the end (`upload` sends `<prefix>_ad_copy.csv` with the batch); by hand:
+`python3 pipeline/ad_copy.py --out $OUT [--seed N]` writes `$OUT/ad_copy.csv` (one row per ad: `ad_name`,
+`placement_group`, `primary_text_1`, `primary_text_2`, `headline_1`, `headline_2`, `description`, `cta`,
+`hook_first_line`) and `$OUT/ad_copy.json` (per static / project, notes, problems). Template-based and deterministic,
+no LLM calls; every line passes `compliance.check`, a line that fails is replaced by the next template.
+- **Per static** one set; **per project** one set shared by H1-H4 (the body is the proven part, the hooks are what is
+  split-tested), plus `hook_first_line` per version: the version's spoken hook, or a winner RAW's cold open in quotes;
+  `primary_text_2_hook` in the JSON is primary text 2 opening with that line.
+- **Shape:** primary text 1 = 2 lines (a hook + the product with its offer), at most 125 characters, no emoji; primary
+  text 2 = 3-5 lines (hook or review quote, 1-2 feature lines, the offer line with an emoji, a CTA line), at most 2
+  emojis; headlines at most 40 characters, description at most 30; `cta` = Meta button: Get Offer for Black Friday /
+  Cyber Monday / Cyber Week with a deal, else Shop Now. No em dashes, no prices (they change; the % comes from the
+  site at plan time), no urgency the theme doesn't bring.
+- **Built from:** the product's feature lines, its real offer (plan's site %, gift), the theme (make_batch `THEMES`),
+  the brand-voice hook lines (`hooks.json`, product file `hooks`), the site's colours, review sentences with the name.
+  The angle steers it: review statics quote their review, colour statics name the colours, a storyboard project
+  leads with the features its video shows, a winner project gets product copy about the features its RAW actually
+  talks about (never one it doesn't show or say, never the RAW's story).
+- **Variety:** within a batch no opening, headline or description repeats until the pools run out; `--seed N` gives
+  another set. Notes say what was left out (e.g. "P01H3: no hook_first_line (health: arthritis)"); a custom theme
+  (not built in) gets the evergreen lines and a note: refine with the theme's words.
+- **Refining:** the Slack session may rewrite any field within these rules, then re-runs `compliance.py --out $OUT`.
+- Example (Hobo Bag, Black Friday, S04 review static): primary text 1 "Stop digging for your keys at the bottom of
+  your bag. / Black Friday: 50% off the Hobo Bag + free wallet."; headline 1 "\"Best bag I have ever bought\"",
+  headline 2 "50% Off the Hobo Bag + Free Wallet", description "Black Friday: 50% off", CTA Get Offer.

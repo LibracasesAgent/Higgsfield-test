@@ -223,6 +223,52 @@ def unbadged(path, out_dir):
     return None if corner_badges(f) else f
 
 
+def badge_free(path, out_dir):
+    """A copy of a packshot with its corner badges painted out (for a colour swatch), or None. The badge is every blob of
+    non-backdrop pixels that touches a corner_badges() box and is not part of the product (the biggest blob); each is
+    filled with the backdrop colour, a few pixels wider, so nothing of it is left (unbadged() refuses round badges: its
+    'copy the area below' leaves a ghost). Only on a plain light backdrop; the result must pass corner_badges() and
+    clean_score() >= 0.6."""
+    import cv2
+    import numpy as np
+    from PIL import Image
+    tags = corner_badges(path)
+    if not tags:
+        return path
+    a = np.asarray(Image.open(path).convert("RGB")).copy()
+    h, w = a.shape[:2]
+    edge = np.concatenate([a[:4].reshape(-1, 3), a[-4:].reshape(-1, 3), a[:, :4].reshape(-1, 3), a[:, -4:].reshape(-1, 3)])
+    bg = np.median(edge, axis=0)
+    if bg.min() < 225:
+        return None                                   # not a light backdrop
+    mask = (np.abs(a.astype(np.int16) - bg).max(axis=2) > 18).astype(np.uint8)
+    mask = cv2.dilate(mask, np.ones((3, 3), np.uint8))
+    n, lab, stats, _ = cv2.connectedComponentsWithStats(mask, connectivity=8)
+    if n < 3:
+        return None
+    big = 1 + int(np.argmax(stats[1:, cv2.CC_STAT_AREA]))     # the product
+    fill = np.zeros((h, w), np.uint8)
+    for _, (x0, y0, x1, y1) in tags:
+        bx = [int(x0 * w), int(y0 * h), int(x1 * w), int(y1 * h)]
+        for k in range(1, n):
+            x, y, cw, ch = stats[k, :4]
+            if k == big or x > bx[2] or x + cw < bx[0] or y > bx[3] or y + ch < bx[1]:
+                continue
+            if y + ch > 0.45 * h:                         # runs down the photo: part of the product, never a badge
+                return None
+            fill[lab == k] = 1
+    if not fill.any():
+        return None
+    fill = cv2.dilate(fill, np.ones((9, 9), np.uint8)).astype(bool)
+    if (fill & (lab == big)).any():
+        return None                                   # the badge touches the product: no clean way to paint it out
+    a[fill] = bg.astype(np.uint8)
+    os.makedirs(out_dir, exist_ok=True)
+    f = os.path.join(out_dir, os.path.splitext(os.path.basename(path))[0] + "_nobadge.jpg")
+    Image.fromarray(a).save(f, quality=95)
+    return f if not corner_badges(f) and clean_score(f) >= 0.6 else None
+
+
 def bullets(body):
     """Feature-ish snippets from the product HTML: <li> items, else sentences; plus the bold phrases."""
     body = body or ""

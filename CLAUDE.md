@@ -17,9 +17,12 @@ The repo's default branch is `claude/loving-meitner-4amjii`. Read `docs/PLAYBOOK
    `tts_needed.json`, `jobs_wait`, `balance`, `transactions`. A normal request costs under 15 credits;
    `plan` refuses more than 40 unless you pass `--budget X`, which you only do when the request names a
    bigger budget. Check `balance` before and after; report both.
-3. **Only true claims.** Offers, gifts and reviews come from the product data (`make_batch.py` handles
-   it). Any line you write yourself (`--lines`, product files) uses only facts from libracases.com, the
-   client's notes or `docs/PLAYBOOK.md` §1. No faces in statics.
+3. **Only true claims, Meta-compliant.** Offers, gifts and reviews come from the product data (`make_batch.py`
+   handles it). Any line you write yourself (`--lines`, product files, ad copy edits) uses only facts from
+   libracases.com, the client's notes or `docs/PLAYBOOK.md` §1. Never health or medical claims, prescription
+   drugs, politics, religion or blood/violence in any creative, caption, label or ad copy (the media buyer's
+   rule; an AI persona is fine). `plan` runs `pipeline/compliance.py` on all of it, including the winner RAW
+   audio each version plays. No faces in statics.
 4. Upload everything with `make_batch.py upload` (Drive Outputs → `<date> – <name>` → `Statics` /
    `Videos` + a run report). Never only post files in the chat.
 5. Never publish anywhere. Never delete or move Drive files.
@@ -52,6 +55,9 @@ python3 pipeline/drive_upload.py check                          # Drive login ok
 | specific winners ("versions of 94-H4 and 148-H5") | `--winner-videos 2 --winners "94-H4,148-H5"`: one project per winner (a winner never gets a second project with the same openings; plan warns what it left out) |
 | "new product …" / "I added a product" | section 3 first, then `--product "<key>"` |
 | "batch" with no numbers | `--statics 20 --videos 5` (5 projects = 20 videos) |
+| "story" / "long video" / "storytelling" | add `--story` (1.5-2 min where the product has the footage; plan warns when it runs shorter: say so) |
+| "winners with reviews" | add `--winner-reviews` (only when asked: by default winner videos keep their proven body untouched) |
+| "no music" | add `--no-music` |
 | "redo project 2" (in the thread) | same plan flags with `--seed <N+1> --only P02` into a new `--out` (only P02 is voiced, rendered, uploaded; names move to `_v2` by themselves) |
 | "another hook for P02 H3" | same plan flags with `--hook-seed <N+1> --only P02H3` (same body, a new hook; exits 2 if no unused hook is left: say so) |
 
@@ -65,8 +71,11 @@ OUT=/tmp/run/<short-name>; mkdir -p $OUT
 python3 pipeline/make_batch.py plan <flags> --request "<the request text>" --out $OUT
 ```
 1. Read the plan output and every warning: product, theme, `offer` (read from libracases.com), brief
-   (name, age, `stale`), winners used, `unmatched` winners, `est_credits`, length warnings, `names`.
-   Higgsfield `balance` → note it.
+   (name, age, `stale`), winners used, `unmatched` winners, `est_credits`, length warnings, `names`, and the
+   "needs a human" items (claim cuts in winner RAWs, approved story lines). `plan` also writes
+   `$OUT/ad_copy.csv` (Meta primary texts, headlines, description, CTA per static / per project) and
+   `$OUT/compliance.json`. If plan exits 2 with `compliance: N problem(s)`, reword the line it names
+   (`--lines`, the version JSON or the product file) and plan again. Higgsfield `balance` → note it.
 2. **Voiceovers:** for every item in `$OUT/tts_needed.json` call `generate_audio_batch` (model
    `text2speech_v2`, variant `elevenlabs`, `use_unlim: false`, `voice_type` + `voice_id` from the item,
    prompt = item `text`; max 12 per call; resubmit any that fail with 429), `jobs_wait`, then download each
@@ -77,7 +86,9 @@ python3 pipeline/make_batch.py plan <flags> --request "<the request text>" --out
    upload the statics first (`render --only S`, `upload --only S`), then the videos (`render --only V`,
    `upload --only V`). Use a fresh `$OUT` for every request.
 4. **QA:** Read `$OUT/qa/statics.jpg`, every `$OUT/qa/P*.jpg` (one per project: the 4 hooks side by side
-   + the body + a 'body vs H1' number per version: under 10 = same body) and `$OUT/qa/report.json`. Text off-frame, wrong product, black frames, a face: fix a hook in
+   + the body + a 'body vs H1' number per version: under 10 = same body) and `$OUT/qa/report.json`. Captions
+   sit low (above the Reels buttons) and never over the end card; under the narrator's "Here's <customer> …" the
+   picture must show the product or that customer, never another person; one narrator voice per video. Text off-frame, wrong product, black frames, a face: fix a hook in
    its `..._P01_H3_...json`, a body problem in `$OUT/_before_hooks/<V01 spec>.json` then re-run
    `python3 pipeline/projects.py expand --out $OUT` (all 4 versions get it), and `render --only <id>`; or
    leave it out and say so. A face in a static or a failed render is never uploaded; length/anchor flags
@@ -85,8 +96,9 @@ python3 pipeline/make_batch.py plan <flags> --request "<the request text>" --out
 5. **Upload:** `python3 pipeline/make_batch.py upload --out $OUT --name "<short request name>"` → prints the
    Drive folder link and the uploaded ads. Higgsfield `balance` again.
 6. **Reply** (one short message): Drive folder link · statics one line each · videos one block per project
-   ("P01 – <angle>" + winner and ROAS, then per version: H#, label, spoken line, length) · plan warnings
-   (fewer than 4 versions, openings already used in an earlier batch) · credits used
+   ("P01 – <angle>" + winner and ROAS, then per version: H#, label, spoken line, length) · the ad copy file ·
+   plan warnings (fewer than 4 versions, openings already used in an earlier batch, "needs a human" items) ·
+   music (the client's track or the generated bed) · credits used
    (balance before → after) · brief used and if it is stale · winners skipped (unmatched) and why ·
    anything else skipped, failed or needing a human.
 7. Commit the specs (JSON only, no media, no secrets):
@@ -114,16 +126,22 @@ python3 pipeline/new_product.py intake "<folder name>"     # or --latest, or --s
 
 `--winner-videos` reads the newest brief in Drive `Research Briefs` (the n8n weekly report), takes the
 "increase budget" and "keep" ads and matches them to the winning RAW videos in `clip_bank.json`
-(`winner_raws`, with cold opens, cuts, review insert points). Each video re-edits a RAW with another
-cold open, a narrated review section and the theme's offer card (`remix.py`).
+(`winner_raws`, with cold opens, cuts, claim cuts). Each project keeps the proven RAW body intact (only its
+editorial cuts and `claim_cuts`, which remove health claims on word boundaries) and tests 4 cold-open hooks,
+plus the theme's offer card and the end card (`remix.py`). Winner projects need 0 voiceover lines.
 - `stale: true` (brief older than 8 days): still run it, and say so in the reply.
 - `unmatched` winners have no prepared RAW. List them in the reply. If the request is only about winners
   and one of them has a RAW in the library, you may prepare it (about 10 min):
   `python3 pipeline/winner_prep.py "<ad name>" --write`, review the draft like an editor (transcript +
   contact sheet: cold opens, insert point, labels, cuts, burned captions), remove `"draft"`,
-  `python3 pipeline/winner_prep.py --check <key>`, commit, then plan again.
+  `python3 pipeline/winner_prep.py --check <key>` and `python3 pipeline/projects.py cadence` (both must pass;
+  a RAW line saying the bag helps the body goes into `edit.claim_cuts`), commit, then plan again.
 - New batch for the same winners as an earlier request: pass `--seed <day of the year>` so the cold
   opens and review sets differ from last time.
+
+**Music:** storyboard videos get a bed under the voice automatically: the client's licensed tracks from
+`pipeline/assets/music/` when there are any, otherwise a generated bed (made by `pipeline/music.py`, nothing to
+license). Winner videos keep their RAW's own sound.
 
 ## Other references
 

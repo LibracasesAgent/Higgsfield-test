@@ -263,7 +263,8 @@ def min_reviews(body):
 
 
 def body_len(e, dur):
-    return (e.get("end") or dur) - e.get("start", 0.0) - sum(b - a for a, b in e.get("cut", []))
+    import remix
+    return (e.get("end") or dur) - e.get("start", 0.0) - sum(b - a for a, b in list(e.get("cut", [])) + remix.claim_ranges(e))
 
 
 def parse_code(name):
@@ -374,7 +375,7 @@ def fmt_entry(k, e):
     if "notes" in e:
         lines.append(f"   \"notes\": {j(e['notes'])},")
     ed = e["edit"]
-    first = ("start", "end", "cut", "insert_at", "offer_word", "offer_after", "burned_captions")
+    first = ("start", "end", "cut", "claim_cuts", "insert_at", "offer_word", "offer_after", "burned_captions")
     rest = [x for x in ed if x not in first + ("labels", "end_title", "cold_opens")]
     lines.append("   \"edit\": {" + ", ".join(f"{j(x)}: {j(ed[x])}" for x in first if x in ed) + ",")
     lines.append(f"    \"labels\": {j(ed.get('labels', []))},")
@@ -466,11 +467,24 @@ def check(key, e):
                 warn.append(f"cold open {r} boundary {t} cuts the word {inside(t)['w']!r}")
         if not 1.8 <= r[1] - r[0] <= 7.5:
             warn.append(f"cold open {r} is {r[1] - r[0]:.1f} s")
-    for a, b in ed.get("cut", []):
+    import compliance
+    import remix
+    for a, b in list(ed.get("cut", [])) + remix.claim_ranges(ed):
         pre = " ".join(w["w"] for w in ws if a - 2 <= w["s"] < a)
         post = " ".join(w["w"] for w in ws if b <= w["s"] < b + 2)
-        print(f"   cut {a}-{b}{level(a)}{level(b)}: ...{pre} | {post}...")
+        kind = "claim cut" if [a, b] in remix.claim_ranges(ed) else "cut"
+        print(f"   {kind} {a}-{b}{level(a)}{level(b)}: ...{pre} | {post}...")
         warn += [f"cut boundary {t} cuts {inside(t)['w']!r}" for t in (a, b) if inside(t) and x is None]
+    wsn = [w if isinstance(w, dict) else dict(w=w[0], s=w[1], e=w[2]) for w in ws]
+    for c in compliance.raw_audit(wsn, compliance.remix_ranges(ed, dur, body_only=True))[0]:   # Julian's health rule
+        warn.append(f"the body says \"{c['text']}\" ({c['start']}-{c['end']} s): a {c['category']} claim (Julian: never, "
+                    f"not even in RAW audio): add a claim_cuts entry on word boundaries, or plan leaves this winner out")
+    for c in ed.get("cold_opens", []):
+        if c.get("range") and compliance.raw_audit(wsn, [c["range"]])[0]:
+            warn.append(f"cold open {c['label']!r} makes a health claim: plan never uses it; drop it")
+        if compliance.HEALTH.search(c.get("label") or ""):
+            warn.append(f"cold open label {c['label']!r} names a health condition (Julian: no label does, the RAW's audio "
+                        f"may tell its story): plan never uses it; give it a story label ('HER LAST COLLECTION')")
     ins = ed.get("insert_at")
     if ins is not None:
         pre = " ".join(w["w"] for w in ws if ins - 3 <= w["s"] < ins)
