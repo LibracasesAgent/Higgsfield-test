@@ -87,7 +87,9 @@ python3 pipeline/make_batch.py plan <flags> --request "<the request text>" --out
    `upload --only V`). Use a fresh `$OUT` for every request.
 4. **QA:** Read `$OUT/qa/statics.jpg`, every `$OUT/qa/P*.jpg` (one per project: the 4 hooks side by side
    + the body + a 'body vs H1' number per version: under 10 = same body) and `$OUT/qa/report.json`. Captions
-   sit low (above the Reels buttons) and never over the end card; under the narrator's "Here's <customer> …" the
+   sit at the bottom (white text with an outline, keywords on a red pill), jump to the top only for shots whose
+   bottom shows a face or the product, and never sit over the end card (`"caption_zone": "reels"` in a spec keeps
+   them higher, above Meta's strict Reels zone; `"caption_pos": "top"|"bottom"` on a segment forces a shot); under the narrator's "Here's <customer> …" the
    picture must show the product or that customer, never another person; one narrator voice per video. Text off-frame, wrong product, black frames, a face: fix a hook in
    its `..._P01_H3_...json`, a body problem in `$OUT/_before_hooks/<V01 spec>.json` then re-run
    `python3 pipeline/projects.py expand --out $OUT` (all 4 versions get it), and `render --only <id>`; or

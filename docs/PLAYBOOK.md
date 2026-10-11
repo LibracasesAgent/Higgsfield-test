@@ -61,7 +61,10 @@ forces `pipeline/make_batch.py` (templates, no AI images/video) for every normal
    - Never switch point of view: no second narrator reading reviews inside Susan's RAW (winner bodies play intact;
      `--winner-reviews` only on request); one brand voice per storyboard, a real customer only in her own introduced
      clip, never as muted B-roll while she talks. Agencies split-test hooks/CTA on a proven body: keep bodies intact.
-   - Captions low in the safe zone (centre y 1150, box ~1065-1235: above Meta's Reels UI, which covers the bottom ~35 %),
+   - Captions at the bottom (centre y 1380, text ~1295-1465: above Stories' UI, inside Feed's 4:5 crop) in a native
+     style (white, dark outline, soft shadow, keywords on a red pill), moved to the top band only for shots whose bottom
+     band shows a face or the product (YuNet + saliency, `longform.busy_shots`; owner 2026-10-12: "captions obstruct the
+     video"); `"caption_zone": "reels"` = Meta's strict Reels zone (~1065-1235) when only Reels is bought;
      phrases kept together, no stray dashes, fuller phrases (up to 8 words; the hook one caption, up to 10 words, a bit
      smaller when it must), never over the end card; the words come from the script / committed transcripts, not from
      transcribing the mix.
@@ -225,7 +228,8 @@ accent). Never "our biggest sale (of the year)": the same % runs all year (site 
 | Customer -> narrator handoff | the narrator started 0.1 s after her last word | `storyboard.CLIP_PAD` 0.5 s |
 | Caption wording | whisper on the final mix: "phobo bag", lost punctuation, phrases split mid-sentence | captions from the script / committed transcripts (`transcript` in the EDL) |
 | Captions over the end card | moved up to mid-screen during the last 2.6 s | dropped (or ended) where the end card starts |
-| Captions in the Reels UI | 2-line captions reached y 1355 (Reels covers the bottom ~35 %) | `longform.CAP_Y` 1150, `SAFE_BOTTOM` 1250 |
+| Captions in the Reels UI | 2-line captions reached y 1355 (Reels covers the bottom ~35 %) | `"caption_zone": "reels"` (centre 1150, bottom 1250) |
+| Captions over the product mid-screen | y 1150 sat on the bag and hands | bottom band by default (centre 1380), top band for busy shots (`busy_shots`) |
 | Hook split over 2 captions | "This is the Black Friday / deal you've been" + "waiting for" | the opening line is one caption (<= 10 words, 52 px when needed) |
 | Medical hook label | "THE ARTHRITIS HAS WON" on screen | labels never name a condition (`compliance.LABEL_STORY`): "HER LAST COLLECTION" |
 | One colour said, another shown | "Brown" over a black bag (badge photo had no swatch) | `site_assets.badge_free` + names in swatch order, swatches timed to the names |

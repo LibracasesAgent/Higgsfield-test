@@ -8,9 +8,13 @@ knows them (storyboard: the script on its voiceover's timings; remix: the RAW's 
 
 Captions (like the top Reels ads): up to 8 words (9 for a whole sentence) on at most 2 balanced lines, broken at
 sentence ends, commas and pauses (never "hand making these / bags", never "the Black / Friday deal", one word alone only
-as a whole sentence), at least 0.8 s on screen, no dashes or stray symbols, red keywords. They sit
-low in the 9:16 safe zone (centre y 1150, box ~1065-1235: Meta's Reels UI covers the top ~14 % and the bottom ~35 %,
-Stories the bottom ~20 %; the lowest that suits both) and move up or
+as a whole sentence), at least 0.8 s on screen, no dashes or stray symbols. They look like part of the video (white
+text, dark outline, soft shadow, keywords on a red pill; "caption_style": "box" = the older white boxes) and sit in the
+bottom band (centre y 1380, text ~1295-1465: above Stories' UI, inside Feed's 4:5 crop; "caption_zone": "reels" keeps
+them above Meta's strict Reels zone, ~1065-1235). A shot whose bottom band shows something important (a face, or the
+product / the action: spectral-residual saliency) gets its captions in the emptiest of the top band or just above the
+product instead (never over a face), for that shot only
+("caption_pos": "top" / "bottom" on a segment forces it; "caption_auto": false turns the check off). They move up or
 down while an overlay would be under them; no caption over the end card (it carries the CTA): one mostly under it is
 left out, one that runs into it ends where the card starts. The opening line stays one caption (<= 10 words, at 52 px
 when 60 px is too wide for two lines).
@@ -113,8 +117,11 @@ def fix_words(words, fixes):
 # clear of text, Stories the bottom ~20 %), fuller phrases on at most two balanced lines, each on screen long enough to read.
 CAP_SIZE, CAP_MAXW, CAP_ONE_LINE = 60, 840, 700   # Montserrat ExtraBold px; max line width; wider phrases take two lines
 CAP_LINE_H, CAP_GAP = 80, 10                      # one boxed line; gap between the two lines
-CAP_Y, CAP_Y_TOP = 1150, 420                      # default caption centre (2 lines: box ~1065-1235); "top" captions (briefly)
-SAFE_TOP, SAFE_BOTTOM = 270, 1250                 # caption boxes stay between these rows (Reels: nothing below ~1250)
+CAP_Y, CAP_Y_TOP = 1380, 430                      # default caption centre: the bottom band (2 lines ~1295-1465); "top": upper band
+SAFE_TOP, SAFE_BOTTOM = 270, 1500                 # caption text stays between these rows (Stories UI: bottom ~20 % = below 1536;
+#                                                   Feed's 4:5 crop keeps rows 285-1635)
+ZONES = {"bottom": (CAP_Y, SAFE_BOTTOM), "reels": (1150, 1250)}   # EDL "caption_zone": "reels" = Meta's strict Reels zone
+#                                                   (its UI covers the bottom ~35 %): captions sit higher, at ~1065-1235
 CAP_MARGIN = 24                                   # clear rows between a caption and an overlay (label, tag, card)
 CAP_WORDS, CAP_MIN_S, CAP_HOLD = 8, 0.8, 0.6      # words per caption; min seconds on screen; hold after the last word
 HOOK_WORDS, HOOK_SIZE = 10, 52                    # the opening line stays one caption up to this many words (at HOOK_SIZE
@@ -348,24 +355,48 @@ def phrases(words, max_words=CAP_WORDS, breaks=()):
     return res
 
 
-def caption_png(path, lines, keywords, cy, size=CAP_SIZE):
-    """Boxed caption lines (white boxes, ink text, red keywords) centred on row cy. -> the text shown."""
+def caption_png(path, lines, keywords, cy, size=CAP_SIZE, style="native"):
+    """Caption lines centred on row cy. style "native" (default, like Reels/TikTok captions: part of the video, no box):
+    white text with a dark outline and a soft shadow, keywords white on a red pill. style "box": white boxes, ink text,
+    red keywords (the older look). -> the text shown."""
+    from PIL import ImageFilter
     im = Image.new("RGBA", (W, H), (0, 0, 0, 0))
     d = ImageDraw.Draw(im)
     f = cap_font(size)
     lh, gap = line_h(size)
     top = cy - cap_height(len(lines), size) / 2
     _, ga, _, gd = f.getbbox("Hg", anchor="ls")
-    base = (lh - (gd - ga)) / 2 - ga + 1                          # baseline: caps and descenders centred in the box
+    base = (lh - (gd - ga)) / 2 - ga + 1                          # baseline: caps and descenders centred in the line
+    sw = max(3, round(size / 11))                                 # outline width
+    if style == "native":                                         # soft shadow under the whole caption first
+        sh = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+        sd = ImageDraw.Draw(sh)
+        for li, ln in enumerate(lines):
+            s_ = " ".join(ln)
+            x0, yy = (W - d.textlength(s_, font=f)) / 2, top + li * (lh + gap)
+            sd.text((x0 + 3, yy + base + 5), s_, font=f, fill=(0, 0, 0, 150), anchor="ls", stroke_width=sw + 2,
+                    stroke_fill=(0, 0, 0, 150))
+        im.alpha_composite(sh.filter(ImageFilter.GaussianBlur(7)))
+        d = ImageDraw.Draw(im)
     for li, ln in enumerate(lines):
-        s = " ".join(ln)
-        tw = d.textlength(s, font=f)
+        s_ = " ".join(ln)
+        tw = d.textlength(s_, font=f)
         x0, yy = (W - tw) / 2, top + li * (lh + gap)
-        d.rounded_rectangle([x0 - 26, yy, x0 + tw + 26, yy + lh], radius=18, fill=(255, 255, 255, 250))
+        if style != "native":
+            d.rounded_rectangle([x0 - 26, yy, x0 + tw + 26, yy + lh], radius=18, fill=(255, 255, 255, 250))
         x = x0
         for t in ln:
-            col = RED if nude(t) in keywords else INK
-            d.text((x, yy + base), t, font=f, fill=col + (255,), anchor="ls")
+            key = nude(t) in keywords
+            if style == "native":
+                if key:
+                    d.rounded_rectangle([x - 12, yy + 4, x + d.textlength(t, font=f) + 12, yy + lh - 4], radius=14,
+                                        fill=RED + (255,))
+                    d.text((x, yy + base), t, font=f, fill=(255, 255, 255, 255), anchor="ls")
+                else:
+                    d.text((x, yy + base), t, font=f, fill=(255, 255, 255, 255), anchor="ls", stroke_width=sw,
+                           stroke_fill=(20, 20, 20, 255))
+            else:
+                d.text((x, yy + base), t, font=f, fill=(RED if key else INK) + (255,), anchor="ls")
             x += d.textlength(t + " ", font=f)
     im.save(path)
     return " / ".join(" ".join(ln) for ln in lines)
@@ -410,19 +441,112 @@ def top_windows(e):
     return win
 
 
+def spot_windows(e, spots):
+    """[(t0, t1, centre)] for the shots caption_spots() moved (a segment with "caption_pos" set keeps its own)."""
+    win, t = [], 0.0
+    for k, s in enumerate(e["segments"]):
+        if k in spots and not s.get("caption_pos"):
+            win.append((t, t + float(s["dur"]), spots[k]))
+        t += float(s["dur"])
+    return win
+
+
+def saliency(gray):
+    """Spectral-residual saliency (Hou & Zhang 2007) of a small grayscale frame, normalised to mean 1."""
+    import cv2
+    import numpy as np
+    sm = cv2.resize(gray, (64, 114)).astype(np.float32)
+    F = np.fft.fft2(sm)
+    la = np.log(np.abs(F) + 1e-6)
+    r = la - cv2.blur(la, (3, 3))
+    m = np.abs(np.fft.ifft2(np.exp(r + 1j * np.angle(F)))) ** 2
+    m = cv2.GaussianBlur(m.astype(np.float32), (9, 9), 2.5)
+    m = cv2.resize(m, (gray.shape[1], gray.shape[0]))
+    return m / (m.mean() + 1e-9)
+
+
+SPOTS = [(1380, 0.75), (430, 0.9), (1150, 1.0)]   # caption centres a shot may use: bottom (preferred), top, low-middle
+
+
+def caption_spots(base, e, default_y=CAP_Y):
+    """{segment index: caption centre} for shots where the default bottom band would cover something important. Per
+    shot (3 frames a second, majority vote) each spot's band is scored by its saliency (spectral residual: the product,
+    hands, the action) times a preference (bottom 0.75, top 0.9, low-middle 1.0); a band over a face's eyes, nose or
+    mouth (YuNet box below its top quarter) is never used. A shot moves only when another spot is clearly emptier than the bottom (score < 0.8x and the bottom is busy).
+    Needs opencv; without it nothing moves (captions stay at the bottom)."""
+    try:
+        import cv2
+        import numpy as np
+    except ImportError:
+        return {}
+    w_, h_ = 360, 640
+    raw = subprocess.run(["ffmpeg", "-v", "error", "-i", base, "-vf", f"fps=3,scale={w_}:{h_}", "-f", "rawvideo",
+                          "-pix_fmt", "bgr24", "-"], capture_output=True).stdout
+    n = len(raw) // (w_ * h_ * 3)
+    if not n:
+        return {}
+    frames = np.frombuffer(raw[:n * w_ * h_ * 3], np.uint8).reshape(n, h_, w_, 3)
+    det = None
+    model = os.path.join(HERE, "assets", "models", "face_detection_yunet_2023mar.onnx")
+    if os.path.exists(model) and hasattr(cv2, "FaceDetectorYN"):
+        det = cv2.FaceDetectorYN.create(model, "", (w_, h_), 0.75, 0.3, 50)
+    sy = h_ / H
+    spots = [(c, b) for c, b in SPOTS if c != default_y] + [(default_y, 0.75)]
+    rows = {c: (int((c - 95) * sy), int((c + 95) * sy)) for c, _ in spots}
+    shots, t = [], 0.0
+    for k, sg in enumerate(e["segments"]):
+        shots.append((k, t, float(sg["dur"]), sg.get("src")))
+        t += float(sg["dur"])
+    pick_of = {}
+    for k, t, d_, _ in shots:
+        idx = [i for i in range(n) if t + 0.15 <= i / 3.0 < t + d_ - 0.1] or [min(int((t + d_ / 2) * 3), n - 1)]
+        votes = {}
+        for i in idx:
+            fr = frames[i]
+            faces = []
+            if det is not None:
+                _, fs = det.detect(fr)                       # eyes, nose, mouth: below the top quarter of the box
+                faces = [(f[1] + 0.25 * f[3], f[1] + f[3]) for f in (fs if fs is not None else [])]
+            sal = saliency(cv2.cvtColor(fr, cv2.COLOR_BGR2GRAY))
+            score = {}
+            for c, bias in spots:
+                a, b = rows[c]
+                if any(y1 > a and y0 < b for y0, y1 in faces):
+                    continue
+                score[c] = float(sal[a:b].mean()) * bias
+            if default_y not in score:                           # a face where the caption would be: move it
+                pick = min(score, key=score.get) if score else default_y
+            else:
+                best = min(score, key=score.get)
+                pick = best if best != default_y and score[default_y] >= 0.8 and score[best] < 0.8 * score[default_y] \
+                    else default_y
+            votes[pick] = votes.get(pick, 0) + 1
+        c = max(votes, key=votes.get)
+        pick_of[k] = c if votes[c] * 2 > len(idx) else default_y
+    # no jumping back and forth: a short shot (< 3 s) between two moved shots of the same source moves with them
+    for j in range(1, len(shots) - 1):
+        k, _, d_, src = shots[j]
+        a, b = shots[j - 1], shots[j + 1]
+        if pick_of[k] == default_y and d_ < 3.0 and a[3] == src == b[3] and pick_of[a[0]] == pick_of[b[0]] != default_y:
+            pick_of[k] = pick_of[a[0]]
+    return {k: c for k, c in pick_of.items() if c != default_y}
+
+
 def bare(s):
     return re.sub(r"[^a-z0-9% ]", "", s.lower()).split()
 
 
-def caption_events(e, words, ovs, tmp):
-    """Caption PNG events [(t0, t1, png, 1)] + stats. ovs: [(t0, t1, overlay dict, rows)]. Each caption sits at the
-    default row (or "caption_top" / caption_y with "caption_y_force"), moved up or down to keep clear of every overlay
-    on screen with it; a caption that only repeats the end card's text is left out."""
+def caption_events(e, words, ovs, tmp, spots=None):
+    """Caption PNG events [(t0, t1, png, 1)] + stats. ovs: [(t0, t1, overlay dict, rows)]. Each caption sits in the
+    bottom band (or the top band in "caption_top" windows and busy shots, or caption_y with "caption_y_force"), moved
+    up or down to keep clear of every overlay on screen with it; no caption over the end card."""
     kw = {k.lower() for k in e.get("keywords", [])}
-    skip, tops = e.get("no_captions", []), top_windows(e)
+    skip, tops, moved = e.get("no_captions", []), top_windows(e), spot_windows(e, spots or {})
     forced = e.get("caption_y_force") and e.get("caption_y") is not None
-    base_y = float(e["caption_y"]) if forced else CAP_Y
-    lo, hi = (0, H) if forced else (SAFE_TOP, SAFE_BOTTOM)
+    zy, zhi = ZONES.get(e.get("caption_zone", "bottom"), ZONES["bottom"])
+    base_y = float(e["caption_y"]) if forced else zy
+    lo, hi = (0, H) if forced else (SAFE_TOP, zhi)
+    style = e.get("caption_style", "native")
     events, st = [], dict(captions=0, caption_moved=0, caption_top=0, caption_hidden=0, caption_dropped=0)
     for i, p in enumerate(phrases(words, int(e.get("caption_words", CAP_WORDS)), e.get("breaks", []))):
         if any(s0 <= p["s"] < s1 for s0, s1 in skip):
@@ -439,14 +563,17 @@ def caption_events(e, words, ovs, tmp):
             span = p["e"] - p["s"]
         top = any(t0 <= p["s"] < t1 or min(t1, p["e"]) - max(t0, p["s"]) >= span / 2 for t0, t1 in tops)
         live = [(o, rows) for t0, t1, o, rows in ovs if rows and min(t1, p["e"]) - max(t0, p["s"]) > 0.05]
-        pref = CAP_Y_TOP if top else base_y
+        mv = [(min(t1, p["e"]) - max(t0, p["s"]), c) for t0, t1, c in moved if min(t1, p["e"]) - max(t0, p["s"]) > 0]
+        mv = max(mv) if mv else None                 # the shot under most of this caption moved its captions
+        pref = CAP_Y_TOP if top else (mv[1] if mv and mv[0] >= span / 2 and not forced else base_y)
+        top = top or pref < H / 2
         cy = cap_centre(cap_height(len(p["lines"]), p.get("size", CAP_SIZE)), pref, [r for _, r in live], lo, hi)
         if cy is None:
             st["caption_hidden"] += 1
             print(f"caption hidden (no room next to the overlays) at {p['s']:.2f}s: {' '.join(p['words'])}", file=sys.stderr)
             continue
         png = os.path.join(tmp, f"cap{i:03d}.png")
-        caption_png(png, p["lines"], kw, cy, p.get("size", CAP_SIZE))
+        caption_png(png, p["lines"], kw, cy, p.get("size", CAP_SIZE), style)
         events.append((p["s"], p["e"], png, 1))
         st["captions"] += 1
         st["caption_top"] += top
@@ -623,8 +750,9 @@ def build_overlay_track(events, tmp, total):
     return lst
 
 
-def text_events(e, words, tmp):
-    """Overlay and caption PNG events [(t0, t1, png, layer)] (overlays layer 2, drawn over captions) + caption stats."""
+def text_events(e, words, tmp, spots=None):
+    """Overlay and caption PNG events [(t0, t1, png, layer)] (overlays layer 2, drawn over captions) + caption stats.
+    spots: {segment index: caption centre} from caption_spots (shots whose bottom band shows something important)."""
     events, ovs = [], []
     reviews = json.load(open(os.path.join(HERE, "data", "reviews.json")))["reviews"]
     for j, o in enumerate(e.get("overlays", [])):
@@ -632,7 +760,8 @@ def text_events(e, words, tmp):
         {"label": label_png, "offer": offer_png, "end": end_png, "tag": tag_png}.get(o["type"], lambda p, o: review_png(p, o, reviews))(png, o)
         events.append((o["at"], o["at"] + o["dur"], png, 2))
         ovs.append((o["at"], o["at"] + o["dur"], o, alpha_rows(png)))
-    caps, st = caption_events(e, words, ovs, tmp)
+    caps, st = caption_events(e, words, ovs, tmp, spots)
+    st["caption_moved_shots"] = len(spots or {})
     return caps + events, st
 
 
@@ -661,7 +790,9 @@ def main():
         ws = fix_words(fix_known(e["transcript"], CAPTION_FIX), e.get("caption_fix", []))
     else:                            # (older EDLs) transcribe the final mix
         ws = fix_words(words_of(base), CAPTION_FIX + e.get("caption_fix", []))
-    events, st = text_events(e, ws, tmp)
+    zy = ZONES.get(e.get("caption_zone", "bottom"), ZONES["bottom"])[0]
+    spots = {} if e.get("caption_y_force") or e.get("caption_auto") is False else caption_spots(base, e, zy)
+    events, st = text_events(e, ws, tmp, spots)
 
     lst = build_overlay_track(events, tmp, total)
     os.makedirs(os.path.dirname(os.path.abspath(a.out)), exist_ok=True)
