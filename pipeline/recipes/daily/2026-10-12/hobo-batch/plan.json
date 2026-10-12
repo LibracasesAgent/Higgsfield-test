@@ -1,0 +1,856 @@
+{
+ "prefix": "LC_261012_HoboBag_Evergreen",
+ "rev": 1,
+ "created": "2026-10-12",
+ "request": "make 20 statics and 3 videos for the Hobo Bag, plus new projects from winners 94-H4 and 147-H1. Videos with 4 hooks each, so 5 projects = 20 videos.",
+ "product": "Hobo Bag",
+ "product_key": "hobo bag",
+ "product_source": "built-in",
+ "theme": "default",
+ "theme_name": "Evergreen",
+ "offer": "50% off + free matching pouch wallet",
+ "statics": [
+  "LC_261012_HoboBag_Evergreen_S01_hero",
+  "LC_261012_HoboBag_Evergreen_S02_offer",
+  "LC_261012_HoboBag_Evergreen_S03_stars",
+  "LC_261012_HoboBag_Evergreen_S04_promo",
+  "LC_261012_HoboBag_Evergreen_S05_checklist",
+  "LC_261012_HoboBag_Evergreen_S06_bold",
+  "LC_261012_HoboBag_Evergreen_S07_review",
+  "LC_261012_HoboBag_Evergreen_S08_colours",
+  "LC_261012_HoboBag_Evergreen_S09_offer",
+  "LC_261012_HoboBag_Evergreen_S10_compare",
+  "LC_261012_HoboBag_Evergreen_S11_stars",
+  "LC_261012_HoboBag_Evergreen_S12_checklist",
+  "LC_261012_HoboBag_Evergreen_S13_hero",
+  "LC_261012_HoboBag_Evergreen_S14_offer",
+  "LC_261012_HoboBag_Evergreen_S15_stars",
+  "LC_261012_HoboBag_Evergreen_S16_promo",
+  "LC_261012_HoboBag_Evergreen_S17_checklist",
+  "LC_261012_HoboBag_Evergreen_S18_bold",
+  "LC_261012_HoboBag_Evergreen_S19_review",
+  "LC_261012_HoboBag_Evergreen_S20_colours"
+ ],
+ "videos": [
+  {
+   "name": "LC_261012_HoboBag_Evergreen_P01_H1_remix94",
+   "id": "P01H1",
+   "format": "remix",
+   "engine": "remix",
+   "hook": "H1",
+   "hook_label": "10 YEARS LATER",
+   "winner": {
+    "key": "raw94_H4",
+    "ad": "MAX-94-H4",
+    "brief_name": "MAX-94-H4",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag",
+    "cold_open": [
+     12.34,
+     16.26
+    ],
+    "reviews": [],
+    "intro": null
+   },
+   "est_seconds": 58.4,
+   "project": "P01",
+   "hook_text": "Most bags look terrible after a year. Mine looks better after a decade.",
+   "hook_type": "curiosity",
+   "cold_open": [
+    12.34,
+    16.26
+   ]
+  },
+  {
+   "name": "LC_261012_HoboBag_Evergreen_P01_H2_remix94",
+   "id": "P01H2",
+   "format": "remix",
+   "engine": "remix",
+   "hook": "H2",
+   "hook_label": "NO MORE DIGGING",
+   "winner": {
+    "key": "raw94_H4",
+    "ad": "MAX-94-H4",
+    "brief_name": "MAX-94-H4",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag",
+    "cold_open": [
+     26.91,
+     30.01
+    ],
+    "reviews": [],
+    "intro": null
+   },
+   "est_seconds": 57.6,
+   "project": "P01",
+   "hook_text": "No more dumping your entire bag out just to find your keys.",
+   "hook_type": "problem",
+   "cold_open": [
+    26.91,
+    30.01
+   ]
+  },
+  {
+   "name": "LC_261012_HoboBag_Evergreen_P01_H3_remix94",
+   "id": "P01H3",
+   "format": "remix",
+   "engine": "remix",
+   "hook": "H3",
+   "hook_label": "YOUR LAST CHANCE",
+   "winner": {
+    "key": "raw94_H4",
+    "ad": "MAX-94-H4",
+    "brief_name": "MAX-94-H4",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag",
+    "cold_open": [
+     51.72,
+     55.1
+    ],
+    "reviews": [],
+    "intro": null
+   },
+   "est_seconds": 57.9,
+   "project": "P01",
+   "hook_text": "This is your last chance to own one before I close my workshop forever.",
+   "hook_type": "offer",
+   "cold_open": [
+    51.72,
+    55.1
+   ]
+  },
+  {
+   "name": "LC_261012_HoboBag_Evergreen_P01_H4_remix94",
+   "id": "P01H4",
+   "format": "remix",
+   "engine": "remix",
+   "hook": "H4",
+   "hook_label": "HER LAST COLLECTION",
+   "winner": {
+    "key": "raw94_H4",
+    "ad": "MAX-94-H4",
+    "brief_name": "MAX-94-H4",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag",
+    "cold_open": [
+     44.31,
+     47.24
+    ],
+    "reviews": [],
+    "intro": null
+   },
+   "est_seconds": 57.4,
+   "project": "P01",
+   "hook_text": "But my hands can't do this anymore. The arthritis has won.",
+   "hook_type": "story",
+   "cold_open": [
+    44.31,
+    47.24
+   ]
+  },
+  {
+   "name": "LC_261012_HoboBag_Evergreen_P02_H1_remix147",
+   "id": "P02H1",
+   "format": "remix",
+   "engine": "remix",
+   "hook": "H1",
+   "hook_label": "30 YEARS BY HAND",
+   "winner": {
+    "key": "raw147_H1",
+    "ad": "MAX-147-H1",
+    "brief_name": "MAX-147-H1",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag",
+    "cold_open": [
+     9.42,
+     13.4
+    ],
+    "reviews": [],
+    "intro": null
+   },
+   "est_seconds": 70.1,
+   "project": "P02",
+   "hook_text": "You see, Mom Susan has been hand-making these bags for 30 years.",
+   "hook_type": "story",
+   "cold_open": [
+    9.42,
+    13.4
+   ]
+  },
+  {
+   "name": "LC_261012_HoboBag_Evergreen_P02_H2_remix147",
+   "id": "P02H2",
+   "format": "remix",
+   "engine": "remix",
+   "hook": "H2",
+   "hook_label": "CARRIED FOR 20 YEARS",
+   "winner": {
+    "key": "raw147_H1",
+    "ad": "MAX-147-H1",
+    "brief_name": "MAX-147-H1",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag",
+    "cold_open": [
+     44.66,
+     49.96
+    ],
+    "reviews": [],
+    "intro": null
+   },
+   "est_seconds": 71.4,
+   "project": "P02",
+   "hook_text": "Leather that only gets more beautiful with age. Women have carried these for 15-20 years.",
+   "hook_type": "curiosity",
+   "cold_open": [
+    44.66,
+    49.96
+   ]
+  },
+  {
+   "name": "LC_261012_HoboBag_Evergreen_P02_H3_remix147",
+   "id": "P02H3",
+   "format": "remix",
+   "engine": "remix",
+   "hook": "H3",
+   "hook_label": "NO NEXT BATCH",
+   "winner": {
+    "key": "raw147_H1",
+    "ad": "MAX-147-H1",
+    "brief_name": "MAX-147-H1",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag",
+    "cold_open": [
+     56.98,
+     60.34
+    ],
+    "reviews": [],
+    "intro": null
+   },
+   "est_seconds": 69.5,
+   "project": "P02",
+   "hook_text": "There's no next batch. When the workshop closes, it closes.",
+   "hook_type": "offer",
+   "cold_open": [
+    56.98,
+    60.34
+   ]
+  },
+  {
+   "name": "LC_261012_HoboBag_Evergreen_P02_H4_remix147",
+   "id": "P02H4",
+   "format": "remix",
+   "engine": "remix",
+   "hook": "H4",
+   "hook_label": "DESIGNED AFTER A ROBBERY",
+   "winner": {
+    "key": "raw147_H1",
+    "ad": "MAX-147-H1",
+    "brief_name": "MAX-147-H1",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag",
+    "cold_open": [
+     38.28,
+     44.52
+    ],
+    "reviews": [],
+    "intro": null
+   },
+   "est_seconds": 72.3,
+   "project": "P02",
+   "hook_text": "There's a hidden back pocket she designed after her sister was robbed. Divided compartments so you're never digging for your keys.",
+   "hook_type": "story",
+   "cold_open": [
+    38.28,
+    44.52
+   ]
+  },
+  {
+   "name": "LC_261012_HoboBag_Evergreen_P03_H1_showcase",
+   "id": "P03H1",
+   "format": "showcase",
+   "engine": "storyboard",
+   "hook": "H1",
+   "est_seconds": 66.4,
+   "project": "P03",
+   "hook_text": "Take a closer look at the Hobo Bag.",
+   "hook_label": "TAKE A CLOSER LOOK",
+   "hook_type": "curiosity",
+   "opening_shot": [
+    "1Mtx32enLMlOkpIfl_Cr1EYezTdody3E1",
+    1.0
+   ]
+  },
+  {
+   "name": "LC_261012_HoboBag_Evergreen_P03_H2_showcase",
+   "id": "P03H2",
+   "format": "showcase",
+   "engine": "storyboard",
+   "hook": "H2",
+   "est_seconds": 67.9,
+   "project": "P03",
+   "hook_text": "The Hobo Bag is half price, with a free matching pouch wallet.",
+   "hook_label": "50% OFF",
+   "hook_type": "offer",
+   "opening_shot": [
+    "1MtOonVbf-pqmrcU5DUgY6995LObDfwn7",
+    3.0
+   ],
+   "hook_source": "product"
+  },
+  {
+   "name": "LC_261012_HoboBag_Evergreen_P03_H3_showcase",
+   "id": "P03H3",
+   "format": "showcase",
+   "engine": "storyboard",
+   "hook": "H3",
+   "est_seconds": 68.3,
+   "project": "P03",
+   "hook_text": "Travelling soon? Your passport goes in a pocket that sits flat against you.",
+   "hook_label": "TRAVEL TIP",
+   "hook_type": "travel",
+   "opening_shot": [
+    "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+    9.0
+   ],
+   "hook_source": "product"
+  },
+  {
+   "name": "LC_261012_HoboBag_Evergreen_P03_H4_showcase",
+   "id": "P03H4",
+   "format": "showcase",
+   "engine": "storyboard",
+   "hook": "H4",
+   "est_seconds": 66.4,
+   "project": "P03",
+   "hook_text": "Need a gift for someone who carries everything?",
+   "hook_label": "GIFT IDEA",
+   "hook_type": "gift",
+   "opening_shot": [
+    "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+    16.0
+   ],
+   "hook_source": "product"
+  },
+  {
+   "name": "LC_261012_HoboBag_Evergreen_P04_H1_features",
+   "id": "P04H1",
+   "format": "features",
+   "engine": "storyboard",
+   "hook": "H1",
+   "est_seconds": 54.1,
+   "project": "P04",
+   "hook_text": "Here's what makes the Hobo Bag different.",
+   "hook_label": "LOOK CLOSER",
+   "hook_type": "curiosity",
+   "opening_shot": [
+    "1DbVATxAeMvr_FnP999-dnJymLQ7pn9H8",
+    0.5
+   ]
+  },
+  {
+   "name": "LC_261012_HoboBag_Evergreen_P04_H2_features",
+   "id": "P04H2",
+   "format": "features",
+   "engine": "storyboard",
+   "hook": "H2",
+   "est_seconds": 56.0,
+   "project": "P04",
+   "hook_text": "If your bag is one big black hole, this is for you.",
+   "hook_label": "SOUND FAMILIAR?",
+   "hook_type": "problem",
+   "opening_shot": [
+    "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+    16.0
+   ],
+   "hook_source": "product"
+  },
+  {
+   "name": "LC_261012_HoboBag_Evergreen_P04_H3_features",
+   "id": "P04H3",
+   "format": "features",
+   "engine": "storyboard",
+   "hook": "H3",
+   "est_seconds": 53.7,
+   "project": "P04",
+   "hook_text": "Soft leather that's water-resistant and scratch-proof.",
+   "hook_label": "SCRATCH-PROOF LEATHER",
+   "hook_type": "feature",
+   "opening_shot": [
+    "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+    9.0
+   ],
+   "hook_source": "product"
+  },
+  {
+   "name": "LC_261012_HoboBag_Evergreen_P04_H4_features",
+   "id": "P04H4",
+   "format": "features",
+   "engine": "storyboard",
+   "hook": "H4",
+   "est_seconds": 54.8,
+   "project": "P04",
+   "hook_text": "Where do you keep your cards when you're out?",
+   "hook_label": "QUICK QUESTION",
+   "hook_type": "question",
+   "opening_shot": [
+    "1MtOonVbf-pqmrcU5DUgY6995LObDfwn7",
+    8.0
+   ],
+   "hook_source": "product"
+  },
+  {
+   "name": "LC_261012_HoboBag_Evergreen_P05_H1_reviews",
+   "id": "P05H1",
+   "format": "reviews",
+   "engine": "storyboard",
+   "hook": "H1",
+   "est_seconds": 47.8,
+   "project": "P05",
+   "hook_text": "Stop carrying a bag that swallows your keys.",
+   "hook_label": "REAL REVIEWS",
+   "hook_type": "problem",
+   "opening_shot": [
+    "1DbVATxAeMvr_FnP999-dnJymLQ7pn9H8",
+    0.5
+   ]
+  },
+  {
+   "name": "LC_261012_HoboBag_Evergreen_P05_H2_reviews",
+   "id": "P05H2",
+   "format": "reviews",
+   "engine": "storyboard",
+   "hook": "H2",
+   "est_seconds": 48.5,
+   "project": "P05",
+   "hook_text": "This might be the most practical bag you'll see today.",
+   "hook_label": "WAIT FOR IT",
+   "hook_type": "curiosity",
+   "opening_shot": [
+    "1nnsvEIfgqziYdrmeUrrtgL3Qo3YHV7Sw",
+    4.0
+   ],
+   "hook_source": "theme"
+  },
+  {
+   "name": "LC_261012_HoboBag_Evergreen_P05_H3_reviews",
+   "id": "P05H3",
+   "format": "reviews",
+   "engine": "storyboard",
+   "hook": "H3",
+   "est_seconds": 47.4,
+   "project": "P05",
+   "hook_text": "One bag, three ways to wear it.",
+   "hook_label": "3 WAYS TO WEAR",
+   "hook_type": "feature",
+   "opening_shot": [
+    "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+    1.0
+   ],
+   "hook_source": "product"
+  },
+  {
+   "name": "LC_261012_HoboBag_Evergreen_P05_H4_reviews",
+   "id": "P05H4",
+   "format": "reviews",
+   "engine": "storyboard",
+   "hook": "H4",
+   "est_seconds": 49.3,
+   "project": "P05",
+   "hook_text": "Be honest: how long does it take you to find your keys?",
+   "hook_label": "BE HONEST",
+   "hook_type": "question",
+   "opening_shot": [
+    "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+    16.0
+   ],
+   "hook_source": "product"
+  }
+ ],
+ "tts_lines": 25,
+ "tts_dupes": {
+  "V04_feat0.mp3": "V03_feat0.mp3",
+  "V04_feat1.mp3": "V03_feat1.mp3",
+  "V04_feat2.mp3": "V03_feat2.mp3",
+  "V04_close.mp3": "V03_close.mp3",
+  "V05_intro0.mp3": "V03_intro0.mp3",
+  "V05_feat0.mp3": "V03_feat2.mp3",
+  "V05_feat1.mp3": "V03_feat3.mp3",
+  "V05_close.mp3": "V03_close.mp3"
+ },
+ "est_credits": 8.8,
+ "budget": 40,
+ "colour_images": {
+  "Brown": "/tmp/run/hobo-batch-1012/site/clean/hobo_bag_colour_brown_nobadge.jpg",
+  "Black": "/tmp/run/hobo-batch-1012/site/hobo_bag_colour_black.jpg",
+  "Blue": "/tmp/run/hobo-batch-1012/site/hobo_bag_colour_blue.jpg",
+  "Grey": "/tmp/run/hobo-batch-1012/site/hobo_bag_colour_grey.jpg",
+  "Burgundy": "/tmp/run/hobo-batch-1012/site/hobo_bag_colour_burgundy.jpg",
+  "Red": "/tmp/run/hobo-batch-1012/site/hobo_bag_colour_red.jpg"
+ },
+ "packshots": [
+  "/tmp/run/hobo-batch-1012/site/hobo_bag_colour_black.jpg",
+  "/tmp/run/hobo-batch-1012/site/hobo_bag_colour_blue.jpg",
+  "/tmp/run/hobo-batch-1012/site/hobo_bag_colour_grey.jpg",
+  "/tmp/run/hobo-batch-1012/site/hobo_bag_colour_burgundy.jpg",
+  "/tmp/run/hobo-batch-1012/site/hobo_bag_colour_red.jpg"
+ ],
+ "brief": null,
+ "winners_source": "codes",
+ "winners_note": null,
+ "winners_used": [
+  {
+   "key": "raw94_H4",
+   "name": "MAX-94-H4",
+   "roas": null,
+   "action": null
+  },
+  {
+   "key": "raw147_H1",
+   "name": "MAX-147-H1",
+   "roas": null,
+   "action": null
+  }
+ ],
+ "unmatched_winners": [],
+ "warnings": [
+  "raw94_H4 (MAX-94-H4): Julian's health rule: \"that prevents shoulder pain.\" is cut out of its proven body (RAW 31.9-33.3 s), so it says \"...Reason four, an adjustable strap.\": needs a human to listen to that line once",
+  "raw94_H4 (MAX-94-H4): needs a human (Julian's health rule): its approved RAW story (PLAYBOOK section 1) plays as is: \"The arthritis has won.\"; cold open HER LAST COLLECTION says it too (used last, its label names no condition)",
+  "raw147_H1 (MAX-147-H1): needs a human (Julian's health rule): its approved RAW story (PLAYBOOK section 1) plays as is: \"Her arthritis has finally gotten bad enough that her doctor told her to stop.\"",
+  "winner versions that open like ads already delivered (pipeline/recipes/daily): P01 MAX-94-H4 H1 (2026-10-02): they differ from those ads only in the offer card and end card (and the review section those had); new openings need new cold opens (python3 pipeline/winner_prep.py)"
+ ],
+ "winner_reviews": false,
+ "seed": 285,
+ "hooks": 4,
+ "projects": [
+  {
+   "id": "P01",
+   "from_id": "V01",
+   "angle": "remix94",
+   "engine": "remix",
+   "format": "remix",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P01H1",
+     "name": "LC_261012_HoboBag_Evergreen_P01_H1_remix94",
+     "hook_text": "Most bags look terrible after a year. Mine looks better after a decade.",
+     "label": "10 YEARS LATER",
+     "type": "curiosity",
+     "cold_open": [
+      12.34,
+      16.26
+     ],
+     "est_seconds": 58.4
+    },
+    {
+     "hook": "H2",
+     "id": "P01H2",
+     "name": "LC_261012_HoboBag_Evergreen_P01_H2_remix94",
+     "hook_text": "No more dumping your entire bag out just to find your keys.",
+     "label": "NO MORE DIGGING",
+     "type": "problem",
+     "cold_open": [
+      26.91,
+      30.01
+     ],
+     "est_seconds": 57.6
+    },
+    {
+     "hook": "H3",
+     "id": "P01H3",
+     "name": "LC_261012_HoboBag_Evergreen_P01_H3_remix94",
+     "hook_text": "This is your last chance to own one before I close my workshop forever.",
+     "label": "YOUR LAST CHANCE",
+     "type": "offer",
+     "cold_open": [
+      51.72,
+      55.1
+     ],
+     "est_seconds": 57.9
+    },
+    {
+     "hook": "H4",
+     "id": "P01H4",
+     "name": "LC_261012_HoboBag_Evergreen_P01_H4_remix94",
+     "hook_text": "But my hands can't do this anymore. The arthritis has won.",
+     "label": "HER LAST COLLECTION",
+     "type": "story",
+     "cold_open": [
+      44.31,
+      47.24
+     ],
+     "est_seconds": 57.4
+    }
+   ],
+   "winner": {
+    "key": "raw94_H4",
+    "ad": "MAX-94-H4",
+    "brief_name": "MAX-94-H4",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag"
+   }
+  },
+  {
+   "id": "P02",
+   "from_id": "V02",
+   "angle": "remix147",
+   "engine": "remix",
+   "format": "remix",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P02H1",
+     "name": "LC_261012_HoboBag_Evergreen_P02_H1_remix147",
+     "hook_text": "You see, Mom Susan has been hand-making these bags for 30 years.",
+     "label": "30 YEARS BY HAND",
+     "type": "story",
+     "cold_open": [
+      9.42,
+      13.4
+     ],
+     "est_seconds": 70.1
+    },
+    {
+     "hook": "H2",
+     "id": "P02H2",
+     "name": "LC_261012_HoboBag_Evergreen_P02_H2_remix147",
+     "hook_text": "Leather that only gets more beautiful with age. Women have carried these for 15-20 years.",
+     "label": "CARRIED FOR 20 YEARS",
+     "type": "curiosity",
+     "cold_open": [
+      44.66,
+      49.96
+     ],
+     "est_seconds": 71.4
+    },
+    {
+     "hook": "H3",
+     "id": "P02H3",
+     "name": "LC_261012_HoboBag_Evergreen_P02_H3_remix147",
+     "hook_text": "There's no next batch. When the workshop closes, it closes.",
+     "label": "NO NEXT BATCH",
+     "type": "offer",
+     "cold_open": [
+      56.98,
+      60.34
+     ],
+     "est_seconds": 69.5
+    },
+    {
+     "hook": "H4",
+     "id": "P02H4",
+     "name": "LC_261012_HoboBag_Evergreen_P02_H4_remix147",
+     "hook_text": "There's a hidden back pocket she designed after her sister was robbed. Divided compartments so you're never digging for your keys.",
+     "label": "DESIGNED AFTER A ROBBERY",
+     "type": "story",
+     "cold_open": [
+      38.28,
+      44.52
+     ],
+     "est_seconds": 72.3
+    }
+   ],
+   "winner": {
+    "key": "raw147_H1",
+    "ad": "MAX-147-H1",
+    "brief_name": "MAX-147-H1",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag"
+   }
+  },
+  {
+   "id": "P03",
+   "from_id": "V03",
+   "angle": "showcase",
+   "engine": "storyboard",
+   "format": "showcase",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P03H1",
+     "name": "LC_261012_HoboBag_Evergreen_P03_H1_showcase",
+     "hook_text": "Take a closer look at the Hobo Bag.",
+     "label": "TAKE A CLOSER LOOK",
+     "type": "curiosity",
+     "shot": [
+      "1Mtx32enLMlOkpIfl_Cr1EYezTdody3E1",
+      1.0
+     ],
+     "est_seconds": 66.4
+    },
+    {
+     "hook": "H2",
+     "id": "P03H2",
+     "name": "LC_261012_HoboBag_Evergreen_P03_H2_showcase",
+     "hook_text": "The Hobo Bag is half price, with a free matching pouch wallet.",
+     "label": "50% OFF",
+     "type": "offer",
+     "shot": [
+      "1MtOonVbf-pqmrcU5DUgY6995LObDfwn7",
+      3.0
+     ],
+     "est_seconds": 67.9
+    },
+    {
+     "hook": "H3",
+     "id": "P03H3",
+     "name": "LC_261012_HoboBag_Evergreen_P03_H3_showcase",
+     "hook_text": "Travelling soon? Your passport goes in a pocket that sits flat against you.",
+     "label": "TRAVEL TIP",
+     "type": "travel",
+     "shot": [
+      "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+      9.0
+     ],
+     "est_seconds": 68.3
+    },
+    {
+     "hook": "H4",
+     "id": "P03H4",
+     "name": "LC_261012_HoboBag_Evergreen_P03_H4_showcase",
+     "hook_text": "Need a gift for someone who carries everything?",
+     "label": "GIFT IDEA",
+     "type": "gift",
+     "shot": [
+      "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+      16.0
+     ],
+     "est_seconds": 66.4
+    }
+   ]
+  },
+  {
+   "id": "P04",
+   "from_id": "V04",
+   "angle": "features",
+   "engine": "storyboard",
+   "format": "features",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P04H1",
+     "name": "LC_261012_HoboBag_Evergreen_P04_H1_features",
+     "hook_text": "Here's what makes the Hobo Bag different.",
+     "label": "LOOK CLOSER",
+     "type": "curiosity",
+     "shot": [
+      "1DbVATxAeMvr_FnP999-dnJymLQ7pn9H8",
+      0.5
+     ],
+     "est_seconds": 54.1
+    },
+    {
+     "hook": "H2",
+     "id": "P04H2",
+     "name": "LC_261012_HoboBag_Evergreen_P04_H2_features",
+     "hook_text": "If your bag is one big black hole, this is for you.",
+     "label": "SOUND FAMILIAR?",
+     "type": "problem",
+     "shot": [
+      "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+      16.0
+     ],
+     "est_seconds": 56.0
+    },
+    {
+     "hook": "H3",
+     "id": "P04H3",
+     "name": "LC_261012_HoboBag_Evergreen_P04_H3_features",
+     "hook_text": "Soft leather that's water-resistant and scratch-proof.",
+     "label": "SCRATCH-PROOF LEATHER",
+     "type": "feature",
+     "shot": [
+      "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+      9.0
+     ],
+     "est_seconds": 53.7
+    },
+    {
+     "hook": "H4",
+     "id": "P04H4",
+     "name": "LC_261012_HoboBag_Evergreen_P04_H4_features",
+     "hook_text": "Where do you keep your cards when you're out?",
+     "label": "QUICK QUESTION",
+     "type": "question",
+     "shot": [
+      "1MtOonVbf-pqmrcU5DUgY6995LObDfwn7",
+      8.0
+     ],
+     "est_seconds": 54.8
+    }
+   ]
+  },
+  {
+   "id": "P05",
+   "from_id": "V05",
+   "angle": "reviews",
+   "engine": "storyboard",
+   "format": "reviews",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P05H1",
+     "name": "LC_261012_HoboBag_Evergreen_P05_H1_reviews",
+     "hook_text": "Stop carrying a bag that swallows your keys.",
+     "label": "REAL REVIEWS",
+     "type": "problem",
+     "shot": [
+      "1DbVATxAeMvr_FnP999-dnJymLQ7pn9H8",
+      0.5
+     ],
+     "est_seconds": 47.8
+    },
+    {
+     "hook": "H2",
+     "id": "P05H2",
+     "name": "LC_261012_HoboBag_Evergreen_P05_H2_reviews",
+     "hook_text": "This might be the most practical bag you'll see today.",
+     "label": "WAIT FOR IT",
+     "type": "curiosity",
+     "shot": [
+      "1nnsvEIfgqziYdrmeUrrtgL3Qo3YHV7Sw",
+      4.0
+     ],
+     "est_seconds": 48.5
+    },
+    {
+     "hook": "H3",
+     "id": "P05H3",
+     "name": "LC_261012_HoboBag_Evergreen_P05_H3_reviews",
+     "hook_text": "One bag, three ways to wear it.",
+     "label": "3 WAYS TO WEAR",
+     "type": "feature",
+     "shot": [
+      "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+      1.0
+     ],
+     "est_seconds": 47.4
+    },
+    {
+     "hook": "H4",
+     "id": "P05H4",
+     "name": "LC_261012_HoboBag_Evergreen_P05_H4_reviews",
+     "hook_text": "Be honest: how long does it take you to find your keys?",
+     "label": "BE HONEST",
+     "type": "question",
+     "shot": [
+      "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+      16.0
+     ],
+     "est_seconds": 49.3
+    }
+   ]
+  }
+ ],
+ "hooks_seed": 285
+}

@@ -1,0 +1,178 @@
+{
+ "ok": true,
+ "product": "Hobo Bag",
+ "offer": "50% off + free matching pouch wallet",
+ "checked": 594,
+ "problems": [],
+ "allowed": [
+  {
+   "where": "voiceover V05_rev1.mp3",
+   "text": "Carol calls it the best bag she has ever bought.",
+   "category": "claims",
+   "term": "best bag",
+   "why": "a customer review (verbatim, or attributed to the customer by name)"
+  },
+  {
+   "where": "S07_review.review, S11_stars.stars",
+   "text": "The best bag for travel and every day use. I love it! Plus they have the best customer service that can't be beat.",
+   "category": "claims",
+   "term": "best bag",
+   "why": "a customer review (verbatim, or attributed to the customer by name)"
+  },
+  {
+   "where": "S11_stars.stars, S15_stars.stars, P04H1 review card, P04H2 review card, P04H3 review card, P04H4 review card, P05H1 review card, P05H2 review card, P05H3 review card, P05H4 review card",
+   "text": "I love my black Libra Handbag! It's spacious, lightweight, and super functional with lots of pockets. I've received so many compliments, and my order arrived in just four days with a free wallet.",
+   "category": "numbers",
+   "term": "four",
+   "why": "a customer review (verbatim, or attributed to the customer by name)"
+  },
+  {
+   "where": "S15_stars.stars, P05H1 review card, P05H2 review card, P05H3 review card, P05H4 review card",
+   "text": "Love this bag. Best bag I have ever bought. Don't ever think of discontinuing amazing bag. Will definitely be purchasing more. Already bought for friends.",
+   "category": "claims",
+   "term": "Best bag",
+   "why": "a customer review (verbatim, or attributed to the customer by name)"
+  },
+  {
+   "where": "P01H1 label",
+   "text": "10 YEARS LATER",
+   "category": "numbers",
+   "term": "10",
+   "why": "the RAW's own words"
+  },
+  {
+   "where": "P01H1 label, P01H2 label, P01H3 label, P01H4 label",
+   "text": "REASON 4",
+   "category": "numbers",
+   "term": "4",
+   "why": "the RAW's own words"
+  },
+  {
+   "where": "P01H1 label, P01H2 label, P01H3 label, P01H4 label",
+   "text": "REASON 5",
+   "category": "numbers",
+   "term": "5",
+   "why": "the RAW's own words"
+  },
+  {
+   "where": "P02H1 label",
+   "text": "30 YEARS BY HAND",
+   "category": "numbers",
+   "term": "30",
+   "why": "the RAW's own words"
+  },
+  {
+   "where": "P02H2 label",
+   "text": "CARRIED FOR 20 YEARS",
+   "category": "numbers",
+   "term": "20",
+   "why": "the RAW's own words"
+  },
+  {
+   "where": "P02H4 label",
+   "text": "DESIGNED AFTER A ROBBERY",
+   "category": "crime",
+   "term": "ROBBERY",
+   "why": "the RAW's approved story (PLAYBOOK section 1)"
+  },
+  {
+   "where": "ad copy LC_261012_HoboBag_Evergreen_S07_review primary_text_2",
+   "text": "\"The best bag for travel and every day use.\" - Mercy A.\nTwo gold side zips, one on each side, for your keys and phone.\nDivided compartments, so nothing sinks to the bottom.\nNow 50% off, with a free matching pouch wallet. 🎁\nTap Shop Now to get yours.",
+   "category": "claims",
+   "term": "best bag",
+   "why": "a customer review (verbatim, or attributed to the customer by name)"
+  },
+  {
+   "where": "ad copy LC_261012_HoboBag_Evergreen_S19_review primary_text_2",
+   "text": "\"Best bag I have ever bought.\" - Carol R.\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nTwo gold side zips, one on each side, for your keys and phone.\nIt's 50% off right now, with a free matching pouch wallet. 🎁\nTap Shop Now to get yours.",
+   "category": "claims",
+   "term": "Best bag",
+   "why": "a customer review (verbatim, or attributed to the customer by name)"
+  },
+  {
+   "where": "ad copy LC_261012_HoboBag_Evergreen_S19_review headline_1",
+   "text": "\"Best bag I have ever bought\"",
+   "category": "claims",
+   "term": "Best bag",
+   "why": "a customer review (verbatim, or attributed to the customer by name)"
+  },
+  {
+   "where": "ad copy LC_261012_HoboBag_Evergreen_P01_H1_remix94 hook_first_line",
+   "text": "\"Most bags look terrible after a year. Mine looks better after a decade.\"",
+   "category": "testimonial",
+   "term": "Mine",
+   "why": "the RAW's own words"
+  },
+  {
+   "where": "ad copy LC_261012_HoboBag_Evergreen_P01_H1_remix94 hook_first_line",
+   "text": "\"Most bags look terrible after a year. Mine looks better after a decade.\"",
+   "category": "numbers",
+   "term": "decade",
+   "why": "the RAW's own words"
+  },
+  {
+   "where": "ad copy LC_261012_HoboBag_Evergreen_P02_H1_remix147 hook_first_line",
+   "text": "\"You see, Mom Susan has been hand-making these bags for 30 years.\"",
+   "category": "numbers",
+   "term": "30",
+   "why": "the RAW's own words"
+  },
+  {
+   "where": "ad copy LC_261012_HoboBag_Evergreen_P02_H2_remix147 hook_first_line",
+   "text": "\"Leather that only gets more beautiful with age. Women have carried these for 15-20 years.\"",
+   "category": "numbers",
+   "term": "15",
+   "why": "the RAW's own words"
+  },
+  {
+   "where": "ad copy LC_261012_HoboBag_Evergreen_P02_H2_remix147 hook_first_line",
+   "text": "\"Leather that only gets more beautiful with age. Women have carried these for 15-20 years.\"",
+   "category": "numbers",
+   "term": "20",
+   "why": "the RAW's own words"
+  }
+ ],
+ "raw_story": [
+  {
+   "where": "P01H1 RAW raw94_H4 20.8-23.0 s, P01H2, P01H3, P01H4",
+   "text": "I designed this after being robbed twice in Europe.",
+   "category": "crime",
+   "term": "robbed",
+   "why": "the client's approved RAW story (PLAYBOOK section 1), heard as is: a human may want to check it against Julian's health rule"
+  },
+  {
+   "where": "P01H1 RAW raw94_H4 46.0-47.1 s, P01H2, P01H3, P01H4",
+   "text": "The arthritis has won.",
+   "category": "health",
+   "term": "arthritis",
+   "why": "the client's approved RAW story (PLAYBOOK section 1), heard as is: a human may want to check it against Julian's health rule"
+  },
+  {
+   "where": "P02H1 RAW raw147_H1 16.3-20.0 s, P02H2, P02H3, P02H4",
+   "text": "Her arthritis has finally gotten bad enough that her doctor told her to stop.",
+   "category": "health",
+   "term": "arthritis",
+   "why": "the client's approved RAW story (PLAYBOOK section 1), heard as is: a human may want to check it against Julian's health rule"
+  },
+  {
+   "where": "P02H1 RAW raw147_H1 38.3-41.5 s, P02H2, P02H3, P02H4",
+   "text": "There's a hidden back pocket she designed after her sister was robbed.",
+   "category": "crime",
+   "term": "robbed",
+   "why": "the client's approved RAW story (PLAYBOOK section 1), heard as is: a human may want to check it against Julian's health rule"
+  }
+ ],
+ "raw_cuts": [
+  {
+   "where": "P01H1, P01H2, P01H3, P01H4",
+   "key": "raw94_H4",
+   "range": [
+    31.88,
+    33.3
+   ],
+   "said": "that prevents shoulder pain.",
+   "why": "cut out of the proven body (Julian's health rule): listen once to the line around it"
+  }
+ ],
+ "report": "/tmp/run/hobo-batch-1012/compliance.json"
+}

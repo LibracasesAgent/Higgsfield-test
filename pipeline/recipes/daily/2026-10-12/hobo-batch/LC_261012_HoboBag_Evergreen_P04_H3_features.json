@@ -1,0 +1,254 @@
+{
+ "blocks": [
+  {
+   "vo": "P04H3_hook.mp3",
+   "broll": [
+    [
+     "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+     9.0,
+     1.0
+    ]
+   ],
+   "pad": 0.35
+  },
+  {
+   "vo": "V04_feat0.mp3",
+   "broll": [
+    [
+     "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+     1.0,
+     1.0
+    ],
+    [
+     "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+     6.0,
+     1.0
+    ],
+    [
+     "1CcakagPN5oiWEneKORpvJblnPYnQvWHI",
+     4.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V04_feat1.mp3",
+   "broll": [
+    [
+     "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+     2.0,
+     1.0
+    ],
+    [
+     "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+     8.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V04_feat2.mp3",
+   "broll": [
+    [
+     "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+     9.5,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+     16.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V04_intro0.mp3",
+   "broll": [
+    [
+     "1nnsvEIfgqziYdrmeUrrtgL3Qo3YHV7Sw",
+     12.0,
+     1.0
+    ],
+    [
+     "1Mtx32enLMlOkpIfl_Cr1EYezTdody3E1",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "clip": "11yX8EI6ZI6Ewyc-Io7PfrwC12vTVUEGY",
+   "range": [
+    41.1,
+    52.73
+   ]
+  },
+  {
+   "vo": "V04_rev0.mp3",
+   "broll": [
+    [
+     "1DbVATxAeMvr_FnP999-dnJymLQ7pn9H8",
+     42.0,
+     1.0
+    ],
+    [
+     "1Mtx32enLMlOkpIfl_Cr1EYezTdody3E1",
+     3.5,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V04_rev1.mp3",
+   "broll": [
+    [
+     "1nnsvEIfgqziYdrmeUrrtgL3Qo3YHV7Sw",
+     4.0,
+     1.0
+    ],
+    [
+     "1nnsvEIfgqziYdrmeUrrtgL3Qo3YHV7Sw",
+     9.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V04_close.mp3",
+   "broll": [
+    [
+     "site/hobo_bag_colour_black.jpg",
+     0,
+     1.0,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ]
+     }
+    ],
+    [
+     "1MtOonVbf-pqmrcU5DUgY6995LObDfwn7",
+     3.0,
+     1.2
+    ]
+   ]
+  }
+ ],
+ "overlays": [
+  {
+   "type": "label",
+   "text": "SCRATCH-PROOF LEATHER",
+   "block": 0,
+   "at": 0.1,
+   "dur": 1.8
+  },
+  {
+   "type": "tag",
+   "text": "HIDDEN BACK POCKET",
+   "block": 1,
+   "at": 0.15,
+   "dur": 2.6
+  },
+  {
+   "type": "tag",
+   "text": "GOLD SIDE ZIPS",
+   "block": 2,
+   "at": 0.15,
+   "dur": 2.6
+  },
+  {
+   "type": "tag",
+   "text": "SMART COMPARTMENTS",
+   "block": 3,
+   "at": 0.15,
+   "dur": 2.6
+  },
+  {
+   "type": "label",
+   "text": "REAL CUSTOMER",
+   "block": 5,
+   "at": 0.3,
+   "dur": 2.0
+  },
+  {
+   "type": "review",
+   "n": 2,
+   "block": 6,
+   "at": 0.1,
+   "until_block_end": true
+  },
+  {
+   "type": "review",
+   "n": 12,
+   "block": 7,
+   "at": 0.1,
+   "until_block_end": true
+  }
+ ],
+ "end_title": "The Luxury Hobo Bag",
+ "offer": {
+  "block": 8,
+  "word": "50",
+  "title": "50% OFF",
+  "sub": "+ FREE MATCHING WALLET"
+ },
+ "keywords": [
+  "50%",
+  "free",
+  "pouch",
+  "wallet",
+  "hidden",
+  "pocket",
+  "leather"
+ ],
+ "spare_broll": [
+  [
+   "1nnsvEIfgqziYdrmeUrrtgL3Qo3YHV7Sw",
+   15.0,
+   1.0
+  ],
+  [
+   "1CcakagPN5oiWEneKORpvJblnPYnQvWHI",
+   0.5,
+   1.0
+  ],
+  [
+   "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+   5.0,
+   1.0
+  ],
+  [
+   "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+   12.0,
+   1.0
+  ],
+  [
+   "site/hobo_bag_colour_black.jpg",
+   0,
+   1.0,
+   {
+    "zoom": [
+     1.0,
+     1.06
+    ]
+   }
+  ],
+  [
+   "site/hobo_bag_colour_blue.jpg",
+   0,
+   1.0,
+   {
+    "zoom": [
+     1.0,
+     1.06
+    ]
+   }
+  ]
+ ],
+ "music": {
+  "seed": 3126
+ }
+}

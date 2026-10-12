@@ -1,0 +1,32 @@
+{
+ "raw": "1wnFUVYm8C8vmAqwbGtc5BmU1Y_H1apya",
+ "start": 0.0,
+ "end": null,
+ "cut": [],
+ "insert_at": 49.98,
+ "offer_word": "50",
+ "offer_after": null,
+ "burned_captions": false,
+ "labels": [],
+ "end_title": "The Luxury Hobo Bag",
+ "offer_title": "50% OFF",
+ "offer_sub": "+ FREE MATCHING WALLET",
+ "keywords": [
+  "50%",
+  "free",
+  "pouch",
+  "wallet",
+  "hidden",
+  "pocket",
+  "leather"
+ ],
+ "music": {
+  "auto": true,
+  "seed": 3126
+ },
+ "cold_open": [
+  44.66,
+  49.96
+ ],
+ "hook_label": "CARRIED FOR 20 YEARS"
+}

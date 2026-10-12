@@ -1,0 +1,67 @@
+{
+ "raw": "1LEOgUgU_hBiRceIx-SW4za6XJZlCQNrH",
+ "start": 0.0,
+ "end": null,
+ "cut": [],
+ "claim_cuts": [
+  {
+   "range": [
+    31.88,
+    33.3
+   ],
+   "said": "that prevents shoulder pain."
+  }
+ ],
+ "insert_at": 47.3,
+ "offer_word": "50",
+ "offer_after": null,
+ "burned_captions": false,
+ "labels": [
+  {
+   "text": "REASON 1",
+   "word": "one",
+   "after": 7
+  },
+  {
+   "text": "REASON 2",
+   "word": "two",
+   "after": 7
+  },
+  {
+   "text": "REASON 3",
+   "word": "three",
+   "after": 7
+  },
+  {
+   "text": "REASON 4",
+   "word": "four",
+   "after": 7
+  },
+  {
+   "text": "REASON 5",
+   "word": "five",
+   "after": 7
+  }
+ ],
+ "end_title": "The Luxury Hobo Bag",
+ "offer_title": "50% OFF",
+ "offer_sub": "+ FREE MATCHING WALLET",
+ "keywords": [
+  "50%",
+  "free",
+  "pouch",
+  "wallet",
+  "hidden",
+  "pocket",
+  "leather"
+ ],
+ "music": {
+  "auto": true,
+  "seed": 3125
+ },
+ "cold_open": [
+  44.31,
+  47.24
+ ],
+ "hook_label": "HER LAST COLLECTION"
+}
