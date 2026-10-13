@@ -477,6 +477,19 @@ def money(x):
         return None
 
 
+NEG = re.compile(r"\b(?:no|not|never|without|nor|isn't|aren't|doesn't|don't|won't|n't)\b", re.I)
+
+
+def gift_hits(text):
+    """GIFT matches that are not negated in their sentence ('No free gift is mentioned' is no gift)."""
+    out = []
+    for m in GIFT.finditer(text or ""):
+        a = max(text.rfind(".", 0, m.start()), text.rfind("\n", 0, m.start())) + 1
+        if not NEG.search(text[a:m.start()]):
+            out.append(m)
+    return out
+
+
 def sentence_around(text, m):
     a = max(text.rfind(".", 0, m.start()), text.rfind("\n", 0, m.start())) + 1
     e = [i for i in (text.find(".", m.end()), text.find("\n", m.end())) if i >= 0]
@@ -523,7 +536,7 @@ def draft_offer(facts, notes, short):
     pct = site_pct(price, was)
     sources = [("site title", facts.get("title", "")), ("site variants", " | ".join(facts.get("variant_titles", []))),
                ("site description", facts.get("description", "")), ("notes", notes)]
-    hits = [(m.group(0), src, sentence_around(txt, m)) for src, txt in sources for m in GIFT.finditer(txt or "")]
+    hits = [(m.group(0), src, sentence_around(txt, m)) for src, txt in sources for m in gift_hits(txt)]
     gift = max(hits, key=lambda h: len(h[0]))[0].lower() if hits else None
     gift = re.sub(r"\s+", " ", gift) if gift else None
     a_gift = f"a {gift}" if gift else ""
@@ -969,6 +982,8 @@ def validate(d):
         src = " ".join(str(f.get(k) or "") for k in ("title", "description", "notes")).lower()
         if g and g.lower() not in src and not all(w in src for w in re.findall(r"[a-z]+", g.lower()) if len(w) > 3):
             P.append(f"offer.gift {g!r} is not found in the site text or notes: never invent gifts")
+        elif g and GIFT.search(src) and not gift_hits(src):
+            P.append(f"offer.gift {g!r}: the site text or notes only say there is no free gift")
         if not g and re.search(r"\bfree\b", o.get("close", "") + o.get("offer_sub", ""), re.I):
             P.append("offer mentions something free but gift is null")
         pm = re.match(r"(\d+)%", (b or {}).get("big", "") if isinstance(b, dict) else "")

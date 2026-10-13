@@ -221,6 +221,7 @@ accent). Never "our biggest sale (of the year)": the same % runs all year (site 
 | Statics author line | file name printed as author | use `author` |
 | No faces in statics | site lifestyle photos with faces in new-product statics | site photos never become lifestyle statics by themselves; DNN face check at plan time and on every rendered static (hard failure) |
 | Offer per product | every bag got "50% off + free wallet" | offer from the site per product; theme lines are templates |
+| No negated gift | intake read "No free gift is mentioned" in the Silhouette notes as a free gift | `new_product.gift_hits` skips negated sentences; `check` flags a gift the notes deny |
 | No wrong claims in RAWs | C9_V2 says "two-year warranty" (site: 1 year) | cut 28.16-30.3 in `clip_bank.json` |
 | No health claim in a RAW body | 94 "a strap that prevents shoulder pain" shipped with "Compliance: ok" | `compliance.raw_audit` scans the RAW words each version plays; `claim_cuts` in `clip_bank.json`; plan leaves out a winner that still has one |
 | No talking customer as B-roll | her lips moved under the narrator before she was introduced (54.0 / 63.3 were not silent) | transcript check on every pick (`make_batch` / `projects.py cadence`), her clip is her scene only |
