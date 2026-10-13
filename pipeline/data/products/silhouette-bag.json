@@ -1,0 +1,349 @@
+{
+ "key": "silhouette bag",
+ "aliases": [
+  "silhouette",
+  "the-silhouette-bag"
+ ],
+ "name": "The Silhouette Bag",
+ "short": "Silhouette Bag",
+ "end": "The Silhouette Bag",
+ "site": "the-silhouette-bag",
+ "photos": [
+  {
+   "id": "1RBPzu01S0M1yMlL-1A0qow6cPNsicT4s",
+   "name": "silhouette_01.jpg",
+   "clean": 1.0,
+   "faces": 0,
+   "w": 800,
+   "h": 800,
+   "path": "pipeline/cache/new_products/silhouette-bag/photos/silhouette_01.jpg"
+  },
+  {
+   "id": "1IK9TqywnY7PdL_tOcVU4T-6Ig8IaKoTO",
+   "name": "silhouette_10.jpg",
+   "clean": 0.998,
+   "faces": 0,
+   "w": 800,
+   "h": 800,
+   "path": "pipeline/cache/new_products/silhouette-bag/photos/silhouette_10.jpg"
+  },
+  {
+   "id": "1B67oqzv-FTT7ZYe8yke3PBOziCxmKJi1",
+   "name": "silhouette_12.jpg",
+   "clean": 0.993,
+   "faces": 0,
+   "w": 800,
+   "h": 800,
+   "path": "pipeline/cache/new_products/silhouette-bag/photos/silhouette_12.jpg"
+  },
+  {
+   "id": "1wCr7NbmegWD8U_OgYvrmLF4b-R35chHW",
+   "name": "silhouette_11.jpg",
+   "clean": 0.979,
+   "faces": 0,
+   "w": 800,
+   "h": 800,
+   "path": "pipeline/cache/new_products/silhouette-bag/photos/silhouette_11.jpg"
+  },
+  {
+   "id": "1PZeCwRgwjKDYcRy2YQ3q64SwvUP3AauS",
+   "name": "silhouette_09.jpg",
+   "clean": 0.969,
+   "faces": 0,
+   "w": 800,
+   "h": 800,
+   "path": "pipeline/cache/new_products/silhouette-bag/photos/silhouette_09.jpg"
+  },
+  {
+   "id": "1TndmuWt8uYu1qAF2sC7xu4CYXEV2oBpo",
+   "name": "silhouette_03.jpg",
+   "clean": 0.661,
+   "faces": 0,
+   "w": 800,
+   "h": 800,
+   "path": "pipeline/cache/new_products/silhouette-bag/photos/silhouette_03.jpg"
+  },
+  {
+   "id": "1_GzrGP4c3EXz7gRyiQyg_eKgYf1CW_ny",
+   "name": "silhouette_08.jpg",
+   "clean": 0.0,
+   "faces": 0,
+   "w": 800,
+   "h": 800,
+   "path": "pipeline/cache/new_products/silhouette-bag/photos/silhouette_08.jpg"
+  },
+  {
+   "id": "1t_es4PYwDvoaIy_7lIEt1Til7IaCX2-n",
+   "name": "silhouette_07.jpg",
+   "clean": 0.0,
+   "faces": 0,
+   "w": 800,
+   "h": 800,
+   "path": "pipeline/cache/new_products/silhouette-bag/photos/silhouette_07.jpg"
+  },
+  {
+   "id": "14Hn-99KNb93yBkHtfGaqx51H_cX7lIDv",
+   "name": "silhouette_05.jpg",
+   "clean": 0.0,
+   "faces": 0,
+   "w": 800,
+   "h": 800,
+   "path": "pipeline/cache/new_products/silhouette-bag/photos/silhouette_05.jpg"
+  },
+  {
+   "id": "18Vqup2zTvOsGZNDgY2GIS19jvQt22-sV",
+   "name": "silhouette_04.jpg",
+   "clean": 0.0,
+   "faces": 0,
+   "w": 800,
+   "h": 800,
+   "path": "pipeline/cache/new_products/silhouette-bag/photos/silhouette_04.jpg"
+  },
+  {
+   "id": "1-yQ6hvwi1MiYQA8D5DZb6wmBMJyOXWji",
+   "name": "silhouette_02.jpg",
+   "clean": 0.0,
+   "faces": 0,
+   "w": 800,
+   "h": 800,
+   "path": "pipeline/cache/new_products/silhouette-bag/photos/silhouette_02.jpg"
+  },
+  {
+   "id": "1zochOnyPl_Z4XaJEkeoZFWmTuuhoiSEB",
+   "name": "silhouette_06.jpg",
+   "clean": 0.0,
+   "faces": 1,
+   "w": 800,
+   "h": 800,
+   "path": "pipeline/cache/new_products/silhouette-bag/photos/silhouette_06.jpg"
+  }
+ ],
+ "clips": [
+  {
+   "id": "1EERRphCchjJ8HxHizosVGfIa0XheU5Dj",
+   "name": "silhouette_site_video.mp4",
+   "dur": 32.92,
+   "w": 1080,
+   "h": 1080,
+   "good": [
+    5.8,
+    11.8,
+    23.0
+   ],
+   "mute": true,
+   "audio": true,
+   "path": "pipeline/cache/new_products/silhouette-bag/clips/silhouette_site_video.mp4",
+   "sheet": "pipeline/cache/new_products/silhouette-bag/sheets/silhouette-site-video.jpg"
+  }
+ ],
+ "offer": {
+  "badge": {
+   "top": "NOW",
+   "big": "50%",
+   "bottom": "OFF"
+  },
+  "gift": null,
+  "offer_title": "50% OFF",
+  "offer_sub": "",
+  "statics_sub": "Now 50% off.",
+  "close": "It's fifty percent off right now. Tap the link below.",
+  "evidence": [
+   "site price 59.95 vs compare-at 119.95 = 50% off",
+   "notes say (not used: the % comes from the site prices): \"95) = 50% off.\""
+  ]
+ },
+ "hook_clips": [
+  [
+   "clip",
+   0,
+   30.0
+  ],
+  [
+   "clip",
+   0,
+   5.6
+  ],
+  [
+   "clip",
+   0,
+   13.2
+  ]
+ ],
+ "features": [
+  [
+   "A sleek under-arm bag for nights out, office days and everything in between.",
+   "UNDER-ARM STYLE",
+   [
+    [
+     "clip",
+     0,
+     30.0
+    ],
+    [
+     "photo",
+     7
+    ]
+   ]
+  ],
+  [
+   "Smooth and structured, it looks luxe and softens beautifully with wear.",
+   "SLEEK SHAPE",
+   [
+    [
+     "clip",
+     0,
+     5.6
+    ],
+    [
+     "photo",
+     9
+    ]
+   ]
+  ],
+  [
+   "Room for your phone, wallet, keys and touch-up essentials.",
+   "ROOM FOR ESSENTIALS",
+   [
+    [
+     "clip",
+     0,
+     20.0
+    ],
+    [
+     "clip",
+     0,
+     22.6
+    ]
+   ]
+  ],
+  [
+   "A dual zipper closure keeps everything secure and easy to access.",
+   "DUAL ZIPPER",
+   [
+    [
+     "clip",
+     0,
+     8.8
+    ],
+    [
+     "clip",
+     0,
+     13.2
+    ]
+   ]
+  ],
+  [
+   "Slim shoulder straps sit comfortably on your shoulder or in hand.",
+   "SLIM STRAPS",
+   [
+    [
+     "clip",
+     0,
+     10.8
+    ],
+    [
+     "photo",
+     6
+    ]
+   ]
+  ]
+ ],
+ "customer": [],
+ "broll": [
+  [
+   "clip",
+   0,
+   16.0
+  ],
+  [
+   "photo",
+   8
+  ],
+  [
+   "photo",
+   0
+  ],
+  [
+   "clip",
+   0,
+   1.0
+  ]
+ ],
+ "reviews": [],
+ "facts": {
+  "price": "59.95",
+  "compare_at": "119.95",
+  "colours": [
+   "Coffee",
+   "Black",
+   "Beige",
+   "Wine Red",
+   "Apricot"
+  ],
+  "description": "The Libra Covenette Bag is your sleek, under-arm sidekick for nights out, office days, and everything in between. It has that smooth, structured feel that looks luxe now and softens beautifully with wear. Its elongated silhouette is intentionally designed to fit what you need, without bulging or warping the shape. There’s still room for your phone, wallet, keys , and touch-up essentials, so you don’t have to choose between bringing the good wine bottle or your basics. Slim shoulder straps sit comfortably on your shoulder or in hand, while the dual zipper closure keeps everything secure and easy to access. Clean stitching and a glossy finish give it that quiet-luxury look that pairs with blazers, slip dresses , and everything in your everyday coven wardrobe.",
+  "notes": "## notes.txt\nThe Silhouette Bag - test product for the new-product flow (everything below is from the libracases.com product page)\n\nSite link: https://libracases.com/products/the-silhouette-bag\nPrice: $59.95 (was $119.95) = 50% off. No free gift is mentioned on the product page.\nColours: Coffee, Black, Beige, Wine Red, Apricot\n\nWhat makes it special (product page wording):\n- Sleek, under-arm bag for nights out, office days and everything in between\n- Smooth, structured feel that looks luxe and softens beautifully with wear\n- Elongated silhouette that fits what you need without bulging or warping the shape\n- Room for your phone, wallet, keys and touch-up essentials\n- Slim shoulder straps: on the shoulder or in hand\n- Dual zipper closure keeps everything secure and easy to access\n- Clean stitching and a glossy finish: a quiet-luxury look with blazers and slip dresses\n\nFiles: photos/ = the 12 product photos from the site; clips/ = the product video from the site (1080x1080, 33 s).",
+  "title": "The Silhouette Bag",
+  "url": "https://libracases.com/products/the-silhouette-bag"
+ },
+ "source": {
+  "drive_folder": "1v7R_rj_faupeQN70uqHe17WEr0Qh7Ljw",
+  "folder_name": "Silhouette Bag",
+  "site_url": "https://libracases.com/products/the-silhouette-bag",
+  "site_match": "link in notes",
+  "local_dir": null,
+  "cache": "pipeline/cache/new_products/silhouette-bag",
+  "overview": "pipeline/cache/new_products/silhouette-bag/overview.jpg",
+  "added": "2026-10-13"
+ },
+ "status": "ready",
+ "hooks": [
+  {
+   "text": "Your bag shouldn't bulge and warp the moment you fill it.",
+   "type": "problem",
+   "labels": [
+    "SOUND FAMILIAR?"
+   ],
+   "feature": "SLEEK SHAPE"
+  },
+  {
+   "text": "Take a closer look at the Silhouette Bag.",
+   "type": "curiosity",
+   "labels": [
+    "LOOK CLOSER"
+   ],
+   "feature": "SLEEK SHAPE"
+  },
+  {
+   "text": "Watch how much fits in this slim under-arm bag.",
+   "type": "curiosity",
+   "labels": [
+    "WATCH THIS"
+   ],
+   "feature": "ROOM FOR ESSENTIALS"
+  },
+  {
+   "text": "Be honest. Would you wear this with a blazer?",
+   "type": "question",
+   "labels": [
+    "BE HONEST"
+   ],
+   "feature": "UNDER-ARM STYLE"
+  },
+  {
+   "text": "The quiet-luxury bag that goes with blazers and slip dresses.",
+   "type": "feature",
+   "labels": [
+    "QUIET LUXURY"
+   ],
+   "feature": "SLEEK SHAPE"
+  },
+  {
+   "text": "The Silhouette Bag is {off_sp} right now.",
+   "type": "offer",
+   "labels": [
+    "{P} OFF"
+   ],
+   "feature": "UNDER-ARM STYLE"
+  }
+ ]
+}

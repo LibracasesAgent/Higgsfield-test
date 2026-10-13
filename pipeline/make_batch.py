@@ -298,7 +298,7 @@ PRODUCT_KEYS = {"slouchy vintage": "vintage", "slouchy": "slouchy", "2.0": "hobo
 DOTS = {"brown": [120, 66, 36], "black": [25, 25, 25], "blue": [40, 52, 90], "grey": [110, 110, 112], "gray": [110, 110, 112],
         "burgundy": [96, 28, 44], "red": [170, 26, 36], "purple": [96, 28, 60], "chocolate": [70, 40, 30],
         "ginger": [176, 96, 40], "beige": [210, 190, 160], "apricot": [230, 170, 130], "white": [240, 236, 228],
-        "pink": [222, 160, 160], "green": [70, 100, 70], "wine": [110, 30, 45]}
+        "pink": [222, 160, 160], "green": [70, 100, 70], "wine": [110, 30, 45], "coffee": [92, 56, 38]}
 
 
 def products_dir(a=None):
