@@ -1,0 +1,343 @@
+{
+ "blocks": [
+  {
+   "vo": "P01H4_hook.mp3",
+   "broll": [
+    [
+     "/workspace/higgsfield-test/pipeline/cache/new_products/silhouette-bag/clips/silhouette_site_video.mp4",
+     23.0,
+     1.0
+    ]
+   ],
+   "pad": 0.35,
+   "spare": [
+    [
+     "/workspace/higgsfield-test/pipeline/cache/new_products/silhouette-bag/clips/silhouette_site_video.mp4",
+     1.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V01_feat0.mp3",
+   "broll": [
+    [
+     "photos/02_silhouette_12.jpg",
+     0,
+     1.0,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ]
+     }
+    ],
+    [
+     "/workspace/higgsfield-test/pipeline/cache/new_products/silhouette-bag/clips/silhouette_site_video.mp4",
+     11.8,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "/workspace/higgsfield-test/pipeline/cache/new_products/silhouette-bag/clips/silhouette_site_video.mp4",
+     23.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V01_feat1.mp3",
+   "broll": [
+    [
+     "photos/04_silhouette_09.jpg",
+     0,
+     1.0,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ]
+     }
+    ],
+    [
+     "photos/03_silhouette_11.jpg",
+     0,
+     1.0,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ]
+     }
+    ]
+   ]
+  },
+  {
+   "vo": "V01_feat2.mp3",
+   "broll": [
+    [
+     "/workspace/higgsfield-test/pipeline/cache/new_products/silhouette-bag/clips/silhouette_site_video.mp4",
+     20.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V01_feat3.mp3",
+   "broll": [
+    [
+     "/workspace/higgsfield-test/pipeline/cache/new_products/silhouette-bag/clips/silhouette_site_video.mp4",
+     8.8,
+     1.0
+    ],
+    [
+     "photos/01_silhouette_10.jpg",
+     0,
+     1.0,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ]
+     }
+    ]
+   ]
+  },
+  {
+   "vo": "V01_feat4.mp3",
+   "broll": [
+    [
+     "site/the_silhouette_bag_colour_coffee.jpg",
+     0,
+     1.0,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ]
+     }
+    ],
+    [
+     "site/the_silhouette_bag_colour_black.jpg",
+     0,
+     1.0,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ]
+     }
+    ]
+   ]
+  },
+  {
+   "vo": "V01_colours.mp3",
+   "broll": [
+    [
+     "sw/coffee.jpg",
+     0,
+     1.35,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ]
+     }
+    ],
+    [
+     "sw/black.jpg",
+     0,
+     1.35,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ]
+     }
+    ],
+    [
+     "sw/beige.jpg",
+     0,
+     1.35,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ]
+     }
+    ],
+    [
+     "sw/wine_red.jpg",
+     0,
+     2.35,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ]
+     }
+    ],
+    [
+     "sw/apricot.jpg",
+     0,
+     6.15,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ]
+     }
+    ]
+   ]
+  },
+  {
+   "vo": "V01_close.mp3",
+   "broll": [
+    [
+     "site/the_silhouette_bag_colour_beige.jpg",
+     0,
+     1.0,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ]
+     }
+    ],
+    [
+     "/workspace/higgsfield-test/pipeline/cache/new_products/silhouette-bag/clips/silhouette_site_video.mp4",
+     16.0,
+     1.2
+    ]
+   ]
+  }
+ ],
+ "overlays": [
+  {
+   "type": "label",
+   "text": "BE HONEST",
+   "block": 0,
+   "at": 0.1,
+   "dur": 1.8
+  },
+  {
+   "type": "tag",
+   "text": "UNDER-ARM STYLE",
+   "block": 1,
+   "at": 0.15,
+   "dur": 2.6
+  },
+  {
+   "type": "tag",
+   "text": "SLEEK SHAPE",
+   "block": 2,
+   "at": 0.15,
+   "dur": 2.6
+  },
+  {
+   "type": "tag",
+   "text": "ROOM FOR ESSENTIALS",
+   "block": 3,
+   "at": 0.15,
+   "dur": 2.6
+  },
+  {
+   "type": "tag",
+   "text": "DUAL ZIPPER",
+   "block": 4,
+   "at": 0.15,
+   "dur": 2.6
+  },
+  {
+   "type": "tag",
+   "text": "SLIM STRAPS",
+   "block": 5,
+   "at": 0.15,
+   "dur": 2.6
+  },
+  {
+   "type": "tag",
+   "text": "5 COLOURS",
+   "block": 6,
+   "at": 0.1,
+   "dur": 3.0
+  }
+ ],
+ "end_title": "The Silhouette Bag",
+ "offer": {
+  "block": 7,
+  "word": "50",
+  "title": "50% OFF",
+  "sub": ""
+ },
+ "keywords": [
+  "50%",
+  "leather"
+ ],
+ "spare_broll": [
+  [
+   "/workspace/higgsfield-test/pipeline/cache/new_products/silhouette-bag/clips/silhouette_site_video.mp4",
+   1.0,
+   1.0
+  ],
+  [
+   "site/the_silhouette_bag_colour_beige.jpg",
+   0,
+   1.0,
+   {
+    "zoom": [
+     1.0,
+     1.06
+    ]
+   }
+  ],
+  [
+   "site/the_silhouette_bag_colour_wine_red.jpg",
+   0,
+   1.0,
+   {
+    "zoom": [
+     1.0,
+     1.06
+    ]
+   }
+  ],
+  [
+   "site/the_silhouette_bag_colour_apricot.jpg",
+   0,
+   1.0,
+   {
+    "zoom": [
+     1.0,
+     1.06
+    ]
+   }
+  ],
+  [
+   "photos/00_silhouette_01.jpg",
+   0,
+   1.0,
+   {
+    "zoom": [
+     1.0,
+     1.06
+    ]
+   }
+  ],
+  [
+   "site/the_silhouette_bag_12.jpg",
+   0,
+   1.0,
+   {
+    "zoom": [
+     1.0,
+     1.06
+    ]
+   }
+  ]
+ ],
+ "music": {
+  "seed": 1
+ }
+}

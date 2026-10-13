@@ -1,0 +1,185 @@
+{
+ "prefix": "LC_261013_SilhouetteBag_Evergreen",
+ "rev": 1,
+ "created": "2026-10-13",
+ "request": "new product Silhouette Bag: 4 statics and 1 video",
+ "product": "Silhouette Bag",
+ "product_key": "silhouette bag",
+ "product_source": "/workspace/higgsfield-test/pipeline/data/products/silhouette-bag.json",
+ "theme": "default",
+ "theme_name": "Evergreen",
+ "offer": "50% off",
+ "statics": [
+  "LC_261013_SilhouetteBag_Evergreen_S01_hero",
+  "LC_261013_SilhouetteBag_Evergreen_S02_promo",
+  "LC_261013_SilhouetteBag_Evergreen_S03_offer",
+  "LC_261013_SilhouetteBag_Evergreen_S04_bold"
+ ],
+ "videos": [
+  {
+   "name": "LC_261013_SilhouetteBag_Evergreen_P01_H1_features",
+   "id": "P01H1",
+   "format": "features",
+   "engine": "storyboard",
+   "hook": "H1",
+   "est_seconds": 34.7,
+   "project": "P01",
+   "hook_text": "Here's what makes the Silhouette Bag different.",
+   "hook_label": "LOOK CLOSER",
+   "hook_type": "curiosity",
+   "opening_shot": [
+    "/workspace/higgsfield-test/pipeline/cache/new_products/silhouette-bag/clips/silhouette_site_video.mp4",
+    30.0
+   ]
+  },
+  {
+   "name": "LC_261013_SilhouetteBag_Evergreen_P01_H2_features",
+   "id": "P01H2",
+   "format": "features",
+   "engine": "storyboard",
+   "hook": "H2",
+   "est_seconds": 35.1,
+   "project": "P01",
+   "hook_text": "Stop carrying a bag that swallows your keys.",
+   "hook_label": "STOP DIGGING",
+   "hook_type": "problem",
+   "opening_shot": [
+    "/workspace/higgsfield-test/pipeline/cache/new_products/silhouette-bag/clips/silhouette_site_video.mp4",
+    13.2
+   ],
+   "hook_source": "theme"
+  },
+  {
+   "name": "LC_261013_SilhouetteBag_Evergreen_P01_H3_features",
+   "id": "P01H3",
+   "format": "features",
+   "engine": "storyboard",
+   "hook": "H3",
+   "est_seconds": 35.8,
+   "project": "P01",
+   "hook_text": "The quiet-luxury bag that goes with blazers and slip dresses.",
+   "hook_label": "QUIET LUXURY",
+   "hook_type": "feature",
+   "opening_shot": [
+    "/workspace/higgsfield-test/pipeline/cache/new_products/silhouette-bag/clips/silhouette_site_video.mp4",
+    5.6
+   ],
+   "hook_source": "product"
+  },
+  {
+   "name": "LC_261013_SilhouetteBag_Evergreen_P01_H4_features",
+   "id": "P01H4",
+   "format": "features",
+   "engine": "storyboard",
+   "hook": "H4",
+   "est_seconds": 35.4,
+   "project": "P01",
+   "hook_text": "Be honest. Would you wear this with a blazer?",
+   "hook_label": "BE HONEST",
+   "hook_type": "question",
+   "opening_shot": [
+    "/workspace/higgsfield-test/pipeline/cache/new_products/silhouette-bag/clips/silhouette_site_video.mp4",
+    23.0
+   ],
+   "hook_source": "product"
+  }
+ ],
+ "tts_lines": 11,
+ "tts_dupes": {},
+ "est_credits": 3.8,
+ "budget": 40,
+ "colour_images": {
+  "Coffee": "/tmp/run/silhouette-261013b/site/the_silhouette_bag_colour_coffee.jpg",
+  "Black": "/tmp/run/silhouette-261013b/site/the_silhouette_bag_colour_black.jpg",
+  "Beige": "/tmp/run/silhouette-261013b/site/the_silhouette_bag_colour_beige.jpg",
+  "Wine Red": "/tmp/run/silhouette-261013b/site/the_silhouette_bag_colour_wine_red.jpg",
+  "Apricot": "/tmp/run/silhouette-261013b/site/the_silhouette_bag_colour_apricot.jpg"
+ },
+ "packshots": [
+  "/tmp/run/silhouette-261013b/site/the_silhouette_bag_colour_coffee.jpg",
+  "/tmp/run/silhouette-261013b/site/the_silhouette_bag_colour_black.jpg",
+  "/tmp/run/silhouette-261013b/site/the_silhouette_bag_colour_beige.jpg",
+  "/tmp/run/silhouette-261013b/site/the_silhouette_bag_colour_wine_red.jpg",
+  "/tmp/run/silhouette-261013b/site/the_silhouette_bag_colour_apricot.jpg",
+  "/tmp/run/silhouette-261013b/photos/00_silhouette_01.jpg",
+  "/tmp/run/silhouette-261013b/photos/01_silhouette_10.jpg",
+  "/tmp/run/silhouette-261013b/photos/02_silhouette_12.jpg",
+  "/tmp/run/silhouette-261013b/photos/03_silhouette_11.jpg",
+  "/tmp/run/silhouette-261013b/photos/04_silhouette_09.jpg"
+ ],
+ "brief": null,
+ "winners_source": null,
+ "winners_note": null,
+ "winners_used": [],
+ "unmatched_winners": [],
+ "warnings": [
+  "P01 (H1) will run about 35 s (QA wants 35+ s): the product file needs more features/clips, or add lines with --lines"
+ ],
+ "winner_reviews": false,
+ "seed": 1,
+ "hooks": 4,
+ "projects": [
+  {
+   "id": "P01",
+   "from_id": "V01",
+   "angle": "features",
+   "engine": "storyboard",
+   "format": "features",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P01H1",
+     "name": "LC_261013_SilhouetteBag_Evergreen_P01_H1_features",
+     "hook_text": "Here's what makes the Silhouette Bag different.",
+     "label": "LOOK CLOSER",
+     "type": "curiosity",
+     "shot": [
+      "/workspace/higgsfield-test/pipeline/cache/new_products/silhouette-bag/clips/silhouette_site_video.mp4",
+      30.0
+     ],
+     "est_seconds": 34.7
+    },
+    {
+     "hook": "H2",
+     "id": "P01H2",
+     "name": "LC_261013_SilhouetteBag_Evergreen_P01_H2_features",
+     "hook_text": "Stop carrying a bag that swallows your keys.",
+     "label": "STOP DIGGING",
+     "type": "problem",
+     "shot": [
+      "/workspace/higgsfield-test/pipeline/cache/new_products/silhouette-bag/clips/silhouette_site_video.mp4",
+      13.2
+     ],
+     "est_seconds": 35.1
+    },
+    {
+     "hook": "H3",
+     "id": "P01H3",
+     "name": "LC_261013_SilhouetteBag_Evergreen_P01_H3_features",
+     "hook_text": "The quiet-luxury bag that goes with blazers and slip dresses.",
+     "label": "QUIET LUXURY",
+     "type": "feature",
+     "shot": [
+      "/workspace/higgsfield-test/pipeline/cache/new_products/silhouette-bag/clips/silhouette_site_video.mp4",
+      5.6
+     ],
+     "est_seconds": 35.8
+    },
+    {
+     "hook": "H4",
+     "id": "P01H4",
+     "name": "LC_261013_SilhouetteBag_Evergreen_P01_H4_features",
+     "hook_text": "Be honest. Would you wear this with a blazer?",
+     "label": "BE HONEST",
+     "type": "question",
+     "shot": [
+      "/workspace/higgsfield-test/pipeline/cache/new_products/silhouette-bag/clips/silhouette_site_video.mp4",
+      23.0
+     ],
+     "est_seconds": 35.4
+    }
+   ]
+  }
+ ],
+ "hooks_seed": 1
+}

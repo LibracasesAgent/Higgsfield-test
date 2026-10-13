@@ -1,0 +1,108 @@
+{
+ "ads": [
+  {
+   "layout": "hero",
+   "photo": "site/the_silhouette_bag_colour_coffee.jpg",
+   "headline": "Meet the Silhouette Bag.",
+   "sub": "Under-arm style, sleek shape.",
+   "badge": {
+    "top": "NOW",
+    "big": "50%",
+    "bottom": "OFF"
+   },
+   "cta": "Shop now \u00b7 50% off",
+   "name": "LC_261013_SilhouetteBag_Evergreen_S01_hero",
+   "size": [
+    1080,
+    1080
+   ]
+  },
+  {
+   "layout": "promo",
+   "photo": "site/the_silhouette_bag_colour_black.jpg",
+   "headline": "The Silhouette Bag",
+   "sub": "Now 50% off.",
+   "features": [
+    "Under-Arm Style",
+    "Sleek Shape",
+    "Room For Essentials"
+   ],
+   "badge": {
+    "top": "SALE",
+    "big": "50%",
+    "bottom": "OFF"
+   },
+   "cta": "Shop now \u00b7 50% off",
+   "name": "LC_261013_SilhouetteBag_Evergreen_S02_promo",
+   "size": [
+    1080,
+    1350
+   ]
+  },
+  {
+   "layout": "offer",
+   "photo": "site/the_silhouette_bag_colour_beige.jpg",
+   "pct": 50,
+   "headline": "The Silhouette Bag",
+   "cta": "Shop now \u00b7 50% off",
+   "price": "$59.95",
+   "was": "$119.95",
+   "name": "LC_261013_SilhouetteBag_Evergreen_S03_offer",
+   "size": [
+    1080,
+    1350
+   ]
+  },
+  {
+   "layout": "bold",
+   "photo": "site/the_silhouette_bag_colour_wine_red.jpg",
+   "lines": [
+    "UNDER-ARM",
+    "STYLE."
+   ],
+   "accent_lines": [
+    1
+   ],
+   "sub": "Now 50% off.",
+   "cta": "Shop now \u00b7 50% off",
+   "dots": [
+    [
+     92,
+     56,
+     38
+    ],
+    [
+     25,
+     25,
+     25
+    ],
+    [
+     210,
+     190,
+     160
+    ],
+    [
+     110,
+     30,
+     45
+    ],
+    [
+     196,
+     154,
+     108
+    ]
+   ],
+   "name": "LC_261013_SilhouetteBag_Evergreen_S04_bold",
+   "size": [
+    1080,
+    1920
+   ],
+   "bg": [
+    246,
+    241,
+    234
+   ]
+  }
+ ],
+ "card_photos": []
+}

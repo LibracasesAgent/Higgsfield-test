@@ -1,0 +1,68 @@
+[
+ {
+  "file": "V01_hook.mp3",
+  "text": "Here's what makes the Silhouette Bag different.",
+  "voice_type": "element",
+  "voice_id": "241459b6-b4e8-4a2a-9868-da8bcdcd0558"
+ },
+ {
+  "file": "V01_feat0.mp3",
+  "text": "A sleek under-arm bag for nights out, office days and everything in between.",
+  "voice_type": "element",
+  "voice_id": "241459b6-b4e8-4a2a-9868-da8bcdcd0558"
+ },
+ {
+  "file": "V01_feat1.mp3",
+  "text": "Smooth and structured, it looks luxe and softens beautifully with wear.",
+  "voice_type": "element",
+  "voice_id": "241459b6-b4e8-4a2a-9868-da8bcdcd0558"
+ },
+ {
+  "file": "V01_feat2.mp3",
+  "text": "Room for your phone, wallet, keys and touch-up essentials.",
+  "voice_type": "element",
+  "voice_id": "241459b6-b4e8-4a2a-9868-da8bcdcd0558"
+ },
+ {
+  "file": "V01_feat3.mp3",
+  "text": "A dual zipper closure keeps everything secure and easy to access.",
+  "voice_type": "element",
+  "voice_id": "241459b6-b4e8-4a2a-9868-da8bcdcd0558"
+ },
+ {
+  "file": "V01_feat4.mp3",
+  "text": "Slim shoulder straps sit comfortably on your shoulder or in hand.",
+  "voice_type": "element",
+  "voice_id": "241459b6-b4e8-4a2a-9868-da8bcdcd0558"
+ },
+ {
+  "file": "V01_colours.mp3",
+  "text": "Coffee, Black, Beige, Wine Red, or Apricot. Which one is yours?",
+  "voice_type": "element",
+  "voice_id": "241459b6-b4e8-4a2a-9868-da8bcdcd0558"
+ },
+ {
+  "file": "V01_close.mp3",
+  "text": "It's fifty percent off right now, with free US shipping. Tap the link below.",
+  "voice_type": "element",
+  "voice_id": "241459b6-b4e8-4a2a-9868-da8bcdcd0558"
+ },
+ {
+  "file": "P01H2_hook.mp3",
+  "text": "Stop carrying a bag that swallows your keys.",
+  "voice_type": "element",
+  "voice_id": "241459b6-b4e8-4a2a-9868-da8bcdcd0558"
+ },
+ {
+  "file": "P01H3_hook.mp3",
+  "text": "The quiet-luxury bag that goes with blazers and slip dresses.",
+  "voice_type": "element",
+  "voice_id": "241459b6-b4e8-4a2a-9868-da8bcdcd0558"
+ },
+ {
+  "file": "P01H4_hook.mp3",
+  "text": "Be honest. Would you wear this with a blazer?",
+  "voice_type": "element",
+  "voice_id": "241459b6-b4e8-4a2a-9868-da8bcdcd0558"
+ }
+]

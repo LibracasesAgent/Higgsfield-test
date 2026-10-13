@@ -1,0 +1,114 @@
+{
+ "ok": true,
+ "created": "2026-10-13",
+ "product": "Silhouette Bag",
+ "theme": "default",
+ "theme_name": "Evergreen",
+ "offer": "50% off",
+ "seed": 1,
+ "cta": "Shop Now",
+ "rows": 8,
+ "csv": "/tmp/run/silhouette-261013b/ad_copy.csv",
+ "statics": [
+  {
+   "id": "S01",
+   "ad_name": "LC_261013_SilhouetteBag_Evergreen_S01_hero",
+   "angle": "hero",
+   "primary_text_1": "Stop carrying a bag that swallows your keys.\nThe Silhouette Bag: 50% off.",
+   "primary_text_2": "Here's what makes the Silhouette Bag different.\nRoom for your phone, wallet, keys and touch-up essentials.\nA dual zipper closure keeps everything secure and easy to access.\nIt's 50% off right now. 👜\nTap Shop Now to find yours.",
+   "headline_1": "Now 50% Off: The Silhouette Bag",
+   "headline_2": "Room for Essentials + Dual Zipper",
+   "description": "50% off + free US shipping",
+   "cta": "Shop Now",
+   "cta_type": "SHOP_NOW"
+  },
+  {
+   "id": "S02",
+   "ad_name": "LC_261013_SilhouetteBag_Evergreen_S02_promo",
+   "angle": "promo",
+   "primary_text_1": "Watch how much fits in this slim under-arm bag.\n50% off the Silhouette Bag.",
+   "primary_text_2": "This might be the most practical bag you'll see today.\nA sleek under-arm bag for nights out, office days and everything in between.\nSmooth and structured, it looks luxe and softens beautifully with wear.\nIt's 50% off right now. 👜\nTap Shop Now to get yours.",
+   "headline_1": "Silhouette Bag: 50% Off",
+   "headline_2": "The Silhouette Bag: Under-Arm Style",
+   "description": "5 colours + free US shipping",
+   "cta": "Shop Now",
+   "cta_type": "SHOP_NOW"
+  },
+  {
+   "id": "S03",
+   "ad_name": "LC_261013_SilhouetteBag_Evergreen_S03_offer",
+   "angle": "offer",
+   "primary_text_1": "Your bag shouldn't bulge and warp the moment you fill it.\nThe Silhouette Bag: 50% off.",
+   "primary_text_2": "Meet the Silhouette Bag.\nSmooth and structured, it looks luxe and softens beautifully with wear.\nRoom for your phone, wallet, keys and touch-up essentials.\nIt's 50% off right now. 👜\nTap Shop Now to get yours.",
+   "headline_1": "50% Off the Silhouette Bag",
+   "headline_2": "Sleek Shape + Room for Essentials",
+   "description": "5 colours to choose from",
+   "cta": "Shop Now",
+   "cta_type": "SHOP_NOW"
+  },
+  {
+   "id": "S04",
+   "ad_name": "LC_261013_SilhouetteBag_Evergreen_S04_bold",
+   "angle": "bold",
+   "primary_text_1": "The quiet-luxury bag that goes with blazers and slip dresses.\n50% off the Silhouette Bag.",
+   "primary_text_2": "Take a closer look at the Silhouette Bag.\nA dual zipper closure keeps everything secure and easy to access.\nSlim shoulder straps sit comfortably on your shoulder or in hand.\nNow 50% off. 👜\nTap Shop Now to get yours.",
+   "headline_1": "50% Off the Silhouette Bag",
+   "headline_2": "The Silhouette Bag: Dual Zipper",
+   "description": "Free US shipping",
+   "cta": "Shop Now",
+   "cta_type": "SHOP_NOW"
+  }
+ ],
+ "projects": [
+  {
+   "id": "P01",
+   "angle": "features",
+   "engine": "storyboard",
+   "product": "Silhouette Bag",
+   "winner": null,
+   "primary_text_1": "Your bag shouldn't bulge and warp the moment you fill it.\nThe Silhouette Bag, now 50% off.",
+   "primary_text_2": "Have you seen the Silhouette Bag yet?\nA sleek under-arm bag for nights out, office days and everything in between.\nSmooth and structured, it looks luxe and softens beautifully with wear.\nNow 50% off. 👜\nTap Shop Now to get yours.",
+   "headline_1": "Under-Arm Style + Sleek Shape",
+   "headline_2": "Meet the Silhouette Bag: Under-Arm Style",
+   "description": "Now 50% off",
+   "cta": "Shop Now",
+   "cta_type": "SHOP_NOW",
+   "versions": [
+    {
+     "hook": "H1",
+     "id": "P01H1",
+     "ad_name": "LC_261013_SilhouetteBag_Evergreen_P01_H1_features",
+     "hook_text": "Here's what makes the Silhouette Bag different.",
+     "hook_first_line": "Here's what makes the Silhouette Bag different.",
+     "primary_text_2_hook": "Here's what makes the Silhouette Bag different.\nA sleek under-arm bag for nights out, office days and everything in between.\nSmooth and structured, it looks luxe and softens beautifully with wear.\nNow 50% off. 👜\nTap Shop Now to get yours."
+    },
+    {
+     "hook": "H2",
+     "id": "P01H2",
+     "ad_name": "LC_261013_SilhouetteBag_Evergreen_P01_H2_features",
+     "hook_text": "Stop carrying a bag that swallows your keys.",
+     "hook_first_line": "Stop carrying a bag that swallows your keys.",
+     "primary_text_2_hook": "Stop carrying a bag that swallows your keys.\nA sleek under-arm bag for nights out, office days and everything in between.\nSmooth and structured, it looks luxe and softens beautifully with wear.\nNow 50% off. 👜\nTap Shop Now to get yours."
+    },
+    {
+     "hook": "H3",
+     "id": "P01H3",
+     "ad_name": "LC_261013_SilhouetteBag_Evergreen_P01_H3_features",
+     "hook_text": "The quiet-luxury bag that goes with blazers and slip dresses.",
+     "hook_first_line": "The quiet-luxury bag that goes with blazers and slip dresses.",
+     "primary_text_2_hook": "The quiet-luxury bag that goes with blazers and slip dresses.\nA sleek under-arm bag for nights out, office days and everything in between.\nSmooth and structured, it looks luxe and softens beautifully with wear.\nNow 50% off. 👜\nTap Shop Now to get yours."
+    },
+    {
+     "hook": "H4",
+     "id": "P01H4",
+     "ad_name": "LC_261013_SilhouetteBag_Evergreen_P01_H4_features",
+     "hook_text": "Be honest. Would you wear this with a blazer?",
+     "hook_first_line": "Be honest. Would you wear this with a blazer?",
+     "primary_text_2_hook": "Be honest. Would you wear this with a blazer?\nA sleek under-arm bag for nights out, office days and everything in between.\nSmooth and structured, it looks luxe and softens beautifully with wear.\nNow 50% off. 👜\nTap Shop Now to get yours."
+    }
+   ]
+  }
+ ],
+ "notes": [],
+ "problems": []
+}
