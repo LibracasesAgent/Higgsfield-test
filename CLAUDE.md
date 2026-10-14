@@ -27,6 +27,14 @@ The repo's default branch is `claude/loving-meitner-4amjii`. Read `docs/PLAYBOOK
 4. Upload everything with `make_batch.py upload` (Drive Outputs → `Winners/` or `New Products/` or the Outputs
    root → `<date> – <name>` → `Statics` / `Videos` + a run report). Never only post files in the chat.
 5. Never publish anywhere. Never delete or move Drive files.
+6. **Never reshape the videos to fit a request.** Videos run 40-60 s (what `plan` estimates; the story format 90-120 s):
+   don't shorten them, rebuild their specs or change their format. A message like "hook-first", "hook test", "better
+   hooks", "Meta isn't spending on the videos" means other **hooks**: the normal projects with 4 hook versions at the
+   normal length (`--projects N`; fresh openings: `--seed` / `--hook-seed`, section 4). "3 videos" = `--projects 3`
+   (12 files), `--hooks 1` only when the message says "single videos". Never `upload --include-flagged`: `render`
+   marks a video `too short` (hard: upload skips it) under the 25 s floor or under 80% of the length `plan`
+   estimated, which is what a cut-down spec looks like. If a request conflicts with this, make the standard version
+   and say in the reply what you did instead and why.
 
 **Videos come in projects** (the client's agency format): one project = one video body in 4 versions
 H1-H4 that differ only in the hook (opening line, opening shot, on-screen label). `plan` does this by
@@ -226,7 +234,7 @@ python3 pipeline/make_batch.py plan <flags> --request "<the request text>" --out
    the narrator's "Here's <customer> …" the picture must show the product or that customer, never another person;
    one narrator voice per video. A new product's square photos and clips are shown whole (a white or blurred
    backdrop behind them: `"fit"`), never cropped to the middle. Text off-frame, wrong product, black frames, a
-   face: fix a hook in its `..._P01_H3_...json`, a body problem in `$OUT/_before_hooks/<V01 spec>.json` then re-run
+   face: fix a hook in its `..._P01_H3_...json` (only to fix a QA problem, never to change the length or format), a body problem in `$OUT/_before_hooks/<V01 spec>.json` then re-run
    `python3 pipeline/projects.py expand --out $OUT` (all 4 versions get it), and `render --only <id>`; or
    leave it out and say so. A face in a static or a failed render is never uploaded; length/anchor flags and
    `body differs from H1 (body match M …)` (that version's body is not its project's: look at its `qa/P*.jpg`,

@@ -115,6 +115,9 @@ video files.
 
 ## Time and cost
 
+- Video length: videos are about 40-60 s on purpose (the story format 1.5-2 min), whatever you write. Asking for
+  "hook-first", "a hook test" or "better hooks" gives different openings in the same full-length videos, never
+  shorter ones. A video that comes out shorter than planned is not uploaded.
 - Statics: a few minutes for all of them. A video project (4 versions): about 20-25 minutes. A batch (20 statics +
   5 projects) takes about 2 hours; Claude replies once, when everything is in Drive.
 - Credits: only the voiceover costs Higgsfield credits (about 0.35 per spoken line). A new-angle or new-product

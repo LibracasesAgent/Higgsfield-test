@@ -2363,6 +2363,13 @@ def prefetch(out, videos):
 HARD = ("render failed", "file missing", "face", "too short")       # QA problems that keep a file out of Drive
 
 
+SHORTENED = 0.8       # a storyboard that renders under 80% of the plan's estimate was edited shorter after plan (voice noise is ~5%)
+
+
+def shortened(eng, seconds, est):
+    return eng == "storyboard" and bool(est) and seconds < SHORTENED * est
+
+
 def render_one(out, v):
     eng = v.get("engine", "storyboard")
     f = os.path.join(out, "videos", v["name"] + ".mp4")
@@ -2385,6 +2392,9 @@ def render_one(out, v):
         problems.append(f"too short: {L:.1f}s (never under {floor}s; want {lo}-{hi}s)")
     elif ok and not lo <= L <= hi:
         problems.append(f"length {L:.1f}s (want {lo}-{hi}s)")
+    if ok and shortened(eng, L, v.get("est_seconds")) and not any(x.startswith("too short") for x in problems):
+        problems.append(f"too short: {L:.1f}s, plan said ~{v['est_seconds']:.0f}s (the spec was cut down after plan: never shorten or "
+                        f"rebuild a video to fit a request, 'hook-first' means other hooks; plan again)")
     miss = r.stderr.count("anchor not found")
     if miss:
         problems.append(f"{miss} overlay anchor(s) not found (see qa/{v['id']}.log)")

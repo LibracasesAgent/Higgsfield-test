@@ -251,6 +251,7 @@ accent). Never "our biggest sale (of the year)": the same % runs all year (site 
 | Statics author line | file name printed as author | use `author` |
 | No faces in statics | site lifestyle photos with faces in new-product statics | site photos never become lifestyle statics by themselves; DNN face check at plan time and on every rendered static (hard failure) |
 | Offer per product | every bag got "50% off + free wallet" | offer from the site per product; theme lines are templates |
+| Videos not shortened to fit a request | the owner's Hobo Bag 'hook test' came out as 29 s videos: Claude in Slack rebuilt the specs short ("hook-first") and uploaded them flagged | CLAUDE.md rule 6; `render` marks a storyboard video under 80% of its planned length `too short` (hard, `make_batch.shortened`) |
 | No negated gift | intake read "No free gift is mentioned" in the Silhouette notes as a free gift | `new_product.gift_hits` negates per clause ("No free gift", "Free gift: none", "50% off ended" don't count; "No discount, but a free pouch" keeps the gift); `check` flags a gift the notes deny |
 | No other product's name | the site copy of the Silhouette Bag said "The Libra Covenette Bag ..." and became a feature line | the intake drops lines naming another product (`names_other`) and reads the site only with `--site` / `--use-site` |
 | New product's facts from its folder | the intake took price, description, colours and photos from libracases.com | Drive folder only (photos, clips, every notes file); `plan --pipeline new-product` read the site 0 times in tests |
