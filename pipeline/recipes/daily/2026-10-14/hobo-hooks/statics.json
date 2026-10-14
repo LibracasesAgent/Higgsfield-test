@@ -1,0 +1,108 @@
+{
+ "ads": [
+  {
+   "layout": "hero",
+   "photo": "site/hobo_bag_colour_black.jpg",
+   "headline": "Still digging for your keys?",
+   "sub": "Hidden back pocket, gold side zips and a free matching pouch wallet.",
+   "badge": {
+    "top": "NOW",
+    "big": "50%",
+    "bottom": "OFF"
+   },
+   "cta": "Shop now \u00b7 50% off",
+   "name": "LC_261014_HoboBag_Evergreen_S01_hero",
+   "size": [
+    1080,
+    1080
+   ]
+  },
+  {
+   "layout": "offer",
+   "photo": "site/hobo_bag_colour_blue.jpg",
+   "pct": 50,
+   "headline": "Why is this bag half price?",
+   "gift": "free matching pouch wallet",
+   "cta": "Shop now \u00b7 50% off",
+   "price": "$52.50",
+   "was": "$105.00",
+   "name": "LC_261014_HoboBag_Evergreen_S02_offer",
+   "kicker": "FINAL CLEARANCE"
+  },
+  {
+   "layout": "promo",
+   "photo": "site/hobo_bag_colour_burgundy.jpg",
+   "headline": "3 things your bag can't do",
+   "sub": "+ FREE matching pouch wallet",
+   "features": [
+    "Hidden Back Pocket",
+    "Gold Side Zips",
+    "Smart Compartments"
+   ],
+   "badge": {
+    "top": "SALE",
+    "big": "50%",
+    "bottom": "OFF"
+   },
+   "cta": "Shop now \u00b7 50% off",
+   "name": "LC_261014_HoboBag_Evergreen_S04_promo"
+  },
+  {
+   "layout": "bold",
+   "photo": "site/clean/hobo_bag_colour_brown_nobadge.jpg",
+   "lines": [
+    "STOP",
+    "DIGGING."
+   ],
+   "accent_lines": [
+    1
+   ],
+   "sub": "Final clearance: 50% off + free shipping while stock lasts.",
+   "cta": "Shop now \u00b7 50% off",
+   "dots": [
+    [
+     120,
+     66,
+     36
+    ],
+    [
+     25,
+     25,
+     25
+    ],
+    [
+     40,
+     52,
+     90
+    ],
+    [
+     110,
+     110,
+     112
+    ],
+    [
+     96,
+     28,
+     44
+    ],
+    [
+     170,
+     26,
+     36
+    ]
+   ],
+   "name": "LC_261014_HoboBag_Evergreen_S06_bold",
+   "size": [
+    1080,
+    1920
+   ],
+   "bg": [
+    246,
+    241,
+    234
+   ],
+   "size_px": 190
+  }
+ ],
+ "card_photos": []
+}

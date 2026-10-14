@@ -1,0 +1,78 @@
+{
+ "prefix": "LC_261014_HoboBag_Evergreen",
+ "rev": 1,
+ "created": "2026-10-14",
+ "request": "3 videos and 4 statics, hook-first (Meta not spending on videos)",
+ "product": "Hobo Bag",
+ "product_key": "hobo bag",
+ "product_source": "built-in",
+ "theme": "default",
+ "theme_name": "Evergreen",
+ "offer": "50% off + free matching pouch wallet",
+ "statics": [
+  "LC_261014_HoboBag_Evergreen_S01_hero",
+  "LC_261014_HoboBag_Evergreen_S02_offer",
+  "LC_261014_HoboBag_Evergreen_S04_promo",
+  "LC_261014_HoboBag_Evergreen_S06_bold"
+ ],
+ "videos": [
+  {
+   "name": "LC_261014_HoboBag_Evergreen_V01_showcase",
+   "id": "V01",
+   "format": "showcase",
+   "engine": "storyboard",
+   "hook": "She wanted one bag for travel. Watch what she shows first.",
+   "est_seconds": 28.4
+  },
+  {
+   "name": "LC_261014_HoboBag_Evergreen_V02_features",
+   "id": "V02",
+   "format": "features",
+   "engine": "storyboard",
+   "hook": "Three things your bag can't do. Number three is hidden.",
+   "est_seconds": 28.4
+  },
+  {
+   "name": "LC_261014_HoboBag_Evergreen_V03_reviews",
+   "id": "V03",
+   "format": "reviews",
+   "engine": "storyboard",
+   "hook": "Is your phone at the bottom of your bag again?",
+   "est_seconds": 29.4
+  }
+ ],
+ "tts_lines": 12,
+ "tts_dupes": {
+  "V03_feat1.mp3": "V01_feat0.mp3",
+  "V03_close.mp3": "V02_close.mp3"
+ },
+ "est_credits": 4.2,
+ "budget": 40,
+ "colour_images": {
+  "Brown": "/tmp/claude-0/-workspace/7c9d9c40-dbdc-561b-a77a-93596f5db36a/scratchpad/run/hobo-hooks/site/clean/hobo_bag_colour_brown_nobadge.jpg",
+  "Black": "/tmp/claude-0/-workspace/7c9d9c40-dbdc-561b-a77a-93596f5db36a/scratchpad/run/hobo-hooks/site/hobo_bag_colour_black.jpg",
+  "Blue": "/tmp/claude-0/-workspace/7c9d9c40-dbdc-561b-a77a-93596f5db36a/scratchpad/run/hobo-hooks/site/hobo_bag_colour_blue.jpg",
+  "Grey": "/tmp/claude-0/-workspace/7c9d9c40-dbdc-561b-a77a-93596f5db36a/scratchpad/run/hobo-hooks/site/hobo_bag_colour_grey.jpg",
+  "Burgundy": "/tmp/claude-0/-workspace/7c9d9c40-dbdc-561b-a77a-93596f5db36a/scratchpad/run/hobo-hooks/site/hobo_bag_colour_burgundy.jpg",
+  "Red": "/tmp/claude-0/-workspace/7c9d9c40-dbdc-561b-a77a-93596f5db36a/scratchpad/run/hobo-hooks/site/hobo_bag_colour_red.jpg"
+ },
+ "packshots": [
+  "/tmp/claude-0/-workspace/7c9d9c40-dbdc-561b-a77a-93596f5db36a/scratchpad/run/hobo-hooks/site/hobo_bag_colour_black.jpg",
+  "/tmp/claude-0/-workspace/7c9d9c40-dbdc-561b-a77a-93596f5db36a/scratchpad/run/hobo-hooks/site/hobo_bag_colour_blue.jpg",
+  "/tmp/claude-0/-workspace/7c9d9c40-dbdc-561b-a77a-93596f5db36a/scratchpad/run/hobo-hooks/site/hobo_bag_colour_grey.jpg",
+  "/tmp/claude-0/-workspace/7c9d9c40-dbdc-561b-a77a-93596f5db36a/scratchpad/run/hobo-hooks/site/hobo_bag_colour_burgundy.jpg",
+  "/tmp/claude-0/-workspace/7c9d9c40-dbdc-561b-a77a-93596f5db36a/scratchpad/run/hobo-hooks/site/hobo_bag_colour_red.jpg"
+ ],
+ "brief": null,
+ "winners_source": null,
+ "winners_note": null,
+ "winners_used": [],
+ "unmatched_winners": [],
+ "warnings": [
+  "hand-edited after plan: the 3 storyboard specs were rebuilt as short hook-first videos (25-30 s, under the 35-95 s QA range on purpose: the request is about first-seconds retention)"
+ ],
+ "winner_reviews": false,
+ "seed": 1,
+ "hooks": 1,
+ "pipeline": "catalog"
+}
