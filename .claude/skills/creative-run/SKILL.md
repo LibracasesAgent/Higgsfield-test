@@ -7,11 +7,17 @@ description: Libra Cases ad requests from Slack or the Claude app (statics, vide
 
 Follow `CLAUDE.md` in the repo root step by step. It is the only valid procedure:
 
-- Statics come from `pipeline/make_batch.py` (real libracases.com product photos + `brand_statics.py` layouts).
+- First tell the pipeline from the message (CLAUDE.md "Which pipeline?"): **winners** (`plan --pipeline winners`:
+  the newest weekly brief's winning videos), **new products** (`plan --pipeline new-product --new-product
+  "<folder>"`: everything from the product's Drive `New Products` folder, never libracases.com) or **catalog** (a
+  built-in bag and/or a theme). No numbers = a batch: 20 statics + 5 projects x 4 hooks.
+- Statics come from `pipeline/make_batch.py` (real product photos: libracases.com for the built-in bags, the
+  client's folder for new products, + `brand_statics.py` layouts).
 - Videos come from real footage (`storyboard.py` / `remix.py` via `make_batch.py`), with our voiceover.
 - The only Higgsfield call in a normal run is text-to-speech (`generate_audio_batch`, text2speech_v2) for the
   lines in `tts_needed.json`. Never call generate_image, generate_video, presets, Ads Studio, AI influencer or
   any other image/video generator: they are switched off for this project and the results are not used.
-- Everything is uploaded with `make_batch.py upload` into Drive Outputs. Never publish, delete or move files.
+- Everything is uploaded with `make_batch.py upload` into Drive Outputs (`Winners/`, `New Products/` or the
+  Outputs root). Never publish, delete or move files.
 
-There is no daily automatic run: every batch is started by a message in Slack.
+There is no daily automatic run: every batch is started by a message in Slack (a DM or the channel).

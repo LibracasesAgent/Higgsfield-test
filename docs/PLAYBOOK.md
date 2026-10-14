@@ -24,10 +24,12 @@ forces `pipeline/make_batch.py` (templates, no AI images/video) for every normal
   | Hobo Bag 3-Piece Set | $69.95 | Brown, Black, Blue, Grey, Purple Red, Red | hobo + crossbody + matching pouch |
   | Slouchy Soft 3-Piece Set | $69.95 | | |
   | Vintage Bag | $44.95 | Ginger Brown, Black, Chocolate, Red | one-hand clasp, compartments, adjustable/removable strap |
-  Always re-check with `pipeline/site_assets.py` (prices change).
+  Always re-check with `pipeline/site_assets.py` (prices change). New products (Drive `New Products` folders) are
+  the exception: their price, offer, colours and features come only from the client's folder notes (section 11).
 - **Offer (per product, 2026-10):** Hobo Bag 50% off + free matching pouch wallet; Hobo 2.0 50% off + free pouch
   wallet; Vintage 50% off (no gift); Hobo 3-Piece Set and Slouchy Set 60% off ($69.95 vs $174.88; the pouch is one of
-  the three pieces, not a gift). Free US shipping store-wide. Site banner: "FINAL CLEARANCE SALE ENDS TODAY 50% OFF +
+  the three pieces, not a gift). Free US shipping store-wide (the built-in bags; a Drive-only new product's ads
+  say it only when its notes do: `compliance.drive_only`). Site banner: "FINAL CLEARANCE SALE ENDS TODAY 50% OFF +
   FREE SHIPPING". `make_batch.py plan` reads the % and the gift from the site on every run.
 - **Approved by the client (allowed in ads):** the 50% offer, "anti-theft", the Susan / workshop-closing /
   arthritis story used in his own RAW ads, all 10 customer reviews with names ("Yes on all"), plus the two
@@ -75,6 +77,11 @@ forces `pipeline/make_batch.py` (templates, no AI images/video) for every normal
    - Compliance: AI is fine, never health/medical claims, prescription drugs, politics, religion, blood (section 9),
      not even inside the client's own RAW audio.
    - The one first-batch video with spend: V09 Vintage showcase (ROAS 1.54): the `showcase` format starts from it.
+11. **Owner, 2026-10-13** (uses a Claude DM): two pipelines that feel separate. **Winners** (new projects from the
+   weekly brief's winning videos: works well; every winner project must have 4 hook versions) and **new products**
+   (the client drops a folder into Drive `New Products` and writes one sentence, "new product ad sets"; everything
+   comes from that folder, libracases.com is no longer read for them). No numbers = a batch: 20 statics + 5
+   projects x 4 hooks = 20 videos; numbers given override. What was built: section 11.
 
 ## 3. The 2026-10-02 test run (reference for every format)
 
@@ -96,6 +103,13 @@ Delivered: Drive Outputs / "oct 3 test" / Statics (22 files) + Videos (20). Cost
    New winners: find the RAW in the library (names like `MAX-94-H4`), transcribe it.
 2. **Cold open:** a 2-7 s line from later in the RAW that works alone as a hook ("Most bags look terrible
    after a year. Mine looks better after a decade."). Add `hook_label` (2-4 words, e.g. "10 YEARS LATER").
+   **Every winner RAW needs 4+ distinct cold opens** (one project = H1-H4; 2026-10-13: 148, 121 and c9 got a 4th,
+   113 a 3rd spoken one plus a label variant): on word boundaries, starting after final punctuation, ending at
+   least 0.3 s before the next word, edges in real silence and just after a shot change (no mid-blink first frame,
+   no burned-caption flash), with a label that repeats or paraphrases the RAW. Only when a RAW has no 4th clean
+   spoken opening (113-H2, 16 s): an existing opening under another label and type, marked `"variant": "label"`;
+   `projects.expand` picks it last (never H1, whatever the `--seed`) and warns "H<j> differs from H<i> by its
+   on-screen hook only".
 3. **Cuts:** drop slow or repeated parts (keep sentences whole; cut on word boundaries from the transcript).
    **Claim cuts** (`claim_cuts`): a health claim inside the proven body is cut out, on word boundaries and in
    silence, with a 0.6 s beat after it (Julian's rule, section 9): 94 "an adjustable strap[ that prevents shoulder
@@ -137,6 +151,15 @@ Formats that worked (scripts in section 5):
   the real customer in full, the colours, as many reviews as fit, the offer. It runs as long as the real material
   allows (Hobo Bag ~105 s, Vintage ~75 s; a bag without customer clips ~45-55 s: plan warns, add `--lines` or use the
   showcase).
+- **New product** (no reviews, no customer clips yet; 2026-10-13): one angle per project on the same true material,
+  each with its own opening shot, feature order and label: `features`, `colours` (named swatches, needs 3+ matched
+  packshots), `showcase` (detail photos first), `lifestyle` (worn photos first, "STYLE IT"), `offer` (the deal
+  first, the packshots; only with a deal). The client's square photos and clips are framed whole (`"fit"`, section 11;
+  under the close at `fit_y` 0.30, above the end card). It says every feature line it has (3-7; with 7 the videos
+  plan ~42-45 s). Its H2-H4 hooks add POV / question openings made only from its own feature words ("Need room for
+  your phone, wallet, keys ...?", "POV: one bag for nights out, office days ..."); a feature hook never repeats a
+  line of the body's first ~12 s, opens on its feature's own footage when the body does not show it, and never on
+  a body shot or spare (`projects.body_shots` counts the spares: a spare used as an opening made the body differ).
 Rules since Julian's feedback (2026-10-09), enforced in `make_batch.py` / `storyboard.py` / `projects.py check`:
 - **No talking B-roll:** a real customer's own clip is her scene only (introduced by the narrator, with sound); no
   B-roll pick is a moment where someone talks (committed transcript). `projects.py cadence` audits every pick.
@@ -163,6 +186,13 @@ product's feature tags as ticks + the offer pill). 1080x1350.
 - Grey or textured site backgrounds: hero uses multiply blend after whitening; textured backdrops go in
   `card_photos` (shown as a framed card).
 - Review static: `review_n` from reviews.json, or `quote` + `author` (never put the file name as author).
+- **New product** (2026-10-13): with 3+ worn / detail photos the cycle has more `lifestyle` statics, each client
+  photo once; a photo a feature picks gets that feature's tag as its headline; the `offer` static shows the notes'
+  price and was price. No site swatches: the client's packshots are named by shade (`make_batch.match_colours`,
+  CIELAB; used only on a sure match: every pair within 25, the next assignment 10 worse) for the colours static,
+  the swatches and the colour dots; plan prints the mapping as a warning to check. A swatch places the packshot in
+  (60, 400, 1020, 1120), above the caption band. A `"statics": false` photo (part of a head) is in no static. A
+  folder with clips but no faceless photo gets no statics (one warning: the client must add photos).
 
 ### 4d. AI shots (Higgsfield): HISTORICAL, NOT ALLOWED
 Kept only as a record of the 10-02 test. CLAUDE.md hard rule 1: no AI images, no AI video, the Higgsfield image and
@@ -221,7 +251,39 @@ accent). Never "our biggest sale (of the year)": the same % runs all year (site 
 | Statics author line | file name printed as author | use `author` |
 | No faces in statics | site lifestyle photos with faces in new-product statics | site photos never become lifestyle statics by themselves; DNN face check at plan time and on every rendered static (hard failure) |
 | Offer per product | every bag got "50% off + free wallet" | offer from the site per product; theme lines are templates |
-| No negated gift | intake read "No free gift is mentioned" in the Silhouette notes as a free gift | `new_product.gift_hits` skips negated sentences; `check` flags a gift the notes deny |
+| No negated gift | intake read "No free gift is mentioned" in the Silhouette notes as a free gift | `new_product.gift_hits` negates per clause ("No free gift", "Free gift: none", "50% off ended" don't count; "No discount, but a free pouch" keeps the gift); `check` flags a gift the notes deny |
+| No other product's name | the site copy of the Silhouette Bag said "The Libra Covenette Bag ..." and became a feature line | the intake drops lines naming another product (`names_other`) and reads the site only with `--site` / `--use-site` |
+| New product's facts from its folder | the intake took price, description, colours and photos from libracases.com | Drive folder only (photos, clips, every notes file); `plan --pipeline new-product` read the site 0 times in tests |
+| Square media not cropped | the 800 px square packshots and the 1080x1080 clip were cropped to 9:16 (the bag's ends cut off, 2.4x upscale) | `"fit": "auto"` on the product file's own media (`recut.py`): framed whole on a flat backdrop or a blur, also in the H2-H4 hook shots |
+| Prices vs a stated % | notes give prices worth 50% but say "40% off" | the lower % is used, with a warning |
+| 4 hooks per winner | 148, 121, 113, c9 had 2-3 cold opens: the 5-winner batch made 16 videos, not 20 | new cold opens in `clip_bank.json` (113's 4th: a `"variant": "label"`), section 4a |
+| Body match after a beat | the QA sheet's 'body vs H1' read 37.8 on identical bodies | `projects.hook_end` counts the beat remix adds after a short cold open |
+| Ad copy check outside the default folder | upload failed the compliance check for a product file in `--products-dir` | `make_batch.use_products_dir` in upload too |
+| Colour names on client packshots | no site swatches: "Coffee" could sit on the black bag | `match_colours` by shade, only a sure match; else no named swatches |
+| Same body in every version | a hook opened on a shot the body plays as a spare, so storyboard swapped that body slot: P01 H3 body match 127 | `projects.body_shots` counts spares; `render` adds "body differs from H1" (match 10+) to `qa/report.json`: uploaded, listed under QA flagged |
+| Photos in a later session | with the cache gone, plan saved the raw Drive file as .jpg: HEIC unreadable, EXIF photos sideways, a face re-check that differed (P5 dropped as "could not be downloaded") | download by Drive id, then `new_product.to_jpg` as the intake did (`src_name`); a re-check face is named as such |
+| Part of a head in a static | S12 (Silhouette P10) showed a jaw, chin and ear; no face detector fired | `new_product.head_part` on worn photos: `"statics": false` = videos only |
+| Captions over the swatch bag | the colours block's captions sat on the bag's lower body | swatch box (60, 400, 1020, 1120) |
+| End card over the close | the end-card band hid the framed bag's base | `CLOSE_FIT_Y` 0.30 on the close's fit picks |
+| A repeat request = the same batch | "new product Silhouette Bag" again gave the same 20 statics and specs, renamed _v2 | `--seed` defaults to 1 + the product's `tests` (not with `--only`); plan prints `seed` |
+| One batch, two Drive folders | upload dated the folder by the UTC clock: videos after midnight landed in a second folder and `tests` entry | the folder and `tests` date come from plan.json `created` |
+| Delivered winner openings | `sent_openings` scanned only `recipes/daily`; winner specs go to `recipes/winners` | `projects.RECIPES` = both |
+| `--videos` in winners | made storyboard projects in Outputs/Winners | in winners `--videos N` = N winner projects |
+| A fixed folder stayed a draft | `ensure` kept an intake draft as "edited by hand" after the client added notes | every intake writes `auto` + `source.auto_sig`; an untouched draft is made again |
+| PDF-only notes | no `pdftotext`: the PDF was skipped and exit 2 hid the warning, so the reply asked for notes the client had added | `pypdf` fallback; plan prints the intake warnings before exit 2 |
+| Claims beyond the folder | Drive-only ads said "free US shipping" and "Shop ... on libracases.com" (PLAYBOOK's store-wide bullet counted as evidence) | `compliance.drive_only`: the product file is the only evidence; `ad_copy` drops those lines unless the notes say them |
+| A folder named like a built-in bag | a "Hobo Bag" folder made the built-in Hobo Bag's ads from the site | the key is kept, plan uses the folder's file (`LC_PRODUCT_FILE`), with a warning |
+| Aliases | "black" became an alias, so "Black Friday hobo bag" picked another file | aliases drop colours, generic words, built-in names and other files' aliases |
+| Folder names as typed | "The Silhouette Bag", "silhouette bags" found no folder | `new_product.norm_name` (leading "the", case, punctuation, plural s) |
+| Short new-product videos | a 5-feature cap: Silhouette videos 37-39 s, 2 bullets dropped unlisted | up to 7 features (`MAX_FEATURES`); cut bullets listed as "not used" |
+| Tags saying more than the line | "smooth, structured feel" got SLEEK SHAPE; a plain "leather" line got SOFT LEATHER | feel tags first, SLEEK SHAPE from silhouette / elongated words, leather tags from the line's own word |
+| Hook repeats the body | P03 H2 said a feature line at 0 s and again at 10.7 s, on the same photo | no hook line from the body's first 3 blocks; the hook's 2nd shot is never a body shot |
+| Few different hooks | "Stop carrying a bag that swallows your keys." opened 3 versions | POV / question hooks from the feature words; plan warns when a line opens 3+ versions |
+| Near-black backdrop | the dark clip's blurred backdrop read as a letterbox bar | `recut` lifts a dark-bordered blur (`lutyuv y=28+val*0.75`) |
+| EXIF stills in fit | `recut.dims` used the raw size: a portrait phone photo was framed as landscape | `dims` / `edges` apply the EXIF orientation |
+| Winner single videos | `--hooks 1` winners exited 2 on RAW quotes in `hook_first_line` | `compliance.batch_items` treats them as RAW quotes |
+| Clips-only folder | 20 "no usable photo" warnings | one warning naming what the client must add |
+| Label variant as H1 | with some seeds 113's label-only variant became H1 | in a project a `"variant": "label"` cold open is never H1 |
 | No wrong claims in RAWs | C9_V2 says "two-year warranty" (site: 1 year) | cut 28.16-30.3 in `clip_bank.json` |
 | No health claim in a RAW body | 94 "a strap that prevents shoulder pain" shipped with "Compliance: ok" | `compliance.raw_audit` scans the RAW words each version plays; `claim_cuts` in `clip_bank.json`; plan leaves out a winner that still has one |
 | No talking customer as B-roll | her lips moved under the narrator before she was introduced (54.0 / 63.3 were not silent) | transcript check on every pick (`make_batch` / `projects.py cadence`), her clip is her scene only |
@@ -248,15 +310,24 @@ Always look at a contact sheet of every video and a grid of every static before 
 - **Higgsfield:** `use_unlim:false` always; batch tools max 12 per call; jobs_wait to poll; TTS rate limit
   (429) → resubmit the failed ones; preset "IN THE DARK" → `declined_preset_id`. MCP connectors sometimes
   disconnect: reload tools and continue.
-- **Costs (credits):** TTS 0.15-0.45/line (`plan` estimates 0.35/line; a 20 statics + 10 videos batch is ~13-27
-  lines, 5-10 credits). Statics and real-footage edits cost nothing. Historical, not allowed now: Kling pro 5 s 12.5,
-  GPT image 2K high 2.75 (the 10-02 test with AI shots cost 70-200 credits for 40 ads).
+- **Zoom on cropped shots is a still framing:** ffmpeg's `crop` works out its size once, at frame 0, so the crop
+  path's `zoom` [1.0, 1.06] / [1.18, 1.24] renders as a fixed framing at z0 (left as is: changing it would change
+  every render, winners included). Only `"fit"` segments really punch in. `"fit"` adds about 1-1.4 s of render
+  time per 4 s still segment, nothing for a square clip; a fitted square sits at y 266-1346 (its bottom edge runs
+  behind the first caption line; the outline keeps captions readable).
+- **PDF notes** are read with `pdftotext` (poppler-utils), else `pypdf` (CLAUDE.md section 0, SLACK_SETUP setup
+  script); with neither the intake skips the PDF with a warning (re-plan with `--refresh-product` after installing).
+- **Costs (credits):** TTS 0.15-0.45/line (`plan` estimates 0.35/line; a batch of 20 statics + 5 projects: Hobo Bag
+  34 lines ~11.9 credits, Silhouette Bag 22 lines ~7.7, winners 0 unless fill projects are added). Statics and
+  real-footage edits cost nothing. Historical, not allowed now: Kling pro 5 s 12.5, GPT image 2K high 2.75 (the 10-02
+  test with AI shots cost 70-200 credits for 40 ads).
 
 ## 8. Reply format (Slack / app)
 
 One short message: Drive folder link; one line per ad (name, angle, length); credits used (balance before
 and after); anything skipped, failed or needing a human (e.g. "V03 is 31 s, under the 35 s target: the product
-file needs more clips").
+file needs more clips"). Per pipeline (winners: brief, winner + ROAS, fill, unmatched; new products: what was read,
+the offer used, the product file): CLAUDE.md sections 1 and 2.
 
 ## 9. Compliance (Julian, media buyer, 2026-10-09)
 
@@ -320,3 +391,45 @@ no LLM calls; every line passes `compliance.check`, a line that fails is replace
 - Example (Hobo Bag, Black Friday, S04 review static): primary text 1 "Stop digging for your keys at the bottom of
   your bag. / Black Friday: 50% off the Hobo Bag + free wallet."; headline 1 "\"Best bag I have ever bought\"",
   headline 2 "50% Off the Hobo Bag + Free Wallet", description "Black Friday: 50% off", CTA Get Offer.
+
+## 11. Two pipelines: winners and new products (owner, 2026-10-13)
+
+The owner's request (section 2 item 11). `make_batch.py plan --pipeline winners | new-product | catalog` (default
+catalog: the counts and product given, exactly as before). Commands, checks and reply formats: CLAUDE.md sections
+1-3; what the client types: `docs/CLIENT_GUIDE.md`; DM setup: `docs/SLACK_SETUP.md`.
+- **Batch default:** winners / new-product with no count (or `--batch` in any pipeline) = 20 statics + 5 projects x
+  4 hooks = 20 videos (`make_batch.BATCH`). Any count given = exactly those, the rest 0. `--projects N` = winner
+  projects in winners (`--videos N` there too), storyboard projects otherwise. About 2 hours of rendering: statics
+  first, then videos. The Drive folder and the product file's `tests` take the plan's date (`created`), so statics
+  and videos uploaded on either side of midnight land in one folder.
+- **Winners:** the newest brief's winners in brief order, one project each (4 cold opens = H1-H4, section 4a),
+  statics of the top winner's product. Fewer winner projects than asked (unmatched winners): storyboard projects of
+  that product fill the batch (`plan.json` `fill`, a warning; `--no-fill` turns it off). A brief that can't be read
+  or matches no winner: all bank winners in `clip_bank.json` order (`winners_source` "fallback", said in the reply).
+  Upload: Drive `Outputs/Winners/<date> – <name>`; specs `pipeline/recipes/winners/<date>/<name>` (`projects.
+  sent_openings` reads them too: openings already delivered are warned about).
+- **New products:** `--new-product "<folder>"` (or `next`: the newest folder with no ads yet; `--new-product` alone
+  implies `--pipeline new-product`). `new_product.ensure()` makes the product file from the Drive folder only
+  (photos sorted faceless first, cleanest first, into packshot / worn / detail / other, `"statics": false` for a worn
+  photo that may show part of a head; clips; every notes file, PDF via pdftotext or pypdf; up to 7 features; the
+  site never), reuses it while the folder is unchanged, redoes an untouched file (auto, or an intake draft) when
+  the folder changes. Ready + `"auto": true` when `check` passes: no human step. Photo picks are `["photo", "P<n>"]`
+  (= `photos[n]`, the P numbers of `overview.jpg`). Its claims rest on its notes alone (`compliance.drive_only`: no
+  store-wide free shipping, no libracases.com line unless the notes say it). Upload: Drive
+  `Outputs/New Products/<date> – <name>`, and the batch is appended to the product file's `"tests"` (commit it with
+  the specs in `pipeline/recipes/new_products/<date>/<name>`); the next plan of it uses `--seed` 1 + its tests, so
+  "more ads for the Silhouette Bag" gives other statics and hooks. Product file schema:
+  `pipeline/data/products/README.md`.
+- **Fit framing** (`recut.py`): a product file's own photos and clips that are not 9:16 are shown whole: `"fit":
+  "auto"` picks `pad` (flat colour from the source's own top / bottom border, seamless on a white or gradient
+  studio backdrop) when the border is uniform and light, else `blur` (the picture filled, blurred, darkened behind
+  it; lifted instead when the border is dark, so it never reads as a black bar). The frame is never scaled past 1080 wide (800 px photos 1.35x instead of 2.4x), its centre at `fit_y` 0.42,
+  and its zoom really punches in. A 9:16 source, built-in and `clip_bank` footage and winner RAWs are cropped as
+  before (byte-identical commands).
+- **Silhouette Bag test (2026-10-13):** 12 photos (P0-P4 packshots in 5 colours, P5 open bag with pocket labels =
+  `other`, P6 / P7 / P10 worn, P8 zipper and P9 leather corner = detail, P11 a face: never used; P7 and P10 show
+  part of a head: `"statics": false`), 1 clip (1080x1080, 33 s, blurred side bars baked in, so the bag fills about
+  half the width in fit), notes: $59.95 was $119.95 = 50% off, no gift, 5 colours, 7 bullets (all 7 kept since
+  the 2026-10-13 fixes; the old cap was 5). Plan: 20 statics + 5 projects (features, colours, showcase, lifestyle, offer),
+  22 voiceover lines (~7.7 credits), 0 site reads; videos plan at ~42-45 s (espeak test renders 47-49 s; with 5
+  features they were 37-39 s).

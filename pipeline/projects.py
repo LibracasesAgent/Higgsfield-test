@@ -10,20 +10,28 @@ hook label on screen. Statics are not touched.
       H1 = the planned spec, unchanged (renamed <prefix>_P01_H1_<angle>). H2..H4 = copies where only the hook differs:
         storyboard specs: blocks[0] (a new spoken hook from pipeline/data/hooks.json, voiced in the same voice as the
           planned hook, over another opening shot from the product's hook clips / B-roll / feature picks / photos, never
-          the planned hook's shot or block 1's first clip; a long line also gets a 'spare' 2nd shot, used only if its voice
-          runs past 4 s; the hook pad stays, so the line finishes before the body) and the block-0 label; every other
-          block, overlay, the offer
-          and the end card stay byte-identical, so the body voiceovers are shared (only P01H2_hook.mp3 ... are new);
+          the planned hook's shot or block 1's first clip, never a shot the body plays as a spare (that block would take
+          another: the body would change) and a shot the body shows at all only when nothing else is left; a long line
+          also gets a 'spare' 2nd shot the body never shows (none free: the same photo closer, CLOSER), used only if its
+          voice runs past 4 s; the hook pad stays, so the line finishes before the body) and the block-0 label; every
+          other block, overlay, the offer and the end card stay byte-identical, so the body voiceovers are shared (only
+          P01H2_hook.mp3 ... are new);
         remix specs (winner videos): another entry of clip_bank winner_raws[key].edit.cold_opens per hook
-          (its range + label + type; range null = no cold open, the RAW's own first line under that label); two cold
-          opens sharing words never go in one project; another project of the same winner (make_batch plans one only
-          when the RAW has --hooks more cold opens) takes openings the earlier one does not have; repeated hook types
-          and openings that already went out in a committed batch (pipeline/recipes/daily) are named in the warnings.
+          (its range + label + type; range null = no cold open, the RAW's own first line under that label; "variant":
+          "label" = a text-hook variant, another entry's opening under another label, for a RAW without 4 clean spoken
+          openings: taken after the real ones and named in the warnings, "H4 differs from H1 by its on-screen hook
+          only"); two cold opens sharing words never go in one project (a variant and its twin excepted); another
+          project of the same winner (make_batch plans one only when the RAW has --hooks more cold opens) takes
+          openings the earlier one does not have; repeated hook types and openings that already went out in a
+          committed batch (pipeline/recipes/daily and recipes/winners) are named in the warnings.
       4 hooks of different types per storyboard project (problem, curiosity, question, feature, offer, gift, travel,
       POV, story), theme hooks first (make_batch THEMES), then the product's lines (hooks.json, or a product file's own
-      "hooks" list and its feature lines), then generic ones; across the batch the least-used line comes first, and a
-      line said in another project gets another opening shot and label. A version with no honest line or no opening
-      shot left (thin products) is left out with a warning, never written for `check` to reject.
+      "hooks" list, POV / question lines made of its feature lines' own words (feature_hooks) and its feature lines),
+      then generic ones; across the batch the least-used line comes first, and a line said in another project gets
+      another opening shot and label; never a line the body says in its first 3 blocks, never two lines of one feature
+      in a project; a spoken hook in more than 2 versions of the batch is named in the warnings. A version with no
+      honest line or no opening shot left (thin products) is left out with a warning, never written for `check` to
+      reject.
       Writes the new spec files, plan.json (videos: one entry per hook with project/hook/hook_text/...; "projects"),
       tts_needed.json (+ the new hook lines, de-duplicated), est_credits. The plan as make_batch wrote it is kept in
       $OUT/_before_hooks/; a re-run builds from there (another --seed without re-planning). Everything is checked
@@ -39,8 +47,9 @@ hook label on screen. Statics are not touched.
       once (from H1, else the first rendered version: a redo --out has no H1), and how closely each body matches it.
   python3 pipeline/projects.py check --out $OUT [--build]
       Before render: H1..Hn differ only in the hook, bodies identical, hook texts/labels/shots distinct, hook types
-      distinct (storyboard), no new opening on block 1's shot, cold opens not overlapping (remix), overlay blocks valid, every source resolves, every voiceover is in tts_needed (or a
-      duplicate). --build also runs storyboard.build / remix.build on every spec (needs the voiceover mp3s) and checks the
+      distinct (storyboard), no new opening on block 1's shot, no hook shot the body plays as a spare (the rendered body
+      would differ), cold opens not overlapping (remix), overlay blocks valid, every source resolves, every voiceover is
+      in tts_needed (or a duplicate). --build also runs storyboard.build / remix.build on every spec (needs the voiceover mp3s) and checks the
       client's cadence and pacing rules: no piece of someone's speech starting/ending mid-sentence, no B-roll shot over
       MAX_SHOT s, no picture at all over MAX_VISUAL s without a cut (a customer's clip included), >= remix.PAUSE s after
       the hook line before the body, >= storyboard.CLIP_PAD s after a customer's last word before the narrator speaks
@@ -88,7 +97,10 @@ MAX_WORDS = 15                      # longest hook line (~5.5 s at make_batch.WP
 B1_SCENE = 8.0                      # an opener this close (s) to block 1's first shot in the same clip is the same scene
 OVERLAP = 0.3                       # two cold opens sharing more than this (s) of the RAW say the same words twice
 WRITTEN = "expanded.json"           # _before_hooks/expanded.json: md5 of every spec expand wrote (hand edits show up)
-RECIPES = os.path.join(HERE, "recipes", "daily")   # committed batches (make_batch.py specs): winner openings already out
+RECIPES = [os.path.join(HERE, "recipes", d) for d in ("daily", "winners")]   # committed batches (make_batch.py specs):
+#                                                     winner openings already out (catalog and winners pipelines)
+NEAR = 4.0                          # another vetted moment of a feature's clip this close (s) to its pick: that feature
+CLOSER = [1.2, 1.26]                # a long hook line on a photo with no free 2nd shot: the photo again, closer
 
 
 def mb():
@@ -230,7 +242,7 @@ class Ctx:
             labs += [x.upper() for x in (self.fill(lab) for lab in tl.get(typ, [])) if x and x.upper() not in labs]
             seen.add(loose)
             out.append(dict(text=text, type=typ, labels=labs, feature=e.get("feature"), formats=e.get("formats"),
-                            source=source, template=text_t, per_feature=bool(e.get("per_feature"))))
+                            source=source, template=text_t, per_feature=bool(e.get("per_feature")), base=e.get("base")))
         th = m.THEMES.get(self.theme) or m.THEMES["default"]
         for t in th.get("hooks") or []:
             add("theme", t, lib["theme_hooks"].get(t) or {})
@@ -242,6 +254,8 @@ class Ctx:
                 e = {"text": e} if isinstance(e, str) else e
                 if isinstance(e, dict) and isinstance(e.get("text"), str):
                     add("product", e["text"], e)
+            for typ, text, labels, tag, line in self.derived():   # POV / question lines of its own feature words
+                add("product", text, dict(type=typ, feature=tag, base=line), labels=labels)
         if self.theme != "default":
             for t in m.THEMES["default"].get("hooks") or []:
                 add("evergreen", t, lib["theme_hooks"].get(t) or {})
@@ -250,9 +264,20 @@ class Ctx:
                 add("generic", e["text"], e)
             elif pr["source"] != "built-in":     # built-ins have their own feature hooks
                 for line, tag, _ in pr["features"]:
-                    add("generic", e["text"].replace("{line}", line), dict(e, feature=tag),
+                    add("generic", e["text"].replace("{line}", line), dict(e, feature=tag, base=line),
                         labels=[x.replace("{TAG}", tag) for x in e.get("labels") or []])
         return out
+
+    def derived(self):
+        """feature_hooks() of a product file's features that pass the compliance check (only true claims: the lines
+        reuse the feature's own words, checked against the product's facts like every voiced line)."""
+        import compliance
+        pr = self.pr
+        got = feature_hooks(pr["features"])
+        if not got:
+            return []
+        cx = compliance.context(pr, offer=pr["_deal"])
+        return [g for g in got if not compliance.check([g[1]], ctx=cx) and self.honest(g[1])]
 
     def type_of(self, text, cands):
         """Type of a planned hook line: the library's (theme hooks as filled, or with the colours question added),
@@ -273,6 +298,7 @@ class Ctx:
     def shots(self):
         m, pr, b, out = mb(), self.pr, self.bank, self.out
         packs = [rel_to(out, f) for f in self.p.get("packshots") or [] if os.path.exists(f)]
+        pfile = {k: f for k, f in (self.p.get("photo_files") or {}).items() if os.path.exists(os.path.join(out, f))}
         file_clips = []
         if pr["source"] != "built-in":
             for i, c in enumerate(pr.get("clips") or []):
@@ -280,15 +306,20 @@ class Ctx:
                 if not (src and os.path.exists(src)):
                     src = os.path.join(out, "clips", f"{i:02d}_{m.safe_name(c.get('name', 'clip.mp4'))}")
                 file_clips.append(src if os.path.exists(src) else None)
+        fits = set(pfile.values()) | {c for c in file_clips if c}     # the product file's own media: "fit" as in the body
+
+        def fx(src):
+            return {"fit": m.FIT_CLIP if src in file_clips else "auto"} if src in fits else {}
 
         def resolve(pk):
             if not pk:
                 return None
-            if pk[0] == "photo":
-                return dict(src=packs[pk[1] % len(packs)], start=0, still=True) if packs else None
+            if pk[0] == "photo":          # ["photo", "P3"]: the product file's photos[3] (plan.json photo_files; a face: none)
+                f = pfile.get(pk[1].strip()) if isinstance(pk[1], str) else packs[pk[1] % len(packs)] if packs else None
+                return dict(src=f, start=0, still=True, **fx(f)) if f else None
             if pk[0] == "clip":
                 c = file_clips[pk[1]] if isinstance(pk[1], int) and 0 <= pk[1] < len(file_clips) else None
-                return dict(src=c, start=pk[2], still=False) if c else None
+                return dict(src=c, start=pk[2], still=False, **fx(c)) if c else None
             try:
                 src = b[pk[0]][pk[1]]["id"]
             except (KeyError, IndexError, TypeError):
@@ -322,14 +353,52 @@ class Ctx:
                     s = None
                 if s:
                     res.append(dict(s, kind=kind, tag=tag))
-                    if not s["still"]:
-                        more += [dict(s, start=g, kind="more", tag=tag) for g in good_of(pk, s) if abs(g - float(pk[2])) >= SAME_SHOT
-                                 and not talks(dict(s, start=g))]
+                    if not s["still"]:            # (of: the pick's moment, for a feature hook's NEAR footage)
+                        more += [dict(s, start=g, kind="more", tag=tag, of=float(pk[2])) for g in good_of(pk, s)
+                                 if abs(g - float(pk[2])) >= SAME_SHOT and not talks(dict(s, start=g))]
         for i, c in enumerate(file_clips):    # every product-file clip's proposed starts, also of clips no pick uses
             if c:
-                more += [dict(src=c, start=g, still=False, kind="more", tag=None) for g in pr["clips"][i].get("good") or []]
+                more += [dict(src=c, start=g, still=False, kind="more", tag=None, **fx(c))
+                         for g in pr["clips"][i].get("good") or []]
         # the other vetted moments of the same clips, then the packshots
-        return res + more + [dict(src=f, start=0, still=True, kind="photo", tag=None) for f in packs]
+        return res + more + [dict(src=f, start=0, still=True, kind="photo", tag=None, **fx(f)) for f in packs]
+
+
+OCCASION = re.compile(r"\b(?:bag|tote|purse|handbag|crossbody|clutch|enough|made|perfect|ideal|great|designed|built|"
+                      r"meant|ready) for ((?:[\w'-]+,? (?:and |or )?){0,4}?(?:nights?|days?|work|office|travel|trips?|weekends?|"
+                      r"evenings?|dinners?|errands|commutes?|brunch|events?|everyday|holidays?|vacations?|school)\b.*)$", re.I)
+ROOM = re.compile(r"^(?:plenty of |enough |lots of )?(?:room|space) for ((?:your|a|an|all) .+)$", re.I)
+FITS = re.compile(r"\b(fits|holds|carries) ((?:your|a|an|all) .+)$", re.I)
+
+
+def feature_hooks(features):
+    """More openings for a product file (its notes' feature lines), so a batch repeats fewer hooks: [(type, text,
+    labels, tag, line)], POV and question lines made only of the line's own words plus a framing that claims nothing
+    more: a contents line ('Room for your phone, wallet, keys ...', '... fits your laptop ...') -> 'Need room for your
+    phone, wallet, keys ...?' / 'POV: one bag with room for ...'; an occasion line ('... bag for nights out, office days
+    ...') -> 'POV: one bag for nights out, office days ...' / 'Need a bag for ...?'. Other lines give none."""
+    out = []
+    for f in features or []:
+        line, tag = f[0], f[1]
+        s = re.sub(r"^(?:first|and|plus|also|then|finally|next|inside)\b,?\s+", "", (line or "").strip(), flags=re.I)
+        s = s.rstrip(" .!")
+        if not s or re.search(r"[\[\]{}?:;!\"]|\.\s", s):    # one plain statement only
+            continue
+        m, fm, om = ROOM.match(s), FITS.search(s), OCCASION.search(s)
+        if m:
+            x = m.group(1)
+            got = [("question", f"Need room for {x}?", [f"{tag}?"]), ("POV", f"POV: one bag with room for {x}.", ["POV", tag])]
+        elif fm:
+            v, x = fm.group(1).lower(), fm.group(2)
+            got = [("question", f"Need a bag that {v} {x}?", [f"{tag}?"]),
+                   ("POV", f"POV: one bag that {v} {x}.", ["POV", tag])]
+        elif om:
+            x = om.group(1)
+            got = [("POV", f"POV: one bag for {x}.", ["POV", tag]), ("question", f"Need a bag for {x}?", [f"{tag}?"])]
+        else:
+            got = []
+        out += [(typ, t, labs, tag, line) for typ, t, labs in got]
+    return out
 
 
 def parse_offer(s):
@@ -363,27 +432,40 @@ def first_shot(blk):
 
 
 def body_shots(blocks):
+    """Every shot the body may show: each block's B-roll, its spare shots (storyboard plays them when the voice runs
+    long) and its clip."""
     s = []
     for blk in blocks:
-        s += [(x[0], x[1]) for x in blk.get("broll") or []]
+        s += [(x[0], x[1]) for x in (blk.get("broll") or []) + (blk.get("spare") or [])]
         if blk.get("clip"):
             s.append((blk["clip"], blk["range"][0]))
     return s
 
 
+def body_spares(blocks, spec=None):
+    """The shots the body plays only as spares (block spares, the board's spare_broll): a hook opening on one changes
+    the body (storyboard never repeats a shot, so that block takes another spare)."""
+    return [(x[0], x[1]) for blk in blocks for x in blk.get("spare") or []] + \
+        [(x[0], x[1]) for x in (spec or {}).get("spare_broll") or []]
+
+
 # ---------------------------------------------------------------- hook choice
 def pick_hooks(ctx, cands, h1, n, fmt, k, uses, line_labels, said_b1, body_said):
     """n-1 new hooks for one project: types other than H1's and each other's, the least-used lines of the batch first
-    (uses: line -> versions saying it so far; a generic line on a built-in bag counts one more), and a label this line
-    has not had elsewhere in the batch when it has another (line_labels). Never block 1's own line (said_b1); other
-    body lines only when they are a product file's feature lines (repeating a feature 10 s later is normal)."""
+    (uses: line -> versions saying it so far; a generic line on a built-in bag counts one more, a line of a feature half
+    the versions that opened on that feature in any words: "@<line>"), and a label this line has not had elsewhere in
+    the batch when it has another (line_labels). Never a line the body says in its first
+    blocks (said_b1: about 12 s, nor a POV / question line made of one: its 'base'); other body lines only when they
+    are a product file's feature lines (repeating a feature 15 s later is normal); never two lines of one feature in
+    one project."""
     lib = ctx.lib
     pref = lib["theme_prefs"].get(ctx.theme) or lib["theme_prefs"]["default"]
     prefer = list(pref["prefer"]) + [t for t in TYPES if t not in pref["prefer"]]
     prefer = rot(prefer, 2 * k)                       # other types first in later projects / other seeds
     avoid = set(pref.get("avoid") or [])
     pool = [c for c in cands if (not c.get("formats") or fmt in c["formats"]) and c["type"] not in avoid
-            and norm(c["text"]) not in said_b1 and (c.get("per_feature") or norm(c["text"]) not in body_said)
+            and norm(c["text"]) not in said_b1 and not (c.get("base") and norm(c["base"]) in said_b1)
+            and (c.get("per_feature") or norm(c["text"]) not in body_said)
             and len(spoken(c["text"], fmt).split()) <= MAX_WORDS]           # a hook is 2-5 s
     order = rot([c for c in pool if c["source"] == "theme"], k)
     for t in prefer:
@@ -391,14 +473,16 @@ def pick_hooks(ctx, cands, h1, n, fmt, k, uses, line_labels, said_b1, body_said)
             order += rot([c for c in pool if c["source"] == src and c["type"] == t], k)
     builtin = ctx.pr["source"] == "built-in"
 
-    def tier(c):
-        return uses.get(norm(c["text"]), 0) + (1 if builtin and c["source"] == "generic" else 0)
+    def tier(c):                                      # (+ half the openings its feature had in other words)
+        return uses.get(norm(c["text"]), 0) + (1 if builtin and c["source"] == "generic" else 0) + \
+            (uses.get("@" + norm(c["base"]), 0) // 2 if c.get("base") else 0)
     types, texts, labels, res = {h1["type"]}, {norm(h1["text"])}, {h1["label"].upper()}, []
     for t_max in range(max(map(tier, pool), default=0) + 1):
         for c in order:
             if len(res) >= n - 1:
                 break
-            if c["type"] in types or norm(c["text"]) in texts or tier(c) > t_max:
+            if c["type"] in types or norm(c["text"]) in texts or tier(c) > t_max or \
+                    (c.get("base") and norm(c["base"]) in texts):
                 continue
             had = line_labels.get(norm(c["text"])) or set()
             lab = (next((x for x in c["labels"] if x not in labels and x not in had), None) or
@@ -407,7 +491,7 @@ def pick_hooks(ctx, cands, h1, n, fmt, k, uses, line_labels, said_b1, body_said)
                 continue
             res.append(dict(c, label=lab))
             types.add(c["type"])
-            texts.add(norm(c["text"]))
+            texts |= {norm(c["text"]), norm(c.get("base"))} - {""}
             labels.add(lab)
     return res
 
@@ -417,18 +501,24 @@ def spoken(text, fmt):
     return text if fmt != "colours" or "colour" in text.lower() else f"{text} {COLOUR_Q}"
 
 
-def pick_shot(shots, hook, orig, b1, taken, body, k, avoid=(), scenes=()):
+def pick_shot(shots, hook, orig, b1, taken, body, k, avoid=(), scenes=(), spares=(), strict=False):
     """Opening shot for a new hook: the hook's feature footage when it can, else the product's hook clips, B-roll,
     feature picks, the other vetted moments of those clips, packshots (rotated by k). Never the planned hook's shot,
     never block 1's first shot (same clip within B1_SCENE s), never a shot another version of this project opens on:
     None when only those are left (the version is left out, as `check` would refuse it). Never a shot the body shows
-    again while another is left (make_batch's rule: no shot twice in one ad), no moment of a clip the body plays as a
-    scene of its own (scenes: its clip blocks, e.g. a customer's testimony; opening on it gives her away before her
-    label) while another is left, and not a shot this line already opens on in another project of the batch (avoid) while another
-    is left. Then ranked: a clip no other version opens on > another moment of a used clip > a still; then the feature
-    match; then a clip the body does not use at all."""
-    hint = [s for s in shots if hook.get("feature") and s["tag"] == hook["feature"]]
-    order = hint + [x for kind in ("hook", "broll", "feature", "more", "photo") for x in rot([s for s in shots if s["kind"] == kind], k)]
+    (body: its B-roll, spares, clips; make_batch's rule: no shot twice in one ad) while another is left, and then only
+    one its B-roll shows anyway, never one it plays as a spare (spares: the body would change); strict (a hook's 2nd
+    shot): never a body shot at all. No moment of a clip the body plays as a scene of its own (scenes: its clip blocks,
+    e.g. a customer's testimony; opening on it gives her away before her label) while another is left, and not a shot
+    this line already opens on in another project of the batch (avoid) while another is left. Then ranked: the hook's
+    feature footage (its own picks, then another vetted moment of the same clip within NEAR s) > a clip no other version
+    opens on > another moment of a used clip > a still; then a clip the body does not use at all."""
+    feat = hook.get("feature")
+    own = [s for s in shots if feat and s["tag"] == feat and s["kind"] != "more"]
+    near = [s for s in shots if feat and s["tag"] == feat and s["kind"] == "more" and s.get("of") is not None
+            and abs(float(s["start"]) - s["of"]) <= NEAR]
+    order = own + near + [x for kind in ("hook", "broll", "feature", "more", "photo")
+                          for x in rot([s for s in shots if s["kind"] == kind], k)]
     seen, cands = set(), []
     for s in order:
         key = (s["src"], round(float(s["start"]), 1))
@@ -438,18 +528,25 @@ def pick_shot(shots, hook, orig, b1, taken, body, k, avoid=(), scenes=()):
     base = [s for s in cands if not (orig and same_shot(s, orig[0], orig[1])) and not any(same_shot(s, t[0], t[1]) for t in taken)]
     near_b1 = (lambda s: b1 and s["src"] == b1[0] and (s.get("still") or abs(float(s["start"]) - float(b1[1] or 0)) < B1_SCENE))
     ok = [s for s in base if not near_b1(s)]
+    shown = (lambda s, xs: any(same_shot(s, a, st) for a, st in xs))
+    free = [s for s in ok if not shown(s, body)]
+    ok = free if strict else free or [s for s in ok if not shown(s, spares)]
     if not ok:
         return None
-    ok = [s for s in ok if not any(same_shot(s, a, st) for a, st in body)] or ok
     ok = [s for s in ok if s["src"] not in scenes] or ok
-    ok = [s for s in ok if not any(same_shot(s, a, st) for a, st in avoid)] or ok
+    ok = [s for s in ok if not shown(s, avoid)] or ok
+    keys = {(s["src"], round(float(s["start"]), 1)) for s in own}, {(s["src"], round(float(s["start"]), 1)) for s in near}
 
     def score(i, s):
+        key = (s["src"], round(float(s["start"]), 1))
+        hint = 2 if key in keys[0] else 1 if key in keys[1] else 0
         tier = 0 if s.get("still") else 1 if (orig and s["src"] == orig[0]) or any(s["src"] == t[0] for t in taken) else 2
         fine = -0.3 if any(s["src"] == a for a, _ in body) else 0
-        return (tier, s in hint, fine - 0.5 * (s["kind"] == "more"), -i)
+        return (hint, tier, fine - 0.5 * (s["kind"] == "more"), -i)
     best = max(enumerate(ok), key=lambda x: score(*x))[1]
-    return [best["src"], 0, 1.0, {"zoom": [1.0, 1.06]}] if best.get("still") else [best["src"], best["start"], 1.0]
+    fit = {"fit": best["fit"]} if best.get("fit") else {}     # a product-file photo / clip: framed whole, as in the body
+    return [best["src"], 0, 1.0, dict({"zoom": [1.0, 1.06]}, **fit)] if best.get("still") else \
+        [best["src"], best["start"], 1.0] + ([fit] if fit else [])
 
 
 # ---------------------------------------------------------------- remix (winner) hooks
@@ -486,7 +583,8 @@ def cold_open_options(key, spec):
             line = raw_first_line(key, spec) or line
         typ = c.get("type") if c.get("type") in TYPES else classify(f"{line} {c.get('label') or ''}".strip())
         opts.append(dict(range=r, label=c.get("label") or "", text=line, type=typ,   # type: the editor's (winner_prep)
-                         **({"medical": True} if c.get("medical") else {})))
+                         **({"medical": True} if c.get("medical") else {}),
+                         **({"variant": c["variant"]} if c.get("variant") else {})))   # "label": a text-hook variant
     return opts
 
 
@@ -496,30 +594,32 @@ def same_opening(a, b):
 
 
 def sent_openings(root=None):
-    """Winner openings already delivered: every remix spec in the committed batches under pipeline/recipes/daily
-    (make_batch.py specs) -> {winner key: [(range, LABEL, date)]}. A spec names its RAW by Drive id (winner_raws[key].id)
-    or, in older batches, by file name (raw94_H4.mp4); the date is the batch folder's."""
-    root = root or RECIPES
+    """Winner openings already delivered: every remix spec in the committed batches under pipeline/recipes/daily and
+    pipeline/recipes/winners (make_batch.py specs; root: one folder or a list) -> {winner key: [(range, LABEL, date)]}.
+    A spec names its RAW by Drive id (winner_raws[key].id) or, in older batches, by file name (raw94_H4.mp4); the date
+    is the batch folder's (the first folder under its root)."""
+    roots = [root] if isinstance(root, str) else list(root or RECIPES)
     raws = (load_json(BANK, {}) or {}).get("winner_raws", {})
     by = {}
     for k, e in raws.items():
         if isinstance(e, dict):
             by[str(e.get("id"))], by[k] = k, k
     res = {}
-    for dp, _, fs in os.walk(root):
-        for f in sorted(fs):
-            if not f.endswith(".json"):
-                continue
-            try:
-                s = json.load(open(os.path.join(dp, f)))
-            except (OSError, ValueError):
-                continue
-            if not isinstance(s, dict) or "raw" not in s:
-                continue
-            key = by.get(str(s["raw"])) or by.get(os.path.splitext(os.path.basename(str(s["raw"])))[0])
-            if key:
-                date = os.path.relpath(dp, root).split(os.sep)[0]
-                res.setdefault(key, []).append((s.get("cold_open"), (s.get("hook_label") or "").upper(), date))
+    for r in roots:
+        for dp, _, fs in os.walk(r):
+            for f in sorted(fs):
+                if not f.endswith(".json"):
+                    continue
+                try:
+                    s = json.load(open(os.path.join(dp, f)))
+                except (OSError, ValueError):
+                    continue
+                if not isinstance(s, dict) or "raw" not in s:
+                    continue
+                key = by.get(str(s["raw"])) or by.get(os.path.splitext(os.path.basename(str(s["raw"])))[0])
+                if key:
+                    date = os.path.relpath(dp, r).split(os.sep)[0]
+                    res.setdefault(key, []).append((s.get("cold_open"), (s.get("hook_label") or "").upper(), date))
     return res
 
 
@@ -606,6 +706,8 @@ def expand(out, hooks=4, seed=1, only=None, budget=None, quiet=False):
     budget: then nothing is written and an earlier expansion of this --out stays as it was."""
     out = os.path.abspath(out)
     src, p, cur = source(out)
+    if hasattr(mb(), "use_products_dir"):      # a product file outside pipeline/data/products (--products-dir)
+        mb().use_products_dir(p)
     tts = load_json(os.path.join(src, "tts_needed.json"), [])
     warnings = []
     ctx = Ctx(out, p, tts, warnings)
@@ -618,18 +720,22 @@ def expand(out, hooks=4, seed=1, only=None, budget=None, quiet=False):
     # batch-wide: how often each line opens a version, the labels and opening shots it had (the planned H1s count)
     uses, line_labels, line_shots = {}, {}, {}
 
-    def note_use(text, label, shot):
+    def note_use(text, label, shot, base=None):
         t = norm(text)
         uses[t] = uses.get(t, 0) + 1
+        if base:                                # "@<feature line>": openings made of one feature, in any words
+            uses["@" + norm(base)] = uses.get("@" + norm(base), 0) + 1
         line_labels.setdefault(t, set()).add((label or "").upper())
         if shot:
             line_shots.setdefault(t, []).append(shot_key(shot))
+    flines = {norm(f[0]): f[0] for f in ctx.pr["features"]} if sb else {}
     for v in sb:
         bl = specs[v["name"]].get("blocks") or []
         if bl and bl[0].get("vo"):
             lab = next((o.get("text") for o in specs[v["name"]].get("overlays") or []
                         if o.get("block") == 0 and o.get("type") == "label"), "")
-            note_use(ctx.text_of(bl[0]["vo"]), lab, first_shot(bl[0]) if bl[0].get("broll") else None)
+            t0 = ctx.text_of(bl[0]["vo"])
+            note_use(t0, lab, first_shot(bl[0]) if bl[0].get("broll") else None, flines.get(norm(t0)))
     uniq = {(t["text"], t["voice_type"], t["voice_id"]): t["file"] for t in tts}
     new_tts, new_dupes, new_specs, entries, projects, said_new = [], {}, {}, [], [], {}
     renames = []
@@ -668,14 +774,15 @@ def expand(out, hooks=4, seed=1, only=None, budget=None, quiet=False):
             rest.sort(key=lambda o: (bool(o.get("medical")), bool(out_before(o))))   # a medical story opening last
             # (Julian's health rule), then the openings not delivered in an earlier batch first
             chosen, types = [], {h1["type"]}
-            for strict in (True, False):              # different hook types first, then whatever is left
-                for o in rest:
+            for strict in (2, 1, 0):                  # different hook types first, then the other real openings, then
+                for o in rest:                        # a text-hook variant (the same opening under another label)
                     if len(chosen) >= n - 1:
                         break
-                    if o in chosen or (strict and o["type"] in types):
+                    if o in chosen or (strict and o.get("variant")) or (strict == 2 and o["type"] in types):
                         continue
-                    if any(overlap(o["range"], x["range"]) > OVERLAP for x in [h1] + chosen):
-                        continue                      # the same words twice in one project
+                    if any(overlap(o["range"], x["range"]) > OVERLAP and not (
+                            (o.get("variant") or x.get("variant")) and o["range"] == x["range"]) for x in [h1] + chosen):
+                        continue                      # the same words twice in one project (a text-hook variant's twin: ok)
                     chosen.append(o)
                     types.add(o["type"])
             who = w.get("brief_name") or key
@@ -690,6 +797,13 @@ def expand(out, hooks=4, seed=1, only=None, budget=None, quiet=False):
             if len(chosen) < n - 1:
                 warnings.append(f"{pid} ({who}): only {len(chosen) + 1} different cold opens in clip_bank winner_raws: "
                                 f"{len(chosen) + 1} hook versions (add cold opens to make {n})")
+            vs = [h1] + chosen
+            for j, o in enumerate(vs):                # a text-hook variant: same opening as another version, new label
+                twin = next((f"H{i + 1}" for i, x in enumerate(vs[:j]) if x["range"] == o["range"]), None)
+                if twin:
+                    warnings.append(f"{pid} ({who}): H{j + 1} differs from {twin} by its on-screen hook only (label "
+                                    f"{o['label']!r} over the same opening: " + (f"cold open {o['range'][0]}-{o['range'][1]}"
+                                    if o["range"] else "the RAW from the top") + f"): {key} has no other clean spoken opening")
             ts = [o["type"] for o in [h1] + chosen]
             if len(set(ts)) < len(ts):
                 same_types.append(f"{pid} {who} " + "+".join(f"{t_}x{ts.count(t_)}" if ts.count(t_) > 1 else t_
@@ -728,16 +842,18 @@ def expand(out, hooks=4, seed=1, only=None, budget=None, quiet=False):
                              voice_id=item.get("voice_id") or mb().BRAND_VOICE["voice_id"])
                 fmt = v.get("format") or ""
                 said = [norm(ctx.text_of(b_.get("vo"))) for b_ in blocks[1:] if b_.get("vo")]
-                said_b1 = set(said[:1]) if len(blocks) > 1 and blocks[1].get("vo") else set()
+                # never a line the body says in its first 3 blocks (~12 s): the same words twice in a few seconds
+                said_b1 = {norm(ctx.text_of(b_["vo"])) for b_ in blocks[1:4] if b_.get("vo")} - {""}
                 picked = pick_hooks(ctx, cands, h1, n, fmt, kk, uses, line_labels, said_b1, set(said))
                 b1 = first_shot(blocks[1]) if len(blocks) > 1 else None
                 taken, got = [], {}
-                body = body_shots(blocks[1:]) + [(x[0], x[1]) for x in spec.get("spare_broll") or []]   # (spares: maybe)
+                spares = body_spares(blocks[1:], spec)        # (a hook opening on one would change the body)
+                body = body_shots(blocks[1:]) + [(x[0], x[1]) for x in spec.get("spare_broll") or []]
                 scenes = {b_["clip"] for b_ in blocks[1:] if b_.get("clip")}    # clips the body plays as scenes
                 hinted = {j for j, c in enumerate(picked) if c.get("feature") and any(x["tag"] == c["feature"] for x in shots)}
                 for j in sorted(range(len(picked)), key=lambda j: (j not in hinted, j)):   # feature hooks choose first
                     got[j] = pick_shot(shots, picked[j], orig, b1, taken, body, kk + j, line_shots.get(norm(picked[j]["text"]), ()),
-                                       scenes)
+                                       scenes, spares)
                     if got[j]:
                         taken.append(got[j][:2])
                 lost = [c["text"] for j, c in enumerate(picked) if not got[j]]
@@ -760,14 +876,18 @@ def expand(out, hooks=4, seed=1, only=None, budget=None, quiet=False):
                     else:
                         uniq[kt] = f
                         new_tts.append(dict(file=f, text=text, **voice))
-                    note_use(c["text"], c["label"], shot)
+                    note_use(c["text"], c["label"], shot, c.get("base"))
                     s = copy.deepcopy(spec)
                     s["blocks"][0] = dict(vo=f, broll=[shot], pad=blocks[0].get("pad", 0.35))
                     if say_secs(text) + 0.35 > MAX_SHOT - 0.7:   # a 2nd opening shot, used only if the voice runs > 4 s
-                        sp = pick_shot(shots, c, orig, b1, taken + [shot[:2]], body, kk + j + 5,
-                                       line_shots.get(norm(c["text"]), ()), scenes)
-                        if sp and not same_shot(dict(src=sp[0], start=sp[1], still=len(sp) > 3), shot[0], shot[1]):
+                        sp = pick_shot(shots, c, orig, b1, taken + [shot[:2]], body, kk + j + 5,     # (no body shot:
+                                       line_shots.get(norm(c["text"]), ()), scenes, spares, strict=True)   # none rather)
+                        if sp and not same_shot(dict(src=sp[0], start=sp[1], still=str(sp[0]).lower().endswith(STILL)),
+                                                shot[0], shot[1]):
                             s["blocks"][0]["spare"] = [sp]
+                        elif str(shot[0]).lower().endswith(STILL):   # no free 2nd shot: the same photo closer (a
+                            ex = dict(shot[3]) if len(shot) > 3 else {}   # punch-in reads as a cut; a clip has its own)
+                            s["blocks"][0]["spare"] = [[shot[0], shot[1], 1.0, dict(ex, zoom=CLOSER)]]
                     if lab_i is not None:
                         s["overlays"][lab_i] = dict(s["overlays"][lab_i], text=c["label"])
                     else:
@@ -828,13 +948,23 @@ def expand(out, hooks=4, seed=1, only=None, budget=None, quiet=False):
     if only:                                  # the warnings about projects this redo leaves out go too
         warnings[:] = [w_ for w_ in warnings if not re.match(r"P\d+\b", w_) or re.match(r"P\d+", w_).group(0) in kept_h]
     same_types = [x for x in same_types if x.split()[0] in kept_h]
+    by_line = {}                              # one spoken hook in more than 2 versions of the batch: say so
+    for pr_ in projects:
+        for h in pr_["hooks"] if pr_["engine"] != "remix" else []:
+            t_ = re.sub(r"\s*" + re.escape(COLOUR_Q) + r"$", "", h["hook_text"] or "").strip()
+            by_line.setdefault(norm(t_), [t_]).append(pr_["id"] + h["hook"])
+    for v_ in by_line.values():
+        if len(v_) > 3:
+            warnings.append(f"the spoken hook \"{v_[0]}\" opens {len(v_) - 1} versions of this batch ({', '.join(v_[1:])}): "
+                            f"few different hook lines for {ctx.pr['name']} (more: the product file's 'hooks' list, or "
+                            f"--lines P01_hook ...)")
     if same_types:
         warnings.append(f"winner projects whose versions repeat a hook type (the versions differ in the opening line and "
                         f"label): {'; '.join(same_types)}")
     gone = [(pid_, who_, [(h, d) for h, d in hs if h in kept_h.get(pid_, ())]) for pid_, who_, hs in went_out]
     gone = [f"{pid_} {who_} {', '.join(h for h, _ in hs)} ({', '.join(sorted({d for _, d in hs}))})" for pid_, who_, hs in gone if hs]
     if gone:
-        warnings.append(f"winner versions that open like ads already delivered (pipeline/recipes/daily): {'; '.join(gone)}: "
+        warnings.append(f"winner versions that open like ads already delivered (pipeline/recipes): {'; '.join(gone)}: "
                         f"they differ from those ads only in the offer card and end card (and the review section those had); "
                         f"new openings need new cold opens (python3 pipeline/winner_prep.py)")
     for pid_, who_, key_, n_ in all_used if only else []:
@@ -1028,7 +1158,8 @@ def check(out, build=False):
                 probs.append("two versions use the same cold open")
             for i, h in enumerate(hs):
                 for g in hs[:i]:
-                    if overlap(h.get("cold_open"), g.get("cold_open")) > OVERLAP:
+                    same = h.get("cold_open") == g.get("cold_open")   # a text-hook variant (expand pairs only those)
+                    if not same and overlap(h.get("cold_open"), g.get("cold_open")) > OVERLAP:
                         probs.append(f"{h['hook']} cold open {h['cold_open']} overlaps {g['hook']} {g['cold_open']} by "
                                      f"{overlap(h['cold_open'], g['cold_open']):.2f} s: the same words in two versions")
             if len({h["type"] for h in hs}) < len(hs):
@@ -1046,10 +1177,18 @@ def check(out, build=False):
             for h in hs[1:]:
                 if h.get("shot") and b1 and h["shot"][0] == b1[0] and abs(float(h["shot"][1]) - float(b1[1] or 0)) < B1_SCENE:
                     probs.append(f"{h['hook']} opens on block 1's shot {shot_name(b1[0], bank)} @{b1[1]}")
-            for h in hs[1:]:
+            for h in hs:
                 s = sp.get(h["hook"]) or {}
-                if h.get("shot") and any(same_shot(dict(src=h["shot"][0], start=h["shot"][1], still=False), a, st)
-                                         for a, st in body_shots((s.get("blocks") or [])[1:])):
+                bl = s.get("blocks") or []
+                spr = body_spares(bl[1:], s)
+                for x in [x[:2] for x in (bl[0].get("broll") or []) + (bl[0].get("spare") or [])] if bl else []:
+                    if any(same_shot(dict(src=x[0], start=x[1], still=False), a, st) for a, st in spr):
+                        probs.append(f"{h['hook']}'s hook shows {shot_name(x[0], bank)} @{x[1]}, a shot its body plays as a "
+                                     f"spare: that block would take another shot, so the body would differ from the other "
+                                     f"versions' (pick another hook shot)")
+                if h["hook"] != "H1" and h.get("shot") and any(
+                        same_shot(dict(src=h["shot"][0], start=h["shot"][1], still=False), a, st)
+                        for blk in bl[1:] for a, st in [(y[0], y[1]) for y in blk.get("broll") or []]):
                     info.append(f"{h['hook']} opens on a shot its body shows again ({shot_name(h['shot'][0], bank)} "
                                 f"@{h['shot'][1]}): no other shot was left")
         res = dict(project=pr["id"], angle=pr["angle"], versions=len(hs), problems=probs, notes=info)
@@ -1168,9 +1307,25 @@ def grab(f, t, w, h):
 
 
 def hook_end(out, s):
-    """Where the body starts in a version: after the cold open (remix) or the hook block (storyboard)."""
+    """Where the body starts in a version: after the cold open and the beat remix.build holds after it when its last word
+    ends less than remix.PAUSE s before the body's first (remix), or after the hook block (storyboard)."""
     if "raw" in s:
-        return co_len(s.get("cold_open"))
+        r = s.get("cold_open")
+        if not r:
+            return 0.0
+        import remix
+        ws, body = remix.committed(str(s["raw"])) or [], remix.body_pieces(s, s.get("end") or 1e9)
+        got = remix.spoken_in(ws, *r)
+        if not got or not body:
+            return co_len(r)
+        tail, p0 = max(r[1] - ws[got[-1]]["e"], 0.0), body[0]
+        if p0 == "REVIEWS":                   # (the narration's own mp3 lead-in gives ~0.1 s)
+            short = remix.PAUSE - 0.1 - tail
+        else:
+            g = remix.spoken_in(ws, *p0)
+            edit = any(abs(p0[0] - e) < 0.02 for _, e in remix.claim_ranges(s))
+            short = ((remix.PAUSE_EDIT if edit else remix.PAUSE) - tail - max(ws[g[0]]["s"] - p0[0], 0.0)) if g else 0
+        return co_len(r) + (round(max(short, 0.12), 2) if short > 0 else 0.0)
     f = os.path.join(out, s["blocks"][0]["vo"])
     return (ffdur(f) if os.path.exists(f) else 0.0) + s["blocks"][0].get("pad", s.get("pad", 0.25))
 

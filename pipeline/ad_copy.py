@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Meta ad copy (primary texts, headlines, description, CTA button) for every ad of a planned batch, written from the
 product's own data: its features, its real offer (the % and gift make_batch.py plan read from libracases.com), the site
-facts in $OUT/site, the theme and each ad's angle / hook. Template-based and deterministic (no LLM calls); --seed gives
-other picks. Every line passes compliance.check (no health / drug / political / religious / violent words, no profanity,
+facts in $OUT/site, the theme and each ad's angle / hook. A Drive-only new product (no libracases.com page) has only its
+folder's notes: no 'free US shipping' or 'on libracases.com' line unless the notes say it. Template-based and
+deterministic (no LLM calls); --seed gives other picks. Every line passes compliance.check (no health / drug / political / religious / violent words, no profanity,
 no number or claim the facts don't have, nothing beyond the real offer); a line that fails is replaced by the next
 template, and a field nothing compliant fits is left empty and reported (exit 1).
 
@@ -42,6 +43,8 @@ CTA_TYPE = {"Shop Now": "SHOP_NOW", "Get Offer": "GET_OFFER"}
 SALE_NAME = {"black friday": "Black Friday", "cyber monday": "Cyber Monday", "cyber week": "Cyber Week"}
 EMOJI = {"black friday": "🖤", "cyber monday": "⏰", "cyber week": "🛍️", "christmas": "🎁", "gift": "🎁",
          "mothers day": "💐", "travel": "✈️", "default": "👜"}
+SHIP = re.compile(r"free (?:us |u\.s\. )?(?:shipping|delivery)", re.I)
+SITE_LINE = "Tap the link to see the {short}."    # a Drive-only product's 'Shop the X on libracases.com.'
 EMOJI_RX = re.compile("[\U0001F300-\U0001FAFF\u2600-\u27BF\u2B50\u23F0-\u23FF]")
 DASHES = re.compile("[\u2013\u2014\u2015]")       # en / em dashes: never in our copy (the client)
 
@@ -154,10 +157,25 @@ class Product:
         pr["features"] = [f for f in pr["features"] if not (new_product.unbacked(f[0], self.pct, self.gift) or
                                                             new_product.unbacked(f[1], self.pct, self.gift))]
         self.pk, self.pr, self.theme = pk, pr, theme
-        self.facts = compliance.find_facts(out, pr.get("site"))
+        # a Drive-only new product: its folder's notes are the only source (no site page, no store-wide lines)
+        self.drive = compliance.drive_only(pr)
+        said = " ".join(str(x) for x in (pr.get("notes"), (pr.get("facts") or {}).get("description")) if x)
+        self.ship, self.store = (not self.drive or bool(SHIP.search(said)),
+                                 not self.drive or "libracases.com" in said.lower())
+        self.facts = {} if self.drive else compliance.find_facts(out, pr.get("site"))
         self.ctx = compliance.context(pr, offer=(self.pct, self.gift), facts=self.facts)
         self.v = self.vars()
         self.hooks = self.hook_pool()
+
+    def tpls(self, ts):
+        """The templates this product may use: a Drive-only product says free US shipping / libracases.com only when its
+        notes do ('Shop the X on libracases.com.' -> SITE_LINE); built-ins and site products: all of them."""
+        out = []
+        for t in ts:
+            if not self.ship and SHIP.search(t):
+                continue
+            out.append(SITE_LINE if not self.store and "libracases.com" in t.lower() else t)
+        return out
 
     def vars(self):
         v = dict(mb.offer_vars(self.pr))
@@ -308,10 +326,11 @@ def offer_lines(prod):
     v, th = prod.v, prod.theme
     if prod.pct:
         key = th if th in mb.SALE_THEMES else "gifting" if th in ("christmas", "gift", "mothers day") else "default"
-        return [x for x in (fill(t, v) for t in OFFER_LINE[key] + OFFER_LINE["default"]) if x]
+        return [x for x in (fill(t, v) for t in prod.tpls(OFFER_LINE[key] + OFFER_LINE["default"])) if x]
     if prod.gift:
-        return [x for x in (fill(t, v) for t in OFFER_LINE["gift_only"]) if x]
-    return [x for x in (fill(t, v) for t in OFFER_LINE["none"]) if x]
+        return [x for x in (fill(t, v) for t in prod.tpls(OFFER_LINE["gift_only"])) if x]
+    return [x for x in (fill(t, v) for t in prod.tpls(OFFER_LINE["none"])) if x] or \
+        [fill("Meet the {short}.", v)]          # (a Drive-only product with one colour and no offer)
 
 
 def cta_of(prod):
@@ -399,9 +418,10 @@ def copy_set(prod, w, gid, angle, k, tag_order=None, review_n=None, avoid_hooks=
 
     # short primary text: another opening + the product with its offer (2 lines, no emoji)
     if prod.pct:
-        shorts = [fill(t, v) for t in (SHORT_OFFER["sale"] if prod.theme in mb.SALE_THEMES else []) + SHORT_OFFER["default"]]
+        shorts = [fill(t, v) for t in prod.tpls((SHORT_OFFER["sale"] if prod.theme in mb.SALE_THEMES else []) +
+                                                SHORT_OFFER["default"])]
     else:
-        shorts = [fill(t, v) for t in SHORT_OFFER["gift_only" if prod.gift else "none"]]
+        shorts = [fill(t, v) for t in prod.tpls(SHORT_OFFER["gift_only" if prod.gift else "none"])]
     shorts = rot([s for s in shorts if s], num(w.seed, f"short{k}"))
     firsts1 = ([quote] if quote and opening(p2) != quote.lower() else []) + \
         w.fresh("opening", [h for h in hooks if h.lower() != opening(p2)])
@@ -432,9 +452,9 @@ def copy_set(prod, w, gid, angle, k, tag_order=None, review_n=None, avoid_hooks=
         (["gift_item"] if prod.gift and prod.theme in ("christmas", "gift", "mothers day") else []) + \
         (["colours"] if fam == "colours" else []) + (["offer"] if prod.pct else []) + \
         rot(["gift_item", "colours", "trust"], num(w.seed, f"d{k}"))
-    descs = [x for f in dfam for x in (fill(t, v) for t in DESCRIPTIONS[f]) if x]
-    d = w.pick("description", descs, prod, gid, fallback=[x for x in (fill(t, v) for t in DESCRIPTIONS["generic"]) if x],
-               avoid=[h1, h2])
+    descs = [x for f in dfam for x in (fill(t, v) for t in prod.tpls(DESCRIPTIONS[f])) if x]
+    d = w.pick("description", descs, prod, gid, fallback=[x for x in (fill(t, v) for t in prod.tpls(DESCRIPTIONS["generic"]))
+                                                          if x], avoid=[h1, h2])
     return dict(primary_text_1=p1, primary_text_2=p2, headline_1=h1, headline_2=h2, description=d, cta=cta,
                 cta_type=CTA_TYPE[cta])
 

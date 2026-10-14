@@ -16,6 +16,8 @@ winner_raws entry (pipeline/data/clip_bank.json) for Claude to review like an ed
      --write puts it into winner_raws (other entries untouched; a reviewed entry is never overwritten).
      Then review it: fix ranges/labels/types/insert point/cuts, set end_title, delete "draft" (edit the JSON).
      Burned-caption files: put every boundary on a caption change (look at the frames), not just the words.
+     Every winner project tests 4 hooks: give a RAW 4+ distinct cold opens (range + label). Only when it has no 4th clean
+     spoken opening (113-H2, 16 s): an existing opening under another label and type, marked "variant": "label".
 
   python3 pipeline/winner_prep.py --check [raw94_H4 ...]
           Verify entries against their transcripts: words inside every cold open, words around insert_at and
@@ -452,8 +454,12 @@ def check(key, e):
         if c.get("type") not in projects.TYPES:
             warn.append(f"cold open {c['label']!r}: type {c.get('type')!r} is not one of {', '.join(projects.TYPES)} "
                         f"(the hook type plan and the run report show for its version)")
+        if c.get("variant") and not any(d is not c and d.get("range") == r for d in ed.get("cold_opens", [])):
+            warn.append(f"cold open {c['label']!r} is marked a {c['variant']!r} variant, but no other cold open has its "
+                        f"opening {r} (a text-hook variant is another entry's opening under another label)")
         if r is None:
-            print(f"   cold open: none, label {c['label']!r} at 0.1 s [{c.get('type')}]")
+            print(f"   cold open: none, label {c['label']!r} at 0.1 s [{c.get('type')}]"
+                  + (f" ({c['variant']} variant)" if c.get("variant") else ""))
             continue
         got = " ".join(w["w"] for w in ws if w["s"] >= r[0] - 0.05 and w["e"] <= r[1] + 0.05)
         lv = level(r[0]) + level(r[1])

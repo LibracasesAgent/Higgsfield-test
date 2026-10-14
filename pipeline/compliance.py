@@ -26,6 +26,8 @@ What is ours and what is approved material:
   bought.', make_batch.third); a health claim or a gift the product no longer has is still a problem.
 - evidence for claims and numbers: the site facts ($OUT/site/<key>_facts.json), the PLAYBOOK section 1 row and offer
   bullet, the product's data (features, product-file facts). Our own hook lines (hooks.json) are checked, never evidence.
+  A Drive-only new product (a product file with no libracases.com page) has only its own file (the client's notes and
+  the features from them): no store-wide 'free US shipping' unless its notes say it.
 Drugs, politics, religion, blood/violence and profanity are problems whatever the source.
 
   python3 pipeline/compliance.py --out $OUT          after make_batch.py plan (and ad_copy.py): scans every spoken line
@@ -299,7 +301,8 @@ def parse_offer(o):
 def context(product=None, offer=None, facts=None, out=None, extra=()):
     """What the texts of one product may say: its real offer, its facts (corpus for claims) and the numbers in them.
     product: a key / name ('Hobo Bag', 'vintage', a product file) or a make_batch product dict; offer: see
-    parse_offer (default: the product's stored offer); facts: a site facts dict or file (default: $OUT/site)."""
+    parse_offer (default: the product's stored offer); facts: a site facts dict or file (default: $OUT/site). A
+    Drive-only product (drive_only()): only its product file (notes, features), never PLAYBOOK section 1 or $OUT/site."""
     import make_batch
     pr, files = None, {}
     if isinstance(product, dict):
@@ -310,11 +313,14 @@ def context(product=None, offer=None, facts=None, out=None, extra=()):
         pr = make_batch.product(pk, files) if pk else None
     if isinstance(facts, str):
         facts = json.load(open(facts)) if os.path.exists(facts) else {}
-    if facts is None and out and pr:
+    only = drive_only(pr)
+    if facts is None and out and pr and not only:
         facts = find_facts(out, pr.get("site"))
     facts = facts or {}
     deal = parse_offer(offer) if offer is not None else (make_batch.deal_of(pr["offer"]) if pr else None)
     rows, store = playbook()
+    if only:                  # the client's folder is the only source: no store-wide bullet (free US shipping), no row
+        rows, store = [], ""
     # evidence = the site, the PLAYBOOK row and the product's data (features, product-file facts); never our own hook
     # lines (hooks.json, a product file's 'hooks'): they are checked like any other line, they don't back themselves
     pf = (pr or {}).get("facts") or {}
@@ -339,7 +345,14 @@ def context(product=None, offer=None, facts=None, out=None, extra=()):
     if colours:
         nums.add(float(len(colours)))
     return dict(product=(pr or {}).get("name"), key=(pr or {}).get("key"), offer=deal, pct=pct, gift=gift,
-                corpus=corpus_text(prod, store), numbers=nums, colours=colours)
+                corpus=corpus_text(prod, store), numbers=nums, colours=colours, drive_only=only)
+
+
+def drive_only(pr):
+    """A product known only from the client's Drive folder (a product file with no libracases.com page: "site" null,
+    source.kind drive / local): its ads say only what its notes say, so PLAYBOOK's store-wide lines (free US shipping)
+    and the site are no evidence for it."""
+    return bool(pr) and pr.get("source") != "built-in" and not pr.get("site")
 
 
 _REV = []
@@ -765,10 +778,11 @@ def batch_items(out):
             if spec.get(k):
                 sink.append(dict(where=f"{vid} {k}", text=spec[k], source="ours"))
     cp = os.path.join(out, "ad_copy.csv")
-    if os.path.exists(cp):
-        raws = {x["id"]: raw_text((x.get("winner") or {}).get("key") or "") for x in p.get("projects") or []
-                if x.get("engine") == "remix"}
-        prods = {x["id"]: (x.get("winner") or {}).get("product") for x in p.get("projects") or []}
+    if os.path.exists(cp):           # placement groups as ad_copy.groups(): the projects, or (--hooks 1) each video
+        gs = p.get("projects") or [dict(id=v["id"], engine=v.get("engine", "storyboard"), winner=v.get("winner"))
+                                    for v in p.get("videos") or [] if v.get("id")]
+        raws = {x["id"]: raw_text((x.get("winner") or {}).get("key") or "") for x in gs if x.get("engine") == "remix"}
+        prods = {x["id"]: (x.get("winner") or {}).get("product") for x in gs}
         for r in csv.DictReader(open(cp, encoding="utf-8-sig")):
             g = r.get("placement_group") or ""
             prod = prods.get(g)

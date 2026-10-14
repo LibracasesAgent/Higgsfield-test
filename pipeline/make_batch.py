@@ -42,10 +42,10 @@ P01H1 .. P01H4, names LC_<date>_<Product>_<Theme>_P01_H1_<angle>. --hooks 1 = si
   3) python3 pipeline/make_batch.py render --out /tmp/run [--jobs 2] [--only P03 | P03H2 | V | S]
      (statics, then videos in parallel, + QA: qa/statics.jpg, one contact sheet per version qa/P01H1.jpg ..., one
      sheet per project qa/P01.jpg (its versions side by side, the body once, body match < 10 = same body), and
-     qa/report.json)
+     qa/report.json; a version whose body differs from H1's, body match 10+, is flagged there: still uploaded, listed)
   4) Claude looks at /tmp/run/qa/*.jpg; re-render (--only) or drop anything broken
   5) python3 pipeline/make_batch.py upload --out /tmp/run --name "Black Friday test" [--only S|V|P03|P03H2] [--include-flagged]
-     -> Drive Outputs/<date> – <name>/{Statics, Videos/<P01 – angle>/ (one folder per project)} + "run report <HHMM>.txt"
+     -> Drive Outputs/<plan date> – <name>/{Statics, Videos/<P01 – angle>/ (one folder per project)} + "run report <HHMM>.txt"
      (one block per project: each version's hook type, label, line and length) + <prefix>_ad_copy.csv (the copy rows of
      the ads in the folder); prints the folder link, the ad copy link and the ad list
      (only the files plan.json lists; hard QA failures stay out: render failed, file missing, a face in a static, a
@@ -58,11 +58,35 @@ A redo of a whole project: the same plan command with --seed <N+1> --rev 2 --onl
 P02's versions; with --hooks 1: --only V02). A redo of one version on the same body: the same plan command (same
 --seed) with --hook-seed <N+1> --rev 2 --only P02H3. --only V02 in project mode means P02.
 
+Pipelines (plan --pipeline, default catalog = the flags above as they are):
+  winners      the weekly brief's winners: winner projects (brief order, as --winner-videos; --projects N = N of them) +
+               statics of the winners' product. Fewer winner projects possible than asked (unmatched winners, a winner
+               gets one project per --hooks cold opens) -> the rest are new-angle storyboard projects of that product
+               ("fill", named in a warning; --no-fill: only the winner projects).
+  new-product  --new-product "<Drive New Products folder>" | next | latest: new_product.ensure() makes or reuses its
+               product file from the folder only (photos, clips, notes; never libracases.com), then plans it as
+               --product <key> (its own file even when the key is a built-in bag's); plan.json "intake" says what was
+               read. --refresh-product redoes the intake. A draft (problems) exits 2. --new-product alone implies this
+               pipeline. --seed defaults to 1 + the batches its product file records (not with --only), so another
+               batch of the product gets other statics and hooks; up to 7 feature lines make its videos ~40-60 s.
+               Its video projects take one angle each: features, colours, showcase (detail photos first), lifestyle
+               (worn photos first), offer; its packshots get the notes' colour names by shade (match_colours, only a
+               sure match) for the colours static and swatches.
+  No count given (none of --statics/--videos/--winner-videos/--projects) in winners / new-product, or --batch in any
+  pipeline: a BATCH = 20 statics + 5 projects x --hooks 4 = 20 videos (--batch fills only the counts not given).
+  winners: --videos N = --projects N (winner projects).
+  upload puts winners in Outputs/Winners/<date> – <name>, new products in Outputs/New Products/<date> – <name> (and
+  records the batch in the product file's "tests"), catalog in Outputs/<date> – <name>.
+Product-file photos are picked as ["photo", "P<n>"] (= its photos[n]; a face: skipped; "statics": false = part of a head:
+videos only); product-file photos and clips that are not 9:16 are framed whole ("fit": recut.py; under the close higher,
+fit_y CLOSE_FIT_Y) in the videos and their hook versions; built-in footage is cropped as before. A later session downloads a
+photo by its Drive id and converts it as the intake did (new_product.to_jpg).
+
 Optional --lines lines.json overrides headlines and spoken lines: hero, bold, colours, V03_hook / V03_close (video id;
 P03_hook / P03_close the same: the H1 line and the close every version shares) or B01_hook / B01_close (storyboard 1,
 whatever its number after the winner videos); unused keys are warned about.
-Offers come from libracases.com at plan time (each product's own %, a gift only when the site says so); names move to
-the first _vN that is not in Drive yet.
+Offers come from libracases.com at plan time (each product's own %, a gift only when the site says so; a product file
+with no site page: its own offer, from the client's notes); names move to the first _vN that is not in Drive yet.
 """
 import argparse
 import concurrent.futures as cf
@@ -89,6 +113,10 @@ MIN_SECONDS = 25   # a storyboard shorter than this is never made (35-95 s is th
 QA_SECONDS = {"storyboard": (35, 95), "remix": (15, 110),    # a winner body is as long as it is: RAW + cold open, no
               "story": (60, 130)}                             # padding (113-H2 runs ~18 s); never under the floor. story:
 FLOOR = {"storyboard": MIN_SECONDS, "remix": 15}                # the 1.5-2 min storytelling format (Julian, 2026-10-09)
+PIPELINES = ("catalog", "winners", "new-product")
+BATCH = dict(statics=20, projects=5)   # the owner (2026-10-13): no numbers = 20 statics + 5 projects x 4 hooks = 20 videos
+FIT_CLIP = "auto"   # product-file clips not shot 9:16: recut picks a flat backdrop (light studio border) or a blur
+CLOSE_FIT_Y = 0.30  # a framed square under the close: y 36-1116, above the end card band (1120-1510)
 STORY_WORDS = re.compile(r"\bstor(?:y|ies|ytelling)\b|\blong(?:er)?[- ](?:video|ad|form|version)s?\b|"
                          r"\b(?:1[.,]5|2|two)[- ]?min(?:ute)?s?\b", re.I)   # a request for the story format
 
@@ -299,6 +327,58 @@ DOTS = {"brown": [120, 66, 36], "black": [25, 25, 25], "blue": [40, 52, 90], "gr
         "burgundy": [96, 28, 44], "red": [170, 26, 36], "purple": [96, 28, 60], "chocolate": [70, 40, 30],
         "ginger": [176, 96, 40], "beige": [210, 190, 160], "apricot": [230, 170, 130], "white": [240, 236, 228],
         "pink": [222, 160, 160], "green": [70, 100, 70], "wine": [110, 30, 45]}
+COLOUR_REF = dict(DOTS, coffee=[78, 46, 34], espresso=[60, 40, 30], mocha=[110, 80, 60], cream=[236, 226, 206],
+                  ivory=[240, 234, 218], tan=[196, 150, 108], camel=[190, 140, 90], caramel=[180, 120, 70],
+                  cognac=[150, 75, 35], khaki=[180, 170, 130], navy=[30, 40, 70], taupe=[140, 125, 110],
+                  nude=[220, 185, 160], silver=[190, 190, 195], gold=[200, 165, 90], orange=[220, 110, 40],
+                  yellow=[230, 200, 70], olive=[110, 110, 60], rose=[210, 140, 150])   # (match_colours only)
+
+
+def lab(rgb):
+    """sRGB 0-255 -> CIELAB (D65): distances in it are what the eye sees."""
+    import numpy as np
+    c = np.asarray(rgb, float) / 255
+    c = np.where(c > 0.04045, ((c + 0.055) / 1.055) ** 2.4, c / 12.92)
+    x, y, z = np.array([[0.4124, 0.3576, 0.1805], [0.2126, 0.7152, 0.0722], [0.0193, 0.1192, 0.9505]]) @ c / [0.9505, 1.0, 1.089]
+    f = lambda t: t ** (1 / 3) if t > 0.008856 else 7.787 * t + 16 / 116  # noqa: E731
+    return np.array([116 * f(y) - 16, 500 * (f(x) - f(y)), 200 * (f(y) - f(z))])
+
+
+def bag_rgb(f):
+    """Median colour of the product in a studio packshot (pixels away from the backdrop of its top/bottom rows)."""
+    import numpy as np
+    from PIL import Image
+    a = np.asarray(Image.open(f).convert("RGB").resize((200, 200))).reshape(-1, 3).astype(float)
+    bg = np.median(np.concatenate([a[:200], a[-200:]]), axis=0)
+    m = a[np.abs(a - bg).max(axis=1) > 40]
+    return [int(x) for x in np.median(m, axis=0)] if len(m) > 800 else None
+
+
+def match_colours(files, names):
+    """Which packshot shows which colour the client's notes list: the one-to-one assignment with the smallest colour
+    distance (CIELAB). Only a sure one is used (every pair within 25, the next best assignment 10 worse), as [(name,
+    file, rgb)] in the notes' order; else ([], why). A colour name with no reference colour is not matched."""
+    def ref(n):
+        n = n.lower().strip()
+        return COLOUR_REF.get(n) or next((COLOUR_REF[w] for w in re.findall(r"[a-z]+", n) if w in COLOUR_REF), None)
+    names = [n for n in names if ref(n)][:8]
+    got = [(f, bag_rgb(f)) for f in files[:8]]
+    got = [(f, c) for f, c in got if c]
+    if len(names) < 2 or len(got) < 2:
+        return [], f"{len(got)} packshot(s), {len(names)} colour name(s) with a known shade"
+    D = [[float(sum((lab(c) - lab(ref(n))) ** 2) ** 0.5) for n in names] for _, c in got]
+    if len(got) <= len(names):        # every photo gets a name / every name a photo, whichever runs out first
+        cands = (tuple(zip(range(len(got)), ns)) for ns in itertools.permutations(range(len(names)), len(got)))
+    else:
+        cands = (tuple(zip(ps, range(len(names)))) for ps in itertools.permutations(range(len(got)), len(names)))
+    opts = sorted((sum(D[i][j] for i, j in pairs), pairs) for pairs in cands)
+    best = opts[0]
+    worst = max(D[i][j] for i, j in best[1])
+    margin = next((c - best[0] for c, _ in opts[1:] if c - best[0] > 1e-6), 99)
+    if worst > 25 or margin < 10:
+        return [], f"no sure match (worst pair {worst:.0f}, next assignment {margin:.0f} worse)"
+    by = {j: i for i, j in best[1]}
+    return [(names[j], got[by[j]][0], got[by[j]][1]) for j in range(len(names)) if j in by], ""
 
 
 def products_dir(a=None):
@@ -353,10 +433,11 @@ def pick_product(text, files=None):
 
 def product(pk, files, warnings=None):
     """Built-in product or a product file, in one shape. offer: the product-file offer block; built-ins get theirs
-    from resolve_offer() at plan time. Product files never carry reviews of other products or unbacked claims."""
+    from resolve_offer() at plan time. Product files never carry reviews of other products or unbacked claims.
+    A new-product plan's own file wins over a built-in bag of the same key ($LC_PRODUCT_FILE: a folder 'Hobo Bag')."""
     import new_product
     w = warnings if warnings is not None else []
-    if pk in PRODUCTS:
+    if pk in PRODUCTS and not (pk in files and os.environ.get("LC_PRODUCT_FILE") == pk):
         d = PRODUCTS[pk]["deal"]
         return dict(PRODUCTS[pk], key=pk, offer=builtin_offer(d["pct"], d.get("gift"), d), photos=[], clips=[],
                     source="built-in", status="ready", site_lifestyle=[])
@@ -742,6 +823,98 @@ def static_id(name):
     return re.findall(r"_(S\d+)_", name)[-1]
 
 
+# ---------------------------------------------------------------- pipelines
+def counts(a):
+    """The plan's numbers: a.statics, a.videos (storyboard projects), a.winner_videos (winner projects) and a.fill_to
+    (winners: the projects the batch keeps, storyboards filling what the winners can't). winners / new-product with no
+    count given, or --batch: a BATCH (--batch fills only the counts not given); else the counts given, missing ones 0
+    (catalog without --batch: exactly as before). --projects N = N projects of the pipeline's kind (winner projects in
+    winners, storyboards otherwise). Returns the size record for plan.json / the reply."""
+    pipe, keys = getattr(a, "pipeline", None) or "catalog", ("statics", "videos", "winner_videos", "projects")
+    given = {k for k in keys if getattr(a, k, None) is not None}
+    batch = bool(getattr(a, "batch", False)) or (pipe != "catalog" and not given)
+    n, notes = {k: max(getattr(a, k, None) or 0, 0) for k in keys}, []
+    if pipe == "winners" and "videos" in given and not given & {"winner_videos", "projects"}:   # "winners, 2 videos"
+        n["projects"], n["videos"], given = n["videos"], 0, (given - {"videos"}) | {"projects"}
+        notes.append(f"--videos {n['projects']} in winners = {n['projects']} winner project(s) (--projects)")
+    if batch and "statics" not in given:
+        n["statics"] = BATCH["statics"]
+    if batch and not given & {"videos", "winner_videos", "projects"}:
+        n["projects"], given = BATCH["projects"], given | {"projects"}
+    kind = "winner_videos" if pipe == "winners" else "videos"
+    if "projects" in given:
+        if kind in given and n[kind] != n["projects"]:
+            notes.append(f"--projects {n['projects']} and --{kind.replace('_', '-')} {n[kind]}: --projects counts")
+        n[kind] = n["projects"]
+    a.statics, a.videos, a.winner_videos = n["statics"], n["videos"], n["winner_videos"]
+    a.fill_to = a.winner_videos if pipe == "winners" and not getattr(a, "no_fill", False) else 0
+    return dict(batch=batch, statics=a.statics, projects=a.videos + a.winner_videos, notes=notes)
+
+
+def np_intake(a, pdir):
+    """--pipeline new-product: the product file of a Drive New Products folder via new_product.ensure() (made from the
+    folder only, reused while the folder is unchanged), then planned as --product <key>. Exits 2 when the folder can't
+    be read or the file still has problems (draft). Returns plan.json's "intake" record."""
+    import new_product
+    ref = getattr(a, "new_product", None) or a.product or "next"
+    try:
+        res = new_product.ensure(ref, products_dir=pdir, cache=os.environ.get("LC_NP_CACHE") or new_product.CACHE_DIR,
+                                 refresh=bool(getattr(a, "refresh_product", False)))
+    except (ValueError, OSError) as e:
+        print(f"new product {ref!r}: {e}", file=sys.stderr)
+        sys.exit(2)
+    d = json.load(open(res["file"]))
+    info = intake_info(res, d)
+    if (res["status"] != "ready" or res["problems"]) and not a.allow_draft:
+        print(res.get("summary") or "", file=sys.stderr)
+        for w in res.get("warnings") or []:      # (e.g. a PDF notes file not read: pdftotext missing)
+            print(f"WARNING {w}", file=sys.stderr)
+        slug_ = os.path.splitext(os.path.basename(res["file"]))[0]
+        print(f"new product {d.get('name')!r}: {res['file']} is '{res['status']}', not ready for ads:\n  - " +
+              "\n  - ".join(res["problems"] or ["fewer than 3 feature lines found in the folder's notes"]) +
+              f"\nFix: put what is missing into Drive 'New Products / {info['folder'] or ref}' (a notes doc with 3-7 "
+              f"features, the price / offer; faceless photos; clips) and plan again with --refresh-product, or edit "
+              f"{res['file']} by hand (only true claims from the notes), set \"status\": \"ready\", run python3 "
+              f"pipeline/new_product.py check {slug_}, then plan again", file=sys.stderr)
+        sys.exit(2)
+    a.product = res["key"]     # planned as this product file even when its key is a built-in bag's ('Hobo Bag')
+    os.environ["LC_PRODUCT_FILE"] = res["key"]
+    return info
+
+
+def intake_info(res, d):
+    """plan.json "intake": where a new product came from and what its intake read (new_product.ensure + its file)."""
+    import new_product
+    src, fa, o = d.get("source") or {}, d.get("facts") or {}, d.get("offer") or {}
+    fid, ph = src.get("drive_folder"), d.get("photos") or []
+    edited = not d.get("auto") or src.get("auto_sig") not in (None, new_product.content_sig(d))
+    kinds = {}
+    for i, p in enumerate(ph):
+        kinds.setdefault(p.get("kind") or "?", []).append(f"P{i}")
+    pct, gift = deal_of(o)
+    f = os.path.abspath(res["file"])
+    if res.get("created"):
+        how = "made now from the folder" + (" (the folder changed since the last intake)" if res.get("changed") else "")
+    else:
+        how = "reused (the folder " + ("changed, but the file was edited by hand: kept as it is" if res.get("changed")
+                                       else "is unchanged") + ")"
+    clips = [f"{c.get('name')} {c.get('dur') or 0:.0f} s {c.get('w')}x{c.get('h')}" for c in d.get("clips") or []]
+    return dict(folder=src.get("folder_name"), drive_link=f"https://drive.google.com/drive/folders/{fid}" if fid else None,
+                product_file=os.path.relpath(f, ROOT) if f.startswith(ROOT + os.sep) else f, key=d.get("key"),
+                status=d.get("status"), created=bool(res.get("created")), changed=bool(res.get("changed")), intake=how,
+                made_by="hand-edited" if edited else "the intake, automatically (auto)",
+                site=f"libracases.com/{d['site']} (only what the folder lacks)" if d.get("site") else
+                "not read (Drive folder only)",
+                read=dict(photos=len(ph), photo_kinds=kinds, faces=[f"P{i}" for i, p in enumerate(ph) if p.get("faces")],
+                          clips=clips, notes=re.findall(r"^## (.+)$", fa.get("notes") or "", re.M)),
+                offer=dict(text=" + ".join(x for x in (f"{pct}% off" if pct else "no discount", gift) if x),
+                           price=fa.get("price"), compare_at=fa.get("compare_at"), price_source=fa.get("price_source"),
+                           evidence=o.get("evidence") or []),
+                colours=fa.get("colours") or [], features=[f"{x[1]}: {x[0]}" for x in d.get("features") or []],
+                problems=res.get("problems") or [], warnings=res.get("warnings") or [],
+                tests=len(d.get("tests") or []), summary=(res.get("summary") or "").splitlines())
+
+
 # ---------------------------------------------------------------- plan
 def plan(a):
     out = os.path.abspath(a.out)
@@ -750,14 +923,31 @@ def plan(a):
     th = dict(THEMES[theme_key])
     tname = theme_name(a.theme, theme_key)
     pdir = products_dir(a)
+    early = []
+    if getattr(a, "new_product", None) and (getattr(a, "pipeline", None) or "catalog") != "new-product":
+        if (getattr(a, "pipeline", None) or "catalog") == "catalog":   # a Drive folder never reads the site / built-in ads
+            early.append(f"--new-product {a.new_product!r} without --pipeline new-product: planned as --pipeline new-product")
+            a.pipeline = "new-product"
+        else:
+            early.append(f"--new-product {a.new_product!r} is for --pipeline new-product: ignored in {a.pipeline}")
+    pipe = getattr(a, "pipeline", None) or "catalog"
+    size = counts(a)
+    warnings = early + list(size.pop("notes"))
+    intake = np_intake(a, pdir) if pipe == "new-product" else None
+    seed_given = getattr(a, "seed", None) is not None
+    if not seed_given:                # another batch of a new product: other statics, hooks and bodies by itself
+        a.seed = 1 + ((intake or {}).get("tests") or 0 if not a.only else 0)
+        if a.seed > 1:
+            warnings.append(f"this product already has {a.seed - 1} batch(es): --seed {a.seed} so the statics and hooks "
+                            f"differ (redos of this batch: the same flags with --seed {a.seed + 1} --only P02, or --seed "
+                            f"{a.seed} --hook-seed {a.seed + 1} --only P02H3)")
     files = product_files(pdir)
-    warnings = []
     if (a.theme or "").strip() and theme_key not in NAMED and tname not in ("Evergreen", "Gift"):
         warnings.append(f"theme {a.theme!r} is not built in: the ads use the {'gift' if theme_key == 'gift' else 'evergreen'} "
                         f"lines and are named ..._{tname}_...; write its hooks and closes with --lines")
     W = max(a.winner_videos, 0)
     sel = None
-    if W:
+    if W or (pipe == "winners" and not a.product):    # (winners: the statics are of the top winner's product)
         import winners
         sel = winners.select(a.winners)
         if sel["note"]:
@@ -765,7 +955,7 @@ def plan(a):
         if sel["brief"] and sel["brief"].get("stale"):
             warnings.append(f"the newest brief is {sel['brief'].get('age_days')} days old (stale): winners may be out of date")
     if a.product:
-        pk = pick_product(a.product, files)
+        pk = a.product if pipe == "new-product" and a.product in files else pick_product(a.product, files)
         if pk is None:
             print(f"unknown product '{a.product}'. Known: {', '.join(known_products(files))}. For a new product: "
                   f"python3 pipeline/new_product.py intake \"{a.product}\" (its Drive New Products folder) or "
@@ -780,7 +970,7 @@ def plan(a):
               f"\"status\": \"ready\", run python3 pipeline/new_product.py check {pr['source']} (or plan with --allow-draft)",
               file=sys.stderr)
         sys.exit(2)
-    if pr["source"] != "built-in":    # a 'ready' file must still pass check (media reachable, 3-5 features, honest offer)
+    if pr["source"] != "built-in":    # a 'ready' file must still pass check (media reachable, 3-7 features, honest offer)
         import new_product
         P, _ = new_product.validate({k: v for k, v in files[pk].items() if k != "_path"})
         if P and not a.allow_draft:
@@ -813,15 +1003,18 @@ def plan(a):
 
     def need_deal(p):                 # a sale-event ad must have a real deal behind it
         if theme_key in SALE_THEMES and not any(deal_of(p["offer"])):
-            print(f"{p['name']} has no offer right now (libracases.com shows no discount and no free gift"
-                  f"{'' if p['source'] == 'built-in' else ', and its product file has none'}): a {theme_key} ad would promise "
-                  f"a deal that isn't there. Drop the theme, or add the offer to the product file (offer.badge / gift, "
-                  f"backed by the site or the client's notes) and re-run.", file=sys.stderr)
+            why = ("its notes give no price, % or gift" if not p.get("site") else "libracases.com shows no discount and no "
+                   "free gift" + ("" if p["source"] == "built-in" else ", and its product file has none"))
+            fix = ("add the price and was price (or 'NN% off') to its Drive folder's notes and re-plan with "
+                   "--refresh-product" if not p.get("site") else "add the offer to the product file (offer.badge / gift, "
+                   "backed by the site or the client's notes) and re-run")
+            print(f"{p['name']} has no offer right now ({why}): a {theme_key} ad would promise "
+                  f"a deal that isn't there. Drop the theme, or {fix}.", file=sys.stderr)
             sys.exit(2)
 
     # ---------- site photos + facts, product-file photos and clips
     colour_imgs, packs, clean_site, site_imgs, facts = [], [], [], [], {}
-    need = a.statics > 0 or a.videos > 0
+    need = a.statics > 0 or a.videos > 0 or a.fill_to > 0     # (fill: storyboards may follow the winner projects)
     if need and pr["site"]:
         import site_assets
         site = os.path.join(out, "site")
@@ -905,14 +1098,26 @@ def plan(a):
         wrows = [w for r_ in range(max(cap.values())) for w in sel["winners"] if cap[w["key"]] > r_][:W]
         if len(wrows) < W:
             held = ", ".join(f"{w.get('name') or w['key']}: {n_cos(w['key'])}" for w in {x["key"]: x for x in wrows}.values())
-            warnings.append(f"--winner-videos {W}: {len(wrows)} winner project{'s' if len(wrows) > 1 else ''} "
+            warnings.append(f"{W} winner projects asked: {len(wrows)} winner project{'s' if len(wrows) > 1 else ''} "
                             f"({'one per winner' if max(cap.values()) == 1 else 'per winner as its cold opens allow'}; cold "
                             f"opens {held}): a project holds up to {a.hooks} of its winner's cold opens, so another project "
                             f"of the same winner would repeat its openings and its body under new names); {W - len(wrows)} "
-                            f"left out. More projects of a winner need new cold opens first "
-                            f"(python3 pipeline/winner_prep.py)")
+                            + ("filled with new-angle projects (below)" if a.fill_to else "left out") +
+                            ". More projects of a winner need new cold opens first (python3 pipeline/winner_prep.py)")
         W = len(wrows)
     wkeys = [w["key"] for w in wrows]
+    fill = max(a.fill_to - W, 0)      # winners: the batch keeps its projects, storyboards of the winners' product fill in
+    if fill:
+        why = ([f"{len(sel['unmatched'])} of the brief's winners can't be remixed (unmatched: no prepared RAW, or its RAW "
+                f"needs a human first)"] if sel and sel["unmatched"] else []) + \
+            ([f"{len({w['key'] for w in wrows})} winner(s) to remix, one project each (another project of the same winner "
+              f"would repeat its cold opens)"] if wrows and a.hooks > 1 else []) + ([] if wrows else ["no winner can be remixed now"])
+        warnings.append(f"winners batch: {W} winner project{'s' if W != 1 else ''}"
+                        f"{' (' + ', '.join(dict.fromkeys(w.get('name') or w['key'] for w in wrows)) + ')' if wrows else ''}"
+                        f" + {fill} new-angle storyboard project{'s' if fill > 1 else ''} of {pr['name']} to keep "
+                        f"{a.fill_to} projects ({'; '.join(why) or 'fewer winner projects than asked'}); --no-fill: only "
+                        f"the winner projects")
+        a.videos += fill
     if need:
         need_deal(pr)
     for k in wkeys:
@@ -934,53 +1139,85 @@ def plan(a):
     prefix = ad_prefix(pr["name"], tname, rev)
     token = []
 
-    def fetch(item, dest):
-        """Product-file photo/clip: the cached copy ('path') if it is there, else a Drive download by 'id'."""
+    def fetch(item, dest, photo=False):
+        """Product-file photo/clip: the cached copy ('path') if it is there, else a Drive download by 'id'. A photo is
+        downloaded to a temp file named like the Drive original (src_name) and converted by new_product.to_jpg, as the
+        intake did (EXIF rotation, HEIC): a later session sees the pixels the intake's face check saw."""
         src = os.path.join(ROOT, item["path"]) if item.get("path") else None
         if src and os.path.exists(src):
             return src
         if not item.get("id"):
             warnings.append(f"{item.get('name')}: no cached copy and no Drive id (intake ran in another session?)")
             return None
+        tmp = None
         try:
             import contextlib
             import io
             from drive_upload import access_token, download
             with contextlib.redirect_stdout(io.StringIO()):       # its error JSON must not break plan's stdout JSON
                 token[:] = token or [access_token()]
-                return download(token[0], item["id"], src or dest)
+                if not photo:
+                    return download(token[0], item["id"], src or dest)
+                tmp = f"{src or dest}.drive{os.path.splitext(item.get('src_name') or '')[1].lower()}"
+                download(token[0], item["id"], tmp)
+            return new_product.to_jpg(tmp, src or dest, warnings.append)
         except (Exception, SystemExit) as e:  # noqa: BLE001
             warnings.append(f"{item.get('name')}: Drive download failed "
                             f"({'no Drive login: python3 pipeline/drive_upload.py check' if isinstance(e, SystemExit) else e})")
             return None
+        finally:
+            for x in ([tmp, tmp + ".lock"] if tmp else []):
+                if os.path.exists(x):
+                    os.remove(x)
 
     import new_product
-    file_photos, file_packs, file_life = [], [], []
+    file_photos, file_packs, file_life, pfile = [], [], [], {}     # pfile: photos[n] -> its file (["photo", "P<n>"])
+    refused, no_static = {}, set()    # refused: photos[n] plan's face re-check refused; no_static: videos only (statics false)
     for i, p in enumerate(pr["photos"] if need else []):
         if p.get("faces") != 0:          # faces (or not checked): never in ads
             continue
-        dest = os.path.join(out, "photos", f"{i:02d}_{safe_name(p.get('name') or 'photo.jpg')}")
-        f = fetch(p, dest)
+        nm = safe_name(p.get("name") or "photo.jpg")
+        dest = os.path.join(out, "photos", f"{i:02d}_" + (nm if nm.lower().endswith((".jpg", ".jpeg")) else
+                                                          os.path.splitext(nm)[0] + ".jpg"))
+        f = fetch(p, dest, photo=True)
         if f:
             if not os.path.exists(dest):
                 os.makedirs(os.path.dirname(dest), exist_ok=True)
                 shutil.copy(f, dest)
             pack = (p.get("clean") or 0) >= 0.8
             if new_product.count_faces(dest, strict=not pack):          # re-checked with today's detector
-                warnings.append(f"photo {p.get('name')}: a face was found: never used in statics")
+                refused[i] = p.get("name")
+                warnings.append(f"photo P{i} {p.get('name')}: a face was found by plan's re-check: never used (its picks "
+                                f"are skipped)")
                 continue
             file_photos.append(dest)
+            pfile[i] = dest
             (file_packs if pack else file_life).append(dest)
+            if p.get("statics") is False:      # may show part of a face or head (intake): videos only, never a static
+                no_static.add(dest)
     clips = []
-    for i, c in enumerate(pr["clips"] if a.videos > 0 else []):
+    for i, c in enumerate(pr["clips"] if a.videos > 0 or a.fill_to > 0 else []):
         clips.append(fetch(c, os.path.join(out, "clips", f"{i:02d}_{safe_name(c.get('name', 'clip.mp4'))}")))
     packs = packs + file_packs
     pool = list(dict.fromkeys(packs + clean_site + file_photos))
+    fits = set(file_photos) | {c for c in clips if c}    # the product file's own media: framed whole when not 9:16
+    pnum, dot_rgb = {f: n for n, f in pfile.items()}, {}
+    pkind = {n: pr["photos"][n].get("kind") for n in pfile}     # packshot / worn / detail / other (new_product intake)
+    if need and pr["source"] != "built-in" and not colour_imgs:    # no site swatches: the client's packshots, by shade
+        names_ = list((pr.get("facts") or {}).get("colours") or [])
+        shots_ = [pfile[n] for n, ph in enumerate(pr["photos"]) if n in pfile and ph.get("kind") == "packshot"] or file_packs
+        if len(names_) >= 2 and len(shots_) >= 2:
+            got_, why_ = match_colours(shots_, names_)
+            colour_imgs, dot_rgb = [(n, f) for n, f, _ in got_], {n: c for n, _, c in got_}
+            warnings.append("colour swatches: packshots matched to the notes' colours by shade: " +
+                            ", ".join(f"{n} = P{pnum[f]}" for n, f in colour_imgs) + " (check the colours static / swatches)"
+                            if got_ else f"colours: {why_}: no named colour swatches (the colours static shows the packshots)")
     life_cache = []
 
     def lifestyle():
-        """Photos for lifestyle statics: the client's photos with no face (strict check) and the site photos the product
-        file lists in site_lifestyle (never image 0). Other site photos are never put in statics automatically."""
+        """Photos for lifestyle statics: the client's photos with no face (strict check; never one the intake marked
+        "statics": false: part of a head) and the site photos the product file lists in site_lifestyle (never image 0).
+        Other site photos are never put in statics automatically."""
         if not life_cache:
             listed = [site_imgs[i] for i in (new_product.site_index(x) for x in pr["site_lifestyle"]) if i and i < len(site_imgs)]
             ok = []
@@ -989,18 +1226,40 @@ def plan(a):
                     warnings.append(f"site_lifestyle {os.path.basename(f)}: a face was found: not used")
                 else:
                     ok.append(f)
-            life_cache.append(file_life + ok)
+            life = [f for f in file_life if f not in no_static]
+            kept = [f for f in life if pkind.get(pnum.get(f)) in ("worn", "detail")]   # (full bleed: an unsorted photo
+            life_cache.append((kept if len(kept) >= 3 else life) + ok)               # may have text baked in)
         return life_cache[0]
+
+    def photo_file(p):
+        """The file of a photo pick: ["photo", "P<n>"] = the product file's photos[n] (None: a face, or not downloaded),
+        ["photo", k] = the plan's photo pool (packshots first)."""
+        if isinstance(p[1], str):
+            m_ = re.fullmatch(r"P(\d+)", p[1].strip())
+            n_ = int(m_.group(1)) if m_ else None
+            if n_ not in pfile:
+                ph_ = pr["photos"][n_] if n_ is not None and n_ < len(pr["photos"]) else None
+                if n_ not in refused:      # (a re-check refusal is said once, above)
+                    warnings.append(f"pick {p!r}: " + ("no such photo in the product file" if not ph_ else
+                                                       f"{ph_.get('name')} shows a face: never used" if ph_.get("faces") else
+                                                       f"{ph_.get('name')} could not be downloaded") + ": skipped")
+                return None
+            return pfile[n_]
+        return pool[p[1] % len(pool)] if pool and isinstance(p[1], int) else None
+
+    def fit_of(src):                  # recut 'fit': a product-file photo / clip not shot 9:16 is shown whole (recut.py)
+        return {"fit": FIT_CLIP if src in clips else "auto"} if src in fits else {}
 
     def pick(p, w=1.0):
         """[src, start, weight(, extra)] for a pick, or None when it points at nothing (or at an AI clip)."""
         if not p:
             return None
         if p[0] == "photo":
-            return [rel(pool[p[1] % len(pool)]), 0, w, {"zoom": [1.0, 1.06]}] if pool else None
+            f_ = photo_file(p)
+            return [rel(f_), 0, w, dict({"zoom": [1.0, 1.06]}, **fit_of(f_))] if f_ else None
         if p[0] == "clip":
             c = clips[p[1]] if isinstance(p[1], int) and 0 <= p[1] < len(clips) else None
-            return [c, p[2], w] if c else None
+            return ([c, p[2], w] + ([fit_of(c)] if fit_of(c) else [])) if c else None
         try:
             src = clip(b, p[0], p[1])
         except (KeyError, IndexError, TypeError):
@@ -1027,26 +1286,35 @@ def plan(a):
     # checklist (the product's own feature tags + offer pill); the Hobo Bag's cycle leans on them.
     import brand_statics as bs
     tags = list(dict.fromkeys(f[1] for f in pr["features"]))
-    clean_mode = len(packs) >= 2
-    if clean_mode and pk == "hobo bag":
+    s_packs = [f for f in packs if f not in no_static]                 # statics: never a photo marked "statics": false
+    s_colours = [(n, f) for n, f in colour_imgs if f not in no_static]
+    clean_mode = len(s_packs) >= 2
+    if clean_mode and pk == "hobo bag" and pr["source"] == "built-in":
         seq = ["hero", "offer", "stars", "promo", "checklist", "bold", "review", "colours", "offer", "compare", "stars",
                "checklist"]
+    elif clean_mode and pr["source"] != "built-in" and len(lifestyle()) >= 3:   # the client's own worn / detail photos:
+        seq = ["hero", "offer", "lifestyle", "promo", "colours", "checklist", "lifestyle", "bold", "stars",  # each once
+               "compare", "lifestyle", "review"]
     elif clean_mode:
         seq = ["hero", "promo", "offer", "bold", "stars", "colours", "checklist", "compare", "review", "promo", "hero", "bold"]
     else:
         seq = ["lifestyle", "bold", "hero", "lifestyle", "compare", "review", "lifestyle", "bold", "hero", "lifestyle"]
-    if not clean_mode and a.statics:
-        warnings.append(f"only {len(packs)} clean packshot(s): statics use the client's lifestyle photos and framed photo cards")
+    if not clean_mode and a.statics and lifestyle():
+        warnings.append(f"only {len(s_packs)} clean packshot(s): statics use the client's lifestyle photos and framed photo "
+                        f"cards")
     s_pct, s_gift = deal_of(pr["offer"])
     s_v = offer_vars(pr)
     star_revs = [n for n in pr["reviews"] if n in revs and bs.snippet(revs[n]["text"])]   # a verbatim snippet to show
+    pf_ = facts if facts.get("price") else (pr.get("facts") or {})    # no site read: the client's notes' prices
     try:
-        s_price, s_was = float(facts.get("price") or 0), float(facts.get("compare_at") or 0)
+        s_price, s_was = float(pf_.get("price") or 0), float(pf_.get("compare_at") or 0)
     except ValueError:
         s_price = s_was = 0
-    price_ok = s_pct and s_was > s_price > 0 and new_product.site_pct(facts.get("price"), facts.get("compare_at")) == s_pct
-    statics, n_life, seen_s, nlay = [], 0, set(), {}
-    cards = {rel(f) for f in packs if bs.textured(f)}     # light textured backdrop: a framed card, never a grey box
+    price_ok = s_pct and s_was > s_price > 0 and new_product.site_pct(pf_.get("price"), pf_.get("compare_at")) == s_pct
+    statics, n_life, seen_s, nlay, no_photo = [], 0, set(), {}, 0
+    cards = {rel(f) for f in s_packs if bs.textured(f)}     # light textured backdrop: a framed card, never a grey box
+    ptag = {rel(f): x[1] for x in reversed(pr["features"]) for p in x[2] if p and p[0] == "photo" and isinstance(p[1], str)
+            for f in [pfile.get(int(p[1][1:])) if re.fullmatch(r"P\d+", p[1]) else None] if f}   # client photo -> its tag
     hero = ov(tx["hero"], "hero") if a.statics else tx["hero"]
 
     def revs_shown():                 # how often the statics so far show each review (review cards; a stars static's first 2
@@ -1060,7 +1328,7 @@ def plan(a):
         ws = tag.split()
         return [" ".join(ws[:-1]), ws[-1] + "."] if len(ws) > 1 else [ws[0] + "."]
 
-    def static(lay, photo, hv):       # hv: headline/sub variant (0 = the standard one)
+    def static(lay, photo, hv, t=0):  # hv: headline/sub variant (0 = the standard one); t: the retry
         V = lambda *xs: list(dict.fromkeys(x for x in xs if x))[hv % len(list(dict.fromkeys(x for x in xs if x)))]  # noqa: E731
         tg = rot(tags, hv)
         if lay == "hero":
@@ -1072,7 +1340,7 @@ def plan(a):
                                                                f"The {pr['short']}", f"The {pr['short']}", f"Meet the {pr['short']}"),
                         sub=tx["promo_sub"], features=[tcase(t) for t in tg[:3]], badge=tx["promo_badge"], cta=tx["cta"])
         if lay == "bold":
-            dots = [DOTS.get(n.lower().split()[0], [150, 150, 150]) for n, _ in colour_imgs][:7]
+            dots = [dot_rgb.get(n) or DOTS.get(n.lower().split()[0], [150, 150, 150]) for n, _ in s_colours][:7]
             lines_ = list({json.dumps(x): x for x in [ov(tx["bold"], "bold")] + [two_lines(t) for t in tags]}.values())
             return dict(layout="bold", photo=photo, lines=lines_[hv % len(lines_)], accent_lines=[1], sub=tx["bold_sub"],
                         cta=tx["cta"], dots=dots)
@@ -1081,11 +1349,17 @@ def plan(a):
             return dict(layout="review", review_n=min(rq, key=lambda n: (c_.get(n, 0), rq.index(n))), photo=photo,
                         cta=tx["cta"])
         if lay == "colours":
-            ph = [dict(src=rel(f), name=n) for n, f in colour_imgs][:6] or [dict(src=rel(f), name="") for f in packs[:4]]
+            ph = [dict(src=rel(f), name=n) for n, f in s_colours][:6] or [dict(src=rel(f), name="") for f in s_packs[:4]]
             return dict(layout="colours", photos=rot(ph, hv), headline=V(ov("Pick your colour.", "colours"), "Which one is yours?",
                                                                          "Which colour are you?"), sub=tx["colours_sub"], cta=tx["cta"])
         if lay == "lifestyle":
             heads = [hero, f"The {pr['short']}."] + ([". ".join(tcase(t) for t in tags[:2]) + "."] if tags else [])
+            if ptag.get(photo) and not t:         # a client photo a feature line picks: that feature's tag
+                heads = [f"{tcase(ptag[photo])}."] * len(heads)
+            elif pr["source"] != "built-in":      # (else a headline the batch's lifestyle statics have not used yet)
+                had = {x.get("headline") for x in statics if x.get("layout") == "lifestyle"}
+                heads = rot(heads, n_life - 1 + hv)
+                heads = [next((h for h in heads if h not in had), heads[0])] * len(heads)
             return dict(layout="lifestyle", photo=photo, headline=heads[(n_life - 1 + hv) % len(heads)], sub=tx["bold_sub"] or None,
                         cta=tx["cta"])
         if lay == "offer":            # every number from the site / the resolved offer (brand_statics invents nothing)
@@ -1115,7 +1389,7 @@ def plan(a):
     def can(lay):                     # this product has what the layout shows
         return {"offer": bool(s_pct and 5 <= s_pct <= 90),          # a real % right now (no '..% OFF' static without one)
                 "checklist": len(tags) >= 3, "stars": len(star_revs) >= 2, "review": bool(pr["reviews"]),
-                "colours": len(colour_imgs) >= 2 or len(packs) >= 2,
+                "colours": len(s_colours) >= 2 or len(s_packs) >= 2,
                 "lifestyle": n_life < len(lifestyle())}.get(lay, True)    # each lifestyle photo once per batch
     instead = {"offer": "hero", "checklist": "promo", "stars": "review", "review": "lifestyle", "colours": "lifestyle"}
     last = ["compare", "bold", "promo", "hero"] if clean_mode else ["compare", "bold"]
@@ -1127,17 +1401,17 @@ def plan(a):
         if lay == "lifestyle":
             photos = [lifestyle()[n_life]]
             n_life += 1
-        elif packs:
-            photos = packs
+        elif s_packs:
+            photos = s_packs
         elif lifestyle():
             photos, card = lifestyle(), True
         else:
-            warnings.append(f"static {i + 1}: no usable photo (no clean packshot, no faceless client photo): skipped")
+            no_photo += 1
             continue
         rnd, hv0 = i // len(seq) + a.seed - 1, nlay.get(lay, 0) + a.seed - 1   # hv0: the 2nd hero/promo/... gets another headline
         for t in range(len(photos) * 4):
             photo = photos[(i + rnd + t) % len(photos)]
-            s = static(lay, rel(photo), hv0 + t // len(photos))
+            s = static(lay, rel(photo), hv0 + t // len(photos), t)
             sig = json.dumps(s, sort_keys=True)
             if sig not in seen_s:
                 break
@@ -1151,6 +1425,12 @@ def plan(a):
             cards.add(rel(photo))
         s["name"] = f"{prefix}_S{len(statics) + 1:02d}_{lay}"
         statics.append(s)
+    if no_photo:                      # one warning, not one per static (a clips-only folder)
+        bi_ = pr["source"] == "built-in"
+        warnings.append(f"{no_photo} of {a.statics} statics left out: {pr['name']} has no photo a static may use (no clean "
+                        f"packshot, no faceless client photo{'' if bi_ else '; clips are for videos only'})" +
+                        ("" if bi_ else ": the client must add photos without a face (packshots on a plain background, the "
+                         "bag worn without a head in frame) to its Drive folder"))
 
     # ---------- videos
     tts, videos, specs, said = [], [], {}, {}
@@ -1180,6 +1460,8 @@ def plan(a):
             wo = dict(wp, offer=dict(wp["offer"], badge=dict(b_, big=f"{ed['offer_word']}%"), offer_title=f"{ed['offer_word']}% OFF"))
         wtx = offer_texts(wo, th)
         cos = compliance.cold_opens(w["key"], ed.get("cold_opens")) or [{"range": None, "label": "", "line": ""}]
+        if a.hooks > 1:                  # H1 is a real spoken opening: a text-hook variant (another's opening under a new
+            cos = [c for c in cos if not c.get("variant")] or cos   # label) only ever joins as H2-H4 (projects.expand)
         co = cos[j % len(cos)]           # (no cold open with a health claim; a medical story one comes last)
         spec = dict(raw=e["id"], start=ed.get("start") or 0.0, end=ed.get("end"), cut=ed.get("cut") or [],
                     **({"claim_cuts": ed["claim_cuts"]} if ed.get("claim_cuts") else {}), insert_at=ed.get("insert_at"), offer_word=ed.get("offer_word"), offer_after=ed.get("offer_after"),
@@ -1265,6 +1547,14 @@ def plan(a):
     # <bag>", every feature with its tag, a real customer in her own words, the colours, the offer. First in the cycle when
     # the product has real customer clips (it fits only then).
     formats = (["showcase"] if pr["customer"] else []) + ["features", "reviews", "colours", "features", "reviews", "colours"]
+    if pr["source"] != "built-in" and not pr["reviews"] and not pr["customer"]:
+        # a new product (no reviews, no customer clips yet): one angle per project on the same true material, each with
+        # its own opening shot, feature order and label: features, colours (named swatches), showcase (take a closer
+        # look: the detail photos first), lifestyle (the worn photos first), offer (the deal first, the packshots)
+        formats = [f for f in ("features", "colours", "showcase", "lifestyle", "offer") if
+                   {"colours": len(colour_imgs) >= 3, "lifestyle": "worn" in pkind.values(),
+                    "offer": any(deal_of(pr["offer"]))}.get(f, True)]
+    LEAD = {"showcase": "detail", "lifestyle": "worn", "offer": "packshot"} if pkind else {}   # photo kind each angle leads with
     story = bool(getattr(a, "story", False) or (a.videos and STORY_WORDS.search(a.request or "")))
     if story and not getattr(a, "story", False):
         warnings.append("the request asks for a story / long video: storyboard videos use the story format (1.5-2 min: "
@@ -1274,18 +1564,21 @@ def plan(a):
     fs = pr["features"]
     rich = bool(pr["reviews"] or pr["customer"])
     feat_picks = {tuple(p) for f in fs for p in f[2]}
-    photo_picks = [["photo", k] for k in range(len(pool))]
+    photo_picks = [["photo", f"P{pnum[f]}"] if f in pnum else ["photo", k] for k, f in enumerate(pool)]
     colour_names = list((facts or {}).get("colours") or {}) or [n for n, _ in colour_imgs]   # every site colour is said
     gnoun = (re.findall(r"pouch|wallet|purse", deal_of(pr["offer"])[1] or "", re.I) or [""])[-1]
     feat_gift = bool(gnoun) and any(re.search(r"\bfree\b.*\b" + gnoun, f[0], re.I) for f in fs)
     colours_tail = "Which one is yours?" if feat_gift else tx["colours_line"]       # the gift is said twice at most
     SHOT, SHOWCASE_MAX = 3.6, 66      # longest planned shot (s); a showcase adds customer clips up to ~66 s (+ colours)
+    NEW_MAX = 58                      # a new product's ad: its feature lines up to ~1 min (the 40-60 s it should run)
     STORY_MAX = 112                   # a story adds customer clips and reviews up to ~112 s (QA 60-130 s)
 
-    def near(p, q):                   # the same shot: same photo, or the same clip within 2.5 s
-        if not p or not q or p[0] != q[0] or p[1] != q[1]:
+    def near(p, q):                   # the same shot: same photo (P3 = its pool number too), or the same clip within 2.5 s
+        if not p or not q or p[0] != q[0]:
             return False
-        return p[0] == "photo" or abs(float(p[2]) - float(q[2])) < 2.5
+        if p[0] == "photo":
+            return p[1] == q[1] or (photo_file(p) or 0) == photo_file(q)
+        return p[1] == q[1] and abs(float(p[2]) - float(q[2])) < 2.5
 
     def moments(p):                   # the other vetted moments of a pick's clip (clip_bank / product-file 'good')
         if not p or p[0] == "photo":
@@ -1301,8 +1594,8 @@ def plan(a):
         for q in [p] + moments(p):
             if q and not any(near(q, x) for x in all_shots) and pick(q):
                 all_shots.append(q)
-    all_shots += photo_picks
-    scenes = {(c[0], c[1]) for c in pr["customer"]}      # customer clips: her testimony, not B-roll under the narrator
+    all_shots += [p for p in photo_picks if not any(near(p, x) for x in all_shots)]   # (a B-roll photo is there already)
+    scenes ={(c[0], c[1]) for c in pr["customer"]}      # customer clips: her testimony, not B-roll under the narrator
     talk_ws = {}
 
     def talks(p):
@@ -1354,10 +1647,13 @@ def plan(a):
                      [h + " Which colour are you?" for h in hooks])
         elif fmt in ("showcase", "story"):   # V09's hook first; the theme's hooks on a later pass
             hooks = [f"Take a closer look at the {pr['short']}."] + hooks
+        elif fmt == "offer":                 # the deal first (the product's own offer: never more than it backs)
+            hooks = [x for x in (tpl("The {short} is {price_sp}[, with {gift_sp}].", s_v),
+                                 tpl("The {short} comes with {gift_sp}.", s_v)) if x][:1] + hooks
         o2 = o + o // len(hooks)
         o3 = o + o // max(len(fs), 1)
         pid = "P" + vid[1:]               # project mode: P03_hook = V03_hook (H1's line; H2.. come from projects.py)
-        hook = ov(hooks[((0 if fmt in ("showcase", "story") else v) + o) % len(hooks)], f"{vid}_hook", f"{pid}_hook",
+        hook = ov(hooks[((0 if fmt in ("showcase", "story", "offer") else v) + o) % len(hooks)], f"{vid}_hook", f"{pid}_hook",
                   f"{bid}_hook")
         shown, reserved = [], []
 
@@ -1390,6 +1686,10 @@ def plan(a):
 
         hcs = rot(pr["hook_clips"], v + o)
         hc = next((h for h in hcs if tuple(h) not in feat_picks), hcs[0] if hcs else None)   # not a shot a feature shows
+        lead = rot([["photo", f"P{n}"] for n in sorted(pkind) if pkind[n] == LEAD.get(fmt)], v + o)
+        if lead:                          # the angle's own opening: a worn / detail photo, or a packshot for the deal
+            hc = next((h for h in lead if tuple(h) not in feat_picks), lead[0])
+            hcs = [hc] + hcs
         if hc:
             shown.append(hc)
         cb = next((p for p in rot(pr["broll"], v + o) if not is_shown(p)), None)       # kept for the close
@@ -1409,12 +1709,16 @@ def plan(a):
         blocks = [dict(vo=line(vid, "hook", hook, BRAND_VOICE), broll=picks(hook_ps), pad=0.35,
                        **({"spare": picks(hook_spare, fallback=False)} if hook_spare else {}))]
         ovl = [dict(type="label", text=th["label"] or {"features": "LOOK CLOSER", "reviews": "REAL REVIEWS", "colours": "WHICH ONE?",
-                                                         "showcase": "TAKE A CLOSER LOOK", "story": "TAKE A CLOSER LOOK"}[fmt],
+                                                         "showcase": "TAKE A CLOSER LOOK", "story": "TAKE A CLOSER LOOK",
+                                                         "lifestyle": "STYLE IT", "offer": tx["offer_title"] or "THE DEAL"}[fmt],
                     block=0, at=0.1, dur=1.8)]
         k0 = (v * 2 + o2) % len(fs) if fs else 0
         feat_q = [(k0 + j) % len(fs) for j in range(len(fs))]      # each feature, review, clip at most once per video
         if fmt in ("showcase", "story"):
             feat_q = list(range(len(fs)))                           # V09 order: the product's features as listed
+        if LEAD.get(fmt):                 # the features the angle's photos show come first
+            feat_q.sort(key=lambda i: not any(p and p[0] == "photo" and pkind.get(int(p[1][1:]) if re.fullmatch(
+                r"P\d+", str(p[1])) else -1) == LEAD[fmt] for p in fs[i][2]))
         rev_q = rot(pr["reviews"], v + o3)
         cust_q = rot(pr["customer"], v + o3)
         cnt = dict(feat=0, rev=0, colours=0, cust=0)
@@ -1424,9 +1728,14 @@ def plan(a):
             return sum(len(said.get(x.get("vo"), "").split()) / WPS + 0.25 if "vo" in x else x["range"][1] - x["range"][0]
                        for x in blocks) + len(close.split()) / WPS + 0.6
 
-        def add_features(n):
+        def add_features(n, cap=None):
+            """n features; cap: stop (after 3) where the next one would take the ad, the colours still to come
+            included, past cap s."""
             for _ in range(n):
                 if not feat_q:
+                    return
+                col = 0 if cnt["colours"] or len(colour_imgs) < 3 else (len(" ".join(colour_names).split()) + 4) / WPS + 0.6
+                if cap and cnt["feat"] >= 3 and est_now() + len(fs[feat_q[0]][0].split()) / WPS + 0.25 + col > cap:
                     return
                 txt, tag, ps = fs[feat_q.pop(0)]
                 got_ = take(ps, need_for(txt))
@@ -1485,9 +1794,11 @@ def plan(a):
             ovl.append(dict(type="tag", text=names_ if len(ns) <= 4 and len(names_) <= 28 else f"{len(ns)} COLOURS",
                             block=len(blocks) - 1, at=0.1, dur=3.0))
 
-        nfeat = (3 if fmt == "features" else 2) if rich else 5
+        # a new product (no reviews, no customer clips): every feature line its notes give (3-7) while the ad stays
+        # under NEW_MAX s, so 6-7 good lines make a 40-60 s ad; 3-5 lines run shorter (plan warns)
+        nfeat, cap = ((3 if fmt == "features" else 2), None) if rich else (len(fs), NEW_MAX)
         if fmt == "showcase":         # V09: look closer -> features with tags -> real customer -> colours -> offer
-            add_features(min(len(fs), 4)); add_customer(len(cust_q))  # noqa: E702
+            add_features(min(len(fs), 4) if cust_q else len(fs), cap); add_customer(len(cust_q))  # noqa: E702
             if not cnt["cust"]:
                 add_reviews(2)
             add_colours()
@@ -1496,13 +1807,15 @@ def plan(a):
             while rev_q and est_now() < STORY_MAX - 8:     # what customers say: as many reviews as fit (3+)
                 add_reviews(1)
         elif fmt == "features":
-            add_features(nfeat); add_customer(); add_reviews(2)  # noqa: E702
+            add_features(nfeat, cap); add_customer(); add_reviews(2)  # noqa: E702
             if not rich:
                 add_colours()
         elif fmt == "reviews":
-            add_reviews(3); add_customer(); add_features(nfeat)  # noqa: E702
+            add_reviews(3); add_customer(); add_features(nfeat, cap)  # noqa: E702
+        elif fmt in ("lifestyle", "offer"):   # (a new product's angles: the opening and the order make them)
+            add_features(nfeat, cap); add_colours()  # noqa: E702
         else:
-            add_colours(); add_customer(); add_reviews(2); add_features(nfeat)  # noqa: E702
+            add_colours(); add_customer(); add_reviews(2); add_features(nfeat, cap)  # noqa: E702
         while est_now() < (90 if fmt == "story" else 38):   # too short: add what this ad hasn't shown yet (never twice)
             nb = len(blocks)
             if feat_q:
@@ -1519,13 +1832,17 @@ def plan(a):
             ow = tx["offer_word"]
             if ow not in close.lower() and (not ow.isdigit() or new_product.say(int(ow)).split("-")[0] not in close.lower()):
                 warnings.append(f"{vid}: the --lines close has no '{ow}' (or its spoken word): the offer card will not show")
-        on = {rel(pool[p[1] % len(pool)]) for p in shown if p and p[0] == "photo"} if pool else set()
+        on = {rel(f) for f in (photo_file(p) for p in shown if p and p[0] == "photo") if f}
         ph = next((f for f in rot([rel(f) for f in packs], v + o) if f not in on), rel(packs[(v + o) % len(packs)]) if packs else None)
-        cl = ([[ph, 0, 1.0, {"zoom": [1.0, 1.06]}]] if ph else []) + \
+        cl = ([[ph, 0, 1.0, dict({"zoom": [1.0, 1.06]}, **next((fit_of(f) for f in packs if rel(f) == ph), {}))]]
+              if ph else []) + \
             [x for x in picks([cb] if cb else [], fallback=False, w=1.2) if x[0] != ph]
         if cl and len(cl) < need_for(close, 0.6):          # a long close (theme lead + offer): more shots
             cl += [x for x in picks(take([], need_for(close, 0.6) - len(cl)), fallback=False) if x[0] != ph]
-        blocks.append(dict(vo=line(vid, "close", close, BRAND_VOICE), broll=cl or picks([])))
+        # a framed (fit) shot under the close sits higher: the offer label and the end card band (y 1120-1510) never
+        # cover the bag
+        cl = [x[:3] + [dict(x[3], fit_y=CLOSE_FIT_Y)] if len(x) > 3 and x[3].get("fit") else x for x in cl or picks([])]
+        blocks.append(dict(vo=line(vid, "close", close, BRAND_VOICE), broll=cl))
         if any(not blk.get("broll") for blk in blocks if "vo" in blk):
             sys.exit(f"{pr['name']}: no footage or photo to show under the voiceover (product has no clips, no clean "
                      f"photos and no site page). Add clips/photos to its Drive folder and re-run the intake.")
@@ -1634,8 +1951,11 @@ def plan(a):
     limit = a.budget if a.budget is not None else MAX_CREDITS
     pct, gift = deal_of(pr["offer"])
     warnings[:] = list(dict.fromkeys(warnings))
-    summary = dict(statics=len(statics), **({"projects": len(keep), "hooks": a.hooks} if pm else {}), videos=len(videos),
-                   tts_lines=len(tts_u), est_credits=est, budget=limit,
+    summary = dict(pipeline=pipe, **({"batch": f"{BATCH['statics']} statics + {BATCH['projects']} projects x {a.hooks} "
+                                                 f"hooks (no counts in the request)"} if size["batch"] else {}),
+                   statics=len(statics), **({"projects": len(keep), "hooks": a.hooks} if pm else {}), videos=len(videos),
+                   tts_lines=len(tts_u), est_credits=est, budget=limit, seed=a.seed,
+                   **({"hook_seed": a.hook_seed} if a.hook_seed is not None else {}),
                    theme=theme_key, theme_name=tname, product=pr["name"], product_source=pr["source"],
                    offer=" + ".join(x for x in (f"{pct}% off" if pct else "no discount", gift) if x), names=prefix,
                    **({"winner_body": ("the RAW body plus a narrated review section (--winner-reviews)" if a.winner_reviews else
@@ -1670,7 +1990,11 @@ def plan(a):
              winners_used=[dict(key=w["key"], name=w.get("name"), roas=w.get("roas"), action=w.get("action"))
                            for w in {x["key"]: x for x in wrows}.values()],
              unmatched_winners=sel["unmatched"] if sel else [], warnings=warnings, winner_reviews=bool(a.winner_reviews),
-             seed=a.seed, hooks=a.hooks if pm else 1)     # hooks > 1 and no "projects": the expansion below failed, render refuses it
+             seed=a.seed, hooks=a.hooks if pm else 1,     # hooks > 1 and no "projects": the expansion below failed, render refuses it
+             pipeline=pipe, **({"batch": True} if size["batch"] else {}),
+             **({"fill": dict(winner_projects=W, new_angle_projects=fill)} if fill else {}),
+             **({"intake": intake} if intake else {}),
+             **({"photo_files": {f"P{n}": rel(f) for n, f in sorted(pfile.items())}} if pfile else {}))   # (projects.py)
     json.dump(p, open(os.path.join(out, "plan.json"), "w"), indent=1)
     if pm:          # Vnn -> project Pnn: H1 = this plan's video, H2.. = other hook lines/shots/cold opens, same body
         import projects
@@ -1735,6 +2059,10 @@ def plan(a):
         else:
             p = expand(hseed, ponly, a.budget)
         dupes, warnings = p.get("tts_dupes") or {}, p.get("warnings") or []
+        if pipe == "winners" and not seed_given and any("open like ads already delivered" in w for w in warnings):
+            warnings = list(warnings) + [f"no --seed: each winner project's H1 is its first cold open; a new batch for "
+                                         f"the same winners: --seed {datetime.date.today().timetuple().tm_yday} (the day "
+                                         f"of the year) makes another opening H1"]
         summary.update(projects=len(p["projects"]), videos=len(p["videos"]), tts_lines=p["tts_lines"],
                        est_credits=p["est_credits"])
         vs = {v["name"]: v for v in p["videos"]}
@@ -1751,6 +2079,13 @@ def plan(a):
                 e["versions"].append(f"{h['hook']} [{h['type']}] {h['label']}: \"{h['hook_text']}\" "
                                      f"(~{(vs.get(h['name']) or {}).get('est_seconds') or 0:.0f} s{co})")
             listing["project_hooks"].append(e)
+        by_line = {}                  # a storyboard hook line that opens more than 2 versions of this batch: say so
+        for x in p["projects"]:
+            for h in x["hooks"] if x["engine"] != "remix" else []:
+                by_line.setdefault(projects.norm(h["hook_text"]), [h["hook_text"]]).append(x["id"] + h["hook"])
+        warnings = list(warnings) + [f"the hook line \"{v[0]}\" opens {len(v) - 1} versions ({', '.join(v[1:])}): the batch "
+                                     f"has few different openings (more: --lines P01_hook ..., a product file's 'hooks')"
+                                     for v in by_line.values() if len(v) > 3]
     else:
         listing = dict(winner_videos=[f"{v['name']} ({v['winner']['brief_name']}, " + (
             f"cold open: {v['hook_label']}" if v["winner"]["cold_open"] else f"no cold open, label {v['hook_label']}") + ")"
@@ -1760,7 +2095,8 @@ def plan(a):
         os.environ["LC_PRODUCTS_DIR"] = os.path.abspath(a.products_dir)      # ad_copy / compliance find the product file
     ac, cr = copy_and_check(out, seed=a.seed)
     warnings = list(warnings) + [f"ad copy: {x}" for x in ac["problems"]] + ([f"compliance: {cr['error']}"] if cr.get("error") else [])
-    print(json.dumps(dict(plan=os.path.join(out, "plan.json"), **summary, tts_needed=os.path.join(out, "tts_needed.json"),
+    print(json.dumps(dict(plan=os.path.join(out, "plan.json"), **summary, **({"intake": intake} if intake else {}),
+                          tts_needed=os.path.join(out, "tts_needed.json"),
                           tts_duplicates=len(dupes), brief=brief, winners_source=p["winners_source"], **listing,
                           unmatched_winners=[f"{u['name']} (ROAS {u.get('roas')}): {u.get('why')}" for u in p["unmatched_winners"]],
                           **copy_summary(ac, cr), warnings=warnings), indent=1, ensure_ascii=False))
@@ -1822,12 +2158,19 @@ def copy_summary(ac, cr):
                                 **({"error": cr["error"]} if cr.get("error") else {})))
 
 
+def use_products_dir(p):
+    """A plan's product file outside the default folder (--products-dir): ad_copy / compliance must find it there too."""
+    src = p.get("product_source") or ""
+    if os.path.isfile(src) and not os.environ.get("LC_PRODUCTS_DIR"):
+        os.environ["LC_PRODUCTS_DIR"] = os.path.dirname(os.path.abspath(src))
+    if p.get("pipeline") == "new-product" and p.get("product_key"):    # (its file, even when a built-in has its key)
+        os.environ["LC_PRODUCT_FILE"] = p["product_key"]
+
+
 def compliance_gate(out, p):
     """render refuses a batch whose texts break a rule: compliance.py on the files as they are now (a line fixed by hand
     after plan is checked again), so nothing that breaks Julian's rules is voiced into a video or reaches Drive."""
-    src = p.get("product_source") or ""
-    if os.path.isfile(src) and not os.environ.get("LC_PRODUCTS_DIR"):
-        os.environ["LC_PRODUCTS_DIR"] = os.path.dirname(os.path.abspath(src))     # a product file outside the default folder
+    use_products_dir(p)
     try:
         import compliance
         cr = compliance.check_out(out)
@@ -1843,18 +2186,29 @@ def compliance_gate(out, p):
 
 
 # ---------------------------------------------------------------- render
+SW_BOX = (60, 400, 1020, 1120)   # a colour swatch's packshot: under the tag (y ~300), above the caption band (~1200-1340)
+
+
 def swatches(out, colour_imgs):
+    """One 1080x1920 still per colour (out/sw/<colour>.jpg, the colours block's B-roll). A swatch is made again when its
+    photo or SW_BOX changed (its .key), so an --out re-rendered after a change never keeps an old one."""
     from PIL import Image
     import brand_statics as bs
     os.makedirs(os.path.join(out, "sw"), exist_ok=True)
     for n, f in colour_imgs.items():
         fr = os.path.join(out, "sw", f"{re.sub(r'[^a-z0-9]+', '_', n.lower())}.jpg")
-        if not os.path.exists(fr):
+        key = json.dumps([os.path.abspath(f), os.path.getsize(f) if os.path.exists(f) else 0, SW_BOX])
+        try:
+            same = open(fr + ".key").read() == key and os.path.exists(fr)
+        except OSError:
+            same = False
+        if not same:
             c = Image.new("RGB", (1080, 1920), (246, 241, 234))
             im = Image.open(f).convert("RGB")
             im._card = bs.textured(f)              # light textured backdrop: framed card, not a grey box
-            bs.place_packshot(c, im, (60, 380, 1020, 1500))
+            bs.place_packshot(c, im, SW_BOX)
             c.save(fr, quality=95)
+            open(fr + ".key", "w").write(key)
 
 
 def contact_sheet(f, out_jpg):
@@ -1955,6 +2309,30 @@ def load_plan(out):
     return p
 
 
+BODY_DIFF = "body differs from"   # a version whose body is not its project's (H1's): flagged, still uploaded
+
+
+def body_flags(out, p, sheets, rows):
+    """projects.sheet's body match into the QA rows: a version at 10 or more (a different body) gets the non-hard
+    problem 'body differs from H1 (body match M)', so report.json, upload's flagged list and the run report say it;
+    a version that matches again loses it."""
+    projs = {x["id"]: x for x in p.get("projects") or []}
+    for sh in sheets:
+        hs = (projs.get(sh.get("project")) or {}).get("hooks") or []
+        made = [h["hook"] for h in hs if os.path.exists(os.path.join(out, "videos", h["name"] + ".mp4"))]
+        ref = "H1" if "H1" in made else (made or ["H1"])[0]          # (as projects.sheet: H1, else the first rendered)
+        for h in hs:
+            r = rows.get(h["name"])
+            if not r:
+                continue
+            r["problems"] = [x for x in r.get("problems") or [] if not x.startswith(BODY_DIFF)]
+            m = (sh.get("body_match") or {}).get(h["hook"])
+            if m is not None and m >= 10:
+                r["problems"].append(f"{BODY_DIFF} {ref} (body match {m}; under 10 = the same body): look at "
+                                     f"qa/{sh['project']}.jpg")
+            r["ok"] = not r["problems"]
+
+
 def render(a):
     out = os.path.abspath(a.out)
     p = load_plan(out)
@@ -2009,8 +2387,6 @@ def render(a):
         os.rmdir(os.path.join(out, "_tmp"))
     order = p["statics"] + [v["name"] for v in p["videos"]]
     merged = {**old, **report}
-    json.dump(sorted(merged.values(), key=lambda r: order.index(r["name"]) if r["name"] in order else 999),
-              open(rp, "w"), indent=1)
     # statics grid for a quick look
     from PIL import Image
     ims = [Image.open(x) for x in (os.path.join(out, "statics", n + ".png") for n in p["statics"]) if os.path.exists(x)]
@@ -2027,8 +2403,11 @@ def render(a):
         import projects
         try:
             sheets = projects.sheet(out, ",".join(sorted({v["project"] for v in vids})) if ids else None)
-        except Exception as e:  # noqa: BLE001 - the renders and qa/report.json are done; say so and carry on
+        except Exception as e:  # noqa: BLE001 - the renders are done; say so and carry on
             print(f"project QA sheets failed ({type(e).__name__}: {e}): look at the per-version contact sheets", file=sys.stderr)
+    body_flags(out, p, sheets, merged)
+    json.dump(sorted(merged.values(), key=lambda r: order.index(r["name"]) if r["name"] in order else 999),
+              open(rp, "w"), indent=1)
     print("QA: look at", os.path.join(out, "qa"), "(statics.jpg + one contact sheet per video" +
           (f" + one sheet per project, {', '.join(os.path.basename(s['sheet']) for s in sheets)}: its hook versions side by "
            f"side, the body once, body match under 10 = the same body" if sheets else "") + ") before uploading")
@@ -2036,9 +2415,24 @@ def render(a):
 
 # ---------------------------------------------------------------- upload
 def run_report(p, report, uploaded, skipped, name, flagged=(), notes=(), pending=(), copy=None):
+    pipe, ik, fl = p.get("pipeline") or "catalog", p.get("intake") or {}, p.get("fill") or {}
+    rd = ik.get("read") or {}
+    what = {"winners": "winners (new versions of the weekly brief's winning videos" + (
+        f"; {fl['winner_projects']} winner projects + {fl['new_angle_projects']} new-angle projects to fill the batch"
+        if fl else "") + ")",
+        "new-product": f"new product (everything from Drive New Products / {ik.get('folder') or p['product']}: "
+                       f"{rd.get('photos', '?')} photos, {len(rd.get('clips') or [])} clip(s), the notes; "
+                       f"{ik['site'] if str(ik.get('site')).startswith('libracases') else 'libracases.com not read'})"}
     L = [f"Libra Cases ads: {name}", f"Request: {p.get('request') or '-'}",
+         f"Pipeline: {what.get(pipe, 'catalog (the products and counts asked)')}" +
+         (" · a full batch (no counts in the request)" if p.get("batch") else ""),
          f"Product: {p['product']} · Theme: {p.get('theme_name') or p['theme']} · Offer: {p.get('offer') or '-'} · "
          f"voiceover lines: {p.get('tts_lines')} (~{p.get('est_credits')} credits)"]
+    if ik:
+        o = ik.get("offer") or {}
+        L.append(f"Product file: {ik.get('product_file')} ({ik.get('intake')}; {ik.get('made_by')}) · offer from "
+                 f"{o.get('price_source') or 'the notes'}: {o.get('text')}" + (f" (${o['price']} instead of ${o['compare_at']})"
+                                                                                 if o.get("price") and o.get("compare_at") else ""))
     br = p.get("brief")
     if p.get("winners_source"):
         src = {"brief": f"weekly brief '{(br or {}).get('name')}' ({(br or {}).get('age_days')} days old"
@@ -2153,6 +2547,32 @@ def project_folder(x):
     return f"{x['id']} – {x['angle']}"
 
 
+OUT_FOLDERS = {"winners": ("outputs_winners_folder", "Winners"),            # pipeline -> (optional config.json drive key,
+               "new-product": ("outputs_new_products_folder", "New Products")}  # else this folder in Outputs)
+
+
+def record_batch(p, name, link, uploaded, vproj):
+    """A new product's batch in its product file's "tests" (new_product.record_test): date, name, Drive link, counts.
+    Another upload into the same folder (statics first, videos later) updates that entry. Returns the file or None."""
+    import new_product
+    f = (p.get("intake") or {}).get("product_file") or p.get("product_source") or ""
+    f = f if os.path.isabs(f) else os.path.join(ROOT, f)
+    if not f.endswith(".json") or not os.path.exists(f):
+        print(f"WARNING the product file {f!r} is gone: this batch is not recorded in its \"tests\"", file=sys.stderr)
+        return None
+    info = dict(date=p.get("created") or datetime.date.today().isoformat(), name=name, drive_link=link,
+                statics=sum(k == "static" for _, k, _ in uploaded), videos=sum(k == "video" for _, k, _ in uploaded),
+                projects=len({vproj[n]["id"] for n, k, _ in uploaded if k == "video" and vproj.get(n)}),
+                plan=p.get("prefix"), request=p.get("request") or "")
+    d = json.load(open(f))
+    old = next((t for t in d.get("tests") or [] if t.get("drive_link") == link), None)
+    if not old:
+        return new_product.record_test(f, info)
+    old.update({k: max(old.get(k) or 0, info[k]) if k in ("statics", "videos", "projects") else info[k] for k in info})
+    open(f, "w").write(new_product.dumps(d) + "\n")
+    return f
+
+
 def upload(a):
     """Uploads the files plan.json lists (never leftovers in the folder). Hard QA failures (render failed, file
     missing, a face in a static, a video under its floor: 25 s storyboard, 15 s winner) stay out; length / anchor /
@@ -2162,12 +2582,13 @@ def upload(a):
     <prefix>_ad_copy.csv, next to the run report."""
     out = os.path.abspath(a.out)
     p = load_plan(out)
+    use_products_dir(p)               # (the ad copy's compliance check below reads the product file)
     rp = os.path.join(out, "qa", "report.json")
     report = {r["name"]: r for r in json.load(open(rp))} if os.path.exists(rp) else {}
     up = [sys.executable, os.path.join(HERE, "drive_upload.py")]
     cfg = json.load(open(os.path.join(HERE, "config.json")))
-    now = datetime.datetime.now()
-    name = f"{now.date().isoformat()} – {a.name or p.get('request') or p['product']}"
+    now = datetime.datetime.now()     # (the batch's date is the plan's: statics and videos uploaded after midnight share it)
+    name = f"{p.get('created') or now.date().isoformat()} – {a.name or p.get('request') or p['product']}"
     run = lambda *x: subprocess.run(up + list(x), capture_output=True, text=True, check=True).stdout.strip()  # noqa: E731
     projs = {x["id"]: x for x in p.get("projects") or []}
     vproj = {v["name"]: projs.get(v.get("project")) for v in p["videos"]}
@@ -2181,7 +2602,13 @@ def upload(a):
                    if f not in listed)
     for f in stray:
         print(f"not uploaded (not in this plan.json, left from an earlier run?): {os.path.relpath(f, out)}", file=sys.stderr)
-    folder = run("mkdir", name, "--parent", cfg["drive"]["outputs_folder"]).splitlines()[-1]
+    pipe = p.get("pipeline") or "catalog"
+    parent, where = cfg["drive"]["outputs_folder"], "Outputs"
+    if pipe in OUT_FOLDERS:           # winners / new products: their own folder in Outputs (found or made once)
+        key_, sub_ = OUT_FOLDERS[pipe]
+        parent = cfg["drive"].get(key_) or run("mkdir", sub_, "--parent", parent).splitlines()[-1]
+        where = f"Outputs/{sub_}"
+    folder = run("mkdir", name, "--parent", parent).splitlines()[-1]
     dest = {"static": run("mkdir", "Statics", "--parent", folder).splitlines()[-1],
             "video": run("mkdir", "Videos", "--parent", folder).splitlines()[-1]}
     sub, there = {}, {}
@@ -2300,9 +2727,22 @@ def upload(a):
         notes.insert(0, f"this upload covers only {a.only.upper()} of the batch (other ads: earlier/later run reports here)")
     if pending:
         print(f"not rendered yet, so not uploaded now: {', '.join(pending)}", file=sys.stderr)
+    link = f"https://drive.google.com/drive/folders/{folder}"
+    try:          # the ads are in Drive already: a product file that can't be updated must not lose the run report
+        tested = record_batch(p, name, link, uploaded, vproj) if pipe == "new-product" and uploaded else None
+    except (OSError, ValueError, KeyError, TypeError) as e:
+        tested = None
+        notes.append(f"product file NOT updated with this batch ({type(e).__name__}: {e}): add it to its \"tests\" by hand "
+                     f"(python3 pipeline/new_product.py list shows it as untested until then)")
+        print(f"WARNING product file not updated: {e}", file=sys.stderr)
+    if tested:
+        notes.append(f"the product file records this batch (\"tests\"): {tested}")
     open(txt, "w").write(run_report(p, report, uploaded, skipped, name, flagged, notes, pending, copy))
     run("upload", txt, "--folder", folder)          # a fresh report every upload, never skipped
-    print(json.dumps(dict(folder=f"https://drive.google.com/drive/folders/{folder}", name=name, files=len(uploaded),
+    if tested:
+        print(f"product file changed: {tested} (\"tests\" += this batch): commit it with the specs", file=sys.stderr)
+    print(json.dumps(dict(folder=link, name=name, pipeline=pipe, drive_path=f"{where}/{name}", files=len(uploaded),
+                          **({"product_file_updated": tested} if tested else {}),
                           **({"project_folders": {f"Videos/{project_folder(projs[k])}": f"https://drive.google.com/drive/folders/{d}"
                                                   for k, d in sub.items()}} if projs else {}),
                           uploaded=[d for _, _, d in uploaded], already_there=existed, renamed=renamed,
@@ -2331,11 +2771,24 @@ def main():
     ap = argparse.ArgumentParser()
     sub = ap.add_subparsers(dest="cmd", required=True)
     pl = sub.add_parser("plan")
-    pl.add_argument("--statics", type=int, default=0)
-    pl.add_argument("--videos", type=int, default=0, help="storyboard (new-angle) videos: each one is a project of --hooks versions")
-    pl.add_argument("--winner-videos", type=int, default=0, help="winner remixes (remix.py), numbered first: each one is a "
+    pl.add_argument("--pipeline", choices=PIPELINES, help="catalog (default: the counts and product given, as always; "
+                    "--new-product alone means new-product) | winners (the brief's winner projects + statics of their "
+                    "product; fill) | new-product (a Drive New Products folder, --new-product)")
+    pl.add_argument("--statics", type=int)
+    pl.add_argument("--videos", type=int, help="storyboard (new-angle) videos: each one is a project of --hooks versions")
+    pl.add_argument("--winner-videos", type=int, help="winner remixes (remix.py), numbered first: each one is a "
                     "project of --hooks versions (another cold open each); one project per winner unless its RAW has "
                     "--hooks more cold opens")
+    pl.add_argument("--projects", type=int, help="video projects of the pipeline's kind: winner projects in winners, "
+                    "storyboard projects otherwise (= --winner-videos / --videos)")
+    pl.add_argument("--batch", action="store_true", help=f"a batch: {BATCH['statics']} statics + {BATCH['projects']} "
+                    "projects (the counts not given; winners / new-product with no count do this by themselves)")
+    pl.add_argument("--no-fill", action="store_true", help="winners: only winner projects, even when fewer are possible "
+                    "than asked (default: new-angle storyboard projects of the winners' product fill the rest)")
+    pl.add_argument("--new-product", help="new-product: the Drive New Products folder (name or a unique part of it) | "
+                    "next (the newest folder with no ads yet; default) | latest")
+    pl.add_argument("--refresh-product", action="store_true", help="new-product: redo the intake from the folder even "
+                    "when it is unchanged (a hand-edited product file is overwritten)")
     pl.add_argument("--winner-reviews", action="store_true", help="winner remixes get a narrated review section (another "
                     "voice over B-roll before the offer, as in the first batch). Default: off, the proven RAW body plays intact "
                     "(only its editorial cuts) and winner projects need no voiceover")
@@ -2344,17 +2797,19 @@ def main():
     pl.add_argument("--hook-seed", type=int, help="variation of the hook versions only (default: --seed); the same --seed "
                     "with another --hook-seed keeps every body and changes the H2-H4 hooks")
     pl.add_argument("--winners", default="latest", help="latest (newest brief) | all | brief.json | '94-H4,148-H5' | '94,148'")
-    pl.add_argument("--product", help="built-in bag or a pipeline/data/products file (default: top winner's, else Hobo Bag)")
+    pl.add_argument("--product", help="built-in bag or a pipeline/data/products file (default: top winner's, else Hobo Bag; "
+                    "new-product: the folder when --new-product is not given)")
     pl.add_argument("--products-dir", help="product files folder (default pipeline/data/products, or $LC_PRODUCTS_DIR)")
     pl.add_argument("--allow-draft", action="store_true", help="build from a product file still marked draft")
     pl.add_argument("--theme", default="")
     pl.add_argument("--request", default="", help="the user's message, for the folder name and report")
     pl.add_argument("--lines", help="json with overrides: hero, bold, colours, V01_hook, V01_close ... (P01_hook = V01_hook: "
                     "project P01's H1 line)")
-    pl.add_argument("--seed", type=int, default=1, help="variation: another seed gives other winner reviews (with --winner-reviews; a winner project holds every "
-                    "cold open its RAW has: only H1 changes; --hooks 1: other cold opens), other "
-                    "storyboard hooks, feature order, reviews and B-roll, other static photos/headlines, and other hook "
-                    "versions (unless --hook-seed)")
+    pl.add_argument("--seed", type=int, help="variation (default 1; new-product without --only: 1 + the batches its "
+                    "product file records, so a new batch differs): another seed gives other winner reviews (with "
+                    "--winner-reviews; a winner project holds every cold open its RAW has: only H1 changes; --hooks 1: other "
+                    "cold opens), other storyboard hooks, feature order, reviews and B-roll, other static photos/headlines, "
+                    "and other hook versions (unless --hook-seed)")
     pl.add_argument("--only", help="keep only these ads (P02 = project 2's versions, P02H3 = one version, S03, 'P02H3,S01', "
                     "V/P = all videos, S = all statics; V02 = P02; --hooks 1: V02): a redo voices, renders and uploads just them")
     pl.add_argument("--story", action="store_true", help="storyboard videos in the story format: 1.5-2 min (every feature, the "
