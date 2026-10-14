@@ -8,6 +8,8 @@ board.json (paths relative to the JSON):
   "blocks": [
     {"vo": "n_vin1.mp3", "broll": [["vin_clasp_brown.mp4", 0.0], ["vin_details_brown.mp4", 3.5, 1.5]]},
                                    # [src, start, weight?]: the VO length is split over the clips by weight
+    {"vo": "n_feat1.mp3", "broll": [...], "hold": 1.6},   # "hold": s of silent picture after the line (a middle block only;
+                                   # make_batch pads a thin product's ad with it, with enough shots for the longer block)
     {"clip": "vin_becky_testimony.mp4", "range": [5.8, 14.4]},       # real clip with its own audio
     {"clip": "k_h2_brown.mp4", "range": [0, 5], "mute": true},        # silent visual (adds time, no sound)
   ],
@@ -163,7 +165,7 @@ def build(b, d, info=None):
     clip_tail = None                              # silence after the last word of the clip block just before
     for k, blk in enumerate(b["blocks"]):
         n0 = len(segs)
-        bp = blk.get("pad", pad)
+        bp = blk.get("pad", pad) + (blk.get("hold", 0.0) if 0 < k < last else 0.0)   # hold: the picture stays after the line
         bp = max(bp, HOOK_PAD) if k == 0 and last > 0 else max(bp, END_PAD) if k == last else bp
         # the hook's extra shots come only from its own spares (its versions differ; the body must stay identical)
         own = list(blk.get("spare") or [])

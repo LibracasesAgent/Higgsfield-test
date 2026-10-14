@@ -106,7 +106,7 @@ python3 pipeline/make_batch.py plan --pipeline winners --request "<message>" --o
 ## 2. NEW PRODUCTS: everything from the product's Drive folder
 
 The client puts one folder per product in Drive `Ad Creative Pipeline / New Products` (photos, clips, a notes doc
-with the price / was price or % off, a gift if any, colours, 3-7 features).
+with the price / was price or % off, a gift if any, colours, 3-7 features: any subset works, a thin folder is normal).
 ```
 python3 pipeline/new_product.py list        # one row per folder: status new | draft | ready | tested <date>, changed, tests
 python3 pipeline/make_batch.py plan --pipeline new-product --new-product "<folder name>" --request "<message>" --out $OUT
@@ -134,8 +134,14 @@ python3 pipeline/make_batch.py plan --pipeline new-product --new-product "<folde
   `features`; `problems`; `warnings`), and the warnings `colour swatches: packshots matched ... by shade` (check the
   colours static), `may show part of a head` (that photo is in no static), `pick ... skipped`, `N of M statics left
   out` (clips but no faceless photos: no statics; say so: the client must add photos without a face), `PDF notes not
-  read` (install the reader, section 0, and plan again with `--refresh-product`), and the length warning `will run
-  about N s (QA wants 35-95 s)` (3-5 features plan ~32-35 s; 7 plan ~42-45 s, no warning: say so).
+  read` (install the reader, section 0, and plan again with `--refresh-product`), `videos left out: ...` (a video
+  that stays under the 25 s floor even after padding: plan leaves it out itself, exit 0, the statics proceed; the
+  warning names what the client could add: say so in the reply, it is a suggestion, not a requirement), and the
+  length warning `will run about N s (QA wants 35-95 s)` (7 features plan ~42-45 s, no warning; a thin folder
+  (0-4 feature lines) is padded by plan to ~38 s with blocks that only restate its notes: the colours named in
+  the notes, a recap of the features' own tags, "Now $69, down from $99.", the gift, and a short silent picture hold
+  after each middle line; a stills-only product with 3 lines and no price runs ~28 s and may get 2-3 hook versions
+  instead of 4 (too few photos for 4 different opening shots): say so).
 - **No human step is required:** a ready auto file runs. You may glance at the intake's `overview.jpg`
   (`source.overview` in the product file, there when the intake ran in this container; P0, P1 … = `photos[0]`,
   `photos[1]` … = picks `["photo", "P<n>"]`) and fix an obviously wrong pick or line in the product file (only true
@@ -143,10 +149,12 @@ python3 pipeline/make_batch.py plan --pipeline new-product --new-product "<folde
   `python3 pipeline/new_product.py check <slug>` (must be ok) and plan again.
 - **Plan exits 2:** an unknown folder (it lists the folders); a draft (it prints the intake's `WARNING` lines and
   the problems): fix in the product file what it names, set `"status": "ready"`, `check <slug>` and plan again, or,
-  when the folder lacks the material (no faceless photos and no clips, no notes, fewer than 3 feature lines), make
-  nothing for that product and reply what the client must add to the folder (a `PDF notes not read` warning is
-  ours to fix, not the client's). No price or % in the notes is not a draft: the ads run without an offer
-  (`offer`: "no discount"; a sale theme exits 2): say so in the reply.
+  when the folder has no usable photo and no clip, make nothing for that product and reply what the client must
+  add to the folder (a `PDF notes not read` warning is ours to fix, not the client's). Fewer than 3 feature lines,
+  no notes, no price or % are not drafts: the statics run, the videos are padded from what the notes do say or
+  left out with one warning (above), the ads run without an offer when the notes give none (`offer`: "no
+  discount"; a sale theme exits 2): say so in the reply. Plain lines (no bullet marks, one fact per line) count as
+  the feature list, and `Colours:` may sit inside the price line.
 - **Upload** lands in Drive `Outputs/New Products/<date> – <name>`; it records the batch in the product file's
   `"tests"` and prints `product file changed: ... commit it`. **Specs:** `pipeline/recipes/new_products/<date>/<name>`
   plus `pipeline/data/products/<slug>.json` (with its `tests`), in the same commit.
@@ -183,8 +191,9 @@ then `--product "<key>"`. No folder, no photos, not on the site: make nothing an
 | "drop S03" / "delete …" | nothing to plan: never delete or move Drive files. Reply that it stays in the Drive folder and is simply not uploaded to Meta |
 
 `plan` exits 2 with a clear message when something is wrong (unknown product or folder, draft product file, too
-many credits, a sale theme for a product without a deal, a compliance problem, a video under the 25 s floor: too
-little material, so make the statics only and say so). Read it and act on it.
+many credits, a sale theme for a product without a deal, a compliance problem, nothing at all left to make). A video
+under the 25 s floor (too little material) is left out by `plan` itself with a `videos left out: ...` warning
+(exit 0, the statics proceed): say so in the reply. Read it and act on it.
 
 ## 5. The run (every pipeline)
 

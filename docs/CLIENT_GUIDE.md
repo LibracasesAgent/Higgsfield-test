@@ -62,14 +62,17 @@ Outputs / New Products: that is where the finished ads land), named like the pro
   - a free gift, only if there is one (`Free matching pouch wallet`);
   - the colours, named as on the photos (`Colours: Coffee, Black, Beige, Wine Red, Apricot`);
   - 3 to 7 things that make it special, one short line each (`Dual zipper closure keeps everything secure`); 7
-    lines make videos of about 45 s, 3-5 lines about 35 s;
+    lines make videos of about 45 s, 3-5 lines about 38 s (fewer lines still work: Claude pads the video with the
+    price, colours and gift from your notes);
   - free shipping, only if it applies (`Free US shipping`): without that line the ads don't mention shipping.
 
 Claude reads only that folder: **the website is not read** for new products. The ads say only what the folder
 says: no reviews from other bags, no discount, free gift or free shipping your notes don't mention, nothing about
-health. No price or discount in the notes = ads without an offer (and no Black Friday ads). If something is missing
-(no photos or clips, no notes, fewer than 3 features), Claude makes nothing for that product and replies what to
-add. Changed the folder later? Write the product's name again to get ads from the new files.
+health. No price or discount in the notes = ads without an offer (and no Black Friday ads). A thin folder still
+works: with few photos or lines the videos are padded from your notes, and a video that would still be too short
+(under 25 s) is left out while the statics are made; Claude then says what you could add for videos. Only a folder
+with no usable photo and no clip makes nothing. Changed the folder later? Write the product's name again to get
+ads from the new files.
 
 ## 3. The bags on the site (Hobo Bag, Hobo 2.0, Hobo 3-Piece Set, Slouchy Soft 3-Piece Set, Vintage Bag)
 

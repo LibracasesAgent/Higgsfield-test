@@ -8,7 +8,7 @@ footage, our voiceover, captions, tags, offer card, end card. No AI images or AI
 ## The flow (no human step)
 
 1. **The client** makes a folder in Drive `Ad Creative Pipeline / New Products`, named like the product,
-   with photos, clips and a notes doc (price / was price or % off, a gift if any, colours, 3-7 things that make
+   with photos, clips and a notes doc (price / was price or % off, a gift if any, colours, 0-7 things that make
    it special, free shipping only if it applies). It may have `photos/` and `clips/` subfolders.
 2. **The Slack agent** runs the new-product pipeline (CLAUDE.md section 2):
    ```
@@ -31,7 +31,7 @@ footage, our voiceover, captions, tags, offer card, end card. No AI images or AI
    sales talk, odd words, compliance problems or claims the offer doesn't back are dropped and listed, and so are
    bullets past the 7th), picks the footage that shows each (zip → the zipper close-up, straps → a worn photo, room
    → the open bag, shape → a packshot), and writes `overview.jpg` + one contact sheet per clip.
-4. **Auto-ready:** no `check` problems and at least 3 features → `"status": "ready", "auto": true`, and `plan`
+4. **Auto-ready:** no `check` problems (a folder with fewer than 3 feature lines is still ready: plan pads the videos from the notes and leaves out any that stay under the floor) → `"status": "ready", "auto": true`, and `plan`
    builds from it right away. Otherwise `"status": "draft", "auto": false` with the problems: `plan` prints the
    intake's warnings, exits 2 and names them.
 5. **Optional look:** `overview.jpg` (path in `source.overview`) shows the photos as P0, P1 … and the clip
@@ -74,7 +74,7 @@ the site in the notes is only recorded (`source.notes_link`), never opened.
 | `offer.close` | The last spoken line of every video. It always ends with "Tap the link below." |
 | `offer.evidence` | Where the offer came from (prices, quoted phrases). Only for review: never shown in ads. |
 | `hook_clips` | Shots for the first second of a video (picks, see below). |
-| `features` | 3-7 entries `["spoken line", "TAG", [pick, ...]]`. The line is one short spoken sentence (14 words at most); the TAG is the 2-3 word uppercase label shown with it ("ZIP CLOSURE"), never more than its line says ("LEATHER FINISH", not "SOFT LEATHER", for a line that only says leather). A product with no reviews or customer clips says all of them (3-5 features: videos ~32-35 s; 7: ~42-45 s). |
+| `features` | 0-7 entries `["spoken line", "TAG", [pick, ...]]`. The line is one short spoken sentence (14 words at most); the TAG is the 2-3 word uppercase label shown with it ("ZIP CLOSURE"), never more than its line says ("LEATHER FINISH", not "SOFT LEATHER", for a line that only says leather). A product with no reviews or customer clips says all of them (3-5 features: videos ~32-35 s; 7: ~42-45 s). |
 | `hooks` | Optional. 6-10 opening lines for the hook versions (H2-H4) of each video project (`pipeline/projects.py`): `"line"` or `{"text": "...", "type": "problem", "labels": ["SOUND FAMILIAR?"], "feature": "ZIP TOP"}`. One spoken line of 15 words at most; `type` one of problem, curiosity, question, feature, offer, gift, travel, POV, story (left out: guessed from the words); `labels` 1-4 UPPERCASE words shown on screen; `feature` a feature TAG whose footage opens the version. Only true claims from `facts`; an offer only through `{P}` / `{off_sp}` / `{price_sp}` / `{gift_sp}` (filled from the real offer, as in `pipeline/data/hooks.json`). Without it, the hook versions use the feature lines, POV / question openings made from the feature lines' own words ("Need room for your phone, wallet, keys ...?") and a few generic lines. |
 | `customer` | Real customer clips `[section, key, start, end]` from `clip_bank.json`. Empty for new products. |
 | `broll` | Shots used under review cards, the close and to fill gaps (picks). |

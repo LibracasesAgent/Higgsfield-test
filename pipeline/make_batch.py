@@ -110,6 +110,8 @@ NARRATOR = {"voice_type": "preset", "voice_id": "64cf4f1a-61c8-5938-9aea-83d12b2
 DRIVE_ID = re.compile(r"^[A-Za-z0-9_-]{20,}$")
 MAX_CREDITS = 40
 MIN_SECONDS = 25   # a storyboard shorter than this is never made (35-95 s is the QA range; 25-35 s is uploaded, flagged)
+PLAN_SECONDS = MIN_SECONDS + 2   # plan leaves a storyboard out when it estimates under this: the real voice runs a second or
+#                                  two off the words / 2.7 estimate, and a render under MIN_SECONDS is never uploaded
 QA_SECONDS = {"storyboard": (35, 95), "remix": (15, 110),    # a winner body is as long as it is: RAW + cold open, no
               "story": (60, 130)}                             # padding (113-H2 runs ~18 s); never under the floor. story:
 FLOOR = {"storyboard": MIN_SECONDS, "remix": 15}                # the 1.5-2 min storytelling format (Julian, 2026-10-09)
@@ -792,7 +794,8 @@ def est_seconds(spec, texts, rw=None):
         return round(body + (co[1] - co[0] if co else 0) + (len(rv["text"].split()) / WPS + 0.4 if rv else 0), 1)
     t = 0.45                          # storyboard: the hook's and the last line's longer pauses (HOOK_PAD, END_PAD)
     for blk in spec["blocks"]:
-        t += len(texts.get(blk["vo"], "").split()) / WPS + 0.25 if "vo" in blk else blk["range"][1] - blk["range"][0]
+        t += len(texts.get(blk["vo"], "").split()) / WPS + 0.25 + blk.get("hold", 0.0) if "vo" in blk else \
+            blk["range"][1] - blk["range"][0]
     return round(t, 1)
 
 
@@ -1571,6 +1574,9 @@ def plan(a):
     colours_tail = "Which one is yours?" if feat_gift else tx["colours_line"]       # the gift is said twice at most
     SHOT, SHOWCASE_MAX = 3.6, 66      # longest planned shot (s); a showcase adds customer clips up to ~66 s (+ colours)
     NEW_MAX = 58                      # a new product's ad: its feature lines up to ~1 min (the 40-60 s it should run)
+    TARGET = 38                       # an ad shorter than this (est.) is padded with what the product's own material backs
+    HOLD_MAX = 2.4                    # the longest silent picture hold after a line (padding: a second look at the product)
+    new_prod = pr["source"] != "built-in" and not pr["reviews"] and not pr["customer"]   # product file, Drive material only
     STORY_MAX = 112                   # a story adds customer clips and reviews up to ~112 s (QA 60-130 s)
 
     def near(p, q):                   # the same shot: same photo (P3 = its pool number too), or the same clip within 2.5 s
@@ -1664,7 +1670,7 @@ def plan(a):
             same = [g for g in got if p[0] != "photo" and g[0] == p[0] and g[1] == p[1]]
             return len(same) >= 2 or any(abs(float(g[2]) - float(p[2])) < 4.0 for g in same)
 
-        def take(ps, need, extra=True, people=True):
+        def take(ps, need, extra=True, people=True, least=False):
             """need shots for one voiced block: ps first (not on screen yet in this ad), then the other moments of their
             clips, then (extra) any unseen shot of the product; nothing unseen left: an unseen photo, else ps. Never a
             customer's own clip or a moment someone talks (unfit); at most 2 shots of one clip, 4 s apart (crowded).
@@ -1679,6 +1685,8 @@ def plan(a):
                 if p and not is_shown(p) and not any(near(p, g) for g in got) and not unfit(p) and not crowded(p, got) \
                         and ok_(p) and pick(p):
                     got.append(p)
+            if not got and least and photo_picks:   # (padding) every shot is on screen already: repeat the one shown least
+                got = [min(photo_picks, key=lambda p: sum(near(p, q) for q in shown))]   # (the same photo again is punched in)
             got = got or [p for p in photo_picks if not is_shown(p)][:1] or \
                 [p for p in ps if p and not unfit(p) and ok_(p)][:1] or photo_picks[:1]
             shown.extend(got)
@@ -1722,11 +1730,12 @@ def plan(a):
         rev_q = rot(pr["reviews"], v + o3)
         cust_q = rot(pr["customer"], v + o3)
         cnt = dict(feat=0, rev=0, colours=0, cust=0)
+        tags_said = []                    # the on-screen tags of the features this ad says (the recap uses only these)
         close = ov(tx["close"], f"{vid}_close", f"{pid}_close", f"{bid}_close")
 
         def est_now():
-            return sum(len(said.get(x.get("vo"), "").split()) / WPS + 0.25 if "vo" in x else x["range"][1] - x["range"][0]
-                       for x in blocks) + len(close.split()) / WPS + 0.6
+            return sum(len(said.get(x.get("vo"), "").split()) / WPS + 0.25 + x.get("hold", 0.0) if "vo" in x else
+                       x["range"][1] - x["range"][0] for x in blocks) + len(close.split()) / WPS + 0.6
 
         def add_features(n, cap=None):
             """n features; cap: stop (after 3) where the next one would take the ad, the colours still to come
@@ -1738,6 +1747,7 @@ def plan(a):
                 if cap and cnt["feat"] >= 3 and est_now() + len(fs[feat_q[0]][0].split()) / WPS + 0.25 + col > cap:
                     return
                 txt, tag, ps = fs[feat_q.pop(0)]
+                tags_said.append(tag)
                 got_ = take(ps, need_for(txt))
                 own_ = [m for m in list(ps) + [m for p in ps for m in moments(p)] if m and not is_shown(m) and not unfit(m)
                         and not crowded(m, got_) and pick(m)][:1]   # a longer voice than planned: more of this feature
@@ -1794,6 +1804,58 @@ def plan(a):
             ovl.append(dict(type="tag", text=names_ if len(ns) <= 4 and len(names_) <= 28 else f"{len(ns)} COLOURS",
                             block=len(blocks) - 1, at=0.1, dur=3.0))
 
+        # ---- padding for a thin product (a Drive folder with 0-4 feature lines is normal): blocks that only restate what
+        # the client's folder says, each only when the notes back it (colours named in the notes, the price, the gift, the
+        # features' own tags): nothing new is claimed, compliance checks every line like any other
+        def note_block(key, text, tag=None, label=None):
+            blocks.append(dict(vo=line(vid, key, text, BRAND_VOICE),
+                               broll=picks(take([], need_for(text), least=True), fallback=False)))
+            if tag:
+                ovl.append(dict(type="tag", text=tag, block=len(blocks) - 1, at=0.1, dur=3.0))
+            if label:
+                ovl.append(dict(type="label", text=label, block=len(blocks) - 1, at=0.2, dur=2.4))
+
+        def gift_said():                  # how often the ad says the gift so far (the close does: at most twice in all)
+            g_ = (deal_of(pr["offer"])[1] or "").lower()
+            return bool(g_) * (sum(g_ in said.get(x.get("vo"), "").lower() for x in blocks) + (g_ in close.lower()))
+
+        def add_colour_names():           # the colours the notes name, said over the product (no swatch photos matched)
+            ns = list(dict.fromkeys(n.strip() for n in ((pr.get("facts") or {}).get("colours") or []) if n.strip()))[:6]
+            if cnt["colours"] or len(ns) < 2:
+                return
+            cnt["colours"] = 1
+            note_block("colours", "Choose your colour: " + ", ".join(ns[:-1]) + ", or " + ns[-1] + ". " + colours_tail,
+                       tag=f"{len(ns)} COLOURS")
+
+        def add_recap():                  # the features' own tags in one sentence, then the product's name
+            tg = [t for t in dict.fromkeys(tags_said) if new_product.known_tag(t)]   # (a tag of two odd words is not read out)
+            if len(tg) < 2 or cnt.get("recap"):
+                return
+            cnt["recap"] = 1
+            lst = [tcase(t, "sentence" if i == 0 else "lower") for i, t in enumerate(tg[:4])]
+            note_block("recap", ", ".join(lst[:-1]) + " and " + lst[-1] + f". That's the {pr['short']}.")
+
+        def add_price():                  # the price the client's notes give (and the was price): never more than they say
+            fct = pr.get("facts") or {}
+            price, was = new_product.money(fct.get("price")), new_product.money(fct.get("compare_at"))
+            if not price or cnt.get("price") or not fct.get("price_source"):
+                return
+            cnt["price"] = 1
+            say = lambda x: f"${x:.0f}" if abs(x - round(x)) < 0.005 else f"${x:.2f}"   # noqa: E731
+            if was and was > price:
+                note_block("price", f"Now {say(price)}, down from {say(was)}.", label=f"NOW {say(price)}")
+            else:
+                note_block("price", f"The {pr['short']} is {say(price)}.", label=say(price))
+
+        def add_gift():                   # the notes' free gift, when the ad has not said it twice already
+            if cnt.get("gift") or gift_said() >= 2:
+                return
+            t_ = tpl("And it comes with {gift_sp}.", s_v)
+            if t_:
+                cnt["gift"] = 1
+                note_block("gift", t_)
+
+        pad_steps = [add_colour_names, add_recap, add_price, add_gift] if new_prod else []
         # a new product (no reviews, no customer clips): every feature line its notes give (3-7) while the ad stays
         # under NEW_MAX s, so 6-7 good lines make a 40-60 s ad; 3-5 lines run shorter (plan warns)
         nfeat, cap = ((3 if fmt == "features" else 2), None) if rich else (len(fs), NEW_MAX)
@@ -1816,7 +1878,7 @@ def plan(a):
             add_features(nfeat, cap); add_colours()  # noqa: E702
         else:
             add_colours(); add_customer(); add_reviews(2); add_features(nfeat, cap)  # noqa: E702
-        while est_now() < (90 if fmt == "story" else 38):   # too short: add what this ad hasn't shown yet (never twice)
+        while est_now() < (90 if fmt == "story" else TARGET):   # too short: add what this ad hasn't shown yet (never twice)
             nb = len(blocks)
             if feat_q:
                 add_features(1)
@@ -1826,8 +1888,23 @@ def plan(a):
                 add_colours()
             elif cust_q:
                 add_customer()
-            if len(blocks) == nb:
+            elif pad_steps:               # a thin product: its colours, a recap, the price, the gift (the notes back each)
+                pad_steps.pop(0)()
+            if len(blocks) == nb and not pad_steps:
                 break
+        if new_prod and fmt != "story" and TARGET - est_now() > 0.4:
+            # still short: every middle line holds the picture a moment after it (a second, closer look at the product: more
+            # shots of it, the same photo punched in when no other is left), never the hook and never the close
+            el = [x for x in blocks[1:] if "vo" in x]
+            h_ = round(min(HOLD_MAX, (TARGET - est_now()) / len(el)), 2) if el else 0
+            for x in el if h_ >= 0.2 else []:
+                x["hold"] = h_
+                more = math.ceil((len(said.get(x["vo"], "").split()) / WPS + 0.25 + h_) / 3.9) - len(x["broll"])   # (<= 4 s a shot)
+                if more > 0:                  # first the feature's own other moments (kept as spares: on screen only when the
+                    sp_ = x.pop("spare", [])  # voice runs long), then any unseen shot of the product
+                    x["broll"] = x["broll"] + sp_[:more]
+                    if more > len(sp_):
+                        x["broll"] = x["broll"] + picks(take([], more - len(sp_), least=True), fallback=False)
         if {f"{vid}_close", f"{pid}_close", f"{bid}_close"} & used and tx["offer_title"] and tx["offer_word"]:
             ow = tx["offer_word"]
             if ow not in close.lower() and (not ow.isdigit() or new_product.say(int(ow)).split("-")[0] not in close.lower()):
@@ -1843,6 +1920,18 @@ def plan(a):
         # cover the bag
         cl = [x[:3] + [dict(x[3], fit_y=CLOSE_FIT_Y)] if len(x) > 3 and x[3].get("fit") else x for x in cl or picks([])]
         blocks.append(dict(vo=line(vid, "close", close, BRAND_VOICE), broll=cl))
+        if pr["source"] != "built-in":    # a photo shown again in this ad (few photos): punched in closer, so it reads as a new shot
+            seen_st = {}
+            for blk in blocks[:-1]:       # (not the close: its framing is set above the end card band, fit_y)
+                for x in blk.get("broll") or []:
+                    if str(x[0]).lower().endswith((".jpg", ".jpeg", ".png", ".webp")):
+                        k_ = seen_st[x[0]] = seen_st.get(x[0], -1) + 1
+                        if k_:                # (zoom 1.2-1.4 keeps the bag in frame; the framing also moves a little each time)
+                            z_ = (1.2, 1.32)[(k_ - 1) % 2]
+                            ex_ = dict(x[3]) if len(x) > 3 else {}
+                            mv_ = (0.0, -0.05, 0.07)[k_ % 3]
+                            x[:] = x[:3] + [dict(ex_, zoom=[z_, round(z_ + 0.1, 2)], **(
+                                {"fit_y": round(0.42 + mv_, 2)} if ex_.get("fit") else {"focus": [0.5, round(0.5 + mv_, 2)]}))]
         if any(not blk.get("broll") for blk in blocks if "vo" in blk):
             sys.exit(f"{pr['name']}: no footage or photo to show under the voiceover (product has no clips, no clean "
                      f"photos and no site page). Add clips/photos to its Drive folder and re-run the intake.")
@@ -1918,6 +2007,42 @@ def plan(a):
                   file=sys.stderr)
             sys.exit(2)
 
+    # ---------- a storyboard video that cannot reach the floor even after the padding is left out: the statics proceed, the
+    # reply names what the client could add (never an exit for the whole plan unless nothing at all is left to make)
+    floor_ = MIN_SECONDS if pr["source"] == "built-in" else PLAN_SECONDS      # (a product file's estimate gets the margin)
+    short = [v for v in videos if v["engine"] == "storyboard" and est_seconds(specs[v["name"]], said, rw) < floor_]
+    if short:
+        nm_ = lambda v: ("P" + v["id"][1:]) if pm else v["id"]  # noqa: E731
+        gone = {v["name"] for v in short}
+        left_out = ", ".join(f"{nm_(v)} ~{round(est_seconds(specs[v['name']], said, rw))} s" for v in short)
+        for lst in (videos, keep):
+            lst[:] = [v for v in lst if v["name"] not in gone]
+        for n_ in gone:
+            specs.pop(n_, None)
+        tts[:] = [t for t in tts if not any(t["file"].startswith(v["id"] + "_") for v in short)]
+        pm = pm and bool(keep)
+        fct, add = pr.get("facts") or {}, []
+        if pr["source"] != "built-in":
+            if len(fs) < 3:
+                add.append("3-5 one-line features in the notes (one fact per line)")
+            if not fct.get("price") and not any(deal_of(pr["offer"])):
+                add.append("the price and the was price (or 'NN% off') in the notes")
+            if len(fct.get("colours") or []) < 2:
+                add.append("'Colours: ...' in the notes")
+            if len(pool) < 4 and not any(clips):
+                add.append("more photos or a clip")
+        warnings.append(
+            f"videos left out: {left_out} "
+            f"would run too close to the {MIN_SECONDS} s floor (under {floor_} s planned) even after padding with what "
+            f"{pr['name']}'s material backs ({len(fs)} feature line(s), {len(pool)} photo(s), {len([c for c in clips if c])} "
+            f"clip(s)): too short to run as an ad. " + (f"To get videos the client could add: {'; '.join(add)}." if add else
+                      "Add hook/close lines with --lines, or make fewer videos."))
+        if not statics and not keep:
+            print(f"{pr['name']}: nothing to make: the videos would run under {floor_} s (floor {MIN_SECONDS} s) and there "
+                  f"are no statics to make (none asked for, or no photo without a face). " +
+                  (f"The client could add: {'; '.join(add)}." if add else "Add lines with --lines."), file=sys.stderr)
+            sys.exit(2)
+
     # ---------- voiceover: one line per (text, voice); budget
     uniq, dupes = {}, {}
     for t in tts:
@@ -1940,13 +2065,6 @@ def plan(a):
         warnings.append(f"story format asked for 1.5-2 min, but {', '.join(vname(v) + ' ~' + str(round(v['est_seconds'])) + ' s' for v in story_short)}: "
                         f"all of {pr['name']}'s real material (features, customer clips, reviews, colours) is used. Tell the "
                         "client; for longer, add narrated story lines with --lines or pick a product with more footage")
-    short = [v for v in keep if v["engine"] == "storyboard" and v["est_seconds"] < MIN_SECONDS]
-    if short:
-        print(f"{', '.join(vname(v) + ' ~' + str(round(v['est_seconds'])) + ' s' for v in short)}: under the {MIN_SECONDS} s "
-              f"floor, too short to run as an ad. " + ("Add hook/close lines with --lines, or make fewer videos." if pr["source"] ==
-                                                      "built-in" else f"{pr['source']} needs more features, clips or photos "
-                                                      "(new_product.py check), or longer lines with --lines."), file=sys.stderr)
-        sys.exit(2)
     est = round(0.35 * len(tts_u), 1)
     limit = a.budget if a.budget is not None else MAX_CREDITS
     pct, gift = deal_of(pr["offer"])

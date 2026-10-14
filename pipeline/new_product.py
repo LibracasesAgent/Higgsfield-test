@@ -17,7 +17,8 @@ and then only for what the folder lacks (prices, colours, a gift the notes don't
           Downloads photos (-> jpg), clips and notes into pipeline/cache/new_products/<slug>/, scores the photos (clean,
           faces) and sorts them into packshot / worn / detail / other ("statics": false on a worn photo that may show
           part of a head: videos only), proposes clip start times (about one per 4.5 s, after scene changes), reads
-          price, was-price, an "NN% off", a gift, colours and the feature bullets from the notes, drafts 3-7 spoken
+          price, was-price, an "NN% off", a gift, colours (also inside the price line) and the feature bullets (or, with
+          no bullet marks, the one-sentence lines) from the notes, drafts 0-7 spoken
           feature lines + tags and picks the footage that shows each (zip -> the zipper close-up, straps -> a worn
           photo, room -> the open bag, shape -> a packshot), writes overview.jpg + contact sheets. No check problems ->
           "status": "ready", "auto": true (made automatically, not hand-reviewed); else "draft" with the problems
@@ -81,6 +82,7 @@ TAGS = [  # (pattern in the sentence, on-screen tag or tag(line)): a line's firs
     (r"pocket", "HANDY POCKETS"), (r"zip", "ZIP CLOSURE"), (r"adjustable|removable", "ADJUSTABLE STRAP"),
     (r"strap", "EASY STRAPS"), (r"crossbody|ways to wear|in hand", "WEAR IT YOUR WAY"),
     (r"spacious|room for|fits? (?:your|all|everything)|holds", "ROOM FOR EVERYTHING"),
+    (r"fits? (?:a |an |the |your )?(?:phone|cards?|keys?|wallet|lipstick|essentials)", "ROOM FOR ESSENTIALS"),
     (r"lightweight", "LIGHTWEIGHT"),
     (r"\b(?:soft|smooth)\w*,?\s+(?:\w+\s+)?leather", lambda s: ("SMOOTH" if re.search(r"\bsmooth", s, re.I) else "SOFT")
      + " LEATHER"),
@@ -1002,8 +1004,13 @@ def draft_offer(facts, notes, short, warn=None):
 
 def notes_colours(notes):
     m = re.search(r"^\W*(?:available\s+)?colou?rs?(?:\s+available)?\s*[:\-]\s*(.+)$", notes or "", re.I | re.M)
-    return [c.strip(" .").title() for c in re.split(r",|/|\band\b|\bor\b", re.sub(r"\([^)]*\)", "", m.group(1)))
-            if c.strip(" .")] if m else []
+    if not m:       # inside a line, the way clients write it: "Price: Now $69, was $99. ... Colours: Cream, Sage, Midnight"
+        m = re.search(r"(?:^|[.;|]\s+)(?:available\s+)?colou?rs?(?:\s+available)?\s*:\s*(.+)$", notes or "", re.I | re.M)
+    if not m:
+        return []
+    txt = re.split(r"\.\s+(?=[A-Z])", m.group(1))[0]            # up to the end of that sentence
+    return [c.strip(" .").title() for c in re.split(r",|/|\band\b|\bor\b", re.sub(r"\([^)]*\)", "", txt))
+            if c.strip(" .")]
 
 
 def spoken(s):
@@ -1047,6 +1054,13 @@ def tag_for(s, highlights=()):
     return tags_for(s, highlights)[0][0]
 
 
+def known_tag(t):
+    """The on-screen tag is one TAGS gives for a known feature ('SMOOTH LEATHER'), not the two odd words of a line that
+    matched none ('SIMPLE CLEAN'): the recap block reads only known tags aloud."""
+    return any(isinstance(g, str) and g == t for _, g in TAGS) or \
+        bool(re.fullmatch(r"(?:SMOOTH|SOFT|LUXE) (?:LEATHER|FEEL)|[A-Z]+ LEATHER|LEATHER FINISH", t))
+
+
 def other_names(key, products_dir=PRODUCTS_DIR):
     """Names of the other products (built-in bags + product files) that a line about this one must not mention."""
     own = set(re.findall(r"[a-z0-9.\-]+", (key or "").lower()))
@@ -1086,12 +1100,17 @@ def feature_texts(notes, facts):
     """[(text, source, group)]: the client's bullet list (group 0), the other note sentences (1), the site's (2)."""
     out = []
     lines = [ln.strip() for ln in (notes or "").splitlines() if ln.strip() and not ln.strip().startswith("#")]
+    bullets = any(re.match(r"(?:[-*•·–]|\d+[.)])\s+", ln) for ln in lines)
     for ln in lines:
         b = re.match(r"(?:[-*•·–]|\d+[.)])\s+(.*)", ln)
         if b:
             out.append((b.group(1), "notes", 0))
         elif not ln.endswith(":") and not META.match(ln):
-            out += [(x, "notes", 1) for x in re.split(r"(?<=[.!?])\s+(?=[A-Z])", ln)]
+            parts = re.split(r"(?<=[.!?])\s+(?=[A-Z])", ln)
+            # notes with no bullet marks at all ("one fact per line", as the client guide asks): a line that is one short
+            # sentence is the client's own list entry, like a bullet (a sentence of a paragraph stays an "other" sentence)
+            own = not bullets and len(parts) == 1 and 3 <= len(ln.split()) <= 14
+            out += [(x, "notes", 0 if own else 1) for x in parts]
     return out + [(x, "site", 2) for x in facts.get("bullets") or []]
 
 
@@ -1128,6 +1147,8 @@ def candidates(facts, notes, key="", name="", offer=None, products_dir=PRODUCTS_
             why.append(f"{src}: \"{s[:70]}\" not used: {bad}")
             continue
         tags = tags_for(line, facts.get("highlights") or [])
+        if not group and (not tags[0][0].strip() or (not tags[0][1] and set(tags[0][0].lower().split()) <= own)):
+            continue                                 # a list entry that only restates the product's name (a title line)
         if group and (not tags[0][1] or len(line.split()) < 5):
             continue                                 # outside the client's list: only lines about a known feature
         ok.append((group, n, s, src, line, [t for t, named in tags if named or not group]))
@@ -1304,7 +1325,7 @@ def intake(folder=None, latest=False, local=None, site=None, name=None, products
     """A New Products folder (name: exact or a unique part, or a Drive folder row; latest=True: the newest), a local
     dir or a site page -> pipeline/data/products/<slug>.json. Drive-only unless site (a libracases.com url or handle)
     or use_site (the notes' link, else a name match): the site then fills only what the folder lacks. Ready + "auto":
-    true when validate() finds no problems and there are >= 3 features (draft=True: always draft); a ready file is
+    true when validate() finds no problems (fewer than 3 features only warns: plan pads thin products; draft=True: always draft); a ready file is
     redone only with force. "tests" of an earlier file are kept.
     Returns dict(file, key, status, problems, warnings, summary); raises ValueError (never exits)."""
     warnings = []
@@ -1452,8 +1473,10 @@ def intake(folder=None, latest=False, local=None, site=None, name=None, products
     dropped += [f"{c['source']}: \"{c['line'][:70]}\" not used: more than {MAX_FEATURES} feature lines (the best "
                 f"{MAX_FEATURES} are kept)" for c in cands[MAX_FEATURES:]]
     hook, broll = draft_picks(feats, clips, photos, busy, scores)
-    if len(feats) < 3:
-        warn(f"only {len(feats)} feature lines found: write 3-{MAX_FEATURES} from the notes before setting status ready")
+    if len(feats) < 3:         # (not a draft: plan pads the videos from the offer / colours / a recap, see make_batch.board)
+        warn(f"only {len(feats)} feature line(s) found in the notes: the videos are padded with true notes-derived blocks "
+             f"(price / gift, colours, a recap) and run shorter; 3-{MAX_FEATURES} lines (one short line each) make them "
+             f"longer. Ads still run: the client need not add anything")
     sc = sfacts.get("scores", {})
     site_imgs = [(f, sc.get(f, 0), count_faces(f, strict=True)) for f in sfacts.get("images", [])[:16]]
     where = sfacts.get("url") or (f"Drive New Products / {folder_name}" if fo else local or "no folder")
@@ -1478,7 +1501,7 @@ def intake(folder=None, latest=False, local=None, site=None, name=None, products
                     added=datetime.date.today().isoformat()),
         status="ready")
     problems, vw = validate(product)
-    auto = not problems and len(feats) >= 3 and not draft
+    auto = not problems and not draft
     product["status"] = "ready" if auto else "draft"
     product["auto"] = auto                           # ready without a human; a draft is "auto": false
     if draft:
@@ -1754,8 +1777,10 @@ def validate(d):
         else:
             P.append(f"{where}: {p!r} is not a clip_bank section/key, a clip or a photo pick")
     feats = d.get("features", [])
-    if not 3 <= len(feats) <= MAX_FEATURES:
-        P.append(f"needs 3-{MAX_FEATURES} features (has {len(feats)})")
+    if len(feats) > MAX_FEATURES:
+        P.append(f"at most {MAX_FEATURES} features (has {len(feats)})")
+    elif len(feats) < 3:                  # thin products are normal: make_batch pads the videos (or leaves them out)
+        W.append(f"{len(feats)} feature line(s): videos are padded from the offer / colours / a recap, and run shorter")
     for i, f in enumerate(feats):
         if not (isinstance(f, list) and len(f) == 3 and isinstance(f[0], str) and isinstance(f[1], str)
                 and isinstance(f[2], list) and f[2]):

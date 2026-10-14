@@ -93,7 +93,7 @@ DESCRIPTIONS = {
     "gift_item": ["{Gift_s}", "{Gift_s} included"],
     "colours": ["{N} colours + free US shipping", "{N} colours to choose from"],
     "trust": ["1-year warranty + easy returns", "Free US shipping"],
-    "generic": ["Free US shipping", "Shop the {short}"],
+    "generic": ["Free US shipping", "Shop the {short}", "Meet the {short}", "Tap the link to see it"],
 }
 # angle -> preferred hook types for the first line (hooks.json types; 'theme' = THEMES hooks, 'hero' = THEMES hero line)
 HOOK_PREFS = {

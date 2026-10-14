@@ -888,6 +888,14 @@ def expand(out, hooks=4, seed=1, only=None, budget=None, quiet=False):
                         elif str(shot[0]).lower().endswith(STILL):   # no free 2nd shot: the same photo closer (a
                             ex = dict(shot[3]) if len(shot) > 3 else {}   # punch-in reads as a cut; a clip has its own)
                             s["blocks"][0]["spare"] = [[shot[0], shot[1], 1.0, dict(ex, zoom=CLOSER)]]
+                        else:                 # a clip with no free 2nd shot (a thin product shows most of its footage in the
+                            #                   body): the same clip a moment on its footage that nothing else in the project
+                            #                   shows (storyboard frames a clip twice in a row closer), so no shot stays long
+                            used_ = list(body) + list(spares) + [tuple(t[:2]) for t in taken] + [tuple(shot[:2])]
+                            t2 = next((round(max(float(shot[1]) + dt, 0.0), 1) for dt in (2.4, -2.4, 4.8, -4.8) if not any(
+                                a == shot[0] and abs(float(x) - max(float(shot[1]) + dt, 0.0)) < SAME_SHOT for a, x in used_)), None)
+                            if t2 is not None:
+                                s["blocks"][0]["spare"] = [[shot[0], t2, 1.0] + list(shot[3:4])]
                     if lab_i is not None:
                         s["overlays"][lab_i] = dict(s["overlays"][lab_i], text=c["label"])
                     else:
@@ -920,7 +928,9 @@ def expand(out, hooks=4, seed=1, only=None, budget=None, quiet=False):
             fix = "" if eng == "remix" else (": the story format runs as long as the product's real material (features, "
                                              "customer clips, reviews) allows; add lines with --lines or use the showcase "
                                              "format") if v.get("format") == "story" else ": add lines with --lines" \
-                if ctx.pr["source"] == "built-in" else ": the product file needs more features/clips, or add lines with --lines"
+                if ctx.pr["source"] == "built-in" else (": plan already padded it with the notes' own price / colours / recap; "
+                                                        "more feature lines, a price, colours or clips in the product's "
+                                                        "folder make it longer (a suggestion: it runs as it is), or --lines")
             warnings.append(f"{pid} ({', '.join(h for h, _ in short)}) will run about {lo}{'' if lo == hi else f'-{hi}'} s "
                             f"(QA wants {floor}+ s){fix}")
         types = [h["type"] for h in proj["hooks"]]
