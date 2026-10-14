@@ -1065,8 +1065,8 @@ def names_other(s, own, others=()):
                          + PNOUN + r"))?\b", s):
         ws = m.group(1).split()
         named = m.group(2) or re.fullmatch(PNOUN, ws[-1].lower()) or "libra" in m.group(0).lower()
-        if m.start(1) == 0 and len(ws) == 1 and not m.group(2):
-            continue                                 # just the sentence's first word ('Slim shoulder straps')
+        if m.start(1) == 0 and len(ws) == 1:
+            continue                                 # just the sentence's first word ('Slim shoulder straps', 'Adjustable crossbody strap')
         distinct = {w.lower().strip(".'") for w in ws} - GENERIC - {"the", "libra", "cases"} - \
             {w for w in (x.lower() for x in ws) if re.fullmatch(PNOUN, w)}
         if named and distinct and not distinct <= own:
