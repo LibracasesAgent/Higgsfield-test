@@ -31,6 +31,8 @@ ad.json (paths relative to the JSON):
   "no_captions": [[t0, t1], ...],                            # windows without captions
   "breaks": [t, ...],                                        # block / speaker changes: no caption runs across one
   "transcript": [{"w": "Take", "s": 0.1, "e": 0.3, "k": "script"}, ...],   # the words said (ad seconds); else whisper
+                                                             # a word may carry "pre": "1." (storyboard ugc chapter number):
+                                                             # shown before it in the same caption ("1. you stop worrying")
   "caption_words": 7,                                        # max words per caption
   "caption_fix": [["have mercy,", "Mercy,"]],                # whisper slips (+ CAPTION_FIX)
   "caption_y": 1000, "caption_y_force": true,                # old fixed caption centre: used only with caption_y_force
@@ -196,6 +198,8 @@ def cap_words(words):
             p, m = stop(raw) if k == len(parts) - 1 else (1, ",")
             txt = clean_word(raw)
             if txt:
+                if k == 0 and w.get("pre"):                       # chapter number ("1."): its own token, no stop, no time
+                    out.append(dict(t=w["pre"], m="", p=0, s=round(t0, 3), e=round(t0, 3)))
                 out.append(dict(t=txt, m=m, p=p, s=round(t0, 3), e=round(t1, 3)))
             elif out and p and not out[-1]["p"]:
                 out[-1].update(p=p, m=m)

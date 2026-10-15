@@ -150,7 +150,7 @@
   "walking_113H3":    {"id": "1MtOonVbf-pqmrcU5DUgY6995LObDfwn7", "dur": 16.8, "good": [3.0, 8.0, 12.0], "notes": "walking with bag"},
   "packing_113H1":    {"id": "1StPro8S4b5_LUICHyivAkrFna1M1k3ao", "dur": 17.3, "good": [0.3, 5.0, 8.5, 11.5, 14.0], "mute": true, "notes": "packing the bag; her voice is a different script, keep shots short (<=1.8 s) so lips don't read"},
   "black_detail":     {"id": "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx", "dur": 29.4, "good": [5.0, 9.5, 12.0, 16.0], "notes": "black hobo interior/detail (16.0: hand inside the compartments)"},
-  "black_gift":       {"id": "18all7GUEBLsxxS0JCAl8t-yEOsC6r52T", "dur": 36.0, "good": [19.0, 28.6], "notes": "gift reveal; 28.6 shows the pouch wallet"},
+  "black_gift":       {"id": "18all7GUEBLsxxS0JCAl8t-yEOsC6r52T", "dur": 36.0, "good": [19.0, 28.6], "notes": "gift reveal; 28.6 shows the pouch wallet", "text": "a birthday gift bag printed HAPPY BIRTHDAY fills the lower third (not for the ugc videos: a caption sits on it)"},
   "kate_gift":        {"id": "1U5e0VpcAFm07iWXfWFMPe8jiYRd5LmhZ", "dur": 22.4, "notes": "gift reaction"},
   "unbox_novoice":    {"id": "1rRkDw8UM4ZlQpO3c6Bv3_gT1_1-n8qYH", "dur": 66.5, "good": [2.0, 12.0, 30.0, 40.0], "notes": "unboxing, no voice"},
   "unbox_brown":      {"id": "1wE0AQvyBkxmh0-_ftpXmjG4v-pHMMPfG", "dur": 194.9, "notes": "long unboxing brown"},

@@ -116,6 +116,14 @@ def fit(d, src, st, L):
     return 0.0, round(max((D - 0.1) / L, 0.25), 3)
 
 
+def clip_dur(d, src):
+    """Length (s) of a clip / sound (fit's cache), None for a still or when it can't be read."""
+    if str(src).lower().endswith(STILL):
+        return None
+    fit(d, src, 0.0, 0.01)
+    return _DUR.get(src)
+
+
 def _norm(ws):
     return [w if isinstance(w, dict) else dict(w=w[0], s=w[1], e=w[2]) for w in ws]
 
@@ -519,10 +527,56 @@ def caption_opts(spec):
     return {k: spec[k] for k in CAPTION_KEYS if k in spec}
 
 
-def mix_audio(audio, d, out, music=None):
+UGC_LUFS, UGC_TP, UGC_LRA, LRA_MAX = -14.0, -2.0, 3.0, 4.0   # the ugc master: the clients' top ads sit at -14 LUFS, LRA 1.3-2.8
+#                                       (TP -2.0 here: recut's final loudnorm and the AAC encode add ~0.4 dB, so the video lands at -1.5)
+
+
+def ffjson(cmd):
+    """Run ffmpeg and return the JSON block loudnorm prints (print_format=json) at the end of its log."""
+    r = subprocess.run(cmd, capture_output=True, text=True, check=True)
+    return json.loads(r.stderr[r.stderr.rindex("{"):r.stderr.rindex("}") + 1])
+
+
+def lra_of(f):
+    """Loudness range (LU) of an audio file (ebur128): the swing the viewer hears."""
+    r = subprocess.run(["ffmpeg", "-hide_banner", "-nostats", "-i", f, "-af", "ebur128", "-f", "null", "-"], capture_output=True, text=True)
+    m = re.findall(r"LRA:\s+(-?[\d.]+) LU", r.stderr)
+    return float(m[-1]) if m else 0.0
+
+
+def master_ugc(inputs, fc, k, T, music, out):
+    """ugc master of the k pieces fc builds ([p0]..): the voice (high-passed at 70 Hz, lightly compressed 3:1 above -18 dB),
+    the bed under it (music.resolve(..., ugc=True): 6 dB lower than the classic mix, ducked deeper with a slow release so
+    it never makes the level swing), then loudnorm to -14 LUFS / TP -1.5 / LRA 3 in two passes (linear gain when the mix's
+    own range allows it); a result over LRA_MAX LU is levelled again with dynaudnorm. aresample: loudnorm works at 192 kHz."""
+    voice = ("".join(f"[p{i}]" for i in range(k)) + f"concat=n={k}:v=0:a=1,highpass=f=70,"
+             "acompressor=threshold=0.126:ratio=3:attack=6:release=90:makeup=1.5,aresample=48000")
+    if music:
+        inputs += ["-stream_loop", "-1", "-i", music["path"]]
+        g = music.get("gain_db", -21.0)
+        fc.append(voice + ",asplit=2[v1][v2]")
+        fc.append(f"[{k}:a]aresample=48000,aformat=channel_layouts=stereo,atrim=0:{T:.3f},asetpts=N/SR/TB,loudnorm=I=-20,"
+                  f"aresample=48000,volume={g}dB,afade=t=in:d=1.0,afade=t=out:st={max(T - 1.8, 0):.3f}:d=1.8[m]")
+        fc.append("[m][v2]sidechaincompress=threshold=0.03:ratio=6:attack=15:release=600:makeup=1[md]")
+        fc.append("[v1][md]amix=inputs=2:duration=first:normalize=0[mx]")
+    else:
+        fc.append(voice + "[mx]")
+    tgt, head = f"I={UGC_LUFS}:TP={UGC_TP}:LRA={UGC_LRA}", ";".join(fc)
+    for lvl in ("", "dynaudnorm=f=250:g=9:p=0.9:m=6:s=6,"):
+        m = ffjson(["ffmpeg", "-hide_banner", "-nostats", *inputs, "-filter_complex", f"{head};[mx]{lvl}loudnorm={tgt}:print_format=json[o]",
+                    "-map", "[o]", "-f", "null", "-"])
+        meas = ":".join(f"measured_{a}={m[b]}" for a, b in (("I", "input_i"), ("LRA", "input_lra"), ("TP", "input_tp"), ("thresh", "input_thresh")))
+        subprocess.run(["ffmpeg", "-hide_banner", "-loglevel", "error", *inputs, "-filter_complex",
+                        f"{head};[mx]{lvl}loudnorm={tgt}:{meas}:offset={m['target_offset']}:linear=true,aresample=48000[o]",
+                        "-map", "[o]", "-y", out], check=True)
+        if lra_of(out) <= LRA_MAX:
+            break
+
+
+def mix_audio(audio, d, out, music=None, master=None):
     """The pieces (slices of recordings, voiceover files, silences) in order, loudness-normalised (-16 LUFS); music
     (music.resolve(): path, gain_db) adds a bed under it: looped to length, 1 s fade in, 1.8 s fade out, ducked a further
-    ~6-8 dB whenever someone speaks (sidechain on the voice track)."""
+    ~6-8 dB whenever someone speaks (sidechain on the voice track). master "ugc": master_ugc (-14 LUFS, LRA <= 4 LU)."""
     inputs, fc, k = [], [], 0
     for p in audio:
         if p[0] == "slice":
@@ -537,10 +591,12 @@ def mix_audio(audio, d, out, music=None):
             inputs += ["-i", loc(d, p[1])]
             fc.append(f"[{k}:a]aresample=48000,aformat=channel_layouts=stereo,apad=whole_dur={p[2]:.3f},atrim=0:{p[2]:.3f}[p{k}]")
         k += 1
+    T = sum(p[3] - p[2] if p[0] == "slice" else p[1] if p[0] == "silence" else p[2] for p in audio)
+    if master == "ugc":
+        return master_ugc(inputs, fc, k, T, music, out)
     if not music:
         fc.append("".join(f"[p{i}]" for i in range(k)) + f"concat=n={k}:v=0:a=1,loudnorm=I=-16[o]")
     else:
-        T = sum(p[3] - p[2] if p[0] == "slice" else p[1] if p[0] == "silence" else p[2] for p in audio)
         inputs += ["-stream_loop", "-1", "-i", music["path"]]
         g = music.get("gain_db", -15.0)
         fc.append("".join(f"[p{i}]" for i in range(k)) + f"concat=n={k}:v=0:a=1,loudnorm=I=-16,aresample=48000,asplit=2[v1][v2]")

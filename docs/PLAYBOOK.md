@@ -82,6 +82,11 @@ forces `pipeline/make_batch.py` (templates, no AI images/video) for every normal
    (the client drops a folder into Drive `New Products` and writes one sentence, "new product ad sets"; everything
    comes from that folder, libracases.com is no longer read for them). No numbers = a batch: 20 statics + 5
    projects x 4 hooks = 20 videos; numbers given override. What was built: section 11.
+12. **Owner, 2026-10-14** (his lead measured the clients' top-impression ads, 3 reference videos and 75 Ad Library cards,
+   against our Hobo videos): our videos are slower, quieter and more list-like than the ads that win impressions. Decisions:
+   scripts in "you" form ("you stop worrying in crowds": direct address, never an invented first-person customer
+   experience; a first-person switch may exist but is off by default and is not built), length 55-80 s, and the new format
+   becomes the default storyboard video. What was built: section 12.
 
 ## 3. The 2026-10-02 test run (reference for every format)
 
@@ -131,6 +136,8 @@ Delivered: Drive Outputs / "oct 3 test" / Statics (22 files) + Videos (20). Cost
    keep the RAW's own sound (most RAWs have their own music bed); a RAW without one gets a soft bed (`music.py`).
 
 ### 4b. New-angle video (`storyboard.py`)
+**Since 2026-10-14 the default storyboard video is the ugc format (section 12: "mode": "ugc" specs, scripts from
+`ugc_script.py`); the formats below are what `plan --classic` (and `--story`) still make, byte for byte as before.**
 Blocks in order: `{"vo": file, "broll": [[src, start, weight], ...]}` (VO length split over the clips by
 weight; set weights to the word timings so the picture matches the words), `{"clip": src, "range": [a,b]}`
 (real clip with its own audio, e.g. customer testimony), `{"clip":..., "mute": true}` (silent visual),
@@ -339,7 +346,7 @@ numbers or stats, no claim the facts don't back ('waterproof', 'handmade', 'best
 bag that has none), no fake testimonial in the brand voice ('I bought mine', 'my sister'), nothing beyond the real offer.
 
 `make_batch.py plan` (and `projects.py expand`) run it at the end and exit 2 on a problem; `render` runs it again and
-refuses until it passes; by hand: `python3 pipeline/compliance.py --out $OUT` (after editing a line or `ad_copy.csv`).
+refuses until it passes; by hand: `python3 pipeline/make_batch.py check --out $OUT` (after editing a line or `ad_copy.csv`; the same check as `compliance.py --out`, plus the count a ugc hook says: "Four things ...").
 It scans every voiceover line in `tts_needed.json`, every visible text of the statics and the video specs (overlays,
 offer and end cards), `ad_copy.csv` and the RAW audio of every winner version, writes `$OUT/compliance.json` and exits
 1 on a problem. For lines you are about to write yourself
@@ -388,7 +395,7 @@ no LLM calls; every line passes `compliance.check`, a line that fails is replace
 - **Variety:** within a batch no opening, headline or description repeats until the pools run out; `--seed N` gives
   another set. Notes say what was left out (e.g. "P01H3: no hook_first_line (health: arthritis)"); a custom theme
   (not built in) gets the evergreen lines and a note: refine with the theme's words.
-- **Refining:** the Slack session may rewrite any field within these rules, then re-runs `compliance.py --out $OUT`.
+- **Refining:** the Slack session may rewrite any field within these rules, then re-runs `make_batch.py check --out $OUT` (= `compliance.py --out $OUT`, ugc count words allowed).
 - Example (Hobo Bag, Black Friday, S04 review static): primary text 1 "Stop digging for your keys at the bottom of
   your bag. / Black Friday: 50% off the Hobo Bag + free wallet."; headline 1 "\"Best bag I have ever bought\"",
   headline 2 "50% Off the Hobo Bag + Free Wallet", description "Black Friday: 50% off", CTA Get Offer.
@@ -434,3 +441,98 @@ catalog: the counts and product given, exactly as before). Commands, checks and 
   the 2026-10-13 fixes; the old cap was 5). Plan: 20 statics + 5 projects (features, colours, showcase, lifestyle, offer),
   22 voiceover lines (~7.7 credits), 0 site reads; videos plan at ~42-45 s (espeak test renders 47-49 s; with 5
   features they were 37-39 s).
+
+## 12. The ugc video format (owner, 2026-10-14)
+
+**Why.** The owner's lead measured the clients' top-impression ads (3 reference videos, 75 Ad Library cards, rank 1 = most
+impressions) against our Hobo Bag videos. The footage is as good; script, voice and editing are not:
+
+| | references (top impressions) | our Hobo batch (2026-10-13) |
+|---|---|---|
+| words per minute | 187-220 | 137-160 |
+| time someone speaks | 88-91% | 80-82% |
+| longest pause | about 0.7 s | 1.0 s (11 pauses over 0.5 s) |
+| voices | one | narrator -> a real customer -> narrator |
+| new shot | every 1.5-2.3 s, each phrase shows what it says (hands in real places, zips, pockets, the bag worn) | every 2.6-3.1 s, the same hidden-pocket shot cut twice in under a second |
+| loudness | -14 LUFS, range (LRA) 1.3-2.8 LU | range 6.7-7.6 LU (swings) |
+| script | a specific hook in the first 3 s ("4 things ...", "the most organized bag ..."), numbered chapters ("1. I stopped worrying in crowds"), problem -> benefit pairs, proof, the offer last | "Here's what makes the X different. First ... Two gold side zips ...": a feature list with no situation |
+| length | 49-81 s (Ad Library median 66 s) | 58-68 s; two review cards held ~10 s while the narrator reads them |
+| first word | 0.0 s | 0.0 s |
+
+**Decisions** (section 2, item 12): "you" form, 55-80 s, the default storyboard video.
+
+**What it is** (`make_batch.py plan`, no flag; `--classic` = the old output):
+- *Script* (`pipeline/ugc_script.py`, data `ugc_arcs.json`, hand-written Hobo Bag scripts `ugc_hobo.json`): one script per
+  project, angle cycle `n_things`, `demo`, `stop_x`, `travel`, `value` (file names `..._P01_H1_things|demo|stop|travel|value`;
+  `--seed` rotates the order and the wording): a hook (type promise / superlative / question / problem / price, a label of at
+  most 3 words, a feature when its footage should open it), 5-9 chapters (1-3 short sentences each = one voice take; the
+  chapter number is printed on screen, never spoken), problem -> fix pairs, reviews quoted verbatim ("Carol says: ..."), a
+  warranty / returns / price line, the offer last ("fifty percent off ... Tap the link below."), 3+ alternate hooks of other
+  types for H2-H4. Only the product's own facts (compliance.check passes on every text); first person only inside a review.
+- *Board* (`make_batch.plan` -> `ugc_board`): `"mode": "ugc"`, `voice_speed` (default 1.12), the hook block + one block per
+  chapter (`"number"` on the numbered ones), a `tag` overlay with the chapter's feature name, `review` overlays on the
+  reviewers' names (3 s at most), the offer card on "fifty", the end card. Footage per chapter: the product's feature picks
+  and their other vetted moments, B-roll, hook clips, every other clip of its `clip_bank` sections, for the built-in bags also
+  the client's library clips of `clip_index.json` (usable, no face, no text, 720p+; `["drive", <id>, start]` picks), for a
+  product file its photos by kind and its clips; each phrase of a chapter (storyboard's own `phrase_cuts` / `shot_groups`,
+  predicted from the words) gets the footage whose notes share its words (`kw_terms`), a moment never twice in a video
+  while another is left, a short clip cut at most twice per chapter; a 2nd showing is framed closer; spare shots per block
+  for a long phrase; a packshot as the last shot under the end card. The hook is chosen first (its shots are its own).
+- *Voice and mix* (`storyboard.py`, `remix.master_ugc`): every take trimmed, pauses cut to 0.16 s, sped up 1.12x with the
+  pitch kept, joined 0.08 s apart; -14 LUFS, LRA <= 4 LU, true peak about -1.7 dBTP; the music bed 6 dB lower.
+  `pipeline/data/voice.json` {"voice_type", "voice_id", "speed"} (optional) overrides the brand voice and the speed: the
+  lead decides after a listening test (the placeholder tests used espeak: a real voice's pace is not measured yet).
+- *Hooks:* H1 = the script's hook, H2-H4 = its alt_hooks (`projects.ugc_hooks`: other types first, rotated by `--hook-seed`),
+  each voiced as one short line (`P01H2_hook.mp3`), opened over the footage of its feature or the product's hook clips, the
+  body shared. A themed request puts the theme's hook first (label BLACK FRIDAY ...) and its close on the offer chapter.
+- *Length / cost:* the estimate is words / (2.75 x speed) + the kept silence and pads (`make_batch.est_ugc`): QA band 55-85 s,
+  Hobo Bag 64-72 s, Silhouette Bag 62-71 s, a thin product 40-50 s (`thin script: about N s`, it runs as it is); a script that
+  would run under the floor (~27 s) is replaced by a classic video. One take per chapter + one per hook: a project about 13-16
+  lines, a batch (5 projects x 4 hooks) 63-69 lines = 22-24 credits (was 12).
+- *Scorecard* (`pipeline/scorecard.py`; `render` prints a line per ugc video, `qa/report.json` has `scorecard` and the soft flag
+  `scorecard: ...`, the run report lists the lines): length 55-80 s, 185-215 wpm, speech >= 85%, longest pause <= 0.8 s (the
+  last 0.6 s ignored), first word <= 0.35 s, average shot 1.4-2.6 s and none over 4 s, -14 LUFS +-1 with LRA <= 4 LU, true peak
+  <= -1.0 dBTP, no repeated shot within 10 s (perceptual hash), no still card held over 3.2 s. Measured on the references:
+  10-11 of 12 met; on our two Hobo videos 6 of 12 (wpm, speech share, longest pause, average and longest shot, LRA). A miss
+  is reported, never fixed by cutting the video (CLAUDE.md rule 6).
+- *Statics* (`brand_statics.new_layouts()`): `native` (a face-free real photo, one caption, a small offer pill), `quotes`
+  (the packshot between two verbatim review snippets), `value` (the real price struck through) join the cycle: of 20, native 3,
+  quotes 3, value 2 where the product has what each shows (native needs faceless worn / detail photos: the built-in bags
+  have none, product files do; quotes needs a review with a usable snippet; value the site's / the notes' price and was
+  price within 2 points of the %); `plan --classic` keeps the old cycle.
+- *Compliance:* a hook that counts ("Four things you'll notice ...") says a number no fact backs: `compliance.check_out` drops
+  exactly those `numbers` hits (plan.json `ugc_numbers`, the label "4 THINGS" too) and lists them as allowed; every other hit
+  stays. `python3 pipeline/compliance.py --out $OUT` and `make_batch.py check --out $OUT` agree.
+
+**First test (2026-10-14, espeak placeholder voices, no Higgsfield call):** Hobo Bag batch plan = 20 statics + 5 projects x 4
+hooks, 63 voice lines (22 credits), est 64-72 s; `projects.py check --build` of every ugc plan (Hobo Bag, Hobo 2.0, 3-Piece Set,
+Slouchy, Vintage, Silhouette Bag, Moonlight Crossbody) clean (placeholder lengths 59-72 s for 5+ feature lines, 40-44 s thin);
+one real render (Hobo P01H1, 62 s): 203 wpm, speech 83%, longest pause 0.62 s, shots 2.3 s avg, -14.0 LUFS LRA 1.0, 0 repeats,
+10 of 12 targets (the misses: speech share, espeak's pauses; a 7.6 s "shot" where consecutive picks of one clip look alike).
+
+**After the first verification (2026-10-14, two independent renders + scorecards):** fixed: (1) a short clip (under 45 s) is
+one scene, so two shots of it within 10 s in one framing look like one long shot (the hidden-pocket chapter played 7.3-7.9 s
+unbroken): storyboard's `Shots.clash` now alternates the framing (wide, closer, closest) and a still's closer crop is another
+shot only after 4 s; make_batch penalises a neighbour from the same clip harder; `projects.py check --build` notes a moment
+shown again (`nothing else to show`). (2) Pauses inside a take are cut to 0.16 s (was 0.26: speech 80-82% of the video). (3) The
+colours chapter hands storyboard every swatch (`"say": "<colour>"` on the pick): each shot shows the swatch whose name it says,
+else the next. (4) The main hook of an `n_things` / `demo` script is always the angle's own promise ("Five things ...", "Watch
+..."), never a general line. (5) A product file's scripts never say "you stop X" / "what if you never had to X": its notes carry no
+such promise, so the lead is a question about the situation and the fix is the notes' own line. (6) A review card ends with its
+block and when the next card starts; an anchor on a name the transcript misheard falls back to the script's own words. (7) The
+render's QA line scores the render's own cut times (no cut hidden under a card, none invented inside a dark clip) and counts
+'anti-theft' as 2 words like the transcriber. (8) A bank clip with `"text"` (printed words fill its frame: the HAPPY BIRTHDAY gift
+bag) is not used in ugc videos; a photo of kind 'other' (a diagram with words) is shown once, whole; native statics take a worn photo
+before a detail macro; quotes statics skip a reviewer named 'X A.' and aim their bubble tails at the bag.
+Re-measured with espeak voices (standalone scorecard; Hobo P01H1 / P01H3 / P02H1, Silhouette P01H1): longest shot 4.3 / 4.3 / 3.6 /
+4.9 s (was 7.3-7.9 s; the 4.3-4.9 s are two planned shots under a review card or between two white packshots, which the scorecard
+cannot tell apart: the planned maximum is 3.1 s), speech 86 / 84 / 83 / 85% (was 80-82%; espeak's word gaps are wider than a
+real voice's: measure again with the first ElevenLabs batch before touching `GAP_CAP`), 197-215 wpm, 10-11 of 12 targets (was 9-10).
+
+**Limits to know.** A photo-only product (no clips) repeats its photos in closer framings (28 shots from ~12
+photos). The scorecard cannot see a review card over moving B-roll (shows only as the longest shot) or a re-crop of one moment.
+The library has little footage of the bag out in the world (street, train, cafe, airport; about 5 clips): problem lines about a
+crowd or a commute are shown with the closest footage (`kw_terms` folds those words to 'walk'); clips of those situations from the
+client would show them. A library clip is an edited video: a picked moment can contain its own cut (a 0.5 s flash). Detail macros
+of a product file can carry the product page's white corners. The estimate is calibrated on espeak (placeholder renders came out 4-17% shorter than estimated); a real ElevenLabs voice runs about as
+estimated, so the `shortened` guard (80%, ugc 70%: the estimate is a guess at the voice's pace) still has room.

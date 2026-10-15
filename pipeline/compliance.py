@@ -808,11 +808,28 @@ def dedupe(items):
     return list(by.values())
 
 
+COUNT_WORD = re.compile(r"\b(two|three|four|five|six|seven|eight|nine|ten|\d{1,2})\s+(?:things|reasons|details)\b", re.I)
+
+
+def count_words(probs, allowed, nums):
+    """A ugc hook that counts ('Four things you'll notice ...', its label '4 THINGS') says the number of chapters the video then
+    shows, not a stat: plan.json 'ugc_numbers' (ugc_script's script['numbers']). Those 'numbers' hits move to `allowed`; every
+    other hit stays. -> the problems left."""
+    nums, keep = {float(x) for x in nums or ()}, []
+    for x in probs:
+        w = {m.group(1).lower(): (int(m.group(1)) if m.group(1).isdigit() else ONES[m.group(1).lower()]) for m in COUNT_WORD.finditer(x["text"])}
+        if nums and x["category"] == "numbers" and w.get(x["term"].lower()) in nums:
+            allowed.append(dict(x, why="the count of the chapters the video shows ('Four things ...'), not a stat"))
+        else:
+            keep.append(x)
+    return keep
+
+
 def check_out(out):
     p, items, other = batch_items(out)
     probs, allowed = [], []
     ctx = context(p.get("product_key") or p.get("product"), offer=p.get("offer"), out=out)
-    probs += check(dedupe(items), ctx=ctx, allowed=allowed)
+    probs += count_words(check(dedupe(items), ctx=ctx, allowed=allowed), allowed, p.get("ugc_numbers"))
     for name, its in other.items():       # a winner of another product (its own offer and facts)
         probs += check(dedupe(its), ctx=context(name, out=out), allowed=allowed)
     rp, story, cuts = raw_checks(out, p)  # the client's RAW audio each winner version plays (health claims: never)

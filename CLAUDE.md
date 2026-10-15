@@ -14,9 +14,10 @@ The repo's default branch is `claude/loving-meitner-4amjii`. Read `docs/PLAYBOOK
    (`.claude/settings.json` and the connector settings): don't call them, don't look for a way around it.
    Statics come from real product photos, videos from real footage, both through `make_batch.py`.
 2. **The only Higgsfield calls:** `generate_audio_batch` (text2speech_v2) for the lines in
-   `tts_needed.json`, `jobs_wait`, `balance`, `transactions`. A normal request costs under 15 credits;
-   `plan` refuses more than 40 unless you pass `--budget X`, which you only do when the request names a
-   bigger budget. Check `balance` before and after; report both.
+   `tts_needed.json`, `jobs_wait`, `balance`, `transactions`. One ugc project (the default video: one voice take
+   per chapter + 4 hook lines) costs about 4-5 credits, a full batch (5 projects) about 22, a normal request
+   under 25; `plan` refuses more than 40 unless you pass `--budget X`, which you only do when the request names
+   a bigger budget. Check `balance` before and after; report both.
 3. **Only true claims, Meta-compliant.** Offers, gifts and reviews come from the product data (`make_batch.py`
    handles it). Any line you write yourself (`--lines`, product files, ad copy edits) uses only facts from
    libracases.com or `docs/PLAYBOOK.md` §1 (built-in bags), and for a new product only its Drive folder's notes
@@ -27,20 +28,33 @@ The repo's default branch is `claude/loving-meitner-4amjii`. Read `docs/PLAYBOOK
 4. Upload everything with `make_batch.py upload` (Drive Outputs → `Winners/` or `New Products/` or the Outputs
    root → `<date> – <name>` → `Statics` / `Videos` + a run report). Never only post files in the chat.
 5. Never publish anywhere. Never delete or move Drive files.
-6. **Never reshape the videos to fit a request.** Videos run 40-60 s (what `plan` estimates; the story format 90-120 s):
-   don't shorten them, rebuild their specs or change their format. A message like "hook-first", "hook test", "better
+6. **Never reshape the videos to fit a request.** Videos run 55-80 s in the ugc format (the default: what `plan`
+   estimates; the classic formats, `--classic`, 40-60 s; the story format 90-120 s): don't shorten them, rebuild their
+   specs or change their format. A message like "hook-first", "hook test", "better
    hooks", "Meta isn't spending on the videos" means other **hooks**: the normal projects with 4 hook versions at the
    normal length (`--projects N`; fresh openings: `--seed` / `--hook-seed`, section 4). "3 videos" = `--projects 3`
    (12 files), `--hooks 1` only when the message says "single videos". Never `upload --include-flagged`: `render`
-   marks a video `too short` (hard: upload skips it) under the 25 s floor or under 80% of the length `plan`
-   estimated, which is what a cut-down spec looks like. If a request conflicts with this, make the standard version
-   and say in the reply what you did instead and why.
+   marks a video `too short` (hard: upload skips it) under the 25 s floor or under 80% (ugc: 70%) of the length `plan`
+   estimated, which is what a cut-down spec looks like (the scorecard's misses are soft flags: uploaded and listed). If a
+   request conflicts with this, make the standard version and say in the reply what you did instead and why.
 
 **Videos come in projects** (the client's agency format): one project = one video body in 4 versions
 H1-H4 that differ only in the hook (opening line, opening shot, on-screen label). `plan` does this by
 default (`--hooks 4`); a request for N videos means N projects (4N video files). File names are automatic
 (`docs/NAMING.md`: `LC_<YYMMDD>_<Product>_<Theme>_S01_<layout>` / `..._P01_H1_<angle>`); list ads by these
 names in the reply.
+
+**The default new video is the ugc format** (owner 2026-10-14, after measuring the clients' top-impression ads): 55-80 s,
+one voice talking to the viewer in "you" form ("you stop worrying in crowds": never an invented customer
+experience) at 185-215 words per minute over a new shot about every 2 s, each phrase showing what it says (hands, zips,
+pockets, the bag worn), a specific hook in the first 3 s ("Four things you'll notice ..."), numbered chapter captions
+("1. you stop worrying in crowds") with the feature's tag, problem -> fix pairs, reviews on screen at most 3 s, the offer
+last, one steady loudness (-14 LUFS). `pipeline/ugc_script.py` writes the scripts (angle per project: `things`,
+`demo`, `stop`, `travel`, `value`, in the file name), `pipeline/scorecard.py` measures every rendered video. It applies to
+catalog, new-product and winners-fill projects; `--classic` (and `--story`) keep the old formats. Winner remixes are untouched.
+Statics also use the top ads' layouts (of 20: `native` 3, a real face-free photo with one caption; `quotes` 3, verbatim reviews
+around the packshot; `value` 2, the real price struck through) where the product backs them (faceless photos / a review / a price);
+`--classic` restores the old static cycle.
 
 ## Which pipeline? (read the message first)
 
@@ -64,7 +78,7 @@ those, and a count not named is 0 ("6 statics" = 6 statics and no videos). "N vi
 ```
 cd <repo>
 command -v ffmpeg || bash .claude/hooks/session-start.sh        # Slack sessions don't run hooks
-command -v pdftotext || apt-get install -y -qq poppler-utils    # PDF notes in a New Products folder (pypdf: fallback)
+command -v pdftotext || (apt-get update -qq && apt-get install -y -qq poppler-utils)   # PDF notes in a New Products folder (pypdf: fallback)
 python3 -c "import faster_whisper, PIL, numpy, cv2, pillow_heif, pypdf" 2>/dev/null || \
     pip install -q faster-whisper pillow numpy pillow-heif opencv-python-headless pypdf
 python3 pipeline/drive_upload.py check                          # Drive login ok?
@@ -86,9 +100,9 @@ python3 pipeline/make_batch.py plan --pipeline winners --request "<message>" --o
   the end card (`remix.py`), keeps the RAW's own sound and needs 0 voiceover lines. Statics are of the top
   winner's product.
 - **Fill:** fewer winner projects possible than asked (unmatched winners; a winner gets one project per 4 of its
-  cold opens, so one): the rest are new-angle storyboard projects of that product (voiced, so they cost credits)
-  and a warning says `winners batch: N winner projects + M new-angle storyboard projects ...`. `--no-fill`: only
-  the winner projects.
+  cold opens, so one): the rest are new-angle storyboard projects of that product (ugc videos, voiced, so they cost
+  about 4-5 credits each) and a warning says `winners batch: N winner projects + M new-angle storyboard projects ...`.
+  `--no-fill`: only the winner projects.
 - **Check in the plan output:** `winners_source` (`"brief"`; `"fallback"` = the brief could not be read or matched
   no winner, its warning says which: the projects are all bank winners in `clip_bank.json` order, not this week's
   winners: say so in the reply), `brief` (name, `age_days`, `stale`: older than 8 days, still run it and say so),
@@ -96,7 +110,7 @@ python3 pipeline/make_batch.py plan --pipeline winners --request "<message>" --o
   `H<j> differs from H<i> by its on-screen hook only` (a RAW with 3 clean spoken openings: one version is a new
   label over another's opening; list it so), `repeat a hook type`, `open like ads already delivered`, the "needs
   a human" items (claim cuts to listen to once, the RAW story's health words), `est_credits` (0 without fill or
-  `--winner-reviews`).
+  `--winner-reviews`; about 4-5 per fill project).
 - `unmatched` winners have no prepared RAW: list them in the reply. If one has a RAW in the library, you may
   prepare it (about 10 min): `python3 pipeline/winner_prep.py "<ad name>" --write`, review the draft like an editor
   (transcript + contact sheet: 4 or more cold opens, insert point, labels, cuts, burned captions), remove
@@ -145,11 +159,13 @@ python3 pipeline/make_batch.py plan --pipeline new-product --new-product "<folde
   read` (install the reader, section 0, and plan again with `--refresh-product`), `videos left out: ...` (a video
   that stays under the 25 s floor even after padding: plan leaves it out itself, exit 0, the statics proceed; the
   warning names what the client could add: say so in the reply, it is a suggestion, not a requirement), and the
-  length warning `will run about N s (QA wants 35-95 s)` (7 features plan ~42-45 s, no warning; a thin folder
-  (0-4 feature lines) is padded by plan to ~38 s with blocks that only restate its notes: the colours named in
-  the notes, a recap of the features' own tags, "Now $69, down from $99.", the gift, and a short silent picture hold
-  after each middle line; a stills-only product with 3 lines and no price runs ~28 s and may get 2-3 hook versions
-  instead of 4 (too few photos for 4 different opening shots): say so).
+  length warning `thin script: about N s` (the ugc format runs 55-80 s: 5-7 feature lines run ~60-70 s, no
+  warning; a thin folder (1-4 feature lines) runs ~40-50 s: it runs as it is, say so and that more feature lines, reviews or a price make it
+  longer; a script that would run under ~27 s (0-1 usable lines) is replaced by a classic video, padded by plan to
+  ~38 s with blocks that only restate its notes: the colours named in the notes, a recap of the features' own
+  tags, "Now $69, down from $99.", the gift, and a short silent picture hold after each middle line; a stills-only
+  product with 3 lines and no price runs ~28 s and may get 2-3 hook versions instead of 4 (too few photos for 4
+  different opening shots): say so). Folders with photos but no feature lines at all get classic videos (plan warns).
 - **No human step is required:** a ready auto file runs. You may glance at the intake's `overview.jpg`
   (`source.overview` in the product file, there when the intake ran in this container; P0, P1 … = `photos[0]`,
   `photos[1]` … = picks `["photo", "P<n>"]`) and fix an obviously wrong pick or line in the product file (only true
@@ -191,7 +207,8 @@ then `--product "<key>"`. No folder, no photos, not on the site: make nothing an
 | "single videos" / "no hook versions" | add `--hooks 1` (V01, V02 … as before, winners too) |
 | a product (catalog) | `--product "<name>"`: Hobo Bag (default), Hobo 2.0, 3-piece set, vintage, slouchy, or any product file in `pipeline/data/products/` |
 | a theme | `--theme "<words>"`: black friday, cyber monday, christmas, gift, mother's day, travel are built in; any other theme: `--theme "<words>"` plus your own short lines with `--lines` (keys `hero`, `bold`, `colours`, `P01_hook` / `V01_hook`, `P01_close` …) |
-| "story" / "long video" / "storytelling" | add `--story` (1.5-2 min where the product has the footage; plan warns when it runs shorter: say so) |
+| "story" / "long video" / "storytelling" | add `--story` (the classic story format, 1.5-2 min where the product has the footage; plan warns when it runs shorter: say so) |
+| "the old format" / "classic videos" | add `--classic` (the pre-2026-10-14 output: classic video formats showcase / features / reviews / colours, 40-60 s, and the old static cycle). Only when the request asks for it |
 | "winners with reviews" | add `--winner-reviews` (only when asked: by default winner videos keep their proven body untouched) |
 | "no music" | add `--no-music` |
 | "redo project 2" (in the thread) | same plan flags (new product: the folder name, never `next`) with `--seed <N+1> --only P02`, N = the `seed` the first plan printed, into a new `--out` (only P02 is voiced, rendered, uploaded; names move to `_v2` by themselves; a winner project: only its H1 changes, plan says so) |
@@ -210,17 +227,21 @@ OUT=/tmp/run/<short-name>; mkdir -p $OUT
 python3 pipeline/make_batch.py plan <flags> --request "<the request text>" --out $OUT
 ```
 1. Read the plan output and every warning (the pipeline's section says what to look for), plus `offer`,
-   `est_credits`, `names` and length warnings. `plan` also writes `$OUT/ad_copy.csv` (Meta primary texts,
+   `est_credits`, `names` and length warnings (ugc: `thin script: about N s`; `project_hooks` lists each version's hook
+   type, label and line). `plan` also writes `$OUT/ad_copy.csv` (Meta primary texts,
    headlines, description, CTA per static / per project) and `$OUT/compliance.json`. If plan exits 2 with
    `compliance: N problem(s)`, reword the line it names (`--lines`, the version JSON or the product file) and plan
-   again. Higgsfield `balance` → note it.
+   again (a line fixed by hand: `python3 pipeline/make_batch.py check --out $OUT`). Higgsfield `balance` → note it.
 2. **Voiceovers:** for every item in `$OUT/tts_needed.json` call `generate_audio_batch` (model
    `text2speech_v2`, variant `elevenlabs`, `use_unlim: false`, `voice_type` + `voice_id` from the item,
    prompt = item `text`; max 12 per call; resubmit any that fail with 429), `jobs_wait`, then download each
    result url to `$OUT/<item file>` (`curl -sSL -o`). Identical lines are listed once; render copies them.
-   Winner projects need none (only fill projects are listed).
+   Winner projects need none (only fill projects are listed). A ugc project's lines are one take per chapter
+   (`V01_c1.mp3` ... the 4 hook versions share them) + one short line per hook (`P01H2_hook.mp3` ...): read the take as
+   written, never reword it. The lead's voice choice, when there is one, is in `pipeline/data/voice.json` (plan applies
+   it: the items already carry its `voice_id`; render speeds the take up by its `speed`, default 1.12).
 3. **Render** (statics: a few minutes in all; about 20-25 min per project of 4 versions, 2 videos at a time; a
-   batch of 20 statics + 5 projects is about 2 hours), detached:
+   batch of 20 statics + 5 projects is about 2 hours; each ugc video also gets its scorecard, a few seconds), detached:
    `setsid nohup python3 pipeline/make_batch.py render --out $OUT > $OUT/render.log 2>&1 < /dev/null &`
    then check the log every couple of minutes until it prints `QA:`. More than 3 projects (every batch): render and
    upload the statics first (`render --only S`, `upload --only S`), then the videos (`render --only V`,
@@ -239,12 +260,20 @@ python3 pipeline/make_batch.py plan <flags> --request "<the request text>" --out
    leave it out and say so. A face in a static or a failed render is never uploaded; length/anchor flags and
    `body differs from H1 (body match M …)` (that version's body is not its project's: look at its `qa/P*.jpg`,
    fix it as above or leave it) are uploaded and listed under QA flagged in the run report: mention them in the reply.
+   **ugc videos:** `render` prints `scorecard P01H1: 63s · 201 wpm · speech 88% · longest pause 0.41s · shots 2.0s avg · -14.0
+   LUFS LRA 2.1 · 0 repeats · 0 held cards · 11/12 targets met` per video (the same line is in the run report) and a miss is the
+   soft flag `scorecard: ...` in `qa/report.json` (targets: 185-215 wpm, speech >= 85%, longest pause <= 0.8 s, first word <= 0.35 s,
+   shots 1.4-2.6 s avg and none over 4 s, -14 LUFS +-1 with LRA <= 4, no repeated shot, no card held over 3.2 s). Look at the
+   contact sheet: numbered captions ("1. ..."), a new picture about every 2 s that shows what is said (hands, zips, pockets), the
+   same product throughout, no black frames. A miss is reported, never "fixed" by cutting the video (rule 6).
 5. **Upload:** `python3 pipeline/make_batch.py upload --out $OUT --name "<short request name>"` → prints the
    Drive folder link (`drive_path`: where it landed) and the uploaded ads. Higgsfield `balance` again.
 6. **Reply** (one short message, the pipeline's format above): Drive folder link · statics one line each · videos
    one block per project · the ad copy file · plan warnings (fewer than 4 versions, openings already used in an
-   earlier batch, a hook line opening 3+ versions, "needs a human" items) · QA flags · music (the client's track or the generated bed; winners: the RAW's
-   own sound) · credits used (balance before → after) · anything skipped, failed or needing a human.
+   earlier batch, a hook line opening 3+ versions, `thin script`, "needs a human" items) · QA flags · the scorecard (one line for
+   the batch: how many ugc videos met the targets and the misses that repeat, e.g. "17 of 20 at 185-215 wpm; shots avg 2.7 s")
+   · music (the client's track or the generated bed; winners: the RAW's own sound) · credits used (balance before → after) ·
+   anything skipped, failed or needing a human.
 7. Commit the specs (JSON only, no media, no secrets) into the pipeline's folder:
    `python3 pipeline/make_batch.py specs --out $OUT --to pipeline/recipes/<winners|new_products|daily>/<plan YYYY-MM-DD>/<short-name>`,
    plus any new or changed product file (a new product's always changes: its `tests`); commit, push.

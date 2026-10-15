@@ -30,6 +30,7 @@ TRACKS = os.environ.get("LC_MUSIC_DIR") or os.path.join(HERE, "assets", "music")
 CACHE = os.path.join(HERE, "cache", "music")
 SR = 44100
 GAIN_DB = -15.0          # bed level under the voice (the voice is loudnorm'ed to -16 LUFS, the bed to about the same)
+GAIN_DB_UGC = GAIN_DB - 6   # the ugc storyboard (a voice talking 90% of the time, one steady level): bed 6 dB lower
 LENGTH = 150.0           # a generated bed covers the longest storyboard (story format, ~2 min)
 VERSION = 1              # bump when generate() changes: cached beds are made again
 
@@ -198,10 +199,10 @@ def has_bed(path, ws, floor=-52.0, below=30.0):
     return g > floor and sp - g < below
 
 
-def resolve(spec_music, d=None):
+def resolve(spec_music, d=None, ugc=False):
     """A spec's 'music' -> pick() result or None: false/absent = none; {"seed": N} = pick(N); {"src": file} = that file
     (relative to the spec's folder); a string = a file. ({"auto": true, "seed": N} is remix.py's: a bed only when the
-    RAW has no sound of its own, has_bed().)"""
+    RAW has no sound of its own, has_bed().) ugc: the storyboard's ugc format, a bed GAIN_DB_UGC under the voice."""
     m = spec_music
     if not m:
         return None
@@ -209,9 +210,9 @@ def resolve(spec_music, d=None):
         m = {"src": m}
     if m.get("src"):
         f = m["src"] if os.path.isabs(m["src"]) else os.path.join(d or ".", m["src"])
-        return dict(path=f, name=os.path.basename(f), kind="track", gain_db=m.get("gain_db", GAIN_DB))
+        return dict(path=f, name=os.path.basename(f), kind="track", gain_db=m.get("gain_db", GAIN_DB_UGC if ugc else GAIN_DB))
     r = pick(m.get("seed", 1), d)
-    r["gain_db"] = m.get("gain_db", GAIN_DB)
+    r["gain_db"] = m.get("gain_db", GAIN_DB_UGC if ugc else GAIN_DB)
     return r
 
 

@@ -1,0 +1,545 @@
+{
+ "_help": "Hand-written 'you' scripts of the built-in Hobo Bag (pipeline/ugc_script.py uses them before its generic engine: five scripts, one per angle). Only facts of docs/PLAYBOOK.md section 1 and make_batch.PRODUCTS['hobo bag']: hidden anti-theft back pocket (flat against you; passport, cards), two gold side zips (keys, phone), divided compartments (nothing sinks to the bottom), two adjustable straps (handbag / shoulder / crossbody), soft water-resistant scratch-proof leather that looks expensive and gets better with time, the offer (% and gift from the product's real offer: {off_sp} 'fifty percent off', {price_sp} 'half price', {Price_sp} 'Half price', {gift_sp} 'a free matching pouch wallet', {P} '50%', {price_label} 'HALF PRICE' (else '35% OFF'), {ship_s} 'Free US shipping too. ' in a wording that differs per script; a [..] part drops out when a value in it is empty, a line with an empty value outside [..] falls back to the engine's), 1-year warranty, easy returns, and reviews 2, 3, 6-10, 12 verbatim. Every hook flows into chapter c1 (never repeats it); hooks[0] is the main hook, the others are the alt pool (H2-H4 ...), types spread; a chapter's 'alt' wording (another sentence for the same facts) is used from seed 2 on, for every other chapter (seed + chapter index even), and the main hook rotates through the hooks list with the seed. reviews chapter: [review number, piece index into ugc_arcs.json reviews.pieces]. No first person (I, my, me) outside a review quote.",
+ "scripts": [
+  {
+   "angle": "n_things",
+   "hooks": [
+    {
+     "text": "Four things you'll notice the first time you carry this bag.",
+     "type": "promise",
+     "label": "4 THINGS",
+     "feature": null
+    },
+    {
+     "text": "Curious what changes when you swap your everyday bag for this one?",
+     "type": "question",
+     "label": "WHAT CHANGES?",
+     "feature": null
+    },
+    {
+     "text": "This might be the most organized bag you'll see today.",
+     "type": "superlative",
+     "label": "MOST ORGANIZED",
+     "feature": "SMART COMPARTMENTS"
+    },
+    {
+     "text": "Ever pat your bag every few minutes just to check it's all there?",
+     "type": "problem",
+     "label": "SOUND FAMILIAR?",
+     "feature": "HIDDEN BACK POCKET"
+    },
+    {
+     "text": "The Hobo Bag is {price_sp} right now. Here's what you get.",
+     "type": "price",
+     "label": "{price_label}",
+     "feature": null
+    },
+    {
+     "text": "Where do your cards and passport go when you're in a crowd?",
+     "type": "question",
+     "label": "QUICK QUESTION",
+     "feature": "HIDDEN BACK POCKET"
+    }
+   ],
+   "chapters": [
+    {
+     "id": "c1",
+     "number": 1,
+     "kind": "point",
+     "tag": "HIDDEN BACK POCKET",
+     "text": "You stop worrying in crowds. The hidden anti-theft pocket on the back sits flat against you, so your passport and cards stay right where you put them. You stop clutching your bag on the train.",
+     "alt": "You stop worrying in crowds. There's a hidden pocket on the back, flat against you, and your passport and cards go right in it. No more clutching your bag on the train.",
+     "shot_kw": ["back pocket", "passport", "hands"],
+     "keywords": ["hidden", "pocket"]
+    },
+    {
+     "id": "c2",
+     "number": 2,
+     "kind": "point",
+     "tag": "GOLD SIDE ZIPS",
+     "text": "You stop digging for your keys. There's a gold zip on each side of the bag, made for your keys and phone. No more emptying your bag at the checkout.",
+     "alt": "You stop digging for your keys. Two gold side zips, one on each side, for your keys and phone. You reach in, grab them and go, and the checkout line keeps moving.",
+     "shot_kw": ["side zip", "keys", "hands"],
+     "keywords": ["zip", "keys"]
+    },
+    {
+     "id": "c3",
+     "number": 3,
+     "kind": "point",
+     "tag": "SMART COMPARTMENTS",
+     "text": "Nothing sinks to the bottom anymore. Divided compartments give everything its own spot, so it's all easy to find. Your bag stops feeling like a black hole.",
+     "alt": "Your bag stops feeling like a black hole. Inside, divided compartments give everything its own spot, so nothing sinks to the bottom and it's all easy to find.",
+     "shot_kw": ["compartments", "inside", "open zip"],
+     "keywords": ["compartments"]
+    },
+    {
+     "id": "c4",
+     "number": 4,
+     "kind": "point",
+     "tag": "3 WAYS TO WEAR",
+     "text": "You wear it your way. Two adjustable straps: carry it as a handbag, throw it over your shoulder, or wear it crossbody. Same bag, three ways.",
+     "alt": "You carry it your way. Two adjustable straps, so it's a handbag in your hand, a shoulder bag, or a crossbody. Same bag, three ways.",
+     "shot_kw": ["strap adjust", "shoulder", "crossbody"],
+     "keywords": ["straps", "crossbody"]
+    },
+    {
+     "id": "c5",
+     "kind": "point",
+     "tag": "SOFT LEATHER",
+     "text": "On top of that, the leather is soft, water-resistant and scratch-proof. It looks expensive, and it only gets better with time.",
+     "alt": "And the leather? It's soft, water-resistant and scratch-proof, it looks expensive, and it only gets better with time.",
+     "shot_kw": ["leather soft", "macro", "stitching"],
+     "keywords": ["leather", "expensive"]
+    },
+    {
+     "id": "c6",
+     "kind": "reviews",
+     "intro": "Still not sure?",
+     "reviews": [[7, 0], [12, 0]],
+     "shot_kw": ["hands", "table", "hanging"],
+     "keywords": []
+    },
+    {
+     "id": "c7",
+     "kind": "objection",
+     "text": "Think it sounds too good to be true? There's a one-year warranty and easy returns.",
+     "shot_kw": ["hands", "hanging", "details"],
+     "keywords": ["warranty", "returns"]
+    },
+    {
+     "id": "c8",
+     "kind": "offer",
+     "text": "Right now it's {off_sp}[, and it comes with {gift_sp}]. {ship_s}Tap the link below.",
+     "shot_kw": ["hero", "hanging", "shoulder"],
+     "keywords": ["{P}", "free"]
+    }
+   ]
+  },
+  {
+   "angle": "demo",
+   "hooks": [
+    {
+     "text": "Watch what this bag does with your phone, keys and passport.",
+     "type": "promise",
+     "label": "WATCH THIS",
+     "feature": "GOLD SIDE ZIPS"
+    },
+    {
+     "text": "Ever wonder where everything in your bag is supposed to go?",
+     "type": "question",
+     "label": "QUICK QUESTION",
+     "feature": null
+    },
+    {
+     "text": "If your bag is one big black hole, watch this.",
+     "type": "problem",
+     "label": "BIG BLACK HOLE?",
+     "feature": "SMART COMPARTMENTS"
+    },
+    {
+     "text": "Is this the most practical bag you'll see this week?",
+     "type": "superlative",
+     "label": "MOST PRACTICAL",
+     "feature": null
+    },
+    {
+     "text": "{Price_sp}[, plus {gift_sp}]. Watch what you get.",
+     "type": "price",
+     "label": "REAL PRICE",
+     "feature": null
+    }
+   ],
+   "chapters": [
+    {
+     "id": "c1",
+     "kind": "point",
+     "tag": "HIDDEN BACK POCKET",
+     "text": "Turn it around. There's a hidden anti-theft pocket on the back. Slide your passport and cards in, and it sits flat against you, out of sight.",
+     "alt": "Turn it around. There's a hidden pocket on the back. Slide your passport and cards in, and it sits flat against you, so it stays out of sight.",
+     "shot_kw": ["back pocket", "passport", "hands"],
+     "keywords": ["hidden", "pocket"]
+    },
+    {
+     "id": "c2",
+     "kind": "point",
+     "tag": "GOLD SIDE ZIPS",
+     "text": "Now the sides. Two gold zips, one on each side. Keys in, phone in, zipped shut, and you can reach them without opening the whole bag.",
+     "alt": "Now the sides. Two gold zips, one on each side. Drop your keys in, drop your phone in, zip them shut, and they're right there when you need them.",
+     "shot_kw": ["side zip", "keys", "hands"],
+     "keywords": ["zips", "keys"]
+    },
+    {
+     "id": "c3",
+     "kind": "point",
+     "tag": "SMART COMPARTMENTS",
+     "text": "Open the top. Divided compartments inside, so everything gets its own spot and nothing sinks to the bottom. Cards here, lip balm there.",
+     "alt": "Open the top and look inside. Divided compartments, so nothing sinks to the bottom. Everything has its own spot, even the small stuff.",
+     "shot_kw": ["compartments", "inside", "open zip"],
+     "keywords": ["compartments"]
+    },
+    {
+     "id": "c4",
+     "kind": "point",
+     "tag": "3 WAYS TO WEAR",
+     "text": "Now the straps. Two adjustable ones, so you can wear it over your shoulder, in your hand like a handbag, or crossbody, hands-free.",
+     "alt": "Now the straps. Shoulder, handbag or crossbody: two adjustable straps, so you decide how you carry it today, and change your mind later.",
+     "shot_kw": ["strap adjust", "shoulder", "crossbody"],
+     "keywords": ["straps", "crossbody"]
+    },
+    {
+     "id": "c5",
+     "kind": "point",
+     "tag": "SOFT LEATHER",
+     "text": "Feel that? Soft leather that's water-resistant and scratch-proof, and it only gets better with time.",
+     "alt": "Feel that? The leather is soft, water-resistant and scratch-proof, and it looks expensive.",
+     "shot_kw": ["leather soft", "macro", "stitching"],
+     "keywords": ["leather", "expensive"]
+    },
+    {
+     "id": "c6",
+     "kind": "proof",
+     "text": "Passport, cards, keys, phone, lip balm: everything has its own place.",
+     "shot_kw": ["packing items", "table", "hands"],
+     "keywords": []
+    },
+    {
+     "id": "c7",
+     "kind": "reviews",
+     "intro": "Here's what customers say.",
+     "reviews": [[10, 0], [9, 1]],
+     "shot_kw": ["hands", "table", "hanging"],
+     "keywords": []
+    },
+    {
+     "id": "c8",
+     "kind": "objection",
+     "text": "Wondering about the risk? You also get a one-year warranty and easy returns.",
+     "shot_kw": ["hands", "hanging", "details"],
+     "keywords": ["warranty", "returns"]
+    },
+    {
+     "id": "c9",
+     "kind": "offer",
+     "text": "That's the Hobo Bag, and right now it's {off_sp}[, with {gift_sp} included]. {ship_s}Tap the link below.",
+     "shot_kw": ["hero", "hanging", "shoulder"],
+     "keywords": ["{P}", "free"]
+    }
+   ]
+  },
+  {
+   "angle": "stop_x",
+   "hooks": [
+    {
+     "text": "Stop digging for your keys at the bottom of your bag.",
+     "type": "problem",
+     "label": "STOP DIGGING",
+     "feature": "GOLD SIDE ZIPS"
+    },
+    {
+     "text": "How long does it take you to find your keys in there?",
+     "type": "question",
+     "label": "BE HONEST",
+     "feature": "GOLD SIDE ZIPS"
+    },
+    {
+     "text": "Here's a handbag that gives your keys a place of their own.",
+     "type": "promise",
+     "label": "THE FIX",
+     "feature": null
+    },
+    {
+     "text": "This could be the most practical handbag you'll see all year.",
+     "type": "superlative",
+     "label": "MOST PRACTICAL",
+     "feature": null
+    },
+    {
+     "text": "{Price_sp}, and every little thing in your bag gets a spot.",
+     "type": "price",
+     "label": "{price_label}",
+     "feature": null
+    }
+   ],
+   "chapters": [
+    {
+     "id": "c1",
+     "kind": "point",
+     "tag": "GOLD SIDE ZIPS",
+     "text": "Two gold side zips, one on each side, are made for your keys and phone. Reach in, grab them, done.",
+     "alt": "Keys and phone go in the two gold side zips, one on each side. Reach in, grab what you need, done.",
+     "shot_kw": ["side zip", "keys", "hands"],
+     "keywords": ["zips", "keys"]
+    },
+    {
+     "id": "c2",
+     "kind": "point",
+     "tag": "HIDDEN BACK POCKET",
+     "text": "Stop clutching your bag in a crowd. The hidden anti-theft pocket on the back sits flat against you, so your passport and cards stay close and out of sight.",
+     "alt": "Stop clutching your bag in a crowd. The hidden pocket on the back keeps your passport and cards flat against you. It's out of sight, so you can relax.",
+     "shot_kw": ["back pocket", "passport", "hands"],
+     "keywords": ["hidden", "pocket"]
+    },
+    {
+     "id": "c3",
+     "kind": "point",
+     "tag": "SMART COMPARTMENTS",
+     "text": "Stop emptying your bag to find one thing. Divided compartments give everything its own spot, so nothing sinks to the bottom. Your cards stop hiding under your lip balm.",
+     "alt": "Stop emptying your bag to find one thing. Inside, divided compartments, so nothing sinks to the bottom. Your cards stop playing hide and seek.",
+     "shot_kw": ["compartments", "inside", "open zip"],
+     "keywords": ["compartments"]
+    },
+    {
+     "id": "c4",
+     "kind": "point",
+     "tag": "3 WAYS TO WEAR",
+     "text": "Stop choosing between shoulder and crossbody. Two adjustable straps let you carry it as a handbag, over your shoulder, or crossbody. Switch whenever you like.",
+     "alt": "Stop carrying your bag one way all day. Two adjustable straps, so you can switch between handbag, shoulder and crossbody whenever you like.",
+     "shot_kw": ["strap adjust", "shoulder", "crossbody"],
+     "keywords": ["straps", "crossbody"]
+    },
+    {
+     "id": "c5",
+     "kind": "point",
+     "tag": "SOFT LEATHER",
+     "text": "Stop babying your bag. The soft leather is water-resistant and scratch-proof, and it looks expensive. It only gets better with time.",
+     "alt": "Stop babying your bag. Soft, water-resistant, scratch-proof leather that only gets better with time. It looks expensive, too.",
+     "shot_kw": ["leather soft", "macro", "stitching"],
+     "keywords": ["leather", "scratch-proof"]
+    },
+    {
+     "id": "c6",
+     "kind": "proof",
+     "text": "So keys and phone go in the side zips, passport and cards in the back pocket, and everything else gets its own compartment.",
+     "shot_kw": ["packing items", "table", "hands"],
+     "keywords": []
+    },
+    {
+     "id": "c7",
+     "kind": "reviews",
+     "intro": "Don't believe it?",
+     "reviews": [[9, 1], [12, 1]],
+     "shot_kw": ["hands", "table", "hanging"],
+     "keywords": []
+    },
+    {
+     "id": "c8",
+     "kind": "objection",
+     "text": "Still on the fence? You get a one-year warranty and easy returns.",
+     "shot_kw": ["hands", "hanging", "details"],
+     "keywords": ["warranty", "returns"]
+    },
+    {
+     "id": "c9",
+     "kind": "offer",
+     "text": "Right now the Hobo Bag is {off_sp}[, and {gift_sp} comes with it]. {ship_s}Tap the link below.",
+     "shot_kw": ["hero", "hanging", "shoulder"],
+     "keywords": ["{P}", "free"]
+    }
+   ]
+  },
+  {
+   "angle": "travel",
+   "hooks": [
+    {
+     "text": "Passport, phone, keys, cards: where does it all go on travel day?",
+     "type": "question",
+     "label": "TRAVEL DAY",
+     "feature": "HIDDEN BACK POCKET"
+    },
+    {
+     "text": "Travel day is chaos when everything sits at the bottom of your bag.",
+     "type": "problem",
+     "label": "SOUND FAMILIAR?",
+     "feature": "SMART COMPARTMENTS"
+    },
+    {"text": "Here's the bag to pack first.", "type": "promise", "label": "PACK SMARTER", "feature": null},
+    {
+     "text": "This might be the most travel-ready bag you'll see all year.",
+     "type": "superlative",
+     "label": "MOST TRAVEL-READY",
+     "feature": null
+    },
+    {
+     "text": "{Price_sp}[, plus {gift_sp}], for your next trip.",
+     "type": "price",
+     "label": "{price_label}",
+     "feature": null
+    }
+   ],
+   "chapters": [
+    {
+     "id": "c1",
+     "kind": "point",
+     "tag": "HIDDEN BACK POCKET",
+     "text": "Passport and cards go in the hidden anti-theft pocket on the back. It sits flat against you, so you're not patting your bag every few minutes. Crowded terminal, packed train: it stays out of sight.",
+     "alt": "Passport and cards go in the hidden pocket on the back, flat against you. No more patting your bag in the terminal. It stays out of sight, even on a packed train.",
+     "shot_kw": ["back pocket", "passport", "hands"],
+     "keywords": ["passport", "pocket"]
+    },
+    {
+     "id": "c2",
+     "kind": "point",
+     "tag": "GOLD SIDE ZIPS",
+     "text": "Keys and phone go in the gold side zips, one on each side. You can grab them without digging through the whole bag, even at security.",
+     "alt": "Keys and phone live in the two gold side zips, one on each side. Grab them at security without digging through the whole bag.",
+     "shot_kw": ["side zip", "keys", "hands"],
+     "keywords": ["zips", "keys"]
+    },
+    {
+     "id": "c3",
+     "kind": "point",
+     "tag": "SMART COMPARTMENTS",
+     "text": "Divided compartments inside keep the rest in order: lip balm, sunglasses, a charger. Nothing sinks to the bottom, so you're not unpacking at the gate.",
+     "alt": "Everything else gets its own compartment: lip balm, sunglasses, a charger. Nothing sinks to the bottom, so there's no rummaging at the gate.",
+     "shot_kw": ["packing items", "compartments", "inside"],
+     "keywords": ["compartments"]
+    },
+    {
+     "id": "c4",
+     "kind": "point",
+     "tag": "3 WAYS TO WEAR",
+     "text": "Then swing it crossbody and keep your hands clear for your coffee and your boarding pass. Two adjustable straps, so you can switch to shoulder or handbag anytime.",
+     "alt": "Then swing it crossbody and keep your hands clear for your coffee and your boarding pass. Switch to shoulder or handbag anytime you like.",
+     "shot_kw": ["strap adjust", "crossbody", "walking"],
+     "keywords": ["crossbody", "hands free"]
+    },
+    {
+     "id": "c5",
+     "kind": "proof",
+     "text": "That's passport and cards in the back pocket, keys and phone in the side zips, and the rest inside.",
+     "shot_kw": ["packing items", "table", "hands"],
+     "keywords": []
+    },
+    {
+     "id": "c6",
+     "kind": "reviews",
+     "intro": "Hear it from customers.",
+     "reviews": [[6, 0], [7, 1]],
+     "shot_kw": ["walking", "hanging", "table"],
+     "keywords": []
+    },
+    {
+     "id": "c7",
+     "kind": "objection",
+     "text": "Still thinking? It comes with a one-year warranty and easy returns.",
+     "shot_kw": ["hands", "hanging", "details"],
+     "keywords": ["warranty", "returns"]
+    },
+    {
+     "id": "c8",
+     "kind": "offer",
+     "text": "It's {off_sp} right now[, plus {gift_sp}]. {ship_s}Tap the link below.",
+     "shot_kw": ["hero", "hanging", "shoulder"],
+     "keywords": ["{P}", "free"]
+    }
+   ]
+  },
+  {
+   "angle": "value",
+   "hooks": [
+    {
+     "text": "{Price_sp}[, plus {gift_sp}]. Here's everything you get.",
+     "type": "price",
+     "label": "WHAT YOU GET",
+     "feature": null
+    },
+    {"text": "Look at what the Hobo Bag comes with.", "type": "promise", "label": "THE DETAILS", "feature": null},
+    {
+     "text": "What should a good everyday bag actually have?",
+     "type": "question",
+     "label": "QUICK QUESTION",
+     "feature": null
+    },
+    {
+     "text": "Tired of paying for a bag that's just a bag?",
+     "type": "problem",
+     "label": "SOUND FAMILIAR?",
+     "feature": null
+    },
+    {
+     "text": "Is this the most useful handbag you'll see this week?",
+     "type": "superlative",
+     "label": "MOST USEFUL",
+     "feature": null
+    }
+   ],
+   "chapters": [
+    {
+     "id": "c1",
+     "kind": "point",
+     "tag": "GOLD SIDE ZIPS",
+     "text": "Ever dig for your keys at the bottom of your bag? Gold side zips, one on each side, take your keys and phone. Reach in, grab them, go.",
+     "alt": "Ever dig for your keys at the bottom of your bag? Two gold zips on the sides are made for your keys and phone. Reach in and go.",
+     "shot_kw": ["side zip", "keys", "hands"],
+     "keywords": ["zips", "keys"]
+    },
+    {
+     "id": "c2",
+     "kind": "point",
+     "tag": "HIDDEN BACK POCKET",
+     "text": "Ever clutch your bag the whole way through a crowd? A hidden anti-theft pocket on the back sits flat against you, for your passport and cards. Out of sight.",
+     "alt": "Ever clutch your bag through a crowd? The hidden pocket on the back sits flat against you, for your passport and cards. It stays out of sight.",
+     "shot_kw": ["back pocket", "passport", "hands"],
+     "keywords": ["hidden", "pocket"]
+    },
+    {
+     "id": "c3",
+     "kind": "point",
+     "tag": "SMART COMPARTMENTS",
+     "text": "Does everything end up in a pile at the bottom? Divided compartments give everything its own spot. Your bag stops being a black hole.",
+     "alt": "Does everything pile up at the bottom? Inside, divided compartments give everything its own spot, so nothing sinks. Your bag stops being a black hole.",
+     "shot_kw": ["compartments", "inside", "open zip"],
+     "keywords": ["compartments"]
+    },
+    {
+     "id": "c4",
+     "kind": "point",
+     "tag": "3 WAYS TO WEAR",
+     "text": "Want to switch how you carry it? Two adjustable straps: handbag, shoulder or crossbody. Your call.",
+     "alt": "Want to switch how you carry it? Handbag, shoulder or crossbody, with two adjustable straps.",
+     "shot_kw": ["strap adjust", "shoulder", "crossbody"],
+     "keywords": ["straps", "crossbody"]
+    },
+    {
+     "id": "c5",
+     "kind": "point",
+     "tag": "SOFT LEATHER",
+     "text": "And the leather? Soft, water-resistant and scratch-proof. Looks expensive, and gets better with time.",
+     "alt": "The leather is soft, water-resistant and scratch-proof, and it only gets better with time.",
+     "shot_kw": ["leather soft", "macro", "stitching"],
+     "keywords": ["leather", "expensive"]
+    },
+    {
+     "id": "c6",
+     "kind": "proof",
+     "text": "Hidden pocket, two gold zips, divided compartments, two straps and soft leather, all in one bag.",
+     "shot_kw": ["packing items", "hero", "hands"],
+     "keywords": []
+    },
+    {
+     "id": "c7",
+     "kind": "reviews",
+     "intro": "Want proof?",
+     "reviews": [[8, 0], [2, 0]],
+     "shot_kw": ["hands", "table", "hanging"],
+     "keywords": []
+    },
+    {
+     "id": "c8",
+     "kind": "objection",
+     "text": "Worried about the risk? It's covered by a one-year warranty and easy returns.",
+     "alt": "Worried about the risk? There's a one-year warranty, plus easy returns.",
+     "shot_kw": ["hands", "hanging", "details"],
+     "keywords": ["warranty", "returns"]
+    },
+    {
+     "id": "c9",
+     "kind": "offer",
+     "text": "So that's the Hobo Bag at {off_sp}[, with {gift_sp}]. {ship_s}Tap the link below.",
+     "shot_kw": ["hero", "hanging", "shoulder"],
+     "keywords": ["{P}", "free"]
+    }
+   ]
+  }
+ ]
+}

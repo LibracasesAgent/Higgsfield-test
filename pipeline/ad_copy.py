@@ -115,7 +115,9 @@ HEADLINE_PREFS = {   # (first headline families, second headline families); 'gen
 ANGLES = {"hero": "offer", "promo": "offer", "bold": "offer", "review": "review", "reviews": "review",
           "colours": "colours", "compare": "compare", "split": "compare", "lifestyle": "lifestyle",
           "carousel": "lifestyle", "callouts": "features", "showcase": "showcase", "features": "features",
-          "offer": "offer", "stars": "review", "checklist": "features"}
+          "offer": "offer", "stars": "review", "checklist": "features",
+          "native": "lifestyle", "quotes": "review", "value": "offer",                  # the Ad Library static layouts
+          "things": "features", "demo": "features", "stop": "features", "travel": "lifestyle"}   # ugc video angles (value: offer)
 
 
 def rot(xs, k):
@@ -262,6 +264,7 @@ class Writer:
 
     def __init__(self, seed):
         self.seed, self.uses, self.notes, self.problems = seed, {}, [], []
+        self.nums = ()                # plan.json 'ugc_numbers': the count a ugc hook says ('Four things ...'), a count not a stat
 
     def use(self, family, text):
         u = self.uses.setdefault(family, {})
@@ -274,7 +277,8 @@ class Writer:
 
     def why_not(self, text, field, prod, source="ours", raw=""):
         why = [f"{p['category']}: {p['term']}" for p in compliance.check(
-            [dict(where=field, text=text, source=source, raw=raw)], ctx=prod.ctx)]
+            [dict(where=field, text=text, source=source, raw=raw)], ctx=prod.ctx,
+            allowed_numbers=self.nums if field == "hook_first_line" else None)]
         lim = LIMITS.get("headline" if field.startswith("headline") else field)
         if lim and len(text) > lim:
             why.append(f"{len(text)} characters (max {lim})")
@@ -514,6 +518,7 @@ def write(out, seed=1):
     statics = {s["name"]: s for s in (json.load(open(stp)).get("ads") or [])} if os.path.exists(stp) else {}
     main = Product(out, p.get("product_key") or p.get("product"), offer=p.get("offer"), theme=p.get("theme") or "default")
     w = Writer(seed)
+    w.nums = p.get("ugc_numbers") or ()
     if p.get("theme") == "default" and p.get("theme_name") not in (None, "", "Evergreen"):
         w.notes.append(f"theme {p['theme_name']!r} is not built in: the copy uses the evergreen lines; refine it with the "
                        f"theme's words (true claims only) and re-run compliance.py")

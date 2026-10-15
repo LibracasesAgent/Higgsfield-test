@@ -32,6 +32,11 @@ hook label on screen. Statics are not touched.
       in a project; a spoken hook in more than 2 versions of the batch is named in the warnings. A version with no
       honest line or no opening shot left (thin products) is left out with a warning, never written for `check` to
       reject.
+      ugc storyboards (make_batch's default format, "mode": "ugc" specs; plan.json videos[].ugc): H1 is the script's hook, H2-H4
+      are its alt_hooks (ugc_script: other hook types than H1's first, rotated by --hook-seed minus the plan's --seed), each with
+      its own label, voiced as `P01H2_hook.mp3` and shown over the footage of its feature (or the product's hook clips); the
+      body's chapter takes are shared by the 4 versions. storyboard plans the hook after the body and repeats no moment within
+      10 s, so a hook may open on a shot the body shows later and the "body plays it as a spare" rule does not apply.
       Writes the new spec files, plan.json (videos: one entry per hook with project/hook/hook_text/...; "projects"),
       tts_needed.json (+ the new hook lines, de-duplicated), est_credits. The plan as make_batch wrote it is kept in
       $OUT/_before_hooks/; a re-run builds from there (another --seed without re-planning). Everything is checked
@@ -501,6 +506,35 @@ def spoken(text, fmt):
     return text if fmt != "colours" or "colour" in text.lower() else f"{text} {COLOUR_Q}"
 
 
+def ugc_hooks(ug, h1, n, k, said=()):
+    """n-1 hooks for a ugc project (the new default storyboard format): its script's alt_hooks (ugc_script: other hook types
+    than the main one first, different words, a label and, for a feature hook, the feature whose footage opens it), rotated by k
+    (a redo with --hook-seed starts further down the list). Other types than H1's and each other's while the list has them,
+    never H1's words or label, so H1-H4 differ in the opening line, label and shot only. said: the body's takes, normalised: a
+    hook that the body says word for word (the offer chapter's own sentence) is left out."""
+    alts = rot([h for h in ug.get("alt_hooks") or [] if norm(h["text"]) != norm(h1["text"])
+                and h["label"].upper() != h1["label"].upper() and not any(norm(h["text"]) in t_ for t_ in said)], k)
+    res, types, texts, labels = [], {h1["type"]}, {norm(h1["text"])}, {h1["label"].upper()}
+    for strict in (True, False):
+        for h in alts:
+            if len(res) >= n - 1:
+                break
+            if h in res or norm(h["text"]) in texts or h["label"].upper() in labels or (strict and h["type"] in types):
+                continue
+            res.append(dict(h, label=h["label"].upper(), source="script", labels=[h["label"].upper()]))
+            types.add(h["type"])
+            texts.add(norm(h["text"]))
+            labels.add(h["label"].upper())
+    return res
+
+
+def ugc_secs(text, spec):
+    """Seconds a ugc hook line takes with the take's silence and the hook pad (make_batch.est_ugc's rule)."""
+    m = mb()
+    return len((text or "").split()) / (m.UGC_WPS * (spec.get("voice_speed") or m.UGC_SPEED)) + m.UGC_TAKE + \
+        (spec.get("hook_pad") or m.UGC_HOOK_PAD)
+
+
 def pick_shot(shots, hook, orig, b1, taken, body, k, avoid=(), scenes=(), spares=(), strict=False):
     """Opening shot for a new hook: the hook's feature footage when it can, else the product's hook clips, B-roll,
     feature picks, the other vetted moments of those clips, packshots (rotated by k). Never the planned hook's shot,
@@ -715,7 +749,8 @@ def expand(out, hooks=4, seed=1, only=None, budget=None, quiet=False):
     vids = [v for v in p["videos"]]
     specs = {v["name"]: json.load(open(os.path.join(src, v["name"] + ".json"))) for v in vids}
     sb = [v for v in vids if v.get("engine", "storyboard") == "storyboard"]
-    cands = ctx.candidates() if sb and n > 1 else []
+    sbc = [v for v in sb if not v.get("ugc")]    # classic storyboards take their hooks from the library; ugc ones from their script
+    cands = ctx.candidates() if sbc and n > 1 else []
     shots = ctx.shots() if sb and n > 1 else []
     # batch-wide: how often each line opens a version, the labels and opening shots it had (the planned H1s count)
     uses, line_labels, line_shots = {}, {}, {}
@@ -728,8 +763,8 @@ def expand(out, hooks=4, seed=1, only=None, budget=None, quiet=False):
         line_labels.setdefault(t, set()).add((label or "").upper())
         if shot:
             line_shots.setdefault(t, []).append(shot_key(shot))
-    flines = {norm(f[0]): f[0] for f in ctx.pr["features"]} if sb else {}
-    for v in sb:
+    flines = {norm(f[0]): f[0] for f in ctx.pr["features"]} if sbc else {}
+    for v in sbc:
         bl = specs[v["name"]].get("blocks") or []
         if bl and bl[0].get("vo"):
             lab = next((o.get("text") for o in specs[v["name"]].get("overlays") or []
@@ -830,7 +865,8 @@ def expand(out, hooks=4, seed=1, only=None, budget=None, quiet=False):
             lab_i = next((i for i, o in enumerate(spec.get("overlays") or []) if o.get("block") == 0 and o.get("type") == "label"), None)
             h1_label = spec["overlays"][lab_i]["text"] if lab_i is not None else ""
             h1_text = ctx.text_of(vo0) if vo0 else ""
-            h1 = dict(text=h1_text, label=h1_label, type=ctx.type_of(h1_text, cands))
+            ug = v.get("ugc")                # the ugc format: H1 is the script's hook (its own types: promise, superlative ...)
+            h1 = dict(text=h1_text, label=h1_label, type=(ug["hook"]["type"] if ug else ctx.type_of(h1_text, cands)))
             orig = blocks[0]["broll"][0][:2] if blocks and blocks[0].get("broll") else None
             hooks_out.append(("H1", spec, dict(hook_text=h1_text, hook_label=h1_label, hook_type=h1["type"],
                                                 opening_shot=orig, est_seconds=v.get("est_seconds"))))
@@ -844,11 +880,18 @@ def expand(out, hooks=4, seed=1, only=None, budget=None, quiet=False):
                 said = [norm(ctx.text_of(b_.get("vo"))) for b_ in blocks[1:] if b_.get("vo")]
                 # never a line the body says in its first 3 blocks (~12 s): the same words twice in a few seconds
                 said_b1 = {norm(ctx.text_of(b_["vo"])) for b_ in blocks[1:4] if b_.get("vo")} - {""}
-                picked = pick_hooks(ctx, cands, h1, n, fmt, kk, uses, line_labels, said_b1, set(said))
+                if ug:                   # (the script's alternate hooks; a hook that is a sentence of the body is left out)
+                    picked = ugc_hooks(ug, h1, n, seed - (p.get("seed") or 1), said)
+                else:
+                    picked = pick_hooks(ctx, cands, h1, n, fmt, kk, uses, line_labels, said_b1, set(said))
                 b1 = first_shot(blocks[1]) if len(blocks) > 1 else None
                 taken, got = [], {}
-                spares = body_spares(blocks[1:], spec)        # (a hook opening on one would change the body)
-                body = body_shots(blocks[1:]) + [(x[0], x[1]) for x in spec.get("spare_broll") or []]
+                # (classic: a hook opening on a shot the body plays as a spare would change the body: storyboard never repeats a
+                # shot. ugc plans the hook after the body, so its versions never change it)
+                spares = () if ug else body_spares(blocks[1:], spec)
+                body = body_shots(blocks[1:2]) if ug else body_shots(blocks[1:]) + [(x[0], x[1]) for x in spec.get("spare_broll") or []]
+                #       (ugc: storyboard repeats no moment within 10 s only, so the hook may open on a shot the body shows later: a
+                #        feature hook on its own feature's footage; the body's first block is what the hook's seconds touch)
                 scenes = {b_["clip"] for b_ in blocks[1:] if b_.get("clip")}    # clips the body plays as scenes
                 hinted = {j for j, c in enumerate(picked) if c.get("feature") and any(x["tag"] == c["feature"] for x in shots)}
                 for j in sorted(range(len(picked)), key=lambda j: (j not in hinted, j)):   # feature hooks choose first
@@ -876,10 +919,18 @@ def expand(out, hooks=4, seed=1, only=None, budget=None, quiet=False):
                     else:
                         uniq[kt] = f
                         new_tts.append(dict(file=f, text=text, **voice))
-                    note_use(c["text"], c["label"], shot, c.get("base"))
+                    if not ug:
+                        note_use(c["text"], c["label"], shot, c.get("base"))
                     s = copy.deepcopy(spec)
-                    s["blocks"][0] = dict(vo=f, broll=[shot], pad=blocks[0].get("pad", 0.35))
-                    if say_secs(text) + 0.35 > MAX_SHOT - 0.7:   # a 2nd opening shot, used only if the voice runs > 4 s
+                    s["blocks"][0] = dict(vo=f, broll=[shot], **({"pad": blocks[0].get("pad", 0.35)} if not ug or "pad" in blocks[0] else {}))
+                    if ug:                    # ugc: a shot per phrase of the line as storyboard cuts it: the first shot opens, the
+                        more = sum(m_ for _, m_ in mb().ugc_slots(text, spec.get("voice_speed") or mb().UGC_SPEED)) - 1  # rest are
+                        for q in range(more):  # its own spare shots, a shot the body shows only when no other is left
+                            sp = pick_shot(shots, c, orig, b1, taken + [shot[:2]] + [x_[:2] for x_ in s["blocks"][0].get("spare", [])],
+                                           body, kk + j + 5 + q, line_shots.get(norm(c["text"]), ()), scenes, spares)
+                            if sp:            # (the hook's own spares are the only ones it may use: storyboard plans it last)
+                                s["blocks"][0].setdefault("spare", []).append(sp)
+                    elif say_secs(text) + 0.35 > MAX_SHOT - 0.7:   # a 2nd opening shot, used only if the voice runs > 4 s
                         sp = pick_shot(shots, c, orig, b1, taken + [shot[:2]], body, kk + j + 5,     # (no body shot:
                                        line_shots.get(norm(c["text"]), ()), scenes, spares, strict=True)   # none rather)
                         if sp and not same_shot(dict(src=sp[0], start=sp[1], still=str(sp[0]).lower().endswith(STILL)),
@@ -900,7 +951,8 @@ def expand(out, hooks=4, seed=1, only=None, budget=None, quiet=False):
                         s["overlays"][lab_i] = dict(s["overlays"][lab_i], text=c["label"])
                     else:
                         s["overlays"].insert(0, dict(type="label", text=c["label"], block=0, at=0.1, dur=1.8))
-                    est = round((v.get("est_seconds") or 0) - say_secs(h1_text) + say_secs(text), 1)
+                    est = round((v.get("est_seconds") or 0) - ugc_secs(h1_text, spec) + ugc_secs(text, spec), 1) if ug else \
+                        round((v.get("est_seconds") or 0) - say_secs(h1_text) + say_secs(text), 1)
                     hooks_out.append((hid, s, dict(hook_text=text, hook_label=c["label"], hook_type=c["type"],
                                                    opening_shot=shot[:2], est_seconds=est, hook_source=c["source"])))
         proj = dict(id=pid, from_id=vid, angle=angle_of(v), engine=eng, format=v.get("format"), hooks=[])
@@ -920,10 +972,19 @@ def expand(out, hooks=4, seed=1, only=None, budget=None, quiet=False):
                                       type=fields["hook_type"], **({"cold_open": fields["cold_open"]} if eng == "remix" else
                                                                     {"shot": fields["opening_shot"]}),
                                       est_seconds=fields["est_seconds"]))
-        floor = 15 if eng == "remix" else 60 if v.get("format") == "story" else 35   # (make_batch QA_SECONDS: a winner
-        #                                                       body is as long as it is; the story format runs 1.5-2 min)
+        floor = 15 if eng == "remix" else 60 if v.get("format") == "story" else mb().QA_SECONDS["ugc"][0] if v.get("ugc") else 35
+        #                                       (make_batch QA_SECONDS: a winner body is as long as it is; the story format runs
+        #                                        1.5-2 min; the ugc format 55-80 s: a thin product's script runs shorter)
         short = [(h["hook"], h["est_seconds"]) for h in proj["hooks"] if (h["est_seconds"] or 99) < floor]
-        if short:                             # one line per project (make_batch leaves short videos to this check)
+        if short and v.get("ugc"):            # (a script under the floor of plan was replaced by a classic one already)
+            for e_ in entries:                # render's length check takes the warning below as the answer (no flag again)
+                if e_.get("project") == pid and e_.get("hook") in {h for h, _ in short}:
+                    e_["thin_script"] = True
+            lo, hi = round(min(x for _, x in short)), round(max(x for _, x in short))
+            warnings.append(f"{pid} ({', '.join(h for h, _ in short)}) thin script: about {lo}{'' if lo == hi else f'-{hi}'} s (the ugc "
+                            f"format runs {floor}-80 s; {ctx.pr['name']} has few feature lines, reviews or colours to talk about: "
+                            f"it runs as it is; more feature lines or reviews in its notes make it longer)")
+        elif short:                           # one line per project (make_batch leaves short videos to this check)
             lo, hi = round(min(x for _, x in short)), round(max(x for _, x in short))
             fix = "" if eng == "remix" else (": the story format runs as long as the product's real material (features, "
                                              "customer clips, reviews) allows; add lines with --lines or use the showcase "
@@ -1112,7 +1173,9 @@ def body_of(s):
 def srcs_of(s):
     if "raw" in s:
         return [s["raw"]] + [x[0] for x in (s.get("reviews") or {}).get("broll", [])]
-    return [x[0] for b in s["blocks"] for x in b.get("broll", [])] + [b["clip"] for b in s["blocks"] if "clip" in b]
+    return [x[0] for b in s["blocks"] for x in b.get("broll", [])] + [b["clip"] for b in s["blocks"] if "clip" in b] + \
+        ([x[0] for b in s["blocks"] for x in b.get("spare", [])] + [x[0] for x in s.get("spare_broll") or []]
+         if s.get("mode") == "ugc" else [])        # (ugc: the spare shots too: a split shot may play any of them)
 
 
 def check(out, build=False):
@@ -1123,6 +1186,7 @@ def check(out, build=False):
     bank = json.load(open(BANK))
     ids = {e.get("id") for sec, v in bank.items() if isinstance(v, dict) and sec not in ("_help", "voices", "winner_raws")
            for e in v.values() if isinstance(e, dict)} | {e.get("id") for e in bank.get("winner_raws", {}).values()}
+    ids |= {r.get("id") for r in load_json(os.path.join(HERE, "data", "clip_index.json"), []) if isinstance(r, dict)}   # (ugc shots)
     import recut
     tts = {t["file"] for t in load_json(os.path.join(out, "tts_needed.json"), [])}
     dupes = p.get("tts_dupes") or {}
@@ -1190,7 +1254,7 @@ def check(out, build=False):
             for h in hs:
                 s = sp.get(h["hook"]) or {}
                 bl = s.get("blocks") or []
-                spr = body_spares(bl[1:], s)
+                spr = [] if s.get("mode") == "ugc" else body_spares(bl[1:], s)     # (ugc plans the hook last: it can't change the body)
                 for x in [x[:2] for x in (bl[0].get("broll") or []) + (bl[0].get("spare") or [])] if bl else []:
                     if any(same_shot(dict(src=x[0], start=x[1], still=False), a, st) for a, st in spr):
                         probs.append(f"{h['hook']}'s hook shows {shot_name(x[0], bank)} @{x[1]}, a shot its body plays as a "
@@ -1198,7 +1262,7 @@ def check(out, build=False):
                                      f"versions' (pick another hook shot)")
                 if h["hook"] != "H1" and h.get("shot") and any(
                         same_shot(dict(src=h["shot"][0], start=h["shot"][1], still=False), a, st)
-                        for blk in bl[1:] for a, st in [(y[0], y[1]) for y in blk.get("broll") or []]):
+                        for blk in (bl[1:2] if s.get("mode") == "ugc" else bl[1:]) for a, st in [(y[0], y[1]) for y in blk.get("broll") or []]):
                     info.append(f"{h['hook']} opens on a shot its body shows again ({shot_name(h['shot'][0], bank)} "
                                 f"@{h['shot'][1]}): no other shot was left")
         res = dict(project=pr["id"], angle=pr["angle"], versions=len(hs), problems=probs, notes=info)
@@ -1213,6 +1277,9 @@ def check(out, build=False):
                 if bd.get("anchors_missing"):
                     probs.append(f"{hid}: {bd['anchors_missing']} overlay anchor(s) not found")
                 probs += [f"{hid}: cadence: {x}" for x in bd.get("cadence") or []]
+                if bd.get("repeats") and s.get("mode") == "ugc":     # (storyboard's Shots.place: no other footage / framing was left)
+                    info.append(f"{hid}: {bd['repeats']} shot(s) show a moment of a clip again within 10 s (nothing else to show: "
+                                f"more clips or photos for that feature would fix it)")
                 if bd.get("longest_shot", 0) > MAX_SHOT + 0.1:
                     probs.append(f"{hid}: a B-roll shot runs {bd['longest_shot']} s (max {MAX_SHOT}: no spare shot left)")
                 if bd.get("longest_visual", 0) > MAX_VISUAL:
@@ -1270,7 +1337,7 @@ def build_dry(out, s):
     res = dict(seconds=round(total, 1), segments=len(segs), overlays=len(ov), hook_label=(hook or {}).get("text"),
                anchors_missing=err.getvalue().count("anchor not found"),
                cadence=[x.split("cadence:", 1)[1].strip() for x in err.getvalue().splitlines() if x.startswith("cadence:")],
-               longest_shot=round(max([x["dur"] for x in broll] or [0]), 2))
+               longest_shot=round(max([x["dur"] for x in broll] or [0]), 2), repeats=err.getvalue().count("repeat:"))
     if "blocks" in s:                 # every picture change, a customer's clip included (Julian: a new shot every 3-5 s)
         res["longest_visual"] = round(max([x["dur"] for x in segs] or [0]), 2)
         import remix
@@ -1288,6 +1355,8 @@ def build_dry(out, s):
         bl = s["blocks"]
         pad = s.get("pad", 0.25)
         for k, key in ((0, "hook_gap"), (len(bl) - 1, "tail")):
+            if key == "hook_gap" and s.get("mode") == "ugc":
+                continue                  # (ugc: one speaker talking on: the body starts UGC_HOOK_PAD s after the hook line)
             blk = bl[k]
             f = os.path.join(out, blk.get("vo") or "")
             if blk.get("vo") and "vo_range" not in blk and os.path.exists(f):
@@ -1337,6 +1406,12 @@ def hook_end(out, s):
             short = ((remix.PAUSE_EDIT if edit else remix.PAUSE) - tail - max(ws[g[0]]["s"] - p0[0], 0.0)) if g else 0
         return co_len(r) + (round(max(short, 0.12), 2) if short > 0 else 0.0)
     f = os.path.join(out, s["blocks"][0]["vo"])
+    if s.get("mode") == "ugc":            # the voice-prepared take (trimmed, sped up) + the hook pad
+        import storyboard
+        if not os.path.exists(f):
+            return 0.0
+        return ffdur(os.path.join(out, storyboard.voice_prep(out, s["blocks"][0]["vo"], s.get("voice_speed", storyboard.VOICE_SPEED)))) \
+            + s["blocks"][0].get("pad", s.get("hook_pad", storyboard.UGC_HOOK_PAD))
     return (ffdur(f) if os.path.exists(f) else 0.0) + s["blocks"][0].get("pad", s.get("pad", 0.25))
 
 

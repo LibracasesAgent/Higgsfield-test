@@ -10,6 +10,16 @@ every cut on a sentence end (pipeline/projects.py cadence audits the clip bank).
 No AI images or AI video are made here. The only paid step is the voiceover lines (~0.3 credits each),
 which Claude generates with Higgsfield between `plan` and `render`.
 
+New storyboard videos (catalog, new-product and winners-fill projects) are in the ugc format since 2026-10-14 (the owner's
+measurement of the top-impression ads): ugc_script.py writes one script per project in the 'you' voice (a hook, 5-9 chapters,
+the offer last), the board is the hook block + one block per chapter ("mode": "ugc": storyboard.py voice-prepares every take,
+cuts the picture where each phrase starts and masters the mix to -14 LUFS) with footage matched to the words of each phrase
+(the product's feature picks, clip_bank moments, clip_index.json library clips of the built-in bags, photos), 55-80 s,
+one voice take per chapter (the project's 4 hook versions share them; H2-H4 are the script's alt_hooks, one short voice line
+each), numbered chapters, reviews on screen at most 3 s; render adds scorecard.py's line to every video's QA. --classic keeps the
+earlier formats (showcase / features / reviews / colours / lifestyle / offer, 40-60 s) and the old static cycle, --story the
+classic story format; pipeline/data/voice.json {"voice_type", "voice_id", "speed"} overrides the brand voice and the take speed.
+
 Videos are delivered as PROJECTS, the client's agency format ('ACH - MAX - 94 - H4' = project 94, hook 4): every
 planned video is one body (story, features, reviews, offer, end card) made in --hooks versions H1-H4 (default 4) that
 differ only in the first 2-5 s: the spoken opening line, the opening shot and the hook label; a winner remix gets
@@ -17,7 +27,7 @@ another cold open per version. pipeline/projects.py makes the versions (hook lin
 P01H1 .. P01H4, names LC_<date>_<Product>_<Theme>_P01_H1_<angle>. --hooks 1 = single videos V01, V02 ... as before.
 
   1) python3 pipeline/make_batch.py plan --statics 3 --videos 4 --product "Hobo Bag" \
-         --theme "black friday" --out /tmp/run [--hooks 4]
+         --theme "black friday" --out /tmp/run [--hooks 4] [--classic]
          [--winner-videos 6 [--winners latest | "94-H4,148-H5" | "94,148" | brief.json | all]]
      -> /tmp/run/plan.json (videos: one entry per version; projects: P01.. with their hooks), statics.json, one spec
         <name>.json per version, tts_needed.json (lines to voice, with voice ids; the H2-H4 hook lines included)
@@ -113,8 +123,17 @@ MIN_SECONDS = 25   # a storyboard shorter than this is never made (35-95 s is th
 PLAN_SECONDS = MIN_SECONDS + 2   # plan leaves a storyboard out when it estimates under this: the real voice runs a second or
 #                                  two off the words / 2.7 estimate, and a render under MIN_SECONDS is never uploaded
 QA_SECONDS = {"storyboard": (35, 95), "remix": (15, 110),    # a winner body is as long as it is: RAW + cold open, no
-              "story": (60, 130)}                             # padding (113-H2 runs ~18 s); never under the floor. story:
-FLOOR = {"storyboard": MIN_SECONDS, "remix": 15}                # the 1.5-2 min storytelling format (Julian, 2026-10-09)
+              "story": (60, 130),                             # padding (113-H2 runs ~18 s); never under the floor. story:
+              "ugc": (55, 85)}                                # the classic 1.5-2 min storytelling format (Julian, 2026-10-09);
+FLOOR = {"storyboard": MIN_SECONDS, "remix": 15}                # ugc: the default storyboard format (owner 2026-10-14: 55-80 s)
+UGC_ANGLE = dict(n_things="things", demo="demo", stop_x="stop", travel="travel", value="value")   # ugc_script angle -> the name part
+UGC_WPS = 2.75      # words per second of a voice take before the speed-up (ugc_script.VPS / storyboard.VOICE_SPEED)
+UGC_SPEED = 1.12    # storyboard.VOICE_SPEED: the voice takes are sped up this much
+UGC_TAKE = 0.075    # silence storyboard.voice_prep keeps at the two ends of a take (KEEP_HEAD + KEEP_TAIL)
+UGC_JOIN = 0.08     # storyboard.UGC_PAD: the pad after a take
+UGC_HOOK_PAD = 0.2  # storyboard.UGC_HOOK_PAD
+UGC_END_PAD = 0.6   # storyboard.END_PAD (remix.TAIL + 0.2)
+VOICE_FILE = os.path.join(HERE, "data", "voice.json")   # optional {"voice_type", "voice_id", "speed"}: the lead's choice of voice
 PIPELINES = ("catalog", "winners", "new-product")
 BATCH = dict(statics=20, projects=5)   # the owner (2026-10-13): no numbers = 20 statics + 5 projects x 4 hooks = 20 videos
 FIT_CLIP = "auto"   # product-file clips not shot 9:16: recut picks a flat backdrop (light studio border) or a blur
@@ -782,8 +801,43 @@ def free_rev(prefixes, rev, taken):
 WPS = 2.7   # spoken words per second (brand voice and narrator)
 
 
+def voice_cfg():
+    """(voice, speed) of the ugc videos: the brand voice and UGC_SPEED, unless pipeline/data/voice.json says otherwise
+    ({"voice_type", "voice_id", "speed": 0.8-1.25}; every key optional: the lead's choice after a listening test)."""
+    try:
+        d = json.load(open(VOICE_FILE))
+    except (OSError, ValueError):
+        d = {}
+    d = d if isinstance(d, dict) else {}
+    voice = dict(BRAND_VOICE)
+    if isinstance(d.get("voice_type"), str) and isinstance(d.get("voice_id"), str) and d["voice_type"] and d["voice_id"]:
+        voice = dict(voice_type=d["voice_type"], voice_id=d["voice_id"])
+    try:
+        speed = min(max(float(d.get("speed") or UGC_SPEED), 0.8), 1.25)
+    except (TypeError, ValueError):
+        speed = UGC_SPEED
+    return voice, speed
+
+
+def est_ugc(spec, texts):
+    """Length of a ugc board before any voiceover exists: each take's words / (UGC_WPS x voice_speed) + the silence kept at
+    its ends + the pad after it (the hook's UGC_HOOK_PAD, the last take's UGC_END_PAD, else the board's pad)."""
+    sp, last, t = spec.get("voice_speed") or UGC_SPEED, len(spec["blocks"]) - 1, 0.0
+    for k, blk in enumerate(spec["blocks"]):
+        if "vo" not in blk:
+            t += blk["range"][1] - blk["range"][0]
+            continue
+        pad = blk.get("pad", spec.get("hook_pad", UGC_HOOK_PAD) if k == 0 and last else spec.get("pad", UGC_JOIN))
+        t += len(texts.get(blk["vo"], "").split()) / (UGC_WPS * sp) + UGC_TAKE + (max(pad, UGC_END_PAD) if k == last else pad) + \
+            (blk.get("hold", 0.0) if 0 < k < last else 0.0)
+    return round(t, 1)
+
+
 def est_seconds(spec, texts, rw=None):
-    """Rough ad length before any voiceover exists: words / WPS for voiced parts, real ranges for RAW and clips."""
+    """Rough ad length before any voiceover exists: words / WPS for voiced parts, real ranges for RAW and clips (ugc boards:
+    est_ugc)."""
+    if spec.get("mode") == "ugc":
+        return est_ugc(spec, texts)
     if "raw" in spec:
         e = next((x for x in (rw or {}).values() if x.get("id") == spec["raw"]), {})
         import remix
@@ -797,6 +851,89 @@ def est_seconds(spec, texts, rw=None):
         t += len(texts.get(blk["vo"], "").split()) / WPS + 0.25 + blk.get("hold", 0.0) if "vo" in blk else \
             blk["range"][1] - blk["range"][0]
     return round(t, 1)
+
+
+KW_SYN = {"zipper": "zip", "zippers": "zip", "zips": "zip", "zipped": "zip", "hanging": "hang", "hangs": "hang", "hook": "hang",
+          "chair": "hang", "macro": "detail", "details": "detail", "closeup": "detail", "close": "detail", "interior": "inside",
+          "open": "inside", "opened": "inside", "opens": "inside", "opening": "inside", "packing": "pack", "packed": "pack",
+          "unpack": "pack", "unpacking": "pack", "worn": "wear", "wearing": "wear", "wears": "wear", "walking": "walk",
+          "street": "walk", "outside": "walk", "outdoors": "walk", "colours": "colour", "color": "colour", "colors": "colour",
+          "lineup": "colour", "carousel": "colour", "stitching": "stitch", "stitches": "stitch", "desk": "table",
+          "hands": "hand", "arms": "hand", "bags": "bag", "keys": "key", "lipstick": "item", "things": "item", "stuff": "item",
+          "items": "item", "essentials": "item", "adjust": "strap", "adjustable": "strap",
+          "crowd": "walk", "crowds": "walk", "crowded": "walk", "busy": "walk", "train": "walk", "subway": "walk", "station": "walk",
+          "commute": "walk", "airport": "walk", "trip": "walk", "checkout": "shop", "store": "shop", "cafe": "coffee",
+          "restaurant": "coffee", "lunch": "coffee"}   # footage keyword folding (kw_terms); the situations a problem line names -> the footage
+#                                                       that has the bag out in the world (the library has little: see PLAYBOOK)
+KW_STOP = set("the a an and or of to in on for with your you it its this that is are be at by as from up out into so just no "
+              "not more most all any can will one two get got has have had was were than then too very only".split())
+
+
+def kw_terms(text):
+    """The footage keywords of a text: lower-case words with plurals and near-synonyms folded (zippers -> zip, hanging -> hang),
+    small words dropped. Footage notes and a script's phrases are matched on these."""
+    out = set()
+    for w in re.findall(r"[a-z0-9]+", (text or "").lower()):
+        w = KW_SYN.get(w, w)
+        if len(w) > 3 and w.endswith("s") and not w.endswith("ss"):
+            w = KW_SYN.get(w[:-1], w[:-1])
+        if len(w) > 2 and w not in KW_STOP:
+            out.add(w)
+    return out
+
+
+HOOK_MOVE = {"hand", "zip", "pocket", "inside"}   # an opening shot that moves (hands in the bag, a zip); a bag hanging or a person standing does not
+
+
+def hook_type_of(text):
+    """ugc hook type of a line nobody typed (a theme hook): question / price / promise."""
+    if (text or "").strip().endswith("?"):
+        return "question"
+    return "price" if re.search(r"%|\bpercent\b|half price|\bdeals?\b|\bsales?\b|\boff\b|\bprice\b", text or "", re.I) else "promise"
+
+
+def ugc_slots(text, speed=UGC_SPEED, pad=UGC_JOIN):
+    """[(the words, shot pieces)] one entry per shot of a ugc take as storyboard will cut it: the take's words timed at the
+    estimated pace, phrase_cuts / shot_groups / ugc_pieces of storyboard (a long group is split into pieces: the 2nd, 3rd ...
+    take a spare shot). plan matches the footage to these words and orders a block's picks by them."""
+    import storyboard as sb
+    ws, t = [], 0.0
+    for w in text.split():
+        ws.append(dict(w=w, s=round(t, 3), e=round(t + 1 / (UGC_WPS * speed), 3)))
+        t += 1 / (UGC_WPS * speed) + (0.07 if w.rstrip("\"')")[-1:] in ".?!" else 0.03 if w[-1:] in ",;:" else 0.0)
+    L = t + UGC_TAKE + pad
+    out = []
+    for a, b in sb.shot_groups(sb.phrase_cuts(ws, 0.0), L):
+        pts = sb.ugc_pieces(a, b, ws, 0.0)
+        lo, hi = (a + sb.CUT_LEAD - 0.001 if a > 0 else -1.0), b + sb.CUT_LEAD - 0.001     # (a cut is CUT_LEAD s before its word)
+        out.append((" ".join(w["w"] for w in ws if lo <= w["s"] < hi), len(pts) - 1))
+    return out or [(text, 1)]
+
+
+def check_out(out):
+    """compliance.check_out (it allows the count a ugc hook says: plan.json 'ugc_numbers')."""
+    import compliance
+    return compliance.check_out(out)
+
+
+INDEX_PRODUCT = {"hobo bag": "Hobo Bag", "hobo 2.0": "Hobo 2.0", "slouchy": "Slouchy", "vintage": "Vintage Bag"}   # built-in -> its
+#                                                                    product in pipeline/data/clip_index.json (the client's library)
+
+
+def index_clips(pk, taken=()):
+    """The client's library footage of a built-in bag that clip_bank.json does not hold, for the ugc videos' shot pool: clips of
+    pipeline/data/clip_index.json marked usable, no face, no on-screen text, at least 720p and 2.5 s, not a winner's RAW. ->
+    [(Drive id, duration s, note + folder words)]. `taken`: Drive ids to leave out (the ones the bank has)."""
+    name = INDEX_PRODUCT.get(pk)
+    try:
+        rows = json.load(open(os.path.join(HERE, "data", "clip_index.json")))
+    except (OSError, ValueError):
+        return []
+    return [(r["id"], float(r["duration"]), f"{r.get('note') or ''} {r.get('path') or ''}") for r in rows
+            if name and r.get("product") == name and r.get("usable") == "yes" and r.get("faces") == "none"
+            and r.get("text") in (None, "", "none") and r["id"] not in taken and DRIVE_ID.match(str(r["id"]))
+            and min(int(r.get("width") or 0), int(r.get("height") or 0)) >= 720 and float(r.get("duration") or 0) >= 2.5
+            and not re.search(r"\bRAW\b|Concept \d|Creative Delivery", r.get("path") or "")]
 
 
 def safe_name(s):
@@ -1263,6 +1400,8 @@ def plan(a):
         if p[0] == "clip":
             c = clips[p[1]] if isinstance(p[1], int) and 0 <= p[1] < len(clips) else None
             return ([c, p[2], w] + ([fit_of(c)] if fit_of(c) else [])) if c else None
+        if p[0] == "drive":           # ["drive", <Drive file id>, start]: a client library clip (clip_index.json), ugc only
+            return [p[1], p[2], w] if DRIVE_ID.match(str(p[1])) else None
         try:
             src = clip(b, p[0], p[1])
         except (KeyError, IndexError, TypeError):
@@ -1302,19 +1441,49 @@ def plan(a):
         seq = ["hero", "promo", "offer", "bold", "stars", "colours", "checklist", "compare", "review", "promo", "hero", "bold"]
     else:
         seq = ["lifestyle", "bold", "hero", "lifestyle", "compare", "review", "lifestyle", "bold", "hero", "lifestyle"]
+    if not getattr(a, "classic", False):   # the Ad Library layouts (brand_statics.new_layouts: what the top-impression ads look
+        # like) in 20 slots: native 3 (a face-free photo, caption + offer pill), quotes 3 (verbatim reviews around the packshot),
+        # value 2 (the real price struck through); a layout the product can't back (no photo / review / price) is replaced
+        if clean_mode and pk == "hobo bag" and pr["source"] == "built-in":
+            seq = ["hero", "offer", "quotes", "stars", "value", "promo", "checklist", "bold", "native", "review", "quotes",
+                   "colours", "offer", "compare", "stars", "value", "native", "checklist", "quotes", "native"]
+        elif clean_mode and pr["source"] != "built-in" and len(lifestyle()) >= 3:
+            seq = ["hero", "offer", "native", "quotes", "promo", "value", "native", "colours", "checklist", "native",
+                   "bold", "quotes", "lifestyle", "stars", "compare", "lifestyle", "value", "lifestyle", "review", "quotes"]
+            #       (the photos go to the 3 natives first, then to the lifestyle layout: each photo once per batch)
+        elif clean_mode:
+            seq = ["hero", "promo", "offer", "quotes", "native", "bold", "value", "stars", "colours", "checklist", "native",
+                   "compare", "quotes", "review", "hero", "value", "native", "promo", "bold", "quotes"]
+        else:
+            seq = ["lifestyle", "native", "hero", "lifestyle", "compare", "native", "review", "lifestyle", "bold", "native"]
     if not clean_mode and a.statics and lifestyle():
         warnings.append(f"only {len(s_packs)} clean packshot(s): statics use the client's lifestyle photos and framed photo "
                         f"cards")
     s_pct, s_gift = deal_of(pr["offer"])
     s_v = offer_vars(pr)
     star_revs = [n for n in pr["reviews"] if n in revs and bs.snippet(revs[n]["text"])]   # a verbatim snippet to show
+    quote_revs = [n for n in star_revs if len(revs[n]["name"].split()[0].rstrip(".")) > 1] or star_revs   # (quotes: not 'X A.')
     pf_ = facts if facts.get("price") else (pr.get("facts") or {})    # no site read: the client's notes' prices
     try:
         s_price, s_was = float(pf_.get("price") or 0), float(pf_.get("compare_at") or 0)
     except ValueError:
         s_price = s_was = 0
     price_ok = s_pct and s_was > s_price > 0 and new_product.site_pct(pf_.get("price"), pf_.get("compare_at")) == s_pct
+    value_ok = bool(price_ok and abs(100 * (1 - s_price / s_was) - s_pct) <= 2)    # (brand_statics' value layout refuses worse)
     statics, n_life, seen_s, nlay, no_photo = [], 0, set(), {}, 0
+    life_used, studio = set(), {}      # lifestyle() photos taken so far (a lifestyle or native static each take one, once per batch)
+
+    def next_life(native=False):       # the next unused lifestyle photo (native: a real photo, not a studio packshot)
+        for k_, f_ in sorted(enumerate(lifestyle()), key=lambda x: (native and pkind.get(pnum.get(x[1])) != "worn", x[0])):
+            if k_ in life_used:          # (native: a worn photo first: a macro of leather or a zip reads as a texture ad)
+                continue
+            if native:
+                if f_ not in studio:
+                    studio[f_] = bs.studio_white(bs.load(os.path.dirname(f_), os.path.basename(f_)))
+                if studio[f_]:
+                    continue
+            return k_
+        return None
     cards = {rel(f) for f in s_packs if bs.textured(f)}     # light textured backdrop: a framed card, never a grey box
     ptag = {rel(f): x[1] for x in reversed(pr["features"]) for p in x[2] if p and p[0] == "photo" and isinstance(p[1], str)
             for f in [pfile.get(int(p[1][1:])) if re.fullmatch(r"P\d+", p[1]) else None] if f}   # client photo -> its tag
@@ -1355,16 +1524,28 @@ def plan(a):
             ph = [dict(src=rel(f), name=n) for n, f in s_colours][:6] or [dict(src=rel(f), name="") for f in s_packs[:4]]
             return dict(layout="colours", photos=rot(ph, hv), headline=V(ov("Pick your colour.", "colours"), "Which one is yours?",
                                                                          "Which colour are you?"), sub=tx["colours_sub"], cta=tx["cta"])
-        if lay == "lifestyle":
+        if lay in ("lifestyle", "native"):
             heads = [hero, f"The {pr['short']}."] + ([". ".join(tcase(t) for t in tags[:2]) + "."] if tags else [])
             if ptag.get(photo) and not t:         # a client photo a feature line picks: that feature's tag
                 heads = [f"{tcase(ptag[photo])}."] * len(heads)
             elif pr["source"] != "built-in":      # (else a headline the batch's lifestyle statics have not used yet)
-                had = {x.get("headline") for x in statics if x.get("layout") == "lifestyle"}
+                had = {x.get("headline") or x.get("caption") for x in statics if x.get("layout") in ("lifestyle", "native")}
                 heads = rot(heads, n_life - 1 + hv)
                 heads = [next((h for h in heads if h not in had), heads[0])] * len(heads)
+            if lay == "native":                   # a phone-photo post: the photo, one caption, a small offer pill (no sub, no CTA)
+                return dict(layout="native", photo=photo, caption=heads[(n_life - 1 + hv) % len(heads)],
+                            **({"pct": s_pct} if s_pct and 5 <= s_pct <= 90 else {}))
             return dict(layout="lifestyle", photo=photo, headline=heads[(n_life - 1 + hv) % len(heads)], sub=tx["bold_sub"] or None,
                         cta=tx["cta"])
+        if lay == "quotes":           # verbatim review snippets (brand_statics picks the best sentence) around the packshot
+            sq, c_ = rot(quote_revs, hv * 2), revs_shown()
+            d_ = dict(layout="quotes", photo=photo, reviews=sorted(sq, key=lambda n: (c_.get(n, 0), sq.index(n)))[:2],
+                      pct=s_pct if s_pct and 5 <= s_pct <= 90 else None, gift=s_gift, cta=tx["cta"])
+            return {k: x for k, x in d_.items() if x not in (None, "")}
+        if lay == "value":            # the real price struck through (value_ok: it matches the % within 2 points)
+            d_ = dict(layout="value", photo=photo, price=f"${s_price:.2f}", was=f"${s_was:.2f}", pct=s_pct, gift=s_gift,
+                      headline=V(f"The {pr['short']}", f"Meet the {pr['short']}"), cta=tx["cta"])
+            return {k: x for k, x in d_.items() if x not in (None, "")}
         if lay == "offer":            # every number from the site / the resolved offer (brand_statics invents nothing)
             d_ = dict(layout="offer", photo=photo, pct=s_pct, kicker=th["label"],
                       headline=V(f"The {pr['short']}", f"Meet the {pr['short']}", "Your new everyday bag"),
@@ -1390,19 +1571,25 @@ def plan(a):
                     right=[tcase(t, "sentence") for t in tg[:3]], cta=tx["cta"])
 
     def can(lay):                     # this product has what the layout shows
-        return {"offer": bool(s_pct and 5 <= s_pct <= 90),          # a real % right now (no '..% OFF' static without one)
-                "checklist": len(tags) >= 3, "stars": len(star_revs) >= 2, "review": bool(pr["reviews"]),
-                "colours": len(s_colours) >= 2 or len(s_packs) >= 2,
-                "lifestyle": n_life < len(lifestyle())}.get(lay, True)    # each lifestyle photo once per batch
-    instead = {"offer": "hero", "checklist": "promo", "stars": "review", "review": "lifestyle", "colours": "lifestyle"}
+        return {"offer": lambda: bool(s_pct and 5 <= s_pct <= 90),         # a real % right now (no '..% OFF' static without one)
+                "checklist": lambda: len(tags) >= 3, "stars": lambda: len(star_revs) >= 2, "review": lambda: bool(pr["reviews"]),
+                "colours": lambda: len(s_colours) >= 2 or len(s_packs) >= 2,
+                "lifestyle": lambda: next_life() is not None,                # each lifestyle photo once per batch
+                "native": lambda: next_life(True) is not None,               # a face-free real photo is left
+                "quotes": lambda: clean_mode and bool(quote_revs),            # a real review with a verbatim snippet
+                "value": lambda: clean_mode and value_ok}.get(lay, lambda: True)()   # the real price, % within 2 points
+    instead = {"offer": "hero", "checklist": "promo", "stars": "review", "review": "lifestyle", "colours": "lifestyle",
+               "native": "lifestyle", "value": "offer"}     # (quotes: the least used of `last`; it never takes a lifestyle photo)
     last = ["compare", "bold", "promo", "hero"] if clean_mode else ["compare", "bold"]
     for i in range(a.statics):
         lay = seq[i % len(seq)]
         while not can(lay):           # the next best layout; at the end the least used of `last` (variety, no repeats)
             lay = instead.get(lay) or min(last, key=lambda x: (nlay.get(x, 0), last.index(x)))
         card = False
-        if lay == "lifestyle":
-            photos = [lifestyle()[n_life]]
+        if lay in ("lifestyle", "native"):
+            k_ = next_life(lay == "native")
+            photos = [lifestyle()[k_]]
+            life_used.add(k_)
             n_life += 1
         elif s_packs:
             photos = s_packs
@@ -1945,6 +2132,231 @@ def plan(a):
         #                                                   the project's versions share it: projects.py copies the spec)
         return f"{prefix}_{vid}_{fmt}", spec, dict(name=f"{prefix}_{vid}_{fmt}", id=vid, format=fmt, engine="storyboard", hook=hook)
 
+    # ---------- ugc storyboards: the default storyboard format since 2026-10-14 (--classic keeps the formats above). The script
+    # engine (ugc_script.py) writes one script per project in the 'you' voice: a hook, 5-9 chapters (one voice take each, shared by
+    # the project's hook versions), the offer last. The board is the hook block + one block per chapter, every block's footage
+    # matched to the words of its phrases (storyboard cuts the picture where a phrase starts); the owner's reference ads
+    # (187-220 wpm, a new shot every ~2 s, numbered chapters, one steady loudness) are the target (scorecard.py measures it).
+    STILLS = (".jpg", ".jpeg", ".png", ".webp")
+    ugc_voice, ugc_speed = voice_cfg()
+    ugc_sc, ulib, dnote, dlong = [], [], {}, {}
+    if a.videos and not story and not getattr(a, "classic", False):
+        import ugc_script
+        try:
+            ugc_sc = ugc_script.scripts(pr, n=a.videos, seed=a.seed, hooks=a.hooks)
+        except Exception as e:  # noqa: BLE001 - the script engine must not stop a batch: the classic format still works
+            warnings.append(f"ugc script engine failed for {pr['name']} ({type(e).__name__}: {e}): the classic format is used")
+        if not ugc_sc and not any("ugc script engine failed" in w for w in warnings):
+            warnings.append(f"{pr['name']} has no feature lines for a ugc script: the classic format is used (3-7 one-line "
+                            f"features in the product's notes make the ugc videos)")
+
+    def gen_moments(dur, cap=6):      # a clip with no vetted moments: starts about 4 s apart, the last one 3 s before its end
+        if not dur or dur < 3.0:
+            return [0.0]
+        n = min(cap, int((dur - 3.0) // 4.0) + 1)
+        return [round(0.5 + k * ((dur - 3.5) / max(n - 1, 1) if n > 1 else 0), 1) for k in range(n)]
+
+    def ugc_lib():
+        """The product's footage as matchable shots [{p, kw, tag, kind, src, pen, only, hook, long}]: its feature picks and their other vetted
+        moments (tag = the feature), B-roll and hook clips, every other clip of its clip_bank sections (the vetted moments, else
+        one about every 4 s), the client's library footage of a built-in bag (clip_index.json), then the photos. kw = footage
+        keywords (kw_terms of the notes, the feature line); pen = how much to avoid it; only = keywords one of which the text
+        must have (gift reveals / unboxing). One entry per moment (near): the same shot is never listed twice."""
+        if ulib:
+            return ulib
+
+        def note_kw(p):
+            if p[0] == "photo":
+                return set()
+            if p[0] == "clip":
+                c = pr["clips"][p[1]] if isinstance(p[1], int) and 0 <= p[1] < len(pr["clips"]) else {}
+                return kw_terms(f"{c.get('name', '')} {c.get('notes', '')}")
+            if p[0] == "drive":
+                return kw_terms(dnote.get(p[1], ""))
+            return kw_terms(f"{((b.get(p[0]) or {}).get(p[1]) or {}).get('notes', '')} {str(p[1]).replace('_', ' ')}")
+
+        def long_clip(p):             # a compilation (30 s +): its moments are different scenes, so cutting it again is no repeat
+            if p[0] == "drive":
+                return dlong.get(p[1], False)
+            if p[0] == "clip":
+                c = pr["clips"][p[1]] if isinstance(p[1], int) and 0 <= p[1] < len(pr["clips"]) else {}
+                return float(c.get("dur") or 0) >= 60
+            return float(((b.get(p[0]) or {}).get(p[1]) or {}).get("dur") or 0) >= 60
+
+        def add(p, extra=(), tag=None, kind="clip", pen=0.0, only=(), hook=False):
+            if not p or unfit(p) or any(near(p, e["p"]) for e in ulib):
+                return
+            x = pick(p)
+            if x:                   # once: a photo of kind 'other' (a product page's diagram with its words) is shown whole, one time
+                f_ = photo_file(p) if p[0] == "photo" else None
+                ulib.append(dict(p=list(p), kw=note_kw(p) | set(extra), tag=tag, kind=kind, src=str(x[0]), pen=pen, only=set(only),
+                                 hook=hook, long=kind == "photo" or long_clip(p), once=pkind.get(pnum.get(f_)) == "other"))
+        for line_, tag_, ps_ in fs:
+            fk = kw_terms(f"{line_} {tag_}")
+            for p in ps_:
+                add(p, fk, tag_, "photo" if p and p[0] == "photo" else "clip")
+                for m in moments(p):
+                    add(m, fk, tag_)
+        for p in pr["hook_clips"] + pr["broll"]:               # (the hook clips are the editor's picks for an opening)
+            add(p, (), None, "photo" if p and p[0] == "photo" else "clip", hook=p in pr["hook_clips"])
+            for m in moments(p):
+                add(m)
+        for i_, c_ in enumerate(pr["clips"]):                  # a product file's own clips: every moment it lists, else spread
+            if i_ < len(clips) and clips[i_]:
+                for g in c_.get("good") or gen_moments(c_.get("dur"), 5):
+                    add(["clip", i_, g])
+        secs = list(dict.fromkeys(p[0] for p in pr["broll"] + pr["hook_clips"] + [x for f in fs for x in f[2]] if p and p[0] in b))
+        for sec in secs:
+            for key, e in b[sec].items():
+                notes = e.get("notes", "") if isinstance(e, dict) else ""
+                if not isinstance(e, dict) or key.startswith("ai_") or (sec, key) in scenes or "REAL CUSTOMER" in notes or e.get("text"):
+                    continue                  # (a clip with "text": printed words fill its frame: the captions sit on them)
+                gift = bool(re.search(r"gift|unbox|reveal|reaction", f"{notes} {key}", re.I))
+                for g in e.get("good") or gen_moments(e.get("dur"), 6):
+                    add([sec, key, g], (), None, "clip", 1.5 if "lips" in notes else 0.0,
+                        {"gift", "pouch", "wallet", "unbox", "free"} if gift else ())
+        if pr["source"] == "built-in":
+            taken = {e["id"] for d_ in b.values() if isinstance(d_, dict) for e in d_.values() if isinstance(e, dict) and e.get("id")}
+            for id_, dur_, note_ in index_clips(pk, taken):
+                dnote[id_], dlong[id_] = note_, dur_ >= 60
+                for g in gen_moments(dur_, 5):
+                    add(["drive", id_, g], (), None, "clip", 0.5)
+        for p in photo_picks:
+            f_ = photo_file(p)
+            kind_ = pkind.get(pnum.get(f_)) or "packshot"
+            add(p, {"packshot": {"hero", "packshot", "product"}, "worn": {"wear", "shoulder", "walk", "hand"},
+                    "detail": {"detail", "leather", "zip", "stitch", "hardware"}}.get(kind_, ()), None, "photo",
+                0.5 if pr["source"] != "built-in" else 2.0)
+        return ulib
+
+    def ugc_board(v, vid, bid, sc):
+        """(name, spec, plan entry) of project v from its script sc: see the block above."""
+        lib, pid = ugc_lib(), "P" + vid[1:]
+        uses, jit = {}, v * 5 + a.seed * 3
+        hk, alts = dict(sc["hook"]), [dict(h) for h in sc["alt_hooks"]]
+        if theme_key != "default" and tx["hooks"]:        # a themed request: its own opening first, the script's hook is H2's pool
+            tl = tx["hooks"][v % len(tx["hooks"])]
+            alts = [hk] + [h for h in alts if h["text"] != tl]
+            hk = dict(text=tl, type=hook_type_of(tl), label=th["label"] or hk["label"], feature=None)
+        hook = ov(hk["text"], f"{vid}_hook", f"{pid}_hook", f"{bid}_hook")
+        if hook != hk["text"]:         # a --lines hook: its own type, a label that fits it, no feature footage
+            ty_ = hook_type_of(hook)
+            hk = dict(text=hook, type=ty_, feature=None, label=th["label"] or dict(
+                question="QUICK QUESTION", price="THE DEAL").get(ty_, "LOOK CLOSER"))
+        chs = [dict(c) for c in sc["chapters"]]
+        close = ov(None, f"{vid}_close", f"{pid}_close", f"{bid}_close")
+        if close is None and theme_key != "default" and chs[-1]["kind"] == "offer" and tx["offer_word"]:
+            ow_ = tx["offer_word"]       # a themed request: the theme's close, when it says the offer word the card waits for
+            if ow_.lower() in tx["close"].lower() or (ow_.isdigit() and new_product.say(int(ow_)).split("-")[0] in tx["close"].lower()):
+                close = tx["close"]
+        if close is not None and chs[-1]["kind"] == "offer":
+            chs[-1]["text"] = close
+            if sc["offer"] and tx["offer_word"]:
+                ow = tx["offer_word"]
+                if ow not in close.lower() and (not ow.isdigit() or new_product.say(int(ow)).split("-")[0] not in close.lower()):
+                    warnings.append(f"{vid}: the --lines close has no '{ow}' (or its spoken word): the offer card will not show")
+        sw = [(n, os.path.join(out, "sw", f"{re.sub(r'[^a-z0-9]+', '_', n.lower())}.jpg")) for n, _ in colour_imgs[:6]]
+
+        recent = []                   # the sources already chosen for this block (a short clip is not cut into it again and again)
+
+        def choose(terms, cterms, feat, prev, use, kinds=None, hook=False):
+            best = None
+            for i, e in enumerate(lib):
+                if (e["only"] and not e["only"] & (terms | cterms)) or (kinds and e["kind"] not in kinds) or (e["once"] and use.get(i)):
+                    continue
+                s = 3.0 * len(e["kw"] & terms) + 1.5 * len(e["kw"] & cterms) + (6.0 if feat and e["tag"] == feat else 0.0) \
+                    + (4.0 if hook and e["hook"] else 0.0) + (2.5 * bool(e["kw"] & HOOK_MOVE) - 2.5 * ("hang" in e["kw"]) if hook else 0.0) - e["pen"] - 6.0 * (prev is not None and e["src"] == prev and not e["long"]) \
+                    - 5.0 * recent.count(e["src"]) * (not e["long"]) - 0.01 * ((i * 7 + jit) % 13)
+                if best is None or (use.get(i, 0), -s) < best[0]:     # the fewest showings first: never the same moment
+                    best = ((use.get(i, 0), -s), i)                  # twice while another is left, then the best match
+            if best is None:
+                return None
+            use[best[1]] = use.get(best[1], 0) + 1
+            recent.append(lib[best[1]]["src"])
+            return best[1], use[best[1]] - 1
+
+        def framed(i, k):             # the k-th showing of one moment: a closer framing, so it reads as another shot
+            x = pick(lib[i]["p"])
+            if not k or not x:
+                return x
+            ex, z = dict(x[3]) if len(x) > 3 else {}, (1.2, 1.32)[(k - 1) % 2]
+            if str(x[0]).lower().endswith(STILLS):
+                mv = (0.0, -0.05, 0.07)[k % 3]
+                ex.update(zoom=[z, round(z + 0.1, 2)], **({"fit_y": round(0.42 + mv, 2)} if ex.get("fit") else {"focus": [0.5, round(0.5 + mv, 2)]}))
+            else:
+                ex.update(zoom=[1.3, 1.36] if k == 1 else [1.6, 1.66], focus=[0.5, 0.55 if k == 1 else 0.42])
+            return x[:3] + [ex]
+
+        def swatches_of(text):       # the colours block: every swatch (the colours the chapter names first, in its order), each
+            pos = {x[0]: (m_.start() if (m_ := re.search(r"\b" + re.escape(x[0].lower()) + r"\b", text.lower())) else 1e9) for x in sw}
+            return [[os.path.relpath(x[1], out), 0, 1.0, {"zoom": [1.0, 1.06], "say": x[0].lower()}]       # 'say': storyboard shows
+                    for x in sorted(sw, key=lambda x: pos[x[0]])]                                          # it where that name is said
+        cterms = {"hook": kw_terms("hero hand")}      # (an opening on hands moves; a bag hanging on a chair does not)
+        texts = [("hook", hook)] + [(c["id"], c["text"]) for c in chs]
+        slots = {k_: ugc_slots(t_, ugc_speed, UGC_HOOK_PAD if k_ == "hook" else UGC_JOIN) for k_, t_ in texts}
+        main, prev, nsl = {}, None, 0
+        for k_, t_ in texts:          # the hook first (its shots are its own), then each chapter's phrases in order
+            ch = next((c for c in chs if c["id"] == k_), None)
+            ct = cterms["hook"] if ch is None else kw_terms(" ".join(ch["shot_kw"] + [ch["tag"] or ""]))
+            feat = hk.get("feature") if ch is None else ch["feature"]
+            colour = ch is not None and len(sw) >= 3 and "colour" in kw_terms(" ".join(ch["shot_kw"])) and ch["kind"] != "offer"
+            ps = swatches_of(t_) if colour else []       # (however many phrases the voice makes: a shot per colour named)
+            recent.clear()
+            for j, (st_, _) in enumerate(() if colour else slots[k_]):
+                last_slot = ch is not None and ch is chs[-1] and j == len(slots[k_]) - 1
+                c_ = choose({"packshot", "hero"}, {"hero"}, None, prev, uses, {"photo"}) if last_slot and packs else None
+                c_ = c_ or choose(kw_terms(st_), ct, feat, prev, uses, hook=ch is None)
+                x_ = framed(*c_) if c_ else None
+                if x_:
+                    if last_slot and len(x_) > 3 and x_[3].get("fit"):
+                        x_ = x_[:3] + [dict(x_[3], fit_y=CLOSE_FIT_Y)]    # (above the end card band, as the classic close)
+                    ps.append(x_)
+                    prev = str(x_[0])
+            main[k_] = ps
+            nsl += len(ps)
+        spuse, spares = dict(uses), {}
+        recent.clear()
+        for k_, t_ in texts:          # the spares: shots no block shows (a long phrase is split onto them), the block's own kind
+            ch = next((c for c in chs if c["id"] == k_), None)
+            ct = cterms["hook"] if ch is None else kw_terms(" ".join(ch["shot_kw"] + [ch["tag"] or ""]))
+            more = sum(n_ - 1 for _, n_ in slots[k_]) + (1 if k_ == "hook" else 2)
+            colour = ch is not None and len(sw) >= 3 and "colour" in kw_terms(" ".join(ch["shot_kw"])) and ch["kind"] != "offer"
+            sp = []
+            recent.clear()
+            for _ in range(0 if colour else more):
+                c_ = choose(ct, ct, hk.get("feature") if ch is None else ch["feature"], None, spuse)
+                x_ = framed(*c_) if c_ else None
+                if x_ and not any(x_[0] == y[0] and x_[1] == y[1] for y in sp):
+                    sp.append(x_)
+            spares[k_] = sp
+        gen = [framed(*c_) for c_ in (choose(cterms["hook"], cterms["hook"], None, None, spuse) for _ in range(6)) if c_]
+        if any(not main[k_] for k_, _ in texts):
+            sys.exit(f"{pr['name']}: no footage or photo to show under the voiceover (product has no clips, no clean "
+                     f"photos and no site page). Add clips/photos to its Drive folder and re-run the intake.")
+        blocks, ovl = [], [dict(type="label", text=hk["label"], block=0, at=0.1, dur=1.8)]
+        for k_, t_ in texts:
+            blk = dict(vo=line(vid, k_, t_, ugc_voice), broll=main[k_], **({"spare": spares[k_]} if spares.get(k_) else {}))
+            ch = next((c for c in chs if c["id"] == k_), None)
+            if ch is not None and ch["number"]:
+                blk["number"] = ch["number"]
+            blocks.append(blk)
+            bi = len(blocks) - 1
+            if ch is not None and ch["tag"]:
+                ovl.append(dict(type="tag", text=ch["tag"], block=bi, at=0.15, dur=2.6))
+            for n_ in (ch or {}).get("reviews") or []:
+                nm = revs[n_]["name"].split()[0].rstrip(".") if n_ in revs else ""
+                ovl.append(dict(type="review", n=n_, block=bi, word=(nm if len(nm) > 1 else "customer").lower(), dur=2.8))
+        offer = (dict(block=len(blocks) - 1, word=sc["offer"]["word"], title=tx["offer_title"], sub=tx["offer_sub"])
+                 if sc["offer"] and tx["offer_title"] and tx["offer_word"] else None)
+        kws = list(dict.fromkeys(tx["keywords"] + THEME_WORDS[theme_key] + [k for c in chs for k in c["keywords"]]))
+        spec = dict(mode="ugc", voice_speed=ugc_speed, blocks=blocks, overlays=ovl, end_title=pr["end"], offer=offer,
+                    keywords=kws, spare_broll=[x for x in gen if x],
+                    music=False if getattr(a, "no_music", False) else dict(seed=(a.seed - 1) * 11 + v + 1))
+        name = f"{prefix}_{vid}_{UGC_ANGLE[sc['angle']]}"
+        return name, spec, dict(name=name, id=vid, format="ugc", engine="storyboard", hook=hook,
+                                ugc=dict(script=sc["id"], angle=sc["angle"], words=sc["words"], hook=dict(type=hk["type"], label=hk["label"],
+                                         feature=hk.get("feature")), alt_hooks=alts, numbers=sc["numbers"]))
+
     seen_v, seen_sc, nsb, per_fmt = {}, set(), 0, {}
 
     def sigs(spec):                       # (script: the words, customer clips and on-screen texts; everything incl. B-roll)
@@ -1952,6 +2364,21 @@ def plan(a):
             [[x.get("type"), x.get("text"), x.get("n")] for x in spec["overlays"]]
         return json.dumps(sc), json.dumps([sc, [x.get("broll") for x in spec["blocks"]]])
     for v in range(a.videos):
+        if v < len(ugc_sc):               # ugc (the default): this project's script; a script too thin to reach the floor
+            vid, bid = f"V{W + nsb + 1:02d}", f"B{nsb + 1:02d}"      # (a product with 1-2 feature lines) falls back to classic
+            n0, s0 = len(tts), dict(said)
+            name, spec, ventry = ugc_board(v, vid, bid, ugc_sc[v])
+            est_u = est_ugc(spec, said)
+            if est_u >= (MIN_SECONDS if pr["source"] == "built-in" else PLAN_SECONDS):
+                nsb += 1
+                specs[name] = spec
+                videos.append(ventry)
+                continue
+            del tts[n0:]
+            said.clear()
+            said.update(s0)
+            warnings.append(f"{vid}: the ugc script of {pr['name']} would run ~{est_u:.0f} s (too thin for the ugc format): this "
+                            f"project uses the classic format, padded from the notes ({len(fs)} feature line(s))")
         vid, bid, fmt = f"V{W + nsb + 1:02d}", f"B{nsb + 1:02d}", fmt_of(v)
         c, per_fmt[fmt] = per_fmt.get(fmt, 0), per_fmt.get(fmt, 0) + 1
         alt = None                        # another script first; same words over other footage only when nothing else is left
@@ -2057,9 +2484,12 @@ def plan(a):
         v["est_seconds"] = est_seconds(specs[v["name"]], said, rw)
         lo, hi = QA_SECONDS.get(v.get("format"), QA_SECONDS.get(v["engine"], QA_SECONDS["storyboard"]))
         if v in keep and not lo <= v["est_seconds"] <= hi and not (pm and v["est_seconds"] < lo):  # (expand: per version)
-            fix = ("" if v["engine"] == "remix" else ": add lines with --lines" if pr["source"] == "built-in" else
-                   ": the product file needs more features/clips, or add lines with --lines")
-            warnings.append(f"{vname(v)} will run about {v['est_seconds']:.0f} s (QA wants {lo}-{hi} s){fix}")
+            fix = ("" if v["engine"] == "remix" or v.get("format") == "ugc" else ": add lines with --lines"
+                   if pr["source"] == "built-in" else ": the product file needs more features/clips, or add lines with --lines")
+            warnings.append(f"{vname(v)} thin script: ~{v['est_seconds']:.0f} s (the ugc format runs {lo}-80 s; {pr['name']} has "
+                            f"few feature lines, reviews or colours to talk about: it runs as it is)"
+                            if v.get("format") == "ugc" and v["est_seconds"] < lo else
+                            f"{vname(v)} will run about {v['est_seconds']:.0f} s (QA wants {lo}-{hi} s){fix}")
     story_short = [v for v in keep if v.get("format") == "story" and v["est_seconds"] < 90]
     if story_short:                  # asked for 1.5-2 min, but the product's real material runs out sooner: say so
         warnings.append(f"story format asked for 1.5-2 min, but {', '.join(vname(v) + ' ~' + str(round(v['est_seconds'])) + ' s' for v in story_short)}: "
@@ -2110,6 +2540,9 @@ def plan(a):
              unmatched_winners=sel["unmatched"] if sel else [], warnings=warnings, winner_reviews=bool(a.winner_reviews),
              seed=a.seed, hooks=a.hooks if pm else 1,     # hooks > 1 and no "projects": the expansion below failed, render refuses it
              pipeline=pipe, **({"batch": True} if size["batch"] else {}),
+             video_format="ugc" if any(v.get("format") == "ugc" for v in videos) else "classic",
+             **({"ugc_numbers": sorted({n for v in videos for n in (v.get("ugc") or {}).get("numbers") or []}),
+                 "voice": dict(ugc_voice, speed=ugc_speed)} if any(v.get("format") == "ugc" for v in videos) else {}),
              **({"fill": dict(winner_projects=W, new_angle_projects=fill)} if fill else {}),
              **({"intake": intake} if intake else {}),
              **({"photo_files": {f"P{n}": rel(f) for n, f in sorted(pfile.items())}} if pfile else {}))   # (projects.py)
@@ -2241,8 +2674,7 @@ def copy_and_check(out, seed=1):
         ac = dict(csv=None, rows=0, notes=[], problems=[f"ad_copy.py failed ({type(e).__name__}: {e}): no ad copy for "
                                                         f"this batch (python3 pipeline/ad_copy.py --out {out})"])
     try:
-        import compliance
-        cr = compliance.check_out(out)
+        cr = check_out(out)
     except Exception as e:  # noqa: BLE001 - a checker bug must not stop a batch: said loudly, the texts are vetted data
         cr = dict(ok=True, error=f"compliance.py failed ({type(e).__name__}: {e}): the texts were NOT checked "
                                  f"(python3 pipeline/compliance.py --out {out})", problems=[], allowed=[], checked=0)
@@ -2260,7 +2692,7 @@ def compliance_lines(cr):
 COMPLIANCE_FIX = ("Reword it (only true claims; never health/medical, drugs, politics, religion, blood or violence): a "
                   "hook/close/headline you wrote -> --lines and re-run plan; a product file's line -> edit the product "
                   "file and re-run plan; an overlay of one version -> its <name>.json, a line of the ad copy -> "
-                  "ad_copy.csv (or ad_copy.py --seed N), then python3 pipeline/compliance.py --out $OUT. render refuses "
+                  "ad_copy.csv (or ad_copy.py --seed N), then python3 pipeline/make_batch.py check --out $OUT. render refuses "
                   "this $OUT until the check passes")
 
 
@@ -2290,8 +2722,7 @@ def compliance_gate(out, p):
     after plan is checked again), so nothing that breaks Julian's rules is voiced into a video or reaches Drive."""
     use_products_dir(p)
     try:
-        import compliance
-        cr = compliance.check_out(out)
+        cr = check_out(out)
     except Exception as e:  # noqa: BLE001
         print(f"WARNING compliance check could not run ({type(e).__name__}: {e}): rendering anyway; run python3 "
               f"pipeline/compliance.py --out {out} and mention it in the reply", file=sys.stderr)
@@ -2301,6 +2732,21 @@ def compliance_gate(out, p):
     if not cr["ok"]:
         sys.exit(f"compliance: {len(cr['problems'])} problem(s) in this batch's text, nothing rendered:\n  - " +
                  "\n  - ".join(compliance_lines(cr)) + f"\n{COMPLIANCE_FIX}.")
+
+
+def check_cmd(a):
+    """python3 pipeline/make_batch.py check --out $OUT: the compliance check plan and render run (compliance.check_out, the count
+    a ugc hook says allowed), on the files as they are now: run it after fixing a line by hand. Exit 2 on a problem."""
+    out = os.path.abspath(a.out)
+    p = json.load(open(os.path.join(out, "plan.json")))
+    use_products_dir(p)
+    cr = check_out(out)
+    cr["report"] = os.path.join(out, "compliance.json")
+    json.dump(cr, open(cr["report"], "w"), indent=1, ensure_ascii=False)
+    print(json.dumps(dict(ok=cr["ok"], checked=cr["checked"], allowed=len(cr.get("allowed") or []), report=cr["report"],
+                          problems=compliance_lines(cr)), indent=1, ensure_ascii=False))
+    if not cr["ok"]:
+        sys.exit(f"compliance: {len(cr['problems'])} problem(s): {COMPLIANCE_FIX}.")
 
 
 # ---------------------------------------------------------------- render
@@ -2348,6 +2794,8 @@ def prefetch(out, videos):
             srcs = [s["raw"]] + [x[0] for x in (s.get("reviews") or {}).get("broll", [])]
         else:
             srcs = [x[0] for blk in s["blocks"] for x in blk.get("broll", [])] + [blk["clip"] for blk in s["blocks"] if "clip" in blk]
+            if s.get("mode") == "ugc":        # (a long phrase is split onto its block's spare shots, then the board's)
+                srcs += [x[0] for blk in s["blocks"] for x in blk.get("spare", [])] + [x[0] for x in s.get("spare_broll") or []]
         for src in srcs:
             src = str(src)
             if src in seen or not (DRIVE_ID.match(src) or src.startswith("http")) or os.path.exists(os.path.join(out, src)):
@@ -2364,10 +2812,46 @@ HARD = ("render failed", "file missing", "face", "too short")       # QA problem
 
 
 SHORTENED = 0.8       # a storyboard that renders under 80% of the plan's estimate was edited shorter after plan (voice noise is ~5%)
+SHORTENED_UGC = 0.7   # ugc: the estimate rests on a words-per-second guess for the voice (the take is sped up, its pauses cut): 70%
 
 
-def shortened(eng, seconds, est):
-    return eng == "storyboard" and bool(est) and seconds < SHORTENED * est
+def shortened(eng, seconds, est, fmt=None):
+    return eng == "storyboard" and bool(est) and seconds < (SHORTENED_UGC if fmt == "ugc" else SHORTENED) * est
+
+
+def split_word(w):
+    """A transcript word {w, s, e} as the transcriber counts it: 'anti-theft' is two words (the span split in half)."""
+    parts = [x for x in re.split(r"(?<=\w)-(?=\w)", w["w"]) if x]
+    if len(parts) < 2:
+        return [w]
+    step = (w["e"] - w["s"]) / len(parts)
+    return [dict(w, w=x, s=round(w["s"] + i * step, 3), e=round(w["s"] + (i + 1) * step, 3)) for i, x in enumerate(parts)]
+
+
+def scorecard_line(out, v, f):
+    """(summary line, [soft problem]) of a rendered ugc video from scorecard.qa_line: the owner's measured targets (words per
+    minute, speech share, longest pause, first word, shot length, loudness and its range, repeated shots, held cards). The
+    words are the ones storyboard put under the captions (_<name>_longform.json 'transcript': the script on the voice's timings),
+    so nothing is transcribed again. A miss is a flag in the QA problems (never a hard failure: the video is uploaded and
+    listed); the length is judged by the QA band already, so its target is left out."""
+    ws = cuts = None
+    try:
+        lf = json.load(open(os.path.join(out, f"_{v['name']}_longform.json")))
+        ws = [x for w in lf.get("transcript") or [] for x in split_word(w)] or None     # (whisper counts 'anti-theft' as 2 words)
+        t, cuts = 0.0, []
+        for s_ in lf.get("segments") or []:               # the render's own cuts: no frame detection to miss or invent one
+            t += float(s_["dur"])
+            cuts.append(t)
+        cuts = cuts[:-1] or None
+    except (OSError, ValueError, KeyError, TypeError):
+        pass
+    try:
+        import scorecard
+        bad, line = scorecard.qa_line(f, words=ws, cuts=cuts)
+    except Exception as e:  # noqa: BLE001 - a soft check: a missing module or an odd file must not fail a render
+        return f"scorecard unavailable: {str(e)[:100]}", []
+    bad = [x for x in bad if not x.startswith("length ")]
+    return line, ([f"scorecard: {'; '.join(bad)}"] if bad else [])
 
 
 def render_one(out, v):
@@ -2390,9 +2874,9 @@ def render_one(out, v):
     floor = FLOOR.get(eng, MIN_SECONDS)
     if ok and L < floor:
         problems.append(f"too short: {L:.1f}s (never under {floor}s; want {lo}-{hi}s)")
-    elif ok and not lo <= L <= hi:
+    elif ok and not lo <= L <= hi and not (v.get("thin_script") and L < lo):     # (a thin script: plan warned, it runs as it is)
         problems.append(f"length {L:.1f}s (want {lo}-{hi}s)")
-    if ok and shortened(eng, L, v.get("est_seconds")) and not any(x.startswith("too short") for x in problems):
+    if ok and shortened(eng, L, v.get("est_seconds"), v.get("format")) and not any(x.startswith("too short") for x in problems):
         problems.append(f"too short: {L:.1f}s, plan said ~{v['est_seconds']:.0f}s (the spec was cut down after plan: never shorten or "
                         f"rebuild a video to fit a request, 'hook-first' means other hooks; plan again)")
     miss = r.stderr.count("anchor not found")
@@ -2405,8 +2889,13 @@ def render_one(out, v):
     if cad:                      # a piece of someone's speech that starts or ends mid-sentence (remix / storyboard clips)
         problems.append(f"cadence: {'; '.join(cad[:3])}{f' (+{len(cad) - 3} more)' if len(cad) > 3 else ''}")
     mus = next((x.split("music:", 1)[1].strip() for x in r.stderr.splitlines() if x.startswith("music:")), None)
+    card = None
+    if ok and v.get("format") == "ugc":    # the owner's targets (scorecard.py): soft flags, one summary line; the words come
+        card, bad = scorecard_line(out, v, f)  # from the render itself (no transcribing again)
+        problems += bad
     return dict(name=v["name"], id=v["id"], engine=eng, format=v.get("format"), seconds=round(L, 1), ok=ok and not problems,
-                problems=problems, hard=[x for x in problems if x.startswith(HARD)], **({"music": mus} if mus else {}))
+                problems=problems, hard=[x for x in problems if x.startswith(HARD)], **({"music": mus} if mus else {}),
+                **({"scorecard": card} if card else {}))
 
 
 def static_qa(out, names, failed=None):
@@ -2511,6 +3000,8 @@ def render(a):
         for r in ex.map(lambda v: render_one(out, v), vids):
             report[r["name"]] = r
             print(json.dumps(r), flush=True)
+            if r.get("scorecard"):
+                print(f"scorecard {r['id']}: {r['scorecard']}", flush=True)
     if os.path.isdir(os.path.join(out, "_tmp")) and not os.listdir(os.path.join(out, "_tmp")):
         os.rmdir(os.path.join(out, "_tmp"))
     order = p["statics"] + [v["name"] for v in p["videos"]]
@@ -2591,6 +3082,7 @@ def run_report(p, report, uploaded, skipped, name, flagged=(), notes=(), pending
                 f"remix of {w.get('brief_name') or w.get('ad') or w.get('key')}" +
                 (f" (ROAS {w['roas']}, {w.get('action') or '-'})" if w.get("roas") is not None else "") +
                 (f", {nrev} narrated reviews" if nrev else ", its proven body intact") if x["engine"] == "remix" else
+                f"new ugc video, {x['angle']} angle (one voice, numbered chapters, the offer last)" if x.get("format") == "ugc" else
                 f"new storyboard video, {x.get('format') or x['angle']} angle") +
                 f" · {n_up} of its {len(x['hooks'])} versions in this upload")
             for h in x["hooks"]:
@@ -2616,6 +3108,11 @@ def run_report(p, report, uploaded, skipped, name, flagged=(), notes=(), pending
                      f", {hook}, " + (f"{len(w['reviews'])} narrated reviews" if w.get("reviews") else "its proven body intact"))
         else:
             L.append(f"  {dn}  video {secs}, {v.get('format', '?')}, hook: \"{v.get('hook', '')}\"")
+    cards = [(vs[n]["id"] if n in vs else n, report[n]["scorecard"]) for n, _ in vu if (report.get(n) or {}).get("scorecard")]
+    if cards:     # the owner's measured targets of the ugc format (scorecard.py): a miss is a soft flag, listed with the QA flags
+        L.append("Scorecard (ugc videos; targets from the owner's reference ads: 185-215 wpm, speech 85%+, no pause over 0.8 s, a "
+                 "shot every 1.4-2.6 s, -14 LUFS with a range under 4 LU, no repeated shot, no card held over 3.2 s):")
+        L += [f"  {i}  {c}" for i, c in cards]
     beds = list(dict.fromkeys(report[n]["music"].split(" (")[0] for n, _ in vu if (report.get(n) or {}).get("music")))
     if vu:        # Julian: a video without a music bed feels off (storyboard videos get one; winners keep the RAW's sound)
         gen = any(b.startswith("generated") for b in beds)
@@ -2815,8 +3312,7 @@ def upload(a):
         except (OSError, ValueError):
             acj = {}
         try:
-            import compliance
-            cr = compliance.check_out(out)          # the copy as it is now (it may have been refined by hand)
+            cr = check_out(out)                     # the copy as it is now (it may have been refined by hand)
         except Exception as e:  # noqa: BLE001
             cr = dict(ok=True, problems=[], allowed=[], checked=0, error=str(e))
         bad = [x for x in cr["problems"] if x["where"].startswith("ad copy ")]
@@ -2940,6 +3436,11 @@ def main():
                     "and other hook versions (unless --hook-seed)")
     pl.add_argument("--only", help="keep only these ads (P02 = project 2's versions, P02H3 = one version, S03, 'P02H3,S01', "
                     "V/P = all videos, S = all statics; V02 = P02; --hooks 1: V02): a redo voices, renders and uploads just them")
+    pl.add_argument("--classic", action="store_true", help="the pre-2026-10-14 output: storyboard videos in the classic formats "
+                    "(showcase / features / reviews / colours / lifestyle / offer, 40-60 s: one script per format, a voice take "
+                    "per line) and the old static cycle, instead of the ugc format (default: ugc_script.py's scripts in the 'you' "
+                    "voice, 55-80 s, numbered chapters, a new shot about every 2 s, one steady loudness) and the statics with the "
+                    "native / quotes / value layouts")
     pl.add_argument("--story", action="store_true", help="storyboard videos in the story format: 1.5-2 min (every feature, the "
                     "real customer in full, reviews, colours, the offer); also chosen when --request asks for a story / "
                     "long video")
@@ -2962,11 +3463,13 @@ def main():
     u.add_argument("--name", default="")
     u.add_argument("--include-flagged", action="store_true", help="also upload videos with a hard QA failure (the file must exist)")
     u.add_argument("--only", help="as render --only: S (statics), V or P (videos), P03, P03H2, 'S01,P02'; --hooks 1 plans: V03")
+    ck = sub.add_parser("check", help="the compliance check of a planned batch (plan and render run it too; ugc count words allowed)")
+    ck.add_argument("--out", required=True)
     sp = sub.add_parser("specs", help="copy the batch's spec JSONs (no media, no render files) for committing")
     sp.add_argument("--out", required=True)
     sp.add_argument("--to", "--dest", dest="to", required=True, help="e.g. pipeline/recipes/daily/<YYYY-MM-DD>/<short-name>")
     a = ap.parse_args()
-    {"plan": plan, "render": render, "upload": upload, "specs": specs_copy}[a.cmd](a)
+    {"plan": plan, "render": render, "upload": upload, "specs": specs_copy, "check": check_cmd}[a.cmd](a)
 
 
 if __name__ == "__main__":

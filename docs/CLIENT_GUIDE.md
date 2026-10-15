@@ -1,7 +1,7 @@
 # Making ads from Slack: quick guide
 
 Send Claude one line in a Slack DM. It makes the ads from your real product photos and footage, adds one
-narrator voice, captions, the offer and a soft music bed, writes the Meta copy (primary texts, headlines,
+voice, numbered captions, the offer and a soft music bed, writes the Meta copy (primary texts, headlines,
 description), and saves it all in Google Drive. Nothing is ever published: you review the files and upload the
 ones you like to Meta.
 
@@ -61,16 +61,16 @@ Outputs / New Products: that is where the finished ads land), named like the pro
   - the price and the old price (`Price: $59.95 (was $119.95)`) or the discount (`50% off`);
   - a free gift, only if there is one (`Free matching pouch wallet`);
   - the colours, named as on the photos (`Colours: Coffee, Black, Beige, Wine Red, Apricot`);
-  - 3 to 7 things that make it special, one short line each (`Dual zipper closure keeps everything secure`); 7
-    lines make videos of about 45 s, 3-5 lines about 38 s (fewer lines still work: Claude pads the video with the
-    price, colours and gift from your notes);
+  - 3 to 7 things that make it special, one short line each (`Dual zipper closure keeps everything secure`); 5-7
+    lines make videos of about 60-70 s, 3-4 lines about 40-50 s (fewer lines still work: Claude makes a shorter video
+    from what the notes say, a price, the colours, a gift, and tells you);
   - free shipping, only if it applies (`Free US shipping`): without that line the ads don't mention shipping.
 
 Claude reads only that folder: **the website is not read** for new products. The ads say only what the folder
 says: no reviews from other bags, no discount, free gift or free shipping your notes don't mention, nothing about
 health. No price or discount in the notes = ads without an offer (and no Black Friday ads). A thin folder still
-works: with few photos or lines the videos are padded from your notes, and a video that would still be too short
-(under 25 s) is left out while the statics are made; Claude then says what you could add for videos. Only a folder
+works: with few photos or lines the videos are shorter, made from what your notes say, and a video that would still
+be too short (under 25 s) is left out while the statics are made; Claude then says what you could add for videos. Only a folder
 with no usable photo and no clip makes nothing. Changed the folder later? Write the product's name again to get
 ads from the new files.
 
@@ -88,6 +88,7 @@ ads from the new files.
 |---|---|
 | Single videos without hook versions | `Higgsfield-test: 2 single videos for the Vintage bag` |
 | A longer storytelling video (1.5-2 min) | `Higgsfield-test: 1 story video for the Vintage bag` |
+| The older video formats (40-60 s: showcase / features / reviews / colours) | `Higgsfield-test: 2 classic videos for the Vintage bag` |
 | No music | add `no music` |
 | A fix | reply in the same thread: `P02 H3 with a different hook` or `redo project 2` |
 
@@ -99,6 +100,16 @@ Like the agency ads (ACH - MAX - 94 - H4): every video is a **project** with 4 v
 that share the same body and differ only in the first few seconds: the opening line, the opening shot and the
 hook text. Put the 4 versions of a project in one ad set to see which hook wins. "2 videos" = 2 projects = 8
 video files.
+
+## What the videos look like (since 2026-10-14)
+
+New videos follow what the top-impression ads (the owner's reference videos and the Ad Library) do, measured: one voice that talks straight to the viewer
+("you stop worrying in crowds", never a made-up customer story), fast (about 200 words a minute, no long pauses), a new
+picture about every 2 seconds that shows what is being said (hands opening the zip, keys into the pocket, the bag worn),
+a specific hook in the first 3 seconds ("Four things you'll notice ..."), numbered chapters on screen ("1. you stop
+worrying in crowds") with the feature's name, a problem and its fix, a review or two on screen for 3 seconds at most, the
+offer last, and one steady loudness. They run **55-80 s**. A bag with few feature lines or reviews gets a shorter video
+and Claude says so. Want the older formats? Add `classic`.
 
 ## What you get
 
@@ -115,14 +126,16 @@ video files.
 
 ## Time and cost
 
-- Video length: videos are about 40-60 s on purpose (the story format 1.5-2 min), whatever you write. Asking for
-  "hook-first", "a hook test" or "better hooks" gives different openings in the same full-length videos, never
-  shorter ones. A video that comes out shorter than planned is not uploaded.
+- Video length: videos are 55-80 s on purpose (the older `classic` formats 40-60 s, the story format 1.5-2 min),
+  whatever you write. Asking for "hook-first", "a hook test" or "better hooks" gives different openings in the same
+  full-length videos, never shorter ones. A video that comes out shorter than planned is not uploaded. Claude's reply
+  includes a scorecard line per batch: how the videos measure against the targets above (a miss is reported, not hidden).
 - Statics: a few minutes for all of them. A video project (4 versions): about 20-25 minutes. A batch (20 statics +
   5 projects) takes about 2 hours; Claude replies once, when everything is in Drive.
 - Credits: only the voiceover costs Higgsfield credits (about 0.35 per spoken line). A new-angle or new-product
-  project on its own: about 4-5 credits (projects in one batch share most lines); a winner project: 0 (it keeps its
-  own voice). A full batch: about 0-12 credits (a new product's about 8).
+  project on its own: about 4-5 credits (the 4 versions of a project share the chapter lines; each hook is one more
+  line); a winner project: 0 (it keeps its own voice). A full batch of a bag or new product: about 20-23 credits; a
+  winners batch: 0-5 (only fill projects cost).
   No AI images or AI video are made.
 
 ## Good to know
