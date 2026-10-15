@@ -802,7 +802,7 @@ def main():
     os.makedirs(os.path.dirname(os.path.abspath(a.out)), exist_ok=True)
     subprocess.run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-i", base, "-f", "concat", "-safe", "0", "-i", lst,
                     "-filter_complex", "[1:v]fps=30,format=rgba[o];[0:v][o]overlay=0:0:eof_action=pass:format=auto,format=yuv420p[v]",
-                    "-map", "[v]", "-map", "0:a", "-c:v", "libx264", "-preset", "slow", "-crf", "17", "-maxrate", "14M",
+                    "-map", "[v]", "-map", "0:a", "-c:v", "libx264", "-preset", "slow", "-crf", "18", "-maxrate", "13M",
                     "-bufsize", "28M", "-r", "30", "-c:a", "copy", "-movflags", "+faststart", "-t", f"{total:.3f}", "-y", a.out],
                    check=True, timeout=3600)
     print(json.dumps(dict(out=a.out, seconds=round(total, 2), overlays=len(e.get("overlays", [])), **st)))

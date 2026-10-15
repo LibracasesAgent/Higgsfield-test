@@ -315,6 +315,13 @@ Always look at a contact sheet of every video and a grid of every static before 
 - **Rendering:** ~10-12 min per video on 4 cores (whisper + 4K decode + slow x264). Run queues detached
   (`setsid nohup … &`): background shell jobs are killed after 2 hours. Two renders can share a folder now
   (per-PID temp names), but run at most 2 at once.
+- **Video encode chain (2026-10-15, "some frames blurry / grainy"):** a ugc/storyboard video is encoded twice: each
+  segment (recut.py, x264 crf 14) and the final overlay pass (longform.py, crf 18, maxrate 13M). recut.py's join step
+  used to re-encode the picture a third time (crf 18); it now stream-copies. Measured on the Hobo P01 H1 against a
+  lossless render of the same cut: PSNR 43.1 -> 44.5 dB, same file size (~95 MB, Drive/Meta fine). Remaining softness
+  is in the source clips (soft-focus, dark phone footage, 8 Mbps HEVC 1080p clips), not the encode; hqdn3d denoise and
+  `-tune film`/`aq-mode=3` were tried and were not better. Google Drive's in-browser preview is a low-res transcode:
+  judge quality on the downloaded file.
 - **Higgsfield:** `use_unlim:false` always; batch tools max 12 per call; jobs_wait to poll; TTS rate limit
   (429) → resubmit the failed ones; preset "IN THE DARK" → `declined_preset_id`. MCP connectors sometimes
   disconnect: reload tools and continue.
