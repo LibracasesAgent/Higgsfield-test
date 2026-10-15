@@ -1,0 +1,173 @@
+{
+ "ads": [
+  {
+   "layout": "hero",
+   "photo": "site/hobo_bag_colour_black.jpg",
+   "headline": "Meet the Hobo Bag.",
+   "sub": "Hidden back pocket, gold side zips and a free matching pouch wallet.",
+   "badge": {
+    "top": "NOW",
+    "big": "50%",
+    "bottom": "OFF"
+   },
+   "cta": "Shop now \u00b7 50% off",
+   "name": "LC_261015_HoboBag_Evergreen_S01_hero"
+  },
+  {
+   "layout": "offer",
+   "photo": "site/hobo_bag_colour_blue.jpg",
+   "pct": 50,
+   "headline": "The Hobo Bag",
+   "gift": "free matching pouch wallet",
+   "cta": "Shop now \u00b7 50% off",
+   "price": "$52.50",
+   "was": "$105.00",
+   "name": "LC_261015_HoboBag_Evergreen_S02_offer"
+  },
+  {
+   "layout": "quotes",
+   "photo": "site/hobo_bag_colour_grey.jpg",
+   "reviews": [
+    7,
+    8
+   ],
+   "pct": 50,
+   "gift": "free matching pouch wallet",
+   "cta": "Shop now \u00b7 50% off",
+   "name": "LC_261015_HoboBag_Evergreen_S03_quotes"
+  },
+  {
+   "layout": "stars",
+   "photo": "site/hobo_bag_colour_burgundy.jpg",
+   "reviews": [
+    9,
+    10,
+    6
+   ],
+   "headline": "What our customers say",
+   "cta": "Shop now \u00b7 50% off",
+   "name": "LC_261015_HoboBag_Evergreen_S04_stars"
+  },
+  {
+   "layout": "value",
+   "photo": "site/hobo_bag_colour_red.jpg",
+   "price": "$52.50",
+   "was": "$105.00",
+   "pct": 50,
+   "gift": "free matching pouch wallet",
+   "headline": "The Hobo Bag",
+   "cta": "Shop now \u00b7 50% off",
+   "name": "LC_261015_HoboBag_Evergreen_S05_value"
+  },
+  {
+   "layout": "promo",
+   "photo": "site/hobo_bag_colour_black.jpg",
+   "headline": "The Hobo Bag",
+   "sub": "+ FREE matching pouch wallet",
+   "features": [
+    "Hidden Back Pocket",
+    "Gold Side Zips",
+    "Smart Compartments"
+   ],
+   "badge": {
+    "top": "SALE",
+    "big": "50%",
+    "bottom": "OFF"
+   },
+   "cta": "Shop now \u00b7 50% off",
+   "name": "LC_261015_HoboBag_Evergreen_S06_promo"
+  },
+  {
+   "layout": "checklist",
+   "photo": "site/hobo_bag_colour_blue.jpg",
+   "headline": "Why the Hobo Bag?",
+   "ticks": [
+    "Hidden back pocket",
+    "Gold side zips",
+    "Smart compartments",
+    "3 ways to wear"
+   ],
+   "offer": "50% OFF + FREE WALLET",
+   "cta": "Shop now \u00b7 50% off",
+   "name": "LC_261015_HoboBag_Evergreen_S07_checklist"
+  },
+  {
+   "layout": "bold",
+   "photo": "site/hobo_bag_colour_grey.jpg",
+   "lines": [
+    "SELLING",
+    "FAST."
+   ],
+   "accent_lines": [
+    1
+   ],
+   "sub": "Final clearance: 50% off + free shipping while stock lasts.",
+   "cta": "Shop now \u00b7 50% off",
+   "dots": [
+    [
+     120,
+     66,
+     36
+    ],
+    [
+     25,
+     25,
+     25
+    ],
+    [
+     40,
+     52,
+     90
+    ],
+    [
+     110,
+     110,
+     112
+    ],
+    [
+     96,
+     28,
+     44
+    ],
+    [
+     170,
+     26,
+     36
+    ]
+   ],
+   "name": "LC_261015_HoboBag_Evergreen_S08_bold",
+   "bg": [
+    246,
+    241,
+    234
+   ]
+  },
+  {
+   "layout": "compare",
+   "photo": "site/hobo_bag_colour_burgundy.jpg",
+   "headline": "Your everyday bag vs Hobo Bag",
+   "left_title": "Most bags",
+   "left": [
+    "Keys lost at the bottom",
+    "One big empty space",
+    "Wallet sold separately"
+   ],
+   "right_title": "Hobo Bag",
+   "right": [
+    "Hidden back pocket",
+    "Gold side zips",
+    "Smart compartments"
+   ],
+   "cta": "Shop now \u00b7 50% off",
+   "name": "LC_261015_HoboBag_Evergreen_S09_compare"
+  },
+  {
+   "layout": "review",
+   "review_n": 6,
+   "photo": "site/hobo_bag_colour_red.jpg",
+   "cta": "Shop now \u00b7 50% off",
+   "name": "LC_261015_HoboBag_Evergreen_S10_review"
+  }
+ ],
+ "card_photos": []
+}
