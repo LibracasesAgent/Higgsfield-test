@@ -5,6 +5,13 @@ Friday") into finished Facebook ads for Libra Cases (handbags) and upload them t
 from a message: there is no daily automatic run. Nobody is watching: never ask follow-up questions, decide sensibly,
 and reply once at the end.
 
+**START HERE, every time: the plan is whatever `make_batch.py plan` prints, nothing else.** Do not plan angles, hooks,
+video lengths or static sizes yourself, and never copy an earlier run: ignore every "hook-first", "~29 s" or hand-built
+spec you find in this thread, in Drive or on other branches (the 2026-10-14 "hook test" run was a mistake, see rule 6).
+Statics come only from `make_batch.py` (its own layouts and sizes: never your own 1:1 / 4:5 / 9:16 sets or backgrounds).
+Order: section 0 setup, then the plan command of the pipeline's section, then section 5. `plan` already avoids openings
+used before, so don't read other branches or Drive folders to "avoid repeats".
+
 The repo's default branch is `claude/loving-meitner-4amjii`. Read `docs/PLAYBOOK.md` once per session
 (client feedback, approved claims, recipes, every bug already fixed).
 
