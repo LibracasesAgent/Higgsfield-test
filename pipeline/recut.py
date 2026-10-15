@@ -320,9 +320,10 @@ def main():
         fc.append(f"[{k}:a]aresample=48000,volume={x.get('gain', 1.0)},adelay={ms}|{ms}[x{k}]")
         labels.append(f"[x{k}]")
     fc.append(f"{''.join(labels)}amix=inputs={len(labels)}:duration=first:normalize=0,{norm}[aout]")
+    # video: stream copy of the segments (already x264 crf 14): longform.py does the one final encode, so the picture is
+    # lossy-encoded twice (segment, final) and not three times (a re-encode here stacked a generation of blur and blocking)
     subprocess.run(["ffmpeg", "-hide_banner", "-loglevel", "error", *inputs,
-                    "-filter_complex", ";".join(fc), "-map", "0:v", "-map", "[aout]", "-c:v", "libx264", "-preset", "slow", "-crf", "18",
-                    "-pix_fmt", "yuv420p", "-r", str(FPS), "-c:a", "aac", "-b:a", "160k", "-ar", "48000",
+                    "-filter_complex", ";".join(fc), "-map", "0:v", "-map", "[aout]", "-c:v", "copy", "-c:a", "aac", "-b:a", "160k", "-ar", "48000",
                     "-movflags", "+faststart", "-y", a.out], check=True, timeout=1800)
     print(json.dumps(dict(out=a.out, seconds=round(t, 2), segments=len(parts))))
 
