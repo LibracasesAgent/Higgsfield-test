@@ -1,0 +1,89 @@
+{
+ "ok": true,
+ "product": "Hobo Bag",
+ "offer": "50% off + free matching pouch wallet",
+ "checked": 582,
+ "problems": [],
+ "allowed": [
+  {
+   "where": "voiceover V01_c6.mp3",
+   "text": "Still not sure? Carol says: best bag I have ever bought. Jenny says: it's spacious, lightweight, and super functional with lots of pockets.",
+   "category": "claims",
+   "term": "best bag",
+   "why": "a customer review (verbatim, or attributed to the customer by name)"
+  },
+  {
+   "where": "voiceover V04_c6.mp3",
+   "text": "Hear it from customers. Mercy says: the best bag for travel and every day use. Carol says: already bought for friends.",
+   "category": "claims",
+   "term": "best bag",
+   "why": "a customer review (verbatim, or attributed to the customer by name)"
+  },
+  {
+   "where": "S03_quotes.stars, P01H1 review card, P01H2 review card, P01H3 review card, P01H4 review card, P04H1 review card, P04H2 review card, P04H3 review card, P04H4 review card",
+   "text": "Love this bag. Best bag I have ever bought. Don't ever think of discontinuing amazing bag. Will definitely be purchasing more. Already bought for friends.",
+   "category": "claims",
+   "term": "Best bag",
+   "why": "a customer review (verbatim, or attributed to the customer by name)"
+  },
+  {
+   "where": "S04_stars.stars, S10_review.review, P04H1 review card, P04H2 review card, P04H3 review card, P04H4 review card",
+   "text": "The best bag for travel and every day use. I love it! Plus they have the best customer service that can't be beat.",
+   "category": "claims",
+   "term": "best bag",
+   "why": "a customer review (verbatim, or attributed to the customer by name)"
+  },
+  {
+   "where": "P01H1 review card, P01H2 review card, P01H3 review card, P01H4 review card, P03H1 review card, P03H2 review card, P03H3 review card, P03H4 review card",
+   "text": "I love my black Libra Handbag! It's spacious, lightweight, and super functional with lots of pockets. I've received so many compliments, and my order arrived in just four days with a free wallet.",
+   "category": "numbers",
+   "term": "four",
+   "why": "a customer review (verbatim, or attributed to the customer by name)"
+  },
+  {
+   "where": "ad copy LC_261016_HoboBag_Evergreen_S03_quotes primary_text_2",
+   "text": "\"Best bag I have ever bought.\" - Carol R.\nTwo gold side zips, one on each side, for your keys and phone.\nDivided compartments, so nothing sinks to the bottom.\nIt's 50% off right now, with a free matching pouch wallet. 🎁\nTap Shop Now to get yours.",
+   "category": "claims",
+   "term": "Best bag",
+   "why": "a customer review (verbatim, or attributed to the customer by name)"
+  },
+  {
+   "where": "ad copy LC_261016_HoboBag_Evergreen_S03_quotes headline_1",
+   "text": "\"Best bag I have ever bought\"",
+   "category": "claims",
+   "term": "Best bag",
+   "why": "a customer review (verbatim, or attributed to the customer by name)"
+  },
+  {
+   "where": "ad copy LC_261016_HoboBag_Evergreen_S04_stars primary_text_2",
+   "text": "\"Got this bag for my daughter for Christmas and she adores it.\" - Felicia S.\nTwo straps, so you can wear it on the shoulder, as a handbag, or crossbody.\nSoft, water-resistant leather that looks expensive and only gets better with time.\nNow 50% off, with a free matching pouch wallet. 🎁\nTap Shop Now to get yours.",
+   "category": "testimonial",
+   "term": "my daughter",
+   "why": "a customer review (verbatim, or attributed to the customer by name)"
+  },
+  {
+   "where": "ad copy LC_261016_HoboBag_Evergreen_S10_review primary_text_2",
+   "text": "\"The best bag for travel and every day use.\" - Mercy A.\nDivided compartments, so nothing sinks to the bottom.\nTwo straps, so you can wear it on the shoulder, as a handbag, or crossbody.\nNow 50% off, with a free matching pouch wallet. 🎁\nTap Shop Now to get yours.",
+   "category": "claims",
+   "term": "best bag",
+   "why": "a customer review (verbatim, or attributed to the customer by name)"
+  },
+  {
+   "where": "voiceover V01_hook.mp3, ad copy LC_261016_HoboBag_Evergreen_P01_H1_things hook_first_line",
+   "text": "Four things you'll notice the first time you carry this bag.",
+   "category": "numbers",
+   "term": "Four",
+   "why": "the count of the chapters the video shows ('Four things ...'), not a stat"
+  },
+  {
+   "where": "P01H1 label",
+   "text": "4 THINGS",
+   "category": "numbers",
+   "term": "4",
+   "why": "the count of the chapters the video shows ('Four things ...'), not a stat"
+  }
+ ],
+ "raw_story": [],
+ "raw_cuts": [],
+ "report": "/tmp/run/hobo-5p-10s/compliance.json"
+}

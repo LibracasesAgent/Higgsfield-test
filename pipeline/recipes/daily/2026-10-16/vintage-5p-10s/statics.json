@@ -1,0 +1,177 @@
+{
+ "ads": [
+  {
+   "layout": "hero",
+   "photo": "site/vintage_colour_black.jpg",
+   "headline": "Meet the Vintage Bag.",
+   "sub": "One-hand clasp, room for everything.",
+   "badge": {
+    "top": "NOW",
+    "big": "50%",
+    "bottom": "OFF"
+   },
+   "cta": "Shop now \u00b7 50% off",
+   "name": "LC_261016_VintageBag_Evergreen_S01_hero"
+  },
+  {
+   "layout": "promo",
+   "photo": "site/vintage_colour_chocolate.jpg",
+   "headline": "The Vintage Bag",
+   "sub": "Now 50% off.",
+   "features": [
+    "One-Hand Clasp",
+    "Room For Everything",
+    "Adjustable Strap"
+   ],
+   "badge": {
+    "top": "SALE",
+    "big": "50%",
+    "bottom": "OFF"
+   },
+   "cta": "Shop now \u00b7 50% off",
+   "name": "LC_261016_VintageBag_Evergreen_S02_promo"
+  },
+  {
+   "layout": "offer",
+   "photo": "site/vintage_colour_red.jpg",
+   "pct": 50,
+   "headline": "The Vintage Bag",
+   "cta": "Shop now \u00b7 50% off",
+   "price": "$44.95",
+   "was": "$89.95",
+   "name": "LC_261016_VintageBag_Evergreen_S03_offer"
+  },
+  {
+   "layout": "quotes",
+   "photo": "site/vintage_colour_black.jpg",
+   "reviews": [
+    6,
+    7
+   ],
+   "pct": 50,
+   "cta": "Shop now \u00b7 50% off",
+   "name": "LC_261016_VintageBag_Evergreen_S04_quotes"
+  },
+  {
+   "layout": "compare",
+   "photo": "site/vintage_colour_chocolate.jpg",
+   "headline": "Your everyday bag vs Vintage Bag",
+   "left_title": "Most bags",
+   "left": [
+    "Keys lost at the bottom",
+    "One big empty space",
+    "Nothing has its own place"
+   ],
+   "right_title": "Vintage Bag",
+   "right": [
+    "One-hand clasp",
+    "Room for everything",
+    "Adjustable strap"
+   ],
+   "cta": "Shop now \u00b7 50% off",
+   "name": "LC_261016_VintageBag_Evergreen_S05_compare"
+  },
+  {
+   "layout": "bold",
+   "photo": "site/vintage_colour_red.jpg",
+   "lines": [
+    "SELLING",
+    "FAST."
+   ],
+   "accent_lines": [
+    1
+   ],
+   "sub": "Final clearance: 50% off + free shipping while stock lasts.",
+   "cta": "Shop now \u00b7 50% off",
+   "dots": [
+    [
+     176,
+     96,
+     40
+    ],
+    [
+     25,
+     25,
+     25
+    ],
+    [
+     70,
+     40,
+     30
+    ],
+    [
+     170,
+     26,
+     36
+    ]
+   ],
+   "name": "LC_261016_VintageBag_Evergreen_S06_bold",
+   "bg": [
+    246,
+    241,
+    234
+   ]
+  },
+  {
+   "layout": "value",
+   "photo": "site/vintage_colour_black.jpg",
+   "price": "$44.95",
+   "was": "$89.95",
+   "pct": 50,
+   "headline": "The Vintage Bag",
+   "cta": "Shop now \u00b7 50% off",
+   "name": "LC_261016_VintageBag_Evergreen_S07_value"
+  },
+  {
+   "layout": "stars",
+   "photo": "site/vintage_colour_chocolate.jpg",
+   "reviews": [
+    9,
+    6,
+    7
+   ],
+   "headline": "What our customers say",
+   "cta": "Shop now \u00b7 50% off",
+   "name": "LC_261016_VintageBag_Evergreen_S08_stars"
+  },
+  {
+   "layout": "colours",
+   "photos": [
+    {
+     "src": "site/clean/vintage_colour_ginger_brown_nobadge.jpg",
+     "name": "Ginger Brown"
+    },
+    {
+     "src": "site/vintage_colour_black.jpg",
+     "name": "Black"
+    },
+    {
+     "src": "site/vintage_colour_chocolate.jpg",
+     "name": "Chocolate"
+    },
+    {
+     "src": "site/vintage_colour_red.jpg",
+     "name": "Red"
+    }
+   ],
+   "headline": "Pick your colour.",
+   "sub": "Now 50% off.",
+   "cta": "Shop now \u00b7 50% off",
+   "name": "LC_261016_VintageBag_Evergreen_S09_colours"
+  },
+  {
+   "layout": "checklist",
+   "photo": "site/vintage_colour_black.jpg",
+   "headline": "Why the Vintage Bag?",
+   "ticks": [
+    "One-hand clasp",
+    "Room for everything",
+    "Adjustable strap"
+   ],
+   "offer": "50% OFF",
+   "cta": "Shop now \u00b7 50% off",
+   "name": "LC_261016_VintageBag_Evergreen_S10_checklist"
+  }
+ ],
+ "card_photos": []
+}

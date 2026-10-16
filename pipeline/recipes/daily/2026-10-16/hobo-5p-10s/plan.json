@@ -1,0 +1,1479 @@
+{
+ "prefix": "LC_261016_HoboBag_Evergreen",
+ "rev": 1,
+ "created": "2026-10-16",
+ "request": "Hobo Bag 5 projects and 10 statics. Follow CLAUDE.md exactly: run make_batch.py plan, don't plan angles or statics yourself, ignore the earlier hook-first run.",
+ "product": "Hobo Bag",
+ "product_key": "hobo bag",
+ "product_source": "built-in",
+ "theme": "default",
+ "theme_name": "Evergreen",
+ "offer": "50% off + free matching pouch wallet",
+ "statics": [
+  "LC_261016_HoboBag_Evergreen_S01_hero",
+  "LC_261016_HoboBag_Evergreen_S02_offer",
+  "LC_261016_HoboBag_Evergreen_S03_quotes",
+  "LC_261016_HoboBag_Evergreen_S04_stars",
+  "LC_261016_HoboBag_Evergreen_S05_value",
+  "LC_261016_HoboBag_Evergreen_S06_promo",
+  "LC_261016_HoboBag_Evergreen_S07_checklist",
+  "LC_261016_HoboBag_Evergreen_S08_bold",
+  "LC_261016_HoboBag_Evergreen_S09_compare",
+  "LC_261016_HoboBag_Evergreen_S10_review"
+ ],
+ "videos": [
+  {
+   "name": "LC_261016_HoboBag_Evergreen_P01_H1_things",
+   "id": "P01H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "ugc": {
+    "script": "U01",
+    "angle": "n_things",
+    "words": 211,
+    "hook": {
+     "type": "promise",
+     "label": "4 THINGS",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Curious what changes when you swap your everyday bag for this one?",
+      "type": "question",
+      "label": "WHAT CHANGES?",
+      "feature": null
+     },
+     {
+      "text": "This might be the most organized bag you'll see today.",
+      "type": "superlative",
+      "label": "MOST ORGANIZED",
+      "feature": "SMART COMPARTMENTS"
+     },
+     {
+      "text": "Ever pat your bag every few minutes just to check it's all there?",
+      "type": "problem",
+      "label": "SOUND FAMILIAR?",
+      "feature": "HIDDEN BACK POCKET"
+     },
+     {
+      "text": "The Hobo Bag is half price right now. Here's what you get.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null
+     },
+     {
+      "text": "Where do your cards and passport go when you're in a crowd?",
+      "type": "question",
+      "label": "QUICK QUESTION",
+      "feature": "HIDDEN BACK POCKET"
+     }
+    ],
+    "numbers": [
+     4
+    ]
+   },
+   "est_seconds": 70.5,
+   "project": "P01",
+   "hook_text": "Four things you'll notice the first time you carry this bag.",
+   "hook_label": "4 THINGS",
+   "hook_type": "promise",
+   "opening_shot": [
+    "11CJ79tF3sbQAlDvI8JIsjJIyTbyGdVjm",
+    104.8
+   ]
+  },
+  {
+   "name": "LC_261016_HoboBag_Evergreen_P01_H2_things",
+   "id": "P01H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "ugc": {
+    "script": "U01",
+    "angle": "n_things",
+    "words": 211,
+    "hook": {
+     "type": "promise",
+     "label": "4 THINGS",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Curious what changes when you swap your everyday bag for this one?",
+      "type": "question",
+      "label": "WHAT CHANGES?",
+      "feature": null
+     },
+     {
+      "text": "This might be the most organized bag you'll see today.",
+      "type": "superlative",
+      "label": "MOST ORGANIZED",
+      "feature": "SMART COMPARTMENTS"
+     },
+     {
+      "text": "Ever pat your bag every few minutes just to check it's all there?",
+      "type": "problem",
+      "label": "SOUND FAMILIAR?",
+      "feature": "HIDDEN BACK POCKET"
+     },
+     {
+      "text": "The Hobo Bag is half price right now. Here's what you get.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null
+     },
+     {
+      "text": "Where do your cards and passport go when you're in a crowd?",
+      "type": "question",
+      "label": "QUICK QUESTION",
+      "feature": "HIDDEN BACK POCKET"
+     }
+    ],
+    "numbers": [
+     4
+    ]
+   },
+   "est_seconds": 70.8,
+   "project": "P01",
+   "hook_text": "Curious what changes when you swap your everyday bag for this one?",
+   "hook_label": "WHAT CHANGES?",
+   "hook_type": "question",
+   "opening_shot": [
+    "1DbVATxAeMvr_FnP999-dnJymLQ7pn9H8",
+    0.5
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261016_HoboBag_Evergreen_P01_H3_things",
+   "id": "P01H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "ugc": {
+    "script": "U01",
+    "angle": "n_things",
+    "words": 211,
+    "hook": {
+     "type": "promise",
+     "label": "4 THINGS",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Curious what changes when you swap your everyday bag for this one?",
+      "type": "question",
+      "label": "WHAT CHANGES?",
+      "feature": null
+     },
+     {
+      "text": "This might be the most organized bag you'll see today.",
+      "type": "superlative",
+      "label": "MOST ORGANIZED",
+      "feature": "SMART COMPARTMENTS"
+     },
+     {
+      "text": "Ever pat your bag every few minutes just to check it's all there?",
+      "type": "problem",
+      "label": "SOUND FAMILIAR?",
+      "feature": "HIDDEN BACK POCKET"
+     },
+     {
+      "text": "The Hobo Bag is half price right now. Here's what you get.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null
+     },
+     {
+      "text": "Where do your cards and passport go when you're in a crowd?",
+      "type": "question",
+      "label": "QUICK QUESTION",
+      "feature": "HIDDEN BACK POCKET"
+     }
+    ],
+    "numbers": [
+     4
+    ]
+   },
+   "est_seconds": 70.2,
+   "project": "P01",
+   "hook_text": "This might be the most organized bag you'll see today.",
+   "hook_label": "MOST ORGANIZED",
+   "hook_type": "superlative",
+   "opening_shot": [
+    "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+    9.5
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261016_HoboBag_Evergreen_P01_H4_things",
+   "id": "P01H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "ugc": {
+    "script": "U01",
+    "angle": "n_things",
+    "words": 211,
+    "hook": {
+     "type": "promise",
+     "label": "4 THINGS",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Curious what changes when you swap your everyday bag for this one?",
+      "type": "question",
+      "label": "WHAT CHANGES?",
+      "feature": null
+     },
+     {
+      "text": "This might be the most organized bag you'll see today.",
+      "type": "superlative",
+      "label": "MOST ORGANIZED",
+      "feature": "SMART COMPARTMENTS"
+     },
+     {
+      "text": "Ever pat your bag every few minutes just to check it's all there?",
+      "type": "problem",
+      "label": "SOUND FAMILIAR?",
+      "feature": "HIDDEN BACK POCKET"
+     },
+     {
+      "text": "The Hobo Bag is half price right now. Here's what you get.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null
+     },
+     {
+      "text": "Where do your cards and passport go when you're in a crowd?",
+      "type": "question",
+      "label": "QUICK QUESTION",
+      "feature": "HIDDEN BACK POCKET"
+     }
+    ],
+    "numbers": [
+     4
+    ]
+   },
+   "est_seconds": 71.1,
+   "project": "P01",
+   "hook_text": "Ever pat your bag every few minutes just to check it's all there?",
+   "hook_label": "SOUND FAMILIAR?",
+   "hook_type": "problem",
+   "opening_shot": [
+    "1Mtx32enLMlOkpIfl_Cr1EYezTdody3E1",
+    1.0
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261016_HoboBag_Evergreen_P02_H1_demo",
+   "id": "P02H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "ugc": {
+    "script": "U02",
+    "angle": "demo",
+    "words": 191,
+    "hook": {
+     "type": "promise",
+     "label": "WATCH THIS",
+     "feature": "GOLD SIDE ZIPS"
+    },
+    "alt_hooks": [
+     {
+      "text": "Ever wonder where everything in your bag is supposed to go?",
+      "type": "question",
+      "label": "QUICK QUESTION",
+      "feature": null
+     },
+     {
+      "text": "If your bag is one big black hole, watch this.",
+      "type": "problem",
+      "label": "BIG BLACK HOLE?",
+      "feature": "SMART COMPARTMENTS"
+     },
+     {
+      "text": "Is this the most practical bag you'll see this week?",
+      "type": "superlative",
+      "label": "MOST PRACTICAL",
+      "feature": null
+     },
+     {
+      "text": "Half price, plus a free matching pouch wallet. Watch what you get.",
+      "type": "price",
+      "label": "REAL PRICE",
+      "feature": null
+     }
+    ],
+    "numbers": []
+   },
+   "est_seconds": 64.2,
+   "project": "P02",
+   "hook_text": "Watch what this bag does with your phone, keys and passport.",
+   "hook_label": "WATCH THIS",
+   "hook_type": "promise",
+   "opening_shot": [
+    "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+    2.0
+   ]
+  },
+  {
+   "name": "LC_261016_HoboBag_Evergreen_P02_H2_demo",
+   "id": "P02H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "ugc": {
+    "script": "U02",
+    "angle": "demo",
+    "words": 191,
+    "hook": {
+     "type": "promise",
+     "label": "WATCH THIS",
+     "feature": "GOLD SIDE ZIPS"
+    },
+    "alt_hooks": [
+     {
+      "text": "Ever wonder where everything in your bag is supposed to go?",
+      "type": "question",
+      "label": "QUICK QUESTION",
+      "feature": null
+     },
+     {
+      "text": "If your bag is one big black hole, watch this.",
+      "type": "problem",
+      "label": "BIG BLACK HOLE?",
+      "feature": "SMART COMPARTMENTS"
+     },
+     {
+      "text": "Is this the most practical bag you'll see this week?",
+      "type": "superlative",
+      "label": "MOST PRACTICAL",
+      "feature": null
+     },
+     {
+      "text": "Half price, plus a free matching pouch wallet. Watch what you get.",
+      "type": "price",
+      "label": "REAL PRICE",
+      "feature": null
+     }
+    ],
+    "numbers": []
+   },
+   "est_seconds": 64.2,
+   "project": "P02",
+   "hook_text": "Ever wonder where everything in your bag is supposed to go?",
+   "hook_label": "QUICK QUESTION",
+   "hook_type": "question",
+   "opening_shot": [
+    "1DbVATxAeMvr_FnP999-dnJymLQ7pn9H8",
+    0.5
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261016_HoboBag_Evergreen_P02_H3_demo",
+   "id": "P02H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "ugc": {
+    "script": "U02",
+    "angle": "demo",
+    "words": 191,
+    "hook": {
+     "type": "promise",
+     "label": "WATCH THIS",
+     "feature": "GOLD SIDE ZIPS"
+    },
+    "alt_hooks": [
+     {
+      "text": "Ever wonder where everything in your bag is supposed to go?",
+      "type": "question",
+      "label": "QUICK QUESTION",
+      "feature": null
+     },
+     {
+      "text": "If your bag is one big black hole, watch this.",
+      "type": "problem",
+      "label": "BIG BLACK HOLE?",
+      "feature": "SMART COMPARTMENTS"
+     },
+     {
+      "text": "Is this the most practical bag you'll see this week?",
+      "type": "superlative",
+      "label": "MOST PRACTICAL",
+      "feature": null
+     },
+     {
+      "text": "Half price, plus a free matching pouch wallet. Watch what you get.",
+      "type": "price",
+      "label": "REAL PRICE",
+      "feature": null
+     }
+    ],
+    "numbers": []
+   },
+   "est_seconds": 63.9,
+   "project": "P02",
+   "hook_text": "If your bag is one big black hole, watch this.",
+   "hook_label": "BIG BLACK HOLE?",
+   "hook_type": "problem",
+   "opening_shot": [
+    "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+    9.5
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261016_HoboBag_Evergreen_P02_H4_demo",
+   "id": "P02H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "ugc": {
+    "script": "U02",
+    "angle": "demo",
+    "words": 191,
+    "hook": {
+     "type": "promise",
+     "label": "WATCH THIS",
+     "feature": "GOLD SIDE ZIPS"
+    },
+    "alt_hooks": [
+     {
+      "text": "Ever wonder where everything in your bag is supposed to go?",
+      "type": "question",
+      "label": "QUICK QUESTION",
+      "feature": null
+     },
+     {
+      "text": "If your bag is one big black hole, watch this.",
+      "type": "problem",
+      "label": "BIG BLACK HOLE?",
+      "feature": "SMART COMPARTMENTS"
+     },
+     {
+      "text": "Is this the most practical bag you'll see this week?",
+      "type": "superlative",
+      "label": "MOST PRACTICAL",
+      "feature": null
+     },
+     {
+      "text": "Half price, plus a free matching pouch wallet. Watch what you get.",
+      "type": "price",
+      "label": "REAL PRICE",
+      "feature": null
+     }
+    ],
+    "numbers": []
+   },
+   "est_seconds": 63.9,
+   "project": "P02",
+   "hook_text": "Is this the most practical bag you'll see this week?",
+   "hook_label": "MOST PRACTICAL",
+   "hook_type": "superlative",
+   "opening_shot": [
+    "1Mtx32enLMlOkpIfl_Cr1EYezTdody3E1",
+    1.0
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261016_HoboBag_Evergreen_P03_H1_stop",
+   "id": "P03H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "ugc": {
+    "script": "U03",
+    "angle": "stop_x",
+    "words": 214,
+    "hook": {
+     "type": "problem",
+     "label": "STOP DIGGING",
+     "feature": "GOLD SIDE ZIPS"
+    },
+    "alt_hooks": [
+     {
+      "text": "How long does it take you to find your keys in there?",
+      "type": "question",
+      "label": "BE HONEST",
+      "feature": "GOLD SIDE ZIPS"
+     },
+     {
+      "text": "Here's a handbag that gives your keys a place of their own.",
+      "type": "promise",
+      "label": "THE FIX",
+      "feature": null
+     },
+     {
+      "text": "This could be the most practical handbag you'll see all year.",
+      "type": "superlative",
+      "label": "MOST PRACTICAL",
+      "feature": null
+     },
+     {
+      "text": "Half price, and every little thing in your bag gets a spot.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null
+     }
+    ],
+    "numbers": []
+   },
+   "est_seconds": 71.7,
+   "project": "P03",
+   "hook_text": "Stop digging for your keys at the bottom of your bag.",
+   "hook_label": "STOP DIGGING",
+   "hook_type": "problem",
+   "opening_shot": [
+    "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+    6.0
+   ]
+  },
+  {
+   "name": "LC_261016_HoboBag_Evergreen_P03_H2_stop",
+   "id": "P03H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "ugc": {
+    "script": "U03",
+    "angle": "stop_x",
+    "words": 214,
+    "hook": {
+     "type": "problem",
+     "label": "STOP DIGGING",
+     "feature": "GOLD SIDE ZIPS"
+    },
+    "alt_hooks": [
+     {
+      "text": "How long does it take you to find your keys in there?",
+      "type": "question",
+      "label": "BE HONEST",
+      "feature": "GOLD SIDE ZIPS"
+     },
+     {
+      "text": "Here's a handbag that gives your keys a place of their own.",
+      "type": "promise",
+      "label": "THE FIX",
+      "feature": null
+     },
+     {
+      "text": "This could be the most practical handbag you'll see all year.",
+      "type": "superlative",
+      "label": "MOST PRACTICAL",
+      "feature": null
+     },
+     {
+      "text": "Half price, and every little thing in your bag gets a spot.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null
+     }
+    ],
+    "numbers": []
+   },
+   "est_seconds": 72.0,
+   "project": "P03",
+   "hook_text": "How long does it take you to find your keys in there?",
+   "hook_label": "BE HONEST",
+   "hook_type": "question",
+   "opening_shot": [
+    "1Mtx32enLMlOkpIfl_Cr1EYezTdody3E1",
+    1.0
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261016_HoboBag_Evergreen_P03_H3_stop",
+   "id": "P03H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "ugc": {
+    "script": "U03",
+    "angle": "stop_x",
+    "words": 214,
+    "hook": {
+     "type": "problem",
+     "label": "STOP DIGGING",
+     "feature": "GOLD SIDE ZIPS"
+    },
+    "alt_hooks": [
+     {
+      "text": "How long does it take you to find your keys in there?",
+      "type": "question",
+      "label": "BE HONEST",
+      "feature": "GOLD SIDE ZIPS"
+     },
+     {
+      "text": "Here's a handbag that gives your keys a place of their own.",
+      "type": "promise",
+      "label": "THE FIX",
+      "feature": null
+     },
+     {
+      "text": "This could be the most practical handbag you'll see all year.",
+      "type": "superlative",
+      "label": "MOST PRACTICAL",
+      "feature": null
+     },
+     {
+      "text": "Half price, and every little thing in your bag gets a spot.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null
+     }
+    ],
+    "numbers": []
+   },
+   "est_seconds": 72.0,
+   "project": "P03",
+   "hook_text": "Here's a handbag that gives your keys a place of their own.",
+   "hook_label": "THE FIX",
+   "hook_type": "promise",
+   "opening_shot": [
+    "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+    1.0
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261016_HoboBag_Evergreen_P03_H4_stop",
+   "id": "P03H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "ugc": {
+    "script": "U03",
+    "angle": "stop_x",
+    "words": 214,
+    "hook": {
+     "type": "problem",
+     "label": "STOP DIGGING",
+     "feature": "GOLD SIDE ZIPS"
+    },
+    "alt_hooks": [
+     {
+      "text": "How long does it take you to find your keys in there?",
+      "type": "question",
+      "label": "BE HONEST",
+      "feature": "GOLD SIDE ZIPS"
+     },
+     {
+      "text": "Here's a handbag that gives your keys a place of their own.",
+      "type": "promise",
+      "label": "THE FIX",
+      "feature": null
+     },
+     {
+      "text": "This could be the most practical handbag you'll see all year.",
+      "type": "superlative",
+      "label": "MOST PRACTICAL",
+      "feature": null
+     },
+     {
+      "text": "Half price, and every little thing in your bag gets a spot.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null
+     }
+    ],
+    "numbers": []
+   },
+   "est_seconds": 71.7,
+   "project": "P03",
+   "hook_text": "This could be the most practical handbag you'll see all year.",
+   "hook_label": "MOST PRACTICAL",
+   "hook_type": "superlative",
+   "opening_shot": [
+    "1DbVATxAeMvr_FnP999-dnJymLQ7pn9H8",
+    0.5
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261016_HoboBag_Evergreen_P04_H1_travel",
+   "id": "P04H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "ugc": {
+    "script": "U04",
+    "angle": "travel",
+    "words": 199,
+    "hook": {
+     "type": "question",
+     "label": "TRAVEL DAY",
+     "feature": "HIDDEN BACK POCKET"
+    },
+    "alt_hooks": [
+     {
+      "text": "Travel day is chaos when everything sits at the bottom of your bag.",
+      "type": "problem",
+      "label": "SOUND FAMILIAR?",
+      "feature": "SMART COMPARTMENTS"
+     },
+     {
+      "text": "Here's the bag to pack first.",
+      "type": "promise",
+      "label": "PACK SMARTER",
+      "feature": null
+     },
+     {
+      "text": "This might be the most travel-ready bag you'll see all year.",
+      "type": "superlative",
+      "label": "MOST TRAVEL-READY",
+      "feature": null
+     },
+     {
+      "text": "Half price, plus a free matching pouch wallet, for your next trip.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null
+     }
+    ],
+    "numbers": []
+   },
+   "est_seconds": 66.6,
+   "project": "P04",
+   "hook_text": "Passport, phone, keys, cards: where does it all go on travel day?",
+   "hook_label": "TRAVEL DAY",
+   "hook_type": "question",
+   "opening_shot": [
+    "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+    1.0
+   ]
+  },
+  {
+   "name": "LC_261016_HoboBag_Evergreen_P04_H2_travel",
+   "id": "P04H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "ugc": {
+    "script": "U04",
+    "angle": "travel",
+    "words": 199,
+    "hook": {
+     "type": "question",
+     "label": "TRAVEL DAY",
+     "feature": "HIDDEN BACK POCKET"
+    },
+    "alt_hooks": [
+     {
+      "text": "Travel day is chaos when everything sits at the bottom of your bag.",
+      "type": "problem",
+      "label": "SOUND FAMILIAR?",
+      "feature": "SMART COMPARTMENTS"
+     },
+     {
+      "text": "Here's the bag to pack first.",
+      "type": "promise",
+      "label": "PACK SMARTER",
+      "feature": null
+     },
+     {
+      "text": "This might be the most travel-ready bag you'll see all year.",
+      "type": "superlative",
+      "label": "MOST TRAVEL-READY",
+      "feature": null
+     },
+     {
+      "text": "Half price, plus a free matching pouch wallet, for your next trip.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null
+     }
+    ],
+    "numbers": []
+   },
+   "est_seconds": 66.9,
+   "project": "P04",
+   "hook_text": "Travel day is chaos when everything sits at the bottom of your bag.",
+   "hook_label": "SOUND FAMILIAR?",
+   "hook_type": "problem",
+   "opening_shot": [
+    "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+    9.5
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261016_HoboBag_Evergreen_P04_H3_travel",
+   "id": "P04H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "ugc": {
+    "script": "U04",
+    "angle": "travel",
+    "words": 199,
+    "hook": {
+     "type": "question",
+     "label": "TRAVEL DAY",
+     "feature": "HIDDEN BACK POCKET"
+    },
+    "alt_hooks": [
+     {
+      "text": "Travel day is chaos when everything sits at the bottom of your bag.",
+      "type": "problem",
+      "label": "SOUND FAMILIAR?",
+      "feature": "SMART COMPARTMENTS"
+     },
+     {
+      "text": "Here's the bag to pack first.",
+      "type": "promise",
+      "label": "PACK SMARTER",
+      "feature": null
+     },
+     {
+      "text": "This might be the most travel-ready bag you'll see all year.",
+      "type": "superlative",
+      "label": "MOST TRAVEL-READY",
+      "feature": null
+     },
+     {
+      "text": "Half price, plus a free matching pouch wallet, for your next trip.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null
+     }
+    ],
+    "numbers": []
+   },
+   "est_seconds": 64.7,
+   "project": "P04",
+   "hook_text": "Here's the bag to pack first.",
+   "hook_label": "PACK SMARTER",
+   "hook_type": "promise",
+   "opening_shot": [
+    "1DbVATxAeMvr_FnP999-dnJymLQ7pn9H8",
+    0.5
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261016_HoboBag_Evergreen_P04_H4_travel",
+   "id": "P04H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "ugc": {
+    "script": "U04",
+    "angle": "travel",
+    "words": 199,
+    "hook": {
+     "type": "question",
+     "label": "TRAVEL DAY",
+     "feature": "HIDDEN BACK POCKET"
+    },
+    "alt_hooks": [
+     {
+      "text": "Travel day is chaos when everything sits at the bottom of your bag.",
+      "type": "problem",
+      "label": "SOUND FAMILIAR?",
+      "feature": "SMART COMPARTMENTS"
+     },
+     {
+      "text": "Here's the bag to pack first.",
+      "type": "promise",
+      "label": "PACK SMARTER",
+      "feature": null
+     },
+     {
+      "text": "This might be the most travel-ready bag you'll see all year.",
+      "type": "superlative",
+      "label": "MOST TRAVEL-READY",
+      "feature": null
+     },
+     {
+      "text": "Half price, plus a free matching pouch wallet, for your next trip.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null
+     }
+    ],
+    "numbers": []
+   },
+   "est_seconds": 66.3,
+   "project": "P04",
+   "hook_text": "This might be the most travel-ready bag you'll see all year.",
+   "hook_label": "MOST TRAVEL-READY",
+   "hook_type": "superlative",
+   "opening_shot": [
+    "1Mtx32enLMlOkpIfl_Cr1EYezTdody3E1",
+    1.0
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261016_HoboBag_Evergreen_P05_H1_value",
+   "id": "P05H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "ugc": {
+    "script": "U05",
+    "angle": "value",
+    "words": 202,
+    "hook": {
+     "type": "price",
+     "label": "WHAT YOU GET",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Look at what the Hobo Bag comes with.",
+      "type": "promise",
+      "label": "THE DETAILS",
+      "feature": null
+     },
+     {
+      "text": "What should a good everyday bag actually have?",
+      "type": "question",
+      "label": "QUICK QUESTION",
+      "feature": null
+     },
+     {
+      "text": "Tired of paying for a bag that's just a bag?",
+      "type": "problem",
+      "label": "SOUND FAMILIAR?",
+      "feature": null
+     },
+     {
+      "text": "Is this the most useful handbag you'll see this week?",
+      "type": "superlative",
+      "label": "MOST USEFUL",
+      "feature": null
+     }
+    ],
+    "numbers": []
+   },
+   "est_seconds": 67.8,
+   "project": "P05",
+   "hook_text": "Half price, plus a free matching pouch wallet. Here's everything you get.",
+   "hook_label": "WHAT YOU GET",
+   "hook_type": "price",
+   "opening_shot": [
+    "1lyxmzAu5IZH2XZIDzxfexxv4XqzOIdbO",
+    4.8
+   ]
+  },
+  {
+   "name": "LC_261016_HoboBag_Evergreen_P05_H2_value",
+   "id": "P05H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "ugc": {
+    "script": "U05",
+    "angle": "value",
+    "words": 202,
+    "hook": {
+     "type": "price",
+     "label": "WHAT YOU GET",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Look at what the Hobo Bag comes with.",
+      "type": "promise",
+      "label": "THE DETAILS",
+      "feature": null
+     },
+     {
+      "text": "What should a good everyday bag actually have?",
+      "type": "question",
+      "label": "QUICK QUESTION",
+      "feature": null
+     },
+     {
+      "text": "Tired of paying for a bag that's just a bag?",
+      "type": "problem",
+      "label": "SOUND FAMILIAR?",
+      "feature": null
+     },
+     {
+      "text": "Is this the most useful handbag you'll see this week?",
+      "type": "superlative",
+      "label": "MOST USEFUL",
+      "feature": null
+     }
+    ],
+    "numbers": []
+   },
+   "est_seconds": 66.5,
+   "project": "P05",
+   "hook_text": "Look at what the Hobo Bag comes with.",
+   "hook_label": "THE DETAILS",
+   "hook_type": "promise",
+   "opening_shot": [
+    "1DbVATxAeMvr_FnP999-dnJymLQ7pn9H8",
+    0.5
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261016_HoboBag_Evergreen_P05_H3_value",
+   "id": "P05H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "ugc": {
+    "script": "U05",
+    "angle": "value",
+    "words": 202,
+    "hook": {
+     "type": "price",
+     "label": "WHAT YOU GET",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Look at what the Hobo Bag comes with.",
+      "type": "promise",
+      "label": "THE DETAILS",
+      "feature": null
+     },
+     {
+      "text": "What should a good everyday bag actually have?",
+      "type": "question",
+      "label": "QUICK QUESTION",
+      "feature": null
+     },
+     {
+      "text": "Tired of paying for a bag that's just a bag?",
+      "type": "problem",
+      "label": "SOUND FAMILIAR?",
+      "feature": null
+     },
+     {
+      "text": "Is this the most useful handbag you'll see this week?",
+      "type": "superlative",
+      "label": "MOST USEFUL",
+      "feature": null
+     }
+    ],
+    "numbers": []
+   },
+   "est_seconds": 66.5,
+   "project": "P05",
+   "hook_text": "What should a good everyday bag actually have?",
+   "hook_label": "QUICK QUESTION",
+   "hook_type": "question",
+   "opening_shot": [
+    "1Mtx32enLMlOkpIfl_Cr1EYezTdody3E1",
+    1.0
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261016_HoboBag_Evergreen_P05_H4_value",
+   "id": "P05H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "ugc": {
+    "script": "U05",
+    "angle": "value",
+    "words": 202,
+    "hook": {
+     "type": "price",
+     "label": "WHAT YOU GET",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Look at what the Hobo Bag comes with.",
+      "type": "promise",
+      "label": "THE DETAILS",
+      "feature": null
+     },
+     {
+      "text": "What should a good everyday bag actually have?",
+      "type": "question",
+      "label": "QUICK QUESTION",
+      "feature": null
+     },
+     {
+      "text": "Tired of paying for a bag that's just a bag?",
+      "type": "problem",
+      "label": "SOUND FAMILIAR?",
+      "feature": null
+     },
+     {
+      "text": "Is this the most useful handbag you'll see this week?",
+      "type": "superlative",
+      "label": "MOST USEFUL",
+      "feature": null
+     }
+    ],
+    "numbers": []
+   },
+   "est_seconds": 67.2,
+   "project": "P05",
+   "hook_text": "Tired of paying for a bag that's just a bag?",
+   "hook_label": "SOUND FAMILIAR?",
+   "hook_type": "problem",
+   "opening_shot": [
+    "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+    1.0
+   ],
+   "hook_source": "script"
+  }
+ ],
+ "tts_lines": 63,
+ "tts_dupes": {},
+ "est_credits": 22.0,
+ "budget": 40,
+ "colour_images": {
+  "Dark Sienn": "/tmp/run/hobo-5p-10s/site/clean/hobo_bag_colour_dark_sienn_nobadge.jpg",
+  "Galaxy Black": "/tmp/run/hobo-5p-10s/site/hobo_bag_colour_galaxy_black.jpg",
+  "Blue": "/tmp/run/hobo-5p-10s/site/hobo_bag_colour_blue.jpg",
+  "Grey": "/tmp/run/hobo-5p-10s/site/hobo_bag_colour_grey.jpg",
+  "Burgundy": "/tmp/run/hobo-5p-10s/site/hobo_bag_colour_burgundy.jpg",
+  "Red": "/tmp/run/hobo-5p-10s/site/hobo_bag_colour_red.jpg"
+ },
+ "packshots": [
+  "/tmp/run/hobo-5p-10s/site/hobo_bag_colour_galaxy_black.jpg",
+  "/tmp/run/hobo-5p-10s/site/hobo_bag_colour_blue.jpg",
+  "/tmp/run/hobo-5p-10s/site/hobo_bag_colour_grey.jpg",
+  "/tmp/run/hobo-5p-10s/site/hobo_bag_colour_burgundy.jpg",
+  "/tmp/run/hobo-5p-10s/site/hobo_bag_colour_red.jpg"
+ ],
+ "brief": null,
+ "winners_source": null,
+ "winners_note": null,
+ "winners_used": [],
+ "unmatched_winners": [],
+ "warnings": [],
+ "winner_reviews": false,
+ "seed": 1,
+ "hooks": 4,
+ "pipeline": "catalog",
+ "video_format": "ugc",
+ "ugc_numbers": [
+  4
+ ],
+ "voice": {
+  "voice_type": "element",
+  "voice_id": "241459b6-b4e8-4a2a-9868-da8bcdcd0558",
+  "speed": 1.12
+ },
+ "projects": [
+  {
+   "id": "P01",
+   "from_id": "V01",
+   "angle": "things",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P01H1",
+     "name": "LC_261016_HoboBag_Evergreen_P01_H1_things",
+     "hook_text": "Four things you'll notice the first time you carry this bag.",
+     "label": "4 THINGS",
+     "type": "promise",
+     "shot": [
+      "11CJ79tF3sbQAlDvI8JIsjJIyTbyGdVjm",
+      104.8
+     ],
+     "est_seconds": 70.5
+    },
+    {
+     "hook": "H2",
+     "id": "P01H2",
+     "name": "LC_261016_HoboBag_Evergreen_P01_H2_things",
+     "hook_text": "Curious what changes when you swap your everyday bag for this one?",
+     "label": "WHAT CHANGES?",
+     "type": "question",
+     "shot": [
+      "1DbVATxAeMvr_FnP999-dnJymLQ7pn9H8",
+      0.5
+     ],
+     "est_seconds": 70.8
+    },
+    {
+     "hook": "H3",
+     "id": "P01H3",
+     "name": "LC_261016_HoboBag_Evergreen_P01_H3_things",
+     "hook_text": "This might be the most organized bag you'll see today.",
+     "label": "MOST ORGANIZED",
+     "type": "superlative",
+     "shot": [
+      "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+      9.5
+     ],
+     "est_seconds": 70.2
+    },
+    {
+     "hook": "H4",
+     "id": "P01H4",
+     "name": "LC_261016_HoboBag_Evergreen_P01_H4_things",
+     "hook_text": "Ever pat your bag every few minutes just to check it's all there?",
+     "label": "SOUND FAMILIAR?",
+     "type": "problem",
+     "shot": [
+      "1Mtx32enLMlOkpIfl_Cr1EYezTdody3E1",
+      1.0
+     ],
+     "est_seconds": 71.1
+    }
+   ]
+  },
+  {
+   "id": "P02",
+   "from_id": "V02",
+   "angle": "demo",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P02H1",
+     "name": "LC_261016_HoboBag_Evergreen_P02_H1_demo",
+     "hook_text": "Watch what this bag does with your phone, keys and passport.",
+     "label": "WATCH THIS",
+     "type": "promise",
+     "shot": [
+      "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+      2.0
+     ],
+     "est_seconds": 64.2
+    },
+    {
+     "hook": "H2",
+     "id": "P02H2",
+     "name": "LC_261016_HoboBag_Evergreen_P02_H2_demo",
+     "hook_text": "Ever wonder where everything in your bag is supposed to go?",
+     "label": "QUICK QUESTION",
+     "type": "question",
+     "shot": [
+      "1DbVATxAeMvr_FnP999-dnJymLQ7pn9H8",
+      0.5
+     ],
+     "est_seconds": 64.2
+    },
+    {
+     "hook": "H3",
+     "id": "P02H3",
+     "name": "LC_261016_HoboBag_Evergreen_P02_H3_demo",
+     "hook_text": "If your bag is one big black hole, watch this.",
+     "label": "BIG BLACK HOLE?",
+     "type": "problem",
+     "shot": [
+      "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+      9.5
+     ],
+     "est_seconds": 63.9
+    },
+    {
+     "hook": "H4",
+     "id": "P02H4",
+     "name": "LC_261016_HoboBag_Evergreen_P02_H4_demo",
+     "hook_text": "Is this the most practical bag you'll see this week?",
+     "label": "MOST PRACTICAL",
+     "type": "superlative",
+     "shot": [
+      "1Mtx32enLMlOkpIfl_Cr1EYezTdody3E1",
+      1.0
+     ],
+     "est_seconds": 63.9
+    }
+   ]
+  },
+  {
+   "id": "P03",
+   "from_id": "V03",
+   "angle": "stop",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P03H1",
+     "name": "LC_261016_HoboBag_Evergreen_P03_H1_stop",
+     "hook_text": "Stop digging for your keys at the bottom of your bag.",
+     "label": "STOP DIGGING",
+     "type": "problem",
+     "shot": [
+      "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+      6.0
+     ],
+     "est_seconds": 71.7
+    },
+    {
+     "hook": "H2",
+     "id": "P03H2",
+     "name": "LC_261016_HoboBag_Evergreen_P03_H2_stop",
+     "hook_text": "How long does it take you to find your keys in there?",
+     "label": "BE HONEST",
+     "type": "question",
+     "shot": [
+      "1Mtx32enLMlOkpIfl_Cr1EYezTdody3E1",
+      1.0
+     ],
+     "est_seconds": 72.0
+    },
+    {
+     "hook": "H3",
+     "id": "P03H3",
+     "name": "LC_261016_HoboBag_Evergreen_P03_H3_stop",
+     "hook_text": "Here's a handbag that gives your keys a place of their own.",
+     "label": "THE FIX",
+     "type": "promise",
+     "shot": [
+      "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+      1.0
+     ],
+     "est_seconds": 72.0
+    },
+    {
+     "hook": "H4",
+     "id": "P03H4",
+     "name": "LC_261016_HoboBag_Evergreen_P03_H4_stop",
+     "hook_text": "This could be the most practical handbag you'll see all year.",
+     "label": "MOST PRACTICAL",
+     "type": "superlative",
+     "shot": [
+      "1DbVATxAeMvr_FnP999-dnJymLQ7pn9H8",
+      0.5
+     ],
+     "est_seconds": 71.7
+    }
+   ]
+  },
+  {
+   "id": "P04",
+   "from_id": "V04",
+   "angle": "travel",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P04H1",
+     "name": "LC_261016_HoboBag_Evergreen_P04_H1_travel",
+     "hook_text": "Passport, phone, keys, cards: where does it all go on travel day?",
+     "label": "TRAVEL DAY",
+     "type": "question",
+     "shot": [
+      "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+      1.0
+     ],
+     "est_seconds": 66.6
+    },
+    {
+     "hook": "H2",
+     "id": "P04H2",
+     "name": "LC_261016_HoboBag_Evergreen_P04_H2_travel",
+     "hook_text": "Travel day is chaos when everything sits at the bottom of your bag.",
+     "label": "SOUND FAMILIAR?",
+     "type": "problem",
+     "shot": [
+      "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+      9.5
+     ],
+     "est_seconds": 66.9
+    },
+    {
+     "hook": "H3",
+     "id": "P04H3",
+     "name": "LC_261016_HoboBag_Evergreen_P04_H3_travel",
+     "hook_text": "Here's the bag to pack first.",
+     "label": "PACK SMARTER",
+     "type": "promise",
+     "shot": [
+      "1DbVATxAeMvr_FnP999-dnJymLQ7pn9H8",
+      0.5
+     ],
+     "est_seconds": 64.7
+    },
+    {
+     "hook": "H4",
+     "id": "P04H4",
+     "name": "LC_261016_HoboBag_Evergreen_P04_H4_travel",
+     "hook_text": "This might be the most travel-ready bag you'll see all year.",
+     "label": "MOST TRAVEL-READY",
+     "type": "superlative",
+     "shot": [
+      "1Mtx32enLMlOkpIfl_Cr1EYezTdody3E1",
+      1.0
+     ],
+     "est_seconds": 66.3
+    }
+   ]
+  },
+  {
+   "id": "P05",
+   "from_id": "V05",
+   "angle": "value",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P05H1",
+     "name": "LC_261016_HoboBag_Evergreen_P05_H1_value",
+     "hook_text": "Half price, plus a free matching pouch wallet. Here's everything you get.",
+     "label": "WHAT YOU GET",
+     "type": "price",
+     "shot": [
+      "1lyxmzAu5IZH2XZIDzxfexxv4XqzOIdbO",
+      4.8
+     ],
+     "est_seconds": 67.8
+    },
+    {
+     "hook": "H2",
+     "id": "P05H2",
+     "name": "LC_261016_HoboBag_Evergreen_P05_H2_value",
+     "hook_text": "Look at what the Hobo Bag comes with.",
+     "label": "THE DETAILS",
+     "type": "promise",
+     "shot": [
+      "1DbVATxAeMvr_FnP999-dnJymLQ7pn9H8",
+      0.5
+     ],
+     "est_seconds": 66.5
+    },
+    {
+     "hook": "H3",
+     "id": "P05H3",
+     "name": "LC_261016_HoboBag_Evergreen_P05_H3_value",
+     "hook_text": "What should a good everyday bag actually have?",
+     "label": "QUICK QUESTION",
+     "type": "question",
+     "shot": [
+      "1Mtx32enLMlOkpIfl_Cr1EYezTdody3E1",
+      1.0
+     ],
+     "est_seconds": 66.5
+    },
+    {
+     "hook": "H4",
+     "id": "P05H4",
+     "name": "LC_261016_HoboBag_Evergreen_P05_H4_value",
+     "hook_text": "Tired of paying for a bag that's just a bag?",
+     "label": "SOUND FAMILIAR?",
+     "type": "problem",
+     "shot": [
+      "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+      1.0
+     ],
+     "est_seconds": 67.2
+    }
+   ]
+  }
+ ],
+ "hooks_seed": 1
+}
