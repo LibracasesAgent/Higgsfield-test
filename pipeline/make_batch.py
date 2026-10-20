@@ -7,7 +7,8 @@ videos re-edit the winning RAW (pipeline/remix.py) with a new cold open, the pro
 adds the old narrated review section). One voice per storyboard video (the brand voice; reviews said about the customer
 with her card on screen; a real customer speaks only in her own clip, introduced by the narrator), no B-roll shot over ~4 s,
 every cut on a sentence end (pipeline/projects.py cadence audits the clip bank).
-No AI images or AI video are made here. The only paid step is the voiceover lines (~0.3 credits each),
+No free-form AI images or video are made here. The paid steps are the voiceover lines (~0.3 credits each) and the AI scene
+stills / clips of the real bag that plan lists in ai_needed.json (ai_gen.py, owner 2026-10-20; 100 credits per batch in total),
 which Claude generates with Higgsfield between `plan` and `render`.
 
 New storyboard videos (catalog, new-product and winners-fill projects) are in the ugc format since 2026-10-14 (the owner's
@@ -99,6 +100,7 @@ Offers come from libracases.com at plan time (each product's own %, a gift only 
 with no site page: its own offer, from the client's notes); names move to the first _vN that is not in Drive yet.
 """
 import argparse
+import collections
 import concurrent.futures as cf
 import datetime
 import glob
@@ -114,6 +116,8 @@ import sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
+import ai_gen  # noqa: E402  (AI scene stills / clips, owner 2026-10-20)
+import novelty  # noqa: E402
 
 BRAND_VOICE = {"voice_type": "element", "voice_id": "241459b6-b4e8-4a2a-9868-da8bcdcd0558"}
 NARRATOR = {"voice_type": "preset", "voice_id": "64cf4f1a-61c8-5938-9aea-83d12b2e1d13"}
@@ -127,6 +131,7 @@ QA_SECONDS = {"storyboard": (35, 95), "remix": (15, 110),    # a winner body is 
               "ugc": (55, 85)}                                # the classic 1.5-2 min storytelling format (Julian, 2026-10-09);
 FLOOR = {"storyboard": MIN_SECONDS, "remix": 15}                # ugc: the default storyboard format (owner 2026-10-14: 55-80 s)
 UGC_ANGLE = dict(n_things="things", demo="demo", stop_x="stop", travel="travel", value="value")   # ugc_script angle -> the name part
+AI_SHOTS_MAX = 5      # AI clips in one ugc video (of ~30 shots): the real footage stays the base
 UGC_WPS = 2.75      # words per second of a voice take before the speed-up (ugc_script.VPS / storyboard.VOICE_SPEED)
 UGC_SPEED = 1.12    # storyboard.VOICE_SPEED: the voice takes are sped up this much
 UGC_TAKE = 0.075    # silence storyboard.voice_prep keeps at the two ends of a take (KEEP_HEAD + KEEP_TAIL)
@@ -1310,6 +1315,7 @@ def plan(a):
                 if os.path.exists(x):
                     os.remove(x)
 
+    ai_clips = {}                     # planned AI clips by id (ai_gen.plan_ai, below): ["ai", "AC03", 0] picks
     import new_product
     file_photos, file_packs, file_life, pfile = [], [], [], {}     # pfile: photos[n] -> its file (["photo", "P<n>"])
     refused, no_static = {}, set()    # refused: photos[n] plan's face re-check refused; no_static: videos only (statics false)
@@ -1402,6 +1408,9 @@ def plan(a):
             return ([c, p[2], w] + ([fit_of(c)] if fit_of(c) else [])) if c else None
         if p[0] == "drive":           # ["drive", <Drive file id>, start]: a client library clip (clip_index.json), ugc only
             return [p[1], p[2], w] if DRIVE_ID.match(str(p[1])) else None
+        if p[0] == "ai":              # ["ai", "AC03", 0]: a planned AI clip (ai_gen.py: made after plan; render swaps one that
+            c_ = ai_clips.get(p[1])   # failed its gate for the block's real spare shot)
+            return [ai_gen.clip_file(out, p[1]), p[2], w] if c_ else None
         try:
             src = clip(b, p[0], p[1])
         except (KeyError, IndexError, TypeError):
@@ -1471,6 +1480,12 @@ def plan(a):
     price_ok = s_pct and s_was > s_price > 0 and new_product.site_pct(pf_.get("price"), pf_.get("compare_at")) == s_pct
     value_ok = bool(price_ok and abs(100 * (1 - s_price / s_was) - s_pct) <= 2)    # (brand_statics' value layout refuses worse)
     statics, n_life, seen_s, nlay, no_photo = [], 0, set(), {}, 0
+    # another batch of the same product shows other photos and headlines by itself (the client: "the statics repeat across batches"):
+    # the static cycle starts one step further for every batch the novelty log has (a new product's --seed already counts its tests)
+    sseed = a.seed + (0 if seed_given or pr["source"] != "built-in" or a.only else len(novelty.batches(pr["name"])))
+    if sseed != a.seed:
+        warnings.append(f"{pr['name']} has {sseed - a.seed} earlier batch(es) in the novelty log: the statics start {sseed - a.seed} "
+                        f"step(s) further in their photo / headline cycle (other photos and captions than before)")
     life_used, studio = set(), {}      # lifestyle() photos taken so far (a lifestyle or native static each take one, once per batch)
 
     def next_life(native=False):       # the next unused lifestyle photo (native: a real photo, not a studio packshot)
@@ -1598,7 +1613,7 @@ def plan(a):
         else:
             no_photo += 1
             continue
-        rnd, hv0 = i // len(seq) + a.seed - 1, nlay.get(lay, 0) + a.seed - 1   # hv0: the 2nd hero/promo/... gets another headline
+        rnd, hv0 = i // len(seq) + sseed - 1, nlay.get(lay, 0) + sseed - 1   # hv0: the 2nd hero/promo/... gets another headline
         for t in range(len(photos) * 4):
             photo = photos[(i + rnd + t) % len(photos)]
             s = static(lay, rel(photo), hv0 + t // len(photos), t)
@@ -1808,7 +1823,7 @@ def plan(a):
         return any(w["e"] > a_ - 0.3 and w["s"] < a_ + SHOT + 0.3 for w in talk_ws[src])
 
     def unfit(p):                     # never B-roll: a real customer's own clip (her scene comes later, introduced) or a
-        return bool(p) and p[0] != "photo" and ((p[0], p[1]) in scenes or talks(p))   # moment someone talks
+        return bool(p) and p[0] not in ("photo", "ai") and ((p[0], p[1]) in scenes or talks(p))   # moment someone talks
 
     def fmt_of(v):
         fmt = formats[v % len(formats)]
@@ -2132,6 +2147,65 @@ def plan(a):
         #                                                   the project's versions share it: projects.py copies the spec)
         return f"{prefix}_{vid}_{fmt}", spec, dict(name=f"{prefix}_{vid}_{fmt}", id=vid, format=fmt, engine="storyboard", hook=hook)
 
+    # ---------- AI scenes (ai_gen.py, owner 2026-10-20: the statics repeated across batches): the REAL bag placed in new scenes.
+    # About 40% of the statics become scene statics (scene / scene_quote / scene_price: each replaces a real-photo slot and keeps
+    # that static as its "fallback") and a few 9:16 clips join the ugc shot pool. Nothing is made here: $OUT/ai_needed.json lists
+    # what to generate (the agent does, with Higgsfield), `ai_gen.py gate / clips` check it, render swaps whatever failed back to
+    # the real photo / real footage (ai_gen.apply). The plan is inside the batch cap (voiceover + AI = 100 credits).
+    ai_plan = dict(stills=[], clips=[], est_credits=0.0, budget={}, notes=[])
+    if need and not getattr(a, "no_ai", False) and not getattr(a, "classic", False) and (a.statics or (a.videos and not story)):
+        ai_refs = [dict(file=f_, colour=n_) for n_, f_ in colour_imgs if f_ in packs and f_ not in no_static]
+        ai_refs += [dict(file=f_, colour=None) for f_ in packs if f_ not in {r_["file"] for r_ in ai_refs} and f_ not in no_static]
+        try:
+            ai_plan = ai_gen.plan_ai(
+                name=pr["name"], slug=novelty.slug_of(pr["name"]), refs=ai_refs, n_statics=len(statics),
+                boost=min(4, sum(max(c_ - 1, 0) for l_, c_ in collections.Counter(
+                    x["layout"] for x in statics).items() if l_ in ("compare", "bold", "promo", "hero", "checklist"))),
+                n_clips=min(ai_gen.MAX_CLIPS, max(3, 2 * a.videos)) if a.videos and not story else 0,
+                tts_est=4.5 * a.videos if not story else 0, seed=a.seed, out=out, cap=getattr(a, "ai_cap", None),
+                grade_refs=[c_ for c_ in clips if c_][:4],
+                static_layouts=["scene", "scene_quote" if clean_mode and quote_revs else "scene", "scene",
+                                "scene_price" if value_ok else "scene", "scene", "scene_quote" if clean_mode and quote_revs else "scene",
+                                "scene", "scene"])
+        except Exception as e:  # noqa: BLE001 - the AI part must never stop a batch: real photos and footage still work
+            warnings.append(f"AI scenes skipped ({type(e).__name__}: {e}): real photos and footage only")
+        warnings += [f"AI scenes: {x}" for x in ai_plan.get("notes") or []]
+
+    def ai_slot(lay_):                # the static a scene static replaces: photo-led first, a BOF layout only when it has a twin
+        for ln in {"scene": ("native", "lifestyle", "hero", "promo", "bold", "compare", "checklist"),
+                   "scene_quote": ("quotes", "stars", "review"), "scene_price": ("value", "offer")}[lay_]:
+            idx = [i_ for i_, x in enumerate(statics) if x["layout"] == ln and "ai" not in x]
+            if len(idx) > (0 if ln in ("native", "lifestyle") else 1):
+                return idx[-1]
+        return None
+    ai_dropped = []
+    for k_, s_ in enumerate(x for x in ai_plan["stills"] if x["use"] == "static"):
+        i_ = ai_slot(s_["layout"])
+        if i_ is None:
+            ai_dropped.append(s_["id"])
+            continue
+        orig_, lay_, hv_ = statics[i_], s_["layout"], k_ + sseed - 1
+        d_ = static({"scene": "native", "scene_quote": "quotes", "scene_price": "value"}[lay_], s_["file"], hv_)
+        d_["layout"] = lay_
+        if lay_ == "scene_quote":
+            d_["reviews"] = d_["reviews"][:1]
+        elif lay_ == "scene":         # a caption from the product's own feature tags, the ones that fit the scene first, never twice
+            taken_ = {x.get("caption") or x.get("headline") for x in statics}
+            want_ = {"worn": ("strap", "shoulder", "wear", "carry", "hand"), "hand": ("strap", "carry", "hand", "room"),
+                     "object": ("room", "zip", "finish", "shape", "pocket", "secure", "storage")}.get(s_["kind"], ())
+            cand_ = sorted(tags, key=lambda t: (not any(w_ in t.lower() for w_ in want_), tags.index(t)))
+            pool_ = [tcase(t, "sentence") + "." for t in cand_] + \
+                [". ".join(tcase(t, "sentence") for t in cand_[j_:j_ + 2]) + "." for j_ in range(len(cand_) - 1)] + \
+                [f"The {pr['short']}.", hero]
+            d_["caption"] = next((c_ for c_ in pool_ if c_ not in taken_), pool_[0])
+            d_.pop("headline", None)
+        d_.update(name=re.sub(r"(_S\d+_).*$", lambda m_: m_.group(1) + lay_, orig_["name"]),
+                  ai=dict(id=s_["id"], scene=s_["scene"], colour=s_.get("colour")), fallback=orig_)
+        statics[i_] = d_
+    if ai_dropped:                    # no slot left for them: not generated (the credits are not spent)
+        ai_plan["stills"] = [x for x in ai_plan["stills"] if x["id"] not in ai_dropped]
+    ai_clips.update({c_["id"]: c_ for c_ in ai_plan["clips"]})
+
     # ---------- ugc storyboards: the default storyboard format since 2026-10-14 (--classic keeps the formats above). The script
     # engine (ugc_script.py) writes one script per project in the 'you' voice: a hook, 5-9 chapters (one voice take each, shared by
     # the project's hook versions), the offer last. The board is the hook block + one block per chapter, every block's footage
@@ -2221,6 +2295,9 @@ def plan(a):
                 dnote[id_], dlong[id_] = note_, dur_ >= 60
                 for g in gen_moments(dur_, 5):
                     add(["drive", id_, g], (), None, "clip", 0.5)
+        for c_ in ai_plan["clips"]:    # planned AI clips (ai_gen.py): scenes the client never filmed (a cafe, the street), matched on
+            ulib.append(dict(p=["ai", c_["id"], 0.0], kw=kw_terms(" ".join(c_["tags"])), tag=None, kind="clip",   # their scene words
+                             src=ai_gen.clip_file(out, c_["id"]), pen=0.0, only=set(), hook=False, long=False, once=False))
         for p in photo_picks:
             f_ = photo_file(p)
             kind_ = pkind.get(pnum.get(f_)) or "packshot"
@@ -2258,10 +2335,17 @@ def plan(a):
         sw = [(n, os.path.join(out, "sw", f"{re.sub(r'[^a-z0-9]+', '_', n.lower())}.jpg")) for n, _ in colour_imgs[:6]]
 
         recent = []                   # the sources already chosen for this block (a short clip is not cut into it again and again)
+        ai_n = [0]                    # AI clips chosen so far in this video (capped: AI_SHOTS_MAX)
+        ai_mine = {c_["id"] for c_ in ai_plan["clips"][::1]}      # a project draws on 4 of the batch's AI clips (others: other projects),
+        if len(ai_mine) > 4:                                       # so the AI scenes do not repeat in every video
+            ids_ = sorted(ai_mine)
+            ai_mine = {ids_[(v * 3 + j_) % len(ids_)] for j_ in range(4)}
 
         def choose(terms, cterms, feat, prev, use, kinds=None, hook=False):
             best = None
             for i, e in enumerate(lib):
+                if e["p"][0] == "ai" and (ai_n[0] >= AI_SHOTS_MAX or e["p"][1] not in ai_mine):   # (mostly the real footage)
+                    continue
                 if (e["only"] and not e["only"] & (terms | cterms)) or (kinds and e["kind"] not in kinds) or (e["once"] and use.get(i)):
                     continue
                 s = 3.0 * len(e["kw"] & terms) + 1.5 * len(e["kw"] & cterms) + (6.0 if feat and e["tag"] == feat else 0.0) \
@@ -2272,6 +2356,7 @@ def plan(a):
             if best is None:
                 return None
             use[best[1]] = use.get(best[1], 0) + 1
+            ai_n[0] += lib[best[1]]["p"][0] == "ai"
             recent.append(lib[best[1]]["src"])
             return best[1], use[best[1]] - 1
 
@@ -2470,6 +2555,23 @@ def plan(a):
                   (f"The client could add: {'; '.join(add)}." if add else "Add lines with --lines."), file=sys.stderr)
             sys.exit(2)
 
+    # ---------- AI assets: only what the kept ads use is generated (a --only redo, a video left out); ai_needed.json says what
+    if ai_plan["stills"] or ai_plan["clips"]:
+        spec_txt = json.dumps(specs)
+        ai_plan["clips"] = [c_ for c_ in ai_plan["clips"] if f"{c_['id']}_c.mp4" in spec_txt]
+        keep_s = {c_["start"] for c_ in ai_plan["clips"]} | {x["ai"]["id"] for x in statics if x.get("ai")}
+        ai_plan["stills"] = [s_ for s_ in ai_plan["stills"] if s_["id"] in keep_s]
+        ai_plan["est_credits"] = round(sum(x["est_credits"] for x in ai_plan["stills"] + ai_plan["clips"]), 2)
+    ai_file = os.path.join(out, "ai_needed.json")
+    if ai_plan["stills"]:
+        json.dump(dict(ai_plan, steps=ai_gen.STEPS), open(ai_file, "w"), indent=1, ensure_ascii=False)
+    elif os.path.exists(ai_file):
+        os.remove(ai_file)
+    ai_sum = dict(stills=len([x for x in ai_plan["stills"] if x["use"] == "static"]), clips=len(ai_plan["clips"]),
+                  est_credits=ai_plan["est_credits"], budget=ai_plan.get("budget"),
+                  scenes=sorted({x["scene"] for x in ai_plan["stills"]}),
+                  next=f"python3 pipeline/ai_gen.py show --out {out}") if ai_plan["stills"] else None
+
     # ---------- voiceover: one line per (text, voice); budget
     uniq, dupes = {}, {}
     for t in tts:
@@ -2502,7 +2604,7 @@ def plan(a):
     summary = dict(pipeline=pipe, **({"batch": f"{BATCH['statics']} statics + {BATCH['projects']} projects x {a.hooks} "
                                                  f"hooks (no counts in the request)"} if size["batch"] else {}),
                    statics=len(statics), **({"projects": len(keep), "hooks": a.hooks} if pm else {}), videos=len(videos),
-                   tts_lines=len(tts_u), est_credits=est, budget=limit, seed=a.seed,
+                   tts_lines=len(tts_u), est_credits=est, budget=limit, seed=a.seed, **({"ai": ai_sum} if ai_sum else {}),
                    **({"hook_seed": a.hook_seed} if a.hook_seed is not None else {}),
                    theme=theme_key, theme_name=tname, product=pr["name"], product_source=pr["source"],
                    offer=" + ".join(x for x in (f"{pct}% off" if pct else "no discount", gift) if x), names=prefix,
@@ -2533,7 +2635,7 @@ def plan(a):
     p = dict(prefix=prefix, rev=rev, created=datetime.date.today().isoformat(), request=a.request or "", product=pr["name"],
              product_key=pk, product_source=pr["source"], theme=theme_key, theme_name=tname, offer=summary["offer"],
              statics=[s["name"] for s in statics], videos=videos, tts_lines=len(tts_u), tts_dupes=dupes, est_credits=est,
-             budget=limit, colour_images=dict(colour_imgs), packshots=packs, brief=brief,
+             budget=limit, colour_images=dict(colour_imgs), packshots=packs, brief=brief, **({"ai": ai_sum} if ai_sum else {}),
              winners_source=sel["source"] if sel else None, winners_note=sel["note"] if sel else None,
              winners_used=[dict(key=w["key"], name=w.get("name"), roas=w.get("roas"), action=w.get("action"))
                            for w in {x["key"]: x for x in wrows}.values()],
@@ -2616,6 +2718,10 @@ def plan(a):
                                          f"of the year) makes another opening H1"]
         summary.update(projects=len(p["projects"]), videos=len(p["videos"]), tts_lines=p["tts_lines"],
                        est_credits=p["est_credits"])
+        if ai_sum and p["est_credits"] + ai_sum["est_credits"] > ((ai_sum.get("budget") or {}).get("cap") or 100):
+            warnings = list(warnings) + [f"voiceover {p['est_credits']} + AI {ai_sum['est_credits']} credits is over the "
+                                         f"{(ai_sum.get('budget') or {}).get('cap') or 100}-credit batch cap: generate only the first AI "
+                                         f"assets (the AS/AC ids in ai_needed.json, lowest numbers first) or plan with --no-ai"]
         vs = {v["name"]: v for v in p["videos"]}
 
         listing = dict(project_hooks=[])
@@ -2953,6 +3059,13 @@ def body_flags(out, p, sheets, rows):
 def render(a):
     out = os.path.abspath(a.out)
     p = load_plan(out)
+    if os.path.exists(os.path.join(out, "ai_needed.json")):     # AI scenes: what failed its gate (or was never made) goes back to
+        rep_ = ai_gen.apply(out)                                 # the real photo / footage it replaced (ai_gen.py)
+        print("AI scenes: " + json.dumps({k: v for k, v in (rep_ or {}).items() if v not in ([], 0, False)}), file=sys.stderr, flush=True)
+        if rep_ and rep_["changed"]:
+            p = load_plan(out)
+            if rep_["statics_back"]:        # a static's name / words changed: its ad copy and the compliance check again
+                copy_and_check(out, seed=p.get("seed") or 1)
     compliance_gate(out, p)
     ids = only_ids(a.only, bool(p.get("projects")))
     vids = [v for v in p["videos"] if not ids or picked(v["id"], ids)]
@@ -3198,6 +3311,37 @@ def record_batch(p, name, link, uploaded, vproj):
     return f
 
 
+def log_novelty(out, p, name, uploaded):
+    """What this upload shows, into the product's novelty log (novelty.py: the next batch avoids it): each static's layout /
+    photo / scene / colour / caption, the AI clips' scenes, each ugc video's script / angle / hook. Returns the log file."""
+    try:
+        ads = {x["name"]: x for x in (json.load(open(os.path.join(out, "statics.json"))).get("ads") or [])}
+    except (OSError, ValueError):
+        ads = {}
+    got = {n for n, _, _ in uploaded}
+    st = []
+    for n in p.get("statics") or []:
+        x = ads.get(n)
+        if x and n in got:
+            e = dict(layout=x.get("layout"), photo=os.path.basename(str(x.get("photo") or "")) or None,
+                     caption=x.get("caption") or x.get("headline"), **{k: (x.get("ai") or {}).get(k) for k in ("scene", "colour")})
+            st.append({k: v for k, v in e.items() if v})
+    spec_txt = "".join(open(os.path.join(out, f"{v['name']}.json")).read() for v in p.get("videos") or []
+                       if v["name"] in got and os.path.exists(os.path.join(out, f"{v['name']}.json")))
+    need = ai_gen.load_needed(out) or {}
+    cl = [dict(scene=c["scene"]) for c in need.get("clips") or [] if f"{c['id']}_c.mp4" in spec_txt and ai_gen.available(out, "clips", c["id"])]
+    vids, seen = [], set()
+    for v in p.get("videos") or []:
+        u = v.get("ugc") or {}
+        if v["name"] in got and u.get("script") and (u["script"], v.get("hook_text") or v.get("hook")) not in seen:
+            seen.add((u["script"], v.get("hook_text") or v.get("hook")))
+            vids.append({k: x for k, x in dict(script=u.get("script"), angle=u.get("angle"), hook=v.get("hook_text") or v.get("hook"),
+                                               hook_type=(u.get("hook") or {}).get("type")).items() if x})
+    novelty.record(p.get("product") or "product", dict(date=p.get("created") or datetime.date.today().isoformat(), name=name,
+                                                       statics=st, clips=cl, videos=vids))
+    return novelty.PATH
+
+
 def upload(a):
     """Uploads the files plan.json lists (never leftovers in the folder). Hard QA failures (render failed, file
     missing, a face in a static, a video under its floor: 25 s storyboard, 15 s winner) stay out; length / anchor /
@@ -3361,6 +3505,19 @@ def upload(a):
         print(f"WARNING product file not updated: {e}", file=sys.stderr)
     if tested:
         notes.append(f"the product file records this batch (\"tests\"): {tested}")
+    try:          # the novelty log (novelty.py) and the AI scenes this batch shipped
+        nlog = log_novelty(out, p, name, uploaded) if uploaded else None
+        ai_s = ai_gen.summary(out) if os.path.exists(os.path.join(out, "ai_needed.json")) else None
+        if ai_s:
+            fell = len([x for x in (ai_gen.load_gate(out).get("stills") or {}).values() if not x.get("ok")]) + \
+                len([x for x in (ai_gen.load_gate(out).get("clips") or {}).values() if not x.get("ok")])
+            notes.append(f"AI scenes (the real bag in new scenes, ai_gen.py): {len(ai_s['stills_ok'])} stills and {len(ai_s['clips_ok'])} "
+                         f"clips passed the quality gate and are in this batch; {fell} failed it or were never made and were replaced by "
+                         f"real photos / footage; planned cost ~{ai_s['est_credits']} credits")
+        if nlog:
+            notes.append(f"the novelty log records this batch (the next one avoids its scenes, photos, captions and hooks): {nlog}")
+    except Exception as e:  # noqa: BLE001 - the ads are in Drive: a log that can't be written must not stop the run report
+        print(f"WARNING novelty log not updated: {type(e).__name__}: {e}", file=sys.stderr)
     open(txt, "w").write(run_report(p, report, uploaded, skipped, name, flagged, notes, pending, copy))
     run("upload", txt, "--folder", folder)          # a fresh report every upload, never skipped
     if tested:
@@ -3385,7 +3542,7 @@ def specs_copy(a):
     p = json.load(open(os.path.join(out, "plan.json")))
     os.makedirs(a.to, exist_ok=True)
     fs = ["plan.json", "statics.json", "tts_needed.json"] + [v["name"] + ".json" for v in p["videos"]] + \
-        [f for f in ("ad_copy.json", "compliance.json") if os.path.exists(os.path.join(out, f))]   # the copy + its check
+        [f for f in ("ad_copy.json", "compliance.json", "ai_needed.json") if os.path.exists(os.path.join(out, f))]   # the copy + its check + the AI plan
     for f in fs:
         shutil.copy(os.path.join(out, f), os.path.join(a.to, f))
     print(json.dumps(dict(to=os.path.abspath(a.to), files=fs), indent=1))
@@ -3452,6 +3609,11 @@ def main():
     pl.add_argument("--no-name-check", action="store_true", help="don't look in Drive for today's names (offline tests)")
     pl.add_argument("--budget", type=float, help=f"credits the request allows for voiceover, hook lines included "
                     f"(default {MAX_CREDITS})")
+    pl.add_argument("--no-ai", action="store_true", help="no AI scene stills / clips (ai_gen.py): real photos and footage only. "
+                    "Default: about 40% of the statics and a few video shots are the real bag placed in new scenes "
+                    "(owner 2026-10-20), generated after plan (ai_needed.json) and kept only when they pass the quality gate")
+    pl.add_argument("--ai-cap", type=float, help="credits for voiceover + AI together (default 100, config.json budget."
+                    "max_credits_per_batch); only when the request names another budget")
     pl.add_argument("--out", required=True)
     r = sub.add_parser("render")
     r.add_argument("--out", required=True)

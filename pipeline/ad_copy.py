@@ -117,6 +117,7 @@ ANGLES = {"hero": "offer", "promo": "offer", "bold": "offer", "review": "review"
           "carousel": "lifestyle", "callouts": "features", "showcase": "showcase", "features": "features",
           "offer": "offer", "stars": "review", "checklist": "features",
           "native": "lifestyle", "quotes": "review", "value": "offer",                  # the Ad Library static layouts
+          "scene": "lifestyle", "scene_quote": "review", "scene_price": "offer",       # AI scene statics (ai_gen.py)
           "things": "features", "demo": "features", "stop": "features", "travel": "lifestyle"}   # ugc video angles (value: offer)
 
 

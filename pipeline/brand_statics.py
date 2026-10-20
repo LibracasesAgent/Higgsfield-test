@@ -38,11 +38,29 @@ Ad Library layouts (what the top-impression ads look like; new_layouts() lists t
                                                                    struck through beside a "50% OFF" tag; with no price a red "50% OFF"
                                                                    plate; then the packshot, the gift label and the CTA. The packshot
                                                                    gets its room first; sub, then headline, go before the static fails
+AI scene layouts (a real handbag placed into a generated scene: cafe, street, hallway, flat-lay; a 4:5 PNG, 1792x2240 or 896x1120,
+face-checked and quality-gated before it gets here; scene_layouts() lists them, new_layouts() does not: the real-photo cycle never
+picks them). All three refuse a missing photo / a face (the DNN check) and never draw a word the spec does not carry:
+  scene       photo, caption|headline?, pct|badge?, focus?, crop?, caption_y?   the photo full bleed (cover-fit; 2k is downscaled, a smaller
+                                                                   one upscaled + the native crispness step), calm like native: one caption
+                                                                   in the video caption look below the bag (lower third, never in the
+                                                                   bottom 8%), the offer pill in the calmer top corner; a white / linen
+                                                                   flat-lay is fine (no studio-packshot check); no text = the photo alone
+  scene_quote photo, quotes[{text, author, verified?, stars?}] | reviews[n | {n, text}], pct|badge|offer?, focus?, crop?, cta?
+                                                                   the photo over the top 64% (down to 56% for a long quote), then on the
+                                                                   cream ONE verbatim review on a white card (stars, the quote, author,
+                                                                   '✓ Verified Buyer' only when verified), the CTA pill; the offer pill sits
+                                                                   in the photo's calmer top corner. No quote = no static
+  scene_price price?, was?, pct|badge?, photo, gift?, focus?, crop?, cta?   the photo over the top 70% (66% with a gift label), then the real
+                                                                   price in one row: big price, beside it the '50% OFF' tag over the struck
+                                                                   was price; gift label, CTA. Same checks as value (was above price, pct
+                                                                   within 2 points of price / was); with no price a red '50% OFF' plate
 New optional spec keys (all of them are drawn verbatim, nothing is added):
   quotes   [{"text": verbatim quote, "author": "Jenny H.", "verified": false, "stars": true}]   (quotes layout; 'reviews' still works)
   price    "$59.95"      was   "$119.95" (must be above price; with pct, price must be pct % below was, +-2 points, else the static is refused)
   caption  native: the caption line (else headline)      offer   quotes: a ready offer line (else from pct / badge / price)
-  focus [fx, fy] / crop [x0, y0, x1, y1]   native: where the cover-fit looks / a crop of the photo first
+  focus [fx, fy] / crop [x0, y0, x1, y1]   native, scene*: where the cover-fit looks / a crop of the photo first
+  caption_y 0.6-0.9                         scene: the caption's height as a fraction of the canvas (default: the plainest of 0.74-0.88)
 No "limited stock", "selling out", "ends tonight" or any other claim is ever drawn: only the words the spec carries. native refuses a
 studio packshot (white border) and any photo the strict face check (new_product.count_faces(strict=True), the one lifestyle photos
 pass) flags; it cannot tell a cropped head from a body, so feed it make_batch's lifestyle() photos (those drop "statics": false).
@@ -654,12 +672,12 @@ def review_text(n):
     return r["text"], r["name"], r.get("verified")
 
 
-def name_line(d, x, top, name, verified, fn, host=None):
-    """'— Name  ✓ Verified customer' from top (ink top of the name); returns the bottom."""
+def name_line(d, x, top, name, verified, fn, host=None, label="Verified customer"):
+    """'— Name  ✓ Verified customer' (label) from top (ink top of the name); returns the bottom."""
     fv = SANS(28)
     bot = put(d, "— " + name, fn, ESPRESSO, top, 900, x=x, host=host)
     if verified:
-        put(d, "✓ Verified customer", fv, (70, 120, 70), top + metrics(fn)[0] - metrics(fv)[0], 600,
+        put(d, "✓ " + label, fv, (70, 120, 70), top + metrics(fn)[0] - metrics(fv)[0], 600,
             x=x + width(d, "— " + name, fn) + 20, host=host)
     return bot
 
@@ -1072,6 +1090,12 @@ def new_layouts():
     return ["native", "quotes", "value"]
 
 
+def scene_layouts():
+    """The layouts for an AI scene photo (a real handbag placed into a generated scene), in their own list: the static cycle's
+    real-photo layouts (new_layouts) never pick them."""
+    return ["scene", "scene_quote", "scene_price"]
+
+
 def offer_text(a):
     """The offer as short text from the spec: pct -> '50% OFF', else the badge ({big, bottom} or a string); '' when none."""
     if a.get("pct"):
@@ -1101,19 +1125,89 @@ def studio_white(im, band=0.06, lim=244):
 _FACES = {}
 
 
-def no_face(path, who):
-    """Raises when the strict face check (new_product.count_faces: the one lifestyle photos pass) finds a face. Silent when
-    no detector is installed (make_batch's QA checks every PNG again and keeps a face out of Drive)."""
-    if path not in _FACES:
+def no_face(path, who, strict=True):
+    """Raises when the face check finds a face. strict (default): new_product.count_faces(strict=True), the one lifestyle photos
+    pass (DNN + every Haar hit). strict=False: the DNN check only, the one make_batch's QA runs on every finished PNG; the AI
+    scene layouts use it because Haar fires on linen, leather and knit texture (4 of 9 face-free AI scenes failed the strict
+    one). Silent when no detector is installed (make_batch's QA checks every PNG again and keeps a face out of Drive)."""
+    if (path, strict) not in _FACES:
         try:
             if HERE not in sys.path:
                 sys.path.insert(0, HERE)
             import new_product
-            _FACES[path] = new_product.count_faces(path, strict=True)
+            _FACES[(path, strict)] = new_product.count_faces(path, strict=strict)
         except Exception:  # noqa: BLE001
-            _FACES[path] = None
-    if _FACES[path]:
+            _FACES[(path, strict)] = None
+    if _FACES[(path, strict)]:
         raise ValueError(f"{who}: a face was found in the photo: never used")
+
+
+def cover_photo(im, a, size, sharpen_over=1.25):
+    """im cropped to the spec's `crop` [x0, y0, x1, y1] (fractions) and cover-fit to size around its `focus` [fx, fy]; a photo upscaled
+    by more than sharpen_over (a phone photo, a small AI render) gets a little crispness back, a big one (2k) is just downscaled
+    with LANCZOS."""
+    W, H = size
+    if a.get("crop"):
+        x0, y0, x1, y1 = a["crop"]
+        im = im.crop((int(x0 * im.width), int(y0 * im.height), int(x1 * im.width), int(y1 * im.height)))
+    ph = ImageOps.fit(im, (W, H), Image.LANCZOS, centering=tuple(a.get("focus", [0.5, 0.5])))
+    if max(W / im.width, H / im.height) > sharpen_over:          # an upscaled phone photo: a little crispness back
+        ph = ph.filter(ImageFilter.UnsharpMask(radius=1.8, percent=55, threshold=3))
+    return ph
+
+
+def calm_of(ph):
+    """calm(box) for photo ph: the busyness (edge strength) of a box in the photo's px, low = plain."""
+    W, H = ph.size
+    edge = ph.convert("L").resize((W // 8, H // 8), Image.BILINEAR).filter(ImageFilter.FIND_EDGES)
+    return lambda box: ImageStat.Stat(edge.crop(tuple(int(v / 8) for v in box))).mean[0]  # noqa: E731  (low = plain)
+
+
+def offer_pill(c, d, offer, calm, m=40):
+    """The small red offer pill m px from the top and from the calmer of the two top corners of RGBA canvas c, with a soft shadow;
+    a long badge text shrinks to 62% of the width."""
+    W = c.width
+    for psz in range(34, 21, -2):
+        f = XB(psz)
+        if width(d, offer, f) + 3 * f.size <= 0.62 * W:
+            break
+    w, h = width(d, offer, f) + 3 * f.size, int(f.size * 2.4)
+    x = min((m, W - m - w), key=lambda x: calm((x, m, x + w, m + h)))
+    sh = Image.new("RGBA", c.size, (0, 0, 0, 0))
+    ImageDraw.Draw(sh).rounded_rectangle([x, m + 6, x + w, m + h + 6], radius=h / 2, fill=(0, 0, 0, 120))
+    c.alpha_composite(sh.filter(ImageFilter.GaussianBlur(9)))
+    pill(d, W, m, offer, bg=RED, size=psz, cx=x + w / 2, bold=True)
+
+
+def native_caption(c, d, text, calm, pad=70, ys=(0.66, 0.70, 0.74, 0.78, 0.82), target=0.72, low=None):
+    """One caption in the look of the video captions (white Montserrat, dark outline, soft shadow) on RGBA canvas c, centred on the
+    plainest (calm) of the heights ys (fractions of the canvas, the one nearest `target` preferred) in the lower third; low: the
+    caption's bottom stays above this fraction. It stays one line only while big, then 2, then 3 lines down to 34 px."""
+    W, H = c.size
+    for n, sizes in ((1, range(66, 57, -2)), (2, range(64, 39, -2)), (3, range(46, 33, -2))):   # one line only while big
+        for sz in sizes:
+            f = XB(sz)
+            ls = wrap(d, text, f, W - 2 * pad, True)
+            if len(ls) <= n and max(width(d, x, f) for x in ls) <= W - 2 * pad:
+                break
+        else:
+            continue
+        break
+    else:
+        PROBLEMS.append("the caption does not fit three lines at 34 px")
+    sw = max(3, round(f.size / 11))
+    hb = put(d, ls, f, WHITE, 0, W, dry=True, stroke=sw)
+    cands = [k * H for k in ys]
+    if low:
+        cands = [y for y in cands if y + hb / 2 <= low * H] or [low * H - hb / 2]
+    cy = min(cands, key=lambda y: calm((pad, y - hb / 2, W - pad, y + hb / 2)) + 60 * abs(y / H - target))
+    top = int(cy - hb / 2)
+    lay = Image.new("RGBA", c.size, (0, 0, 0, 0))
+    keep, TRACK[0] = TRACK[0], False                 # the shadow layer is not an element of the static
+    put(ImageDraw.Draw(lay), ls, f, (0, 0, 0, 150), top + 5, W, cx=W / 2 + 3, stroke=sw + 2, stroke_fill=(0, 0, 0, 150))
+    TRACK[0] = keep
+    c.alpha_composite(lay.filter(ImageFilter.GaussianBlur(7)))
+    put(d, ls, f, WHITE, top, W, stroke=sw)
 
 
 def l_native(a, sd):
@@ -1125,54 +1219,17 @@ def l_native(a, sd):
     if studio_white(im):
         raise ValueError("native: a studio packshot is not a real photo (needs a worn / lifestyle photo)")
     no_face(os.path.join(sd, a["photo"]), "native")
-    if a.get("crop"):
-        x0, y0, x1, y1 = a["crop"]
-        im = im.crop((int(x0 * im.width), int(y0 * im.height), int(x1 * im.width), int(y1 * im.height)))
     text, offer = a.get("caption") or a.get("headline"), offer_text(a)
     if not (text or offer):
         raise ValueError("native: needs a caption (headline) or an offer")
-    ph = ImageOps.fit(im, (W, H), Image.LANCZOS, centering=tuple(a.get("focus", [0.5, 0.5])))
-    if max(W / im.width, H / im.height) > 1.25:          # an upscaled phone photo: a little crispness back
-        ph = ph.filter(ImageFilter.UnsharpMask(radius=1.8, percent=55, threshold=3))
-    edge = ph.convert("L").resize((W // 8, H // 8), Image.BILINEAR).filter(ImageFilter.FIND_EDGES)
-    calm = lambda box: ImageStat.Stat(edge.crop(tuple(int(v / 8) for v in box))).mean[0]  # noqa: E731  (low = plain)
+    ph = cover_photo(im, a, (W, H))
+    calm = calm_of(ph)
     c = ph.convert("RGBA")
     d = ImageDraw.Draw(c)
     if offer:
-        for psz in range(34, 21, -2):                     # a small pill: a long badge text shrinks to 62% of the width
-            f = XB(psz)
-            if width(d, offer, f) + 3 * f.size <= 0.62 * W:
-                break
-        w, h, m = width(d, offer, f) + 3 * f.size, int(f.size * 2.4), 40
-        x = min((m, W - m - w), key=lambda x: calm((x, m, x + w, m + h)))
-        sh = Image.new("RGBA", c.size, (0, 0, 0, 0))
-        ImageDraw.Draw(sh).rounded_rectangle([x, m + 6, x + w, m + h + 6], radius=h / 2, fill=(0, 0, 0, 120))
-        c.alpha_composite(sh.filter(ImageFilter.GaussianBlur(9)))
-        pill(d, W, m, offer, bg=RED, size=psz, cx=x + w / 2, bold=True)
+        offer_pill(c, d, offer, calm)
     if text:
-        pad = 70
-        for n, sizes in ((1, range(66, 57, -2)), (2, range(64, 39, -2)), (3, range(46, 33, -2))):   # one line only while big
-            for sz in sizes:
-                f = XB(sz)
-                ls = wrap(d, text, f, W - 2 * pad, True)
-                if len(ls) <= n and max(width(d, x, f) for x in ls) <= W - 2 * pad:
-                    break
-            else:
-                continue
-            break
-        else:
-            PROBLEMS.append("the caption does not fit three lines at 34 px")
-        sw = max(3, round(f.size / 11))
-        hb = put(d, ls, f, WHITE, 0, W, dry=True, stroke=sw)
-        cy = min((k * H for k in (0.66, 0.70, 0.74, 0.78, 0.82)),
-                 key=lambda y: calm((pad, y - hb / 2, W - pad, y + hb / 2)) + 60 * abs(y / H - 0.72))
-        top = int(cy - hb / 2)
-        lay = Image.new("RGBA", c.size, (0, 0, 0, 0))
-        keep, TRACK[0] = TRACK[0], False                 # the shadow layer is not an element of the static
-        put(ImageDraw.Draw(lay), ls, f, (0, 0, 0, 150), top + 5, W, cx=W / 2 + 3, stroke=sw + 2, stroke_fill=(0, 0, 0, 150))
-        TRACK[0] = keep
-        c.alpha_composite(lay.filter(ImageFilter.GaussianBlur(7)))
-        put(d, ls, f, WHITE, top, W, stroke=sw)
+        native_caption(c, d, text, calm)
     return c
 
 
@@ -1200,17 +1257,23 @@ def bubble_size(d, q, fq, fn, max_w, pad=36):
     return int(w), int(h + 30), ls
 
 
+def soft_card(c, d, x0, y0, w, h, box=None):
+    """A white rounded card (x0, y0, w x h) with a soft shadow; returns its overlap-check group (box: the area it covers, e.g. with a tail)."""
+    m = 90                                                  # (the blur needs room: a tight canvas leaves a visible edge)
+    sh = Image.new("L", (w + 2 * m, h + 2 * m), 0)
+    ImageDraw.Draw(sh).rounded_rectangle([m, m + 10, w + m, h + m + 10], radius=38, fill=70)
+    c.paste((0, 0, 0), (x0 - m, y0 - m), sh.filter(ImageFilter.GaussianBlur(16)))
+    host = note("box", box or (x0, y0, x0 + w, y0 + h))
+    d.rounded_rectangle([x0, y0, x0 + w, y0 + h], radius=38, fill=WHITE)
+    return host
+
+
 def bubble(c, d, q, ls, fq, fn, x0, y0, w, h, tail_up, tail_x, lean, pad=36):
     """A white speech-bubble card at (x0, y0) of size w x h with a tail on its top (tail_up) or bottom edge from x = tail_x, its tip
     leaning `lean` px sideways (toward the product): soft shadow, gold stars, the quote, '— Author  ✓ Verified customer'."""
     text, author, verified, stars_on = q
     ty, ey = (y0 - TAIL, y0 + 2) if tail_up else (y0 + h + TAIL, y0 + h - 2)
-    m = 90                                                  # (the blur needs room: a tight canvas leaves a visible edge)
-    sh = Image.new("L", (w + 2 * m, h + 2 * m), 0)
-    ImageDraw.Draw(sh).rounded_rectangle([m, m + 10, w + m, h + m + 10], radius=38, fill=70)
-    c.paste((0, 0, 0), (x0 - m, y0 - m), sh.filter(ImageFilter.GaussianBlur(16)))
-    host = note("box", (x0, min(y0, ty), x0 + w, max(y0 + h, ty)))
-    d.rounded_rectangle([x0, y0, x0 + w, y0 + h], radius=38, fill=WHITE)
+    host = soft_card(c, d, x0, y0, w, h, (x0, min(y0, ty), x0 + w, max(y0 + h, ty)))
     d.polygon([(tail_x, ey), (tail_x + TAIL_W, ey), (tail_x + TAIL_W // 2 + lean, ty)], fill=WHITE)
     y = y0 + 30
     if stars_on:
@@ -1315,6 +1378,55 @@ def struck(d, x, base, text, f, fill=(150, 136, 124)):
     return bb
 
 
+def check_price(a, who="value"):
+    """The price / was / pct of a spec must be true: a price or a pct, no was price without a price, was above price, and with a
+    pct the price exactly pct % below was (+-2 points) -- else ValueError (the static is refused)."""
+    price, was, off = a.get("price"), a.get("was"), offer_text(a)
+    if not (price or off):
+        raise ValueError(f"{who}: needs a price or a pct")
+    if was and not price:
+        raise ValueError(f"{who}: a was price without a price")
+    if was and money(was) is not None and money(price) is not None:
+        if money(was) <= money(price):
+            raise ValueError(f"{who}: was {was} is not above {price}")
+        if a.get("pct") and abs(100 * (1 - money(price) / money(was)) - int(a["pct"])) > 2:     # the tag must be true
+            raise ValueError(f"{who}: {price} from {was} is not {a['pct']}% off")
+
+
+def price_rows(d, W, y, price, was, off, psz, prev, dry, max_w=None):
+    """The price block from y (what is above it ends in font `prev`): the red '50% OFF' tag and the struck was price on one row, the
+    big price under it (price size psz, shrunk to max_w); with no price the % as a red plate. Returns (bottom, last font); dry:
+    measure only."""
+    max_w = max_w or W - 110
+    if price:
+        ft, fw, fp = XB(40), SANS(64), fit_font(d, price, BLACK, psz, max_w, 80)
+        if off or was:                                           # tag and struck was price on one row
+            tw, th = width(d, off, ft) + 1.4 * ft.size if off else 0, metrics(ft)[0] + ft.size
+            ww, wh = width(d, was, fw) if was else 0, sum(metrics(fw))
+            rh, top = max(th if off else 0, wh if was else 0), y + air(fp, prev, 0.3)
+            if not dry:
+                x = W / 2 - (tw + ww + (30 if off and was else 0)) / 2
+                if off:
+                    tag(d, x + tw / 2, top + (rh - th) / 2, off, RED, ft, kind="pill")
+                    x += tw + 30
+                if was:
+                    struck(d, x, top + (rh - wh) / 2 + metrics(fw)[0], was, fw)
+            y = top + rh
+        top = y + air(fp, prev, 0.12 if (off or was) else 0.28) + int(0.1 * fp.size)        # ('$' rises above the caps)
+        if was:
+            top += int(0.25 * min(fw.size, fp.size))
+        return put(d, price, fp, INK, top, W, lh=1.0, dry=dry), fp
+    fp = fit_font(d, off, BLACK, int(psz * 0.95), W - 260, 70)      # no price: the % as a red plate
+    ph_ = sum(metrics(fp)) + int(fp.size * 0.5)
+    top = y + air(fp, prev, 0.3)
+    pw = width(d, off, fp) + fp.size
+    if not dry:
+        pl = note("box", (W / 2 - pw / 2, top, W / 2 + pw / 2, top + ph_))
+        d.rounded_rectangle([W / 2 - pw / 2, top, W / 2 + pw / 2, top + ph_], radius=int(fp.size * 0.3), fill=RED)
+        put(d, off, fp, WHITE, top + int(fp.size * 0.25), W, host=pl)
+    return top + ph_, fp
+
+
 def l_value(a, sd):
     """Price-led, on the brand cream: the big real price with the was price struck through beside a red '50% OFF' tag; with no
     price a red plate with '50% OFF'. Then the packshot, an optional gift label and the CTA. Numbers come from the spec only."""
@@ -1322,15 +1434,7 @@ def l_value(a, sd):
     c = Image.new("RGB", (W, H), tuple(a.get("bg", CREAM)))
     d = ImageDraw.Draw(c)
     price, was, off = a.get("price"), a.get("was"), offer_text(a)
-    if not (price or off):
-        raise ValueError("value: needs a price or a pct")
-    if was and not price:
-        raise ValueError("value: a was price without a price")
-    if was and money(was) is not None and money(price) is not None:
-        if money(was) <= money(price):
-            raise ValueError(f"value: was {was} is not above {price}")
-        if a.get("pct") and abs(100 * (1 - money(price) / money(was)) - int(a["pct"])) > 2:     # the tag must be true
-            raise ValueError(f"value: {price} from {was} is not {a['pct']}% off")
+    check_price(a)
     py, gift = H - 170, a.get("gift")
     bot = gift_tag(d, W, py - 40, gift, dry=True) - 28 if gift else py - 40     # (the label itself is drawn last)
     fb = font("Inter.ttf", 26, "SemiBold")
@@ -1343,35 +1447,7 @@ def l_value(a, sd):
         if fh:
             y = put(d, head, fh, ESPRESSO, y + 34, W - 140, lh=1.0, dry=dry)
             prev = fh
-        if price:
-            ft, fw, fp = XB(40), SANS(64), fit_font(d, price, BLACK, psz, W - 110, 80)
-            if off or was:                                           # tag and struck was price on one row
-                tw, th = width(d, off, ft) + 1.4 * ft.size if off else 0, metrics(ft)[0] + ft.size
-                ww, wh = width(d, was, fw) if was else 0, sum(metrics(fw))
-                rh, top = max(th if off else 0, wh if was else 0), y + air(fp, prev, 0.3)
-                if not dry:
-                    x = W / 2 - (tw + ww + (30 if off and was else 0)) / 2
-                    if off:
-                        tag(d, x + tw / 2, top + (rh - th) / 2, off, RED, ft, kind="pill")
-                        x += tw + 30
-                    if was:
-                        struck(d, x, top + (rh - wh) / 2 + metrics(fw)[0], was, fw)
-                y = top + rh
-            top = y + air(fp, prev, 0.12 if (off or was) else 0.28) + int(0.1 * fp.size)        # ('$' rises above the caps)
-            if was:
-                top += int(0.25 * min(fw.size, fp.size))
-            y = put(d, price, fp, INK, top, W, lh=1.0, dry=dry)
-            prev = fp
-        else:                                                        # no price: the % as a red plate
-            fp = fit_font(d, off, BLACK, int(psz * 0.95), W - 260, 70)
-            ph_ = sum(metrics(fp)) + int(fp.size * 0.5)
-            top = y + air(fp, prev, 0.3)
-            pw = width(d, off, fp) + fp.size
-            if not dry:
-                pl = note("box", (W / 2 - pw / 2, top, W / 2 + pw / 2, top + ph_))
-                d.rounded_rectangle([W / 2 - pw / 2, top, W / 2 + pw / 2, top + ph_], radius=int(fp.size * 0.3), fill=RED)
-                put(d, off, fp, WHITE, top + int(fp.size * 0.25), W, host=pl)
-            y, prev = top + ph_, fp
+        y, prev = price_rows(d, W, y, price, was, off, psz, prev, dry)
         if sub:
             y = put(d, sub, fs, MUTED, y + air(fs, prev, 0.5), W - 180, lh=1.3, dry=dry)
         return y
@@ -1384,6 +1460,173 @@ def l_value(a, sd):
     psz = psz or 110
     y = stack(psz, False)
     place_packshot(c, load(sd, a["photo"]), room((110, y + 36, W - 110, bot), 340))
+    if gift:
+        gift_tag(d, W, py - 40, gift)
+    pill(d, W, py, a.get("cta", "Shop now"), bg=RED)
+    return c.convert("RGBA")
+
+
+# ---------------------------------------------------------------- AI scene layouts (scene, scene_quote, scene_price)
+SCENE_M = 64      # side margin of everything printed on a scene static (Meta feed: at least 64 px)
+SCENE_LABEL = "Verified Buyer"
+
+
+def scene_photo(a, sd, who):
+    """The AI scene photo a['photo'] (4:5, 1792x2240 or 896x1120) as RGB. A missing photo is a ValueError, and so is a face: the
+    DNN check (no_face strict=False; the photo was face-checked before it got here, this is the second look)."""
+    if not a.get("photo"):
+        raise ValueError(f"{who}: needs a photo")
+    if not os.path.isfile(os.path.join(sd, a["photo"])):
+        raise ValueError(f"{who}: photo {a['photo']} not found")
+    im = load(sd, a["photo"])
+    no_face(os.path.join(sd, a["photo"]), who, strict=False)
+    return im
+
+
+def l_scene(a, sd):
+    """l_native's calm look on an AI scene photo: the photo full bleed (cover-fit, 2k downscaled), one caption in the video caption
+    look in the lower third (below the bag, which the scenes put mid-frame; `caption_y` [0.6-0.9] sets its height) and the small
+    offer pill in the calmer top corner. Unlike native, a white / linen flat-lay is fine (no studio-packshot check). The spec's own
+    words only; with no caption and no offer the photo stands alone."""
+    W, H = a.get("size", [1080, 1350])
+    im = scene_photo(a, sd, "scene")
+    text, offer = a.get("caption") or a.get("headline"), offer_text(a)
+    ph = cover_photo(im, a, (W, H), 1.0)
+    calm = calm_of(ph)
+    c = ph.convert("RGBA")
+    d = ImageDraw.Draw(c)
+    if offer:
+        offer_pill(c, d, offer, calm, SCENE_M)
+    if text:
+        cy = a.get("caption_y")
+        native_caption(c, d, text, calm, SCENE_M + 8, ys=(min(max(float(cy), 0.6), 0.9),) if cy else (0.74, 0.78, 0.82, 0.86, 0.88),
+                       target=float(cy) if cy else 0.82, low=0.915)      # (nothing in the bottom 8%)
+    return c
+
+
+def l_scene_quote(a, sd):
+    """The AI scene photo over the top ~64%, under it the brand cream with ONE verbatim review on a white card (gold stars, the quote,
+    '— Author  ✓ Verified Buyer' only when the data says verified, all centred) and the CTA pill; the small offer pill sits in the
+    photo's calmer top corner. The quote comes from `quotes` / `reviews` exactly as in the quotes layout (nothing is cut or reworded,
+    none = an error). The photo gives up to 8% of its height before the quote text goes under 34 px."""
+    W, H = a.get("size", [1080, 1350])
+    qs = quote_items(a)[:1]
+    if not qs:
+        raise ValueError("scene_quote: no quote was passed in (none is ever made up)")
+    im = scene_photo(a, sd, "scene_quote")
+    text, author, verified, stars_on = qs[0]
+    offer = a.get("offer") or offer_text(a)
+    c = Image.new("RGB", (W, H), tuple(a.get("bg", CREAM)))
+    d = ImageDraw.Draw(c)
+    py, fn, fv, cw, s = H - 165, SANS(30, "SemiBold"), SANS(28), W - 2 * SCENE_M, 34
+    gap_top, gap_cta = 32, 44      # photo -> card, card -> CTA (the card is centred in what is left)
+
+    def lines(fq):
+        return wrap(d, "“" + text.strip() + "”", fq, cw - 2 * 40, True)
+
+    def height(fq):                # stars, quote, name: the card's height
+        return int(32 + (s + 18 if stars_on else 0) + put(d, lines(fq), fq, INK, 0, cw, cx=W / 2, lh=1.28, dry=True)
+                   + ((air(fn) + sum(metrics(fn))) if author else 0) + 32)
+    for share in (0.64, 0.60, 0.56):          # the photo gives room before the quote text goes under 34 px
+        ph_h = int(H * share)
+        free = py - gap_cta - (ph_h + gap_top)
+        for qsz in range(44, 29, -2):
+            fq = SANS(qsz, "Medium")
+            ch = height(fq)
+            if ch <= free:
+                break
+        if ch <= free and qsz >= 34:
+            break
+    if ch > free:
+        PROBLEMS.append(f"only {free}px left for the review (want {ch})")
+    ph = cover_photo(im, a, (W, ph_h), 1.0)
+    top = ph.convert("RGBA")
+    if offer:
+        offer_pill(top, ImageDraw.Draw(top), offer, calm_of(ph), SCENE_M)
+    c.paste(top.convert("RGB"), (0, 0))
+    d = ImageDraw.Draw(c)
+    y0 = ph_h + gap_top + max(0, (free - ch) // 2)
+    host = soft_card(c, d, SCENE_M, y0, cw, ch)
+    y = y0 + 32
+    if stars_on:
+        y = stars(d, W / 2 - (5 * s + 32) / 2, y, s, host=host) + 18
+    y = put(d, lines(fq), fq, INK, y, cw, cx=W / 2, lh=1.28, host=host)
+    if author:
+        nw = width(d, "— " + author, fn) + (20 + width(d, "✓ " + SCENE_LABEL, fv) if verified else 0)
+        name_line(d, W / 2 - nw / 2, y + air(fn), author, verified, fn, host=host, label=SCENE_LABEL)
+    pill(d, W, py, a.get("cta", "Shop now"), bg=RED)
+    return c.convert("RGBA")
+
+
+def price_lockup(d, W, y, price, was, off, psz, max_w, dry=False):
+    """The compact price block of scene_price from y (ink top): the big price with the red tag over the struck was price beside it,
+    one row centred on the canvas (about a third lower than price_rows' two rows). Returns (bottom, ink height); dry: measure only."""
+    for size in range(psz, 79, -4):                 # the biggest price at which price + tag / was price fit the width
+        fp = BLACK(size)
+        ft, fw = XB(max(26, int(fp.size * 0.27))), SANS(max(30, int(fp.size * 0.4)))
+        th, wh = metrics(ft)[0] + ft.size, sum(metrics(fw))
+        tw, ww = (width(d, off, ft) + 1.4 * ft.size) if off else 0, width(d, was, fw) if was else 0
+        cw_, ch = max(tw, ww), (th if off else 0) + (wh if was else 0) + (int(fp.size * 0.14) if off and was else 0)
+        pw, gap = width(d, price, fp), int(fp.size * 0.3) if cw_ else 0
+        if pw + gap + cw_ <= max_w:
+            break
+    top0, bot0 = d.textbbox((0, 0), price, font=fp, anchor="ls", **FEAT)[1::2]       # (the price's own ink: '$' dips)
+    h = max(bot0 - top0, ch)
+    if not dry:
+        x = W / 2 - (pw + gap + cw_) / 2
+        base = y + (h - (bot0 - top0)) / 2 - top0
+        d.text((x, base), price, font=fp, fill=INK, anchor="ls", **FEAT)
+        note("text", d.textbbox((x, base), price, font=fp, anchor="ls", **FEAT), size=fp.size, label=price)
+        cx, cy = x + pw + gap + cw_ / 2, y + (h - ch) / 2
+        if off:
+            tag(d, cx, cy, off, RED, ft, kind="pill")
+            cy += th + int(fp.size * 0.14)
+        if was:
+            struck(d, cx - ww / 2, cy + metrics(fw)[0], was, fw)
+    return y + h, h
+
+
+def l_scene_price(a, sd):
+    """The AI scene photo over the top ~70% (less when a gift label needs the room: down to 58%), under it on the brand cream the real
+    price of the value layout in one compact row: the big price, beside it the red '50% OFF' tag over the struck was price; then an
+    optional gift label and the CTA pill. The numbers are checked like value's (price / was / pct must agree within 2 points); with
+    no price a red '50% OFF' plate. Numbers come from the spec only."""
+    W, H = a.get("size", [1080, 1350])
+    price, was, off, gift = a.get("price"), a.get("was"), offer_text(a), a.get("gift")
+    check_price(a, "scene_price")
+    im = scene_photo(a, sd, "scene_price")
+    c = Image.new("RGB", (W, H), tuple(a.get("bg", CREAM)))
+    d = ImageDraw.Draw(c)
+    py, air_, mw = H - 170, 26, W - 2 * SCENE_M
+    nxt = gift_tag(d, W, py - 40, gift, dry=True) if gift else py               # what follows the price: the gift label or the CTA
+    fb = SANS(26)                                                                 # (its size only sets the air above the plate)
+
+    def block(psz, dry=True, y=0):         # (bottom, ink height) of the price row, or of the plate with no price
+        if price:
+            return price_lockup(d, W, y, price, was, off, psz, mw, dry)
+        end, fp = price_rows(d, W, y, price, was, off, psz, fb, dry, mw)
+        lead = air(fp, fb, 0.3)
+        return end, end - y - lead
+    got = None
+    for share in (0.70, 0.66, 0.62, 0.58):    # the biggest photo that leaves the price its room, then the biggest price
+        for psz in range(150, 99, -10):
+            if block(psz)[1] + 2 * air_ <= nxt - int(H * share):
+                got = share, psz
+                break
+        if got:
+            break
+    share, psz = got or (0.58, 100)
+    ph_h, ink = int(H * share), block(psz)[1]
+    if not got:                                # nothing fits: the smallest, and the problem is recorded
+        PROBLEMS.append(f"only {nxt - ph_h}px left for the price (want {ink + 2 * air_})")
+    c.paste(cover_photo(im, a, (W, ph_h), 1.0), (0, 0))
+    d = ImageDraw.Draw(c)
+    y = ph_h + air_ + max(0, (nxt - ph_h - ink - 2 * air_) // 2)
+    if price:
+        block(psz, False, y)
+    else:                                      # (price_rows' own leading air sits above the plate)
+        end, fp = price_rows(d, W, 0, price, was, off, psz, fb, True, mw)
+        price_rows(d, W, y - air(fp, fb, 0.3), price, was, off, psz, fb, False, mw)
     if gift:
         gift_tag(d, W, py - 40, gift)
     pill(d, W, py, a.get("cta", "Shop now"), bg=RED)

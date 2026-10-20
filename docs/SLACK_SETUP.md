@@ -48,13 +48,13 @@ balance, so fund it and set a monthly limit.
 ## 2. Connectors and the credit block
 
 - Google Drive and Higgsfield must be connected for the account (DM) or channel that runs the work.
-- Higgsfield connector → tool settings: set every image and video generator to **Blocked**:
-  generate_image, generate_image_batch, generate_video, generate_video_batch, execute_preset,
-  ads_studio_generate, ai_influencer_generate, shorts_studio_create, motion_control, upscale_*,
-  reframe, outpaint_image, remove_background, create_voice. Keep allowed: generate_audio_batch,
-  generate_audio, jobs_wait, balance, transactions, media_upload. The repo also denies these tools
-  (`.claude/settings.json`), but written instructions alone did not stop a Slack session from making
-  AI images once, so this switch is the real guard.
+- Higgsfield connector → tool settings (since 2026-10-20 the pipeline makes AI scene stills and short clips of the real
+  bag, capped at 100 credits per batch, voiceover included): keep **Allowed**: generate_audio_batch, generate_audio,
+  generate_image, generate_image_batch, generate_video, generate_video_batch, jobs_wait, balance, transactions,
+  media_upload, media_confirm. Set everything else that generates to **Blocked**: execute_preset, ads_studio_generate,
+  ai_influencer_generate, shorts_studio_create, motion_control, upscale_*, reframe, outpaint_image, remove_background,
+  create_voice. The repo denies the blocked ones too (`.claude/settings.json`); `pipeline/ai_gen.py` plans only the
+  scenes it lists in `ai_needed.json` and CLAUDE.md rule 1 says to make nothing else.
 
 ## 3. The channel (optional when you use DMs)
 
@@ -75,8 +75,10 @@ balance, so fund it and set a monthly limit.
 3. Channel instructions (paste):
    > For every request use the GitHub repo LibracasesAgent/Higgsfield-test and follow its CLAUDE.md
    > exactly. Ads are made with pipeline/make_batch.py from real product photos and real footage. The
-   > only Higgsfield calls allowed are text-to-speech voiceovers (generate_audio_batch), jobs_wait,
-   > balance and transactions. Never generate AI images or AI video. Upload everything to Google Drive
+   > only Higgsfield calls allowed are text-to-speech voiceovers (generate_audio_batch), the AI scene stills
+   > and clips that make_batch plan lists in ai_needed.json (generate_image_batch / generate_video_batch,
+   > at most 100 credits per batch in total), jobs_wait, balance and transactions. Never any other AI
+   > generation. Upload everything to Google Drive
    > Outputs with make_batch.py upload. Never publish, delete or move files. Don't ask questions: decide
    > sensibly and reply once with the Drive folder link, the ad list and the credits used.
 4. Pin `docs/CLIENT_GUIDE.md` (or a copy of it) in the channel (or keep it next to the DM).

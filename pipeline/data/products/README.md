@@ -3,7 +3,7 @@
 Products that are not built into `pipeline/make_batch.py` (`PRODUCTS`) live here as
 `<slug>.json`, e.g. `silhouette-bag.json`. They are made from the client's Drive folder by
 `pipeline/new_product.py` and built into ads in the same house style as the built-in bags: real photos and
-footage, our voiceover, captions, tags, offer card, end card. No AI images or AI video.
+footage (plus AI scenes of the real bag, ai_gen.py), our voiceover, captions, tags, offer card, end card.
 
 ## The flow (no human step)
 

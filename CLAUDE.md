@@ -10,21 +10,32 @@ video lengths or static sizes yourself, and never copy an earlier run: ignore ev
 spec you find in this thread, in Drive or on other branches (the 2026-10-14 "hook test" run was a mistake, see rule 6).
 Statics come only from `make_batch.py` (its own layouts and sizes: never your own 1:1 / 4:5 / 9:16 sets or backgrounds).
 Order: section 0 setup, then the plan command of the pipeline's section, then section 5. `plan` already avoids openings
-used before, so don't read other branches or Drive folders to "avoid repeats".
+used before (and, with `pipeline/data/novelty_log.json`, the scenes, photos, captions and hooks of the product's last batches), so
+don't read other branches or Drive folders to "avoid repeats". The AI scene stills and clips are what `plan` writes to
+`ai_needed.json` (section 5, step 2b): never make AI images or video of your own.
 
 The repo's default branch is `claude/loving-meitner-4amjii`. Read `docs/PLAYBOOK.md` once per session
 (client feedback, approved claims, recipes, every bug already fixed).
 
 ## HARD RULES
 
-1. **No AI images, no AI video.** Higgsfield's image and video generators are blocked for this project
-   (`.claude/settings.json` and the connector settings): don't call them, don't look for a way around it.
-   Statics come from real product photos, videos from real footage, both through `make_batch.py`.
-2. **The only Higgsfield calls:** `generate_audio_batch` (text2speech_v2) for the lines in
-   `tts_needed.json`, `jobs_wait`, `balance`, `transactions`. One ugc project (the default video: one voice take
-   per chapter + 4 hook lines) costs about 4-5 credits, a full batch (5 projects) about 22, a normal request
-   under 25; `plan` refuses more than 40 unless you pass `--budget X`, which you only do when the request names
-   a bigger budget. Check `balance` before and after; report both.
+1. **AI only as the real bag in a new scene, only through `ai_gen.py`** (owner 2026-10-20: the statics repeated across
+   batches). Every static and video shows the real product: a scene still is the real packshot placed in a new scene (cafe,
+   street from behind, hallway, flat-lay ...) and a clip is a still animated for 3 s; real photos and real footage stay the
+   base (zips, pockets, hands, the real bag). You make exactly what `plan` lists in `$OUT/ai_needed.json` (models, prompts and
+   ids are in it): images with `gpt_image_2_5` (medium, 2k), clips with `kling3_0` / `minimax_hailuo`. Never: other
+   generators or models, presets, Ads Studio, AI influencer / avatars / characters, `execute_preset`, upscalers, voice
+   cloning, a face in any picture, a prompt of your own. An AI asset ships only when it passed `ai_gen.py gate` / `clips`
+   AND you looked at its contact sheet and the bag is the real bag (shape, colour, handles, hardware) in a believable real
+   photo / clip: otherwise `ai_gen.py reject <id>` (render puts the real photo / footage back). `plan --no-ai` = real
+   photos and footage only.
+2. **The only Higgsfield calls:** `generate_audio_batch` (text2speech_v2) for the lines in `tts_needed.json`;
+   for the AI assets `media_upload` + `media_confirm`, `generate_image_batch`, `generate_video_batch`; and `jobs_wait`,
+   `balance`, `transactions`. One ugc project (one voice take per chapter + 4 hook lines) costs about 4-5 credits, a full
+   batch (5 projects) about 22; a scene still ~1, a clip 4.5-6. **A batch is capped at 100 credits, voiceover + AI together**
+   (`plan` plans the AI part inside it: 100 - voiceover - a reserve of 8 for one re-make of a failed asset; `plan` refuses more
+   than 40 for voiceover alone unless you pass `--budget X`, and takes `--ai-cap X` only when the request names another total).
+   Never generate an asset twice without a reason, never go over the cap. Check `balance` before and after; report both.
 3. **Only true claims, Meta-compliant.** Offers, gifts and reviews come from the product data (`make_batch.py`
    handles it). Any line you write yourself (`--lines`, product files, ad copy edits) uses only facts from
    libracases.com or `docs/PLAYBOOK.md` §1 (built-in bags), and for a new product only its Drive folder's notes
@@ -218,6 +229,7 @@ then `--product "<key>"`. No folder, no photos, not on the site: make nothing an
 | "the old format" / "classic videos" | add `--classic` (the pre-2026-10-14 output: classic video formats showcase / features / reviews / colours, 40-60 s, and the old static cycle). Only when the request asks for it |
 | "winners with reviews" | add `--winner-reviews` (only when asked: by default winner videos keep their proven body untouched) |
 | "no music" | add `--no-music` |
+| "no AI" / "real photos only" | add `--no-ai` (no scene stills / clips; ai_gen.py) |
 | "redo project 2" (in the thread) | same plan flags (new product: the folder name, never `next`) with `--seed <N+1> --only P02`, N = the `seed` the first plan printed, into a new `--out` (only P02 is voiced, rendered, uploaded; names move to `_v2` by themselves; a winner project: only its H1 changes, plan says so) |
 | "another hook for P02 H3" | same plan flags with `--seed <N> --hook-seed <N+1> --only P02H3`, N as above (same body, a new hook; exits 2 if no unused hook is left: say so) |
 | "drop S03" / "delete …" | nothing to plan: never delete or move Drive files. Reply that it stays in the Drive folder and is simply not uploaded to Meta |
@@ -247,6 +259,21 @@ python3 pipeline/make_batch.py plan <flags> --request "<the request text>" --out
    (`V01_c1.mp3` ... the 4 hook versions share them) + one short line per hook (`P01H2_hook.mp3` ...): read the take as
    written, never reword it. The lead's voice choice, when there is one, is in `pipeline/data/voice.json` (plan applies
    it: the items already carry its `voice_id`; render speeds the take up by its `speed`, default 1.12).
+2b. **AI scenes** (when `plan` printed `"ai"` / wrote `$OUT/ai_needed.json`; `python3 pipeline/ai_gen.py show --out $OUT`): do it
+   right after the voiceovers' submit (they run in parallel).
+   1. Upload each distinct `ref` file once (`media_upload`, `curl -X PUT` the file, `media_confirm`); one `generate_image_batch`
+      per 12 stills (`model` / `params` / `prompt` exactly as listed, `medias: [{value: <media id>, role: image_references}]`,
+      `use_unlim` false); `jobs_wait`; download each result to `$OUT/<file>` (`curl -sSL -o`).
+   2. `python3 pipeline/ai_gen.py gate --out $OUT`, then **look at `$OUT/qa/ai_stills.jpg`** (reference | still): `python3
+      pipeline/ai_gen.py reject --out $OUT AS03 ...` for any still where the bag's shape, colour, handles or hardware differ,
+      that shows a face, a chin or a mouth, or that looks AI (plastic, melted, odd hands, text). Never ship one you doubt.
+   3. For every clip whose start still (`AV..`) passed: `generate_video_batch` (start_image = that still's job id, `model` /
+      `params` / `prompt` as listed); `jobs_wait`; download to `$OUT/<file>`; `python3 pipeline/ai_gen.py clips --out $OUT`;
+      **look at `$OUT/qa/ai_clips.jpg`** (4 frames per clip) and `reject` AC.. ids where the bag morphs, a hand looks wrong, or
+      it looks AI. A failed still / clip is not remade unless the reserve covers it (one retry, same prompt, then give up).
+   `render` applies the result by itself: a rejected or missing still gives its static back as the real-photo static it
+   replaced, a rejected or missing clip is swapped for the block's real spare shot. The statics with AI scenes are rendered
+   after step 2b.1-2 (so `render --only S` can wait for the stills while the videos wait for the voices and clips).
 3. **Render** (statics: a few minutes in all; about 20-25 min per project of 4 versions, 2 videos at a time; a
    batch of 20 statics + 5 projects is about 2 hours; each ugc video also gets its scorecard, a few seconds), detached:
    `setsid nohup python3 pipeline/make_batch.py render --out $OUT > $OUT/render.log 2>&1 < /dev/null &`
@@ -279,11 +306,13 @@ python3 pipeline/make_batch.py plan <flags> --request "<the request text>" --out
    one block per project · the ad copy file · plan warnings (fewer than 4 versions, openings already used in an
    earlier batch, a hook line opening 3+ versions, `thin script`, "needs a human" items) · QA flags · the scorecard (one line for
    the batch: how many ugc videos met the targets and the misses that repeat, e.g. "17 of 20 at 185-215 wpm; shots avg 2.7 s")
-   · music (the client's track or the generated bed; winners: the RAW's own sound) · credits used (balance before → after) ·
+   · AI scenes (how many stills / clips passed the gate and shipped, which scenes, how many fell back to real photos / footage) ·
+   music (the client's track or the generated bed; winners: the RAW's own sound) · credits used (balance before → after, voiceover + AI) ·
    anything skipped, failed or needing a human.
 7. Commit the specs (JSON only, no media, no secrets) into the pipeline's folder:
    `python3 pipeline/make_batch.py specs --out $OUT --to pipeline/recipes/<winners|new_products|daily>/<plan YYYY-MM-DD>/<short-name>`,
-   plus any new or changed product file (a new product's always changes: its `tests`); commit, push.
+   plus any new or changed product file (a new product's always changes: its `tests`) and `pipeline/data/novelty_log.json` (upload
+   adds the batch: the next batch avoids its scenes, photos, captions and hooks); commit, push.
 
 **Music:** storyboard videos get a bed under the voice automatically: the client's licensed tracks from
 `pipeline/assets/music/` when there are any, otherwise a generated bed (made by `pipeline/music.py`, nothing to

@@ -11,7 +11,7 @@ and every bug we hit and how it was fixed. `CLAUDE.md` is the short checklist; t
 A Slack session that did not use this repo spent ~160 credits on GPT images, Seedance and 10 s Kling
 clips and produced dark, off-brand ads. The client's look is: real product photos + real footage,
 cream/white brand layouts, captions, review cards, offer and end card. That is why `CLAUDE.md` now
-forces `pipeline/make_batch.py` (templates, no AI images/video) for every normal request.
+forces `pipeline/make_batch.py` (templates, real photos and footage; AI only as the real bag in a new scene, section 4e) for every normal request.
 
 ## 1. Client and brand
 
@@ -44,7 +44,7 @@ forces `pipeline/make_batch.py` (templates, no AI images/video) for every normal
 3. "Yes on all" to showing the 10 customer reviews with names.
 4. "The quality is definitely too low." Cause: 720p AI clips, low-quality start images, 8 Mbps exports.
    Fix that worked: real 1080p/4K library footage, site photos for statics, exports at CRF 17 / ~10-14 Mbps.
-   (The 10-02 test also used Kling pro and GPT image high for AI shots: historical, AI images/video are not allowed now.)
+   (The 10-02 test also used Kling pro and GPT image high for free-form AI shots: historical. Since 2026-10-20 only the real bag in a new scene, section 4e.)
 5. Videos too short: winners run **50 s to 1:25**. Target ~1 min with more elements (hook, labels, tags,
    reviews, real customer clips, offer card, end card). Statics "look acceptable".
 6. The zipper didn't move in an early AI ad: AI hands/zips are unreliable, use real footage for mechanics.
@@ -152,7 +152,7 @@ Formats that worked (scripts in section 5):
 - **Reviews compilation:** 6 named reviews + real customer unboxing clips (V14).
 - **Colour pick:** "Be honest. Which colour are you?" with swatch frames + tags (V15).
 - **Feature walkthrough** on 4K macro clips with tags (V16).
-- **AI presenter (V17, historical: not allowed).** CLAUDE.md hard rule 1 forbids AI images and AI video; never remake it.
+- **AI presenter (V17, historical: not allowed).** CLAUDE.md hard rule 1 allows AI only as the real bag in a new scene; no AI presenter or person, never remake it.
 - **What fits:** packing shots + the site's "what fits" infographic padded to 9:16 (V18).
 - **Story** (`plan --story`, or a request that asks for a story / long video): 1.5-2 min, QA 60-130 s: every feature,
   the real customer in full, the colours, as many reviews as fit, the offer. It runs as long as the real material
@@ -201,9 +201,9 @@ product's feature tags as ticks + the offer pill). 1080x1350.
   (60, 400, 1020, 1120), above the caption band. A `"statics": false` photo (part of a head) is in no static. A
   folder with clips but no faceless photo gets no statics (one warning: the client must add photos).
 
-### 4d. AI shots (Higgsfield): HISTORICAL, NOT ALLOWED
-Kept only as a record of the 10-02 test. CLAUDE.md hard rule 1: no AI images, no AI video, the Higgsfield image and
-video tools are blocked. Do not follow these steps.
+### 4d. Free-form AI shots (Higgsfield): HISTORICAL, NOT ALLOWED
+Kept only as a record of the 10-02 test (a free-form AI shot: made-up product, presenter). Do not follow these steps. The
+allowed AI is 4e.
 - Upload the site photo padded to 9:16 (`media_upload` → PUT with headers `Content-Type` and
   `If-None-Match: *` → `media_confirm`).
 - `kling3_0`, `mode: pro`, 5 s, 9:16, `start_image`. Prompt pattern: "Premium studio product film. The
@@ -536,3 +536,22 @@ crowd or a commute are shown with the closest footage (`kw_terms` folds those wo
 client would show them. A library clip is an edited video: a picked moment can contain its own cut (a 0.5 s flash). Detail macros
 of a product file can carry the product page's white corners. The estimate is calibrated on espeak (placeholder renders came out 4-17% shorter than estimated); a real ElevenLabs voice runs about as
 estimated, so the `shortened` guard (80%, ugc 70%: the estimate is a guess at the voice's pace) still has room.
+
+### 4e. AI scenes of the real bag (owner 2026-10-20, 100 credits per batch, `pipeline/ai_gen.py`)
+Why: the client said the statics repeat across batches. What: the real packshot (reference image) placed in a new scene, as
+a static (layouts `scene`, `scene_quote`, `scene_price`, about 40% of a batch's statics, more when the real-photo cycle would
+repeat a layout) and as 3 s clips (extra shots in the ugc videos; at most 5 per video, each project draws on 4 of the batch's
+8). Library: `pipeline/data/ai_scenes.json` (42 scenes: object / worn from behind / hand; add scenes there). Rotation:
+`pipeline/novelty.py` logs each upload (`data/novelty_log.json`, commit it); a batch takes the scenes shown longest ago.
+Tested 2026-10-20 on the Silhouette Bag (same prompts, same reference):
+- Stills: `gpt_image_2_5` (medium, 2k, 1 credit) keeps the bag's shape, zipper tabs and colour and looks like a photograph.
+  `kling_omni_image` (0.5) is good for close-ups on the shoulder but the cafe / car scenes look dark and AI.
+  `marketing_studio_image` (2) changed the bag's shape: never use it. gpt at 1k high (1.5) is no better than 2k medium.
+- Clips: `kling3_0` std 3 s silent (4.5) is steadiest for still scenes (push-in); `minimax_hailuo` 2.3 768p 6 s (6, trimmed
+  to ~3 s) for walking and hands. `seedance_2_5` (28) and `grok_video_v15` (13.5) are too expensive for a 3 s filler.
+- Faces: ask for "photographed from behind at shoulder height" (a prompt "cut at the collarbone" still showed a chin). The
+  DNN face check misses a chin with no eyes and the Haar check fires on hair / linen: the agent LOOKS at the contact sheet.
+- Gate (`ai_gen.py gate` / `clips`): face (YuNet), the bag's colour present, sharpness, motion / black / frozen frames,
+  conform to 1080x1920 / 30 fps with grain and the real footage's saturation / contrast. Failed or rejected assets fall back
+  (`ai_gen.apply`, run by `render`): the static returns as the real-photo static it replaced, the shot becomes the block's real spare.
+- Cost of a full batch (20 statics + 5 projects): ~12 statics 12 + 8 clip start stills 8 + 8 clips ~42 = ~58, voiceover ~22, total ~80.

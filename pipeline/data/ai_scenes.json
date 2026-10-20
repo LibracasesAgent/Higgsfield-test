@@ -1,0 +1,687 @@
+{
+  "_help": "Scene library for the AI stills and clips (pipeline/ai_gen.py, owner 2026-10-20). kind: object (the bag alone, no person), worn (worn on the shoulder, frame cut below the chin), hand (a hand holds it, no head). {noun} = handbag / backpack ..., {colour} = the colour of the reference photo. tags = words a ugc script phrase can match (the clip is chosen for a phrase that says them). nouns: the product kinds a scene fits (missing = all). clip.model: kling3_0 (still scenes, 3 s) or minimax_hailuo (walking / hands, 6 s trimmed). Add scenes here: ai_gen never picks one used in the product's last 3 batches (data/novelty_log.json).",
+  "style": "Photorealistic candid lifestyle photograph, natural light, shot on a 35mm lens, shallow depth of field, true-to-life colours, fine film grain, no text, no logos, no watermark.",
+  "keep": "The exact {noun} from the reference image, unchanged: same colour{colour_note}, same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it.",
+  "face": "The picture contains no face at all: nobody is looking at the camera and no eyes, nose or mouth are visible; the top edge of the frame cuts the person off at shoulder height.",
+  "motion": {
+    "object": "Subtle realistic handheld camera, slow gentle push-in toward the {noun}, soft natural light shifts a little, small ambient movement in the background. The {noun} stays exactly the same shape, colour and details, no morphing. No people.",
+    "worn": "Candid footage, steady camera follows the woman as she walks away from the camera, the {noun} sways gently on her shoulder, background softly blurred. The {noun} stays exactly the same shape, colour and details, no morphing. The frame stays cut at shoulder height: no face visible.",
+    "hand": "A hand gently lifts and swings the {noun} a little by its handles, camera steady with a slight push-in, soft natural light. The {noun} stays exactly the same shape, colour and details, no morphing. No face, no head in frame."
+  },
+  "scenes": [
+    {
+      "id": "cafe_chair",
+      "kind": "object",
+      "tags": [
+        "cafe",
+        "chair",
+        "sit",
+        "table",
+        "coffee",
+        "out",
+        "everyday",
+        "break"
+      ],
+      "prompt": "The {noun} rests on the seat of a wooden cafe chair beside a small marble table with a latte, morning window light, soft shadows. No people."
+    },
+    {
+      "id": "cafe_table_hand",
+      "kind": "hand",
+      "tags": [
+        "cafe",
+        "table",
+        "coffee",
+        "phone",
+        "hand",
+        "out",
+        "everyday"
+      ],
+      "prompt": "The {noun} stands on a marble cafe table beside a latte and a phone, a woman's hand resting near it, only the hand and forearm in frame, morning window light."
+    },
+    {
+      "id": "car_seat",
+      "kind": "object",
+      "tags": [
+        "car",
+        "drive",
+        "seat",
+        "commute",
+        "travel",
+        "road",
+        "trip"
+      ],
+      "prompt": "The {noun} sits on the beige leather passenger seat of a car, handles over the seat edge, soft daylight through the window. No people."
+    },
+    {
+      "id": "flatlay_travel",
+      "kind": "object",
+      "tags": [
+        "travel",
+        "trip",
+        "pack",
+        "packing",
+        "flight",
+        "weekend",
+        "holiday",
+        "bag"
+      ],
+      "prompt": "Flat-lay from above: the {noun} lies on a light linen bedspread next to a folded cream knit, sunglasses, a lipstick and a passport, tidy travel-packing mood. No people."
+    },
+    {
+      "id": "entryway_console",
+      "kind": "object",
+      "tags": [
+        "home",
+        "door",
+        "keys",
+        "leave",
+        "grab",
+        "morning",
+        "out",
+        "go"
+      ],
+      "prompt": "The {noun} on a wooden console table in a bright entryway, a key bowl, a small mirror and a plant beside it, soft morning light from a window. No people."
+    },
+    {
+      "id": "desk_office",
+      "kind": "object",
+      "tags": [
+        "work",
+        "office",
+        "laptop",
+        "desk",
+        "busy",
+        "day",
+        "meeting"
+      ],
+      "prompt": "The {noun} on an office desk beside a laptop, a notebook and a coffee mug, daylight from a large window. No people."
+    },
+    {
+      "id": "sofa_arm",
+      "kind": "object",
+      "tags": [
+        "home",
+        "relax",
+        "evening",
+        "sofa",
+        "cosy",
+        "weekend"
+      ],
+      "prompt": "The {noun} resting on the arm of a cream sofa with a knit throw, warm lamp light in the evening. No people."
+    },
+    {
+      "id": "park_bench",
+      "kind": "object",
+      "tags": [
+        "park",
+        "walk",
+        "autumn",
+        "weekend",
+        "bench",
+        "outside",
+        "out"
+      ],
+      "prompt": "The {noun} on a park bench in soft autumn light, a few fallen leaves, blurred trees behind. No people."
+    },
+    {
+      "id": "restaurant_chair",
+      "kind": "object",
+      "tags": [
+        "dinner",
+        "restaurant",
+        "night",
+        "evening",
+        "date",
+        "table",
+        "out"
+      ],
+      "prompt": "The {noun} hanging from the back of a restaurant chair at a candlelit table with wine glasses, warm evening ambience. No people."
+    },
+    {
+      "id": "airport_seat",
+      "kind": "object",
+      "tags": [
+        "airport",
+        "travel",
+        "flight",
+        "trip",
+        "gate",
+        "boarding",
+        "holiday"
+      ],
+      "prompt": "The {noun} on a seat in a bright airport lounge beside a boarding pass and a suitcase handle, large windows behind. No people."
+    },
+    {
+      "id": "vanity_marble",
+      "kind": "object",
+      "tags": [
+        "ready",
+        "morning",
+        "perfume",
+        "makeup",
+        "mirror",
+        "getting"
+      ],
+      "prompt": "The {noun} on a marble vanity beside a perfume bottle, a brush and a small mirror, soft bathroom daylight. No people."
+    },
+    {
+      "id": "kitchen_island",
+      "kind": "object",
+      "tags": [
+        "home",
+        "morning",
+        "kitchen",
+        "breakfast",
+        "start",
+        "day"
+      ],
+      "prompt": "The {noun} on a light kitchen island next to a bowl of fruit and a mug, early morning sun. No people."
+    },
+    {
+      "id": "train_seat",
+      "kind": "object",
+      "tags": [
+        "train",
+        "commute",
+        "travel",
+        "window",
+        "trip",
+        "ride"
+      ],
+      "prompt": "The {noun} on a train seat beside the window, countryside passing blurred outside, soft daylight. No people."
+    },
+    {
+      "id": "bookstore_table",
+      "kind": "object",
+      "tags": [
+        "shop",
+        "weekend",
+        "books",
+        "browse",
+        "out",
+        "afternoon"
+      ],
+      "prompt": "The {noun} on a wooden table in a bookstore beside a stack of books, warm afternoon light. No people."
+    },
+    {
+      "id": "hotel_bed",
+      "kind": "object",
+      "tags": [
+        "hotel",
+        "travel",
+        "trip",
+        "holiday",
+        "weekend",
+        "stay",
+        "room"
+      ],
+      "prompt": "The {noun} on a hotel bed with crisp white linens and a room key card, soft daylight. No people."
+    },
+    {
+      "id": "street_coat",
+      "kind": "worn",
+      "nouns": [
+        "handbag"
+      ],
+      "tags": [
+        "shoulder",
+        "walk",
+        "wear",
+        "street",
+        "city",
+        "carry",
+        "everywhere",
+        "out",
+        "day",
+        "go"
+      ],
+      "prompt": "A woman in a camel coat walks away from the camera down a European street, photographed from behind and slightly from the side at shoulder height, the {noun} on her shoulder, overcast soft light, blurred street ahead."
+    },
+    {
+      "id": "blazer_walk",
+      "kind": "worn",
+      "nouns": [
+        "handbag"
+      ],
+      "tags": [
+        "shoulder",
+        "walk",
+        "wear",
+        "blazer",
+        "work",
+        "city",
+        "carry",
+        "everywhere",
+        "out"
+      ],
+      "prompt": "A woman in a cream blazer and trousers walks along a city sidewalk, photographed from behind and slightly from the side at shoulder height, the {noun} on her shoulder, golden hour light, blurred street ahead."
+    },
+    {
+      "id": "dress_market",
+      "kind": "worn",
+      "nouns": [
+        "handbag"
+      ],
+      "tags": [
+        "shoulder",
+        "walk",
+        "wear",
+        "summer",
+        "weekend",
+        "market",
+        "carry",
+        "out",
+        "everywhere"
+      ],
+      "prompt": "A woman in a light summer dress walks through an outdoor market, photographed from behind and slightly from the side at shoulder height, the {noun} on her shoulder, bright sunny day, blurred stalls ahead."
+    },
+    {
+      "id": "jeans_errands",
+      "kind": "worn",
+      "nouns": [
+        "handbag"
+      ],
+      "tags": [
+        "shoulder",
+        "walk",
+        "wear",
+        "errands",
+        "casual",
+        "coffee",
+        "carry",
+        "out",
+        "everywhere",
+        "day"
+      ],
+      "prompt": "A woman in jeans, a white tee and a trench coat crosses a street, photographed from behind and slightly from the side at waist-to-shoulder height, the {noun} on her shoulder and a coffee cup in her other hand, soft daylight."
+    },
+    {
+      "id": "hallway_hand",
+      "kind": "hand",
+      "tags": [
+        "hand",
+        "hold",
+        "carry",
+        "home",
+        "door",
+        "keys",
+        "leave",
+        "grab",
+        "go",
+        "morning"
+      ],
+      "prompt": "A hand holds the {noun} by its handles at hip height in a bright apartment hallway, keys on a hook and a coat on the wall behind, only the hand, arm and torso from the waist down in frame."
+    },
+    {
+      "id": "taxi_step",
+      "kind": "hand",
+      "tags": [
+        "hand",
+        "hold",
+        "carry",
+        "travel",
+        "taxi",
+        "city",
+        "arrive",
+        "out",
+        "go",
+        "trip"
+      ],
+      "prompt": "A woman steps out of a taxi onto a city pavement, the {noun} held on her forearm, only the arm, hand and torso from the waist down in frame, soft daylight."
+    },
+    {
+      "id": "office_corridor",
+      "kind": "worn",
+      "nouns": [
+        "handbag"
+      ],
+      "tags": [
+        "shoulder",
+        "walk",
+        "wear",
+        "office",
+        "work",
+        "carry",
+        "busy",
+        "day",
+        "meeting",
+        "go"
+      ],
+      "prompt": "A woman in a tailored blazer walks away down a bright office corridor, photographed from behind at shoulder height, the {noun} on her shoulder and a laptop in her other hand."
+    },
+    {
+      "id": "balcony_morning",
+      "kind": "object",
+      "tags": [
+        "home",
+        "morning",
+        "balcony",
+        "coffee",
+        "start",
+        "day",
+        "relax",
+        "weekend"
+      ],
+      "prompt": "The {noun} on a small wrought-iron balcony table beside a coffee cup and a croissant, soft early morning sun, a blurred rooftop view behind. No people."
+    },
+    {
+      "id": "picnic_blanket",
+      "kind": "object",
+      "tags": [
+        "park",
+        "picnic",
+        "weekend",
+        "outside",
+        "summer",
+        "out",
+        "relax",
+        "day"
+      ],
+      "prompt": "The {noun} on a checked picnic blanket in a sunny park beside a straw hat and a basket of fruit, soft summer light. No people."
+    },
+    {
+      "id": "beach_towel",
+      "kind": "object",
+      "tags": [
+        "beach",
+        "holiday",
+        "summer",
+        "trip",
+        "travel",
+        "sun",
+        "vacation",
+        "weekend"
+      ],
+      "prompt": "The {noun} resting on a folded linen towel on a sandy beach beside sunglasses, warm late afternoon light, a soft blurred sea behind. No people."
+    },
+    {
+      "id": "hotel_lobby",
+      "kind": "object",
+      "tags": [
+        "hotel",
+        "travel",
+        "trip",
+        "arrive",
+        "city",
+        "lobby",
+        "weekend",
+        "stay"
+      ],
+      "prompt": "The {noun} on a velvet bench in a quiet hotel lobby beside a small suitcase, warm ambient light. No people."
+    },
+    {
+      "id": "rooftop_table",
+      "kind": "object",
+      "tags": [
+        "night",
+        "evening",
+        "dinner",
+        "drinks",
+        "out",
+        "city",
+        "date",
+        "friends"
+      ],
+      "prompt": "The {noun} on a rooftop terrace table beside a glass of sparkling water and candles at dusk, city lights blurred behind. No people."
+    },
+    {
+      "id": "gallery_bench",
+      "kind": "object",
+      "tags": [
+        "weekend",
+        "museum",
+        "art",
+        "browse",
+        "out",
+        "afternoon",
+        "city",
+        "walk"
+      ],
+      "prompt": "The {noun} on a wooden bench in a bright art gallery, a blurred painting on the wall behind. No people."
+    },
+    {
+      "id": "library_table",
+      "kind": "object",
+      "tags": [
+        "work",
+        "study",
+        "books",
+        "desk",
+        "focus",
+        "day",
+        "busy",
+        "laptop"
+      ],
+      "prompt": "The {noun} on a long oak library table beside a stack of books and a notebook, soft window light. No people."
+    },
+    {
+      "id": "wardrobe_shelf",
+      "kind": "object",
+      "tags": [
+        "home",
+        "ready",
+        "morning",
+        "closet",
+        "outfit",
+        "getting",
+        "choose",
+        "everyday"
+      ],
+      "prompt": "The {noun} on an open wardrobe shelf among folded knitwear and a pair of loafers, soft bedroom daylight. No people."
+    },
+    {
+      "id": "bedroom_dresser",
+      "kind": "object",
+      "tags": [
+        "home",
+        "ready",
+        "morning",
+        "perfume",
+        "mirror",
+        "getting",
+        "evening",
+        "night"
+      ],
+      "prompt": "The {noun} on a bedroom dresser beside a jewellery dish and a perfume bottle, warm morning light on a plain wall. No people."
+    },
+    {
+      "id": "cinema_seat",
+      "kind": "object",
+      "tags": [
+        "night",
+        "evening",
+        "date",
+        "out",
+        "movie",
+        "weekend",
+        "friends",
+        "fun"
+      ],
+      "prompt": "The {noun} on a red velvet cinema seat, a soft glow from the screen in the dark background. No people."
+    },
+    {
+      "id": "spa_lounge",
+      "kind": "object",
+      "tags": [
+        "relax",
+        "weekend",
+        "spa",
+        "treat",
+        "home",
+        "calm",
+        "evening",
+        "break"
+      ],
+      "prompt": "The {noun} on a cream lounge chair beside a folded towel in a calm spa lounge, soft diffused light. No people."
+    },
+    {
+      "id": "scooter_street",
+      "kind": "object",
+      "tags": [
+        "city",
+        "street",
+        "ride",
+        "out",
+        "summer",
+        "go",
+        "errands",
+        "everywhere"
+      ],
+      "prompt": "The {noun} hanging from the handlebar of a parked vintage scooter on a sunny cobbled street, blurred shopfronts behind. No people."
+    },
+    {
+      "id": "rainy_umbrella",
+      "kind": "worn",
+      "nouns": [
+        "handbag"
+      ],
+      "tags": [
+        "shoulder",
+        "walk",
+        "wear",
+        "rain",
+        "city",
+        "carry",
+        "everywhere",
+        "out",
+        "day",
+        "go"
+      ],
+      "prompt": "A woman walks away from the camera along a wet city street under a transparent umbrella, photographed from behind at shoulder height, the {noun} on her shoulder, reflections on the pavement, soft grey light."
+    },
+    {
+      "id": "museum_stairs",
+      "kind": "worn",
+      "nouns": [
+        "handbag"
+      ],
+      "tags": [
+        "shoulder",
+        "walk",
+        "wear",
+        "weekend",
+        "city",
+        "museum",
+        "carry",
+        "out",
+        "everywhere",
+        "day"
+      ],
+      "prompt": "A woman in a long black coat climbs wide stone steps away from the camera, photographed from behind at shoulder height, the {noun} on her shoulder, soft overcast light."
+    },
+    {
+      "id": "autumn_walk",
+      "kind": "worn",
+      "nouns": [
+        "handbag"
+      ],
+      "tags": [
+        "shoulder",
+        "walk",
+        "wear",
+        "autumn",
+        "park",
+        "carry",
+        "everywhere",
+        "out",
+        "day",
+        "weekend"
+      ],
+      "prompt": "A woman in a knit sweater and long skirt walks along a leaf-covered park path away from the camera, photographed from behind at shoulder height, the {noun} on her shoulder, golden autumn light."
+    },
+    {
+      "id": "airport_walk",
+      "kind": "worn",
+      "nouns": [
+        "handbag"
+      ],
+      "tags": [
+        "shoulder",
+        "walk",
+        "wear",
+        "airport",
+        "travel",
+        "trip",
+        "carry",
+        "flight",
+        "go",
+        "holiday"
+      ],
+      "prompt": "A woman walks through a bright airport terminal away from the camera pulling a small suitcase, photographed from behind at shoulder height, the {noun} on her shoulder."
+    },
+    {
+      "id": "evening_dinner",
+      "kind": "worn",
+      "nouns": [
+        "handbag"
+      ],
+      "tags": [
+        "shoulder",
+        "walk",
+        "wear",
+        "evening",
+        "dinner",
+        "night",
+        "date",
+        "carry",
+        "out",
+        "go"
+      ],
+      "prompt": "A woman in a black dress walks along a lantern-lit street toward a restaurant, photographed from behind at shoulder height, the {noun} on her shoulder, warm evening light."
+    },
+    {
+      "id": "winter_scarf",
+      "kind": "worn",
+      "nouns": [
+        "handbag"
+      ],
+      "tags": [
+        "shoulder",
+        "walk",
+        "wear",
+        "winter",
+        "cold",
+        "city",
+        "carry",
+        "everywhere",
+        "out",
+        "day"
+      ],
+      "prompt": "A woman in a wool coat and scarf walks down a snowy city street away from the camera, photographed from behind at shoulder height, the {noun} on her shoulder, soft winter daylight."
+    },
+    {
+      "id": "stairs_hand",
+      "kind": "hand",
+      "tags": [
+        "hand",
+        "hold",
+        "carry",
+        "home",
+        "go",
+        "leave",
+        "stairs",
+        "morning",
+        "everyday",
+        "out"
+      ],
+      "prompt": "A hand holds the {noun} by its handles while walking down a bright staircase, only the hand, arm and torso from the waist down in frame, soft daylight."
+    },
+    {
+      "id": "cafe_counter_hand",
+      "kind": "hand",
+      "tags": [
+        "hand",
+        "hold",
+        "cafe",
+        "coffee",
+        "out",
+        "everyday",
+        "pay",
+        "carry",
+        "break",
+        "go"
+      ],
+      "prompt": "A woman's hand lifts the {noun} by its handles off a cafe counter beside a takeaway cup, only the hand and forearm in frame, warm daylight."
+    }
+  ]
+}

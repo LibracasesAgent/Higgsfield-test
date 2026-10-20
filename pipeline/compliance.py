@@ -698,7 +698,7 @@ def _offer_str(ctx):
 # ---------------------------------------------------------------- a whole batch ($OUT)
 SKIP_KEYS = {"name", "layout", "photo", "photo_box", "src", "path", "bg", "size", "hsize", "psize", "qsize", "dots",
              "accent_lines", "masks", "crops", "card_photos", "box", "mask", "x", "y", "tx", "ty", "id", "verified",
-             "review_n", "colour", "color", "file", "zoom", "reviews"}   # stars' reviews: as review items (batch_items)
+             "review_n", "colour", "color", "file", "zoom", "reviews", "ai"}   # stars' reviews: as review items (batch_items)
 
 
 def visible(d, where):

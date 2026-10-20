@@ -14,10 +14,6 @@
   },
   "permissions": {
     "deny": [
-      "mcp__Higgsfield__generate_image",
-      "mcp__Higgsfield__generate_image_batch",
-      "mcp__Higgsfield__generate_video",
-      "mcp__Higgsfield__generate_video_batch",
       "mcp__Higgsfield__execute_preset",
       "mcp__Higgsfield__ads_studio_generate",
       "mcp__Higgsfield__ai_influencer_generate",
@@ -37,10 +33,6 @@
       "mcp__Higgsfield__voice_change",
       "mcp__Higgsfield__create_voice",
       "mcp__Higgsfield__create_voice_from_confirmed_audio",
-      "mcp__claude_ai_Higgsfield__generate_image",
-      "mcp__claude_ai_Higgsfield__generate_image_batch",
-      "mcp__claude_ai_Higgsfield__generate_video",
-      "mcp__claude_ai_Higgsfield__generate_video_batch",
       "mcp__claude_ai_Higgsfield__execute_preset",
       "mcp__claude_ai_Higgsfield__ads_studio_generate",
       "mcp__claude_ai_Higgsfield__ai_influencer_generate",

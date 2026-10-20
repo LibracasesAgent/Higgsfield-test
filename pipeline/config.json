@@ -33,10 +33,10 @@
   },
   "_products_help": "Product name as written in the brief -> library folders to take reference photos and clips from. Used by index_library/find_assets.",
   "budget": {
-    "normal_request_max_credits": 15,
+    "normal_request_max_credits": 25,
     "hard_stop_credits": 40,
-    "max_ai_video_clips": 0,
-    "_help": "Credits per request. The only routine spend is voiceover lines (~0.3 each). AI images and AI video are switched off (see CLAUDE.md rule 2 and .claude/settings.json); max_ai_video_clips stays 0 unless the owner turns AI video back on."
+    "_help": "Credits per request. Voiceover lines cost ~0.3 each. AI stills (~1 credit) and AI clips (4.5-6) are allowed since 2026-10-20 (owner-approved): max_credits_per_batch (voiceover + AI together) is 100; pipeline/ai_gen.py plans the AI part inside it (100 - voiceover - a retry reserve) and anything that fails its quality gate falls back to real photos / footage.",
+    "max_credits_per_batch": 100
   },
   "render": {
     "max_videos_per_session": 10,

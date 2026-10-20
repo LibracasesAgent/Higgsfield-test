@@ -132,11 +132,17 @@ and Claude says so. Want the older formats? Add `classic`.
   includes a scorecard line per batch: how the videos measure against the targets above (a miss is reported, not hidden).
 - Statics: a few minutes for all of them. A video project (4 versions): about 20-25 minutes. A batch (20 statics +
   5 projects) takes about 2 hours; Claude replies once, when everything is in Drive.
-- Credits: only the voiceover costs Higgsfield credits (about 0.35 per spoken line). A new-angle or new-product
+- AI scenes (since 2026-10-20): about 40% of the statics and a few video shots show the REAL bag in new scenes (a cafe
+  table, the street from behind, a hallway, a flat-lay); every one is made from the real product photo and checked
+  (no faces, same bag) before it is used, and anything that fails is replaced by the real photo / footage. Each new
+  batch uses scenes, photos and captions the product's last batches did not (novelty log). `no AI` / `real photos only`
+  in the message turns it off.
+- Credits: the voiceover (about 0.35 per spoken line) and the AI scenes (about 1 per still, 4.5-6 per clip) cost Higgsfield
+  credits; a whole batch is capped at 100. A new-angle or new-product
   project on its own: about 4-5 credits (the 4 versions of a project share the chapter lines; each hook is one more
   line); a winner project: 0 (it keeps its own voice). A full batch of a bag or new product: about 20-23 credits; a
   winners batch: 0-5 (only fill projects cost).
-  No AI images or AI video are made.
+  A full batch with AI scenes: about 75-85 credits (voiceover ~22 + stills ~20 + clips ~40).
 
 ## Good to know
 
