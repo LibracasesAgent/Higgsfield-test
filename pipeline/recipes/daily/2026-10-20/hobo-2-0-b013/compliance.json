@@ -1,0 +1,47 @@
+{
+ "ok": true,
+ "product": "Hobo 2.0",
+ "offer": "50% off + free pouch wallet",
+ "checked": 337,
+ "problems": [],
+ "allowed": [
+  {
+   "where": "voiceover V03_c7.mp3",
+   "text": "Carol says: will definitely be purchasing more. Beverly says: love my Libra bag, will buy again. Mercy says: the best bag for travel and every day use.",
+   "category": "claims",
+   "term": "best bag",
+   "why": "a customer review (verbatim, or attributed to the customer by name)"
+  },
+  {
+   "where": "P01H1 review card, P01H2 review card, P01H3 review card, P01H4 review card, P03H1 review card, P03H2 review card, P03H3 review card, P03H4 review card",
+   "text": "Love this bag. Best bag I have ever bought. Don't ever think of discontinuing amazing bag. Will definitely be purchasing more. Already bought for friends.",
+   "category": "claims",
+   "term": "Best bag",
+   "why": "a customer review (verbatim, or attributed to the customer by name)"
+  },
+  {
+   "where": "P01H1 review card, P01H2 review card, P01H3 review card, P01H4 review card, P03H1 review card, P03H2 review card, P03H3 review card, P03H4 review card",
+   "text": "The best bag for travel and every day use. I love it! Plus they have the best customer service that can't be beat.",
+   "category": "claims",
+   "term": "best bag",
+   "why": "a customer review (verbatim, or attributed to the customer by name)"
+  },
+  {
+   "where": "voiceover V02_hook.mp3, ad copy LC_261020_Hobo20_Evergreen_B013_P02_H1_things hook_first_line",
+   "text": "Five things you'll notice the first time you carry the Hobo 2.0.",
+   "category": "numbers",
+   "term": "Five",
+   "why": "the count of the chapters the video shows ('Four things ...'), not a stat"
+  },
+  {
+   "where": "P02H1 label",
+   "text": "5 THINGS",
+   "category": "numbers",
+   "term": "5",
+   "why": "the count of the chapters the video shows ('Four things ...'), not a stat"
+  }
+ ],
+ "raw_story": [],
+ "raw_cuts": [],
+ "report": "/tmp/run/hobo20/compliance.json"
+}

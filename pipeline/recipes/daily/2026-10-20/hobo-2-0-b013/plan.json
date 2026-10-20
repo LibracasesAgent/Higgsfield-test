@@ -1,0 +1,972 @@
+{
+ "prefix": "LC_261020_Hobo20_Evergreen_B013",
+ "rev": 1,
+ "batch_id": {
+  "id": "B013",
+  "n": 13,
+  "rev": 1
+ },
+ "created": "2026-10-20",
+ "request": "3 videos and 5 statics for Hobo 2.0",
+ "product": "Hobo 2.0",
+ "product_key": "hobo 2.0",
+ "product_source": "built-in",
+ "theme": "default",
+ "theme_name": "Evergreen",
+ "offer": "50% off + free pouch wallet",
+ "statics": [
+  "LC_261020_Hobo20_Evergreen_B013_S01_native",
+  "LC_261020_Hobo20_Evergreen_B013_S02_studio",
+  "LC_261020_Hobo20_Evergreen_B013_S03_offer",
+  "LC_261020_Hobo20_Evergreen_B013_S04_native",
+  "LC_261020_Hobo20_Evergreen_B013_S05_quotes"
+ ],
+ "videos": [
+  {
+   "name": "LC_261020_Hobo20_Evergreen_B013_P01_H1_day",
+   "id": "P01H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "ugc": {
+    "script": "U01",
+    "angle": "day",
+    "words": 184,
+    "hook": {
+     "type": "promise",
+     "label": "ONE DAY",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "This could be the most useful bag you'll see all year.",
+      "type": "superlative",
+      "label": "MOST USEFUL",
+      "feature": null
+     },
+     {
+      "text": "Grab the Hobo 2.0 at fifty percent off.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null
+     },
+     {
+      "text": "Is your everyday bag keeping up with you?",
+      "type": "question",
+      "label": "YOUR ANSWER?",
+      "feature": null
+     },
+     {
+      "text": "A bag you can't lock is a bag you have to watch.",
+      "type": "problem",
+      "label": "LOCK IT UP",
+      "feature": "LOCKABLE ZIPPERS"
+     },
+     {
+      "text": "Is this the most practical bag you'll see this week?",
+      "type": "superlative",
+      "label": "MOST PRACTICAL",
+      "feature": null
+     }
+    ],
+    "numbers": []
+   },
+   "est_seconds": 61.9,
+   "project": "P01",
+   "hook_text": "From the morning rush to dinner out: the Hobo 2.0.",
+   "hook_label": "ONE DAY",
+   "hook_type": "promise",
+   "opening_shot": [
+    "1d-NfhyXONZdjfr9UBSKd99VUPx9mK7HB",
+    28.1
+   ]
+  },
+  {
+   "name": "LC_261020_Hobo20_Evergreen_B013_P01_H2_day",
+   "id": "P01H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "ugc": {
+    "script": "U01",
+    "angle": "day",
+    "words": 184,
+    "hook": {
+     "type": "promise",
+     "label": "ONE DAY",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "This could be the most useful bag you'll see all year.",
+      "type": "superlative",
+      "label": "MOST USEFUL",
+      "feature": null
+     },
+     {
+      "text": "Grab the Hobo 2.0 at fifty percent off.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null
+     },
+     {
+      "text": "Is your everyday bag keeping up with you?",
+      "type": "question",
+      "label": "YOUR ANSWER?",
+      "feature": null
+     },
+     {
+      "text": "A bag you can't lock is a bag you have to watch.",
+      "type": "problem",
+      "label": "LOCK IT UP",
+      "feature": "LOCKABLE ZIPPERS"
+     },
+     {
+      "text": "Is this the most practical bag you'll see this week?",
+      "type": "superlative",
+      "label": "MOST PRACTICAL",
+      "feature": null
+     }
+    ],
+    "numbers": []
+   },
+   "est_seconds": 62.2,
+   "project": "P01",
+   "hook_text": "This could be the most useful bag you'll see all year.",
+   "hook_label": "MOST USEFUL",
+   "hook_type": "superlative",
+   "opening_shot": [
+    "1EUn2G9e3MybyEgwQsdUaXgsbXu3bQXfa",
+    0.0
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261020_Hobo20_Evergreen_B013_P01_H3_day",
+   "id": "P01H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "ugc": {
+    "script": "U01",
+    "angle": "day",
+    "words": 184,
+    "hook": {
+     "type": "promise",
+     "label": "ONE DAY",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "This could be the most useful bag you'll see all year.",
+      "type": "superlative",
+      "label": "MOST USEFUL",
+      "feature": null
+     },
+     {
+      "text": "Grab the Hobo 2.0 at fifty percent off.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null
+     },
+     {
+      "text": "Is your everyday bag keeping up with you?",
+      "type": "question",
+      "label": "YOUR ANSWER?",
+      "feature": null
+     },
+     {
+      "text": "A bag you can't lock is a bag you have to watch.",
+      "type": "problem",
+      "label": "LOCK IT UP",
+      "feature": "LOCKABLE ZIPPERS"
+     },
+     {
+      "text": "Is this the most practical bag you'll see this week?",
+      "type": "superlative",
+      "label": "MOST PRACTICAL",
+      "feature": null
+     }
+    ],
+    "numbers": []
+   },
+   "est_seconds": 61.3,
+   "project": "P01",
+   "hook_text": "Is your everyday bag keeping up with you?",
+   "hook_label": "YOUR ANSWER?",
+   "hook_type": "question",
+   "opening_shot": [
+    "1PkP56aGjs6ZI2Hr3tRpJz4Qyy8hSN5qT",
+    28.6
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261020_Hobo20_Evergreen_B013_P01_H4_day",
+   "id": "P01H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "ugc": {
+    "script": "U01",
+    "angle": "day",
+    "words": 184,
+    "hook": {
+     "type": "promise",
+     "label": "ONE DAY",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "This could be the most useful bag you'll see all year.",
+      "type": "superlative",
+      "label": "MOST USEFUL",
+      "feature": null
+     },
+     {
+      "text": "Grab the Hobo 2.0 at fifty percent off.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null
+     },
+     {
+      "text": "Is your everyday bag keeping up with you?",
+      "type": "question",
+      "label": "YOUR ANSWER?",
+      "feature": null
+     },
+     {
+      "text": "A bag you can't lock is a bag you have to watch.",
+      "type": "problem",
+      "label": "LOCK IT UP",
+      "feature": "LOCKABLE ZIPPERS"
+     },
+     {
+      "text": "Is this the most practical bag you'll see this week?",
+      "type": "superlative",
+      "label": "MOST PRACTICAL",
+      "feature": null
+     }
+    ],
+    "numbers": []
+   },
+   "est_seconds": 62.5,
+   "project": "P01",
+   "hook_text": "A bag you can't lock is a bag you have to watch.",
+   "hook_label": "LOCK IT UP",
+   "hook_type": "problem",
+   "opening_shot": [
+    "1d-NfhyXONZdjfr9UBSKd99VUPx9mK7HB",
+    31.6
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261020_Hobo20_Evergreen_B013_P02_H1_things",
+   "id": "P02H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "ugc": {
+    "script": "U02",
+    "angle": "n_things",
+    "words": 203,
+    "hook": {
+     "type": "promise",
+     "label": "5 THINGS",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "A bag that stays open in a crowd is asking for trouble.",
+      "type": "problem",
+      "label": "LOCK IT UP",
+      "feature": "LOCKABLE ZIPPERS"
+     },
+     {
+      "text": "Right now you can get the Hobo 2.0 for fifty percent off.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null
+     },
+     {
+      "text": "The most thoughtful bag you'll see today might be this one.",
+      "type": "superlative",
+      "label": "MOST THOUGHTFUL",
+      "feature": null
+     },
+     {
+      "text": "Does your bag lock when the street gets busy?",
+      "type": "question",
+      "label": "QUICK QUESTION",
+      "feature": "LOCKABLE ZIPPERS"
+     },
+     {
+      "text": "Your bag shouldn't be the hardest part of your day.",
+      "type": "problem",
+      "label": "SOUND FAMILIAR?",
+      "feature": null
+     }
+    ],
+    "numbers": [
+     5
+    ]
+   },
+   "est_seconds": 68.1,
+   "project": "P02",
+   "hook_text": "Five things you'll notice the first time you carry the Hobo 2.0.",
+   "hook_label": "5 THINGS",
+   "hook_type": "promise",
+   "opening_shot": [
+    "1d-NfhyXONZdjfr9UBSKd99VUPx9mK7HB",
+    0.0
+   ]
+  },
+  {
+   "name": "LC_261020_Hobo20_Evergreen_B013_P02_H2_things",
+   "id": "P02H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "ugc": {
+    "script": "U02",
+    "angle": "n_things",
+    "words": 203,
+    "hook": {
+     "type": "promise",
+     "label": "5 THINGS",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "A bag that stays open in a crowd is asking for trouble.",
+      "type": "problem",
+      "label": "LOCK IT UP",
+      "feature": "LOCKABLE ZIPPERS"
+     },
+     {
+      "text": "Right now you can get the Hobo 2.0 for fifty percent off.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null
+     },
+     {
+      "text": "The most thoughtful bag you'll see today might be this one.",
+      "type": "superlative",
+      "label": "MOST THOUGHTFUL",
+      "feature": null
+     },
+     {
+      "text": "Does your bag lock when the street gets busy?",
+      "type": "question",
+      "label": "QUICK QUESTION",
+      "feature": "LOCKABLE ZIPPERS"
+     },
+     {
+      "text": "Your bag shouldn't be the hardest part of your day.",
+      "type": "problem",
+      "label": "SOUND FAMILIAR?",
+      "feature": null
+     }
+    ],
+    "numbers": [
+     5
+    ]
+   },
+   "est_seconds": 68.1,
+   "project": "P02",
+   "hook_text": "A bag that stays open in a crowd is asking for trouble.",
+   "hook_label": "LOCK IT UP",
+   "hook_type": "problem",
+   "opening_shot": [
+    "1PkP56aGjs6ZI2Hr3tRpJz4Qyy8hSN5qT",
+    28.6
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261020_Hobo20_Evergreen_B013_P02_H3_things",
+   "id": "P02H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "ugc": {
+    "script": "U02",
+    "angle": "n_things",
+    "words": 203,
+    "hook": {
+     "type": "promise",
+     "label": "5 THINGS",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "A bag that stays open in a crowd is asking for trouble.",
+      "type": "problem",
+      "label": "LOCK IT UP",
+      "feature": "LOCKABLE ZIPPERS"
+     },
+     {
+      "text": "Right now you can get the Hobo 2.0 for fifty percent off.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null
+     },
+     {
+      "text": "The most thoughtful bag you'll see today might be this one.",
+      "type": "superlative",
+      "label": "MOST THOUGHTFUL",
+      "feature": null
+     },
+     {
+      "text": "Does your bag lock when the street gets busy?",
+      "type": "question",
+      "label": "QUICK QUESTION",
+      "feature": "LOCKABLE ZIPPERS"
+     },
+     {
+      "text": "Your bag shouldn't be the hardest part of your day.",
+      "type": "problem",
+      "label": "SOUND FAMILIAR?",
+      "feature": null
+     }
+    ],
+    "numbers": [
+     5
+    ]
+   },
+   "est_seconds": 68.1,
+   "project": "P02",
+   "hook_text": "Right now you can get the Hobo 2.0 for fifty percent off.",
+   "hook_label": "HALF PRICE",
+   "hook_type": "price",
+   "opening_shot": [
+    "1EUn2G9e3MybyEgwQsdUaXgsbXu3bQXfa",
+    0.0
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261020_Hobo20_Evergreen_B013_P02_H4_things",
+   "id": "P02H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "ugc": {
+    "script": "U02",
+    "angle": "n_things",
+    "words": 203,
+    "hook": {
+     "type": "promise",
+     "label": "5 THINGS",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "A bag that stays open in a crowd is asking for trouble.",
+      "type": "problem",
+      "label": "LOCK IT UP",
+      "feature": "LOCKABLE ZIPPERS"
+     },
+     {
+      "text": "Right now you can get the Hobo 2.0 for fifty percent off.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null
+     },
+     {
+      "text": "The most thoughtful bag you'll see today might be this one.",
+      "type": "superlative",
+      "label": "MOST THOUGHTFUL",
+      "feature": null
+     },
+     {
+      "text": "Does your bag lock when the street gets busy?",
+      "type": "question",
+      "label": "QUICK QUESTION",
+      "feature": "LOCKABLE ZIPPERS"
+     },
+     {
+      "text": "Your bag shouldn't be the hardest part of your day.",
+      "type": "problem",
+      "label": "SOUND FAMILIAR?",
+      "feature": null
+     }
+    ],
+    "numbers": [
+     5
+    ]
+   },
+   "est_seconds": 67.8,
+   "project": "P02",
+   "hook_text": "The most thoughtful bag you'll see today might be this one.",
+   "hook_label": "MOST THOUGHTFUL",
+   "hook_type": "superlative",
+   "opening_shot": [
+    "1EUn2G9e3MybyEgwQsdUaXgsbXu3bQXfa",
+    5.0
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261020_Hobo20_Evergreen_B013_P03_H1_demo",
+   "id": "P03H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "ugc": {
+    "script": "U03",
+    "angle": "demo",
+    "words": 168,
+    "hook": {
+     "type": "promise",
+     "label": "WATCH THIS",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Here's the Hobo 2.0, at fifty percent off.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null
+     },
+     {
+      "text": "This could be the most practical bag you'll see all year.",
+      "type": "superlative",
+      "label": "MOST PRACTICAL",
+      "feature": null
+     },
+     {
+      "text": "Stop settling for a bag that makes your day harder.",
+      "type": "problem",
+      "label": "SOUND FAMILIAR?",
+      "feature": null
+     },
+     {
+      "text": "Does your bag lock, and does it block card scanners?",
+      "type": "question",
+      "label": "QUICK QUESTION",
+      "feature": "RFID LINING"
+     },
+     {
+      "text": "The Hobo 2.0 comes with a free pouch wallet, and it's fifty percent off.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null
+     }
+    ],
+    "numbers": []
+   },
+   "est_seconds": 56.7,
+   "project": "P03",
+   "hook_text": "Watch what the Hobo 2.0 can do.",
+   "hook_label": "WATCH THIS",
+   "hook_type": "promise",
+   "opening_shot": [
+    "1d-NfhyXONZdjfr9UBSKd99VUPx9mK7HB",
+    28.1
+   ]
+  },
+  {
+   "name": "LC_261020_Hobo20_Evergreen_B013_P03_H2_demo",
+   "id": "P03H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "ugc": {
+    "script": "U03",
+    "angle": "demo",
+    "words": 168,
+    "hook": {
+     "type": "promise",
+     "label": "WATCH THIS",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Here's the Hobo 2.0, at fifty percent off.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null
+     },
+     {
+      "text": "This could be the most practical bag you'll see all year.",
+      "type": "superlative",
+      "label": "MOST PRACTICAL",
+      "feature": null
+     },
+     {
+      "text": "Stop settling for a bag that makes your day harder.",
+      "type": "problem",
+      "label": "SOUND FAMILIAR?",
+      "feature": null
+     },
+     {
+      "text": "Does your bag lock, and does it block card scanners?",
+      "type": "question",
+      "label": "QUICK QUESTION",
+      "feature": "RFID LINING"
+     },
+     {
+      "text": "The Hobo 2.0 comes with a free pouch wallet, and it's fifty percent off.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null
+     }
+    ],
+    "numbers": []
+   },
+   "est_seconds": 57.0,
+   "project": "P03",
+   "hook_text": "Here's the Hobo 2.0, at fifty percent off.",
+   "hook_label": "HALF PRICE",
+   "hook_type": "price",
+   "opening_shot": [
+    "1EUn2G9e3MybyEgwQsdUaXgsbXu3bQXfa",
+    0.0
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261020_Hobo20_Evergreen_B013_P03_H3_demo",
+   "id": "P03H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "ugc": {
+    "script": "U03",
+    "angle": "demo",
+    "words": 168,
+    "hook": {
+     "type": "promise",
+     "label": "WATCH THIS",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Here's the Hobo 2.0, at fifty percent off.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null
+     },
+     {
+      "text": "This could be the most practical bag you'll see all year.",
+      "type": "superlative",
+      "label": "MOST PRACTICAL",
+      "feature": null
+     },
+     {
+      "text": "Stop settling for a bag that makes your day harder.",
+      "type": "problem",
+      "label": "SOUND FAMILIAR?",
+      "feature": null
+     },
+     {
+      "text": "Does your bag lock, and does it block card scanners?",
+      "type": "question",
+      "label": "QUICK QUESTION",
+      "feature": "RFID LINING"
+     },
+     {
+      "text": "The Hobo 2.0 comes with a free pouch wallet, and it's fifty percent off.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null
+     }
+    ],
+    "numbers": []
+   },
+   "est_seconds": 58.0,
+   "project": "P03",
+   "hook_text": "This could be the most practical bag you'll see all year.",
+   "hook_label": "MOST PRACTICAL",
+   "hook_type": "superlative",
+   "opening_shot": [
+    "1PkP56aGjs6ZI2Hr3tRpJz4Qyy8hSN5qT",
+    28.6
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261020_Hobo20_Evergreen_B013_P03_H4_demo",
+   "id": "P03H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "ugc": {
+    "script": "U03",
+    "angle": "demo",
+    "words": 168,
+    "hook": {
+     "type": "promise",
+     "label": "WATCH THIS",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Here's the Hobo 2.0, at fifty percent off.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null
+     },
+     {
+      "text": "This could be the most practical bag you'll see all year.",
+      "type": "superlative",
+      "label": "MOST PRACTICAL",
+      "feature": null
+     },
+     {
+      "text": "Stop settling for a bag that makes your day harder.",
+      "type": "problem",
+      "label": "SOUND FAMILIAR?",
+      "feature": null
+     },
+     {
+      "text": "Does your bag lock, and does it block card scanners?",
+      "type": "question",
+      "label": "QUICK QUESTION",
+      "feature": "RFID LINING"
+     },
+     {
+      "text": "The Hobo 2.0 comes with a free pouch wallet, and it's fifty percent off.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null
+     }
+    ],
+    "numbers": []
+   },
+   "est_seconds": 57.7,
+   "project": "P03",
+   "hook_text": "Stop settling for a bag that makes your day harder.",
+   "hook_label": "SOUND FAMILIAR?",
+   "hook_type": "problem",
+   "opening_shot": [
+    "1EUn2G9e3MybyEgwQsdUaXgsbXu3bQXfa",
+    12.0
+   ],
+   "hook_source": "script"
+  }
+ ],
+ "tts_lines": 39,
+ "tts_dupes": {},
+ "est_credits": 13.6,
+ "budget": 40,
+ "colour_images": {
+  "Dark Sienn": "/tmp/run/hobo20/site/clean/hobo_2_0_colour_dark_sienn.jpg",
+  "Beige": "/tmp/run/hobo20/site/clean/hobo_2_0_colour_beige.jpg",
+  "Galaxy Black": "/tmp/run/hobo20/site/clean/hobo_2_0_colour_galaxy_black.jpg"
+ },
+ "packshots": [
+  "/tmp/run/hobo20/site/clean/hobo_2_0_colour_dark_sienn.jpg",
+  "/tmp/run/hobo20/site/clean/hobo_2_0_colour_beige.jpg",
+  "/tmp/run/hobo20/site/clean/hobo_2_0_colour_galaxy_black.jpg"
+ ],
+ "brief": null,
+ "winners_source": null,
+ "winners_note": null,
+ "winners_used": [],
+ "unmatched_winners": [],
+ "warnings": [
+  "AI scenes: off (the product has enough real photos / footage; --ai makes the scene statics and clips)"
+ ],
+ "winner_reviews": false,
+ "seed": 1,
+ "hooks": 4,
+ "pipeline": "catalog",
+ "video_format": "ugc",
+ "ugc_numbers": [
+  5
+ ],
+ "voice": {
+  "voice_type": "element",
+  "voice_id": "241459b6-b4e8-4a2a-9868-da8bcdcd0558",
+  "speed": 1.12
+ },
+ "projects": [
+  {
+   "id": "P01",
+   "from_id": "V01",
+   "angle": "day",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P01H1",
+     "name": "LC_261020_Hobo20_Evergreen_B013_P01_H1_day",
+     "hook_text": "From the morning rush to dinner out: the Hobo 2.0.",
+     "label": "ONE DAY",
+     "type": "promise",
+     "shot": [
+      "1d-NfhyXONZdjfr9UBSKd99VUPx9mK7HB",
+      28.1
+     ],
+     "est_seconds": 61.9
+    },
+    {
+     "hook": "H2",
+     "id": "P01H2",
+     "name": "LC_261020_Hobo20_Evergreen_B013_P01_H2_day",
+     "hook_text": "This could be the most useful bag you'll see all year.",
+     "label": "MOST USEFUL",
+     "type": "superlative",
+     "shot": [
+      "1EUn2G9e3MybyEgwQsdUaXgsbXu3bQXfa",
+      0.0
+     ],
+     "est_seconds": 62.2
+    },
+    {
+     "hook": "H3",
+     "id": "P01H3",
+     "name": "LC_261020_Hobo20_Evergreen_B013_P01_H3_day",
+     "hook_text": "Is your everyday bag keeping up with you?",
+     "label": "YOUR ANSWER?",
+     "type": "question",
+     "shot": [
+      "1PkP56aGjs6ZI2Hr3tRpJz4Qyy8hSN5qT",
+      28.6
+     ],
+     "est_seconds": 61.3
+    },
+    {
+     "hook": "H4",
+     "id": "P01H4",
+     "name": "LC_261020_Hobo20_Evergreen_B013_P01_H4_day",
+     "hook_text": "A bag you can't lock is a bag you have to watch.",
+     "label": "LOCK IT UP",
+     "type": "problem",
+     "shot": [
+      "1d-NfhyXONZdjfr9UBSKd99VUPx9mK7HB",
+      31.6
+     ],
+     "est_seconds": 62.5
+    }
+   ]
+  },
+  {
+   "id": "P02",
+   "from_id": "V02",
+   "angle": "things",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P02H1",
+     "name": "LC_261020_Hobo20_Evergreen_B013_P02_H1_things",
+     "hook_text": "Five things you'll notice the first time you carry the Hobo 2.0.",
+     "label": "5 THINGS",
+     "type": "promise",
+     "shot": [
+      "1d-NfhyXONZdjfr9UBSKd99VUPx9mK7HB",
+      0.0
+     ],
+     "est_seconds": 68.1
+    },
+    {
+     "hook": "H2",
+     "id": "P02H2",
+     "name": "LC_261020_Hobo20_Evergreen_B013_P02_H2_things",
+     "hook_text": "A bag that stays open in a crowd is asking for trouble.",
+     "label": "LOCK IT UP",
+     "type": "problem",
+     "shot": [
+      "1PkP56aGjs6ZI2Hr3tRpJz4Qyy8hSN5qT",
+      28.6
+     ],
+     "est_seconds": 68.1
+    },
+    {
+     "hook": "H3",
+     "id": "P02H3",
+     "name": "LC_261020_Hobo20_Evergreen_B013_P02_H3_things",
+     "hook_text": "Right now you can get the Hobo 2.0 for fifty percent off.",
+     "label": "HALF PRICE",
+     "type": "price",
+     "shot": [
+      "1EUn2G9e3MybyEgwQsdUaXgsbXu3bQXfa",
+      0.0
+     ],
+     "est_seconds": 68.1
+    },
+    {
+     "hook": "H4",
+     "id": "P02H4",
+     "name": "LC_261020_Hobo20_Evergreen_B013_P02_H4_things",
+     "hook_text": "The most thoughtful bag you'll see today might be this one.",
+     "label": "MOST THOUGHTFUL",
+     "type": "superlative",
+     "shot": [
+      "1EUn2G9e3MybyEgwQsdUaXgsbXu3bQXfa",
+      5.0
+     ],
+     "est_seconds": 67.8
+    }
+   ]
+  },
+  {
+   "id": "P03",
+   "from_id": "V03",
+   "angle": "demo",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P03H1",
+     "name": "LC_261020_Hobo20_Evergreen_B013_P03_H1_demo",
+     "hook_text": "Watch what the Hobo 2.0 can do.",
+     "label": "WATCH THIS",
+     "type": "promise",
+     "shot": [
+      "1d-NfhyXONZdjfr9UBSKd99VUPx9mK7HB",
+      28.1
+     ],
+     "est_seconds": 56.7
+    },
+    {
+     "hook": "H2",
+     "id": "P03H2",
+     "name": "LC_261020_Hobo20_Evergreen_B013_P03_H2_demo",
+     "hook_text": "Here's the Hobo 2.0, at fifty percent off.",
+     "label": "HALF PRICE",
+     "type": "price",
+     "shot": [
+      "1EUn2G9e3MybyEgwQsdUaXgsbXu3bQXfa",
+      0.0
+     ],
+     "est_seconds": 57.0
+    },
+    {
+     "hook": "H3",
+     "id": "P03H3",
+     "name": "LC_261020_Hobo20_Evergreen_B013_P03_H3_demo",
+     "hook_text": "This could be the most practical bag you'll see all year.",
+     "label": "MOST PRACTICAL",
+     "type": "superlative",
+     "shot": [
+      "1PkP56aGjs6ZI2Hr3tRpJz4Qyy8hSN5qT",
+      28.6
+     ],
+     "est_seconds": 58.0
+    },
+    {
+     "hook": "H4",
+     "id": "P03H4",
+     "name": "LC_261020_Hobo20_Evergreen_B013_P03_H4_demo",
+     "hook_text": "Stop settling for a bag that makes your day harder.",
+     "label": "SOUND FAMILIAR?",
+     "type": "problem",
+     "shot": [
+      "1EUn2G9e3MybyEgwQsdUaXgsbXu3bQXfa",
+      12.0
+     ],
+     "est_seconds": 57.7
+    }
+   ]
+  }
+ ],
+ "hooks_seed": 1
+}

@@ -1,0 +1,348 @@
+{
+ "mode": "ugc",
+ "voice_speed": 1.12,
+ "blocks": [
+  {
+   "vo": "P01H2_hook.mp3",
+   "broll": [
+    [
+     "1ADfvEWAKMrFQiOui9z0_DXf_SQoGOEzc",
+     0.5,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V01_c1.mp3",
+   "broll": [
+    [
+     "1zWksUIjdI39dANvjXlGZoTaY11CJrBRZ",
+     0.0,
+     1.0
+    ],
+    [
+     "1RvlXOQ5hCCqLQm-paz6wpMtJaH_gT5FG",
+     3.5,
+     1.0
+    ],
+    [
+     "1sLYQ_kZRbjFPCQ1AvZZ87Bmtpats2Ynf",
+     19.7,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1sLYQ_kZRbjFPCQ1AvZZ87Bmtpats2Ynf",
+     0.5,
+     1.0
+    ],
+    [
+     "17NS2UkififrDzubGafZAFDCII3K88Y34",
+     0.0,
+     1.0
+    ],
+    [
+     "1dth2GGvV8qdLLg4SGXId1S_m09SCj9vw",
+     1.0,
+     1.0
+    ]
+   ],
+   "number": 1
+  },
+  {
+   "vo": "V01_c2.mp3",
+   "broll": [
+    [
+     "1-rzfYRYKmmUocjp-CfJnrVDnsUBGq_t-",
+     0.5,
+     1.0
+    ],
+    [
+     "1ADfvEWAKMrFQiOui9z0_DXf_SQoGOEzc",
+     0.5,
+     1.0
+    ],
+    [
+     "1mA13j2449PmvcydF2bI5p1zkI-k-bpTg",
+     0.5,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1LyryrXa2Haxk8f1x29x3jDkEn8Y3Dh-A",
+     0.0,
+     1.0
+    ],
+    [
+     "1HNUEQK0mMmDiVbvsG41nEmwlON-IFoU9",
+     5.5,
+     1.0
+    ],
+    [
+     "1dKZIPJdzTK5XalUeYccAQqTH-jLEkPt2",
+     4.4,
+     1.0
+    ]
+   ],
+   "number": 2
+  },
+  {
+   "vo": "V01_c3.mp3",
+   "broll": [
+    [
+     "10aSieQA3Lb3YEflOG3dXN2sIgckqMv4f",
+     2.0,
+     1.0
+    ],
+    [
+     "10aSieQA3Lb3YEflOG3dXN2sIgckqMv4f",
+     6.6,
+     1.0
+    ],
+    [
+     "10aSieQA3Lb3YEflOG3dXN2sIgckqMv4f",
+     10.5,
+     1.0
+    ],
+    [
+     "16tPrjwInS7Kzcvs17bMHBP4OwEjFc_Yn",
+     24.8,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1DnFy_6UsG79iMT132CdUr6x5XF-g3M4m",
+     4.0,
+     1.0
+    ],
+    [
+     "1MvdPIZHiVIGTM7oedtSmDPBNcj7zMq2y",
+     7.9,
+     1.0
+    ]
+   ],
+   "number": 3
+  },
+  {
+   "vo": "V01_c4.mp3",
+   "broll": [
+    [
+     "1OWzkp0HeAlic-V3o1APSNI-TRYTvLIDr",
+     0.5,
+     1.0
+    ],
+    [
+     "1Vcefc5naY-dxPPYcj_ePTCiSv0nVojoh",
+     0.5,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1OWzkp0HeAlic-V3o1APSNI-TRYTvLIDr",
+     9.7,
+     1.0
+    ],
+    [
+     "1aJoixN_KNw1NiTQ8YYlPlWFzVv5aKnVn",
+     12.7,
+     1.0
+    ],
+    [
+     "1ni45Zrqs01boihMG9jmX7TP95mIh9WvJ",
+     0.5,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V01_c5.mp3",
+   "broll": [
+    [
+     "17NS2UkififrDzubGafZAFDCII3K88Y34",
+     0.5,
+     1.0
+    ],
+    [
+     "1aJoixN_KNw1NiTQ8YYlPlWFzVv5aKnVn",
+     4.6,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1aJoixN_KNw1NiTQ8YYlPlWFzVv5aKnVn",
+     0.5,
+     1.0
+    ],
+    [
+     "1OWzkp0HeAlic-V3o1APSNI-TRYTvLIDr",
+     5.1,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V01_c6.mp3",
+   "broll": [
+    [
+     "1kvkyYZCu3c60QKlGQNEDDbrMp_gzaf40",
+     0.5,
+     1.0
+    ],
+    [
+     "site/vintage_04.jpg",
+     0,
+     1.0,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ]
+     }
+    ]
+   ],
+   "spare": [
+    [
+     "1kvkyYZCu3c60QKlGQNEDDbrMp_gzaf40",
+     6.2,
+     1.0
+    ],
+    [
+     "1aJoixN_KNw1NiTQ8YYlPlWFzVv5aKnVn",
+     8.7,
+     1.0
+    ]
+   ]
+  }
+ ],
+ "overlays": [
+  {
+   "type": "label",
+   "text": "QUICK QUESTION",
+   "block": 0,
+   "at": 0.1,
+   "dur": 1.8
+  },
+  {
+   "type": "tag",
+   "text": "ONE-HAND CLASP",
+   "block": 1,
+   "at": 0.15,
+   "dur": 2.6
+  },
+  {
+   "type": "tag",
+   "text": "ADJUSTABLE STRAP",
+   "block": 2,
+   "at": 0.15,
+   "dur": 2.6
+  },
+  {
+   "type": "tag",
+   "text": "ROOM FOR EVERYTHING",
+   "block": 3,
+   "at": 0.15,
+   "dur": 2.6
+  },
+  {
+   "type": "review",
+   "n": 6,
+   "block": 4,
+   "word": "mercy",
+   "dur": 2.8
+  },
+  {
+   "type": "review",
+   "n": 7,
+   "block": 4,
+   "word": "carol",
+   "dur": 2.8
+  }
+ ],
+ "end_title": "The Vintage Bag",
+ "offer": {
+  "block": 6,
+  "word": "50",
+  "title": "50% OFF",
+  "sub": ""
+ },
+ "keywords": [
+  "50%",
+  "hidden",
+  "pocket",
+  "leather",
+  "clasp",
+  "one hand",
+  "strap",
+  "room"
+ ],
+ "spare_broll": [
+  [
+   "site/vintage_colour_red.jpg",
+   0,
+   1.0,
+   {
+    "zoom": [
+     1.0,
+     1.06
+    ]
+   }
+  ],
+  [
+   "site/vintage_10.jpg",
+   0,
+   1.0,
+   {
+    "zoom": [
+     1.0,
+     1.06
+    ]
+   }
+  ],
+  [
+   "site/vintage_11.jpg",
+   0,
+   1.0,
+   {
+    "zoom": [
+     1.0,
+     1.06
+    ]
+   }
+  ],
+  [
+   "site/vintage_colour_chocolate.jpg",
+   0,
+   1.0,
+   {
+    "zoom": [
+     1.0,
+     1.06
+    ]
+   }
+  ],
+  [
+   "site/vintage_09.jpg",
+   0,
+   1.0,
+   {
+    "zoom": [
+     1.0,
+     1.06
+    ]
+   }
+  ],
+  [
+   "1ADfvEWAKMrFQiOui9z0_DXf_SQoGOEzc",
+   4.0,
+   1.0
+  ]
+ ],
+ "music": {
+  "seed": 1
+ }
+}

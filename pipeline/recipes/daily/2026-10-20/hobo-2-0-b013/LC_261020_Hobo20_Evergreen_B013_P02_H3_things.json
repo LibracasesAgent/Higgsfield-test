@@ -1,0 +1,482 @@
+{
+ "mode": "ugc",
+ "voice_speed": 1.12,
+ "blocks": [
+  {
+   "vo": "P02H3_hook.mp3",
+   "broll": [
+    [
+     "1EUn2G9e3MybyEgwQsdUaXgsbXu3bQXfa",
+     0.0,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1PkP56aGjs6ZI2Hr3tRpJz4Qyy8hSN5qT",
+     12.6,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V02_c1.mp3",
+   "broll": [
+    [
+     "1d-NfhyXONZdjfr9UBSKd99VUPx9mK7HB",
+     28.5,
+     1.0
+    ],
+    [
+     "1d-NfhyXONZdjfr9UBSKd99VUPx9mK7HB",
+     25.0,
+     1.0
+    ],
+    [
+     "19cgwEd63jVplBoRJPdC_oQXXzCUwB_Bm",
+     7.0,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1d-NfhyXONZdjfr9UBSKd99VUPx9mK7HB",
+     35.1,
+     1.0
+    ],
+    [
+     "1f6kyaiBCEWKytXqZIqUsR1vZ6dL0HyAl",
+     9.1,
+     1.0
+    ],
+    [
+     "1oxUdLpppTglKB5vHrLfaT0hsFWr7G5LG",
+     0.0,
+     1.0
+    ]
+   ],
+   "number": 1
+  },
+  {
+   "vo": "V02_c2.mp3",
+   "broll": [
+    [
+     "1_pbWyiMT0R3Ixq7vjTyfbjH_e2wFnKA5",
+     0.0,
+     1.0
+    ],
+    [
+     "1xckKfgWOCLTomMMu9jksmpS5IW_mI78-",
+     5.5,
+     1.0
+    ],
+    [
+     "1BIyTpW4MOBNJ3dCrNJ24FmqaoI8gTMnz",
+     0.5,
+     1.0
+    ],
+    [
+     "1IGWx7rvSoT1FPx1elh5QU06GiMi7CTvO",
+     0.5,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1BIyTpW4MOBNJ3dCrNJ24FmqaoI8gTMnz",
+     8.6,
+     1.0
+    ],
+    [
+     "1xckKfgWOCLTomMMu9jksmpS5IW_mI78-",
+     0.5,
+     1.0
+    ]
+   ],
+   "number": 2
+  },
+  {
+   "vo": "V02_c3.mp3",
+   "broll": [
+    [
+     "1d-NfhyXONZdjfr9UBSKd99VUPx9mK7HB",
+     12.2,
+     1.0
+    ],
+    [
+     "1EUn2G9e3MybyEgwQsdUaXgsbXu3bQXfa",
+     0.0,
+     1.0
+    ],
+    [
+     "1M_7E-FiVV22EMBTT_VumlAi8tZDycHt7",
+     0.5,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1RUnAvISNlqtfTs_HSwZUH7qVgNMVmDQa",
+     7.1,
+     1.0
+    ],
+    [
+     "1pdpSqMiZBQJ0AwJTqO-HPTHyGAUXr_3y",
+     2.0,
+     1.0
+    ],
+    [
+     "1HAyJ9uhHi3LaK_15Ca-heA-R__-k0bwf",
+     0.5,
+     1.0
+    ]
+   ],
+   "number": 3
+  },
+  {
+   "vo": "V02_c4.mp3",
+   "broll": [
+    [
+     "1EUn2G9e3MybyEgwQsdUaXgsbXu3bQXfa",
+     5.0,
+     1.0
+    ],
+    [
+     "1XQ0I8AZFS1cGvUKe3Ebf6me1Mg6g0V7p",
+     0.5,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "16pRpwsOoSf3PPoL0SJPACOZWAl-5whCx",
+     5.0,
+     1.0
+    ],
+    [
+     "10j9-dvCZTDz7C9i8bYCyk7IS0aN3FKCs",
+     0.5,
+     1.0
+    ]
+   ],
+   "number": 4
+  },
+  {
+   "vo": "V02_c5.mp3",
+   "broll": [
+    [
+     "1PkP56aGjs6ZI2Hr3tRpJz4Qyy8hSN5qT",
+     0.0,
+     1.0
+    ],
+    [
+     "1PkP56aGjs6ZI2Hr3tRpJz4Qyy8hSN5qT",
+     22.0,
+     1.0
+    ],
+    [
+     "11tqk2IZR6czbE_Rol_zpxOSGyApOQDmy",
+     0.5,
+     1.0
+    ],
+    [
+     "1D5FDs81T0LPfQ53SinLRqVH2JaM91Vdz",
+     0.5,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1PkP56aGjs6ZI2Hr3tRpJz4Qyy8hSN5qT",
+     28.4,
+     1.0
+    ],
+    [
+     "1TKLbTtGCIdOSyM1eE4YR6Xis6SklYKDT",
+     0.5,
+     1.0
+    ],
+    [
+     "1oWnYbZ3oxsUjlNVJBCq6up4u877bO_YF",
+     0.5,
+     1.0
+    ]
+   ],
+   "number": 5
+  },
+  {
+   "vo": "V02_c6.mp3",
+   "broll": [
+    [
+     "1jj9bUZ0Abd154CbKbjT6OU8I_pBoYg7S",
+     0.5,
+     1.0
+    ],
+    [
+     "1EUn2G9e3MybyEgwQsdUaXgsbXu3bQXfa",
+     12.0,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1nxzzSt-G9vABq76AoPtjSqnHNSP2xxBS",
+     10.2,
+     1.0
+    ],
+    [
+     "1dX1fsrLKj3h7B8-aZ-L8z9tv-ksqokvK",
+     0.5,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V02_c7.mp3",
+   "broll": [
+    [
+     "1PkP56aGjs6ZI2Hr3tRpJz4Qyy8hSN5qT",
+     18.9,
+     1.0
+    ],
+    [
+     "1CjZGYrcaE63PlI4z57Yhrsh_RUIa-MI9",
+     12.0,
+     1.0
+    ],
+    [
+     "1V3yUdzGCQMe_CZ07LK_a5JWh90m83wYG",
+     5.0,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1v8tnIbXjO1dcBxtBqUnObWHvTEKpKf08",
+     0.0,
+     1.0
+    ],
+    [
+     "1nxzzSt-G9vABq76AoPtjSqnHNSP2xxBS",
+     5.3,
+     1.0
+    ],
+    [
+     "1BIyTpW4MOBNJ3dCrNJ24FmqaoI8gTMnz",
+     4.5,
+     1.0
+    ],
+    [
+     "1rTljXS3QBebptAP6GxvST3ithqFmc6IY",
+     0.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V02_c8.mp3",
+   "broll": [
+    [
+     "1_i6NIha8DuiazqV7RMQoF7ExwjxhkOcE",
+     0.0,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1dX1fsrLKj3h7B8-aZ-L8z9tv-ksqokvK",
+     5.3,
+     1.0
+    ],
+    [
+     "1f6kyaiBCEWKytXqZIqUsR1vZ6dL0HyAl",
+     26.2,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V02_c9.mp3",
+   "broll": [
+    [
+     "1PkP56aGjs6ZI2Hr3tRpJz4Qyy8hSN5qT",
+     12.6,
+     1.0
+    ],
+    [
+     "1Hqw6w4u05Kp8CjuNu4Hvt37q_f2egxfJ",
+     5.7,
+     1.0
+    ],
+    [
+     "site/clean/hobo_2_0_colour_beige.jpg",
+     0,
+     1.0,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ]
+     }
+    ]
+   ],
+   "spare": [
+    [
+     "1uXgrPZLbk7r6YAhgTcw7-6twlZDfSRsO",
+     0.0,
+     1.0
+    ],
+    [
+     "site/hobo_2_0_08.jpg",
+     0,
+     1.0,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ]
+     }
+    ]
+   ]
+  }
+ ],
+ "overlays": [
+  {
+   "type": "label",
+   "text": "HALF PRICE",
+   "block": 0,
+   "at": 0.1,
+   "dur": 1.8
+  },
+  {
+   "type": "tag",
+   "text": "LOCKABLE ZIPPERS",
+   "block": 1,
+   "at": 0.15,
+   "dur": 2.6
+  },
+  {
+   "type": "tag",
+   "text": "HIDDEN POCKETS",
+   "block": 2,
+   "at": 0.15,
+   "dur": 2.6
+  },
+  {
+   "type": "tag",
+   "text": "RFID LINING",
+   "block": 3,
+   "at": 0.15,
+   "dur": 2.6
+  },
+  {
+   "type": "tag",
+   "text": "CUT-RESISTANT STRAP",
+   "block": 4,
+   "at": 0.15,
+   "dur": 2.6
+  },
+  {
+   "type": "tag",
+   "text": "TABLE SECURITY STRAP",
+   "block": 5,
+   "at": 0.15,
+   "dur": 2.6
+  },
+  {
+   "type": "review",
+   "n": 11,
+   "block": 7,
+   "word": "sarah",
+   "dur": 2.8
+  },
+  {
+   "type": "review",
+   "n": 8,
+   "block": 7,
+   "word": "beverly",
+   "dur": 2.8
+  }
+ ],
+ "end_title": "Hobo 2.0",
+ "offer": {
+  "block": 9,
+  "word": "50",
+  "title": "50% OFF",
+  "sub": "+ FREE POUCH WALLET"
+ },
+ "keywords": [
+  "50%",
+  "free",
+  "pouch",
+  "wallet",
+  "hidden",
+  "pocket",
+  "leather",
+  "zippers",
+  "rfid",
+  "scanners",
+  "strap",
+  "cut-resistant",
+  "chair"
+ ],
+ "spare_broll": [
+  [
+   "1nxzzSt-G9vABq76AoPtjSqnHNSP2xxBS",
+   15.0,
+   1.0
+  ],
+  [
+   "1BIyTpW4MOBNJ3dCrNJ24FmqaoI8gTMnz",
+   12.6,
+   1.0
+  ],
+  [
+   "site/hobo_2_0_07.jpg",
+   0,
+   1.0,
+   {
+    "zoom": [
+     1.0,
+     1.06
+    ]
+   }
+  ],
+  [
+   "site/clean/hobo_2_0_colour_dark_sienn.jpg",
+   0,
+   1.0,
+   {
+    "zoom": [
+     1.0,
+     1.06
+    ]
+   }
+  ],
+  [
+   "site/clean/hobo_2_0_colour_galaxy_black.jpg",
+   0,
+   1.0,
+   {
+    "zoom": [
+     1.0,
+     1.06
+    ]
+   }
+  ],
+  [
+   "site/hobo_2_0_03.jpg",
+   0,
+   1.0,
+   {
+    "zoom": [
+     1.0,
+     1.06
+    ]
+   }
+  ]
+ ],
+ "music": {
+  "seed": 2
+ }
+}

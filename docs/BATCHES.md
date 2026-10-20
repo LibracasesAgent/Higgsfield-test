@@ -1,6 +1,6 @@
 # Batches (B-numbers)
 
-Made by `pipeline/ledger.py` at every upload; one row per batch. A batch id is in every file name of the batch (`LC_<date>_<Product>_<Theme>_B045_S01_native`) and starts its Drive folder name. B001-B010 were made before the numbers (their Drive folders keep their old names). Look a batch up here before launching anything: a batch marked launched is not launched again.
+Made by `pipeline/ledger.py` at every upload; one row per batch. A batch id is in every file name of the batch (`LC_<date>_<Product>_<Theme>_B045_S01_native`) and starts its Drive folder name.
 
 | Batch | Date | Product | Theme | Status | Size | Ads | Drive folder | Link |
 |---|---|---|---|---|---|---|---|---|
@@ -14,3 +14,6 @@ Made by `pipeline/ledger.py` at every upload; one row per batch. A batch id is i
 | B008 | 2026-10-16 | Vintage Bag |  | uploaded |  |  | 2026-10-16 – Vintage Bag 5 projects 10 statics | https://drive.google.com/drive/folders/149Yvn_7S3pYeD6AWeSCMBL5cnaq3PCM2 |
 | B009 | 2026-10-16 | Hobo Bag |  | uploaded |  |  | 2026-10-16 – Hobo Bag 5 projects 10 statics | https://drive.google.com/drive/folders/1tyCr4DfALja1-nURH2zDeUOzRyQ4h0cj |
 | B010 | 2026-10-20 | Silhouette Bag |  | uploaded |  |  | 2026-10-20 – Silhouette Bag AI scenes test | https://drive.google.com/drive/folders/1eIDShfIUtgsz5c8z6IKlXpsYu7vBaakF |
+| B011 | 2026-10-20 | Hobo Bag | Evergreen | uploaded | 5 statics + 3 projects | 8 ads | B011 – 2026-10-20 – Hobo Bag – 5 statics + 3 projects | https://drive.google.com/drive/folders/161YFsNmgz5eoxMFPXf_U7zNJVcn4qDtF |
+| B012 | 2026-10-20 | Vintage Bag | Evergreen | uploaded | 5 statics + 3 projects | 14 ads | B012 – 2026-10-20 – Vintage Bag – 5 statics + 3 projects | https://drive.google.com/drive/folders/11Bd7VisFSK5zyhk0dIt6IX63tYkS4xVS |
+| B013 | 2026-10-20 | Hobo 2.0 | Evergreen | uploaded | 5 statics + 3 projects | 8 ads | B013 – 2026-10-20 – Hobo 2.0 – 5 statics + 3 projects | https://drive.google.com/drive/folders/1rjcF9S4TeB8O2VcrnPtqGnciq2Qdw8YH |

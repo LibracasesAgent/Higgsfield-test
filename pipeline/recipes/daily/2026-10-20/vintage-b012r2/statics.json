@@ -1,0 +1,54 @@
+{
+ "ads": [
+  {
+   "layout": "native",
+   "photo": "photos/frames/F_1MoUjspVCD_0032.jpg",
+   "caption": "Meet the Vintage Bag.",
+   "pct": 50,
+   "name": "LC_261020_VintageBag_Evergreen_B012r2_S01_native",
+   "frame": {
+    "clip": "1MoUjspVCDavSAwBB5LPt3FJ1U56XH1ri",
+    "t": 3.25
+   }
+  },
+  {
+   "layout": "studio",
+   "photo": "site/vintage_colour_chocolate.jpg",
+   "headline": "The Vintage Bag.",
+   "pct": 50,
+   "name": "LC_261020_VintageBag_Evergreen_B012r2_S02_studio"
+  },
+  {
+   "layout": "offer",
+   "photo": "site/vintage_colour_red.jpg",
+   "pct": 50,
+   "headline": "The Vintage Bag",
+   "cta": "Shop now \u00b7 50% off",
+   "price": "$44.95",
+   "was": "$89.95",
+   "name": "LC_261020_VintageBag_Evergreen_B012r2_S03_offer"
+  },
+  {
+   "layout": "native",
+   "photo": "photos/frames/F_16tPrjwInS_0069.jpg",
+   "caption": "One-Hand Clasp. Room For Everything.",
+   "pct": 50,
+   "name": "LC_261020_VintageBag_Evergreen_B012r2_S04_native",
+   "frame": {
+    "clip": "16tPrjwInS7Kzcvs17bMHBP4OwEjFc_Yn",
+    "t": 6.96
+   }
+  },
+  {
+   "layout": "quotes",
+   "photo": "site/vintage_colour_chocolate.jpg",
+   "reviews": [
+    6
+   ],
+   "pct": 50,
+   "cta": "Shop now \u00b7 50% off",
+   "name": "LC_261020_VintageBag_Evergreen_B012r2_S05_quotes"
+  }
+ ],
+ "card_photos": []
+}
