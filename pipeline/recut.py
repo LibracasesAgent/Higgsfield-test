@@ -100,16 +100,49 @@ MEDIA_CACHE = os.path.join(os.path.dirname(CACHE), "media")
 LOCAL_MAX = 150 * 2**20  # clips up to this size are downloaded once; bigger ones are range-read
 
 
+MEDIA_CAP = float(os.environ.get("LC_MEDIA_CAP_GB", "4.5")) * 2**30     # the clip cache stays under this (a session's disk is ~10 GB)
+CACHE_KEEP_S = 900                                                      # a clip downloaded / used in the last 15 min is never dropped
+
+
+def trim_cache(cap=None, keep_s=CACHE_KEEP_S):
+    """Drops the oldest cached library clips (files named by their Drive id) until the cache is under `cap` bytes; a clip used in the last
+    `keep_s` seconds stays. A render of 9 projects reads ~200 clips of 40-90 MB: without this a fresh session's disk fills up."""
+    cap = MEDIA_CAP if cap is None else cap
+    try:
+        files = [(os.path.join(MEDIA_CACHE, n), None) for n in os.listdir(MEDIA_CACHE) if DRIVE_ID.match(n)]
+        files = [(f, os.stat(f)) for f, _ in files if os.path.isfile(f)]
+    except OSError:
+        return 0
+    total, gone, now = sum(st.st_size for _, st in files), 0, time.time()
+    for f, st in sorted(files, key=lambda x: x[1].st_mtime):
+        if total <= cap:
+            break
+        if now - st.st_mtime < keep_s:
+            continue
+        try:
+            os.remove(f)
+            total -= st.st_size
+            gone += 1
+        except OSError:
+            pass
+    return gone
+
+
 def source(s):
     """Local path for a Drive clip (cached download when small), else the direct URL for range reads."""
     if os.path.exists(s) or not DRIVE_ID.match(s):
         return s
     local = os.path.join(MEDIA_CACHE, s)
     if os.path.exists(local):
+        try:
+            os.utime(local)                      # (used now: the trim keeps it)
+        except OSError:
+            pass
         return local
     size = file_size(s) or 0
     if 0 < size <= LOCAL_MAX:
         os.makedirs(MEDIA_CACHE, exist_ok=True)
+        trim_cache()
         # 1 MB range requests in parallel: whole-file GETs (and ranges of a few MB or more) of shared
         # files hit Drive's download quota ("Quota exceeded" HTML page); small ranges do not.
         chunk = 2**20

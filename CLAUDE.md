@@ -93,6 +93,13 @@ A DM starts with the repo name (`Higgsfield-test: new product ad sets`): leave t
 | anything else: a built-in bag (Hobo Bag, Hobo 2.0, 3-piece set, vintage, slouchy) and/or a theme | **CATALOG** | 3 |
 
 Both in one message ("winners and the new Silhouette Bag"): one run each, each with its own `$OUT`.
+Several bags in one message ("3 videos and 5 statics for each: Hobo Bag, Vintage Bag, Hobo 2.0"): one catalog run per bag with those
+numbers (`--product "<bag>" --statics 5 --projects 3`, its own `$OUT`, its own `upload --name`), one reply with every Drive link.
+Order: plan all the runs and make all their voiceovers first (the voiceovers need no render, the three plans share nothing),
+then render and upload one bag at a time (one detached chained script: statics first, then the videos of that bag), so the first
+Drive folder fills while the next bag renders; 9 projects + 15 statics keep a session busy for about 3-4 hours. A session has only
+~10 GB of disk: the clip cache trims itself (`recut.trim_cache`, 4.5 GB), and after each bag's upload delete its local videos
+(`find $OUT/videos -name '*.mp4' -delete`, never anything in Drive); `df -h /home` says how much is left.
 
 **Size, every pipeline:** no numbers in the message = a **batch**: 20 statics + 5 projects × 4 hooks (H1-H4) =
 20 videos (winners and new products do this by themselves; catalog needs `--batch`). Numbers given = exactly

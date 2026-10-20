@@ -70,6 +70,28 @@ def test_static_cycle_with_frames():
     assert classic == make_batch.static_cycle(True, True, False, True, 0)                      # --classic: unchanged
 
 
+def test_media_cache_is_trimmed_oldest_first_and_keeps_what_is_in_use():
+    import time
+    import recut
+    with tempfile.TemporaryDirectory() as d:
+        old_dir = recut.MEDIA_CACHE
+        recut.MEDIA_CACHE = d
+        try:
+            now = time.time()
+            ids = [chr(ord("A") + i) * 22 for i in range(4)]
+            for k, n in enumerate(ids):                 # A oldest ... D newest: 1 MB each, A-C an hour old or more, D just now
+                f = os.path.join(d, n)
+                open(f, "wb").write(b"x" * 2**20)
+                os.utime(f, (now - 7200 + k * 600, now - 7200 + k * 600) if k < 3 else (now, now))
+            open(os.path.join(d, "voice.mp3"), "wb").write(b"x" * 2**20)       # not a Drive id: never dropped
+            gone = recut.trim_cache(cap=2.5 * 2**20)
+            left = sorted(os.listdir(d))
+            assert gone == 2 and left == [ids[2], ids[3], "voice.mp3"], (gone, left)
+            assert recut.trim_cache(cap=0) == 1 and os.path.exists(os.path.join(d, ids[3])) is True     # D is in use (just now): stays
+        finally:
+            recut.MEDIA_CACHE = old_dir
+
+
 def product(name):
     M = ugc_script.mb()
     files = M.product_files(M.products_dir())

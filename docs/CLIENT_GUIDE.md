@@ -81,6 +81,7 @@ ads from the new files.
 | A few ads | `Higgsfield-test: 3 statics and 2 videos for the Hobo 2.0` |
 | A theme | `Higgsfield-test: 4 statics and 3 videos, Black Friday` (also: Cyber Monday, Christmas / gift, Mother's Day, travel) |
 | A batch | `Higgsfield-test: batch, Christmas` |
+| Several bags at once | `Higgsfield-test: 3 videos and 5 statics for each: Hobo Bag, Vintage Bag and Hobo 2.0` (9 projects = 36 videos + 15 statics, one Drive folder per bag, about 3-4 hours; the reply lists the three links) |
 
 ## Any pipeline
 
