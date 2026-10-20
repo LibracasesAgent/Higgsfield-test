@@ -38,6 +38,11 @@ Ad Library layouts (what the top-impression ads look like; new_layouts() lists t
                                                                    struck through beside a "50% OFF" tag; with no price a red "50% OFF"
                                                                    plate; then the packshot, the gift label and the CTA. The packshot
                                                                    gets its room first; sub, then headline, go before the static fails
+  studio    photo, headline|caption?, pct|badge?, tint?                    the clean packshot: the bag big on a calm seamless backdrop tinted
+                                                                   from the bag's own colour (soft glow, soft floor shadow, the bag's colour
+                                                                   kept exactly), a small LIBRA CASES wordmark on top, at most ONE short
+                                                                   line (serif) and ONE small red offer pill under it. No badge, no CTA
+                                                                   button (the ad's own button is the CTA). Needs a white-backdrop packshot
 AI scene layouts (a real handbag placed into a generated scene: cafe, street, hallway, flat-lay; a 4:5 PNG, 1792x2240 or 896x1120,
 face-checked and quality-gated before it gets here; scene_layouts() lists them, new_layouts() does not: the real-photo cycle never
 picks them). All three refuse a missing photo / a face (the DNN check) and never draw a word the spec does not carry:
@@ -1087,7 +1092,7 @@ def l_checklist(a, sd):
 # ---------------------------------------------------------------- Ad Library layouts (native, quotes, value)
 def new_layouts():
     """The layouts modelled on the top-impression Ad Library statics, for make_batch's static cycle."""
-    return ["native", "quotes", "value"]
+    return ["native", "quotes", "value", "studio"]
 
 
 def scene_layouts():
@@ -1231,6 +1236,126 @@ def l_native(a, sd):
     if text:
         native_caption(c, d, text, calm)
     return c
+
+
+STUDIO_DARK = (92, 74, 60)
+
+
+def _mix(a, b, k):
+    """a + (b - a) * k per channel (k = share of b)."""
+    return tuple(a[i] + (b[i] - a[i]) * k for i in range(3))
+
+
+def _luma(c):
+    return 0.299 * c[0] + 0.587 * c[1] + 0.114 * c[2]
+
+
+def bag_colour(im):
+    """The product's own colour in a white-backdrop packshot: the median colour of its clearly non-white pixels (RGB), None when
+    there are none."""
+    t = trim_white(whiten(im))
+    t.thumbnail((120, 120))
+    px = [p for p in t.getdata() if max(p) < 215 or max(p) - min(p) > 40]
+    if not px:
+        return None
+    px.sort(key=_luma)
+    return px[len(px) // 2]
+
+
+def studio_tint(bag):
+    """The calm backdrop colour for a bag of colour `bag`: its own hue, muted and very light (burgundy -> dusty rose, navy -> pale
+    blue-grey); a black / grey / white bag gets a warm sand; a light bag (beige, apricot) a deeper one so it still stands out."""
+    warm = (236, 229, 219)
+    if bag is None:
+        return warm
+    mx, mn = max(bag), min(bag)
+    if (mx - mn) / max(mx, 1) < 0.14:                                    # black, grey, white: warm neutral
+        return warm
+    c = _mix(bag, (_luma(bag),) * 3, 0.35)                                # muted
+    tint = _mix(c, (250, 246, 240), 0.80)
+    for k in range(1, 9):                                                  # a light bag: a deeper backdrop until it stands out
+        if abs(_luma(tint) - _luma(bag)) >= 32:
+            break
+        tint = _mix(tint, STUDIO_DARK, 0.05 * k)
+    return tuple(int(v) for v in tint)
+
+
+def studio_backdrop(size, tint, centre):
+    """The seamless backdrop: tint, a touch lighter at the top and deeper at the floor, a soft glow behind the product (centre)."""
+    import numpy as np
+    W, H = size
+    y = np.linspace(0, 1, H)[:, None, None]
+    t = np.array(tint, dtype=float)[None, None, :]
+    top, bot = t + (255 - t) * 0.40, t * 0.93
+    arr = (top * (1 - y) + bot * y) * np.ones((1, W, 1))
+    glow = Image.new("L", size, 0)
+    cx, cy = centre
+    ImageDraw.Draw(glow).ellipse([cx - 0.55 * W, cy - 0.40 * H, cx + 0.55 * W, cy + 0.40 * H], fill=255)
+    g = np.asarray(glow.filter(ImageFilter.GaussianBlur(0.16 * W)), dtype=float)[:, :, None] / 255.0
+    arr = arr + (255 - arr) * 0.45 * g
+    return Image.fromarray(np.clip(arr, 0, 255).astype("uint8"), "RGB")
+
+
+def place_studio(canvas, im, box, host=None):
+    """The packshot (white backdrop) multiplied onto the tinted canvas like place_packshot, but the product's own pixels keep their
+    colour: where a pixel is clearly the bag (dark or coloured) the backdrop's tint is divided out again, so only the soft white
+    areas (backdrop, contact shadow) take the tint. Returns the placed box."""
+    import numpy as np
+    im = trim_white(whiten(im))
+    x0, y0, x1, y1 = box
+    s = min((x1 - x0) / im.width, (y1 - y0) / im.height)
+    im = im.resize((max(1, int(im.width * s)), max(1, int(im.height * s))), Image.LANCZOS)
+    px, py = x0 + ((x1 - x0) - im.width) // 2, y0 + ((y1 - y0) - im.height) // 2
+    reg = np.asarray(canvas.crop((px, py, px + im.width, py + im.height)), dtype=float)
+    a = np.asarray(im, dtype=float)
+    lum = 0.299 * a[..., 0] + 0.587 * a[..., 1] + 0.114 * a[..., 2]
+    chroma = a.max(axis=2) - a.min(axis=2)
+    p = np.maximum(np.clip((120 - lum) / 50, 0, 1), np.clip((chroma - 22) / 30, 0, 1))[..., None]
+    mult = reg * a / 255.0
+    canvas.paste(Image.fromarray(np.clip(mult * (1 - p) + a * p, 0, 255).astype("uint8"), "RGB"), (px, py))
+    if TRACK[0]:
+        m = im.convert("L").point(lambda v: 255 if v < 226 else 0).filter(ImageFilter.MinFilter(5))
+        note("photo", (px, py, px + im.width, py + im.height), host=host, mask=m)
+    return (px, py, px + im.width, py + im.height)
+
+
+def l_studio(a, sd):
+    """The clean packshot static (the competitor look: one big photo, nearly no text): the white-backdrop packshot large on a calm
+    seamless backdrop tinted from the bag's own colour (studio_tint) with a soft shadow under it, the small LIBRA CASES wordmark on
+    top and under the bag at most ONE short serif line and ONE small red offer pill. No badge, no CTA button, no sub. The spec's own
+    words only."""
+    W, H = a.get("size", [1080, 1350])
+    im = load(sd, a["photo"])
+    if getattr(im, "_card", False) or not studio_white(im):
+        raise ValueError("studio: needs a packshot on a white studio backdrop")
+    tint = tuple(a["tint"]) if a.get("tint") else studio_tint(bag_colour(im))
+    text, offer = a.get("caption") or a.get("headline"), offer_text(a)
+    c = studio_backdrop((W, H), tint, (W / 2, H * 0.47))
+    d = ImageDraw.Draw(c)
+    ink = ESPRESSO
+    top = brand_mark(d, W, 62, ink) + 28
+    f = fit(d, text, SERIF, a.get("hsize", 70), W - 200, 1, 46) if text else None
+    ph = (put(d, text, f, ink, 0, W - 200, lh=1.0, dry=True) if text else 0)
+    pill_h = int(36 * 2.4) if offer else 0
+    gap = 26
+    block = ph + (gap if text and offer else 0) + pill_h
+    y_block = H - 84 - block
+    area = room((60, top, W - 60, y_block - (46 if block else 20)), 560)
+    keep, TRACK[0] = TRACK[0], False                    # (a dry run: where the bag lands, to put its floor shadow there first)
+    bx0, by0, bx1, by1 = place_studio(c.copy(), load(sd, a["photo"]), area)
+    TRACK[0] = keep
+    sh = Image.new("L", (W, H), 255)                     # a soft contact shadow on the floor under the bag (on the backdrop, before it)
+    ImageDraw.Draw(sh).ellipse([bx0 + 0.10 * (bx1 - bx0), by1 - 26, bx1 - 0.10 * (bx1 - bx0), by1 + 14], fill=196)
+    sh = sh.filter(ImageFilter.GaussianBlur(20))
+    c = ImageChops.multiply(c, Image.merge("RGB", (sh, sh, sh)))
+    place_studio(c, load(sd, a["photo"]), area)
+    d = ImageDraw.Draw(c)
+    y = y_block
+    if text:
+        y = put(d, text, f, ink, y, W - 200, lh=1.0) + gap
+    if offer:
+        pill(d, W, y, offer, bg=RED, size=34, bold=True)
+    return c.convert("RGBA")
 
 
 def quote_items(a):
