@@ -1057,7 +1057,8 @@ def expand(out, hooks=4, seed=1, only=None, budget=None, quiet=False):
         tts_all = [t for t in tts_all if t["file"] in need_src]
         dupes_all = {d: s_ for d, s_ in dupes_all.items() if d in need}
     est = round(CREDITS_PER_LINE * len(tts_all), 1)
-    limit = budget if budget is not None else p.get("budget") or 40
+    limit = budget if budget is not None else p.get("budget") or float(
+        (json.load(open(os.path.join(HERE, "config.json"))).get("budget") or {}).get("max_credits_per_batch") or 100)
     if est > limit:
         refuse(f"{len(tts_all)} voiceover lines with the hook versions (~{est} credits) are over the {limit}-credit budget: "
                f"fewer videos or hooks, or --budget {int(est) + 1} if the request names a bigger budget")

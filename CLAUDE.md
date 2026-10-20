@@ -37,7 +37,10 @@ The repo's default branch is `claude/loving-meitner-4amjii`. Read `docs/PLAYBOOK
    `balance`, `transactions`. One ugc project (one voice take per chapter + 4 hook lines) costs about 4-5 credits, a full
    batch (5 projects) about 22; a scene still ~1, a clip 4.5-6. **A batch is capped at 100 credits, voiceover + AI together**
    (`plan` plans the AI part inside it: 100 - voiceover - a reserve of 8 for one re-make of a failed asset; `plan` refuses more
-   than 40 for voiceover alone unless you pass `--budget X`, and takes `--ai-cap X` only when the request names another total).
+   than 100 for voiceover alone unless you pass `--budget X`, and takes `--ai-cap X` only when the request names another total).
+   **The cap is per batch, not per message:** a message for three bags is three batches (B045, B046, B047), each with its own 100, so
+   it may use up to 300 in all; the voiceover of such a message is ~40 in total and is nowhere near a limit: never stop, ask or
+   scale a request down because of a credit number you remember (the old limit was 40; it is 100 now). Only `plan` refuses.
    Never generate an asset twice without a reason, never go over the cap. Check `balance` before and after; report both.
 3. **Only true claims, Meta-compliant.** Offers, gifts and reviews come from the product data (`make_batch.py`
    handles it). Any line you write yourself (`--lines`, product files, ad copy edits) uses only facts from

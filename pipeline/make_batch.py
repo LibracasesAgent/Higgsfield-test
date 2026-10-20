@@ -40,8 +40,8 @@ videos V01, V02 ... as before.
      product has real customer clips, then features, reviews, colours). --product omitted: the top winner's product, else Hobo Bag.
      Winner openings that already went out in a committed batch (pipeline/recipes/daily) are named in a warning.
      Products: the built-in bags below or pipeline/data/products/<slug>.json (new_product.py); an unknown or
-     draft product exits 2. Refuses (exit 2) when the voiceover, hook lines included, would cost more than 40
-     credits (--budget X).
+     draft product exits 2. Refuses (exit 2) when the voiceover, hook lines included, would cost more than 100
+     credits, the per-batch cap of config.json (--budget X).
      Then the Meta ad copy of every ad (pipeline/ad_copy.py -> ad_copy.csv / ad_copy.json: primary texts, headlines,
      description, CTA; a project's versions share theirs) and the compliance check of every text of the batch, the copy
      included (pipeline/compliance.py -> compliance.json: no health/medical, drugs, politics, religion, blood or
@@ -124,7 +124,7 @@ import novelty  # noqa: E402
 BRAND_VOICE = {"voice_type": "element", "voice_id": "241459b6-b4e8-4a2a-9868-da8bcdcd0558"}
 NARRATOR = {"voice_type": "preset", "voice_id": "64cf4f1a-61c8-5938-9aea-83d12b2e1d13"}
 DRIVE_ID = re.compile(r"^[A-Za-z0-9_-]{20,}$")
-MAX_CREDITS = 40
+MAX_CREDITS = float(ai_gen.cfg().get("max_credits_per_batch") or 100)   # credits a batch may use (owner 2026-10-20: 100 per batch, voiceover + AI)
 MIN_SECONDS = 25   # a storyboard shorter than this is never made (35-95 s is the QA range; 25-35 s is uploaded, flagged)
 PLAN_SECONDS = MIN_SECONDS + 2   # plan leaves a storyboard out when it estimates under this: the real voice runs a second or
 #                                  two off the words / 2.7 estimate, and a render under MIN_SECONDS is never uploaded
