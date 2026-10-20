@@ -2217,7 +2217,11 @@ def plan(a):
     if a.videos and not story and not getattr(a, "classic", False):
         import ugc_script
         try:
-            ugc_sc = ugc_script.scripts(pr, n=a.videos, seed=a.seed, hooks=a.hooks)
+            nl_ = novelty.load()               # what the product's last batches said (novelty.py): other hooks, other words
+            ugc_sc = ugc_script.scripts(pr, n=a.videos, seed=a.seed, hooks=a.hooks, avoid=dict(
+                hooks=novelty.recent(pr["name"], "hook", log=nl_),
+                sentences=[t_ for b_ in novelty.batches(pr["name"], log=nl_)[-novelty.LAST:] for v_ in b_.get("videos") or []
+                           for t_ in v_.get("chapters") or []]))
         except Exception as e:  # noqa: BLE001 - the script engine must not stop a batch: the classic format still works
             warnings.append(f"ugc script engine failed for {pr['name']} ({type(e).__name__}: {e}): the classic format is used")
         if not ugc_sc and not any("ugc script engine failed" in w for w in warnings):
@@ -3323,7 +3327,7 @@ def log_novelty(out, p, name, uploaded):
     for n in p.get("statics") or []:
         x = ads.get(n)
         if x and n in got:
-            e = dict(layout=x.get("layout"), photo=os.path.basename(str(x.get("photo") or "")) or None,
+            e = dict(layout=x.get("layout"), photo=None if x.get("ai") else os.path.basename(str(x.get("photo") or "")) or None,
                      caption=x.get("caption") or x.get("headline"), **{k: (x.get("ai") or {}).get(k) for k in ("scene", "colour")})
             st.append({k: v for k, v in e.items() if v})
     spec_txt = "".join(open(os.path.join(out, f"{v['name']}.json")).read() for v in p.get("videos") or []
@@ -3331,12 +3335,24 @@ def log_novelty(out, p, name, uploaded):
     need = ai_gen.load_needed(out) or {}
     cl = [dict(scene=c["scene"]) for c in need.get("clips") or [] if f"{c['id']}_c.mp4" in spec_txt and ai_gen.available(out, "clips", c["id"])]
     vids, seen = [], set()
+    try:
+        said_ = {f: t.split("|", 1)[-1] for f, t in json.load(open(os.path.join(out, "tts_said.json"))).items()}
+    except (OSError, ValueError):
+        said_ = {}
     for v in p.get("videos") or []:
         u = v.get("ugc") or {}
-        if v["name"] in got and u.get("script") and (u["script"], v.get("hook_text") or v.get("hook")) not in seen:
-            seen.add((u["script"], v.get("hook_text") or v.get("hook")))
-            vids.append({k: x for k, x in dict(script=u.get("script"), angle=u.get("angle"), hook=v.get("hook_text") or v.get("hook"),
-                                               hook_type=(u.get("hook") or {}).get("type")).items() if x})
+        hk_ = v.get("hook_text") or v.get("hook")
+        if v["name"] in got and u.get("script") and (u["script"], hk_) not in seen:
+            seen.add((u["script"], hk_))
+            try:          # the project's chapter takes (every version shares them): what its body said
+                sp_ = json.load(open(os.path.join(out, f"{v['name']}.json")))
+                ch_ = [said_[b_["vo"]] for b_ in (sp_.get("blocks") or [])[1:] if b_.get("vo") in said_]
+            except (OSError, ValueError, KeyError):
+                ch_ = []
+            first_ = u["script"] not in {z.get("script") for z in vids}      # (a project's versions share their chapters: once)
+            vids.append({k: x for k, x in dict(script=u.get("script"), angle=u.get("angle"), hook=hk_,
+                                               hook_type=(u.get("hook") or {}).get("type"),
+                                               chapters=ch_ if first_ else None).items() if x})
     novelty.record(p.get("product") or "product", dict(date=p.get("created") or datetime.date.today().isoformat(), name=name,
                                                        statics=st, clips=cl, videos=vids))
     return novelty.PATH

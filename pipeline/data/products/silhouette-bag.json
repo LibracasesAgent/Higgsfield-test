@@ -1,0 +1,332 @@
+{
+ "key": "silhouette bag",
+ "aliases": ["silhouette"],
+ "name": "Silhouette Bag",
+ "short": "Silhouette Bag",
+ "end": "The Silhouette Bag",
+ "site": null,
+ "photos": [
+  {
+   "id": "1RBPzu01S0M1yMlL-1A0qow6cPNsicT4s",
+   "name": "silhouette_01.jpg",
+   "src_name": "silhouette_01.jpg",
+   "clean": 1.0,
+   "faces": 0,
+   "statics": true,
+   "kind": "packshot",
+   "w": 800,
+   "h": 800,
+   "path": "pipeline/cache/new_products/silhouette-bag/photos/silhouette_01.jpg"
+  },
+  {
+   "id": "1IK9TqywnY7PdL_tOcVU4T-6Ig8IaKoTO",
+   "name": "silhouette_10.jpg",
+   "src_name": "silhouette_10.jpg",
+   "clean": 0.998,
+   "faces": 0,
+   "statics": true,
+   "kind": "packshot",
+   "w": 800,
+   "h": 800,
+   "path": "pipeline/cache/new_products/silhouette-bag/photos/silhouette_10.jpg"
+  },
+  {
+   "id": "1B67oqzv-FTT7ZYe8yke3PBOziCxmKJi1",
+   "name": "silhouette_12.jpg",
+   "src_name": "silhouette_12.jpg",
+   "clean": 0.993,
+   "faces": 0,
+   "statics": true,
+   "kind": "packshot",
+   "w": 800,
+   "h": 800,
+   "path": "pipeline/cache/new_products/silhouette-bag/photos/silhouette_12.jpg"
+  },
+  {
+   "id": "1wCr7NbmegWD8U_OgYvrmLF4b-R35chHW",
+   "name": "silhouette_11.jpg",
+   "src_name": "silhouette_11.jpg",
+   "clean": 0.979,
+   "faces": 0,
+   "statics": true,
+   "kind": "packshot",
+   "w": 800,
+   "h": 800,
+   "path": "pipeline/cache/new_products/silhouette-bag/photos/silhouette_11.jpg"
+  },
+  {
+   "id": "1PZeCwRgwjKDYcRy2YQ3q64SwvUP3AauS",
+   "name": "silhouette_09.jpg",
+   "src_name": "silhouette_09.jpg",
+   "clean": 0.969,
+   "faces": 0,
+   "statics": true,
+   "kind": "packshot",
+   "w": 800,
+   "h": 800,
+   "path": "pipeline/cache/new_products/silhouette-bag/photos/silhouette_09.jpg"
+  },
+  {
+   "id": "1TndmuWt8uYu1qAF2sC7xu4CYXEV2oBpo",
+   "name": "silhouette_03.jpg",
+   "src_name": "silhouette_03.jpg",
+   "clean": 0.661,
+   "faces": 0,
+   "statics": true,
+   "kind": "other",
+   "w": 800,
+   "h": 800,
+   "path": "pipeline/cache/new_products/silhouette-bag/photos/silhouette_03.jpg"
+  },
+  {
+   "id": "1_GzrGP4c3EXz7gRyiQyg_eKgYf1CW_ny",
+   "name": "silhouette_08.jpg",
+   "src_name": "silhouette_08.jpg",
+   "clean": 0.0,
+   "faces": 0,
+   "statics": true,
+   "kind": "worn",
+   "w": 800,
+   "h": 800,
+   "path": "pipeline/cache/new_products/silhouette-bag/photos/silhouette_08.jpg"
+  },
+  {
+   "id": "1t_es4PYwDvoaIy_7lIEt1Til7IaCX2-n",
+   "name": "silhouette_07.jpg",
+   "src_name": "silhouette_07.jpg",
+   "clean": 0.0,
+   "faces": 0,
+   "statics": false,
+   "kind": "worn",
+   "w": 800,
+   "h": 800,
+   "path": "pipeline/cache/new_products/silhouette-bag/photos/silhouette_07.jpg"
+  },
+  {
+   "id": "14Hn-99KNb93yBkHtfGaqx51H_cX7lIDv",
+   "name": "silhouette_05.jpg",
+   "src_name": "silhouette_05.jpg",
+   "clean": 0.0,
+   "faces": 0,
+   "statics": true,
+   "kind": "detail",
+   "w": 800,
+   "h": 800,
+   "path": "pipeline/cache/new_products/silhouette-bag/photos/silhouette_05.jpg"
+  },
+  {
+   "id": "18Vqup2zTvOsGZNDgY2GIS19jvQt22-sV",
+   "name": "silhouette_04.jpg",
+   "src_name": "silhouette_04.jpg",
+   "clean": 0.0,
+   "faces": 0,
+   "statics": true,
+   "kind": "detail",
+   "w": 800,
+   "h": 800,
+   "path": "pipeline/cache/new_products/silhouette-bag/photos/silhouette_04.jpg"
+  },
+  {
+   "id": "1-yQ6hvwi1MiYQA8D5DZb6wmBMJyOXWji",
+   "name": "silhouette_02.jpg",
+   "src_name": "silhouette_02.jpg",
+   "clean": 0.0,
+   "faces": 0,
+   "statics": false,
+   "kind": "worn",
+   "w": 800,
+   "h": 800,
+   "path": "pipeline/cache/new_products/silhouette-bag/photos/silhouette_02.jpg"
+  },
+  {
+   "id": "1zochOnyPl_Z4XaJEkeoZFWmTuuhoiSEB",
+   "name": "silhouette_06.jpg",
+   "src_name": "silhouette_06.jpg",
+   "clean": 0.0,
+   "faces": 1,
+   "statics": false,
+   "kind": "detail",
+   "w": 800,
+   "h": 800,
+   "path": "pipeline/cache/new_products/silhouette-bag/photos/silhouette_06.jpg"
+  }
+ ],
+ "clips": [
+  {
+   "id": "1EERRphCchjJ8HxHizosVGfIa0XheU5Dj",
+   "name": "silhouette_site_video.mp4",
+   "dur": 32.92,
+   "w": 1080,
+   "h": 1080,
+   "good": [5.8, 9.1, 11.8, 15.6, 18.6, 24.6, 30.1],
+   "mute": true,
+   "audio": true,
+   "path": "pipeline/cache/new_products/silhouette-bag/clips/silhouette_site_video.mp4",
+   "sheet": "pipeline/cache/new_products/silhouette-bag/sheets/silhouette-site-video.jpg"
+  }
+ ],
+ "offer": {
+  "badge": {"top": "NOW", "big": "50%", "bottom": "OFF"},
+  "gift": null,
+  "offer_title": "50% OFF",
+  "offer_sub": "",
+  "statics_sub": "Now 50% off.",
+  "close": "It's fifty percent off right now. Tap the link below.",
+  "evidence": [
+   "notes price 59.95 vs compare-at 119.95 = 50% off: \"Price: $59.95 (was $119.95) = 50% off. No free gift is mentioned on the product page.\"",
+   "notes say: \"Price: $59.95 (was $119.95) = 50% off.\""
+  ]
+ },
+ "hook_clips": [["clip", 0, 9.1], ["clip", 0, 5.8]],
+ "features": [
+  [
+   "Sleek, under-arm bag for nights out, office days and everything in between.",
+   "DAY TO NIGHT",
+   [["photo", "P6"], ["clip", 0, 30.1]]
+  ],
+  [
+   "Smooth, structured feel that looks luxe and softens beautifully with wear.",
+   "LUXE FEEL",
+   [["photo", "P9"], ["clip", 0, 18.6]]
+  ],
+  [
+   "Elongated silhouette that fits what you need without bulging or warping the shape.",
+   "SLEEK SHAPE",
+   [["photo", "P0"], ["clip", 0, 24.6]]
+  ],
+  [
+   "Room for your phone, wallet, keys and touch-up essentials.",
+   "ROOM FOR EVERYTHING",
+   [["photo", "P5"], ["clip", 0, 15.6]]
+  ],
+  ["Slim shoulder straps: on the shoulder or in hand.", "EASY STRAPS", [["photo", "P7"], ["clip", 0, 11.8]]],
+  [
+   "Dual zipper closure keeps everything secure and easy to access.",
+   "ZIP CLOSURE",
+   [["photo", "P8"], ["photo", "P1"]]
+  ],
+  [
+   "Clean stitching and a glossy finish: a quiet-luxury look with blazers and slip dresses.",
+   "CLEAN FINISH",
+   [["photo", "P4"], ["photo", "P3"]]
+  ]
+ ],
+ "customer": [],
+ "broll": [
+  ["photo", "P10"],
+  ["photo", "P6"],
+  ["photo", "P2"],
+  ["photo", "P0"],
+  ["clip", 0, 11.8],
+  ["clip", 0, 30.1],
+  ["clip", 0, 18.6],
+  ["clip", 0, 15.6]
+ ],
+ "reviews": [],
+ "facts": {
+  "price": "59.95",
+  "compare_at": "119.95",
+  "price_source": "notes",
+  "price_line": "Price: $59.95 (was $119.95) = 50% off. No free gift is mentioned on the product page.",
+  "colours": ["Coffee", "Black", "Beige", "Wine Red", "Apricot"],
+  "description": "",
+  "notes": "## notes.txt\nThe Silhouette Bag - test product for the new-product flow (everything below is from the libracases.com product page)\n\nSite link: https://libracases.com/products/the-silhouette-bag\nPrice: $59.95 (was $119.95) = 50% off. No free gift is mentioned on the product page.\nColours: Coffee, Black, Beige, Wine Red, Apricot\n\nWhat makes it special (product page wording):\n- Sleek, under-arm bag for nights out, office days and everything in between\n- Smooth, structured feel that looks luxe and softens beautifully with wear\n- Elongated silhouette that fits what you need without bulging or warping the shape\n- Room for your phone, wallet, keys and touch-up essentials\n- Slim shoulder straps: on the shoulder or in hand\n- Dual zipper closure keeps everything secure and easy to access\n- Clean stitching and a glossy finish: a quiet-luxury look with blazers and slip dresses\n\nFiles: photos/ = the 12 product photos from the site; clips/ = the product video from the site (1080x1080, 33 s).",
+  "title": null,
+  "url": null
+ },
+ "source": {
+  "kind": "drive",
+  "drive_folder": "1v7R_rj_faupeQN70uqHe17WEr0Qh7Ljw",
+  "folder_name": "Silhouette Bag",
+  "files": [
+   {"id": "1mtFSxj0OFdXH1mL-hSFFiin7KOJ5ROoh", "name": "notes.txt", "modifiedTime": "2026-10-13T02:24:33.465Z"},
+   {
+    "id": "1RBPzu01S0M1yMlL-1A0qow6cPNsicT4s",
+    "name": "silhouette_01.jpg",
+    "modifiedTime": "2026-10-13T02:23:58.381Z"
+   },
+   {
+    "id": "1-yQ6hvwi1MiYQA8D5DZb6wmBMJyOXWji",
+    "name": "silhouette_02.jpg",
+    "modifiedTime": "2026-10-13T02:24:00.923Z"
+   },
+   {
+    "id": "1TndmuWt8uYu1qAF2sC7xu4CYXEV2oBpo",
+    "name": "silhouette_03.jpg",
+    "modifiedTime": "2026-10-13T02:24:03.488Z"
+   },
+   {
+    "id": "18Vqup2zTvOsGZNDgY2GIS19jvQt22-sV",
+    "name": "silhouette_04.jpg",
+    "modifiedTime": "2026-10-13T02:24:06.156Z"
+   },
+   {
+    "id": "14Hn-99KNb93yBkHtfGaqx51H_cX7lIDv",
+    "name": "silhouette_05.jpg",
+    "modifiedTime": "2026-10-13T02:24:08.832Z"
+   },
+   {
+    "id": "1zochOnyPl_Z4XaJEkeoZFWmTuuhoiSEB",
+    "name": "silhouette_06.jpg",
+    "modifiedTime": "2026-10-13T02:24:11.866Z"
+   },
+   {
+    "id": "1t_es4PYwDvoaIy_7lIEt1Til7IaCX2-n",
+    "name": "silhouette_07.jpg",
+    "modifiedTime": "2026-10-13T02:24:14.604Z"
+   },
+   {
+    "id": "1_GzrGP4c3EXz7gRyiQyg_eKgYf1CW_ny",
+    "name": "silhouette_08.jpg",
+    "modifiedTime": "2026-10-13T02:24:17.238Z"
+   },
+   {
+    "id": "1PZeCwRgwjKDYcRy2YQ3q64SwvUP3AauS",
+    "name": "silhouette_09.jpg",
+    "modifiedTime": "2026-10-13T02:24:19.921Z"
+   },
+   {
+    "id": "1IK9TqywnY7PdL_tOcVU4T-6Ig8IaKoTO",
+    "name": "silhouette_10.jpg",
+    "modifiedTime": "2026-10-13T02:24:22.563Z"
+   },
+   {
+    "id": "1wCr7NbmegWD8U_OgYvrmLF4b-R35chHW",
+    "name": "silhouette_11.jpg",
+    "modifiedTime": "2026-10-13T02:24:25.343Z"
+   },
+   {
+    "id": "1B67oqzv-FTT7ZYe8yke3PBOziCxmKJi1",
+    "name": "silhouette_12.jpg",
+    "modifiedTime": "2026-10-13T02:24:28.068Z"
+   },
+   {
+    "id": "1EERRphCchjJ8HxHizosVGfIa0XheU5Dj",
+    "name": "silhouette_site_video.mp4",
+    "modifiedTime": "2026-10-13T02:24:31.001Z"
+   }
+  ],
+  "site_url": null,
+  "site_match": null,
+  "notes_link": "https://libracases.com/products/the-silhouette-bag",
+  "local_dir": null,
+  "cache": "pipeline/cache/new_products/silhouette-bag",
+  "overview": "pipeline/cache/new_products/silhouette-bag/overview.jpg",
+  "added": "2026-10-20",
+  "auto_sig": "6c34ca9b7521c564"
+ },
+ "status": "ready",
+ "auto": true,
+ "tests": [
+  {
+   "date": "2026-10-20",
+   "name": "2026-10-20 – Silhouette Bag AI scenes test",
+   "drive_link": "https://drive.google.com/drive/folders/1eIDShfIUtgsz5c8z6IKlXpsYu7vBaakF",
+   "statics": 20,
+   "videos": 0,
+   "projects": 0,
+   "plan": "LC_261020_SilhouetteBag_Evergreen",
+   "request": "new product Silhouette Bag"
+  }
+ ]
+}

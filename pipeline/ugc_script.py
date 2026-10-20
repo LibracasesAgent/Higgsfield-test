@@ -697,8 +697,10 @@ def overlap(sc, others):
         any(hk & {h["text"] for h in [o["hook"]] + o["alt_hooks"]} for o in others)
 
 
-def scripts(pr, n=5, seed=1, hooks=4, voice="you"):
-    """The ugc scripts of a product (module doc). Deterministic for (product, n, seed, hooks)."""
+def scripts(pr, n=5, seed=1, hooks=4, voice="you", avoid=None):
+    """The ugc scripts of a product (module doc). Deterministic for (product, n, seed, hooks, avoid). avoid = {"hooks": [...],
+    "sentences": [...]}: what the product's earlier batches already said (novelty.py): the engine takes other words, and a
+    hand-written script whose hook went out lately waits (the engine writes that angle instead)."""
     if voice != "you":
         raise ValueError("voice: only 'you' (a first-person voice is not built: never an invented customer experience)")
     ctx = context(pr)
@@ -707,6 +709,12 @@ def scripts(pr, n=5, seed=1, hooks=4, voice="you"):
         return []
     hand = data("ugc_hobo.json")["scripts"] if ctx["builtin"] and pr.get("key") == "hobo bag" else []
     used, taken, out = Used(), set(), []
+    avoid = avoid or {}
+    old_hooks = {flat(x) for x in avoid.get("hooks") or []}
+    hand = [hs for hs in hand if flat(fill(hs["hooks"][0]["text"], ctx["V"]) or "") not in old_hooks]   # a hand script rests 3 batches
+    taken.update(avoid.get("hooks") or [])
+    for t in avoid.get("sentences") or []:                                                   # what earlier batches said: not again
+        used.update(sents(t))
     taken.update(fill(h["text"], ctx["V"]) or "" for hs in hand for h in hs["hooks"])        # the engine never repeats a hand hook
     for hs in hand:                                                                          # ... or a hand-written sentence
         for ch in hs["chapters"]:

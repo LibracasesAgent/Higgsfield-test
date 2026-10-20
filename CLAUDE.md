@@ -271,6 +271,8 @@ python3 pipeline/make_batch.py plan <flags> --request "<the request text>" --out
       `params` / `prompt` as listed); `jobs_wait`; download to `$OUT/<file>`; `python3 pipeline/ai_gen.py clips --out $OUT`;
       **look at `$OUT/qa/ai_clips.jpg`** (4 frames per clip) and `reject` AC.. ids where the bag morphs, a hand looks wrong, or
       it looks AI. A failed still / clip is not remade unless the reserve covers it (one retry, same prompt, then give up).
+      A submission answered with a preset recommendation instead of a job: send it again with `declined_preset_id` = that preset's id
+      (the project never uses presets); a 429 rate limit: send it again.
    `render` applies the result by itself: a rejected or missing still gives its static back as the real-photo static it
    replaced, a rejected or missing clip is swapped for the block's real spare shot. The statics with AI scenes are rendered
    after step 2b.1-2 (so `render --only S` can wait for the stills while the videos wait for the voices and clips).

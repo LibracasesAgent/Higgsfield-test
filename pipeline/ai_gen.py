@@ -177,7 +177,8 @@ STEPS = [
     "the bag's shape, colour, handles or hardware differ from the reference, or that looks AI: "
     "python3 pipeline/ai_gen.py reject --out $OUT AS03 ...",
     "3. For every clip whose start still passed: generate_video_batch (start_image = that still's job id, model/params/prompt as "
-    "listed); jobs_wait; download to $OUT/<file>. Clips of a rejected still are skipped.",
+    "listed); jobs_wait; download to $OUT/<file>. Clips of a rejected still are skipped. If a submission comes back with a preset "
+    "recommendation instead of a job, send it again with `declined_preset_id` = that preset's id (the project never uses presets).",
     "4. python3 pipeline/ai_gen.py clips --out $OUT ; LOOK at $OUT/qa/ai_clips.jpg; reject morphing / odd-hand clips with "
     "`reject`. Then render as usual (it applies the result).",
     "Report: credits before -> after (balance), how many AI assets passed. Never ship a still or clip you would not believe is real."]
@@ -283,7 +284,11 @@ def bag_ref(path):
     if len(xs) < 200:
         return None
     lab = cv2.cvtColor(img, cv2.COLOR_BGR2LAB).astype(np.float32)
-    mean = lab[m > 0].mean(axis=0)
+    pix = lab[m > 0]
+    pix = pix[:: max(1, len(pix) // 20000)]
+    # the bag's body colour = the biggest of 3 colour clusters (a plain mean is pulled grey by the soft shadow and glints)
+    _, lbl, cen = cv2.kmeans(pix, 3, None, (cv2.TERM_CRITERIA_EPS + cv2.TERM_CRITERIA_MAX_ITER, 20, 0.5), 3, cv2.KMEANS_PP_CENTERS)
+    mean = cen[int(np.bincount(lbl.ravel()).argmax())]
     return dict(lab=mean, crop=img[ys.min():ys.max() + 1, xs.min():xs.max() + 1], area=float(m.mean()))
 
 
@@ -350,7 +355,7 @@ def gate_still(path, ref_path, kind):
             share, blob = colour_share(path, ref["lab"])
             r["colour"] = round(share, 4)
             r["inliers"] = sift_inliers(path, ref["crop"])
-            if blob < 0.004:
+            if blob < 0.01:
                 r["ok"] = False
                 r["problems"].append("the bag's colour is not in the picture")
             elif r["inliers"] < 6:

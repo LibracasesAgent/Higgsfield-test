@@ -1,0 +1,509 @@
+{
+ "products": {
+  "hobo-bag": {
+   "batches": [
+    {
+     "clips": [],
+     "date": "2026-10-09",
+     "name": "earlier batch 1 (before the novelty log: the client's three delivered batches)",
+     "statics": [],
+     "videos": []
+    },
+    {
+     "clips": [],
+     "date": "2026-10-14",
+     "name": "earlier batch 2 (before the novelty log: the client's three delivered batches)",
+     "statics": [],
+     "videos": [
+      {
+       "angle": "n_things",
+       "chapters": [
+        "You stop worrying in crowds. The hidden anti-theft pocket on the back sits flat against you, so your passport and cards stay right where you put them. You stop clutching your bag on the train.",
+        "You stop digging for your keys. There's a gold zip on each side of the bag, made for your keys and phone. No more emptying your bag at the checkout.",
+        "Nothing sinks to the bottom anymore. Divided compartments give everything its own spot, so it's all easy to find. Your bag stops feeling like a black hole.",
+        "You wear it your way. Two adjustable straps: carry it as a handbag, throw it over your shoulder, or wear it crossbody. Same bag, three ways.",
+        "On top of that, the leather is soft, water-resistant and scratch-proof. It looks expensive, and it only gets better with time.",
+        "Still not sure? Carol says: best bag I have ever bought. Jenny says: it's spacious, lightweight, and super functional with lots of pockets.",
+        "Think it sounds too good to be true? There's a one-year warranty and easy returns.",
+        "Right now it's fifty percent off, and it comes with a free matching pouch wallet. Free US shipping too. Tap the link below."
+       ],
+       "hook": "Four things you'll notice the first time you carry this bag.",
+       "hook_type": "promise",
+       "script": "U01"
+      },
+      {
+       "angle": "n_things",
+       "hook": "Curious what changes when you swap your everyday bag for this one?",
+       "hook_type": "question",
+       "script": "U01"
+      },
+      {
+       "angle": "n_things",
+       "hook": "This might be the most organized bag you'll see today.",
+       "hook_type": "superlative",
+       "script": "U01"
+      },
+      {
+       "angle": "n_things",
+       "hook": "Ever pat your bag every few minutes just to check it's all there?",
+       "hook_type": "problem",
+       "script": "U01"
+      },
+      {
+       "angle": "demo",
+       "chapters": [
+        "Turn it around. There's a hidden anti-theft pocket on the back. Slide your passport and cards in, and it sits flat against you, out of sight.",
+        "Now the sides. Two gold zips, one on each side. Keys in, phone in, zipped shut, and you can reach them without opening the whole bag.",
+        "Open the top. Divided compartments inside, so everything gets its own spot and nothing sinks to the bottom. Cards here, lip balm there.",
+        "Now the straps. Two adjustable ones, so you can wear it over your shoulder, in your hand like a handbag, or crossbody, hands-free.",
+        "Feel that? Soft leather that's water-resistant and scratch-proof, and it only gets better with time.",
+        "Passport, cards, keys, phone, lip balm: everything has its own place.",
+        "Here's what customers say. Margie says: it holds many things. Felicia says: love all the compartments too.",
+        "Wondering about the risk? You also get a one-year warranty and easy returns.",
+        "That's the Hobo Bag, and right now it's fifty percent off, with a free matching pouch wallet included. Plus free US shipping. Tap the link below."
+       ],
+       "hook": "Watch what this bag does with your phone, keys and passport.",
+       "hook_type": "promise",
+       "script": "U02"
+      },
+      {
+       "angle": "demo",
+       "hook": "Ever wonder where everything in your bag is supposed to go?",
+       "hook_type": "question",
+       "script": "U02"
+      },
+      {
+       "angle": "demo",
+       "hook": "If your bag is one big black hole, watch this.",
+       "hook_type": "problem",
+       "script": "U02"
+      },
+      {
+       "angle": "demo",
+       "hook": "Is this the most practical bag you'll see this week?",
+       "hook_type": "superlative",
+       "script": "U02"
+      },
+      {
+       "angle": "stop_x",
+       "chapters": [
+        "Two gold side zips, one on each side, are made for your keys and phone. Reach in, grab them, done.",
+        "Stop clutching your bag in a crowd. The hidden anti-theft pocket on the back sits flat against you, so your passport and cards stay close and out of sight.",
+        "Stop emptying your bag to find one thing. Divided compartments give everything its own spot, so nothing sinks to the bottom. Your cards stop hiding under your lip balm.",
+        "Stop choosing between shoulder and crossbody. Two adjustable straps let you carry it as a handbag, over your shoulder, or crossbody. Switch whenever you like.",
+        "Stop babying your bag. The soft leather is water-resistant and scratch-proof, and it looks expensive. It only gets better with time.",
+        "So keys and phone go in the side zips, passport and cards in the back pocket, and everything else gets its own compartment.",
+        "Don't believe it? Felicia says: love all the compartments too. Jenny says: I've received so many compliments.",
+        "Still on the fence? You get a one-year warranty and easy returns.",
+        "Right now the Hobo Bag is fifty percent off, and a free matching pouch wallet comes with it. Free US shipping on top. Tap the link below."
+       ],
+       "hook": "Stop digging for your keys at the bottom of your bag.",
+       "hook_type": "problem",
+       "script": "U03"
+      },
+      {
+       "angle": "stop_x",
+       "hook": "How long does it take you to find your keys in there?",
+       "hook_type": "question",
+       "script": "U03"
+      },
+      {
+       "angle": "stop_x",
+       "hook": "Here's a handbag that gives your keys a place of their own.",
+       "hook_type": "promise",
+       "script": "U03"
+      },
+      {
+       "angle": "stop_x",
+       "hook": "This could be the most practical handbag you'll see all year.",
+       "hook_type": "superlative",
+       "script": "U03"
+      },
+      {
+       "angle": "travel",
+       "chapters": [
+        "Passport and cards go in the hidden anti-theft pocket on the back. It sits flat against you, so you're not patting your bag every few minutes. Crowded terminal, packed train: it stays out of sight.",
+        "Keys and phone go in the gold side zips, one on each side. You can grab them without digging through the whole bag, even at security.",
+        "Divided compartments inside keep the rest in order: lip balm, sunglasses, a charger. Nothing sinks to the bottom, so you're not unpacking at the gate.",
+        "Then swing it crossbody and keep your hands clear for your coffee and your boarding pass. Two adjustable straps, so you can switch to shoulder or handbag anytime.",
+        "That's passport and cards in the back pocket, keys and phone in the side zips, and the rest inside.",
+        "Hear it from customers. Mercy says: the best bag for travel and every day use. Carol says: already bought for friends.",
+        "Still thinking? It comes with a one-year warranty and easy returns.",
+        "It's fifty percent off right now, plus a free matching pouch wallet. You also get free US shipping. Tap the link below."
+       ],
+       "hook": "Passport, phone, keys, cards: where does it all go on travel day?",
+       "hook_type": "question",
+       "script": "U04"
+      },
+      {
+       "angle": "travel",
+       "hook": "Travel day is chaos when everything sits at the bottom of your bag.",
+       "hook_type": "problem",
+       "script": "U04"
+      },
+      {
+       "angle": "travel",
+       "hook": "Here's the bag to pack first.",
+       "hook_type": "promise",
+       "script": "U04"
+      },
+      {
+       "angle": "travel",
+       "hook": "This might be the most travel-ready bag you'll see all year.",
+       "hook_type": "superlative",
+       "script": "U04"
+      },
+      {
+       "angle": "value",
+       "chapters": [
+        "Ever dig for your keys at the bottom of your bag? Gold side zips, one on each side, take your keys and phone. Reach in, grab them, go.",
+        "Ever clutch your bag the whole way through a crowd? A hidden anti-theft pocket on the back sits flat against you, for your passport and cards. Out of sight.",
+        "Does everything end up in a pile at the bottom? Divided compartments give everything its own spot. Your bag stops being a black hole.",
+        "Want to switch how you carry it? Two adjustable straps: handbag, shoulder or crossbody. Your call.",
+        "And the leather? Soft, water-resistant and scratch-proof. Looks expensive, and gets better with time.",
+        "Hidden pocket, two gold zips, divided compartments, two straps and soft leather, all in one bag.",
+        "Want proof? Beverly says: looks expensive but price was so nice. One customer says: it fits all my essentials, and the strong strap is super comfortable.",
+        "Worried about the risk? It's covered by a one-year warranty and easy returns.",
+        "So that's the Hobo Bag at fifty percent off, with a free matching pouch wallet. And free US shipping, too. Tap the link below."
+       ],
+       "hook": "Half price, plus a free matching pouch wallet. Here's everything you get.",
+       "hook_type": "price",
+       "script": "U05"
+      },
+      {
+       "angle": "value",
+       "hook": "Look at what the Hobo Bag comes with.",
+       "hook_type": "promise",
+       "script": "U05"
+      },
+      {
+       "angle": "value",
+       "hook": "What should a good everyday bag actually have?",
+       "hook_type": "question",
+       "script": "U05"
+      },
+      {
+       "angle": "value",
+       "hook": "Tired of paying for a bag that's just a bag?",
+       "hook_type": "problem",
+       "script": "U05"
+      }
+     ]
+    },
+    {
+     "clips": [],
+     "date": "2026-10-16",
+     "name": "earlier batch 3 (before the novelty log: the client's three delivered batches)",
+     "statics": [],
+     "videos": [
+      {
+       "angle": "n_things",
+       "chapters": [
+        "You stop worrying in crowds. The hidden anti-theft pocket on the back sits flat against you, so your passport and cards stay right where you put them. You stop clutching your bag on the train.",
+        "You stop digging for your keys. There's a gold zip on each side of the bag, made for your keys and phone. No more emptying your bag at the checkout.",
+        "Nothing sinks to the bottom anymore. Divided compartments give everything its own spot, so it's all easy to find. Your bag stops feeling like a black hole.",
+        "You wear it your way. Two adjustable straps: carry it as a handbag, throw it over your shoulder, or wear it crossbody. Same bag, three ways.",
+        "On top of that, the leather is soft, water-resistant and scratch-proof. It looks expensive, and it only gets better with time.",
+        "Still not sure? Carol says: best bag I have ever bought. Jenny says: it's spacious, lightweight, and super functional with lots of pockets.",
+        "Think it sounds too good to be true? There's a one-year warranty and easy returns.",
+        "Right now it's fifty percent off, and it comes with a free matching pouch wallet. Free US shipping too. Tap the link below."
+       ],
+       "hook": "Four things you'll notice the first time you carry this bag.",
+       "hook_type": "promise",
+       "script": "U01"
+      },
+      {
+       "angle": "n_things",
+       "hook": "Curious what changes when you swap your everyday bag for this one?",
+       "hook_type": "question",
+       "script": "U01"
+      },
+      {
+       "angle": "n_things",
+       "hook": "This might be the most organized bag you'll see today.",
+       "hook_type": "superlative",
+       "script": "U01"
+      },
+      {
+       "angle": "n_things",
+       "hook": "Ever pat your bag every few minutes just to check it's all there?",
+       "hook_type": "problem",
+       "script": "U01"
+      },
+      {
+       "angle": "demo",
+       "chapters": [
+        "Turn it around. There's a hidden anti-theft pocket on the back. Slide your passport and cards in, and it sits flat against you, out of sight.",
+        "Now the sides. Two gold zips, one on each side. Keys in, phone in, zipped shut, and you can reach them without opening the whole bag.",
+        "Open the top. Divided compartments inside, so everything gets its own spot and nothing sinks to the bottom. Cards here, lip balm there.",
+        "Now the straps. Two adjustable ones, so you can wear it over your shoulder, in your hand like a handbag, or crossbody, hands-free.",
+        "Feel that? Soft leather that's water-resistant and scratch-proof, and it only gets better with time.",
+        "Passport, cards, keys, phone, lip balm: everything has its own place.",
+        "Here's what customers say. Margie says: it holds many things. Felicia says: love all the compartments too.",
+        "Wondering about the risk? You also get a one-year warranty and easy returns.",
+        "That's the Hobo Bag, and right now it's fifty percent off, with a free matching pouch wallet included. Plus free US shipping. Tap the link below."
+       ],
+       "hook": "Watch what this bag does with your phone, keys and passport.",
+       "hook_type": "promise",
+       "script": "U02"
+      },
+      {
+       "angle": "demo",
+       "hook": "Ever wonder where everything in your bag is supposed to go?",
+       "hook_type": "question",
+       "script": "U02"
+      },
+      {
+       "angle": "demo",
+       "hook": "If your bag is one big black hole, watch this.",
+       "hook_type": "problem",
+       "script": "U02"
+      },
+      {
+       "angle": "demo",
+       "hook": "Is this the most practical bag you'll see this week?",
+       "hook_type": "superlative",
+       "script": "U02"
+      },
+      {
+       "angle": "stop_x",
+       "chapters": [
+        "Two gold side zips, one on each side, are made for your keys and phone. Reach in, grab them, done.",
+        "Stop clutching your bag in a crowd. The hidden anti-theft pocket on the back sits flat against you, so your passport and cards stay close and out of sight.",
+        "Stop emptying your bag to find one thing. Divided compartments give everything its own spot, so nothing sinks to the bottom. Your cards stop hiding under your lip balm.",
+        "Stop choosing between shoulder and crossbody. Two adjustable straps let you carry it as a handbag, over your shoulder, or crossbody. Switch whenever you like.",
+        "Stop babying your bag. The soft leather is water-resistant and scratch-proof, and it looks expensive. It only gets better with time.",
+        "So keys and phone go in the side zips, passport and cards in the back pocket, and everything else gets its own compartment.",
+        "Don't believe it? Felicia says: love all the compartments too. Jenny says: I've received so many compliments.",
+        "Still on the fence? You get a one-year warranty and easy returns.",
+        "Right now the Hobo Bag is fifty percent off, and a free matching pouch wallet comes with it. Free US shipping on top. Tap the link below."
+       ],
+       "hook": "Stop digging for your keys at the bottom of your bag.",
+       "hook_type": "problem",
+       "script": "U03"
+      },
+      {
+       "angle": "stop_x",
+       "hook": "How long does it take you to find your keys in there?",
+       "hook_type": "question",
+       "script": "U03"
+      },
+      {
+       "angle": "stop_x",
+       "hook": "Here's a handbag that gives your keys a place of their own.",
+       "hook_type": "promise",
+       "script": "U03"
+      },
+      {
+       "angle": "stop_x",
+       "hook": "This could be the most practical handbag you'll see all year.",
+       "hook_type": "superlative",
+       "script": "U03"
+      },
+      {
+       "angle": "travel",
+       "chapters": [
+        "Passport and cards go in the hidden anti-theft pocket on the back. It sits flat against you, so you're not patting your bag every few minutes. Crowded terminal, packed train: it stays out of sight.",
+        "Keys and phone go in the gold side zips, one on each side. You can grab them without digging through the whole bag, even at security.",
+        "Divided compartments inside keep the rest in order: lip balm, sunglasses, a charger. Nothing sinks to the bottom, so you're not unpacking at the gate.",
+        "Then swing it crossbody and keep your hands clear for your coffee and your boarding pass. Two adjustable straps, so you can switch to shoulder or handbag anytime.",
+        "That's passport and cards in the back pocket, keys and phone in the side zips, and the rest inside.",
+        "Hear it from customers. Mercy says: the best bag for travel and every day use. Carol says: already bought for friends.",
+        "Still thinking? It comes with a one-year warranty and easy returns.",
+        "It's fifty percent off right now, plus a free matching pouch wallet. You also get free US shipping. Tap the link below."
+       ],
+       "hook": "Passport, phone, keys, cards: where does it all go on travel day?",
+       "hook_type": "question",
+       "script": "U04"
+      },
+      {
+       "angle": "travel",
+       "hook": "Travel day is chaos when everything sits at the bottom of your bag.",
+       "hook_type": "problem",
+       "script": "U04"
+      },
+      {
+       "angle": "travel",
+       "hook": "Here's the bag to pack first.",
+       "hook_type": "promise",
+       "script": "U04"
+      },
+      {
+       "angle": "travel",
+       "hook": "This might be the most travel-ready bag you'll see all year.",
+       "hook_type": "superlative",
+       "script": "U04"
+      },
+      {
+       "angle": "value",
+       "chapters": [
+        "Ever dig for your keys at the bottom of your bag? Gold side zips, one on each side, take your keys and phone. Reach in, grab them, go.",
+        "Ever clutch your bag the whole way through a crowd? A hidden anti-theft pocket on the back sits flat against you, for your passport and cards. Out of sight.",
+        "Does everything end up in a pile at the bottom? Divided compartments give everything its own spot. Your bag stops being a black hole.",
+        "Want to switch how you carry it? Two adjustable straps: handbag, shoulder or crossbody. Your call.",
+        "And the leather? Soft, water-resistant and scratch-proof. Looks expensive, and gets better with time.",
+        "Hidden pocket, two gold zips, divided compartments, two straps and soft leather, all in one bag.",
+        "Want proof? Beverly says: looks expensive but price was so nice. One customer says: it fits all my essentials, and the strong strap is super comfortable.",
+        "Worried about the risk? It's covered by a one-year warranty and easy returns.",
+        "So that's the Hobo Bag at fifty percent off, with a free matching pouch wallet. And free US shipping, too. Tap the link below."
+       ],
+       "hook": "Half price, plus a free matching pouch wallet. Here's everything you get.",
+       "hook_type": "price",
+       "script": "U05"
+      },
+      {
+       "angle": "value",
+       "hook": "Look at what the Hobo Bag comes with.",
+       "hook_type": "promise",
+       "script": "U05"
+      },
+      {
+       "angle": "value",
+       "hook": "What should a good everyday bag actually have?",
+       "hook_type": "question",
+       "script": "U05"
+      },
+      {
+       "angle": "value",
+       "hook": "Tired of paying for a bag that's just a bag?",
+       "hook_type": "problem",
+       "script": "U05"
+      }
+     ]
+    }
+   ]
+  },
+  "silhouette-bag": {
+   "batches": [
+    {
+     "clips": [],
+     "date": "2026-10-20",
+     "name": "2026-10-20 – Silhouette Bag AI scenes test",
+     "statics": [
+      {
+       "caption": "Meet the Silhouette Bag.",
+       "layout": "hero",
+       "photo": "00_silhouette_01.jpg"
+      },
+      {
+       "caption": "The Silhouette Bag",
+       "layout": "offer",
+       "photo": "01_silhouette_10.jpg"
+      },
+      {
+       "caption": "Room for everything.",
+       "colour": "Beige",
+       "layout": "scene",
+       "photo": "AS03.png",
+       "scene": "stairs_hand"
+      },
+      {
+       "caption": "Your everyday bag vs Silhouette Bag",
+       "layout": "compare",
+       "photo": "03_silhouette_11.jpg"
+      },
+      {
+       "caption": "The Silhouette Bag",
+       "layout": "promo",
+       "photo": "04_silhouette_09.jpg"
+      },
+      {
+       "caption": "The Silhouette Bag",
+       "layout": "value",
+       "photo": "00_silhouette_01.jpg"
+      },
+      {
+       "caption": "Sleek shape.",
+       "colour": "Black",
+       "layout": "scene",
+       "photo": "AS02.png",
+       "scene": "spa_lounge"
+      },
+      {
+       "caption": "Pick your colour.",
+       "layout": "colours"
+      },
+      {
+       "caption": "Why the Silhouette Bag?",
+       "layout": "checklist",
+       "photo": "03_silhouette_11.jpg"
+      },
+      {
+       "caption": "Easy straps.",
+       "colour": "Coffee",
+       "layout": "scene",
+       "photo": "AS01.png",
+       "scene": "airport_walk"
+      },
+      {
+       "layout": "bold",
+       "photo": "00_silhouette_01.jpg"
+      },
+      {
+       "caption": "Most bags vs the Silhouette Bag",
+       "layout": "compare",
+       "photo": "01_silhouette_10.jpg"
+      },
+      {
+       "caption": "Sleek shape. Room for everything.",
+       "colour": "Apricot",
+       "layout": "scene",
+       "photo": "AS10.png",
+       "scene": "cinema_seat"
+      },
+      {
+       "caption": "Clean finish.",
+       "colour": "Beige",
+       "layout": "scene",
+       "photo": "AS08.png",
+       "scene": "gallery_bench"
+      },
+      {
+       "caption": "Easy straps. Day to night.",
+       "colour": "Coffee",
+       "layout": "scene",
+       "photo": "AS11.png",
+       "scene": "dress_market"
+      },
+      {
+       "caption": "Zip closure.",
+       "colour": "Coffee",
+       "layout": "scene",
+       "photo": "AS06.png",
+       "scene": "flatlay_travel"
+      },
+      {
+       "caption": "Meet the Silhouette Bag",
+       "colour": "Wine Red",
+       "layout": "scene_price",
+       "photo": "AS04.png",
+       "scene": "beach_towel"
+      },
+      {
+       "caption": "Room for everything. Easy straps.",
+       "colour": "Wine Red",
+       "layout": "scene",
+       "photo": "AS09.png",
+       "scene": "taxi_step"
+      },
+      {
+       "caption": "Luxe feel.",
+       "colour": "Black",
+       "layout": "scene",
+       "photo": "AS07.png",
+       "scene": "museum_stairs"
+      },
+      {
+       "caption": "Day to night.",
+       "colour": "Apricot",
+       "layout": "scene",
+       "photo": "AS05.png",
+       "scene": "winter_scarf"
+      }
+     ],
+     "videos": []
+    }
+   ]
+  }
+ }
+}
