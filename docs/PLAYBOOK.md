@@ -495,11 +495,19 @@ impressions) against our Hobo Bag videos. The footage is as good; script, voice 
   <= -1.0 dBTP, no repeated shot within 10 s (perceptual hash), no still card held over 3.2 s. Measured on the references:
   10-11 of 12 met; on our two Hobo videos 6 of 12 (wpm, speech share, longest pause, average and longest shot, LRA). A miss
   is reported, never fixed by cutting the video (CLAUDE.md rule 6).
-- *Statics* (`brand_statics.new_layouts()`): `native` (a face-free real photo, one caption, a small offer pill), `quotes`
-  (the packshot between two verbatim review snippets), `value` (the real price struck through) join the cycle: of 20, native 3,
-  quotes 3, value 2 where the product has what each shows (native needs faceless worn / detail photos: the built-in bags
-  have none, product files do; quotes needs a review with a usable snippet; value the site's / the notes' price and was
-  price within 2 points of the %); `plan --classic` keeps the old cycle.
+- *Statics* (`brand_statics.new_layouts()`; the clean cycle since 2026-10-20, `make_batch.static_cycle()`): `native` (a face-free
+  real photo, one caption, a small offer pill), `quotes` (the packshot with ONE verbatim review bubble), `value` (the real price
+  struck through) and `studio` (the packshot large on a seamless backdrop tinted from the bag's own colour, a small wordmark,
+  at most one short line + one small pill, no badge / button: the bag's colour is kept exactly, only the white of the photo takes
+  the tint) make up the cycle: of 20, studio 4, native 4, quotes 3, value 2, offer 2, stars 1, colours / checklist / bold /
+  compare 1 each; hero, promo and review are no longer in it (the studio static is the cleaner hero). native needs faceless
+  worn / detail photos (the built-in bags have none, product files do), quotes a review with a usable snippet, value the site's /
+  the notes' price and was price within 2 points of the %, studio a white-backdrop packshot (at most 2 more studio statics
+  than there are such packshots; the rest take a hero without sticker). A layout the product can't back is replaced by the next
+  clean one (offer / checklist / colours -> studio, stars -> quotes -> native). Why: the competitors' ads (Facebook Ad Library
+  screenshot, 2026-10-20) are one big photo with next to no text; the long copy lives in `ad_copy.csv`. AI scene statics
+  replace bold, compare, promo, hero, native, lifestyle first (then studio down to 3) and carry pill only / caption only / the
+  photo alone / caption + pill in turn (`make_batch.scene_look`). `plan --classic` keeps the old cycle (identical to before).
 - *Compliance:* a hook that counts ("Four things you'll notice ...") says a number no fact backs: `compliance.check_out` drops
   exactly those `numbers` hits (plan.json `ugc_numbers`, the label "4 THINGS" too) and lists them as allowed; every other hit
   stays. `python3 pipeline/compliance.py --out $OUT` and `make_batch.py check --out $OUT` agree.

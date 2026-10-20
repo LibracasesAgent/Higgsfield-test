@@ -1253,13 +1253,15 @@ def _luma(c):
 def bag_colour(im):
     """The product's own colour in a white-backdrop packshot: the median colour of its clearly non-white pixels (RGB), None when
     there are none."""
+    import numpy as np
     t = trim_white(whiten(im))
     t.thumbnail((120, 120))
-    px = [p for p in t.getdata() if max(p) < 215 or max(p) - min(p) > 40]
-    if not px:
+    a = np.asarray(t, dtype=int).reshape(-1, 3)
+    a = a[(a.max(axis=1) < 215) | (a.max(axis=1) - a.min(axis=1) > 40)]
+    if not len(a):
         return None
-    px.sort(key=_luma)
-    return px[len(px) // 2]
+    a = a[np.argsort(a @ np.array([0.299, 0.587, 0.114]))]
+    return tuple(int(v) for v in a[len(a) // 2])
 
 
 def studio_tint(bag):

@@ -70,9 +70,13 @@ pockets, the bag worn), a specific hook in the first 3 s ("Four things you'll no
 last, one steady loudness (-14 LUFS). `pipeline/ugc_script.py` writes the scripts (angle per project: `things`,
 `demo`, `stop`, `travel`, `value`, in the file name), `pipeline/scorecard.py` measures every rendered video. It applies to
 catalog, new-product and winners-fill projects; `--classic` (and `--story`) keep the old formats. Winner remixes are untouched.
-Statics also use the top ads' layouts (of 20: `native` 3, a real face-free photo with one caption; `quotes` 3, verbatim reviews
-around the packshot; `value` 2, the real price struck through) where the product backs them (faceless photos / a review / a price);
-`--classic` restores the old static cycle.
+Statics are clean and photo-first (owner 2026-10-20, from the competitors' ads: one big photo, next to no text). Of 20: `studio` 4
+(the real packshot large on a calm tinted backdrop, a small wordmark, at most one short line and one small offer pill; no sticker, no
+button), `native` 4 (a real face-free photo, one caption), `quotes` 3 (ONE verbatim review by the packshot), `value` 2, `offer` 2,
+`stars` 1, and `colours`, `checklist`, `bold`, `compare` once each, where the product backs them (faceless photos / a review / a
+price; else the next clean layout takes the slot). The AI scene statics (section 5, step 2b) replace the text-heavy slots first and
+come in four looks (pill only, caption only, the photo alone, caption + pill): half carry no caption. `--classic` restores the old
+static cycle.
 
 ## Which pipeline? (read the message first)
 

@@ -130,6 +130,10 @@ and Claude says so. Want the older formats? Add `classic`.
   whatever you write. Asking for "hook-first", "a hook test" or "better hooks" gives different openings in the same
   full-length videos, never shorter ones. A video that comes out shorter than planned is not uploaded. Claude's reply
   includes a scorecard line per batch: how the videos measure against the targets above (a miss is reported, not hidden).
+- Look of the statics (since 2026-10-20): clean and photo-first, like the best ads you showed: the bag big, almost no text. Most
+  statics are the real photo of the bag on a calm tinted background (one short line, one small "50% off"), a real photo with one
+  caption, or a scene photo; the price, review and offer statics stay but are calmer (one review, no extra lines). The long text is
+  in the ad copy file. `old format` / `classic` in the message brings the old busy statics back.
 - Statics: a few minutes for all of them. A video project (4 versions): about 20-25 minutes. A batch (20 statics +
   5 projects) takes about 2 hours; Claude replies once, when everything is in Drive.
 - AI scenes (since 2026-10-20): about 40% of the statics and a few video shots show the REAL bag in new scenes (a cafe

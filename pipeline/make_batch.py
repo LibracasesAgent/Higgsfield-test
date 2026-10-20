@@ -579,6 +579,42 @@ def deal_of(o):
 ACRONYMS = {"RFID", "US", "UK", "USB", "ID", "PU", "XL", "XS"}
 
 
+def static_cycle(clean_mode, hobo, life, classic=False):
+    """The 20-slot layout cycle of the statics. clean_mode: 2+ clean packshots; hobo: the built-in Hobo Bag; life: a new product
+    with 3+ lifestyle photos. classic: the pre-2026-10-20 cycle (12 / 10 slots, repeated). The clean cycle (owner 2026-10-20: the
+    competitors' statics look clean, "take it to essence"): one big photo and next to no text. Of 20: studio 4 (the packshot large on
+    a tinted seamless, one line, one pill), native 4-5 (a real face-free photo, one caption), the proven bottom-of-funnel ones calmer
+    and fewer (quotes 3 verbatim reviews around the packshot, value 2 the real price struck through, offer 2, stars 1) and each
+    text-heavy layout (colours, checklist, bold, compare) once; hero / promo / review are not in it (studio is the cleaner hero)."""
+    if classic:
+        if clean_mode and hobo:
+            return ["hero", "offer", "stars", "promo", "checklist", "bold", "review", "colours", "offer", "compare", "stars",
+                    "checklist"]
+        if clean_mode and life:
+            return ["hero", "offer", "lifestyle", "promo", "colours", "checklist", "lifestyle", "bold", "stars", "compare",
+                    "lifestyle", "review"]
+        if clean_mode:
+            return ["hero", "promo", "offer", "bold", "stars", "colours", "checklist", "compare", "review", "promo", "hero", "bold"]
+        return ["lifestyle", "bold", "hero", "lifestyle", "compare", "review", "lifestyle", "bold", "hero", "lifestyle"]
+    if clean_mode and hobo:
+        return ["studio", "native", "offer", "quotes", "studio", "native", "value", "stars", "studio", "native", "quotes",
+                "checklist", "studio", "native", "offer", "colours", "value", "quotes", "bold", "compare"]
+    if clean_mode and life:                          # (the photos go to the natives first, then to the lifestyle layout)
+        return ["studio", "native", "offer", "quotes", "studio", "native", "value", "native", "stars", "colours", "studio",
+                "native", "checklist", "quotes", "native", "value", "studio", "lifestyle", "bold", "compare"]
+    if clean_mode:
+        return ["studio", "offer", "native", "quotes", "studio", "value", "stars", "native", "studio", "colours", "checklist",
+                "quotes", "native", "studio", "value", "bold", "native", "compare", "quotes", "offer"]
+    return ["native", "lifestyle", "native", "hero", "native", "lifestyle", "native", "review", "native", "compare",
+            "lifestyle", "native", "lifestyle", "native", "bold", "native", "lifestyle", "review", "native", "hero"]
+
+
+def scene_look(n):
+    """What the n-th (1-based) AI scene static of a batch carries: (caption, offer pill): pill only, caption only, the photo alone,
+    caption + pill, round and round (half of them without a caption: the clean look)."""
+    return {1: (False, True), 2: (True, False), 3: (False, False), 0: (True, True)}[n % 4]
+
+
 def tcase(tag, mode="title"):
     """On-screen case for a feature TAG, acronyms kept: 'RFID LINING' -> 'RFID Lining' (title), 'RFID lining'
     (sentence), 'RFID lining' (lower); 'CUT-RESISTANT STRAP' -> 'Cut-Resistant Strap' / 'Cut-resistant strap'."""
@@ -1440,35 +1476,9 @@ def plan(a):
     s_packs = [f for f in packs if f not in no_static]                 # statics: never a photo marked "statics": false
     s_colours = [(n, f) for n, f in colour_imgs if f not in no_static]
     clean_mode = len(s_packs) >= 2
-    if clean_mode and pk == "hobo bag" and pr["source"] == "built-in":
-        seq = ["hero", "offer", "stars", "promo", "checklist", "bold", "review", "colours", "offer", "compare", "stars",
-               "checklist"]
-    elif clean_mode and pr["source"] != "built-in" and len(lifestyle()) >= 3:   # the client's own worn / detail photos:
-        seq = ["hero", "offer", "lifestyle", "promo", "colours", "checklist", "lifestyle", "bold", "stars",  # each once
-               "compare", "lifestyle", "review"]
-    elif clean_mode:
-        seq = ["hero", "promo", "offer", "bold", "stars", "colours", "checklist", "compare", "review", "promo", "hero", "bold"]
-    else:
-        seq = ["lifestyle", "bold", "hero", "lifestyle", "compare", "review", "lifestyle", "bold", "hero", "lifestyle"]
-    if not getattr(a, "classic", False):   # the clean cycle (owner 2026-10-20: the competitors' statics look clean, "take it to essence"):
-        # one big photo and next to no text. Of 20: studio 4 (the packshot large on a tinted seamless, one line, one pill), native 4-5
-        # (a real face-free photo, one caption), the proven bottom-of-funnel ones calmer and fewer (quotes 3 verbatim reviews around the
-        # packshot, value 2 the real price struck through, offer 2, stars 1) and each text-heavy layout (colours, checklist, bold,
-        # compare) once; hero / promo / review are not in the cycle any more (studio is the cleaner hero). A layout the product can't
-        # back (no photo / review / price) is replaced by `instead` (below).
-        if clean_mode and pk == "hobo bag" and pr["source"] == "built-in":
-            seq = ["studio", "native", "offer", "quotes", "studio", "native", "value", "stars", "studio", "native", "quotes",
-                   "checklist", "studio", "native", "offer", "colours", "value", "quotes", "bold", "compare"]
-        elif clean_mode and pr["source"] != "built-in" and len(lifestyle()) >= 3:
-            seq = ["studio", "native", "offer", "quotes", "studio", "native", "value", "native", "stars", "colours", "studio",
-                   "native", "checklist", "quotes", "native", "value", "studio", "lifestyle", "bold", "compare"]
-            #       (the photos go to the natives first, then to the lifestyle layout: each photo once per batch)
-        elif clean_mode:
-            seq = ["studio", "offer", "native", "quotes", "studio", "value", "stars", "native", "studio", "colours", "checklist",
-                   "quotes", "native", "studio", "value", "bold", "native", "compare", "quotes", "offer"]
-        else:
-            seq = ["native", "lifestyle", "native", "hero", "native", "lifestyle", "native", "review", "native", "compare",
-                   "lifestyle", "native", "lifestyle", "native", "bold", "native", "lifestyle", "review", "native", "hero"]
+    hobo_ = clean_mode and pk == "hobo bag" and pr["source"] == "built-in"
+    life_ = clean_mode and pr["source"] != "built-in" and len(lifestyle()) >= 3      # the client's own worn / detail photos
+    seq = static_cycle(clean_mode, hobo_, life_, getattr(a, "classic", False))      # (--classic: the old cycle; else the clean one)
     if not clean_mode and a.statics and lifestyle():
         warnings.append(f"only {len(s_packs)} clean packshot(s): statics use the client's lifestyle photos and framed photo "
                         f"cards")
@@ -1528,8 +1538,11 @@ def plan(a):
         tg = rot(tags, hv)
         if lay == "hero":
             sub = ", ".join([tcase(t, "sentence") for t in tg[:1]] + [tcase(t, "lower") for t in tg[1:2]])
-            return dict(layout="hero", photo=photo, headline=V(hero, f"Meet the {pr['short']}.", f"The {pr['short']}."),
-                        sub=sub + tx["gift_tail"] if sub else tx["bold_sub"], badge=tx["badge"], cta=tx["cta"])
+            d_ = dict(layout="hero", photo=photo, headline=V(hero, f"Meet the {pr['short']}.", f"The {pr['short']}."),
+                      sub=sub + tx["gift_tail"] if sub else tx["bold_sub"], badge=tx["badge"], cta=tx["cta"])
+            if not getattr(a, "classic", False):      # the clean cycle: no sticker (the CTA already says "50% off")
+                d_.pop("badge")
+            return d_
         if lay == "promo":
             return dict(layout="promo", photo=photo, headline=V((th["label"].title() + ": " if th["label"] else "") +
                                                                f"The {pr['short']}", f"The {pr['short']}", f"Meet the {pr['short']}"),
@@ -1562,7 +1575,7 @@ def plan(a):
                         cta=tx["cta"])
         if lay == "quotes":           # verbatim review snippets (brand_statics picks the best sentence) around the packshot
             sq, c_ = rot(quote_revs, hv * 2), revs_shown()
-            d_ = dict(layout="quotes", photo=photo, reviews=sorted(sq, key=lambda n: (c_.get(n, 0), sq.index(n)))[:2],
+            d_ = dict(layout="quotes", photo=photo, reviews=sorted(sq, key=lambda n: (c_.get(n, 0), sq.index(n)))[:1],   # ONE bubble: the bag stays big
                       pct=s_pct if s_pct and 5 <= s_pct <= 90 else None, gift=s_gift, cta=tx["cta"])
             return {k: x for k, x in d_.items() if x not in (None, "")}
         if lay == "value":            # the real price struck through (value_ok: it matches the % within 2 points)
@@ -1582,7 +1595,7 @@ def plan(a):
                       gift=s_gift, cta=tx["cta"])
             if price_ok and hv % 2 == 0:
                 d_.update(price=f"${s_price:.2f}", was=f"${s_was:.2f}")
-            elif pr["source"] == "built-in":
+            elif pr["source"] == "built-in" and (getattr(a, "classic", False) or not s_gift):   # (a gift label under the bag is the one small line: calmer)
                 d_["sub"] = "Free US shipping"           # store-wide (PLAYBOOK section 1)
             return {k: x for k, x in d_.items() if x not in (None, "")}
         if lay == "stars":            # 2 cards usually fit: the next one starts after them; reviews not shown yet first
@@ -1606,7 +1619,9 @@ def plan(a):
                 "colours": lambda: len(s_colours) >= 2 or len(s_packs) >= 2,
                 "lifestyle": lambda: next_life() is not None,                # each lifestyle photo once per batch
                 "native": lambda: next_life(True) is not None,               # a face-free real photo is left
-                "studio": lambda: any(rel(f_) not in cards and studio_pack(f_) for f_ in s_packs),   # a white-backdrop packshot
+                "studio": lambda: nlay.get("studio", 0) < len([f_ for f_ in s_packs if rel(f_) not in cards and studio_pack(f_)]) + 2
+                and any(rel(f_) not in cards and studio_pack(f_) for f_ in s_packs),   # a white-backdrop packshot; at most 2 more
+                #                                                                        studio statics than there are such packshots
                 "quotes": lambda: clean_mode and bool(quote_revs),            # a real review with a verbatim snippet
                 "value": lambda: clean_mode and value_ok}.get(lay, lambda: True)()   # the real price, % within 2 points
     instead = {"offer": "studio", "checklist": "studio", "stars": "quotes", "review": "studio", "colours": "studio", "native": "lifestyle",
@@ -2214,10 +2229,11 @@ def plan(a):
         d_["layout"] = lay_
         if lay_ == "scene_quote":
             d_["reviews"] = d_["reviews"][:1]
-        elif lay_ == "scene":         # the clean look: the scene statics alternate pill only / caption only / photo alone / caption + pill
-            n_sc += 1                 # (n_sc % 4 = 1: pill only, 2: caption only, 3: photo alone, 0: caption + pill: half carry no caption)
+        elif lay_ == "scene":         # the clean look: pill only / caption only / photo alone / caption + pill (scene_look)
+            n_sc += 1
+            cap_, pill_ = scene_look(n_sc)
             d_.pop("headline", None)
-            if n_sc % 2 == 0:         # a caption from the product's own feature tags, the ones that fit the scene first, never twice
+            if cap_:                  # a caption from the product's own feature tags, the ones that fit the scene first, never twice
                 taken_ = {x.get("caption") or x.get("headline") for x in statics}
                 want_ = {"worn": ("strap", "shoulder", "wear", "carry", "hand"), "hand": ("strap", "carry", "hand", "room"),
                          "object": ("room", "zip", "finish", "shape", "pocket", "secure", "storage")}.get(s_["kind"], ())
@@ -2228,7 +2244,7 @@ def plan(a):
                 d_["caption"] = next((c_ for c_ in pool_ if c_ not in taken_), pool_[0])
             else:
                 d_.pop("caption", None)
-            if n_sc % 4 in (2, 3):    # (a caption alone / the photo alone: no pill)
+            if not pill_:
                 d_.pop("pct", None)
         d_.update(name=re.sub(r"(_S\d+_).*$", lambda m_: m_.group(1) + lay_, orig_["name"]),
                   ai=dict(id=s_["id"], scene=s_["scene"], colour=s_.get("colour")), fallback=orig_)
