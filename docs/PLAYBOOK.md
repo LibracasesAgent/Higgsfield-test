@@ -545,6 +545,25 @@ client would show them. A library clip is an edited video: a picked moment can c
 of a product file can carry the product page's white corners. The estimate is calibrated on espeak (placeholder renders came out 4-17% shorter than estimated); a real ElevenLabs voice runs about as
 estimated, so the `shortened` guard (80%, ugc 70%: the estimate is a guess at the voice's pace) still has room.
 
+### 4e0. Real footage first (owner 2026-10-20, later the same day; supersedes the AI-first default of 4e)
+The owner saw the AI scenes and clips ("very fake, AI-like: the bag, the way it moves and falls into place") and said: use the
+footage in Drive (4K too), make the statics from it, a new story every time, generate only what is missing. So:
+- The library: ~4,250 videos in Drive `Raw files/`; ~1,200 are raw bag footage (Hobo Bag 577, HOBO 2.0 244, Vintage 237, Slouchy 119,
+  2in1 Backpack 19), the rest finished ads and winner RAWs. `clip_index.json` held 87 hand-tagged clips; `footage_index.py` scans the
+  others (faces, sharpness, resolution, the client's folder words as the note) and merges the clean ones (`auto: true`).
+- Videos: `make_batch.index_clips` feeds them to the shot planner (a clip the last two batches showed is penalised); upload logs the
+  clip ids (`clip_id` in the novelty log).
+- Statics: `footage_index.frame_bank` takes the sharpest face-free frame of 9 different vertical clips (4K first, other clips than
+  the last batches' `frame_clip`, a macro of leather grain last) -> `native` statics with the feature caption the clip's note
+  matches ("back pocket hands 4K" -> "Hidden pockets."). The clean cycle with frames: 8 native, 4 studio, offer 2, quotes 2, value,
+  stars, checklist, colours 1 each (`static_cycle(..., frames)`).
+- Stories: the `day` angle (ugc_script.day_chapter): morning, street, café, crowd, desk, evening, each moment tied to the feature
+  that fits it and to footage words of that place (door, walk, cafe, table, stairs ...). A batch has 5 of the 6 angles; the last
+  batch's come last.
+- AI: only when the product's own material is thin (a new product with few photos / one clip) or `--ai`.
+- Drive: the public link answers "Quota exceeded" for files read often; `index_library.range_bytes` / `file_size` read through the
+  Drive API with the agent's token first (the token only in memory), `recut.source` caches the clip with those reads.
+
 ### 4e. AI scenes of the real bag (owner 2026-10-20, 100 credits per batch, `pipeline/ai_gen.py`)
 Why: the client said the statics repeat across batches. What: the real packshot (reference image) placed in a new scene, as
 a static (layouts `scene`, `scene_quote`, `scene_price`, about 40% of a batch's statics, more when the real-photo cycle would

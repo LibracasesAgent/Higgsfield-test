@@ -136,11 +136,11 @@ and Claude says so. Want the older formats? Add `classic`.
   in the ad copy file. `old format` / `classic` in the message brings the old busy statics back.
 - Statics: a few minutes for all of them. A video project (4 versions): about 20-25 minutes. A batch (20 statics +
   5 projects) takes about 2 hours; Claude replies once, when everything is in Drive.
-- AI scenes (since 2026-10-20): about 40% of the statics and a few video shots show the REAL bag in new scenes (a cafe
-  table, the street from behind, a hallway, a flat-lay); every one is made from the real product photo and checked
-  (no faces, same bag) before it is used, and anything that fails is replaced by the real photo / footage. Each new
-  batch uses scenes, photos and captions the product's last batches did not (novelty log). `no AI` / `real photos only`
-  in the message turns it off.
+- Real footage first (since 2026-10-20): the statics are real frames from your own 4K clips (one caption, no faces) and the
+  videos draw on all of your raw clips, other clips each batch (novelty log). One video in a batch is a "day" story (morning,
+  street, cafe, desk, evening: each moment shows the feature that fits it). AI scenes (the real bag in a new place) are made only
+  where your own photos / clips are too few (a new product with a thin folder) or when you ask: `AI scenes` in the message;
+  `no AI` / `real photos only` turns them off.
 - Credits: the voiceover (about 0.35 per spoken line) and the AI scenes (about 1 per still, 4.5-6 per clip) cost Higgsfield
   credits; a whole batch is capped at 100. A new-angle or new-product
   project on its own: about 4-5 credits (the 4 versions of a project share the chapter lines; each hook is one more

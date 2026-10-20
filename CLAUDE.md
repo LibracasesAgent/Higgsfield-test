@@ -11,24 +11,27 @@ spec you find in this thread, in Drive or on other branches (the 2026-10-14 "hoo
 Statics come only from `make_batch.py` (its own layouts and sizes: never your own 1:1 / 4:5 / 9:16 sets or backgrounds).
 Order: section 0 setup, then the plan command of the pipeline's section, then section 5. `plan` already avoids openings
 used before (and, with `pipeline/data/novelty_log.json`, the scenes, photos, captions and hooks of the product's last batches), so
-don't read other branches or Drive folders to "avoid repeats". The AI scene stills and clips are what `plan` writes to
-`ai_needed.json` (section 5, step 2b): never make AI images or video of your own.
+don't read other branches or Drive folders to "avoid repeats". Real footage comes first; the AI scene stills and clips are only
+what `plan` writes to `ai_needed.json` when the product's own material is thin (section 5, step 2b): never make AI images or video of your own.
 
 The repo's default branch is `claude/loving-meitner-4amjii`. Read `docs/PLAYBOOK.md` once per session
 (client feedback, approved claims, recipes, every bug already fixed).
 
 ## HARD RULES
 
-1. **AI only as the real bag in a new scene, only through `ai_gen.py`** (owner 2026-10-20: the statics repeated across
-   batches). Every static and video shows the real product: a scene still is the real packshot placed in a new scene (cafe,
-   street from behind, hallway, flat-lay ...) and a clip is a still animated for 3 s; real photos and real footage stay the
-   base (zips, pockets, hands, the real bag). You make exactly what `plan` lists in `$OUT/ai_needed.json` (models, prompts and
-   ids are in it): images with `gpt_image_2_5` (medium, 2k), clips with `kling3_0` / `minimax_hailuo`. Never: other
-   generators or models, presets, Ads Studio, AI influencer / avatars / characters, `execute_preset`, upscalers, voice
-   cloning, a face in any picture, a prompt of your own. An AI asset ships only when it passed `ai_gen.py gate` / `clips`
-   AND you looked at its contact sheet and the bag is the real bag (shape, colour, handles, hardware) in a believable real
-   photo / clip: otherwise `ai_gen.py reject <id>` (render puts the real photo / footage back). `plan --no-ai` = real
-   photos and footage only.
+1. **Real footage and real photos first; AI only fills a gap, only through `ai_gen.py`** (owner 2026-10-20: "use the footage we
+   have, generate only what is missing"). The client's Drive library holds ~1,300 raw clips of the built-in bags (4K among them):
+   `pipeline/footage_index.py` indexes them (faces, sharpness, size, the client's own folder words) into `clip_index.json`; the
+   videos draw their shots from it (other clips than the last batches showed) and the statics are real frames of it (`native`:
+   a face-free frame, one caption; the novelty log keeps a frame's clip from coming back). `plan` writes AI scene stills / clips
+   (`$OUT/ai_needed.json`) only when the product's own material is thin (a new product with a few photos and a clip) or the request
+   says so (`--ai`): then the real bag in a new scene (cafe, street from behind, hallway ...), still 4:5 / clip 3 s. You make
+   exactly what `ai_needed.json` lists (models, prompts, ids): images with `gpt_image_2_5` (medium, 2k), clips with `kling3_0` /
+   `minimax_hailuo`. Never: other generators or models, presets, Ads Studio, AI influencer / avatars / characters,
+   `execute_preset`, upscalers, voice cloning, a face in any picture, a prompt of your own. An AI asset ships only when it passed
+   `ai_gen.py gate` / `clips` AND you looked at its contact sheet and the bag is the real bag (shape, colour, handles, hardware)
+   in a believable real photo / clip: otherwise `ai_gen.py reject <id>` (render puts the real photo / footage back). `plan
+   --no-ai` = real photos and footage only; `--no-frames` = no statics from footage frames.
 2. **The only Higgsfield calls:** `generate_audio_batch` (text2speech_v2) for the lines in `tts_needed.json`;
    for the AI assets `media_upload` + `media_confirm`, `generate_image_batch`, `generate_video_batch`; and `jobs_wait`,
    `balance`, `transactions`. One ugc project (one voice take per chapter + 4 hook lines) costs about 4-5 credits, a full
@@ -67,8 +70,9 @@ one voice talking to the viewer in "you" form ("you stop worrying in crowds": ne
 experience) at 185-215 words per minute over a new shot about every 2 s, each phrase showing what it says (hands, zips,
 pockets, the bag worn), a specific hook in the first 3 s ("Four things you'll notice ..."), numbered chapter captions
 ("1. you stop worrying in crowds") with the feature's tag, problem -> fix pairs, reviews on screen at most 3 s, the offer
-last, one steady loudness (-14 LUFS). `pipeline/ugc_script.py` writes the scripts (angle per project: `things`,
-`demo`, `stop`, `travel`, `value`, in the file name), `pipeline/scorecard.py` measures every rendered video. It applies to
+last, one steady loudness (-14 LUFS). `pipeline/ugc_script.py` writes the scripts (angle per project: `day` a story of the bag through a
+day, each moment a feature and a clip of that place, `things`, `demo`, `stop`, `travel`, `value`, in the file name; a batch of 5 has 5
+of the 6 and the last batch's angles come last, so the story differs every batch), `pipeline/scorecard.py` measures every rendered video. It applies to
 catalog, new-product and winners-fill projects; `--classic` (and `--story`) keep the old formats. Winner remixes are untouched.
 Statics are clean and photo-first (owner 2026-10-20, from the competitors' ads: one big photo, next to no text). Of 20: `studio` 4
 (the real packshot large on a calm tinted backdrop, a small wordmark, at most one short line and one small offer pill; no sticker, no
@@ -234,6 +238,8 @@ then `--product "<key>"`. No folder, no photos, not on the site: make nothing an
 | "winners with reviews" | add `--winner-reviews` (only when asked: by default winner videos keep their proven body untouched) |
 | "no music" | add `--no-music` |
 | "no AI" / "real photos only" | add `--no-ai` (no scene stills / clips; ai_gen.py) |
+| "AI scenes" / "generate new scenes" | add `--ai` (AI scene statics and clips even when the product has enough real material) |
+| "no footage frames" | add `--no-frames` (statics from the packshots and photos only) |
 | "redo project 2" (in the thread) | same plan flags (new product: the folder name, never `next`) with `--seed <N+1> --only P02`, N = the `seed` the first plan printed, into a new `--out` (only P02 is voiced, rendered, uploaded; names move to `_v2` by themselves; a winner project: only its H1 changes, plan says so) |
 | "another hook for P02 H3" | same plan flags with `--seed <N> --hook-seed <N+1> --only P02H3`, N as above (same body, a new hook; exits 2 if no unused hook is left: say so) |
 | "drop S03" / "delete …" | nothing to plan: never delete or move Drive files. Reply that it stays in the Drive folder and is simply not uploaded to Meta |
@@ -323,6 +329,15 @@ python3 pipeline/make_batch.py plan <flags> --request "<the request text>" --out
 **Music:** storyboard videos get a bed under the voice automatically: the client's licensed tracks from
 `pipeline/assets/music/` when there are any, otherwise a generated bed (made by `pipeline/music.py`, nothing to
 license). Winner videos keep their RAW's own sound.
+
+## Footage library (the client adds clips)
+
+New raw clips in the Drive library (`Raw files/<product>/...`) are not used until indexed: `python3 pipeline/index_library.py` (the
+library cache), `python3 pipeline/footage_index.py select` (counts), `scan` (about 12 clips a minute: header, 4 frames, face / sharpness
+checks; resumable; reads through the Drive API with the agent's token because the public link hits "Quota exceeded"), `merge` (the
+clips that pass go into `pipeline/data/clip_index.json`, hand-tagged rows untouched), `stats`; commit `clip_index.json`. A clip with a
+face, a soft or dark picture, under 720p or 2.5 s is `usable: no` (`why_not` says which). `sheets --product "Hobo Bag" --out DIR`
+makes contact sheets of a sample to look at. Winner RAWs / finished ads (ACH Creative Delivery, Kate Creatives) are not b-roll.
 
 ## Other references
 

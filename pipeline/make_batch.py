@@ -111,6 +111,7 @@ import os
 import re
 import shutil
 import subprocess
+import tempfile
 import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -3097,9 +3098,29 @@ def render_one(out, v):
     if ok and v.get("format") == "ugc":    # the owner's targets (scorecard.py): soft flags, one summary line; the words come
         card, bad = scorecard_line(out, v, f)  # from the render itself (no transcribing again)
         problems += bad
+        fc_ = video_faces(f)
+        if fc_ and fc_[0] >= 2:    # (one frame is often a false hit on a hand or a bag's shape: two or more are looked at)
+            problems.append(f"face in the picture: {fc_[0]} sampled frames, first at {fc_[1]:.0f}s: look at qa/{v['id']}.jpg / the "
+                            f"footage (library clips are checked on 4 frames each)")
     return dict(name=v["name"], id=v["id"], engine=eng, format=v.get("format"), seconds=round(L, 1), ok=ok and not problems,
                 problems=problems, hard=[x for x in problems if x.startswith(HARD)], **({"music": mus} if mus else {}),
                 **({"scorecard": card} if card else {}))
+
+
+def video_faces(f, step=0.6):
+    """(frames with a face, first second) in a rendered video: a frame every `step` s through the DNN face check (new_product.count_faces).
+    The library footage is checked on 4 frames per clip when it is indexed; a shot may still catch someone passing: a soft flag."""
+    import new_product
+    tmp = tempfile.mkdtemp(prefix="vfaces_")
+    try:
+        subprocess.run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-i", f, "-vf", f"fps={1 / step:.3f},scale=480:-2", "-q:v", "4",
+                        os.path.join(tmp, "%04d.jpg")], capture_output=True, timeout=300)
+        hits = [k for k, x in enumerate(sorted(os.listdir(tmp))) if new_product.count_faces(os.path.join(tmp, x), strict=False)]
+        return (len(hits), hits[0] * step) if hits else None
+    except (subprocess.SubprocessError, OSError):
+        return None
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
 
 
 def static_qa(out, names, failed=None):
