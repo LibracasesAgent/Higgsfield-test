@@ -85,10 +85,33 @@ def colour_of(path):
     return hits[0] if len(hits) == 1 else "/".join(hits[:2]) if hits else ""
 
 
-def probe(fid):
-    r = subprocess.run(["ffprobe", "-v", "error", "-show_entries",
-                        "format=duration,size:stream=codec_type,width,height,r_frame_rate:stream_tags=rotate",
-                        "-of", "json", direct_url(fid)], capture_output=True, text=True, timeout=150)
+def retry(fn, tries=5):
+    """Drive answers 5XX / a quota page now and then, more under many parallel reads: the same call again after a pause."""
+    import time
+    for k in range(tries):
+        r = fn()
+        if r:
+            return r
+        time.sleep(2 + 3 * k)
+    return None
+
+
+def local_source(fid):
+    """The clip as a local file when recut.source can fetch it (1 MB range requests in parallel: whole-file and big-range reads of
+    the shared library files hit Drive's anonymous download quota, "Quota exceeded"), else its public URL."""
+    import recut
+    return recut.source(fid)
+
+
+def probe(src):
+    def run():
+        r = subprocess.run(["ffprobe", "-v", "error", "-show_entries",
+                            "format=duration,size:stream=codec_type,width,height,r_frame_rate:stream_tags=rotate",
+                            "-of", "json", src], capture_output=True, text=True, timeout=150)
+        return r if json.loads(r.stdout or "{}").get("format") else None
+    r = retry(run)
+    if r is None:
+        return dict(duration=0)
     d = json.loads(r.stdout or "{}")
     v = next((s for s in d.get("streams", []) if s.get("codec_type") == "video"), {})
     w, h = v.get("width"), v.get("height")
@@ -100,11 +123,14 @@ def probe(fid):
                 audio=any(s.get("codec_type") == "audio" for s in d.get("streams", [])))
 
 
-def grab(fid, t, path):
+def grab(src, t, path):
     vf = f"scale='if(gt(iw,ih),{LONG},-2)':'if(gt(iw,ih),-2,{LONG})'"
-    subprocess.run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-ss", f"{t:.2f}", "-i", direct_url(fid), "-frames:v", "1",
-                    "-vf", vf, "-q:v", "3", "-y", path], timeout=240)
-    return os.path.exists(path) and os.path.getsize(path) > 2000
+
+    def run():
+        subprocess.run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-ss", f"{t:.2f}", "-i", src, "-frames:v", "1",
+                        "-vf", vf, "-q:v", "3", "-y", path], timeout=240, capture_output=True)
+        return os.path.exists(path) and os.path.getsize(path) > 2000
+    return bool(retry(run, 4))
 
 
 def analyse(paths):
@@ -130,20 +156,25 @@ def analyse(paths):
 def scan_one(product, item, sheets):
     fid = item["id"]
     r = dict(id=fid, path=item["path"][len("Raw files/"):], product=product)
+    src = None
     try:
-        r.update(probe(fid))
+        src = local_source(fid)
+        r.update(probe(src))
         if not r.get("duration") or r["duration"] < 0.5:
             r["error"] = "no duration"
             return r
         paths = []
         for k in range(FRAMES):
             p = os.path.join(sheets, f"{fid}_{k}.jpg")
-            if grab(fid, r["duration"] * (k + 0.5) / FRAMES, p):
+            if grab(src, r["duration"] * (k + 0.5) / FRAMES, p):
                 paths.append(p)
         rows, diff = analyse(paths)
         r.update(frames=rows, diff=diff)
     except Exception as e:  # noqa: BLE001  (a clip that cannot be read is marked, the scan goes on)
         r["error"] = str(e)[:160]
+    finally:
+        if src and os.path.exists(src) and not r.get("keep"):     # (the scan keeps no copies: ~40 GB of footage)
+            os.remove(src)
     return r
 
 
@@ -279,6 +310,91 @@ def cmd_sheets(a):
                     os.symlink(src, dst)
     for p in clip_index.sheet(pick, a.out):
         print(p)
+
+
+# ------------------------------------------------------------------ the frame bank (statics from real footage)
+DRIVE_ID = re.compile(r"^[A-Za-z0-9_-]{20,}$")
+BANK_AT = (0.12, 0.25, 0.38, 0.5, 0.62, 0.75, 0.88)      # where in a clip the candidate frames are taken
+BANK_W = 1440                                             # a 4K frame is stored 1440 px wide (the static is 1080 wide)
+
+
+def bank_rows(product, avoid=()):
+    """Indexed clips a static can use: usable, no face, vertical, at least 1080 px on the short side, no on-screen text, a clip
+    the batch does not show in its video footage again (`avoid`: Drive ids)."""
+    try:
+        rows = json.load(open(INDEX))
+    except (OSError, ValueError):
+        return []
+    return [r for r in rows if r.get("product") == product and r.get("usable") == "yes" and r.get("faces") == "none"
+            and r.get("text") in (None, "", "none") and DRIVE_ID.match(str(r.get("id") or ""))
+            and (r.get("height") or 0) > (r.get("width") or 0) and min(r.get("width") or 0, r.get("height") or 0) >= 1080
+            and r["id"] not in set(avoid) and not re.search(r"\bRAW\b|Concept \d|Creative Delivery", r.get("path") or "")]
+
+
+def texture(path):
+    """Share of edge pixels (Canny at 360x640): a bag in a scene is ~0.07-0.14, a macro of leather grain 0.23+."""
+    import cv2
+    g = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
+    if g is None:
+        return 0.0
+    return float(cv2.Canny(cv2.resize(g, (360, 640)), 60, 150).mean() / 255)
+
+
+def frame_bank(product, n, out_dir, avoid=(), seed=1, workers=4):
+    """n real frames from n different indexed clips of the product, as statics photos: the sharpest face-free frame of 7 taken
+    across each clip (4K vertical clips first), written to out_dir as JPGs (1440 px wide). `avoid`: Drive ids the product's last
+    batches already used (other clips first, repeats only when too few are left). -> [{file, id, t, w, h, note, sharp}]; fewer than n
+    (or none) when the library has too few clips: the caller says so."""
+    import hashlib
+    import ai_gen
+    import new_product
+    rows = bank_rows(product)
+    avoid = set(avoid)
+    rows.sort(key=lambda r: (r["id"] in avoid, -(max(r["width"], r["height"]) >= 3840),
+                             hashlib.md5(f"{seed}{r['id']}".encode()).hexdigest()))
+    os.makedirs(out_dir, exist_ok=True)
+
+    def one(r):
+        got = []
+        src = local_source(r["id"])           # (kept in pipeline/cache/media: the batch's videos read the same file)
+        for k, f in enumerate(BANK_AT):
+            t = round(float(r["duration"]) * f, 2)
+            p = os.path.join(out_dir, f"_c_{r['id'][:10]}_{k}.jpg")
+            vf = f"scale={BANK_W}:-2:flags=lanczos"
+            def run():
+                try:
+                    subprocess.run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-ss", f"{t:.2f}", "-i", src,
+                                    "-frames:v", "1", "-vf", vf, "-q:v", "2", "-y", p], timeout=240, capture_output=True)
+                except subprocess.SubprocessError:
+                    return False
+                return os.path.exists(p) and os.path.getsize(p) > 20000
+            if retry(run, 4):
+                with _cv_lock:
+                    face = new_product.count_faces(p, strict=True)
+                sh = ai_gen.sharpness(p)
+                if not face and sh >= MIN_SHARP * 2:
+                    got.append((min(sh, 800.0) * (0.2 if texture(p) > 0.2 else 1.0), t, p))    # (a macro of grain is the last choice)
+        if not got:
+            for k in range(len(BANK_AT)):
+                q = os.path.join(out_dir, f"_c_{r['id'][:10]}_{k}.jpg")
+                if os.path.exists(q):
+                    os.remove(q)
+            return None
+        sh, t, p = max(got)
+        final = os.path.join(out_dir, f"F_{r['id'][:10]}_{int(t * 10):04d}.jpg")
+        os.replace(p, final)
+        for k in range(len(BANK_AT)):                       # (the other candidates, with a face or softer, are not kept)
+            q = os.path.join(out_dir, f"_c_{r['id'][:10]}_{k}.jpg")
+            if os.path.exists(q):
+                os.remove(q)
+        return dict(file=final, id=r["id"], t=t, w=r["width"], h=r["height"], note=r.get("note") or "", sharp=round(sh, 1))
+    out, i = [], 0
+    with cf.ThreadPoolExecutor(workers) as ex:
+        while len(out) < n and i < len(rows):
+            batch = rows[i:i + (n - len(out)) + 2]        # (a few spare clips: one with no clean frame is skipped)
+            i += len(batch)
+            out += [x for x in ex.map(one, batch) if x]
+    return out[:n]
 
 
 def main():

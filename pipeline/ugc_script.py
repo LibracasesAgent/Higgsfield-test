@@ -40,7 +40,7 @@ import sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 VPS = 2.75 * 1.12
-ANGLES = ("n_things", "demo", "stop_x", "travel", "value")
+ANGLES = ("day", "n_things", "demo", "stop_x", "travel", "value")      # (day first: a batch of 5 always has the story)
 HOOK_TYPES = ("promise", "superlative", "question", "problem", "price")
 PROJECT_TYPE = dict(promise="curiosity", superlative="curiosity", question="question", problem="problem", price="offer")
 MAX_HOOK_WORDS, MAX_CHAPTER_WORDS, MAX_SENTENCES = 14, 45, 3
@@ -487,7 +487,7 @@ def hook_cands(ctx, angle, f1, sel, K):
     for t in A["promise"].get(angle, []) + A["promise"]["any"]:
         s = fill(t, nv)
         if s:                      # ang: the angle's own promise ('Five things ...', 'Watch ...'): the main hook is one of these
-            out["promise"].append(dict(H(s, "promise", f"{K} THINGS" if "{Nw}" in t or "{nw}" in t else "WATCH THIS" if angle == "demo" else "THE DETAILS"),
+            out["promise"].append(dict(H(s, "promise", f"{K} THINGS" if "{Nw}" in t or "{nw}" in t else "WATCH THIS" if angle == "demo" else "ONE DAY" if angle == "day" else "THE DETAILS"),
                                        ang=t in A["promise"].get(angle, [])))
     for adj in dict.fromkeys([f["c"]["adj"] for f in sel] + ["practical", "useful"]):
         out["superlative"] += [H(fill(t, dict(V, adj=adj)), "superlative", f"MOST {adj.upper()}") for t in A["superlative"]]
@@ -542,13 +542,44 @@ def pick_hooks(ctx, cands, order, n_alt, rng, taken, main_type, main=None):
     return chosen[0], chosen[1:]
 
 
+# ---------------------------------------------------------------- the day angle: a story, not a feature list
+def day_features(ctx, feats, K, rng):
+    """K features in the order of a day (ugc_arcs.json 'day': morning, street, café, crowd, desk, evening): K of the moments (kept in day
+    order), each given the feature whose words fit it best (its 'prefer'), else the next one; stored on the feature as f['beat']."""
+    B = ctx["arcs"]["day"]
+    idx = sorted(rng.sample(range(len(B)), min(K, len(B))))
+    fits_ = {k: [x for x in feats if re.search(B[k]["prefer"], x["text"], re.I)] for k in idx}
+    got, taken_ = {}, set()
+    for k in sorted(idx, key=lambda k: (len(fits_[k]), k)):          # the moment with the fewest fitting features chooses first
+        f = next((x for x in fits_[k] if x["tag"] not in taken_), None) or next((x for x in feats if x["tag"] not in taken_), None)
+        if f:
+            got[k] = f
+            taken_.add(f["tag"])
+    return [dict(got[k], beat=B[k]) for k in sorted(got)]
+
+
+def day_chapter(ctx, f, rng, used):
+    """One moment of the day: the scene setter ('At the café.') + the feature as a standalone 'you' line (+ sometimes a payoff): 2-3
+    short sentences, the footage words of that place in shot_kw so the picture is a clip of it."""
+    bt, c = f["beat"], f["c"]
+    lead = choose(bt["when"], "", rng, used, fresh=True) or choose(bt["when"], "", rng, used)
+    fx = fix_line(ctx, f, rng, used, lead or "", lead or "")
+    aft = choose(c.get("after") or [], f["line_l"], rng, used, f"{lead or ''} {fx}", fresh=True) if rng.random() < 0.85 else None
+    parts = [p for p in (lead, fx, aft) if p]
+    while len(parts) > 1 and (nwords(" ".join(parts)) > MAX_CHAPTER_WORDS or sum(len(sents(p)) for p in parts) > MAX_SENTENCES):
+        parts.pop()
+    kw = list(dict.fromkeys(bt["kw"][:2] + shot_kw(c, f)))[:4]      # (2-4 words: the place first, then the feature's footage words)
+    return chapter(" ".join(parts), "point", f, None, c, kw=kw)
+
+
 # ---------------------------------------------------------------- the engine: one script per angle
 def build_engine(ctx, angle, i, seed, rng, used, taken, n_alt, bump=0):
     used0, taken0 = used.fork(), set(taken)
     F, hi = ctx["feats"], ctx["arcs"]["words"]["max"]
     aim = ctx["arcs"]["words"]["aim" if ctx["rich"] else "thin_aim"]
     n = len(F)
-    K = dict(n_things=min((5 if ctx["rich"] else 4) + bump, n), demo=min(6, n), stop_x=min(5, n), travel=min(4, n), value=min(4, n))[angle]
+    K = dict(n_things=min((5 if ctx["rich"] else 4) + bump, n), demo=min(6, n), stop_x=min(5, n), travel=min(4, n), value=min(4, n),
+             day=min(5, n))[angle]
     base = sorted(F, key=lambda f: (f["c"]["rank"], rng.random()))             # strongest, most concrete first; leather and looks last
     shift = (i + seed - 1) % n if n > K else 0                                 # which one a script leaves out
     pool = base[shift:] + base[:shift]
@@ -565,7 +596,13 @@ def build_engine(ctx, angle, i, seed, rng, used, taken, n_alt, bump=0):
         m_ = re.match(r"(?:Stop|No more|You're done with) (\w+)", hp or "")
         main = H(hp, "problem", f"STOP {m_.group(1).upper()}" if m_ else c["label_p"], first["tag"]) if hp else None
     start, chs = rng.randrange(2), []
+    if angle == "day":                 # a story: the bag through a day, each moment tied to the feature that fits it (and to footage of
+        sel = day_features(ctx, sel + rest, K, rng)       # that place: a door, the street, a café table), every feature a true line
+        first, rest = sel[0], [f for f in pool if f["tag"] not in {x["tag"] for x in sel}]
     for j, f in enumerate(sel):
+        if angle == "day":
+            chs.append(day_chapter(ctx, f, rng, used))
+            continue
         mode = {"n_things": "headline" if (j + start) % 2 == 0 and f["c"].get("headline") else "problem", "demo": "demo",
                 "stop_x": "fix" if (j == 0 and main) else "stop",
                 "travel": "moment" if f["c"].get("travel") and f["c"].get("moment") else "problem", "value": "problem"}[angle]
@@ -615,9 +652,9 @@ def build_engine(ctx, angle, i, seed, rng, used, taken, n_alt, bump=0):
     cands = hook_cands(ctx, angle, first, sel, K)
     if angle == "travel":      # the travel angle opens on a travel question
         main = rng.choice([h for h in cands["question"] if h["label"] == "TRAVEL DAY" and h["text"] not in taken] or cands["question"])
-    mt = dict(n_things="promise", demo="promise", stop_x="problem", travel="question", value="price")[angle]
+    mt = dict(n_things="promise", demo="promise", stop_x="problem", travel="question", value="price", day="promise")[angle]
     pool = [h for h in cands["promise"] if h.get("ang")]
-    if main is None and pool and (angle in ("n_things", "demo") or not cands[mt]):      # the first 3 s are specific: the angle's own
+    if main is None and pool and (angle in ("n_things", "demo", "day") or not cands[mt]):      # the first 3 s are specific: the angle's own
         main = rng.choice([h for h in pool if h["text"] not in taken] or pool)           # promise, never 'A quick look at the bag.'
     h1, alts = pick_hooks(ctx, cands, order, n_alt, rng, taken, mt, main)
     return h1, alts, cs
@@ -667,7 +704,7 @@ def hand_script(ctx, hs, seed, used, taken, n_alt, rng):
 # ---------------------------------------------------------------- scripts()
 def support(ctx):
     n = len(ctx["feats"])
-    return [a for a in ANGLES if (a == "demo" and n >= 1) or (a in ("n_things", "stop_x") and n >= 2) or
+    return [a for a in ANGLES if (a == "demo" and n >= 1) or (a in ("n_things", "stop_x") and n >= 2) or (a == "day" and n >= 4) or
             (a == "travel" and n >= 2 and any(f["c"].get("travel") for f in ctx["feats"])) or (a == "value" and n >= 2 and ctx["deal"])]
 
 
@@ -707,6 +744,8 @@ def scripts(pr, n=5, seed=1, hooks=4, voice="you", avoid=None):
     cycle = support(ctx)
     if not ctx["feats"] or not cycle:
         return []
+    last_ = (avoid or {}).get("angles") or []          # the angles of the product's last batch go to the end: a batch of 5 of the 6 angles
+    cycle = [x for x in cycle if x not in last_] + [x for x in cycle if x in last_]       # leaves out one of them: another next time
     hand = data("ugc_hobo.json")["scripts"] if ctx["builtin"] and pr.get("key") == "hobo bag" else []
     used, taken, out = Used(), set(), []
     avoid = avoid or {}

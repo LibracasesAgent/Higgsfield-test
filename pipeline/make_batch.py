@@ -130,7 +130,7 @@ QA_SECONDS = {"storyboard": (35, 95), "remix": (15, 110),    # a winner body is 
               "story": (60, 130),                             # padding (113-H2 runs ~18 s); never under the floor. story:
               "ugc": (55, 85)}                                # the classic 1.5-2 min storytelling format (Julian, 2026-10-09);
 FLOOR = {"storyboard": MIN_SECONDS, "remix": 15}                # ugc: the default storyboard format (owner 2026-10-14: 55-80 s)
-UGC_ANGLE = dict(n_things="things", demo="demo", stop_x="stop", travel="travel", value="value")   # ugc_script angle -> the name part
+UGC_ANGLE = dict(n_things="things", demo="demo", stop_x="stop", travel="travel", value="value", day="day")   # ugc_script angle -> the name part
 AI_SHOTS_MAX = 5      # AI clips in one ugc video (of ~30 shots): the real footage stays the base
 UGC_WPS = 2.75      # words per second of a voice take before the speed-up (ugc_script.VPS / storyboard.VOICE_SPEED)
 UGC_SPEED = 1.12    # storyboard.VOICE_SPEED: the voice takes are sped up this much
@@ -579,7 +579,10 @@ def deal_of(o):
 ACRONYMS = {"RFID", "US", "UK", "USB", "ID", "PU", "XL", "XS"}
 
 
-def static_cycle(clean_mode, hobo, life, classic=False):
+FRAMES_PER_BATCH = 9    # real footage frames a batch of 20 statics shows (native statics: one caption each)
+
+
+def static_cycle(clean_mode, hobo, life, classic=False, frames=0):
     """The 20-slot layout cycle of the statics. clean_mode: 2+ clean packshots; hobo: the built-in Hobo Bag; life: a new product
     with 3+ lifestyle photos. classic: the pre-2026-10-20 cycle (12 / 10 slots, repeated). The clean cycle (owner 2026-10-20: the
     competitors' statics look clean, "take it to essence"): one big photo and next to no text. Of 20: studio 4 (the packshot large on
@@ -596,6 +599,9 @@ def static_cycle(clean_mode, hobo, life, classic=False):
         if clean_mode:
             return ["hero", "promo", "offer", "bold", "stars", "colours", "checklist", "compare", "review", "promo", "hero", "bold"]
         return ["lifestyle", "bold", "hero", "lifestyle", "compare", "review", "lifestyle", "bold", "hero", "lifestyle"]
+    if clean_mode and frames >= 5:                   # real footage frames (footage_index.frame_bank): 8 native, 4 studio, the rest BOF
+        return ["native", "studio", "offer", "native", "quotes", "native", "studio", "value", "native", "stars", "native", "studio",
+                "native", "quotes", "checklist", "native", "studio", "colours", "native", "offer"]
     if clean_mode and hobo:
         return ["studio", "native", "offer", "quotes", "studio", "native", "value", "stars", "studio", "native", "quotes",
                 "checklist", "studio", "native", "offer", "colours", "value", "quotes", "bold", "compare"]
@@ -1394,7 +1400,30 @@ def plan(a):
             warnings.append("colour swatches: packshots matched to the notes' colours by shade: " +
                             ", ".join(f"{n} = P{pnum[f]}" for n, f in colour_imgs) + " (check the colours static / swatches)"
                             if got_ else f"colours: {why_}: no named colour swatches (the colours static shows the packshots)")
-    life_cache = []
+    life_cache, frame_cache, frame_meta = [], [], {}
+
+    def frame_photos():
+        """Real frames of the product's indexed footage (footage_index.frame_bank), the base of the native statics: the sharpest face-free
+        frame of FRAMES_PER_BATCH different vertical clips, other clips than the product's last batches showed (novelty log). Built-in
+        bags only (a new product's own photos are its statics); none for --classic / --no-frames or when the library has too few."""
+        if not frame_cache:
+            got = []
+            name_ = INDEX_PRODUCT.get(pk)
+            if need and a.statics and pr["source"] == "built-in" and name_ and not getattr(a, "classic", False) \
+                    and not getattr(a, "no_frames", False):
+                try:
+                    import footage_index
+                    got = footage_index.frame_bank(
+                        name_, FRAMES_PER_BATCH, os.path.join(out, "photos", "frames"), avoid=novelty.recent(pr["name"], "frame_clip"),
+                        seed=a.seed + len(novelty.batches(pr["name"])))
+                except Exception as e:  # noqa: BLE001 - frames are an extra: the packshot statics still work
+                    warnings.append(f"footage frames skipped ({type(e).__name__}: {e}): statics from the packshots only")
+                if got and len(got) < FRAMES_PER_BATCH:
+                    warnings.append(f"footage frames: only {len(got)} of {FRAMES_PER_BATCH} clips gave a clean frame (the library "
+                                    f"has few vertical face-free clips of {pr['name']} left)")
+            frame_cache.append([x["file"] for x in got])
+            frame_meta.update({x["file"]: x for x in got})
+        return frame_cache[0]
 
     def lifestyle():
         """Photos for lifestyle statics: the client's photos with no face (strict check; never one the intake marked
@@ -1410,7 +1439,7 @@ def plan(a):
                     ok.append(f)
             life = [f for f in file_life if f not in no_static]
             kept = [f for f in life if pkind.get(pnum.get(f)) in ("worn", "detail")]   # (full bleed: an unsorted photo
-            life_cache.append((kept if len(kept) >= 3 else life) + ok)               # may have text baked in)
+            life_cache.append(frame_photos() + (kept if len(kept) >= 3 else life) + ok)    # may have text baked in; footage frames first)
         return life_cache[0]
 
     def photo_file(p):
@@ -1478,7 +1507,7 @@ def plan(a):
     clean_mode = len(s_packs) >= 2
     hobo_ = clean_mode and pk == "hobo bag" and pr["source"] == "built-in"
     life_ = clean_mode and pr["source"] != "built-in" and len(lifestyle()) >= 3      # the client's own worn / detail photos
-    seq = static_cycle(clean_mode, hobo_, life_, getattr(a, "classic", False))      # (--classic: the old cycle; else the clean one)
+    seq = static_cycle(clean_mode, hobo_, life_, getattr(a, "classic", False), len(frame_photos()))   # (--classic: the old cycle)
     if not clean_mode and a.statics and lifestyle():
         warnings.append(f"only {len(s_packs)} clean packshot(s): statics use the client's lifestyle photos and framed photo "
                         f"cards")
@@ -1520,6 +1549,11 @@ def plan(a):
     cards = {rel(f) for f in s_packs if bs.textured(f)}     # light textured backdrop: a framed card, never a grey box
     ptag = {rel(f): x[1] for x in reversed(pr["features"]) for p in x[2] if p and p[0] == "photo" and isinstance(p[1], str)
             for f in [pfile.get(int(p[1][1:])) if re.fullmatch(r"P\d+", p[1]) else None] if f}   # client photo -> its tag
+    for f_ in frame_photos():         # a footage frame: the feature its clip shows (the client's note: "back pocket hands 4K")
+        nt_ = kw_terms(frame_meta[f_]["note"])
+        best_ = max(((len(nt_ & kw_terms(t_)), -tags.index(t_), t_) for t_ in tags), default=(0, 0, None))
+        if best_[0]:
+            ptag[rel(f_)] = best_[2]
     hero = ov(tx["hero"], "hero") if a.statics else tx["hero"]
 
     def revs_shown():                 # how often the statics so far show each review (review cards; a stars static's first 2
@@ -1562,8 +1596,9 @@ def plan(a):
                                                                          "Which colour are you?"), sub=tx["colours_sub"], cta=tx["cta"])
         if lay in ("lifestyle", "native"):
             heads = [hero, f"The {pr['short']}."] + ([". ".join(tcase(t) for t in tags[:2]) + "."] if tags else [])
-            if ptag.get(photo) and not t:         # a client photo a feature line picks: that feature's tag
-                heads = [f"{tcase(ptag[photo])}."] * len(heads)
+            if ptag.get(photo) and not t and f"{tcase(ptag[photo])}." not in {x.get("caption") or x.get("headline") for x in statics}:
+                heads = [f"{tcase(ptag[photo])}."] * len(heads)     # a photo a feature picks (a client photo / a footage frame): that
+                #                                                      feature's tag (said once per batch: another photo of it: the usual lines)
             elif pr["source"] != "built-in":      # (else a headline the batch's lifestyle statics have not used yet)
                 had = {x.get("headline") or x.get("caption") for x in statics if x.get("layout") in ("lifestyle", "native")}
                 heads = rot(heads, n_life - 1 + hv)
@@ -1665,6 +1700,9 @@ def plan(a):
         if card:
             cards.add(rel(photo))
         s["name"] = f"{prefix}_S{len(statics) + 1:02d}_{lay}"
+        fm_ = next((m_ for f_, m_ in frame_meta.items() if rel(f_) == s.get("photo")), None)
+        if fm_:                       # a real footage frame: its clip (novelty log: the next batch takes other clips)
+            s["frame"] = dict(clip=fm_["id"], t=fm_["t"])
         statics.append(s)
     if no_photo:                      # one warning, not one per static (a clips-only folder)
         bi_ = pr["source"] == "built-in"
@@ -2189,7 +2227,15 @@ def plan(a):
     # what to generate (the agent does, with Higgsfield), `ai_gen.py gate / clips` check it, render swaps whatever failed back to
     # the real photo / real footage (ai_gen.apply). The plan is inside the batch cap (voiceover + AI = 100 credits).
     ai_plan = dict(stills=[], clips=[], est_credits=0.0, budget={}, notes=[])
-    if need and not getattr(a, "no_ai", False) and not getattr(a, "classic", False) and (a.statics or (a.videos and not story)):
+    # owner 2026-10-20 ("use the footage we have; generate only what is missing"): AI scenes are a gap-filler. A built-in bag with real
+    # footage frames (footage_index) and a new product with plenty of its own photos and clips run on real material only; --ai forces
+    # the scenes, --no-ai forbids them. A thin folder (a few photos, one clip) still gets them.
+    real_rich = (pr["source"] == "built-in" and (len(frame_photos()) >= 5 or not a.statics)) or \
+        (pr["source"] != "built-in" and len(s_packs) + len(lifestyle()) >= 8 and sum(1 for c_ in clips if c_) >= 2)
+    if need and real_rich and not getattr(a, "ai", False) and not getattr(a, "no_ai", False) and (a.statics or a.videos):
+        warnings.append("AI scenes: off (the product has enough real photos / footage; --ai makes the scene statics and clips)")
+    if need and not getattr(a, "no_ai", False) and not getattr(a, "classic", False) and (a.statics or (a.videos and not story)) \
+            and (getattr(a, "ai", False) or not real_rich):
         ai_refs = [dict(file=f_, colour=n_) for n_, f_ in colour_imgs if f_ in packs and f_ not in no_static]
         ai_refs += [dict(file=f_, colour=None) for f_ in packs if f_ not in {r_["file"] for r_ in ai_refs} and f_ not in no_static]
         try:
@@ -2266,7 +2312,7 @@ def plan(a):
         try:
             nl_ = novelty.load()               # what the product's last batches said (novelty.py): other hooks, other words
             ugc_sc = ugc_script.scripts(pr, n=a.videos, seed=a.seed, hooks=a.hooks, avoid=dict(
-                hooks=novelty.recent(pr["name"], "hook", log=nl_),
+                hooks=novelty.recent(pr["name"], "hook", log=nl_), angles=novelty.recent(pr["name"], "angle", last=1, log=nl_),
                 sentences=[t_ for b_ in novelty.batches(pr["name"], log=nl_)[-novelty.LAST:] for v_ in b_.get("videos") or []
                            for t_ in v_.get("chapters") or []]))
         except Exception as e:  # noqa: BLE001 - the script engine must not stop a batch: the classic format still works
@@ -2342,10 +2388,11 @@ def plan(a):
                         {"gift", "pouch", "wallet", "unbox", "free"} if gift else ())
         if pr["source"] == "built-in":
             taken = {e["id"] for d_ in b.values() if isinstance(d_, dict) for e in d_.values() if isinstance(e, dict) and e.get("id")}
+            seen_ = set(novelty.recent(pr["name"], "clip_id", last=2))     # library clips the last 2 batches' videos showed: avoided
             for id_, dur_, note_ in index_clips(pk, taken):
                 dnote[id_], dlong[id_] = note_, dur_ >= 60
                 for g in gen_moments(dur_, 5):
-                    add(["drive", id_, g], (), None, "clip", 0.5)
+                    add(["drive", id_, g], (), None, "clip", 0.5 + (2.0 if id_ in seen_ else 0.0))
         for c_ in ai_plan["clips"]:    # planned AI clips (ai_gen.py): scenes the client never filmed (a cafe, the street), matched on
             ulib.append(dict(p=["ai", c_["id"], 0.0], kw=kw_terms(" ".join(c_["tags"])), tag=None, kind="clip",   # their scene words
                              src=ai_gen.clip_file(out, c_["id"]), pen=0.0, only=set(), hook=False, long=False, once=False))
@@ -3375,12 +3422,17 @@ def log_novelty(out, p, name, uploaded):
         x = ads.get(n)
         if x and n in got:
             e = dict(layout=x.get("layout"), photo=None if x.get("ai") else os.path.basename(str(x.get("photo") or "")) or None,
-                     caption=x.get("caption") or x.get("headline"), **{k: (x.get("ai") or {}).get(k) for k in ("scene", "colour")})
+                     caption=x.get("caption") or x.get("headline"), frame_clip=(x.get("frame") or {}).get("clip"),
+                     **{k: (x.get("ai") or {}).get(k) for k in ("scene", "colour")})
             st.append({k: v for k, v in e.items() if v})
     spec_txt = "".join(open(os.path.join(out, f"{v['name']}.json")).read() for v in p.get("videos") or []
                        if v["name"] in got and os.path.exists(os.path.join(out, f"{v['name']}.json")))
     need = ai_gen.load_needed(out) or {}
     cl = [dict(scene=c["scene"]) for c in need.get("clips") or [] if f"{c['id']}_c.mp4" in spec_txt and ai_gen.available(out, "clips", c["id"])]
+    try:       # the client's library clips (clip_index.json) the uploaded videos show: the next batch takes other footage
+        cl += [dict(clip_id=r["id"]) for r in json.load(open(os.path.join(HERE, "data", "clip_index.json"))) if r["id"] in spec_txt]
+    except (OSError, ValueError):
+        pass
     vids, seen = [], set()
     try:
         said_ = {f: t.split("|", 1)[-1] for f, t in json.load(open(os.path.join(out, "tts_said.json"))).items()}
@@ -3672,6 +3724,9 @@ def main():
     pl.add_argument("--no-name-check", action="store_true", help="don't look in Drive for today's names (offline tests)")
     pl.add_argument("--budget", type=float, help=f"credits the request allows for voiceover, hook lines included "
                     f"(default {MAX_CREDITS})")
+    pl.add_argument("--ai", action="store_true", help="make the AI scene statics / clips (ai_gen.py) even when the product has enough "
+                    "real photos and footage (by default AI only fills what the real material cannot)")
+    pl.add_argument("--no-frames", action="store_true", help="no statics from real footage frames (footage_index.frame_bank)")
     pl.add_argument("--no-ai", action="store_true", help="no AI scene stills / clips (ai_gen.py): real photos and footage only. "
                     "Default: about 40% of the statics and a few video shots are the real bag placed in new scenes "
                     "(owner 2026-10-20), generated after plan (ai_needed.json) and kept only when they pass the quality gate")

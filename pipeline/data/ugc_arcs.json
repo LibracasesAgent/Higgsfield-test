@@ -1,7 +1,19 @@
 {
  "_help": "Lexicon + templates of pipeline/ugc_script.py (the ugc storyboard script engine). Voice is always 'you': no I / my / me / mine (only inside a verbatim review quote). Every line is short, spoken, true for ANY feature that matches its concept; a line that needs a more specific fact carries 'needs' (a regex over the feature's 'TAG line', lower case: the line only fits a feature that says it) and 'not'. An option is a string or {\"t\": text, \"needs\": rx, \"not\": rx}. Words that are claims (anti-theft, hidden pocket, RFID, lockable, water-resistant, scratch-proof, laptop, free shipping ...) never appear in a generic line: compliance.check only lets them through when the product's own facts say them. No number words except 'one' in generic lines (compliance: invented numbers). Spelling: US. concepts: ordered, a feature gets the first concept whose 'match' hits its 'TAG line' (builtin 'tags' first). Fields: rank (arc order: 1 first ... 6 last), travel (fits the travel / crowds angle), adj (superlative hooks: 'the most <adj> bag'), problem (a question that sets up the fix), stop ('Stop ...' imperative), demo (a hands-on opening: 'Watch this.'), headline ('You stop ...' benefit that the concept itself guarantees), after (a third short sentence: a moment or a payoff the concept itself guarantees), moment (scene setter), hook_q / hook_p (a question / problem hook about this concept, <= 14 words), label_p (on-screen label of hook_p), shot_kw (what the picture shows: words of the clip notes in clip_index.json), keywords (caption highlights). words: min / max = the length target of a script of a product with 5+ feature lines (55-80 s at the renderer's pace), aim = what the engine grows a script to (optional chapters first), floor = what lint() accepts, thin_aim = the same aim for a product with fewer feature lines (no minimum: it can only say what it knows).",
- "angles": ["n_things", "demo", "stop_x", "travel", "value"],
- "words": {"min": 175, "aim": 200, "max": 250, "floor": 150, "thin_aim": 130},
+ "angles": [
+  "n_things",
+  "demo",
+  "stop_x",
+  "travel",
+  "value"
+ ],
+ "words": {
+  "min": 175,
+  "aim": 200,
+  "max": 250,
+  "floor": 150,
+  "thin_aim": 130
+ },
  "concepts": [
   {
    "id": "lockable",
@@ -13,16 +25,33 @@
     {
      "q": "worry that someone could open your bag in a crowd",
      "g": "worrying that someone could open your bag in a crowd",
-     "f": ["ever", "tired", "sick", "still"]
+     "f": [
+      "ever",
+      "tired",
+      "sick",
+      "still"
+     ]
     },
     {
      "q": "walk down a busy street with your bag wide open",
      "g": "walking down a busy street with your bag wide open"
     },
-    {"q": "check your zippers again and again", "g": "checking your zippers again and again"}
+    {
+     "q": "check your zippers again and again",
+     "g": "checking your zippers again and again"
+    }
    ],
-   "demo": ["Zip it up. Now lock it.", "Watch the zippers.", "Check the zippers.", "Zip. Lock. Done."],
-   "moment": ["Packed street?", "Crowded station?", "Busy market?"],
+   "demo": [
+    "Zip it up. Now lock it.",
+    "Watch the zippers.",
+    "Check the zippers.",
+    "Zip. Lock. Done."
+   ],
+   "moment": [
+    "Packed street?",
+    "Crowded station?",
+    "Busy market?"
+   ],
    "after": [
     "Lock them and walk on.",
     "Lock them and you're done thinking about it.",
@@ -30,11 +59,23 @@
     "Lock them, then forget about them.",
     "Zip, lock, walk."
    ],
-   "hook_q": ["Does your bag lock when the street gets busy?", "Would you carry a bag that locks?"],
-   "hook_p": ["A bag that stays open in a crowd is asking for trouble."],
+   "hook_q": [
+    "Does your bag lock when the street gets busy?",
+    "Would you carry a bag that locks?"
+   ],
+   "hook_p": [
+    "A bag that stays open in a crowd is asking for trouble."
+   ],
    "label_p": "LOCK IT UP",
-   "shot_kw": ["lockable zippers", "hands zip", "macro"],
-   "keywords": ["lockable", "zippers"],
+   "shot_kw": [
+    "lockable zippers",
+    "hands zip",
+    "macro"
+   ],
+   "keywords": [
+    "lockable",
+    "zippers"
+   ],
    "headline": [],
    "stop": [],
    "problem": []
@@ -53,22 +94,48 @@
     {
      "q": "wonder what a card scanner could pick up from your bag",
      "g": "wondering what a card scanner could pick up from your bag",
-     "f": ["ever", "tired", "sick", "still"]
+     "f": [
+      "ever",
+      "tired",
+      "sick",
+      "still"
+     ]
     }
    ],
-   "demo": ["Look inside.", {"t": "Check the lining.", "needs": "lining"}, "Open it and look."],
-   "moment": ["Crowded station?", "Busy street?"],
+   "demo": [
+    "Look inside.",
+    {
+     "t": "Check the lining.",
+     "needs": "lining"
+    },
+    "Open it and look."
+   ],
+   "moment": [
+    "Crowded station?",
+    "Busy street?"
+   ],
    "after": [
     "Your cards stay your business.",
     "Crowded station or busy street, you're covered.",
     "Card scanners get nothing from it.",
     "Walk through any crowd with your cards covered."
    ],
-   "hook_q": ["Does your bag do anything about card scanners?"],
-   "hook_p": ["Your cards go everywhere you go, scanners included."],
+   "hook_q": [
+    "Does your bag do anything about card scanners?"
+   ],
+   "hook_p": [
+    "Your cards go everywhere you go, scanners included."
+   ],
    "label_p": "CARD SCANNERS",
-   "shot_kw": ["lining", "inside", "cards"],
-   "keywords": ["rfid", "scanners"],
+   "shot_kw": [
+    "lining",
+    "inside",
+    "cards"
+   ],
+   "keywords": [
+    "rfid",
+    "scanners"
+   ],
    "headline": [],
    "stop": [],
    "problem": []
@@ -83,21 +150,42 @@
     {
      "q": "worry about your strap on a busy street",
      "g": "worrying about your strap on a busy street",
-     "f": ["ever", "tired", "sick", "still"]
+     "f": [
+      "ever",
+      "tired",
+      "sick",
+      "still"
+     ]
     }
    ],
-   "demo": ["Check the strap.", "Now the strap.", "Look at the strap."],
-   "moment": ["Busy street?", "Packed train?"],
+   "demo": [
+    "Check the strap.",
+    "Now the strap.",
+    "Look at the strap."
+   ],
+   "moment": [
+    "Busy street?",
+    "Packed train?"
+   ],
    "after": [
     "One less thing to worry about.",
     "Even the strap is looked after.",
     "The strap is covered, too.",
     "Small detail, big peace of mind."
    ],
-   "hook_q": ["How much do you trust your bag's strap?"],
+   "hook_q": [
+    "How much do you trust your bag's strap?"
+   ],
    "label_p": "STRAP CHECK",
-   "shot_kw": ["strap adjust", "shoulder", "macro"],
-   "keywords": ["strap", "cut-resistant"],
+   "shot_kw": [
+    "strap adjust",
+    "shoulder",
+    "macro"
+   ],
+   "keywords": [
+    "strap",
+    "cut-resistant"
+   ],
    "hook_p": [],
    "headline": [],
    "stop": [],
@@ -119,14 +207,36 @@
      "g": "putting your bag down at a cafe and never quite relaxing"
     }
    ],
-   "demo": ["Take a seat.", "Now sit down.", "Pull up a chair."],
-   "moment": ["At a cafe?", "Sitting down for lunch?"],
-   "after": ["Now you can finish your coffee in peace.", "Order that second coffee.", "Sit back and enjoy lunch."],
-   "hook_q": ["Where does your bag go when you sit down at a cafe?"],
-   "hook_p": ["Cafe table, one eye on your bag the whole time. Sound familiar?"],
+   "demo": [
+    "Take a seat.",
+    "Now sit down.",
+    "Pull up a chair."
+   ],
+   "moment": [
+    "At a cafe?",
+    "Sitting down for lunch?"
+   ],
+   "after": [
+    "Now you can finish your coffee in peace.",
+    "Order that second coffee.",
+    "Sit back and enjoy lunch."
+   ],
+   "hook_q": [
+    "Where does your bag go when you sit down at a cafe?"
+   ],
+   "hook_p": [
+    "Cafe table, one eye on your bag the whole time. Sound familiar?"
+   ],
    "label_p": "SOUND FAMILIAR?",
-   "shot_kw": ["table strap", "chair", "cafe"],
-   "keywords": ["strap", "chair"],
+   "shot_kw": [
+    "table strap",
+    "chair",
+    "cafe"
+   ],
+   "keywords": [
+    "strap",
+    "chair"
+   ],
    "headline": [],
    "stop": [],
    "problem": []
@@ -163,18 +273,33 @@
      "ht": true
     }
    ],
-   "problem": ["Where do your cards and cash go when you're out and about?"],
+   "problem": [
+    "Where do your cards and cash go when you're out and about?"
+   ],
    "demo": [
-    {"t": "Turn it around.", "needs": "back"},
+    {
+     "t": "Turn it around.",
+     "needs": "back"
+    },
     "Look closer.",
     "Check this out.",
-    {"t": "Flip it over.", "needs": "back"}
+    {
+     "t": "Flip it over.",
+     "needs": "back"
+    }
    ],
    "headline": [
-    {"t": "You stop worrying in crowds.", "needs": "back|against|anti-?theft|theft|flat|crowd|passport|pickpocket"},
+    {
+     "t": "You stop worrying in crowds.",
+     "needs": "back|against|anti-?theft|theft|flat|crowd|passport|pickpocket"
+    },
     "You get a place to tuck things out of sight."
    ],
-   "moment": ["Crowded station?", "Packed train?", "Busy street?"],
+   "moment": [
+    "Crowded station?",
+    "Packed train?",
+    "Busy street?"
+   ],
    "after": [
     {
      "t": "Crowded station, packed train: it stays out of sight.",
@@ -185,7 +310,10 @@
      "needs": "back|against|anti-?theft|theft|flat|crowd|passport|pickpocket"
     },
     "Out of sight, out of mind.",
-    {"t": "It stays flat and out of sight.", "needs": "flat|against"}
+    {
+     "t": "It stays flat and out of sight.",
+     "needs": "flat|against"
+    }
    ],
    "hook_q": [
     {
@@ -204,8 +332,15 @@
     }
    ],
    "label_p": "STOP CLUTCHING",
-   "shot_kw": ["back pocket", "hands", "passport"],
-   "keywords": ["hidden", "pocket"],
+   "shot_kw": [
+    "back pocket",
+    "hands",
+    "passport"
+   ],
+   "keywords": [
+    "hidden",
+    "pocket"
+   ],
    "stop": []
   },
   {
@@ -223,7 +358,12 @@
     {
      "q": "worry about your bag in a crowd",
      "g": "worrying about your bag in a crowd",
-     "f": ["ever", "tired", "sick", "still"]
+     "f": [
+      "ever",
+      "tired",
+      "sick",
+      "still"
+     ]
     },
     {
      "q": "guard your bag with your elbow on a busy train",
@@ -231,20 +371,44 @@
      "ht": true
     }
    ],
-   "demo": [{"t": "Look at the zips.", "needs": "zip"}, "Check the details.", "Look closer."],
-   "headline": ["You stop worrying in crowds.", "You stop guarding your bag."],
-   "moment": ["Crowded station?", "Packed train?", "Busy street?"],
+   "demo": [
+    {
+     "t": "Look at the zips.",
+     "needs": "zip"
+    },
+    "Check the details.",
+    "Look closer."
+   ],
+   "headline": [
+    "You stop worrying in crowds.",
+    "You stop guarding your bag."
+   ],
+   "moment": [
+    "Crowded station?",
+    "Packed train?",
+    "Busy street?"
+   ],
    "after": [
     "Crowded station, packed train: you can relax.",
     "One less thing to think about when it's busy.",
     "Busy street? Walk through it.",
     "Packed train? Breathe easy."
    ],
-   "hook_q": ["How do you carry your bag when the street gets busy?"],
-   "hook_p": ["Crowded places and an open bag don't mix."],
+   "hook_q": [
+    "How do you carry your bag when the street gets busy?"
+   ],
+   "hook_p": [
+    "Crowded places and an open bag don't mix."
+   ],
    "label_p": "CROWD READY",
-   "shot_kw": ["zips", "hands", "crowd"],
-   "keywords": ["anti-theft"],
+   "shot_kw": [
+    "zips",
+    "hands",
+    "crowd"
+   ],
+   "keywords": [
+    "anti-theft"
+   ],
    "stop": [],
    "problem": []
   },
@@ -264,11 +428,29 @@
      "g": "letting everything end up in one big pile at the bottom of your bag",
      "ht": true
     },
-    {"q": "spend ages finding your cards in there", "g": "spending ages finding your cards in there", "ht": true},
-    {"q": "empty your bag to find one thing", "g": "emptying your bag to find one thing", "ht": true}
+    {
+     "q": "spend ages finding your cards in there",
+     "g": "spending ages finding your cards in there",
+     "ht": true
+    },
+    {
+     "q": "empty your bag to find one thing",
+     "g": "emptying your bag to find one thing",
+     "ht": true
+    }
    ],
-   "headline": [{"t": "Everything gets its own spot.", "needs": "divided|compartments|organi|pockets|sections|dividers"}],
-   "demo": ["Open it up.", "Look inside.", "Now the inside.", "Open the top."],
+   "headline": [
+    {
+     "t": "Everything gets its own spot.",
+     "needs": "divided|compartments|organi|pockets|sections|dividers"
+    }
+   ],
+   "demo": [
+    "Open it up.",
+    "Look inside.",
+    "Now the inside.",
+    "Open the top."
+   ],
    "after": [
     {
      "t": "Cards here, lip balm there, keys over there.",
@@ -278,14 +460,30 @@
      "t": "Your bag stops feeling like a black hole.",
      "needs": "divided|compartments|organi|pockets|sections|dividers"
     },
-    {"t": "Everything is easy to find.", "needs": "divided|compartment|organi"},
-    {"t": "Everything fits in one go.", "needs": "roomy|spacious|room"}
+    {
+     "t": "Everything is easy to find.",
+     "needs": "divided|compartment|organi"
+    },
+    {
+     "t": "Everything fits in one go.",
+     "needs": "roomy|spacious|room"
+    }
    ],
-   "hook_q": ["How long does it take you to find your keys in there?"],
-   "hook_p": ["Your bag shouldn't be a black hole for keys, cards and lip balm."],
+   "hook_q": [
+    "How long does it take you to find your keys in there?"
+   ],
+   "hook_p": [
+    "Your bag shouldn't be a black hole for keys, cards and lip balm."
+   ],
    "label_p": "BLACK HOLE?",
-   "shot_kw": ["compartments", "inside", "open zip"],
-   "keywords": ["compartments"],
+   "shot_kw": [
+    "compartments",
+    "inside",
+    "open zip"
+   ],
+   "keywords": [
+    "compartments"
+   ],
    "moment": [],
    "stop": [],
    "problem": [],
@@ -307,20 +505,44 @@
      "g": "carrying cash and cards loose in your bag",
      "needs": "pouch"
     },
-    {"q": "pick just one bag for the whole day", "g": "having to pick just one bag for the whole day", "ht": true}
+    {
+     "q": "pick just one bag for the whole day",
+     "g": "having to pick just one bag for the whole day",
+     "ht": true
+    }
    ],
-   "headline": ["You get the whole set."],
-   "demo": ["Here's the whole set.", "Meet every piece.", "Here are all the pieces."],
+   "headline": [
+    "You get the whole set."
+   ],
+   "demo": [
+    "Here's the whole set.",
+    "Meet every piece.",
+    "Here are all the pieces."
+   ],
    "after": [
     "Pick the piece that fits your day.",
-    {"t": "Cards and cash get a home of their own.", "needs": "pouch"},
+    {
+     "t": "Cards and cash get a home of their own.",
+     "needs": "pouch"
+    },
     "Everything matches."
    ],
-   "hook_q": ["Which piece would you carry first?"],
-   "hook_p": ["Switching bags shouldn't mean emptying everything out."],
+   "hook_q": [
+    "Which piece would you carry first?"
+   ],
+   "hook_p": [
+    "Switching bags shouldn't mean emptying everything out."
+   ],
    "label_p": "EASY SWITCH",
-   "shot_kw": ["set", "flatlay", "crossbody"],
-   "keywords": ["set", "matching"],
+   "shot_kw": [
+    "set",
+    "flatlay",
+    "crossbody"
+   ],
+   "keywords": [
+    "set",
+    "matching"
+   ],
    "moment": [],
    "stop": [],
    "problem": [],
@@ -332,25 +554,57 @@
    "rank": 2,
    "adj": "practical",
    "pains": [
-    {"q": "need both hands just to open your bag", "g": "needing both hands just to open your bag"},
+    {
+     "q": "need both hands just to open your bag",
+     "g": "needing both hands just to open your bag"
+    },
     {
      "q": "fumble with your bag while you're holding your coffee",
      "g": "fumbling with your bag while you're holding your coffee"
     },
-    {"q": "wrestle with a clasp when you're in a hurry", "g": "wrestling with a clasp when you're in a hurry"}
+    {
+     "q": "wrestle with a clasp when you're in a hurry",
+     "g": "wrestling with a clasp when you're in a hurry"
+    }
    ],
-   "headline": ["You stop fumbling."],
-   "demo": [{"t": "Watch this.", "needs": "one[- ]hand"}, "Watch the clasp.", "Now the clasp."],
+   "headline": [
+    "You stop fumbling."
+   ],
+   "demo": [
+    {
+     "t": "Watch this.",
+     "needs": "one[- ]hand"
+    },
+    "Watch the clasp.",
+    "Now the clasp."
+   ],
    "after": [
-    {"t": "All with one hand.", "needs": "one[- ]hand"},
+    {
+     "t": "All with one hand.",
+     "needs": "one[- ]hand"
+    },
     "Coffee in one hand, bag in the other.",
     "Open it, close it, move on."
    ],
-   "hook_q": [{"t": "Does your bag open with one hand?", "needs": "one[- ]hand"}],
-   "hook_p": ["Fumbling with your bag while your hands are full is no fun."],
+   "hook_q": [
+    {
+     "t": "Does your bag open with one hand?",
+     "needs": "one[- ]hand"
+    }
+   ],
+   "hook_p": [
+    "Fumbling with your bag while your hands are full is no fun."
+   ],
    "label_p": "HANDS FULL?",
-   "shot_kw": ["clasp", "hands", "macro"],
-   "keywords": ["clasp", "one hand"],
+   "shot_kw": [
+    "clasp",
+    "hands",
+    "macro"
+   ],
+   "keywords": [
+    "clasp",
+    "one hand"
+   ],
    "moment": [],
    "stop": [],
    "problem": [],
@@ -368,8 +622,15 @@
      "needs": "keys?",
      "ht": true
     },
-    {"q": "fumble with a bag that won't stay closed", "g": "fumbling with a bag that won't stay closed", "ht": true},
-    {"q": "leave your bag half open without noticing", "g": "leaving your bag half open without noticing"},
+    {
+     "q": "fumble with a bag that won't stay closed",
+     "g": "fumbling with a bag that won't stay closed",
+     "ht": true
+    },
+    {
+     "q": "leave your bag half open without noticing",
+     "g": "leaving your bag half open without noticing"
+    },
     {
      "q": "reach into your bag and feel around for your phone",
      "g": "reaching into your bag and feeling around for your phone",
@@ -377,18 +638,51 @@
      "ht": true
     }
    ],
-   "headline": [{"t": "You stop digging for your keys.", "needs": "keys?"}],
-   "demo": ["Watch the zip.", "Open it. Close it.", "Now the zip.", "Zip it."],
-   "after": [
-    {"t": "Reach in, grab them, go.", "needs": "keys?"},
-    "Open, close, done.",
-    {"t": "Zip it shut and you're set.", "needs": "secure|safe|closure"}
+   "headline": [
+    {
+     "t": "You stop digging for your keys.",
+     "needs": "keys?"
+    }
    ],
-   "hook_q": [{"t": "How long does it take you to find your keys?", "needs": "keys?"}],
-   "hook_p": [{"t": "Stop digging for your keys at the bottom of your bag.", "needs": "keys?"}],
+   "demo": [
+    "Watch the zip.",
+    "Open it. Close it.",
+    "Now the zip.",
+    "Zip it."
+   ],
+   "after": [
+    {
+     "t": "Reach in, grab them, go.",
+     "needs": "keys?"
+    },
+    "Open, close, done.",
+    {
+     "t": "Zip it shut and you're set.",
+     "needs": "secure|safe|closure"
+    }
+   ],
+   "hook_q": [
+    {
+     "t": "How long does it take you to find your keys?",
+     "needs": "keys?"
+    }
+   ],
+   "hook_p": [
+    {
+     "t": "Stop digging for your keys at the bottom of your bag.",
+     "needs": "keys?"
+    }
+   ],
    "label_p": "STOP DIGGING",
-   "shot_kw": ["zip", "hands", "keys"],
-   "keywords": ["zip", "zips"],
+   "shot_kw": [
+    "zip",
+    "hands",
+    "keys"
+   ],
+   "keywords": [
+    "zip",
+    "zips"
+   ],
    "moment": [],
    "stop": [],
    "problem": [],
@@ -400,19 +694,40 @@
    "rank": 3,
    "adj": "organized",
    "pains": [
-    {"q": "hunt for a spot for the small things", "g": "hunting for a spot for the small things", "ht": true},
+    {
+     "q": "hunt for a spot for the small things",
+     "g": "hunting for a spot for the small things",
+     "ht": true
+    },
     {
      "q": "lose your small things at the bottom of your bag",
      "g": "losing your small things at the bottom of your bag"
     }
    ],
-   "headline": ["The small things get a place."],
-   "demo": ["Open it up.", "Check the pockets.", "Look at the pockets."],
-   "after": ["Small things get a place of their own.", "No more digging."],
-   "hook_q": ["Where do your small things go when you're out?"],
+   "headline": [
+    "The small things get a place."
+   ],
+   "demo": [
+    "Open it up.",
+    "Check the pockets.",
+    "Look at the pockets."
+   ],
+   "after": [
+    "Small things get a place of their own.",
+    "No more digging."
+   ],
+   "hook_q": [
+    "Where do your small things go when you're out?"
+   ],
    "label_p": "SMALL THINGS",
-   "shot_kw": ["pocket", "hands", "inside"],
-   "keywords": ["pockets"],
+   "shot_kw": [
+    "pocket",
+    "hands",
+    "inside"
+   ],
+   "keywords": [
+    "pockets"
+   ],
    "moment": [],
    "hook_p": [],
    "stop": [],
@@ -434,7 +749,9 @@
      "q": "want to carry your bag a different way halfway through the day",
      "g": "wanting to carry your bag a different way halfway through the day",
      "needs": "crossbody|adjust|convertible|ways? to wear|removable|in hand|\\bor\\b",
-     "f": ["ever"],
+     "f": [
+      "ever"
+     ],
      "ns": true
     },
     {
@@ -449,34 +766,86 @@
     }
    ],
    "problem": [
-    {"t": "Shoulder, hand or crossbody: how do you carry your bag?", "needs": "crossbody"},
-    {"t": "On your shoulder or in your hand: which one are you?", "needs": "shoulder|hand", "not": "crossbody"}
+    {
+     "t": "Shoulder, hand or crossbody: how do you carry your bag?",
+     "needs": "crossbody"
+    },
+    {
+     "t": "On your shoulder or in your hand: which one are you?",
+     "needs": "shoulder|hand",
+     "not": "crossbody"
+    }
    ],
-   "stop": [{"t": "Stop choosing between shoulder and crossbody.", "needs": "crossbody"}],
+   "stop": [
+    {
+     "t": "Stop choosing between shoulder and crossbody.",
+     "needs": "crossbody"
+    }
+   ],
    "headline": [
-    {"t": "You carry it your way.", "needs": "crossbody|adjust|convertible|ways? to wear|removable|in hand|\\bor\\b"},
-    {"t": "Shoulder, hand or crossbody: it's your call.", "needs": "crossbody"},
-    {"t": "It sits right on your shoulder.", "needs": "\\bsit"}
+    {
+     "t": "You carry it your way.",
+     "needs": "crossbody|adjust|convertible|ways? to wear|removable|in hand|\\bor\\b"
+    },
+    {
+     "t": "Shoulder, hand or crossbody: it's your call.",
+     "needs": "crossbody"
+    },
+    {
+     "t": "It sits right on your shoulder.",
+     "needs": "\\bsit"
+    }
    ],
-   "demo": ["Now the straps.", "Check the strap.", "Look at the strap.", "Now the strap."],
-   "moment": ["Out for the day?"],
+   "demo": [
+    "Now the straps.",
+    "Check the strap.",
+    "Look at the strap.",
+    "Now the strap."
+   ],
+   "moment": [
+    "Out for the day?"
+   ],
    "after": [
     {
      "t": "Switch it up whenever you like.",
      "needs": "crossbody|adjust|convertible|ways? to wear|removable|in hand|\\bor\\b"
     },
-    {"t": "Hands-free for your coffee.", "needs": "crossbody"},
-    {"t": "Your call.", "needs": "crossbody|adjust|convertible|ways? to wear|removable|in hand|\\bor\\b"},
-    {"t": "Easy to carry, all day.", "needs": "comfortabl|\\bsit"}
+    {
+     "t": "Hands-free for your coffee.",
+     "needs": "crossbody"
+    },
+    {
+     "t": "Your call.",
+     "needs": "crossbody|adjust|convertible|ways? to wear|removable|in hand|\\bor\\b"
+    },
+    {
+     "t": "Easy to carry, all day.",
+     "needs": "comfortabl|\\bsit"
+    }
    ],
    "hook_q": [
-    {"t": "Shoulder, handbag or crossbody: how do you carry yours?", "needs": "crossbody"},
-    {"t": "How do you carry your bag, in your hand or on your shoulder?", "needs": "shoulder|hand"}
+    {
+     "t": "Shoulder, handbag or crossbody: how do you carry yours?",
+     "needs": "crossbody"
+    },
+    {
+     "t": "How do you carry your bag, in your hand or on your shoulder?",
+     "needs": "shoulder|hand"
+    }
    ],
-   "hook_p": ["Carrying your bag one way all day gets old."],
+   "hook_p": [
+    "Carrying your bag one way all day gets old."
+   ],
    "label_p": "YOUR CALL",
-   "shot_kw": ["strap adjust", "shoulder", "crossbody"],
-   "keywords": ["strap", "straps"],
+   "shot_kw": [
+    "strap adjust",
+    "shoulder",
+    "crossbody"
+   ],
+   "keywords": [
+    "strap",
+    "straps"
+   ],
    "travel": false
   },
   {
@@ -491,19 +860,42 @@
      "needs": "scratch"
     }
    ],
-   "problem": ["How does your bag feel the first time you pick it up?"],
-   "headline": ["You notice the material first."],
-   "demo": ["Feel that?", "Run your hand over it.", "Touch it.", "Feel the material."],
+   "problem": [
+    "How does your bag feel the first time you pick it up?"
+   ],
+   "headline": [
+    "You notice the material first."
+   ],
+   "demo": [
+    "Feel that?",
+    "Run your hand over it.",
+    "Touch it.",
+    "Feel the material."
+   ],
    "after": [
-    {"t": "It looks expensive.", "needs": "expensive"},
-    {"t": "It only gets better with time.", "needs": "better with time"},
+    {
+     "t": "It looks expensive.",
+     "needs": "expensive"
+    },
+    {
+     "t": "It only gets better with time.",
+     "needs": "better with time"
+    },
     "It feels as good as it looks.",
     "You'll want to keep touching it."
    ],
-   "hook_q": ["How does your bag feel in your hand?"],
+   "hook_q": [
+    "How does your bag feel in your hand?"
+   ],
    "label_p": "FEEL THAT?",
-   "shot_kw": ["leather soft", "macro", "detail"],
-   "keywords": ["leather"],
+   "shot_kw": [
+    "leather soft",
+    "macro",
+    "detail"
+   ],
+   "keywords": [
+    "leather"
+   ],
    "moment": [],
    "hook_p": [],
    "stop": [],
@@ -515,23 +907,47 @@
    "rank": 5,
    "adj": "stylish",
    "pains": [],
-   "problem": ["Ever notice how the little details make a bag?", "What do the little details on your bag say?"],
-   "headline": ["The details do the talking.", "You notice the details first."],
+   "problem": [
+    "Ever notice how the little details make a bag?",
+    "What do the little details on your bag say?"
+   ],
+   "headline": [
+    "The details do the talking.",
+    "You notice the details first."
+   ],
    "demo": [
-    {"t": "Look at the finish.", "needs": "finish"},
-    {"t": "Look at that stitching.", "needs": "stitch"},
+    {
+     "t": "Look at the finish.",
+     "needs": "finish"
+    },
+    {
+     "t": "Look at that stitching.",
+     "needs": "stitch"
+    },
     "Look closer.",
     "Zoom in."
    ],
    "after": [
-    {"t": "Quiet luxury, up close.", "needs": "luxury"},
+    {
+     "t": "Quiet luxury, up close.",
+     "needs": "luxury"
+    },
     "The little details make the difference.",
     "Details like that add up."
    ],
-   "hook_q": ["What do the details on your bag say?"],
+   "hook_q": [
+    "What do the details on your bag say?"
+   ],
    "label_p": "THE DETAILS",
-   "shot_kw": ["stitching", "macro", "detail"],
-   "keywords": ["finish", "stitching"],
+   "shot_kw": [
+    "stitching",
+    "macro",
+    "detail"
+   ],
+   "keywords": [
+    "finish",
+    "stitching"
+   ],
    "moment": [],
    "hook_p": [],
    "stop": [],
@@ -568,34 +984,83 @@
      "q": "want a bag that feels as relaxed as you do",
      "g": "wanting a bag that feels as relaxed as you do",
      "needs": "slouchy|relaxed|\\bsoft\\b",
-     "f": ["ever"],
+     "f": [
+      "ever"
+     ],
      "ns": true
     }
    ],
-   "problem": [{"t": "What does a bag feel like when you first pick it up?", "needs": "smooth|\\bfeel"}],
+   "problem": [
+    {
+     "t": "What does a bag feel like when you first pick it up?",
+     "needs": "smooth|\\bfeel"
+    }
+   ],
    "headline": [
-    {"t": "It works from morning to night.", "needs": "night|office|day"},
-    {"t": "It goes with what you already wear.", "needs": "outfit|goes with|blazer|dress|slip"},
-    {"t": "You notice the feel first.", "needs": "smooth|\\bfeel"},
-    {"t": "It keeps its shape.", "needs": "bulg|warp|keeps? its shape"}
+    {
+     "t": "It works from morning to night.",
+     "needs": "night|office|day"
+    },
+    {
+     "t": "It goes with what you already wear.",
+     "needs": "outfit|goes with|blazer|dress|slip"
+    },
+    {
+     "t": "You notice the feel first.",
+     "needs": "smooth|\\bfeel"
+    },
+    {
+     "t": "It keeps its shape.",
+     "needs": "bulg|warp|keeps? its shape"
+    }
    ],
    "demo": [
-    {"t": "Look at that shape.", "needs": "shape|silhouette"},
+    {
+     "t": "Look at that shape.",
+     "needs": "shape|silhouette"
+    },
     "Take a look at that.",
     "See that line?",
     "Look at that."
    ],
    "after": [
-    {"t": "Desk to dinner, no switching bags.", "needs": "night|office|day"},
-    {"t": "Morning meeting to evening plans, same bag.", "needs": "night|office|day"},
-    {"t": "Blazer or slip dress: it works.", "needs": "blazer|slip"},
-    {"t": "It looks luxe.", "needs": "luxe"},
-    {"t": "It goes with whatever you're wearing.", "needs": "outfit|goes with|any "},
-    {"t": "Relaxed shape, easy style.", "needs": "slouchy|relaxed"}
+    {
+     "t": "Desk to dinner, no switching bags.",
+     "needs": "night|office|day"
+    },
+    {
+     "t": "Morning meeting to evening plans, same bag.",
+     "needs": "night|office|day"
+    },
+    {
+     "t": "Blazer or slip dress: it works.",
+     "needs": "blazer|slip"
+    },
+    {
+     "t": "It looks luxe.",
+     "needs": "luxe"
+    },
+    {
+     "t": "It goes with whatever you're wearing.",
+     "needs": "outfit|goes with|any "
+    },
+    {
+     "t": "Relaxed shape, easy style.",
+     "needs": "slouchy|relaxed"
+    }
    ],
-   "hook_q": [{"t": "Does your bag go with everything you wear?", "needs": "outfit|goes with|blazer|dress|slip"}],
+   "hook_q": [
+    {
+     "t": "Does your bag go with everything you wear?",
+     "needs": "outfit|goes with|blazer|dress|slip"
+    }
+   ],
    "label_p": "YOUR OUTFIT",
-   "shot_kw": ["shoulder", "hanging", "hero"],
+   "shot_kw": [
+    "shoulder",
+    "hanging",
+    "hero"
+   ],
    "keywords": [],
    "moment": [],
    "hook_p": [],
@@ -624,13 +1089,30 @@
      "ht": true
     }
    ],
-   "headline": ["You stop leaving things at home."],
-   "demo": ["Open it up.", "Watch what goes in.", "See what fits.", "Start packing."],
-   "after": ["Pack what you need and go."],
-   "hook_q": ["What's the one thing you always leave at home?"],
+   "headline": [
+    "You stop leaving things at home."
+   ],
+   "demo": [
+    "Open it up.",
+    "Watch what goes in.",
+    "See what fits.",
+    "Start packing."
+   ],
+   "after": [
+    "Pack what you need and go."
+   ],
+   "hook_q": [
+    "What's the one thing you always leave at home?"
+   ],
    "label_p": "ROOM FOR IT",
-   "shot_kw": ["inside", "packing items", "table"],
-   "keywords": ["room"],
+   "shot_kw": [
+    "inside",
+    "packing items",
+    "table"
+   ],
+   "keywords": [
+    "room"
+   ],
    "moment": [],
    "hook_p": [],
    "stop": [],
@@ -647,15 +1129,34 @@
      "q": "feel your bag before you've even put anything in it",
      "g": "feeling your bag before you've even put anything in it"
     },
-    {"q": "carry more bag than you need", "g": "carrying more bag than you need"}
+    {
+     "q": "carry more bag than you need",
+     "g": "carrying more bag than you need"
+    }
    ],
-   "headline": ["You barely notice it's there."],
-   "demo": ["Pick it up.", "Lift it."],
-   "after": ["Carry it all day.", "Pick it up and go."],
-   "hook_q": ["How heavy is your bag before you add anything?"],
+   "headline": [
+    "You barely notice it's there."
+   ],
+   "demo": [
+    "Pick it up.",
+    "Lift it."
+   ],
+   "after": [
+    "Carry it all day.",
+    "Pick it up and go."
+   ],
+   "hook_q": [
+    "How heavy is your bag before you add anything?"
+   ],
    "label_p": "PICK IT UP",
-   "shot_kw": ["shoulder", "walking", "hands"],
-   "keywords": ["lightweight"],
+   "shot_kw": [
+    "shoulder",
+    "walking",
+    "hands"
+   ],
+   "keywords": [
+    "lightweight"
+   ],
    "moment": [],
    "hook_p": [],
    "stop": [],
@@ -671,14 +1172,23 @@
     {
      "q": "wish your bag did a little more for you",
      "g": "wishing your bag did a little more for you",
-     "f": ["ever"],
+     "f": [
+      "ever"
+     ],
      "ns": true
     }
    ],
-   "demo": ["Look closer."],
-   "headline": ["Here's one more thing."],
+   "demo": [
+    "Look closer."
+   ],
+   "headline": [
+    "Here's one more thing."
+   ],
    "label_p": "LOOK CLOSER",
-   "shot_kw": ["hero", "hands"],
+   "shot_kw": [
+    "hero",
+    "hands"
+   ],
    "keywords": [],
    "moment": [],
    "hook_q": [],
@@ -819,12 +1329,28 @@
      "Hidden pockets and smart compartments give everything its place.",
      "It's all organized, with hidden pockets and smart compartments."
     ],
-    "headline": ["Everything gets its place.", "You stop digging for your cards."],
-    "problem": ["Ever empty your whole bag just to find one card?", "Does everything in your bag end up in one big pile?"],
-    "stop": ["Stop emptying your bag to find your cards."],
-    "demo": ["Open it up.", "Look inside."],
-    "moment": ["Packing for the day?"],
-    "after": ["Cards here, keys there, lip balm over there.", "Your bag stops feeling like a black hole."],
+    "headline": [
+     "Everything gets its place.",
+     "You stop digging for your cards."
+    ],
+    "problem": [
+     "Ever empty your whole bag just to find one card?",
+     "Does everything in your bag end up in one big pile?"
+    ],
+    "stop": [
+     "Stop emptying your bag to find your cards."
+    ],
+    "demo": [
+     "Open it up.",
+     "Look inside."
+    ],
+    "moment": [
+     "Packing for the day?"
+    ],
+    "after": [
+     "Cards here, keys there, lip balm over there.",
+     "Your bag stops feeling like a black hole."
+    ],
     "recap": "hidden pockets"
    },
    "_hooks": [
@@ -877,11 +1403,21 @@
      "Use the hobo every day and the crossbody to go light.",
      "The hobo is the everyday bag, and the crossbody is for going light."
     ],
-    "headline": ["Everything on busy days, light on easy ones."],
-    "problem": ["Ever want to go light some days and carry everything on others?"],
-    "stop": ["Stop carrying a big bag when you don't need one."],
-    "demo": ["Here's the hobo. Here's the crossbody."],
-    "after": ["Pick the one that fits your day."],
+    "headline": [
+     "Everything on busy days, light on easy ones."
+    ],
+    "problem": [
+     "Ever want to go light some days and carry everything on others?"
+    ],
+    "stop": [
+     "Stop carrying a big bag when you don't need one."
+    ],
+    "demo": [
+     "Here's the hobo. Here's the crossbody."
+    ],
+    "after": [
+     "Pick the one that fits your day."
+    ],
     "recap": "a hobo and a crossbody"
    },
    "MATCHING POUCH": {
@@ -897,11 +1433,21 @@
      "And the matching pouch holds your cards and cash.",
      "The pouch is for your cards and cash, all in one place."
     ],
-    "headline": ["Cards and cash get a home."],
-    "problem": ["Ever carry cash and cards loose in your bag?"],
-    "stop": ["Stop letting loose cash sink to the bottom of your bag."],
-    "demo": ["Now the pouch."],
-    "after": ["Grab it and go."],
+    "headline": [
+     "Cards and cash get a home."
+    ],
+    "problem": [
+     "Ever carry cash and cards loose in your bag?"
+    ],
+    "stop": [
+     "Stop letting loose cash sink to the bottom of your bag."
+    ],
+    "demo": [
+     "Now the pouch."
+    ],
+    "after": [
+     "Grab it and go."
+    ],
     "recap": "a matching pouch"
    },
    "ANTI-THEFT DESIGN": {
@@ -1110,7 +1656,10 @@
     "Here's how the {short} fixes the things that annoy you about bags.",
     "Here's the {noun} that fixes the little things."
    ],
-   "value": ["Here's everything you get with the {short}.", "Here's what comes with the {short}."],
+   "value": [
+    "Here's everything you get with the {short}.",
+    "Here's what comes with the {short}."
+   ],
    "any": [
     "Here's what changes when you switch to the {short}.",
     "This is what a well thought-out {noun} looks like.",
@@ -1119,6 +1668,12 @@
     "See what the {short} does for your day.",
     "Here's what you get with the {short}.",
     "A quick look at the {short}."
+   ],
+   "day": [
+    "A day with the {short}, from morning to night.",
+    "Watch the {short} through a whole day.",
+    "Here's your day with the {short}.",
+    "From the morning rush to dinner out: the {short}."
    ]
   },
   "superlative": [
@@ -1152,7 +1707,10 @@
    "Your bag should work as hard as you do.",
    "Most days, your bag should be the easy part."
   ],
-  "travel_question": ["Heading somewhere crowded? Here's what to carry.", "Where does everything go when you're out all day?"],
+  "travel_question": [
+   "Heading somewhere crowded? Here's what to carry.",
+   "Where does everything go when you're out all day?"
+  ],
   "price": [
    "The {short} is {price_sp} right now[, with {gift_sp}].",
    "{Price_sp}[, plus {gift_sp}]: here's the {short}.",
@@ -1171,12 +1729,35 @@
    "The {short} is {off_sp}. See what you get."
   ],
   "labels": {
-   "promise": ["THE DETAILS", "WAIT FOR IT", "WHAT CHANGES?", "LOOK CLOSER"],
-   "promise_demo": ["WATCH THIS", "LOOK CLOSER"],
-   "question": ["QUICK QUESTION", "BE HONEST", "YOUR ANSWER?"],
-   "problem": ["SOUND FAMILIAR?", "BEEN THERE?", "STOP SCROLLING"],
-   "superlative": ["MOST {ADJ}", "WORTH A LOOK", "TAKE A LOOK"],
-   "price": ["REAL PRICE", "WHAT YOU GET"]
+   "promise": [
+    "THE DETAILS",
+    "WAIT FOR IT",
+    "WHAT CHANGES?",
+    "LOOK CLOSER"
+   ],
+   "promise_demo": [
+    "WATCH THIS",
+    "LOOK CLOSER"
+   ],
+   "question": [
+    "QUICK QUESTION",
+    "BE HONEST",
+    "YOUR ANSWER?"
+   ],
+   "problem": [
+    "SOUND FAMILIAR?",
+    "BEEN THERE?",
+    "STOP SCROLLING"
+   ],
+   "superlative": [
+    "MOST {ADJ}",
+    "WORTH A LOOK",
+    "TAKE A LOOK"
+   ],
+   "price": [
+    "REAL PRICE",
+    "WHAT YOU GET"
+   ]
   }
  },
  "offer": {
@@ -1224,7 +1805,9 @@
    "Not sure yet? You get a {warranty}[ and {returns}].",
    "Worried about the risk? You get a {warranty}[ and {returns}]."
   ],
-  "returns": ["Not sure yet? You get {returns}."],
+  "returns": [
+   "Not sure yet? You get {returns}."
+  ],
   "price": [
    "Think it must cost a fortune? Beverly says: looks expensive but price was so nice.",
    "Wondering about the price? Beverly says: looks expensive but price was so nice.",
@@ -1275,8 +1858,14 @@
     "the quality of the Hobo Shoulder Bag is amazing",
     "I can't recommend it enough"
    ],
-   "3": ["it holds all my daily essentials and looks chic", "perfect for my busy lifestyle"],
-   "5": ["quick shipping and good quality make it a standout purchase", "I can't wait to use it everywhere"],
+   "3": [
+    "it holds all my daily essentials and looks chic",
+    "perfect for my busy lifestyle"
+   ],
+   "5": [
+    "quick shipping and good quality make it a standout purchase",
+    "I can't wait to use it everywhere"
+   ],
    "6": [
     "the best bag for travel and every day use",
     "they have the best customer service that can't be beat",
@@ -1288,9 +1877,21 @@
     "will definitely be purchasing more",
     "love this bag"
    ],
-   "8": ["looks expensive but price was so nice", "love my Libra bag, will buy again", "we need more companies like yours"],
-   "9": ["it's really stylish and versatile", "love all the compartments too", "she adores it"],
-   "10": ["it holds many things", "has other zipper compartments for other essentials", "I am very pleased with my handbag"],
+   "8": [
+    "looks expensive but price was so nice",
+    "love my Libra bag, will buy again",
+    "we need more companies like yours"
+   ],
+   "9": [
+    "it's really stylish and versatile",
+    "love all the compartments too",
+    "she adores it"
+   ],
+   "10": [
+    "it holds many things",
+    "has other zipper compartments for other essentials",
+    "I am very pleased with my handbag"
+   ],
    "11": [
     "the lockable zippers and RFID lining are genuinely incredible",
     "this bag has completely changed how safe I feel"
@@ -1313,10 +1914,26 @@
    "never": "What if you never had to {q} again?",
    "last": "Remember the last time you had to {q}?"
   },
-  "default": ["ever", "often", "still", "tired", "sick"],
-  "stop": ["Stop {g}.", "No more {g}.", "You're done with {g}."],
-  "headline": ["You stop {g}.", "{G} is a thing of the past."],
-  "have_to": ["never", "last"]
+  "default": [
+   "ever",
+   "often",
+   "still",
+   "tired",
+   "sick"
+  ],
+  "stop": [
+   "Stop {g}.",
+   "No more {g}.",
+   "You're done with {g}."
+  ],
+  "headline": [
+   "You stop {g}.",
+   "{G} is a thing of the past."
+  ],
+  "have_to": [
+   "never",
+   "last"
+  ]
  },
  "generic": {
   "_help": "Concept-free lines used when a concept's own run out (a line is never said twice in one batch): payoffs, demo openers, scene setters. Nothing in them is a claim.",
@@ -1386,5 +2003,100 @@
    "Day out with friends?",
    "Heading into town?"
   ]
- }
+ },
+ "day": [
+  {
+   "id": "morning",
+   "when": [
+    "Morning rush.",
+    "Running late?",
+    "Out the door in a hurry?",
+    "Leaving the house?"
+   ],
+   "kw": [
+    "door",
+    "room",
+    "hand",
+    "inside"
+   ],
+   "prefer": "room|fit|compartment|pocket|essential|phone|wallet|key"
+  },
+  {
+   "id": "street",
+   "when": [
+    "On the street.",
+    "Walking to work.",
+    "On the move.",
+    "Heading into town."
+   ],
+   "kw": [
+    "walk",
+    "outside",
+    "shoulder",
+    "strap"
+   ],
+   "prefer": "strap|shoulder|carry|crossbody|hand"
+  },
+  {
+   "id": "cafe",
+   "when": [
+    "At the café.",
+    "Coffee break.",
+    "At your table."
+   ],
+   "kw": [
+    "cafe",
+    "coffee",
+    "table",
+    "chair"
+   ],
+   "prefer": "zip|secure|closure|lock|clasp"
+  },
+  {
+   "id": "crowd",
+   "when": [
+    "Crowded station?",
+    "Busy market?",
+    "Packed street?"
+   ],
+   "kw": [
+    "outside",
+    "stairs",
+    "walk",
+    "zip"
+   ],
+   "prefer": "lock|anti|rfid|secure|zip"
+  },
+  {
+   "id": "office",
+   "when": [
+    "At your desk.",
+    "Back at work.",
+    "Lunch break."
+   ],
+   "kw": [
+    "table",
+    "room",
+    "inside",
+    "hand"
+   ],
+   "prefer": "pocket|compartment|organi|room|inside"
+  },
+  {
+   "id": "evening",
+   "when": [
+    "Evening plans.",
+    "Dinner out?",
+    "Out for the night?",
+    "Off to dinner."
+   ],
+   "kw": [
+    "hanging",
+    "hand",
+    "table",
+    "hero"
+   ],
+   "prefer": "finish|shape|leather|look|style|silhouette|stitch"
+  }
+ ]
 }

@@ -85,8 +85,65 @@ def direct_url(file_id):
     return f"https://drive.usercontent.google.com/download?id={file_id}&export=download&confirm=t"
 
 
+_TOKEN = [None, 0.0]       # [the agent's Drive access token, when it was made]: one token for 45 minutes
+
+
+def drive_token():
+    """The agent's own Drive access token (drive_upload.access_token) or None without the Google variables. Reads through the Drive API
+    are not stopped by the public link's download quota ("Quota exceeded": a shared library file read a lot by everyone). The token is
+    only used in-process (never a command line, a log or a file)."""
+    import time
+    if _TOKEN[0] and time.time() - _TOKEN[1] < 2700:
+        return _TOKEN[0]
+    tok = None
+    try:
+        import contextlib
+        import io
+        import drive_upload
+        with contextlib.redirect_stdout(io.StringIO()):
+            tok = drive_upload.access_token()
+    except (SystemExit, Exception):  # noqa: BLE001 - no login here: the public link still works for a file under its quota
+        tok = None
+    _TOKEN[:] = [tok, time.time() if tok else time.time() - 2400]      # (a failed login is tried again after ~5 minutes)
+    return tok
+
+
+def api_get(file_id, headers=None, query="alt=media", timeout=120):
+    """GET of a Drive API file URL with the agent's token -> (status, body bytes, response headers); None without a token."""
+    tok = drive_token()
+    if not tok:
+        return None
+    req = urllib.request.Request(f"https://www.googleapis.com/drive/v3/files/{file_id}?{query}&supportsAllDrives=true",
+                                 headers=dict(headers or {}, Authorization=f"Bearer {tok}"))
+    try:
+        with urllib.request.urlopen(req, timeout=timeout) as r:
+            return r.status, r.read(), r.headers
+    except Exception:  # noqa: BLE001
+        return None
+
+
+def range_bytes(file_id, off, want):
+    """Bytes off .. off+want-1 of a library file: through the Drive API (the agent's token), else the public link; None when neither
+    gives exactly `want` bytes (a 'Quota exceeded' page is a few KB of HTML)."""
+    got = api_get(file_id, {"Range": f"bytes={off}-{off + want - 1}"})
+    if got and len(got[1]) == want and got[0] in (200, 206):
+        return got[1]
+    try:
+        r = fetch(direct_url(file_id), headers={"Range": f"bytes={off}-{off + want - 1}"}, timeout=120)
+        b = r.read()
+        return b if len(b) == want else None
+    except Exception:  # noqa: BLE001
+        return None
+
+
 def file_size(file_id):
-    """Size in bytes via a 1-byte range request (does not download the file)."""
+    """Size in bytes (Drive API metadata, else a 1-byte range request on the public link; does not download the file)."""
+    got = api_get(file_id, query="fields=size", timeout=40)
+    if got and got[0] == 200:
+        try:
+            return int(json.loads(got[1])["size"])
+        except (ValueError, KeyError):
+            pass
     for _ in range(2):
         try:
             r = fetch(direct_url(file_id), headers={"Range": "bytes=0-0"}, timeout=40)

@@ -45,7 +45,7 @@ import time
 from PIL import Image, ImageDraw, ImageFont
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from index_library import CACHE, direct_url, file_size  # noqa: E402
+from index_library import CACHE, direct_url, file_size, range_bytes  # noqa: E402
 from media import DRIVE_ID  # noqa: E402
 
 W, H, FPS = 1080, 1920, 30
@@ -117,10 +117,9 @@ def source(s):
         def part(off):
             want = min(chunk, size - off)
             for _ in range(4):
-                r = subprocess.run(["curl", "-sSL", "-r", f"{off}-{off + want - 1}", direct_url(s)],
-                                   capture_output=True, timeout=120)
-                if r.returncode == 0 and len(r.stdout) == want:
-                    return r.stdout
+                b = range_bytes(s, off, want)       # (the Drive API with the agent's token first: no download quota; else the public link)
+                if b is not None:
+                    return b
                 time.sleep(2)
             return None
 
