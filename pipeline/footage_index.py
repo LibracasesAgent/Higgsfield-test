@@ -106,7 +106,7 @@ def local_source(fid):
 def probe(src):
     def run():
         r = subprocess.run(["ffprobe", "-v", "error", "-show_entries",
-                            "format=duration,size:stream=codec_type,width,height,r_frame_rate:stream_tags=rotate",
+                            "format=duration,size:stream=codec_type,width,height,r_frame_rate:stream_tags=rotate:stream_side_data=rotation",
                             "-of", "json", src], capture_output=True, text=True, timeout=150)
         return r if json.loads(r.stdout or "{}").get("format") else None
     r = retry(run)
@@ -115,7 +115,8 @@ def probe(src):
     d = json.loads(r.stdout or "{}")
     v = next((s for s in d.get("streams", []) if s.get("codec_type") == "video"), {})
     w, h = v.get("width"), v.get("height")
-    if str(v.get("tags", {}).get("rotate", "0")) in ("90", "270", "-90") and w and h:
+    rot = [str(v.get("tags", {}).get("rotate", "0"))] + [str(x.get("rotation", 0)) for x in v.get("side_data_list") or []]
+    if any(r.split(".")[0] in ("90", "270", "-90", "-270") for r in rot) and w and h:      # (an iPhone clip: the display matrix, not a tag)
         w, h = h, w
     num, den = (v.get("r_frame_rate") or "0/1").split("/")
     return dict(duration=round(float(d.get("format", {}).get("duration", 0) or 0), 2), width=w, height=h,
@@ -319,7 +320,7 @@ BANK_W = 1440                                             # a 4K frame is stored
 
 
 def bank_rows(product, avoid=()):
-    """Indexed clips a static can use: usable, no face, vertical, at least 1080 px on the short side, no on-screen text, a clip
+    """Indexed clips a static can use: usable, no face, vertical (1080+ px) or 4K landscape, no on-screen text, a clip
     the batch does not show in its video footage again (`avoid`: Drive ids)."""
     try:
         rows = json.load(open(INDEX))
@@ -327,7 +328,8 @@ def bank_rows(product, avoid=()):
         return []
     return [r for r in rows if r.get("product") == product and r.get("usable") == "yes" and r.get("faces") == "none"
             and r.get("text") in (None, "", "none") and DRIVE_ID.match(str(r.get("id") or ""))
-            and (r.get("height") or 0) > (r.get("width") or 0) and min(r.get("width") or 0, r.get("height") or 0) >= 1080
+            and ((r.get("height") or 0) > (r.get("width") or 0) and min(r.get("width") or 0, r.get("height") or 0) >= 1080
+                 or (r.get("width") or 0) >= (r.get("height") or 0) >= 1900)      # (a 4K landscape clip: a 4:5 window is cut from it)
             and r["id"] not in set(avoid) and not re.search(r"\bRAW\b|Concept \d|Creative Delivery", r.get("path") or "")]
 
 
@@ -338,6 +340,29 @@ def texture(path):
     if g is None:
         return 0.0
     return float(cv2.Canny(cv2.resize(g, (360, 640)), 60, 150).mean() / 255)
+
+
+def portrait_window(path, aspect=0.8):
+    """Cuts a 4:5 window out of a landscape frame, at the x where the picture has the most structure (edges + colour: the bag, the hands),
+    in place; returns the path. A vertical frame is left alone."""
+    import cv2
+    import numpy as np
+    im = cv2.imread(path)
+    if im is None or im.shape[0] >= im.shape[1]:
+        return path
+    h, w = im.shape[:2]
+    cw = int(h * aspect)
+    small = cv2.resize(im, (w // 8, h // 8))
+    g = cv2.cvtColor(small, cv2.COLOR_BGR2GRAY)
+    mag = np.abs(cv2.Sobel(g, cv2.CV_32F, 1, 0)) + np.abs(cv2.Sobel(g, cv2.CV_32F, 0, 1))
+    sat = cv2.cvtColor(small, cv2.COLOR_BGR2HSV)[..., 1].astype(np.float32)
+    score = mag + 0.5 * sat
+    col = score.sum(axis=0)
+    sw = max(1, cw // 8)
+    best = max(range(0, max(1, small.shape[1] - sw + 1), max(1, sw // 6)), key=lambda x: col[x:x + sw].sum() - 0.15 * abs(x + sw / 2 - small.shape[1] / 2) * col.mean())
+    x0 = min(max(best * 8, 0), w - cw)
+    cv2.imwrite(path, im[:, x0:x0 + cw], [cv2.IMWRITE_JPEG_QUALITY, 94])
+    return path
 
 
 def frame_bank(product, n, out_dir, avoid=(), seed=1, workers=4):
@@ -360,7 +385,8 @@ def frame_bank(product, n, out_dir, avoid=(), seed=1, workers=4):
         for k, f in enumerate(BANK_AT):
             t = round(float(r["duration"]) * f, 2)
             p = os.path.join(out_dir, f"_c_{r['id'][:10]}_{k}.jpg")
-            vf = f"scale={BANK_W}:-2:flags=lanczos"
+            land = r["width"] > r["height"]
+            vf = f"scale={2880 if land else BANK_W}:-2:flags=lanczos"        # (a landscape 4K frame is cut to 4:5 below: 1152 px wide)
             def run():
                 try:
                     subprocess.run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-ss", f"{t:.2f}", "-i", src,
@@ -369,6 +395,8 @@ def frame_bank(product, n, out_dir, avoid=(), seed=1, workers=4):
                     return False
                 return os.path.exists(p) and os.path.getsize(p) > 20000
             if retry(run, 4):
+                if land:
+                    portrait_window(p)
                 with _cv_lock:
                     face = new_product.count_faces(p, strict=True)
                 sh = ai_gen.sharpness(p)

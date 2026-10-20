@@ -55,8 +55,8 @@ def test_bank_rows_take_only_clean_vertical_clips():
         fi.INDEX = os.path.join(d, "idx.json")
         json.dump(rows, open(fi.INDEX, "w"))
         try:
-            assert [r["id"][0] for r in fi.bank_rows("Hobo Bag")] == ["A"]          # vertical, no face, 1080+, not a winner's RAW
-            assert fi.bank_rows("Hobo Bag", avoid=["A" * 22]) == []
+            assert [r["id"][0] for r in fi.bank_rows("Hobo Bag")] == ["A", "B"]     # vertical 1080+ or 4K landscape (a 4:5 window), no face, not a RAW
+            assert [r["id"][0] for r in fi.bank_rows("Hobo Bag", avoid=["A" * 22])] == ["B"]
         finally:
             fi.INDEX = old
 
