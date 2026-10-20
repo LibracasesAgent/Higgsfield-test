@@ -1414,13 +1414,14 @@ def plan(a):
                     and not getattr(a, "no_frames", False):
                 try:
                     import footage_index
+                    want_ = min(FRAMES_PER_BATCH, max(5, round(0.45 * a.statics) + 1))       # (20 statics: 9 frames; 5 statics: 5)
                     got = footage_index.frame_bank(
-                        name_, FRAMES_PER_BATCH, os.path.join(out, "photos", "frames"), avoid=novelty.recent(pr["name"], "frame_clip"),
+                        name_, want_, os.path.join(out, "photos", "frames"), avoid=novelty.recent(pr["name"], "frame_clip"),
                         seed=a.seed + len(novelty.batches(pr["name"])))
                 except Exception as e:  # noqa: BLE001 - frames are an extra: the packshot statics still work
                     warnings.append(f"footage frames skipped ({type(e).__name__}: {e}): statics from the packshots only")
-                if got and len(got) < FRAMES_PER_BATCH:
-                    warnings.append(f"footage frames: only {len(got)} of {FRAMES_PER_BATCH} clips gave a clean frame (the library "
+                if got and len(got) < want_:
+                    warnings.append(f"footage frames: only {len(got)} of {want_} clips gave a clean frame (the library "
                                     f"has few vertical face-free clips of {pr['name']} left)")
             frame_cache.append([x["file"] for x in got])
             frame_meta.update({x["file"]: x for x in got})
