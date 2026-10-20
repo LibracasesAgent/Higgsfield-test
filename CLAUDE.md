@@ -47,7 +47,7 @@ The repo's default branch is `claude/loving-meitner-4amjii`. Read `docs/PLAYBOOK
    caption, label or ad copy (the media buyer's rule; an AI persona is fine). `plan` runs `pipeline/compliance.py`
    on all of it, including the winner RAW audio each version plays. No faces in statics.
 4. Upload everything with `make_batch.py upload` (Drive Outputs → `Winners/` or `New Products/` or the Outputs
-   root → `<date> – <name>` → `Statics` / `Videos` + a run report). Never only post files in the chat.
+   root → `B045 – <date> – <product> – N statics + M projects` → `Statics` / `Videos` + a run report + the ad index). Never only post files in the chat.
 5. Never publish anywhere. Never delete or move Drive files.
 6. **Never reshape the videos to fit a request.** Videos run 55-80 s in the ugc format (the default: what `plan`
    estimates; the classic formats, `--classic`, 40-60 s; the story format 90-120 s): don't shorten them, rebuild their
@@ -62,8 +62,9 @@ The repo's default branch is `claude/loving-meitner-4amjii`. Read `docs/PLAYBOOK
 **Videos come in projects** (the client's agency format): one project = one video body in 4 versions
 H1-H4 that differ only in the hook (opening line, opening shot, on-screen label). `plan` does this by
 default (`--hooks 4`); a request for N videos means N projects (4N video files). File names are automatic
-(`docs/NAMING.md`: `LC_<YYMMDD>_<Product>_<Theme>_S01_<layout>` / `..._P01_H1_<angle>`); list ads by these
-names in the reply.
+(`docs/NAMING.md`: `LC_<YYMMDD>_<Product>_<Theme>_B045_S01_<layout>` / `..._B045_P01_H1_<angle>`: **B045 is the batch number**,
+taken by `plan` from `pipeline/data/batch_ledger.json` and also the start of the Drive folder name); list ads by these names in the
+reply and name the batch ("B045").
 
 **The default new video is the ugc format** (owner 2026-10-14, after measuring the clients' top-impression ads): 55-80 s,
 one voice talking to the viewer in "you" form ("you stop worrying in crowds": never an invented customer
@@ -94,7 +95,8 @@ A DM starts with the repo name (`Higgsfield-test: new product ad sets`): leave t
 
 Both in one message ("winners and the new Silhouette Bag"): one run each, each with its own `$OUT`.
 Several bags in one message ("3 videos and 5 statics for each: Hobo Bag, Vintage Bag, Hobo 2.0"): one catalog run per bag with those
-numbers (`--product "<bag>" --statics 5 --projects 3`, its own `$OUT`, its own `upload --name`), one reply with every Drive link.
+numbers (`--product "<bag>" --statics 5 --projects 3`, its own `$OUT`; each gets its own batch number B045, B046, B047), one reply with
+every Drive link and batch id.
 Order: plan all the runs and make all their voiceovers first (the voiceovers need no render, the three plans share nothing),
 then render and upload one bag at a time (one detached chained script: statics first, then the videos of that bag), so the first
 Drive folder fills while the next bag renders; 9 projects + 15 statics keep a session busy for about 3-4 hours. A session has only
@@ -152,7 +154,7 @@ python3 pipeline/make_batch.py plan --pipeline winners --request "<message>" --o
 - New batch for the same winners as an earlier request: add `--seed <day of the year>` so another opening is H1
   (plan suggests it when openings went out before; a project already holds all of its winner's cold opens: new ones
   need `winner_prep.py`; say so).
-- **Upload** lands in Drive `Outputs/Winners/<date> – <name>`. **Specs:** `pipeline/recipes/winners/<date>/<name>`.
+- **Upload** lands in Drive `Outputs/Winners/B045 – <date> – …`. **Specs:** `pipeline/recipes/winners/<date>/<name>`.
 - **Reply:** Drive folder link · brief used (name, age, stale; or the fallback and why) · one block per project
   ("P01 – <angle>" + winner and ROAS, then per version: H#, label, spoken cold open, length) · fill projects and why ·
   statics one line each · unmatched winners and why · "needs a human" items · the ad copy file · credits before →
@@ -212,7 +214,7 @@ python3 pipeline/make_batch.py plan --pipeline new-product --new-product "<folde
   left out with one warning (above), the ads run without an offer when the notes give none (`offer`: "no
   discount"; a sale theme exits 2): say so in the reply. Plain lines (no bullet marks, one fact per line) count as
   the feature list, and `Colours:` may sit inside the price line.
-- **Upload** lands in Drive `Outputs/New Products/<date> – <name>`; it records the batch in the product file's
+- **Upload** lands in Drive `Outputs/New Products/B045 – <date> – …`; it records the batch in the product file's
   `"tests"` and prints `product file changed: ... commit it`. **Specs:** `pipeline/recipes/new_products/<date>/<name>`
   plus `pipeline/data/products/<slug>.json` (with its `tests`), in the same commit.
 - **Reply:** Drive folder link · product, what was read (photos, clips, notes; "libracases.com not read") and the
@@ -229,7 +231,7 @@ python3 pipeline/make_batch.py plan --product "<name>" [--theme "<words>"] --sta
 "batch" with no numbers: `--batch` instead of the counts. A product on libracases.com that `plan` does not know
 ("unknown product") and that has no New Products folder: `python3 pipeline/new_product.py intake --site <url|handle>`,
 then `--product "<key>"`. No folder, no photos, not on the site: make nothing and say what is needed.
-**Upload** lands in `Outputs/<date> – <name>`; **specs:** `pipeline/recipes/daily/<date>/<name>`.
+**Upload** lands in `Outputs/B045 – <date> – …`; **specs:** `pipeline/recipes/daily/<date>/<name>`.
 
 ## 4. Request → plan flags (every pipeline)
 
@@ -247,8 +249,8 @@ then `--product "<key>"`. No folder, no photos, not on the site: make nothing an
 | "no AI" / "real photos only" | add `--no-ai` (no scene stills / clips; ai_gen.py) |
 | "AI scenes" / "generate new scenes" | add `--ai` (AI scene statics and clips even when the product has enough real material) |
 | "no footage frames" | add `--no-frames` (statics from the packshots and photos only) |
-| "redo project 2" (in the thread) | same plan flags (new product: the folder name, never `next`) with `--seed <N+1> --only P02`, N = the `seed` the first plan printed, into a new `--out` (only P02 is voiced, rendered, uploaded; names move to `_v2` by themselves; a winner project: only its H1 changes, plan says so) |
-| "another hook for P02 H3" | same plan flags with `--seed <N> --hook-seed <N+1> --only P02H3`, N as above (same body, a new hook; exits 2 if no unused hook is left: say so) |
+| "redo project 2" (in the thread) | same plan flags (new product: the folder name, never `next`) with `--seed <N+1> --batch-id B045 --only P02`, N = the `seed` the first plan printed, B045 = the batch the thread made, into a new `--out` (only P02 is voiced, rendered, uploaded; the names become `B045r2`; a winner project: only its H1 changes, plan says so) |
+| "another hook for P02 H3" | same plan flags with `--seed <N> --hook-seed <N+1> --batch-id B045 --only P02H3`, N as above (same body, a new hook; exits 2 if no unused hook is left: say so) |
 | "drop S03" / "delete …" | nothing to plan: never delete or move Drive files. Reply that it stays in the Drive folder and is simply not uploaded to Meta |
 
 `plan` exits 2 with a clear message when something is wrong (unknown product or folder, draft product file, too
@@ -298,7 +300,7 @@ python3 pipeline/make_batch.py plan <flags> --request "<the request text>" --out
    `setsid nohup python3 pipeline/make_batch.py render --out $OUT > $OUT/render.log 2>&1 < /dev/null &`
    then check the log every couple of minutes until it prints `QA:`. More than 3 projects (every batch): render and
    upload the statics first (`render --only S`, `upload --only S`), then the videos (`render --only V`,
-   `upload --only V`), with the same `--name`. No progress messages: one reply at the end. Use a fresh `$OUT` for
+   `upload --only V`): the same folder (same batch). No progress messages: one reply at the end. Use a fresh `$OUT` for
    every request.
 4. **QA:** Read `$OUT/qa/statics.jpg`, every `$OUT/qa/P*.jpg` (one per project: the 4 hooks side by side
    + the body + a 'body vs H1' number per version: under 10 = same body) and `$OUT/qa/report.json`. Captions
@@ -319,9 +321,12 @@ python3 pipeline/make_batch.py plan <flags> --request "<the request text>" --out
    shots 1.4-2.6 s avg and none over 4 s, -14 LUFS +-1 with LRA <= 4, no repeated shot, no card held over 3.2 s). Look at the
    contact sheet: numbered captions ("1. ..."), a new picture about every 2 s that shows what is said (hands, zips, pockets), the
    same product throughout, no black frames. A miss is reported, never "fixed" by cutting the video (rule 6).
-5. **Upload:** `python3 pipeline/make_batch.py upload --out $OUT --name "<short request name>"` → prints the
-   Drive folder link (`drive_path`: where it landed) and the uploaded ads. Higgsfield `balance` again.
-6. **Reply** (one short message, the pipeline's format above): Drive folder link · statics one line each · videos
+5. **Upload:** `python3 pipeline/make_batch.py upload --out $OUT` (no `--name`: the folder is `B045 – <date> – <product> – N statics + M
+   projects`, made from the plan) → prints the Drive folder link (`drive_path`: where it landed), the batch id and the uploaded ads; once
+   the whole batch is in Drive it also writes `<prefix>_ads.csv` there (one row per ad, an empty `launched` column for the media buyer).
+   Higgsfield `balance` again.
+6. **Reply** (one short message, the pipeline's format above): **batch id (B045) and Drive folder link** · any `repeat:` warning (an ad
+   an earlier batch already had: say which) · statics one line each · videos
    one block per project · the ad copy file · plan warnings (fewer than 4 versions, openings already used in an
    earlier batch, a hook line opening 3+ versions, `thin script`, "needs a human" items) · QA flags · the scorecard (one line for
    the batch: how many ugc videos met the targets and the misses that repeat, e.g. "17 of 20 at 185-215 wpm; shots avg 2.7 s")
@@ -330,8 +335,9 @@ python3 pipeline/make_batch.py plan <flags> --request "<the request text>" --out
    anything skipped, failed or needing a human.
 7. Commit the specs (JSON only, no media, no secrets) into the pipeline's folder:
    `python3 pipeline/make_batch.py specs --out $OUT --to pipeline/recipes/<winners|new_products|daily>/<plan YYYY-MM-DD>/<short-name>`,
-   plus any new or changed product file (a new product's always changes: its `tests`) and `pipeline/data/novelty_log.json` (upload
-   adds the batch: the next batch avoids its scenes, photos, captions and hooks); commit, push.
+   plus any new or changed product file (a new product's always changes: its `tests`), `pipeline/data/novelty_log.json` (upload
+   adds the batch: the next batch avoids its scenes, photos, captions and hooks) and `pipeline/data/batch_ledger.json` +
+   `docs/BATCHES.md` (the batch number and its ads: the next plan takes the next number and flags repeats); commit, push.
 
 **Music:** storyboard videos get a bed under the voice automatically: the client's licensed tracks from
 `pipeline/assets/music/` when there are any, otherwise a generated bed (made by `pipeline/music.py`, nothing to

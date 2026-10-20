@@ -545,6 +545,16 @@ client would show them. A library clip is an edited video: a picked moment can c
 of a product file can carry the product page's white corners. The estimate is calibrated on espeak (placeholder renders came out 4-17% shorter than estimated); a real ElevenLabs voice runs about as
 estimated, so the `shortened` guard (80%, ugc 70%: the estimate is a guess at the voice's pace) still has room.
 
+### 4e00. Batch numbers (owner 2026-10-20: "make the batches less confusing with a proper naming convention, so we avoid relaunching the same ads")
+Drive had folders named by whatever the request said (`2026-10-16 – Hobo Bag 5 projects 10 statics`, `... hook test 3 videos + 4 statics`)
+and every batch of a bag reused S01 / P01_H1 under a date, with a same-day second batch called `_v2` (which reads like a redo). Now:
+every batch has a number from `pipeline/data/batch_ledger.json` (B001-B010 = the folders made before it; B011 on), in every file name
+(`LC_261020_HoboBag_Evergreen_B045_S01_native`) and at the start of its Drive folder (`B045 – 2026-10-20 – Hobo Bag – 5 statics + 3
+projects`); `upload` writes the folder, link and ads into the ledger (+ `docs/BATCHES.md`) and a `<prefix>_ads.csv` with an empty `launched`
+column; `plan` flags `repeat:` when a static (layout + photo + words) or a hook line was in an earlier batch of the bag (the ledger and the
+novelty log). A redo keeps the number: `--batch-id B045` -> `B045r2`. Never pass `--name` to upload (the free text is what made them alike).
+See docs/NAMING.md.
+
 ### 4e0. Real footage first (owner 2026-10-20, later the same day; supersedes the AI-first default of 4e)
 The owner saw the AI scenes and clips ("very fake, AI-like: the bag, the way it moves and falls into place") and said: use the
 footage in Drive (4K too), make the statics from it, a new story every time, generate only what is missing. So:

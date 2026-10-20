@@ -91,7 +91,7 @@ ads from the new files.
 | A longer storytelling video (1.5-2 min) | `Higgsfield-test: 1 story video for the Vintage bag` |
 | The older video formats (40-60 s: showcase / features / reviews / colours) | `Higgsfield-test: 2 classic videos for the Vintage bag` |
 | No music | add `no music` |
-| A fix | reply in the same thread: `P02 H3 with a different hook` or `redo project 2` |
+| A fix | reply in the same thread: `P02 H3 with a different hook` or `redo project 2` (the redo keeps the batch number: `B045r2`) |
 
 Don't want one of the ads? Just don't upload it to Meta: Claude never deletes or moves files in Drive.
 
@@ -114,15 +114,21 @@ and Claude says so. Want the older formats? Add `classic`.
 
 ## What you get
 
-- A Drive folder per request, with `Statics` and `Videos` (one subfolder per project: `P01 – …` with H1-H4), a
-  short report and `…_ad_copy.csv` (2 primary texts, 2 headlines, a description and a CTA per static and per
-  project):
-  - winners: **Outputs / Winners / <date> – <request>**
-  - new products: **Outputs / New Products / <date> – <request>**
-  - the bags on the site: **Outputs / <date> – <request>**
+- A Drive folder per batch, with `Statics` and `Videos` (one subfolder per project: `P01 – …` with H1-H4), a
+  short report, `…_ad_copy.csv` (2 primary texts, 2 headlines, a description and a CTA per static and per
+  project) and `…_ads.csv` (one row per ad: its name, hook or caption, length, QA flags and an empty `launched`
+  column for you to fill in). **Every batch has a number** (B045): it starts the folder name and is in every file name, and
+  the reply names it. Asking for three bags in one message makes three batches, three folders:
+  - winners: **Outputs / Winners / B045 – <date> – …**
+  - new products: **Outputs / New Products / B045 – <date> – …**
+  - the bags on the site: **Outputs / B045 – <date> – <bag> – 5 statics + 3 projects**
+- Never launch the same ad twice: look the batch up first (`docs/BATCHES.md` in the repo lists every batch, its folder and
+  its date; the `…_ads.csv` in the folder lists its ads). Claude also checks every new plan against the earlier batches of that
+  bag and says `repeat: …` when an ad (the same static, the same hook line) was made before. The 10 batches before the numbers
+  started are B001-B010 (their folders keep their old names).
 - Claude's reply lists every ad (name, hook, length), the Higgsfield credits used and anything that needs a
   human.
-- File names follow one pattern, e.g. `LC_261013_SilhouetteBag_Evergreen_P02_H3_colours.mp4` (project 2, hook 3).
+- File names follow one pattern, e.g. `LC_261020_HoboBag_Evergreen_B045_P02_H3_things.mp4` (batch 45, project 2, hook 3).
   Use the file name as the Meta ad name, so results can be traced back to the ad and the hook.
 
 ## Time and cost

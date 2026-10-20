@@ -94,10 +94,10 @@ balance, so fund it and set a monthly limit.
 
 ## 5. First test (DM)
 
-1. `Higgsfield-test: 2 statics and 1 video for the Hobo Bag` → about 25 minutes, Drive `Outputs / <date> – …`.
-2. `Higgsfield-test: winners, 1 project and 1 static` → about 25 minutes, Drive `Outputs / Winners / <date> – …`.
+1. `Higgsfield-test: 2 statics and 1 video for the Hobo Bag` → about 25 minutes, Drive `Outputs / B0nn – <date> – …` (the reply names the batch number).
+2. `Higgsfield-test: winners, 1 project and 1 static` → about 25 minutes, Drive `Outputs / Winners / B0nn – <date> – …`.
 3. Put a test folder in New Products, then `Higgsfield-test: new product <name>: 2 statics and 1 video` →
-   Drive `Outputs / New Products / <date> – …`; the reply says "libracases.com not read".
+   Drive `Outputs / New Products / B0nn – <date> – …`; the reply says "libracases.com not read".
 4. After each: Higgsfield → transactions should show only "Voiceover" lines (a few credits). If you see
    image or video generations, the block in step 2 is not active for that account.
 

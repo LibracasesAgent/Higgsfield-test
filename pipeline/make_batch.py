@@ -25,7 +25,8 @@ Videos are delivered as PROJECTS, the client's agency format ('ACH - MAX - 94 - 
 planned video is one body (story, features, reviews, offer, end card) made in --hooks versions H1-H4 (default 4) that
 differ only in the first 2-5 s: the spoken opening line, the opening shot and the hook label; a winner remix gets
 another cold open per version. pipeline/projects.py makes the versions (hook lines: pipeline/data/hooks.json). Ids
-P01H1 .. P01H4, names LC_<date>_<Product>_<Theme>_P01_H1_<angle>. --hooks 1 = single videos V01, V02 ... as before.
+P01H1 .. P01H4, names LC_<date>_<Product>_<Theme>_B045_P01_H1_<angle> (B045 = the batch number, ledger.py). --hooks 1 = single
+videos V01, V02 ... as before.
 
   1) python3 pipeline/make_batch.py plan --statics 3 --videos 4 --product "Hobo Bag" \
          --theme "black friday" --out /tmp/run [--hooks 4] [--classic]
@@ -65,9 +66,9 @@ P01H1 .. P01H4, names LC_<date>_<Product>_<Theme>_P01_H1_<angle>. --hooks 1 = si
      being made)
   6) python3 pipeline/make_batch.py specs --out /tmp/run --dest pipeline/recipes/daily/<date>/<name>   (JSON to commit,
      ad_copy.json and compliance.json included)
-A redo of a whole project: the same plan command with --seed <N+1> --rev 2 --only P02 (voices, renders and uploads only
+A redo of a whole project: the same plan command with --seed <N+1> --batch-id B045 --only P02 (names B045r2; voices, renders and uploads only
 P02's versions; with --hooks 1: --only V02). A redo of one version on the same body: the same plan command (same
---seed) with --hook-seed <N+1> --rev 2 --only P02H3. --only V02 in project mode means P02.
+--seed) with --hook-seed <N+1> --batch-id B045 --only P02H3. --only V02 in project mode means P02.
 
 Pipelines (plan --pipeline, default catalog = the flags above as they are):
   winners      the weekly brief's winners: winner projects (brief order, as --winner-videos; --projects N = N of them) +
@@ -819,10 +820,11 @@ def slug(text):
     return "".join(w.capitalize() if w.islower() else w for w in re.findall(r"[A-Za-z0-9]+", text))
 
 
-def ad_prefix(product, theme, rev=1):
-    """LC_<YYMMDD>_<Product>_<Theme>[_v2]: see docs/NAMING.md (theme = theme_name()). The ad id (S01_hero) follows."""
+def ad_prefix(product, theme, rev=1, batch=0):
+    """LC_<YYMMDD>_<Product>_<Theme>_B<NNN>[r2]: see docs/NAMING.md (theme = theme_name(); B<NNN> = the batch number of
+    ledger.py, B000 when the batch is not in the ledger; r2 = a second run of that batch). The ad id (S01_hero) follows."""
     d = datetime.date.today().strftime("%y%m%d")
-    return f"LC_{d}_{slug(product)}_{theme}" + (f"_v{rev}" if rev > 1 else "")
+    return f"LC_{d}_{slug(product)}_{theme}_B{int(batch):03d}" + (f"r{rev}" if rev > 1 else "")
 
 
 def drive_names(day):
@@ -838,10 +840,9 @@ def drive_names(day):
         return None
 
 
-def free_rev(prefixes, rev, taken):
+def free_rev(prefixes, rev, taken, batch=0):
     """First revision >= rev whose names are not in Drive yet (NAMING.md rule 4: a name is never reused)."""
-    while any(n.startswith(ad_prefix(p, t, rev) + "_") and (rev > 1 or not re.match(r"_v\d+_", n[len(ad_prefix(p, t, 1)):]))
-              for p, t in prefixes for n in taken):
+    while any(n.startswith(ad_prefix(p, t, rev, batch) + "_") for p, t in prefixes for n in taken):
         rev += 1
     return rev
 
@@ -1312,19 +1313,34 @@ def plan(a):
         need_deal(wprod(k))
     tx = offer_texts(pr, th)
 
-    # ---------- names: the first _vN not in Drive yet (NAMING.md rule 4)
-    rev = a.rev
+    # ---------- names: the batch number (ledger.py: B045 in every file name and in the Drive folder; --batch-id B045 = another run of
+    # that batch, B045r2) and the first rN not in Drive yet (NAMING.md rule 4)
+    import ledger
+    lb = dict(id="B000", n=0, rev=1)              # B000 = not in the ledger (--no-ledger: offline tests)
+    if not getattr(a, "no_ledger", False):
+        try:
+            asked, _r = ledger.parse(getattr(a, "batch_id", None))
+            b_ = ledger.reserve(pr["name"], tname, pipe, a.request, a.statics, a.videos + a.winner_videos, a.hooks, a.seed,
+                                datetime.date.today().isoformat(), number=asked)
+            lb = dict(id=ledger.bid(b_["n"], b_.get("rev")), n=b_["n"], rev=int(b_.get("rev") or 1))
+            if a.only and not asked:
+                warnings.append(f"--only without --batch-id made a NEW batch number ({lb['id']}): to redo ads of an earlier batch "
+                                f"keep its number with --batch-id B<NNN> (the names become B<NNN>r2)")
+        except Exception as e:  # noqa: BLE001 - a ledger that can't be read must not stop a batch: the names say B000
+            warnings.append(f"batch ledger not usable ({type(e).__name__}: {e}): this batch is B000 (not numbered)")
+    rev = max(a.rev, lb["rev"])
     if not a.no_name_check:
         taken = drive_names(datetime.date.today().strftime("%y%m%d"))
         if taken is None:
             warnings.append("could not read Drive to check today's names: if this product + theme was uploaded today "
                             "already, re-plan with --rev 2")
         else:
-            rev = free_rev({(pr["name"], tname)} | {(wprod(k)["name"], tname) for k in wkeys}, a.rev, taken)
-            if rev != a.rev:
-                print(f"names: _v{rev} (today's {ad_prefix(pr['name'], tname, a.rev)} names are already in Drive)", file=sys.stderr)
-                warnings.append(f"names bumped to _v{rev}: earlier ads with these names are already in Drive today")
-    prefix = ad_prefix(pr["name"], tname, rev)
+            rev = free_rev({(pr["name"], tname)} | {(wprod(k)["name"], tname) for k in wkeys}, rev, taken, lb["n"])
+            if rev != max(a.rev, lb["rev"]):
+                print(f"names: r{rev} (today's {ad_prefix(pr['name'], tname, a.rev, lb['n'])} names are already in Drive)", file=sys.stderr)
+                warnings.append(f"names bumped to r{rev}: earlier ads with these names are already in Drive today")
+    prefix = ad_prefix(pr["name"], tname, rev, lb["n"])
+    print(f"batch: {lb['id']} ({pr['name']}, {tname}): every file name and the Drive folder start with it", file=sys.stderr)
     token = []
 
     def fetch(item, dest, photo=False):
@@ -1809,7 +1825,7 @@ def plan(a):
                 warnings.append(f"{vid} ({w['key']}): cadence: {x}")
         except (OSError, ValueError):
             pass
-        name = f"{ad_prefix(wp['name'], tname, rev)}_{vid}_remix{slug(e.get('concept') or w['key']).lower()}"
+        name = f"{ad_prefix(wp['name'], tname, rev, lb['n'])}_{vid}_remix{slug(e.get('concept') or w['key']).lower()}"
         specs[name] = spec
         videos.append(dict(name=name, id=vid, format="remix", engine="remix", hook=co.get("line") or "",
                            hook_label=co.get("label") or "",
@@ -2707,7 +2723,7 @@ def plan(a):
                    tts_lines=len(tts_u), est_credits=est, budget=limit, seed=a.seed, **({"ai": ai_sum} if ai_sum else {}),
                    **({"hook_seed": a.hook_seed} if a.hook_seed is not None else {}),
                    theme=theme_key, theme_name=tname, product=pr["name"], product_source=pr["source"],
-                   offer=" + ".join(x for x in (f"{pct}% off" if pct else "no discount", gift) if x), names=prefix,
+                   offer=" + ".join(x for x in (f"{pct}% off" if pct else "no discount", gift) if x), names=prefix, batch_id=lb["id"],
                    **({"winner_body": ("the RAW body plus a narrated review section (--winner-reviews)" if a.winner_reviews else
                                        "the proven RAW body plays intact (only its editorial cuts; no narrated review section, "
                                        "--winner-reviews adds one), so winner versions need no voiceover; a winner runs as "
@@ -2732,7 +2748,7 @@ def plan(a):
         json.dump(spec, open(os.path.join(out, name + ".json"), "w"), indent=1)
     json.dump(tts_u, open(os.path.join(out, "tts_needed.json"), "w"), indent=1)
     brief = sel["brief"] if sel else None
-    p = dict(prefix=prefix, rev=rev, created=datetime.date.today().isoformat(), request=a.request or "", product=pr["name"],
+    p = dict(prefix=prefix, rev=rev, batch_id=lb, created=datetime.date.today().isoformat(), request=a.request or "", product=pr["name"],
              product_key=pk, product_source=pr["source"], theme=theme_key, theme_name=tname, offer=summary["offer"],
              statics=[s["name"] for s in statics], videos=videos, tts_lines=len(tts_u), tts_dupes=dupes, est_credits=est,
              budget=limit, colour_images=dict(colour_imgs), packshots=packs, brief=brief, **({"ai": ai_sum} if ai_sum else {}),
@@ -2852,6 +2868,12 @@ def plan(a):
         os.environ["LC_PRODUCTS_DIR"] = os.path.abspath(a.products_dir)      # ad_copy / compliance find the product file
     ac, cr = copy_and_check(out, seed=a.seed)
     warnings = list(warnings) + [f"ad copy: {x}" for x in ac["problems"]] + ([f"compliance: {cr['error']}"] if cr.get("error") else [])
+    reps = batch_repeats(out, pr["name"], lb["n"])        # ads an earlier batch of this product already had
+    if reps:
+        warnings += reps
+        pj_ = json.load(open(os.path.join(out, "plan.json")))
+        pj_["warnings"] = list(dict.fromkeys(list(pj_.get("warnings") or []) + reps))
+        json.dump(pj_, open(os.path.join(out, "plan.json"), "w"), indent=1)
     print(json.dumps(dict(plan=os.path.join(out, "plan.json"), **summary, **({"intake": intake} if intake else {}),
                           tts_needed=os.path.join(out, "tts_needed.json"),
                           tts_duplicates=len(dupes), brief=brief, winners_source=p["winners_source"], **listing,
@@ -2862,6 +2884,27 @@ def plan(a):
               f"3, details in {cr['report']}):\n  - " + "\n  - ".join(compliance_lines(cr)) + f"\n{COMPLIANCE_FIX}. Don't "
               f"voice tts_needed.json before it passes.", file=sys.stderr)
         sys.exit(2)
+
+
+def ad_id(name):
+    """'LC_261020_HoboBag_Evergreen_B045_S02_studio' -> 'S02_studio' (the ad inside its batch)."""
+    return re.sub(r"^LC_\d{6}_[^_]+_[^_]+_B\d{3}(?:r\d+)?_", "", name)
+
+
+def batch_repeats(out, product, batch_n):
+    """['repeat: S04_native ...'] for the ads of this plan that an earlier batch of the product already had (ledger.py: the same static =
+    layout + photo + words, the same hook line; the novelty log covers batches from before the ledger). Said in the plan's warnings, so
+    nobody launches an ad twice by mistake. [] when nothing repeats or the files can't be read."""
+    try:
+        import ledger
+        pj = json.load(open(os.path.join(out, "plan.json")))
+        fps = {s["name"]: ledger.static_fp(s) for s in json.load(open(os.path.join(out, "statics.json"))).get("ads") or []}
+        fps.update({v["name"]: ledger.video_fp(v.get("hook_text") or "") for v in pj.get("videos") or [] if v.get("hook_text")})
+        hits = ledger.repeats(product, fps, novelty.batches(product), exclude=batch_n or None)
+    except Exception:  # noqa: BLE001 - a check, never a reason to stop a plan
+        return []
+    return [f"repeat: {ad_id(n)} was already made in {w}: don't launch it twice (re-plan with another --seed for other ads)"
+            for n, w in hits]
 
 
 # ---------------------------------------------------------------- ad copy + compliance
@@ -3479,6 +3522,19 @@ def log_novelty(out, p, name, uploaded):
     return novelty.PATH
 
 
+def folder_name(p, name_arg="", today=""):
+    """The batch's Drive folder: 'B045 – 2026-10-20 – Hobo Bag – 5 statics + 3 projects' (the batch id first, so folders sort by number;
+    --name replaces the description); a batch outside the ledger (B000, offline) keeps the old '<date> – <request>'."""
+    lbt, date_ = p.get("batch_id") or {}, p.get("created") or today
+    if not lbt.get("n"):
+        return f"{date_} – {name_arg or p.get('request') or p['product']}"
+    th_ = p.get("theme_name") or ""
+    parts = [f"{len(p['statics'])} statics"] * bool(p["statics"]) + \
+        [f"{len(p['projects'])} projects"] * bool(p.get("projects")) + [f"{len(p['videos'])} videos"] * bool(p["videos"] and not p.get("projects"))
+    desc = name_arg or (p["product"] + ("" if th_ in ("", "Evergreen") else f" {th_}") + " – " + " + ".join(parts or ["no ads"]))
+    return f"{lbt['id']} – {date_} – {desc}"
+
+
 def upload(a):
     """Uploads the files plan.json lists (never leftovers in the folder). Hard QA failures (render failed, file
     missing, a face in a static, a video under its floor: 25 s storyboard, 15 s winner) stay out; length / anchor /
@@ -3494,7 +3550,8 @@ def upload(a):
     up = [sys.executable, os.path.join(HERE, "drive_upload.py")]
     cfg = json.load(open(os.path.join(HERE, "config.json")))
     now = datetime.datetime.now()     # (the batch's date is the plan's: statics and videos uploaded after midnight share it)
-    name = f"{p.get('created') or now.date().isoformat()} – {a.name or p.get('request') or p['product']}"
+    lbt = p.get("batch_id") or {}      # B045 (ledger.py): the folder starts with it, so batches sort by number and never look alike
+    name = folder_name(p, a.name, now.date().isoformat())
     run = lambda *x: subprocess.run(up + list(x), capture_output=True, text=True, check=True).stdout.strip()  # noqa: E731
     projs = {x["id"]: x for x in p.get("projects") or []}
     vproj = {v["name"]: projs.get(v.get("project")) for v in p["videos"]}
@@ -3627,12 +3684,80 @@ def upload(a):
     elif uploaded:
         notes.append("no ad copy for this batch (ad_copy.csv is missing: python3 pipeline/ad_copy.py --out $OUT, then "
                      "upload again)")
+    # ---------- the ad index: one row per ad of the batch (batch id, name, what it is, its hook / caption, length, QA flags) and an empty
+    # `launched` column for the media buyer; written once the whole batch is in Drive (a statics-first upload waits for the videos)
+    ad_index = None
+    if lbt.get("n") and uploaded:
+        try:
+            import csv
+            allads = [(n, "static") for n in p["statics"]] + [(v["name"], "video") for v in p["videos"]]
+            in_run_ = {n for n, _, _ in uploaded}
+
+            def in_folder(n, kind):                     # the ad is in its Drive folder (this upload's or an earlier --only upload's)
+                x = vproj.get(n) if kind == "video" else None
+                d = sub.get(x["id"]) or (in_drive(dest["video"]).get(project_folder(x)) or {}).get("id") if x else dest[kind]
+                return bool(d) and any(f.startswith(n) for f in in_drive(d))
+            if all(n in in_run_ or in_folder(n, k) for n, k in allads):
+                sads = {x["name"]: x for x in json.load(open(os.path.join(out, "statics.json"))).get("ads") or []}
+                vads = {v["name"]: v for v in p["videos"]}
+                cols = ["ad_name", "batch", "kind", "product", "theme", "format", "hook_or_caption", "seconds", "qa_flags", "launched", "notes"]
+                rows_ = []
+                for n, kind in allads:
+                    r_ = report.get(n) or {}
+                    if kind == "static":
+                        x = sads.get(n) or {}
+                        fmt, txt_, secs = x.get("layout") or n.rsplit("_", 1)[-1], x.get("caption") or x.get("headline") or "", ""
+                    else:
+                        x = vads.get(n) or {}
+                        fmt, txt_, secs = (x.get("ugc") or {}).get("angle") or x.get("format") or "", x.get("hook_text") or "", r_.get("seconds") or ""
+                    rows_.append({"ad_name": n, "batch": lbt["id"], "kind": kind, "product": p["product"], "theme": p.get("theme_name") or "",
+                                  "format": fmt, "hook_or_caption": txt_, "seconds": secs, "qa_flags": "; ".join(r_.get("problems") or []),
+                                  "launched": "", "notes": ""})
+                os.makedirs(os.path.join(out, "_upload"), exist_ok=True)
+                base_ = f"{p['prefix']}_ads.csv"
+                local_ = os.path.join(out, "_upload", base_)
+                with open(local_, "w", newline="", encoding="utf-8-sig") as fh:
+                    wr_ = csv.DictWriter(fh, fieldnames=cols)
+                    wr_.writeheader()
+                    wr_.writerows(rows_)
+                h_ = md5(local_)
+                same_ = next((x for x in in_drive(folder).values() if x["name"].startswith(f"{p['prefix']}_ads") and x.get("md5Checksum") == h_), None)
+                if same_:
+                    ad_index = dict(file=same_["name"], rows=len(rows_))
+                else:
+                    if base_ in in_drive(folder):
+                        base_ = f"{p['prefix']}_ads_upd{now:%H%M%S}.csv"
+                    res_ = json.loads(run("upload", local_, "--folder", folder, "--name", base_).splitlines()[-1])
+                    ad_index = dict(file=base_, rows=len(rows_), link=res_.get("link") or (f"https://drive.google.com/file/d/{res_['id']}/view"
+                                                                                           if res_.get("id") else None))
+        except Exception as e:  # noqa: BLE001 - the ads are in Drive: the index is a convenience
+            notes.append(f"ad index NOT written ({type(e).__name__}: {e})")
     txt = os.path.join(out, f"run report {now:%H%M}.txt")
     if a.only:
         notes.insert(0, f"this upload covers only {a.only.upper()} of the batch (other ads: earlier/later run reports here)")
     if pending:
         print(f"not rendered yet, so not uploaded now: {', '.join(pending)}", file=sys.stderr)
     link = f"https://drive.google.com/drive/folders/{folder}"
+    bt = None
+    if lbt.get("n") and uploaded:    # the ledger: this batch is in Drive (folder, link, its ads' fingerprints: the next plan checks repeats)
+        try:
+            import ledger
+            sads = {x["name"]: x for x in json.load(open(os.path.join(out, "statics.json"))).get("ads") or []}
+            vads = {v["name"]: v for v in p["videos"]}
+            ads = [dict(name=n_, kind=k_, fp=ledger.static_fp(sads[n_]), label=sads[n_].get("caption") or sads[n_].get("headline") or "")
+                   for n_, k_, _ in uploaded if k_ == "static" and n_ in sads] + \
+                  [dict(name=n_, kind=k_, fp=ledger.video_fp(vads[n_].get("hook_text") or ""), label=vads[n_].get("hook_text") or "")
+                   for n_, k_, _ in uploaded if k_ == "video" and n_ in vads]
+            bt = ledger.uploaded(lbt["n"], name, link, ads)
+            if bt:
+                with open(os.path.join(os.path.dirname(HERE), "docs", "BATCHES.md"), "w") as fh:
+                    fh.write("# Batches (B-numbers)\n\nMade by `pipeline/ledger.py` at every upload; one row per batch. A batch id is in every file "
+                             "name of the batch (`LC_<date>_<Product>_<Theme>_B045_S01_native`) and starts its Drive folder name.\n\n"
+                             + ledger.table())
+                notes.append(f"batch {lbt['id']} is in the ledger: commit pipeline/data/batch_ledger.json and docs/BATCHES.md with the specs")
+        except Exception as e:  # noqa: BLE001 - the ads are in Drive: the ledger can be written by hand later
+            notes.append(f"batch ledger NOT updated ({type(e).__name__}: {e}): python3 pipeline/ledger.py show")
+            print(f"WARNING batch ledger not updated: {e}", file=sys.stderr)
     try:          # the ads are in Drive already: a product file that can't be updated must not lose the run report
         tested = record_batch(p, name, link, uploaded, vproj) if pipe == "new-product" and uploaded else None
     except (OSError, ValueError, KeyError, TypeError) as e:
@@ -3659,7 +3784,8 @@ def upload(a):
     run("upload", txt, "--folder", folder)          # a fresh report every upload, never skipped
     if tested:
         print(f"product file changed: {tested} (\"tests\" += this batch): commit it with the specs", file=sys.stderr)
-    print(json.dumps(dict(folder=link, name=name, pipeline=pipe, drive_path=f"{where}/{name}", files=len(uploaded),
+    print(json.dumps(dict(folder=link, name=name, batch=lbt.get("id"), pipeline=pipe, drive_path=f"{where}/{name}", files=len(uploaded),
+                          **({"ad_index": ad_index} if ad_index else {}),
                           **({"product_file_updated": tested} if tested else {}),
                           **({"project_folders": {f"Videos/{project_folder(projs[k])}": f"https://drive.google.com/drive/folders/{d}"
                                                   for k, d in sub.items()}} if projs else {}),
@@ -3741,9 +3867,12 @@ def main():
     pl.add_argument("--no-music", action="store_true", help="no music bed under the storyboard videos (default: a client "
                     "track from pipeline/assets/music, else a generated bed; winner remixes keep the RAW's own sound, a RAW recorded "
                     "dry gets a bed)")
-    pl.add_argument("--rev", type=int, default=1, help="revision of an earlier batch with the same product+theme+date: adds _v2, _v3"
-                    " (plan also moves to the first _vN not in Drive yet)")
+    pl.add_argument("--rev", type=int, default=1, help="run number of a batch: adds r2, r3 to its B<NNN> (--batch-id sets it by itself; plan also"
+                    " moves to the first rN not in Drive yet)")
     pl.add_argument("--no-name-check", action="store_true", help="don't look in Drive for today's names (offline tests)")
+    pl.add_argument("--batch-id", help="another run of an earlier batch (B045): a redo of some of its ads keeps its number and the names "
+                    "become B045r2; without it every plan takes the next free batch number (pipeline/data/batch_ledger.json)")
+    pl.add_argument("--no-ledger", action="store_true", help="don't take a batch number (B000): offline tests")
     pl.add_argument("--budget", type=float, help=f"credits the request allows for voiceover, hook lines included "
                     f"(default {MAX_CREDITS})")
     pl.add_argument("--ai", action="store_true", help="make the AI scene statics / clips (ai_gen.py) even when the product has enough "
