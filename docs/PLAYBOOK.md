@@ -545,6 +545,41 @@ client would show them. A library clip is an edited video: a picked moment can c
 of a product file can carry the product page's white corners. The estimate is calibrated on espeak (placeholder renders came out 4-17% shorter than estimated); a real ElevenLabs voice runs about as
 estimated, so the `shortened` guard (80%, ugc 70%: the estimate is a guess at the voice's pace) still has room.
 
+### 4e000. The strategist step, matching b-roll, no reviews, new end cards, faster renders (owner + Julian 2026-10-21)
+
+Julian (media buyer) checked the B011-B013 videos: (1) the b-roll must match what the script says ("the snap close of the Vintage bag
+showed the strap or a UGC creator"), (2) drop the "this customer said this" review chapter before the CTA, (3) the end cards "are a bit
+off", (4) "almost the same, very similar videos for everything: different ideas", (5) rendering takes too long, (6) "full strategist-level
+scripts". The owner added: statics "look like they were made by some random thing": studio level, the bag with elements behind it
+(the Hobo 2.0 strap tied to a chair), generated with Higgsfield from the real bag, realistic.
+- **Matching** (`shotmatch.py`, `footage_index.py label-sheets / label-merge`): five labelling agents looked at 4 frames of each of the 431
+  usable clips and tagged what each frame SHOWS (snap, zip, side_zip, pocket, inside, packing, strap, worn, ...); `moments` live in
+  `clip_index.json`. `ugc_board.choose` scores every spoken phrase against them (`wants`: its words + the chapter's feature + the sheet's `show`
+  tags); a miss on a specific feature costs, a moment shown again costs `REUSE` (a good match shown twice, the 2nd time closer, beats a
+  shot of something else). The old failure: shots were picked by the client's folder words and a +6 feature bonus on curated clips, so a
+  compilation clip of a woman with the bag (faces) was picked for every strap line. Clip-bank clips whose notes name a woman / customer /
+  model are out of the ugc pool now (`has_person`).
+- **No review chapters / cards** in ugc videos (`ugc_script.REVIEWS = False`); the proof chapter is a recap, the objection a fact
+  (warranty, returns). Statics keep one verbatim review.
+- **End card** (`longform.end_png`): the old one was a grey band over whatever the last photo was (the site's detail collage!) in Meta's
+  button zone. Now a full opaque studio card: the real packshot (never a collage: `brand_statics.collage`) on the bag's tinted backdrop,
+  wordmark, name, the offer pill, the button, everything between 260 px from the top and 400 px from the bottom.
+- **Render speed** (one video 8 min -> 3 min cold, 2 min warm): shots rendered 2 at a time, the concat copies the video stream (no second
+  x264 pass at preset slow), the final overlay pass runs at preset `faster`, and the 4 hook versions of a project share their body's shots
+  through `$OUT/_seg` (`recut.cached_segment`; render does each project's H1 first; `upload` deletes the cache).
+- **Strategist step** (`ideas.py`, CLAUDE.md section S): every catalog / new-product batch starts with a packet, research and a written
+  `ideas.json` (projects with a new idea, hooks, complete scripts with the picture each line needs; statics with concepts); `plan --ideas`
+  checks it (first person, counts, offer last, claims, compliance, footage coverage, earlier hooks / lines) and builds everything from it;
+  the sheet goes to Drive as `strategy_sheet.md / .csv`. The script engine's templates remain for `--lines` requests.
+- **Concept statics** (`brand_statics.l_concept`): AI scenes of the real bag with props (Higgsfield gpt_image_2_5, the real packshot as
+  reference, 1 credit each, gated by `ai_gen.gate`), the words in a footer under the photo so they never land on the bag (asked for in the
+  prompt: the end where the words go empty; the model only half obeys, so the footer does it); sunglasses / mannequins / people in the
+  background trip the face check and are kept out of the prompts; a person is cropped at the shoulders. The AI scenes of the bag keep the
+  matching pouch wallet because the real packshots show it.
+- Meta: third-party AI images may be labelled "AI info" (Meta says it will auto-detect them); we show no photoreal faces.
+- Disk: the session's allowance counts the scratchpad: clear old test runs before a batch (`pipeline/cache/media` alone is 4-5 GB; raise
+  `LC_MEDIA_CAP_GB` for a batch whose videos use ~80 different 4K clips).
+
 ### 4e00. Batch numbers (owner 2026-10-20: "make the batches less confusing with a proper naming convention, so we avoid relaunching the same ads")
 Drive had folders named by whatever the request said (`2026-10-16 – Hobo Bag 5 projects 10 statics`, `... hook test 3 videos + 4 statics`)
 and every batch of a bag reused S01 / P01_H1 under a date, with a same-day second batch called `_v2` (which reads like a redo). Now:

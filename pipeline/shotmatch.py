@@ -38,7 +38,7 @@ WANT = {
     "office": (r"desk|office|work|lunch", 2),
     "car": (r"car|driv\w*|travel\w*|trip|airport|flight|train|journey", 3),
     "shop": (r"shop\w*|store|checkout", 3),
-    "crowd": (r"crowd\w*|busy|packed|rush", 3),
+    "crowd": (r"crowd\w*|busy|rush hour|packed (?:train|platform|station|street|market)", 3),
     "door": (r"door|leaving|out the door|hurry", 2),
 }
 # what a chapter's feature tag asks for ('ONE-HAND CLASP' -> the clasp), always on top of the words of the phrase

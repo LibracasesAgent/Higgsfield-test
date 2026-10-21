@@ -53,6 +53,7 @@ import re
 import subprocess
 import sys
 import tempfile
+import time
 
 from PIL import Image, ImageDraw
 
@@ -789,6 +790,7 @@ def main():
     e = json.load(open(a.edl))
     edl_dir = os.path.dirname(os.path.abspath(a.edl))
     tmp = tempfile.mkdtemp(prefix="longform_")
+    t0 = time.time()
 
     # 1) base cut without any text
     base_edl = {k: v for k, v in e.items() if k in ("segments", "audio", "vo", "vo_start", "bed_gain", "sfx")}
@@ -801,6 +803,7 @@ def main():
     total = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", base],
                                  capture_output=True, text=True).stdout)
 
+    t1 = time.time()
     # 2) overlays, then captions from the final audio, placed clear of them
     if e.get("transcript"):          # what is said, known: the script on its voiceover timings, committed transcripts
         ws = fix_words(fix_known(e["transcript"], CAPTION_FIX), e.get("caption_fix", []))
@@ -810,14 +813,16 @@ def main():
     spots = {} if e.get("caption_y_force") or e.get("caption_auto") is False else caption_spots(base, e, zy)
     events, st = text_events(e, ws, tmp, spots)
 
+    t2 = time.time()
     lst = build_overlay_track(events, tmp, total)
     os.makedirs(os.path.dirname(os.path.abspath(a.out)), exist_ok=True)
     subprocess.run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-i", base, "-f", "concat", "-safe", "0", "-i", lst,
                     "-filter_complex", "[1:v]fps=30,format=rgba[o];[0:v][o]overlay=0:0:eof_action=pass:format=auto,format=yuv420p[v]",
-                    "-map", "[v]", "-map", "0:a", "-c:v", "libx264", "-preset", "slow", "-crf", "17", "-maxrate", "14M",
+                    "-map", "[v]", "-map", "0:a", "-c:v", "libx264", "-preset", "faster", "-crf", "17", "-maxrate", "14M",
                     "-bufsize", "28M", "-r", "30", "-c:a", "copy", "-movflags", "+faststart", "-t", f"{total:.3f}", "-y", a.out],
                    check=True, timeout=3600)
     print(json.dumps(dict(out=a.out, seconds=round(total, 2), overlays=len(e.get("overlays", [])), **st)))
+    print(f"longform: base cut {t1 - t0:.0f} s, captions + overlays {t2 - t1:.0f} s, final encode {time.time() - t2:.0f} s", file=sys.stderr)
 
 
 if __name__ == "__main__":

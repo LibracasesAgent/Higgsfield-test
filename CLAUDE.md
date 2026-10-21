@@ -5,14 +5,20 @@ Friday") into finished Facebook ads for Libra Cases (handbags) and upload them t
 from a message: there is no daily automatic run. Nobody is watching: never ask follow-up questions, decide sensibly,
 and reply once at the end.
 
-**START HERE, every time: the plan is whatever `make_batch.py plan` prints, nothing else.** Do not plan angles, hooks,
-video lengths or static sizes yourself, and never copy an earlier run: ignore every "hook-first", "~29 s" or hand-built
-spec you find in this thread, in Drive or on other branches (the 2026-10-14 "hook test" run was a mistake, see rule 6).
-Statics come only from `make_batch.py` (its own layouts and sizes: never your own 1:1 / 4:5 / 9:16 sets or backgrounds).
-Order: section 0 setup, then the plan command of the pipeline's section, then section 5. `plan` already avoids openings
-used before (and, with `pipeline/data/novelty_log.json`, the scenes, photos, captions and hooks of the product's last batches), so
-don't read other branches or Drive folders to "avoid repeats". Real footage comes first; the AI scene stills and clips are only
-what `plan` writes to `ai_needed.json` when the product's own material is thin (section 5, step 2b): never make AI images or video of your own.
+**START HERE, every time: section 0 setup, then the STRATEGIST STEP (section S), then `make_batch.py plan --ideas`, then section 5.**
+You are the creative strategist of every batch (owner 2026-10-21: "the first step of every batch is the scripts, writing, new ideas,
+full scripts and everything ... each batch should contain something new or unique"): before anything is planned or generated you read the
+strategy packet (`ideas.py packet`: the product's true facts, what the footage library can SHOW, everything the earlier batches
+did, the research), research when the theme is new, and write `ideas.json`: per project a new idea, four hooks and a complete script
+whose every line names the picture it needs, per static its concept. `plan --ideas` checks the sheet and builds everything from it
+(video length, format, static sizes, names and the credit cap stay `plan`'s: don't invent those). Never copy an earlier run: ignore
+every "hook-first", "~29 s" or hand-built spec you find in this thread, in Drive or on other branches (the 2026-10-14 "hook test" run
+was a mistake, see rule 6). Statics come only from `make_batch.py` (its own layouts and sizes: never your own 1:1 / 4:5 / 9:16 sets or
+backgrounds). `plan` avoids openings used before (with `pipeline/data/novelty_log.json`: the scenes, photos, captions and hooks of the
+product's last batches) and the packet lists them, so don't read Drive folders to "avoid repeats". Real footage comes first; AI
+images are the studio scenes of the sheet's `concept` statics and what `plan` writes to `ai_needed.json` (section 5, step 2b): never
+make AI images or video of your own. Winner remixes (section 1) have no strategist step: they keep the proven RAW; only their fill
+projects and statics do. `plan` without `--ideas` (the engine's templates) is for a request that fixes the words (`--lines`).
 
 The repo's default branch is `claude/loving-meitner-4amjii`. Read `docs/PLAYBOOK.md` once per session
 (client feedback, approved claims, recipes, every bug already fixed).
@@ -28,7 +34,8 @@ The repo's default branch is `claude/loving-meitner-4amjii`. Read `docs/PLAYBOOK
    says so (`--ai`): then the real bag in a new scene (cafe, street from behind, hallway ...), still 4:5 / clip 3 s. You make
    exactly what `ai_needed.json` lists (models, prompts, ids): images with `gpt_image_2_5` (medium, 2k), clips with `kling3_0` /
    `minimax_hailuo`. Never: other generators or models, presets, Ads Studio, AI influencer / avatars / characters,
-   `execute_preset`, upscalers, voice cloning, a face in any picture, a prompt of your own. An AI asset ships only when it passed
+   `execute_preset`, upscalers, voice cloning, a face in any picture, a prompt of your own (the one exception: the SCENE of a `concept` static
+   in the strategist's sheet, section S: surface, props, light, composition; `ai_gen` adds the keep-the-real-bag text, the style and the no-face rule). An AI asset ships only when it passed
    `ai_gen.py gate` / `clips` AND you looked at its contact sheet and the bag is the real bag (shape, colour, handles, hardware)
    in a believable real photo / clip: otherwise `ai_gen.py reject <id>` (render puts the real photo / footage back). `plan
    --no-ai` = real photos and footage only; `--no-frames` = no statics from footage frames.
@@ -84,7 +91,13 @@ button), `native` 4 (a real face-free photo, one caption), `quotes` 3 (ONE verba
 `stars` 1, and `colours`, `checklist`, `bold`, `compare` once each, where the product backs them (faceless photos / a review / a
 price; else the next clean layout takes the slot). The AI scene statics (section 5, step 2b) replace the text-heavy slots first and
 come in four looks (pill only, caption only, the photo alone, caption + pill): half carry no caption. `--classic` restores the old
-static cycle.
+static cycle. **Studio-level concept statics** (owner 2026-10-21: "the bag, with some elements behind ... realistic"): the strategist's
+sheet makes about half of a batch's statics `concept`: an AI scene of the REAL bag (Higgsfield `gpt_image_2_5` from the real packshot,
+gated against it like every AI still) with props that belong to the idea (a latte, keys, a gift, a chair), the words set in a calm footer
+under the photo (a small kicker, a serif headline, the % pill) so nothing is printed on the bag; a person is only ever cropped at the
+shoulders or seen from behind. The other statics are real (studio packshot, a footage frame, quotes, value ...). Videos carry **no
+review chapters or review cards** (media buyer 2026-10-21: "not good as objection handling before the CTA"); statics keep one verbatim review.
+The end card is a full studio card (the real bag on a tinted backdrop, the name, the offer pill, the button) inside Meta's safe zone.
 
 ## Which pipeline? (read the message first)
 
@@ -261,11 +274,36 @@ many credits, a sale theme for a product without a deal, a compliance problem, n
 under the 25 s floor (too little material) is left out by `plan` itself with a `videos left out: ...` warning
 (exit 0, the statics proceed): say so in the reply. Read it and act on it.
 
+## S. The strategist step (catalog and new-product batches; every time)
+
+```
+OUT=/tmp/run/<short-name>; mkdir -p $OUT
+python3 pipeline/ideas.py packet --product "<name>" [--theme "<words>"] --projects M --statics N --request "<the request>" --out $OUT
+```
+1. **Read** `$OUT/strategy_packet.md` (facts you may claim; the footage tags the pictures are chosen from, with counts; every earlier
+   batch's angles, hooks, lines, statics and scenes) and `docs/research/*.md`. A new theme or a thin research file: a few WebSearch
+   queries (competitors' ads, what works for the theme, Meta rules) and a new file in `docs/research/` (sources, [V]/[S]/[I]/[U] tags).
+   The Meta Ad Library is not reachable from here; articles about ad libraries are.
+2. **Write `$OUT/ideas.json`** (format: `python3 pipeline/ideas.py --help`): **M projects, each a different idea and structure** (a pack-out
+   demo, a crowd scenario, a gift guide, a numbered buyer's guide, a day, a comparison ... not the engine's six angles and nothing an
+   earlier batch did), `why_new` that says what no earlier batch did, 4 hooks of at least 3 types, a complete script of 5-11 chapters
+   (170-285 words in all, one voice take each, 'you' form, the offer last ending "Tap the link below."), every chapter with `show` tags
+   (what the picture must show while it is said: prefer tags with many footage moments in the packet) and the feature `tag` that shows on
+   screen; **N statics**, about half `concept` scenes (each different: flat-lay, cafe chair, back pocket, gift styling, dark luxe, hallway,
+   street from behind ...; the scene prompt leaves the end where the words go EMPTY; no face, eyes, sunglasses, mannequin, interior of
+   the bag you have no photo of; the packshot shown is the reference, `scene.colour` / `scene.ref` pick it) and the rest studio / native /
+   quotes / value / offer / stars where they fit. Only the packet's facts; no first person, no invented customer experience, no countdown
+   or sale end date nobody confirmed, no "theft-proof"; counts like "five things" only when the video delivers them.
+3. `python3 pipeline/ideas.py check $OUT/ideas.json --product "<name>" --projects M --statics N`: fix every PROBLEM (warnings: read them),
+   check again. Then `plan --ideas $OUT/ideas.json ...` (section 5); `plan` copies the sheet and makes `strategy_sheet.md/.csv`, which
+   `upload` puts in the Drive batch folder.
+4. The reply names the ideas (one line per project: title, structure, why it is new) and links the strategy sheet.
+
 ## 5. The run (every pipeline)
 
 ```
 OUT=/tmp/run/<short-name>; mkdir -p $OUT
-python3 pipeline/make_batch.py plan <flags> --request "<the request text>" --out $OUT
+python3 pipeline/make_batch.py plan <flags> --ideas $OUT/ideas.json --request "<the request text>" --out $OUT   # (section S)
 ```
 1. Read the plan output and every warning (the pipeline's section says what to look for), plus `offer`,
    `est_credits`, `names` and length warnings (ugc: `thin script: about N s`; `project_hooks` lists each version's hook
@@ -353,7 +391,10 @@ library cache), `python3 pipeline/footage_index.py select` (counts), `scan` (abo
 checks; resumable; reads through the Drive API with the agent's token because the public link hits "Quota exceeded"), `merge` (the
 clips that pass go into `pipeline/data/clip_index.json`, hand-tagged rows untouched), `stats`; commit `clip_index.json`. A clip with a
 face, a soft or dark picture, under 720p or 2.5 s is `usable: no` (`why_not` says which). `sheets --product "Hobo Bag" --out DIR`
-makes contact sheets of a sample to look at. Winner RAWs / finished ads (ACH Creative Delivery, Kate Creatives) are not b-roll.
+makes contact sheets of a sample to look at. **Labels** (what each frame SHOWS, so the b-roll matches the words: `shotmatch.py`): every
+usable clip carries `moments` (tags per frame: snap, zip, side_zip, pocket, inside, packing, strap, worn, ...) in `clip_index.json`; a newly
+merged clip has none until it is labelled: `python3 pipeline/footage_index.py label-sheets --out DIR` (contact sheets + a guide), hand the
+sheets to labelling agents (one jsonl a clip, see `DIR/README.md`), `label-merge --dir DIR`, commit `clip_index.json`. Winner RAWs / finished ads (ACH Creative Delivery, Kate Creatives) are not b-roll.
 
 ## Other references
 

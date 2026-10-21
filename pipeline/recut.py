@@ -37,6 +37,7 @@ import argparse
 import concurrent.futures as cf
 import json
 import os
+import shutil
 import subprocess
 import sys
 import tempfile
@@ -323,6 +324,31 @@ def render_segment(seg, i, tmp, hook, audio_mode, hook_y=380):
     return out
 
 
+SEG_WORKERS = max(1, int(os.environ.get("LC_SEG_WORKERS", "2")))
+SEG_VERSION = 1      # bump when render_segment's look changes: cached shots of an older look are not reused
+SEGCACHE = os.environ.get("LC_SEGCACHE")     # make_batch render sets it to <out>/_seg: the 4 hook versions of a project share their body's shots
+
+
+def cached_segment(seg, i, tmp, hook, audio_mode, hook_y, edl_dir):
+    """render_segment, or the same shot rendered before (the hook versions of one project have one body: only the opening differs).
+    The key is everything a shot's pixels and sound depend on: the segment, its hook text and position, the audio mode, its source."""
+    if not SEGCACHE:
+        return render_segment(seg, i, tmp, hook, audio_mode, hook_y)
+    import hashlib
+    src = seg["src"]
+    ident = f"{src}|{os.path.getsize(src)}|{int(os.path.getmtime(src))}" if os.path.exists(src) else src
+    key = hashlib.sha1(json.dumps([seg, hook, hook_y, audio_mode, ident, SEG_VERSION, W, H, FPS], sort_keys=True).encode()).hexdigest()[:20]
+    hit = os.path.join(SEGCACHE, key + ".mp4")
+    if os.path.exists(hit) and os.path.getsize(hit) > 1000:
+        return hit
+    out = render_segment(seg, i, tmp, hook, audio_mode, hook_y)
+    os.makedirs(SEGCACHE, exist_ok=True)
+    part = f"{hit}.part.{os.getpid()}.{i}"
+    shutil.copyfile(out, part)
+    os.replace(part, hit)           # (atomic: a render that finds it half-written never happens)
+    return hit
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("edl")
@@ -331,14 +357,22 @@ def main():
     edl = json.load(open(a.edl))
     tmp = tempfile.mkdtemp(prefix="recut_")
     t, parts = 0.0, []
+    t_start = time.time()
     edl_dir = os.path.dirname(os.path.abspath(a.edl))
+    jobs = []
     for i, seg in enumerate(edl["segments"]):
         local = os.path.join(edl_dir, seg["src"])
         if not DRIVE_ID.match(seg["src"]) and os.path.exists(local):
             seg = dict(seg, src=local)  # local files resolve relative to the EDL
         hook = edl.get("hook") if t < float(edl.get("hook_until", 2.0)) else None
-        parts.append(render_segment(seg, i, tmp, hook, edl.get("audio", "natural"), edl.get("hook_y", 380)))
+        jobs.append((i, seg, hook))
         t += float(seg["dur"])
+    for _, seg, _ in jobs:      # the sources first, one after the other (a clip two shots use is fetched once, never twice at the same time)
+        if not seg["src"].lower().endswith((".png", ".jpg", ".jpeg")):
+            source(seg["src"])
+    with cf.ThreadPoolExecutor(SEG_WORKERS) as ex:      # the shots are independent: a few at a time (one ffmpeg filter graph is mostly one thread)
+        parts = list(ex.map(lambda j: cached_segment(j[1], j[0], tmp, j[2], edl.get("audio", "natural"), edl.get("hook_y", 380), edl_dir), jobs))
+    t_segs = time.time()
     lst = os.path.join(tmp, "list.txt")
     open(lst, "w").write("".join(f"file '{p}'\n" for p in parts))
     os.makedirs(os.path.dirname(os.path.abspath(a.out)), exist_ok=True)
@@ -353,10 +387,11 @@ def main():
         labels.append(f"[x{k}]")
     fc.append(f"{''.join(labels)}amix=inputs={len(labels)}:duration=first:normalize=0,{norm}[aout]")
     subprocess.run(["ffmpeg", "-hide_banner", "-loglevel", "error", *inputs,
-                    "-filter_complex", ";".join(fc), "-map", "0:v", "-map", "[aout]", "-c:v", "libx264", "-preset", "slow", "-crf", "18",
-                    "-pix_fmt", "yuv420p", "-r", str(FPS), "-c:a", "aac", "-b:a", "160k", "-ar", "48000",
+                    "-filter_complex", ";".join(fc), "-map", "0:v", "-map", "[aout]", "-c:v", "copy",     # (the shots are encoded already, same
+                    "-c:a", "aac", "-b:a", "160k", "-ar", "48000",                                      # settings: no second video encode)
                     "-movflags", "+faststart", "-y", a.out], check=True, timeout=1800)
     print(json.dumps(dict(out=a.out, seconds=round(t, 2), segments=len(parts))))
+    print(f"recut: {len(parts)} shots {t_segs - t_start:.0f} s, mix + concat {time.time() - t_segs:.0f} s", file=sys.stderr)
 
 
 if __name__ == "__main__":

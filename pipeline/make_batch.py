@@ -1132,6 +1132,12 @@ def plan(a):
         else:
             early.append(f"--new-product {a.new_product!r} is for --pipeline new-product: ignored in {a.pipeline}")
     pipe = getattr(a, "pipeline", None) or "catalog"
+    sheet = None
+    if getattr(a, "ideas", None):        # the strategist's sheet (ideas.py): its projects and statics are the batch unless counts are given
+        import ideas
+        sheet = ideas.load(a.ideas)
+        if a.statics is None and a.videos is None and getattr(a, "projects", None) is None and not getattr(a, "batch", False):
+            a.statics, a.projects = len(sheet.get("statics") or []), len(sheet.get("projects") or [])
     size = counts(a)
     warnings = early + list(size.pop("notes"))
     intake = np_intake(a, pdir) if pipe == "new-product" else None
@@ -1253,6 +1259,19 @@ def plan(a):
             packs = [f for _, f in colour_imgs if f not in painted] or clean_site
     pr["offer"] = resolve_offer(pr, facts, warnings)
     honest(pr, warnings)
+    if sheet is not None:
+        import ideas
+        P_, W_ = ideas.check(sheet, pr, a.videos or None, a.statics or None)
+        warnings += [f"ideas: {x}" for x in W_]
+        if P_:
+            print("the strategy sheet has problems (fix them, `python3 pipeline/ideas.py check` shows them again):\n  - " + "\n  - ".join(P_),
+                  file=sys.stderr)
+            sys.exit(2)
+        shutil.copy(a.ideas, os.path.join(out, "ideas.json"))                       # the sheet travels with the batch: specs, and Drive
+        ideas.sheet_csv(sheet, os.path.join(out, "strategy_sheet.csv"))
+        open(os.path.join(out, "strategy_sheet.md"), "w").write(ideas.sheet_md(sheet))
+        if (sheet.get("theme") or "").strip().lower() != (a.theme or "").strip().lower():
+            warnings.append(f"ideas: the sheet's theme is {sheet.get('theme')!r}, the request's {a.theme!r}")
     for w in (sel["winners"] if W else []):
         p_ = wprod(w["key"])
         if p_ is not pr and not p_.get("_resolved"):
@@ -1540,6 +1559,8 @@ def plan(a):
     hobo_ = clean_mode and pk == "hobo bag" and pr["source"] == "built-in"
     life_ = clean_mode and pr["source"] != "built-in" and len(lifestyle()) >= 3      # the client's own worn / detail photos
     seq = static_cycle(clean_mode, hobo_, life_, getattr(a, "classic", False), len(frame_photos()))   # (--classic: the old cycle)
+    if sheet is not None and sheet.get("statics"):      # the sheet's own order; an AI studio scene's stand-in is a real footage frame
+        seq = [("native" if x["layout"] == "concept" else x["layout"]) for x in sheet["statics"]]
     if not clean_mode and a.statics and lifestyle():
         warnings.append(f"only {len(s_packs)} clean packshot(s): statics use the client's lifestyle photos and framed photo "
                         f"cards")
@@ -1738,6 +1759,11 @@ def plan(a):
         if fm_:                       # a real footage frame: its clip (novelty log: the next batch takes other clips)
             s["frame"] = dict(clip=fm_["id"], t=fm_["t"])
         statics.append(s)
+    if sheet is not None:             # the strategist's own words on the real-photo statics
+        for i_, x_ in enumerate(sheet.get("statics") or []):
+            if i_ < len(statics) and x_["layout"] in ("studio", "native") and x_.get("headline"):
+                statics[i_].pop("headline", None)
+                statics[i_]["caption"] = x_["headline"]
     if no_photo:                      # one warning, not one per static (a clips-only folder)
         bi_ = pr["source"] == "built-in"
         warnings.append(f"{no_photo} of {a.statics} statics left out: {pr['name']} has no photo a static may use (no clean "
@@ -2266,9 +2292,43 @@ def plan(a):
     # the scenes, --no-ai forbids them. A thin folder (a few photos, one clip) still gets them.
     real_rich = (pr["source"] == "built-in" and (len(frame_photos()) >= 5 or not a.statics)) or \
         (pr["source"] != "built-in" and len(s_packs) + len(lifestyle()) >= 8 and sum(1 for c_ in clips if c_) >= 2)
-    if need and real_rich and not getattr(a, "ai", False) and not getattr(a, "no_ai", False) and (a.statics or a.videos):
+    if sheet is None and need and real_rich and not getattr(a, "ai", False) and not getattr(a, "no_ai", False) and (a.statics or a.videos):
         warnings.append("AI scenes: off (the product has enough real photos / footage; --ai makes the scene statics and clips)")
-    if need and not getattr(a, "no_ai", False) and not getattr(a, "classic", False) and (a.statics or (a.videos and not story)) \
+    sheet_scenes = ideas_scenes = []
+    if sheet is not None and a.statics:        # the strategist's AI studio scenes (ideas.py): exactly those, in the sheet's order
+        import ideas
+        ai_refs_ = [dict(file=f_, colour=n_) for n_, f_ in colour_imgs if f_ in packs and f_ not in no_static]
+        ai_refs_ += [dict(file=f_, colour=None) for f_ in packs if f_ not in {r_["file"] for r_ in ai_refs_} and f_ not in no_static]
+        ideas_scenes = [(i_, x_) for i_, x_ in ideas.concept_scenes(sheet) if i_ < a.statics]
+        if ideas_scenes and not ai_refs_:
+            warnings.append("ideas: no packshot to use as the reference of the AI studio scenes: they are real footage frames instead")
+            ideas_scenes = []
+        if ideas_scenes and getattr(a, "no_ai", False):
+            warnings.append("ideas: --no-ai: the studio scenes are real footage frames instead")
+            ideas_scenes = []
+        lib_ = ai_gen.library()
+        stills_ = []
+        for k_, (i_, x_) in enumerate(ideas_scenes):
+            sc_ = x_["scene"]
+            want_ = {"brown": "sienn", "tan": "sienn"}.get((sc_.get("colour") or "").lower(), (sc_.get("colour") or "").lower())   # (the site calls brown 'Dark Sienn')
+            ref_ = next((r_ for r_ in ai_refs_ if want_ and r_.get("colour") and want_ in r_["colour"].lower()), None) or ai_refs_[k_ % len(ai_refs_)]
+            if sc_.get("ref") and os.path.exists(os.path.join(site, os.path.basename(sc_["ref"]))):    # a named site photo (the back view of the bag)
+                ref_ = dict(file=os.path.join(site, os.path.basename(sc_["ref"])), colour=sc_.get("colour"))
+            prompt_ = sc_["prompt"].replace("{", "(").replace("}", ")").strip()
+            stills_.append(dict(id=f"AS{k_ + 1:02d}", use="static", scene=f"{x_.get('project', 'P00')}_{x_['id']}".lower(), kind=sc_["kind"],
+                                colour=ref_.get("colour"), layout="concept", ref=ref_["file"], aspect="4:5", file=f"ai/AS{k_ + 1:02d}.png",
+                                model=ai_gen.IMG["model"], params=dict(ai_gen.IMG["params"], aspect_ratio="4:5"), slot=i_,
+                                prompt=ai_gen.build_prompt(lib_, dict(kind=sc_["kind"], prompt=prompt_ + " " + (ideas.NO_PEOPLE if sc_["kind"] == "object" else
+                                                                                     "No other person is in the picture.")), ai_gen.noun_of(pr["name"]),
+                                                           ref_.get("colour"), False), est_credits=ai_gen.IMG["cost"]))
+        if stills_:
+            ai_plan = dict(stills=stills_, clips=[], est_credits=round(sum(x_["est_credits"] for x_ in stills_), 2),
+                           notes=[], grade_refs=[], budget=dict(cap=getattr(a, "ai_cap", None) or MAX_CREDITS, tts_est=round(4.5 * a.videos, 2),
+                                                               reserve=ai_gen.RESERVE))
+            os.makedirs(os.path.join(out, "ai", "clips"), exist_ok=True)
+            json.dump(dict(ai_plan, steps=ai_gen.STEPS), open(os.path.join(out, "ai_needed.json"), "w"), indent=1, ensure_ascii=False)
+            sheet_scenes = stills_
+    if sheet is None and need and not getattr(a, "no_ai", False) and not getattr(a, "classic", False) and (a.statics or (a.videos and not story)) \
             and (getattr(a, "ai", False) or not real_rich):
         ai_refs = [dict(file=f_, colour=n_) for n_, f_ in colour_imgs if f_ in packs and f_ not in no_static]
         ai_refs += [dict(file=f_, colour=None) for f_ in packs if f_ not in {r_["file"] for r_ in ai_refs} and f_ not in no_static]
@@ -2299,7 +2359,21 @@ def plan(a):
                 return idx[-1]
         return None
     ai_dropped, n_sc = [], 0
-    for k_, s_ in enumerate(x for x in ai_plan["stills"] if x["use"] == "static"):
+    for s_ in sheet_scenes:           # the strategist's studio scenes: each takes its own slot (the real-photo static there is its fallback)
+        i_, x_ = s_["slot"], sheet["statics"][s_["slot"]]
+        if i_ >= len(statics):
+            ai_dropped.append(s_["id"])
+            continue
+        orig_ = statics[i_]
+        d_ = dict(layout="concept", photo=s_["file"], **{k_: x_[k_] for k_ in ("kicker", "headline", "sub", "where", "tone") if x_.get(k_)})
+        if x_.get("pill") and s_pct:
+            d_["pct"] = s_pct
+        if x_.get("badge"):
+            d_["badge"] = x_["badge"]
+        d_.update(name=re.sub(r"(_S\d+_).*$", lambda m_: m_.group(1) + "concept", orig_["name"]),
+                  ai=dict(id=s_["id"], scene=s_["scene"], colour=s_.get("colour")), fallback=orig_)
+        statics[i_] = d_
+    for k_, s_ in enumerate(x for x in ai_plan["stills"] if x["use"] == "static" and not sheet_scenes):
         i_ = ai_slot(s_["layout"])
         if i_ is None:
             ai_dropped.append(s_["id"])
@@ -2341,7 +2415,10 @@ def plan(a):
     STILLS = (".jpg", ".jpeg", ".png", ".webp")
     ugc_voice, ugc_speed = voice_cfg()
     ugc_sc, ulib, dnote, dlong = [], [], {}, {}
-    if a.videos and not story and not getattr(a, "classic", False):
+    if a.videos and sheet is not None:      # the strategist's scripts (ideas.py): written for this batch, not the engine's templates
+        import ideas
+        ugc_sc = ideas.scripts(sheet, pr, a.hooks)[:a.videos]
+    elif a.videos and not story and not getattr(a, "classic", False):
         import ugc_script
         try:
             nl_ = novelty.load()               # what the product's last batches said (novelty.py): other hooks, other words
@@ -2389,8 +2466,8 @@ def plan(a):
             return float(((b.get(p[0]) or {}).get(p[1]) or {}).get("dur") or 0) >= 60
 
         def add(p, extra=(), tag=None, kind="clip", pen=0.0, only=(), hook=False, tags=None, q="good", own_kw=None):
-            if not p or unfit(p) or any(near(p, e["p"]) for e in ulib):
-                return
+            if not p or unfit(p) or has_person(p) or any(near(p, e["p"]) for e in ulib):    # (a clip whose notes say a woman / customer /
+                return                                                                      # model is in it: faces, and never what the words say)
             x = pick(p)
             if x:                   # once: a photo of kind 'other' (a product page's diagram with its words) is shown whole, one time
                 f_ = photo_file(p) if p[0] == "photo" else None
@@ -2455,7 +2532,8 @@ def plan(a):
         lib, pid = ugc_lib(), "P" + vid[1:]
         uses, jit = {}, v * 5 + a.seed * 3
         hk, alts = dict(sc["hook"]), [dict(h) for h in sc["alt_hooks"]]
-        if theme_key != "default" and tx["hooks"]:        # a themed request: its own opening first, the script's hook is H2's pool
+        if theme_key != "default" and tx["hooks"] and not sc.get("from_sheet"):   # a themed request: its own opening first, the script's hook
+            #                                                                    is H2's pool (the strategist's sheet writes its own hooks)
             tl = tx["hooks"][v % len(tx["hooks"])]
             alts = [hk] + [h for h in alts if h["text"] != tl]
             hk = dict(text=tl, type=hook_type_of(tl), label=th["label"] or hk["label"], feature=None)
@@ -2466,7 +2544,7 @@ def plan(a):
                 question="QUICK QUESTION", price="THE DEAL").get(ty_, "LOOK CLOSER"))
         chs = [dict(c) for c in sc["chapters"]]
         close = ov(None, f"{vid}_close", f"{pid}_close", f"{bid}_close")
-        if close is None and theme_key != "default" and chs[-1]["kind"] == "offer" and tx["offer_word"]:
+        if close is None and theme_key != "default" and chs[-1]["kind"] == "offer" and tx["offer_word"] and not sc.get("from_sheet"):
             ow_ = tx["offer_word"]       # a themed request: the theme's close, when it says the offer word the card waits for
             if ow_.lower() in tx["close"].lower() or (ow_.isdigit() and new_product.say(int(ow_)).split("-")[0] in tx["close"].lower()):
                 close = tx["close"]
@@ -2492,10 +2570,11 @@ def plan(a):
                     continue
                 if (e["only"] and not e["only"] & (terms | cterms)) or (kinds and e["kind"] not in kinds) or (e["once"] and use.get(i)):
                     continue
-                s = 3.0 * len(e["kw"] & terms) + 1.5 * len(e["kw"] & cterms) + (6.0 if feat and e["tag"] == feat else 0.0) \
+                sem = shotmatch.score(e.get("tags"), wants, e.get("q", "good")) if (wants or e.get("q") == "weak") and e["p"][0] != "photo" else 0.0
+                s = 3.0 * len(e["kw"] & terms) + 1.5 * len(e["kw"] & cterms) + (6.0 if feat and e["tag"] == feat and not (wants and sem < 0) else 0.0) \
                     + (4.0 if hook and e["hook"] else 0.0) + (2.5 * bool(e["kw"] & HOOK_MOVE) - 2.5 * ("hang" in e["kw"]) if hook else 0.0) - e["pen"] - 6.0 * (prev is not None and e["src"] == prev and not e["long"]) \
                     - 5.0 * recent.count(e["src"]) * (not e["long"]) - 0.01 * ((i * 7 + jit) % 13)
-                s += shotmatch.score(e.get("tags"), wants, e.get("q", "good")) if (wants or e.get("q") == "weak") and e["p"][0] != "photo" else 0.0
+                s += sem
                 s -= REUSE * use.get(i, 0)                           # a moment shown again costs REUSE: a good match shown twice (the 2nd
                 if best is None or -s < best[0]:                    # time a closer framing) beats a shot that shows something else
                     best = (-s, i)
@@ -2537,7 +2616,7 @@ def plan(a):
                 last_slot = ch is not None and ch is chs[-1] and j == len(slots[k_]) - 1
                 c_ = choose({"packshot", "hero"}, {"hero"}, None, prev, uses, {"photo"}) if last_slot and packs else None
                 c_ = c_ or choose(kw_terms(st_), ct, feat, prev, uses, hook=ch is None,
-                                  wants=shotmatch.wants(st_, (ch or {}).get("tag") or hk.get("feature"), (ch or {}).get("show") or ()))
+                                  wants=shotmatch.wants(st_, (ch or {}).get("tag") or hk.get("feature"), (ch or hk).get("show") or ()))
                 x_ = framed(*c_) if c_ else None
                 if x_:
                     if last_slot and len(x_) > 3 and x_[3].get("fit"):
@@ -2557,7 +2636,7 @@ def plan(a):
             recent.clear()
             for _ in range(0 if colour else more):
                 c_ = choose(ct, ct, hk.get("feature") if ch is None else ch["feature"], None, spuse,
-                            wants=shotmatch.wants(t_, (ch or {}).get("tag") or hk.get("feature"), (ch or {}).get("show") or ()))
+                            wants=shotmatch.wants(t_, (ch or {}).get("tag") or hk.get("feature"), (ch or hk).get("show") or ()))
                 x_ = framed(*c_) if c_ else None
                 if x_ and not any(x_[0] == y[0] and x_[1] == y[1] for y in sp):
                     sp.append(x_)
@@ -2587,7 +2666,7 @@ def plan(a):
                     **({"end_photo": rel(end_ph[(v + a.seed) % len(end_ph)]), "end_offer": tx["offer_title"] or ""} if end_ph else {}),
                     keywords=kws, spare_broll=[x for x in gen if x],
                     music=False if getattr(a, "no_music", False) else dict(seed=(a.seed - 1) * 11 + v + 1))
-        name = f"{prefix}_{vid}_{UGC_ANGLE[sc['angle']]}"
+        name = f"{prefix}_{vid}_{UGC_ANGLE.get(sc['angle']) or re.sub(r'[^A-Za-z0-9]', '', sc['angle'])[:14]}"
         return name, spec, dict(name=name, id=vid, format="ugc", engine="storyboard", hook=hook,
                                 ugc=dict(script=sc["id"], angle=sc["angle"], words=sc["words"], hook=dict(type=hk["type"], label=hk["label"],
                                          feature=hk.get("feature")), alt_hooks=alts, numbers=sc["numbers"]))
@@ -3144,7 +3223,7 @@ def render_one(out, v):
     tmp = os.path.join(out, "_tmp", v["id"])           # longform/recut leave their temp folders: one per video, removed after
     os.makedirs(tmp, exist_ok=True)
     r = subprocess.run([sys.executable, script, os.path.join(out, v["name"] + ".json"), "--out", f], capture_output=True, text=True,
-                       env=dict(os.environ, TMPDIR=tmp))
+                       env=dict(os.environ, TMPDIR=tmp, LC_SEGCACHE=os.path.join(out, "_seg")))   # (shots the hook versions share: rendered once)
     shutil.rmtree(tmp, ignore_errors=True)
     wav = os.path.join(out, f"_{v['name']}_audio.wav")      # the mixed sound track: inside the mp4 now
     if os.path.exists(wav):
@@ -3306,7 +3385,8 @@ def render(a):
         report.update({r["name"]: r for r in static_qa(out, p["statics"], failed)})
     if vids:
         prefetch(out, vids)
-    with cf.ThreadPoolExecutor(max(1, a.jobs)) as ex:
+    vids = sorted(vids, key=lambda v: not re.search(r"H1$|^V\d+$|^W", str(v["id"])))   # the first version of each project first: it renders the shots
+    with cf.ThreadPoolExecutor(max(1, a.jobs)) as ex:                                 # the other three then take from the shot cache
         for r in ex.map(lambda v: render_one(out, v), vids):
             report[r["name"]] = r
             print(json.dumps(r), flush=True)
@@ -3718,6 +3798,16 @@ def upload(a):
     elif uploaded:
         notes.append("no ad copy for this batch (ad_copy.csv is missing: python3 pipeline/ad_copy.py --out $OUT, then "
                      "upload again)")
+    # ---------- the strategy sheet (ideas.py: the strategist's ideas, scripts and static concepts of this batch) next to the run report
+    for ext in ("md", "csv"):
+        sp_ = os.path.join(out, f"strategy_sheet.{ext}")
+        if uploaded and os.path.exists(sp_):
+            base = f"{p['prefix']}_strategy_sheet.{ext}"
+            os.makedirs(os.path.join(out, "_upload"), exist_ok=True)
+            local = os.path.join(out, "_upload", base)
+            shutil.copyfile(sp_, local)
+            if not any(x["name"] == base and x.get("md5Checksum") == md5(local) for x in in_drive(folder).values()):
+                run("upload", local, "--folder", folder, "--name", base + ("" if base not in in_drive(folder) else f".{now:%H%M%S}"))
     # ---------- the ad index: one row per ad of the batch (batch id, name, what it is, its hook / caption, length, QA flags) and an empty
     # `launched` column for the media buyer; written once the whole batch is in Drive (a statics-first upload waits for the videos)
     ad_index = None
@@ -3818,6 +3908,8 @@ def upload(a):
     run("upload", txt, "--folder", folder)          # a fresh report every upload, never skipped
     if tested:
         print(f"product file changed: {tested} (\"tests\" += this batch): commit it with the specs", file=sys.stderr)
+    if not pending:               # everything of the batch is in Drive: the shot cache the hook versions shared is not needed any more
+        shutil.rmtree(os.path.join(out, "_seg"), ignore_errors=True)
     print(json.dumps(dict(folder=link, name=name, batch=lbt.get("id"), pipeline=pipe, drive_path=f"{where}/{name}", files=len(uploaded),
                           **({"ad_index": ad_index} if ad_index else {}),
                           **({"product_file_updated": tested} if tested else {}),
@@ -3839,7 +3931,8 @@ def specs_copy(a):
     p = json.load(open(os.path.join(out, "plan.json")))
     os.makedirs(a.to, exist_ok=True)
     fs = ["plan.json", "statics.json", "tts_needed.json"] + [v["name"] + ".json" for v in p["videos"]] + \
-        [f for f in ("ad_copy.json", "compliance.json", "ai_needed.json") if os.path.exists(os.path.join(out, f))]   # the copy + its check + the AI plan
+        [f for f in ("ad_copy.json", "compliance.json", "ai_needed.json", "ideas.json", "strategy_sheet.md")
+         if os.path.exists(os.path.join(out, f))]   # the copy + its check + the AI plan + the strategist's sheet
     for f in fs:
         shutil.copy(os.path.join(out, f), os.path.join(a.to, f))
     print(json.dumps(dict(to=os.path.abspath(a.to), files=fs), indent=1))
@@ -3909,6 +4002,8 @@ def main():
     pl.add_argument("--no-ledger", action="store_true", help="don't take a batch number (B000): offline tests")
     pl.add_argument("--budget", type=float, help=f"credits the request allows for voiceover, hook lines included "
                     f"(default {MAX_CREDITS})")
+    pl.add_argument("--ideas", help="the strategist's sheet (ideas.py): its scripts, hooks and static concepts are the batch; the "
+                    "script engine's templates are not used (CLAUDE.md: every batch starts with the strategist step)")
     pl.add_argument("--ai", action="store_true", help="make the AI scene statics / clips (ai_gen.py) even when the product has enough "
                     "real photos and footage (by default AI only fills what the real material cannot)")
     pl.add_argument("--no-frames", action="store_true", help="no statics from real footage frames (footage_index.frame_bank)")

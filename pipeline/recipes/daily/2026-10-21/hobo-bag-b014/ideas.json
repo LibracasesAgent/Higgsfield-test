@@ -1,0 +1,836 @@
+{
+ "product": "Hobo Bag",
+ "theme": "black friday",
+ "date": "2026-10-21",
+ "research": [
+  "Reviewed what B004-B013 (Hobo Bag) already did: angles n_things, demo, stop_x, travel, value and the day story, and their hooks ('Four things you'll notice', 'Stop digging for your keys', 'Watch what this bag does...', 'Ever pat your bag...', 'Half price, plus a free matching pouch wallet'): none of the four stories below repeats an angle, a hook or a line.",
+  "Read the owner's feedback (Julian): b-roll must match the words, no review chapters, better end cards, videos that look alike: so each project has a different structure (pack-out demo, crowd scenario, gift guide, numbered buyer's guide) and every line names the picture it needs.",
+  "Research (docs/research/2026-10-black-friday-and-bag-ads.md): BFCM statics win with one big visual and one offer line; pack-for-a-scenario demos (Dagne Dover, Bellroy), 'locks to furniture' / feature pointouts (Pacsafe), numbered '5 reasons' (Bellroy), gifting (Fossil), 'don't buy yet' hooks: used for P01, P02, P04, P03.",
+  "Static concepts from the same research: flat-lay 'what fits', café chair with props, pocket close-up, gift styling, dark luxe Black Friday hero, entryway; at least half of the statics are AI studio scenes of the real bag with room left for the words.",
+  "Compliance: only the offer's facts (50% off, free matching pouch wallet, free US shipping, one-year warranty, easy returns, 'anti-theft'), no countdown or sale end date, no 'theft-proof', no first person, no review chapters in the videos."
+ ],
+ "projects": [
+  {
+   "id": "P01",
+   "slug": "packout",
+   "title": "The whole-day pack-out",
+   "big_idea": "A pack-out demo: one day's worth of things go into the Hobo Bag one by one, each into the compartment, zip or pocket made for it, and the bag is carried off three ways.",
+   "why_new": "Earlier batches talked features in a list (n_things / demo / stop / travel) or walked a day. This is a visual packing sequence where every line is an item going into a place, ending on the free pouch wallet: a different structure and a different picture for every line.",
+   "hooks": [
+    {
+     "text": "Pack one bag for a whole day. Watch what fits.",
+     "type": "promise",
+     "label": "WHAT FITS",
+     "show": [
+      "inside",
+      "packing"
+     ]
+    },
+    {
+     "text": "How much of your day can one bag really hold?",
+     "type": "question",
+     "label": "HOW MUCH?",
+     "show": [
+      "packing",
+      "handheld"
+     ]
+    },
+    {
+     "text": "If your bag swallows everything, watch this pack-out.",
+     "type": "problem",
+     "label": "NO BLACK HOLE",
+     "show": [
+      "packing",
+      "inside"
+     ]
+    },
+    {
+     "text": "Black Friday: half price, and it holds your whole day.",
+     "type": "price",
+     "label": "BLACK FRIDAY",
+     "show": [
+      "hero",
+      "packing"
+     ]
+    }
+   ],
+   "chapters": [
+    {
+     "kind": "point",
+     "text": "Start inside. Divided compartments, so nothing sinks to the bottom. Your lipstick gets its own spot, your water bottle gets its own spot, and your phone stays easy to find.",
+     "show": [
+      "inside",
+      "packing"
+     ],
+     "tag": "SMART COMPARTMENTS",
+     "number": null,
+     "highlight": [
+      "compartments"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Now the sides. There's a gold zip on each side, made for your keys and your phone. Reach in, grab, zip. No digging.",
+     "show": [
+      "side_zip",
+      "packing"
+     ],
+     "tag": "GOLD SIDE ZIPS",
+     "number": null,
+     "highlight": [
+      "gold",
+      "keys"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Turn it around. A hidden pocket sits on the back, flat against you. That's where your passport and cards go, out of sight.",
+     "show": [
+      "pocket",
+      "packing"
+     ],
+     "tag": "HIDDEN BACK POCKET",
+     "number": null,
+     "highlight": [
+      "hidden",
+      "passport"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Then the pouch wallet. It's free, it matches your bag, and it holds the little things you want close.",
+     "show": [
+      "pouch",
+      "packing"
+     ],
+     "tag": "FREE POUCH WALLET",
+     "number": null,
+     "highlight": [
+      "free"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "All packed? Pick how you carry it. Two straps, so it goes on your shoulder, in your hand, or crossbody. Your hands stay free.",
+     "show": [
+      "strap",
+      "worn"
+     ],
+     "tag": "3 WAYS TO WEAR",
+     "number": null,
+     "highlight": [
+      "shoulder",
+      "crossbody"
+     ]
+    },
+    {
+     "kind": "proof",
+     "text": "And the leather is soft, water-resistant and scratch-proof. It looks expensive, and it gets better the longer you own it.",
+     "show": [
+      "leather",
+      "hero"
+     ],
+     "tag": "SOFT LEATHER",
+     "number": null,
+     "highlight": [
+      "soft"
+     ]
+    },
+    {
+     "kind": "objection",
+     "text": "Worried it won't suit you? A one-year warranty and easy returns have you covered.",
+     "show": [
+      "hero",
+      "handheld"
+     ],
+     "tag": null,
+     "number": null,
+     "highlight": [
+      "warranty",
+      "returns"
+     ]
+    },
+    {
+     "kind": "offer",
+     "text": "It's Black Friday. Fifty percent off the Hobo Bag, plus a free matching pouch wallet. Free US shipping too. Tap the link below.",
+     "show": [
+      "hero",
+      "pouch"
+     ],
+     "tag": null,
+     "number": null,
+     "highlight": [
+      "fifty",
+      "free"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "P02",
+   "slug": "behind",
+   "title": "Where your bag is weakest",
+   "big_idea": "A crowd scenario told in 'you' form: the one spot nobody watches is right behind you, and this bag puts its hidden anti-theft pocket exactly there, with the keys and phone in side zips you can reach with one hand.",
+   "why_new": "Security has only been a list item in earlier batches ('stop clutching your bag'). This makes it the whole story: a packed-platform scenario, the pocket's position as the hook, and a closing line that it still looks like a handbag.",
+   "hooks": [
+    {
+     "text": "Look at where this pocket sits.",
+     "type": "promise",
+     "label": "LOOK CLOSER",
+     "show": [
+      "pocket",
+      "worn"
+     ]
+    },
+    {
+     "text": "Packed train, bag swinging behind you. Sound familiar?",
+     "type": "problem",
+     "label": "PACKED TRAIN?",
+     "show": [
+      "walking",
+      "street",
+      "worn"
+     ]
+    },
+    {
+     "text": "Where do your passport and cards ride when it's crowded?",
+     "type": "question",
+     "label": "CROWDED?",
+     "show": [
+      "pocket",
+      "worn"
+     ]
+    },
+    {
+     "text": "Black Friday: the anti-theft Hobo Bag at half price.",
+     "type": "price",
+     "label": "ANTI-THEFT",
+     "show": [
+      "pocket",
+      "hero"
+     ]
+    }
+   ],
+   "chapters": [
+    {
+     "kind": "point",
+     "text": "Picture the busiest hour of your week. A packed platform, everyone pressing past. Your bag swings behind you, and you can't see it.",
+     "show": [
+      "walking",
+      "street"
+     ],
+     "tag": null,
+     "number": null,
+     "highlight": [
+      "packed"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Now flip it around. The Hobo Bag has a hidden anti-theft pocket on the back. It sits flat against you, so your passport and cards stay right where you put them.",
+     "show": [
+      "pocket",
+      "worn"
+     ],
+     "tag": "HIDDEN BACK POCKET",
+     "number": null,
+     "highlight": [
+      "hidden",
+      "anti-theft"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Keys and phone live in the two gold side zips, one on each side. One hand in, one zip shut, and you're moving again.",
+     "show": [
+      "side_zip",
+      "zip_hand"
+     ],
+     "tag": "GOLD SIDE ZIPS",
+     "number": null,
+     "highlight": [
+      "gold",
+      "zips"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Wear it crossbody and the bag stays in front of you, where you can see it. Prefer your shoulder? Two adjustable straps, so it sits how you like.",
+     "show": [
+      "strap",
+      "worn"
+     ],
+     "tag": "3 WAYS TO WEAR",
+     "number": null,
+     "highlight": [
+      "crossbody"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Inside, divided compartments hold the rest, so you never stop in the middle of a crowd to hunt for a lip balm.",
+     "show": [
+      "inside",
+      "packing"
+     ],
+     "tag": "SMART COMPARTMENTS",
+     "number": null,
+     "highlight": [
+      "compartments"
+     ]
+    },
+    {
+     "kind": "proof",
+     "text": "And it still looks like a handbag. Soft, water-resistant, scratch-proof leather with gold zips, nothing that looks like gear.",
+     "show": [
+      "leather",
+      "hero"
+     ],
+     "tag": "SOFT LEATHER",
+     "number": null,
+     "highlight": [
+      "handbag"
+     ]
+    },
+    {
+     "kind": "objection",
+     "text": "Worried it's too good to be true? Check the one-year warranty and the easy returns.",
+     "show": [
+      "hero",
+      "handheld"
+     ],
+     "tag": null,
+     "number": null,
+     "highlight": [
+      "warranty",
+      "returns"
+     ]
+    },
+    {
+     "kind": "offer",
+     "text": "Black Friday means fifty percent off, a free matching pouch wallet, and free US shipping. Tap the link below.",
+     "show": [
+      "hero",
+      "pouch"
+     ],
+     "tag": null,
+     "number": null,
+     "highlight": [
+      "fifty",
+      "free"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "P03",
+   "slug": "giftcheck",
+   "title": "The three-box gift",
+   "big_idea": "A warm gift-giver story: a good gift checks three boxes (it looks expensive, it's useful, it feels thoughtful) and the Hobo Bag with its free matching pouch wallet ticks all three.",
+   "why_new": "No earlier batch spoke to a gift buyer. The structure is a short checklist told as a gift guide with a different voice (warm, second person, 'she'), built on the offer's real free pouch wallet.",
+   "hooks": [
+    {
+     "text": "A gift that comes with its own matching pouch wallet.",
+     "type": "promise",
+     "label": "GIFT SORTED",
+     "show": [
+      "pouch",
+      "hero"
+     ]
+    },
+    {
+     "text": "Still hunting for a gift she'll reach for every day?",
+     "type": "question",
+     "label": "GIFT IDEA?",
+     "show": [
+      "hero",
+      "handheld",
+      "worn"
+     ]
+    },
+    {
+     "text": "Skip the gift that ends up in a drawer.",
+     "type": "problem",
+     "label": "NO DRAWER GIFTS",
+     "show": [
+      "worn",
+      "hero"
+     ]
+    },
+    {
+     "text": "Black Friday gift idea: half price, plus a free pouch wallet.",
+     "type": "price",
+     "label": "BLACK FRIDAY",
+     "show": [
+      "hero",
+      "pouch"
+     ]
+    }
+   ],
+   "chapters": [
+    {
+     "kind": "point",
+     "text": "A good gift checks three boxes. It looks expensive. It's useful. And it feels like you thought about it. This bag does all three.",
+     "show": [
+      "hero",
+      "placed"
+     ],
+     "tag": null,
+     "number": null,
+     "highlight": [
+      "three"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Box one: the look. Soft, water-resistant leather with gold zips and clean stitching, the kind that looks expensive and keeps improving.",
+     "show": [
+      "leather",
+      "hero"
+     ],
+     "tag": "SOFT LEATHER",
+     "number": null,
+     "highlight": [
+      "soft",
+      "expensive"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Box two: useful. Divided compartments inside, a gold zip on each side for keys and phone, and a hidden pocket on the back for passport and cards.",
+     "show": [
+      "inside",
+      "side_zip",
+      "pocket"
+     ],
+     "tag": "SMART COMPARTMENTS",
+     "number": null,
+     "highlight": [
+      "useful"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Box three: the thoughtful part. A free matching pouch wallet comes with it, ready for cards and coins.",
+     "show": [
+      "pouch",
+      "placed"
+     ],
+     "tag": "FREE POUCH WALLET",
+     "number": null,
+     "highlight": [
+      "free",
+      "matching"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Here's why the pouch matters. It matches the bag, so the gift feels finished before anyone opens it.",
+     "show": [
+      "pouch",
+      "hero"
+     ],
+     "tag": null,
+     "number": null,
+     "highlight": [
+      "matches"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "She can carry it three ways: on the shoulder, as a handbag, or crossbody. Two adjustable straps, so it fits how she moves.",
+     "show": [
+      "strap",
+      "worn"
+     ],
+     "tag": "3 WAYS TO WEAR",
+     "number": null,
+     "highlight": [
+      "three ways"
+     ]
+    },
+    {
+     "kind": "objection",
+     "text": "Gifts should be easy to say yes to. That's why the Hobo Bag comes with a one-year warranty and easy returns.",
+     "show": [
+      "hero",
+      "handheld"
+     ],
+     "tag": null,
+     "number": null,
+     "highlight": [
+      "warranty",
+      "returns"
+     ]
+    },
+    {
+     "kind": "offer",
+     "text": "Black Friday takes fifty percent off the Hobo Bag, with the pouch wallet free and free US shipping. Tap the link below.",
+     "show": [
+      "hero",
+      "pouch"
+     ],
+     "tag": null,
+     "number": null,
+     "highlight": [
+      "fifty",
+      "free"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "P04",
+   "slug": "fivechecks",
+   "title": "Five checks before you buy any bag",
+   "big_idea": "A buyer's guide with a contrarian hook: five numbered checks to run on any bag before paying, each answered by one real feature of the Hobo Bag, with the verdict 'five for five'.",
+   "why_new": "The first numbered, consumer-advice structure: it opens by telling the viewer NOT to buy yet, each chapter is a question plus what to look for plus the Hobo Bag's answer, and the checks run through the product in a fixed order, so it reads as advice and not as a feature list.",
+   "hooks": [
+    {
+     "text": "Do not buy a bag this Black Friday before you check these five things.",
+     "type": "problem",
+     "label": "CHECK FIRST",
+     "show": [
+      "hero",
+      "handheld"
+     ]
+    },
+    {
+     "text": "Can you reach your keys without opening your bag?",
+     "type": "question",
+     "label": "KEYS TEST",
+     "show": [
+      "side_zip",
+      "zip_hand"
+     ]
+    },
+    {
+     "text": "Five things that tell you if a bag is worth it.",
+     "type": "promise",
+     "label": "5 THINGS",
+     "show": [
+      "inside",
+      "pocket",
+      "strap"
+     ]
+    },
+    {
+     "text": "Black Friday: the bag that passes every check, at half price.",
+     "type": "price",
+     "label": "HALF PRICE",
+     "show": [
+      "hero",
+      "pouch"
+     ]
+    }
+   ],
+   "chapters": [
+    {
+     "kind": "point",
+     "text": "Here's your checklist. Five things to check on any bag before you pay for it.",
+     "show": [
+      "hero",
+      "handheld"
+     ],
+     "tag": null,
+     "number": null,
+     "highlight": [
+      "five"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Where do your passport and cards sit? Look for a pocket against your body. The Hobo Bag has a hidden anti-theft pocket on the back, flat against you.",
+     "show": [
+      "pocket",
+      "worn"
+     ],
+     "tag": "HIDDEN BACK POCKET",
+     "number": 1,
+     "highlight": [
+      "pocket"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Can you reach your keys without opening the bag? Look for zips on the sides. The Hobo Bag has two gold side zips, one on each side, made for keys and phone.",
+     "show": [
+      "side_zip",
+      "zip_hand"
+     ],
+     "tag": "GOLD SIDE ZIPS",
+     "number": 2,
+     "highlight": [
+      "zips"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Does it stay organised? Look inside. Divided compartments mean nothing sinks to the bottom, so you find what you need fast.",
+     "show": [
+      "inside",
+      "packing"
+     ],
+     "tag": "SMART COMPARTMENTS",
+     "number": 3,
+     "highlight": [
+      "inside"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Can you wear it more than one way? Check the straps. Two adjustable straps give you shoulder, handbag or crossbody.",
+     "show": [
+      "strap",
+      "worn"
+     ],
+     "tag": "3 WAYS TO WEAR",
+     "number": 4,
+     "highlight": [
+      "straps"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Will it keep looking good? Feel the leather. This one is soft, water-resistant and scratch-proof, and it only gets better with time.",
+     "show": [
+      "leather",
+      "hero"
+     ],
+     "tag": "SOFT LEATHER",
+     "number": 5,
+     "highlight": [
+      "leather"
+     ]
+    },
+    {
+     "kind": "objection",
+     "text": "The Hobo Bag passes every check. And if it's not for you, there's a one-year warranty and easy returns.",
+     "show": [
+      "hero",
+      "handheld"
+     ],
+     "tag": null,
+     "number": null,
+     "highlight": [
+      "five",
+      "warranty"
+     ]
+    },
+    {
+     "kind": "offer",
+     "text": "It's Black Friday, so the Hobo Bag is fifty percent off, with a free matching pouch wallet and free US shipping. Tap the link below.",
+     "show": [
+      "hero",
+      "pouch"
+     ],
+     "tag": null,
+     "number": null,
+     "highlight": [
+      "fifty",
+      "free"
+     ]
+    }
+   ]
+  }
+ ],
+ "statics": [
+  {
+   "id": "S01",
+   "project": "P01",
+   "layout": "concept",
+   "idea": "What fits: a top-down flat-lay of one day's things beside the bag on pale marble.",
+   "headline": "Everything fits.",
+   "kicker": "BLACK FRIDAY",
+   "sub": "Plus a free matching pouch wallet.",
+   "pill": true,
+   "where": "bottom",
+   "scene": {
+    "kind": "object",
+    "colour": "Black",
+    "prompt": "Editorial top-down flat-lay on pale warm-grey marble. The handbag lies in the upper-middle of the frame; around it, neatly spaced, a phone, a slim leather wallet, a set of house keys on a ring, a lipstick, a small notebook and a water bottle, as if just taken out of the bag. Everything sits in the upper two thirds of the frame; the bottom quarter of the frame is plain empty marble with nothing on it. Soft diffused daylight, gentle shadows, calm premium styling."
+   }
+  },
+  {
+   "id": "S02",
+   "project": "P01",
+   "layout": "concept",
+   "idea": "A café-table scene: the bag on a chair, phone and keys on the table.",
+   "headline": "Phone. Keys. Cards. Done.",
+   "pill": true,
+   "where": "bottom",
+   "scene": {
+    "kind": "object",
+    "colour": "Brown",
+    "prompt": "The handbag hangs by its strap over the back of a light oak cafe chair, its front clearly visible; at a small round marble table beside it, a latte in a white cup, a phone and a set of keys. Soft morning window light from the left, a softly blurred empty cafe interior behind, no other chairs occupied. The bag fills the upper two thirds of the frame; the bottom quarter shows only the calm chair seat and floor, empty."
+   }
+  },
+  {
+   "id": "S03",
+   "project": "P01",
+   "layout": "native",
+   "idea": "A real footage frame of things going into the bag.",
+   "headline": "Room for the whole day."
+  },
+  {
+   "id": "S04",
+   "project": "P01",
+   "layout": "studio",
+   "idea": "The real packshot on a calm tinted backdrop: the compartments line.",
+   "headline": "Nothing sinks to the bottom."
+  },
+  {
+   "id": "S05",
+   "project": "P01",
+   "layout": "value",
+   "idea": "The real price struck through (the plan checks it against the site)."
+  },
+  {
+   "id": "S06",
+   "project": "P02",
+   "layout": "concept",
+   "idea": "A commuter seen from behind: the bag worn close against the body, no face.",
+   "headline": "The pocket nobody sees.",
+   "pill": true,
+   "where": "bottom",
+   "scene": {
+    "kind": "worn",
+    "colour": "Burgundy",
+    "prompt": "A woman in a camel coat and blue jeans walks away from the camera along an empty autumn city street, seen from behind and slightly from the side, cropped by the top edge of the frame at shoulder height so no head or face is visible. The handbag hangs on her shoulder, close against her body, large and clearly visible in the middle of the frame. Golden afternoon light, softly blurred empty street with fallen leaves; nobody else in the picture. The bottom fifth of the frame is plain pavement."
+   }
+  },
+  {
+   "id": "S07",
+   "project": "P02",
+   "layout": "concept",
+   "idea": "The back of the bag on a stone bench, a card holder and keys beside it: where the pocket sits.",
+   "headline": "Look where it sits.",
+   "kicker": "BLACK FRIDAY",
+   "pill": true,
+   "where": "top",
+   "scene": {
+    "kind": "object",
+    "colour": "Brown",
+    "prompt": "The handbag seen from the back, standing on a pale stone bench in soft daylight, its back pocket and zip clearly visible; on the bench in front of it a small leather card holder and a set of keys. A calm, out-of-focus plain plaster wall behind. The bag sits in the lower two thirds of the frame; the top quarter of the frame is the plain empty wall with nothing in it.",
+    "ref": "hobo_bag_05.jpg"
+   }
+  },
+  {
+   "id": "S08",
+   "project": "P02",
+   "layout": "native",
+   "idea": "A real footage frame of the hidden back pocket.",
+   "headline": "Hidden back pocket."
+  },
+  {
+   "id": "S09",
+   "project": "P02",
+   "layout": "quotes",
+   "idea": "One verbatim review next to the packshot."
+  },
+  {
+   "id": "S10",
+   "project": "P02",
+   "layout": "studio",
+   "idea": "The packshot with the anti-theft line.",
+   "headline": "Anti-theft back pocket."
+  },
+  {
+   "id": "S11",
+   "project": "P03",
+   "layout": "concept",
+   "idea": "A gift styling: the bag and its matching pouch wallet beside a wrapped gift on cream linen.",
+   "headline": "Gift sorted.",
+   "kicker": "BLACK FRIDAY",
+   "sub": "Free matching pouch wallet.",
+   "pill": true,
+   "where": "bottom",
+   "scene": {
+    "kind": "object",
+    "colour": "Burgundy",
+    "prompt": "The handbag with its matching pouch wallet beside it on a cream linen surface; next to them a gift box wrapped in plain kraft paper with a thin gold ribbon and a sprig of dried eucalyptus. Soft warm window light, calm cream wall behind. The bag and pouch fill the upper two thirds of the frame; the bottom quarter is plain empty linen."
+   }
+  },
+  {
+   "id": "S12",
+   "project": "P03",
+   "layout": "concept",
+   "idea": "The Black Friday hero: the bag lit like a luxury product on dark charcoal with golden bokeh.",
+   "headline": "The Hobo Bag.",
+   "kicker": "BLACK FRIDAY",
+   "pill": true,
+   "where": "bottom",
+   "scene": {
+    "kind": "object",
+    "colour": "Red",
+    "prompt": "Luxury studio product photograph for a Black Friday campaign. The handbag stands upright, slightly angled, on a dark charcoal seamless surface with a soft low reflection; behind it, out of focus, warm golden bokeh lights and a few softly blurred dark wrapped gift boxes with thin gold ribbon; a single soft key light from the upper left with gentle rim light on the leather. Rich, elegant, premium. The bag fills the upper two thirds of the frame; the bottom quarter is empty dark surface."
+   }
+  },
+  {
+   "id": "S13",
+   "project": "P03",
+   "layout": "studio",
+   "idea": "The packshot with its pouch wallet: the gift line.",
+   "headline": "Bag plus pouch wallet."
+  },
+  {
+   "id": "S14",
+   "project": "P03",
+   "layout": "offer",
+   "idea": "The offer static (the real % and gift)."
+  },
+  {
+   "id": "S15",
+   "project": "P03",
+   "layout": "stars",
+   "idea": "Verbatim review snippets with stars."
+  },
+  {
+   "id": "S16",
+   "project": "P04",
+   "layout": "concept",
+   "idea": "An entryway console: the bag by the door with a dish of keys, the five-check idea.",
+   "headline": "One bag. Every check.",
+   "pill": true,
+   "where": "bottom",
+   "scene": {
+    "kind": "object",
+    "colour": "Blue",
+    "prompt": "The handbag stands on a narrow oak entryway console beside a small ceramic dish holding keys, with a trailing plant in soft focus and a pale plaster wall behind, soft morning light from a window at the left. The bag is the hero in the upper two thirds of the frame, fully visible; the bottom quarter shows only the calm console edge and floor, empty."
+   }
+  },
+  {
+   "id": "S17",
+   "project": "P04",
+   "layout": "native",
+   "idea": "A real footage frame inside the open bag.",
+   "headline": "Divided compartments."
+  },
+  {
+   "id": "S18",
+   "project": "P04",
+   "layout": "concept",
+   "idea": "Hands-free on an autumn street: the bag crossbody, no face.",
+   "headline": "Hands free, all day.",
+   "pill": true,
+   "where": "bottom",
+   "scene": {
+    "kind": "worn",
+    "colour": "Black",
+    "prompt": "A woman in a camel coat and blue jeans walks along an empty autumn city street wearing the handbag crossbody, one hand on the strap, seen from the side and slightly behind and cropped by the top edge of the frame at shoulder height so no head or face is visible. The bag is large and clearly visible in the middle of the frame. Golden afternoon light, softly blurred empty street with fallen leaves, nobody else in the picture. The bottom fifth of the frame is plain pavement."
+   }
+  },
+  {
+   "id": "S19",
+   "project": "P04",
+   "layout": "colours",
+   "idea": "The six real colours."
+  },
+  {
+   "id": "S20",
+   "project": "P04",
+   "layout": "checklist",
+   "idea": "The feature tags as ticks with the offer pill."
+  }
+ ]
+}

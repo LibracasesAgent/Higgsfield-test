@@ -426,7 +426,22 @@
      "label": "Stop settling for a bag that makes your day harder."
     }
    ]
+  },
+  {
+   "id": "B014",
+   "n": 14,
+   "rev": 1,
+   "date": "2026-10-21",
+   "product": "Hobo Bag",
+   "theme": "BlackFriday",
+   "pipeline": "catalog",
+   "request": "four projects with five statics each, Black Friday, 50% off",
+   "statics": 20,
+   "projects": 4,
+   "hooks": 4,
+   "seed": 3,
+   "status": "planned"
   }
  ],
- "next": 14
+ "next": 15
 }

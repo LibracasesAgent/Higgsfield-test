@@ -1776,6 +1776,95 @@ def l_scene_price(a, sd):
     return c.convert("RGBA")
 
 
+def concept_crop_y(ph, h):
+    """Where a window of h px (of a photo already scaled to the canvas width) keeps the most of what is in the picture: the edge energy of
+    each row (a bag has edges, a plain wall or floor has none), the window that holds the most of it -> focus fy (0 = top, 1 = bottom)."""
+    import numpy as np
+    g = np.asarray(ph.convert("L"), dtype=float)
+    row = np.abs(np.diff(g, axis=1)).sum(axis=1)[:-1] + np.abs(np.diff(g, axis=0)).sum(axis=1)
+    if ph.height <= h:
+        return 0.5
+    cs = np.concatenate([[0.0], np.cumsum(row)])
+    best = max(range(0, ph.height - h + 1), key=lambda y: cs[min(y + h, len(row))] - cs[min(y, len(row))])
+    return best / (ph.height - h)
+
+
+def l_concept(a, sd):
+    """The studio-level concept static (owner 2026-10-21: "something studio-level: the bag, with some elements behind"): an AI scene photo
+    of the real bag (ideas.py plans it, Higgsfield makes it from the real packshot, ai_gen gates it) with at most a small spaced kicker
+    ('BLACK FRIDAY'), a serif headline, one sub-line and the red offer pill. style "band" (default): the photo above (or below, where:
+    top) a calm footer in the photo's own edge colour (the brand cream when that edge is busy) that carries the words, so nothing is ever
+    printed on the bag; the photo is cropped to the part that holds the picture (concept_crop_y). style "overlay": the words on a soft
+    gradient scrim at the calmer end of the photo (`where`, `tone`). No words: the photo alone. Everything printed is the spec's own."""
+    import numpy as np
+    W, H = a.get("size", [1080, 1350])
+    im = scene_photo(a, sd, "concept")
+    head, kicker, sub, offer = a.get("headline"), a.get("kicker"), a.get("sub"), offer_text(a)
+    if not (head or kicker or sub or offer):
+        return cover_photo(im, a, (W, H), 1.0).convert("RGBA")
+    M, gap = SCENE_M, 20
+    c0 = Image.new("RGB", (W, H))
+    d0 = ImageDraw.Draw(c0)
+    fk, fs = SANS(26, "SemiBold"), SANS(30, "Medium")
+    kt = spaced(kicker) if kicker else None
+    fh = fit(d0, head, SERIF, a.get("hsize", 84), W - 2 * M, 2, 52) if head else None
+    pill_h = int(32 * 2.4) if offer else 0
+    parts = [x for x in (("k", put(d0, [kt], fk, WHITE, 0, W, dry=True)) if kt else None,
+                         ("h", put(d0, head, fh, WHITE, 0, W - 2 * M, lh=1.0, dry=True)) if head else None,
+                         ("s", put(d0, sub, fs, WHITE, 0, W - 2 * M, dry=True)) if sub else None,
+                         ("p", pill_h) if offer else None) if x]
+    block = sum(h for _, h in parts) + gap * (len(parts) - 1)
+    where = a.get("where") or "bottom"
+    if a.get("style") == "overlay":
+        ph = cover_photo(im, a, (W, H), 1.0)
+        c = ph.convert("RGBA")
+        calm = calm_of(ph)
+        where = a.get("where") or min(("top", "bottom"), key=lambda w: calm((0, 0, W, int(H * 0.30)) if w == "top" else (0, int(H * 0.70), W, H)))
+        top_y = M + 24 if where == "top" else H - M - 20 - block
+        lo, hi = (0, top_y + block + 90) if where == "top" else (top_y - 120, H)
+        region = np.asarray(ph.convert("L").crop((0, max(lo, 0), W, min(hi, H))), dtype=float)
+        tone = a.get("tone") or ("light" if region.mean() > 168 else "dark")
+        ink, base = ((38, 30, 26), (250, 246, 240)) if tone == "light" else (WHITE, (22, 17, 14))
+        ys = np.arange(H, dtype=float)[:, None]
+        ramp = np.clip((ys - lo) / max(hi - lo, 1), 0, 1) if where == "bottom" else np.clip(1 - (ys - lo) / max(hi - lo, 1), 0, 1)
+        scrim = Image.new("RGBA", (W, H), base + (0,))
+        scrim.putalpha(Image.fromarray((ramp ** 1.5 * (0.80 if tone == "light" else 0.70) * 255 * np.ones((1, W))).astype("uint8")))
+        c = Image.alpha_composite(c, scrim)
+        y0 = top_y
+    else:
+        band = block + 2 * 40
+        ph_h = H - band
+        full = ImageOps.fit(im, (W, int(im.height * W / im.width)), Image.LANCZOS)
+        fy = a.get("focus", [0.5, None])[1] if a.get("focus") else None
+        fy = concept_crop_y(full, ph_h) if fy is None else fy
+        ph = ImageOps.fit(im, (W, ph_h), Image.LANCZOS, centering=(0.5, fy))
+        edge = np.asarray(ph.crop((0, 0, W, 16)) if where == "top" else ph.crop((0, ph_h - 16, W, ph_h)), dtype=float).reshape(-1, 3)
+        col = tuple(int(v) for v in edge.mean(axis=0)) if edge.std(axis=0).mean() < 26 else (250, 246, 240)
+        light = _luma(col) > 150
+        ink = (38, 30, 26) if light else WHITE
+        c = Image.new("RGBA", (W, H), col + (255,))
+        c.paste(ph.convert("RGBA"), (0, band if where == "top" else 0))
+        blend = Image.new("RGBA", (W, 70), col + (0,))              # (the photo's edge melts into the footer)
+        ramp = np.linspace(255, 0, 70) if where == "top" else np.linspace(0, 255, 70)
+        blend.putalpha(Image.fromarray((ramp[:, None] * np.ones((1, W))).astype("uint8")))
+        c.alpha_composite(blend, (0, band if where == "top" else ph_h - 70))
+        y0 = 40 if where == "top" else ph_h + 40
+        tone = "light" if light else "dark"
+    d = ImageDraw.Draw(c)
+    y = y0
+    for kind, h in parts:
+        if kind == "k":
+            put(d, [kt], fk, GOLD if tone == "light" else (232, 205, 150), y, W)
+        elif kind == "h":
+            put(d, head, fh, ink, y, W - 2 * M, lh=1.0)
+        elif kind == "s":
+            put(d, sub, fs, ink, y, W - 2 * M)
+        else:
+            pill(d, W, y, offer, bg=RED, size=32, bold=True)
+        y += h + gap
+    return c
+
+
 LAYOUTS = {k[2:]: v for k, v in globals().items() if k.startswith("l_")}
 
 

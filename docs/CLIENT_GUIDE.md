@@ -17,6 +17,15 @@ When you give no numbers, Claude makes a **batch**: **20 statics + 5 video proje
 versions (H1-H4, see below), so a batch is 20 statics and 20 videos. Give numbers to get exactly those
 ("2 projects and 6 statics" = 6 statics and 8 videos; "6 statics" = only statics).
 
+## Every batch starts with a strategy sheet (since 2026-10-21)
+
+Before anything is made, the agent writes down the ideas of the batch: for every video project a new idea, four hooks and the full
+script (every line with the picture it needs), for every static its concept. It reads what earlier batches did and the research first, so
+each batch is something new. The sheet is checked, then used for everything, and lands in the Drive batch folder next to the ads as
+`<batch>_strategy_sheet.md` and `.csv` (a spreadsheet of every script line). Ask for a theme in one line ("4 projects with 5 statics each,
+Black Friday, 50% off") and you get it. The videos' pictures match the words (a line about the side zips shows the side zips), there is
+no "a customer said" review chapter any more, the end card is a clean studio card, and a batch renders in roughly a third of the time.
+
 ## 1. Winners: new versions of this week's winning videos
 
 | You want | Copy into the DM |
