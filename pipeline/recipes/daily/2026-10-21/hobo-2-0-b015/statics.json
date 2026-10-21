@@ -1,0 +1,101 @@
+{
+ "ads": [
+  {
+   "layout": "concept",
+   "photo": "ai/AS01.png",
+   "kicker": "BLACK FRIDAY",
+   "headline": "Tie it to the chair.",
+   "where": "bottom",
+   "pct": 50,
+   "name": "LC_261021_Hobo20_BlackFriday_B015_S01_concept",
+   "ai": {
+    "id": "AS01",
+    "scene": "p01_s01",
+    "colour": "Galaxy Black"
+   }
+  },
+  {
+   "layout": "native",
+   "photo": "photos/frames/F_17LUvhickg_0172.jpg",
+   "caption": "Stays where you left it.",
+   "pct": 50,
+   "name": "LC_261021_Hobo20_BlackFriday_B015_S02_native",
+   "frame": {
+    "clip": "17LUvhickgvbD5s_IJbInLyIYgOQ1ALfY",
+    "t": 17.23
+   }
+  },
+  {
+   "layout": "studio",
+   "photo": "site/clean/hobo_2_0_colour_dark_sienn.jpg",
+   "name": "LC_261021_Hobo20_BlackFriday_B015_S03_studio",
+   "caption": "Lockable zippers."
+  },
+  {
+   "layout": "concept",
+   "photo": "ai/AS02.png",
+   "headline": "Right where you left it.",
+   "where": "bottom",
+   "pct": 50,
+   "name": "LC_261021_Hobo20_BlackFriday_B015_S04_concept",
+   "ai": {
+    "id": "AS02",
+    "scene": "p01_s04",
+    "colour": "Dark Sienn"
+   }
+  },
+  {
+   "layout": "concept",
+   "photo": "ai/AS03.png",
+   "kicker": "BLACK FRIDAY",
+   "headline": "Built in layers.",
+   "where": "bottom",
+   "pct": 50,
+   "name": "LC_261021_Hobo20_BlackFriday_B015_S05_concept",
+   "ai": {
+    "id": "AS03",
+    "scene": "p02_s05",
+    "colour": "Galaxy Black"
+   }
+  },
+  {
+   "layout": "native",
+   "photo": "photos/frames/F_1BJo9-k08c_0432.jpg",
+   "caption": "Layer one: the zippers.",
+   "pct": 50,
+   "name": "LC_261021_Hobo20_BlackFriday_B015_S06_native",
+   "frame": {
+    "clip": "1BJo9-k08c-2e3Ad1KYteSNOxAKguuktL",
+    "t": 43.22
+   }
+  },
+  {
+   "layout": "offer",
+   "photo": "site/clean/hobo_2_0_colour_beige.jpg",
+   "pct": 50,
+   "kicker": "BLACK FRIDAY",
+   "headline": "Meet the Hobo 2.0",
+   "gift": "free pouch wallet",
+   "cta": "Get the Black Friday deal",
+   "name": "LC_261021_Hobo20_BlackFriday_B015_S07_offer"
+  },
+  {
+   "layout": "checklist",
+   "photo": "site/clean/hobo_2_0_colour_galaxy_black.jpg",
+   "headline": "What makes the Hobo 2.0 different",
+   "ticks": [
+    "RFID lining",
+    "Cut-resistant strap",
+    "Table security strap",
+    "Hidden pockets"
+   ],
+   "offer": "BLACK FRIDAY 50% OFF + FREE WALLET",
+   "cta": "Get the Black Friday deal",
+   "name": "LC_261021_Hobo20_BlackFriday_B015_S08_checklist"
+  }
+ ],
+ "card_photos": [
+  "site/clean/hobo_2_0_colour_beige.jpg",
+  "site/clean/hobo_2_0_colour_galaxy_black.jpg"
+ ]
+}

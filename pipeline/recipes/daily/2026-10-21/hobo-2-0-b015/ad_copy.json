@@ -1,0 +1,210 @@
+{
+ "ok": true,
+ "created": "2026-10-21",
+ "product": "Hobo 2.0",
+ "theme": "black friday",
+ "theme_name": "BlackFriday",
+ "offer": "50% off + free pouch wallet",
+ "seed": 2,
+ "cta": "Get Offer",
+ "rows": 16,
+ "csv": "/tmp/run/bf2/ad_copy.csv",
+ "statics": [
+  {
+   "id": "S01",
+   "ad_name": "LC_261021_Hobo20_BlackFriday_B015_S01_concept",
+   "angle": "concept",
+   "primary_text_1": "Black Friday came early.\nThe Hobo 2.0: 50% off + free wallet.",
+   "primary_text_2": "This is the Black Friday deal you've been waiting for. 🖤\nAn RFID lining that blocks card scanners.\nA cut-resistant strap.\nIt's 50% off right now, with a free pouch wallet. 🎁\nTap Get Offer to claim the deal.",
+   "headline_1": "Black Friday: 50% Off",
+   "headline_2": "50% Off the Hobo 2.0 + Free Wallet",
+   "description": "50% off + free US shipping",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER"
+  },
+  {
+   "id": "S02",
+   "ad_name": "LC_261021_Hobo20_BlackFriday_B015_S02_native",
+   "angle": "native",
+   "primary_text_1": "It looks like a normal leather bag. Look closer.\nBlack Friday deal: the Hobo 2.0 is 50% off + free wallet.",
+   "primary_text_2": "Six layers of security, inside a classic leather hobo bag. 🖤\nHidden pockets and smart compartments for everything else.\nLockable zippers, so nobody can open it in a crowd.\nThis Black Friday: 50% off + a free pouch wallet. 🎁\nTap Get Offer to claim the deal.",
+   "headline_1": "Black Friday Deal: 50% Off + Free Wallet",
+   "headline_2": "Hobo 2.0: 50% Off + Free Wallet",
+   "description": "Free US shipping",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER"
+  },
+  {
+   "id": "S03",
+   "ad_name": "LC_261021_Hobo20_BlackFriday_B015_S03_studio",
+   "angle": "studio",
+   "primary_text_1": "Worried about pickpockets in a crowd? These zippers lock.\nThe Hobo 2.0: 50% off + free wallet.",
+   "primary_text_2": "Take a closer look at the Hobo 2.0. 🖤\nA cut-resistant strap.\nA table strap that loops around your chair, so your bag stays right where you left it.\nBlack Friday: 50% off + a free pouch wallet. 🎁\nTap Get Offer before it's gone.",
+   "headline_1": "Black Friday: 50% Off the Hobo 2.0",
+   "headline_2": "Meet the Hobo 2.0: Cut-Resistant Strap",
+   "description": "Free pouch wallet",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER"
+  },
+  {
+   "id": "S04",
+   "ad_name": "LC_261021_Hobo20_BlackFriday_B015_S04_concept",
+   "angle": "concept",
+   "primary_text_1": "This bag straps to your chair.\n50% off the Hobo 2.0 + free wallet.",
+   "primary_text_2": "This bag's lining blocks card scanners. 🖤\nHidden pockets and smart compartments for everything else.\nLockable zippers, so nobody can open it in a crowd.\nBlack Friday: 50% off + a free pouch wallet. 🎁\nTap Get Offer before it's gone.",
+   "headline_1": "Meet the Hobo 2.0: Hidden Pockets",
+   "headline_2": "Now 50% Off: The Hobo 2.0",
+   "description": "Black Friday: 50% off",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER"
+  },
+  {
+   "id": "S05",
+   "ad_name": "LC_261021_Hobo20_BlackFriday_B015_S05_concept",
+   "angle": "concept",
+   "primary_text_1": "Would you carry a bag that locks?\n50% off the Hobo 2.0 + free wallet.",
+   "primary_text_2": "An open bag in a crowd is an easy target. 🖤\nAn RFID lining that blocks card scanners.\nA cut-resistant strap.\nNow 50% off, with a free pouch wallet. 🎁\nTap Get Offer before it's gone.",
+   "headline_1": "The Hobo 2.0: RFID Lining",
+   "headline_2": "Free Pouch Wallet Included",
+   "description": "Black Friday deal: 50% off",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER"
+  },
+  {
+   "id": "S06",
+   "ad_name": "LC_261021_Hobo20_BlackFriday_B015_S06_native",
+   "angle": "native",
+   "primary_text_1": "A gift for anyone who travels: a bag with lockable zippers.\n50% off the Hobo 2.0 + free wallet.",
+   "primary_text_2": "Does your bag block card scanners? 🖤\nA cut-resistant strap.\nA table strap that loops around your chair, so your bag stays right where you left it.\nNow 50% off, with a free pouch wallet. 🎁\nTap Get Offer before it's gone.",
+   "headline_1": "Meet the Hobo 2.0: RFID Lining",
+   "headline_2": "RFID Lining + Cut-Resistant Strap",
+   "description": "Now 50% off",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER"
+  },
+  {
+   "id": "S07",
+   "ad_name": "LC_261021_Hobo20_BlackFriday_B015_S07_offer",
+   "angle": "offer",
+   "primary_text_1": "Heading somewhere crowded? Lock your zips before you go.\nThe Hobo 2.0: 50% off + free wallet.",
+   "primary_text_2": "Have you seen the Hobo 2.0 yet? 🖤\nA cut-resistant strap.\nA table strap that loops around your chair, so your bag stays right where you left it.\nNow 50% off, with a free pouch wallet. 🎁\nTap Get Offer before it's gone.",
+   "headline_1": "Black Friday Deal: 50% Off + Free Wallet",
+   "headline_2": "The Hobo 2.0: Cut-Resistant Strap",
+   "description": "3 colours + free US shipping",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER"
+  },
+  {
+   "id": "S08",
+   "ad_name": "LC_261021_Hobo20_BlackFriday_B015_S08_checklist",
+   "angle": "checklist",
+   "primary_text_1": "You sit down at a cafe and your bag stays strapped to the chair.\nThe Hobo 2.0: 50% off + free wallet.",
+   "primary_text_2": "Looking for a gift? Meet the Hobo 2.0. 🖤\nAn RFID lining that blocks card scanners.\nA cut-resistant strap.\nBlack Friday: 50% off + a free pouch wallet. 🎁\nTap Get Offer before it's gone.",
+   "headline_1": "Black Friday: 50% Off",
+   "headline_2": "50% Off the Hobo 2.0 + Free Wallet",
+   "description": "Free pouch wallet included",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER"
+  }
+ ],
+ "projects": [
+  {
+   "id": "P01",
+   "angle": "chairtie",
+   "engine": "storyboard",
+   "product": "Hobo 2.0",
+   "winner": null,
+   "primary_text_1": "Black Friday came early.\nThe Hobo 2.0, now 50% off with a free pouch wallet.",
+   "primary_text_2": "This is the Black Friday deal you've been waiting for. 🖤\nA table strap that loops around your chair, so your bag stays right where you left it.\nLockable zippers, so nobody can open it in a crowd.\nNow 50% off, with a free pouch wallet. 🎁\nTap Get Offer before it's gone.",
+   "headline_1": "Meet the Hobo 2.0: Table Security Strap",
+   "headline_2": "Table Security Strap + Lockable Zippers",
+   "description": "3 colours to choose from",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER",
+   "versions": [
+    {
+     "hook": "H1",
+     "id": "P01H1",
+     "ad_name": "LC_261021_Hobo20_BlackFriday_B015_P01_H1_chairtie",
+     "hook_text": "Where does your bag go when you sit down for a coffee?",
+     "hook_first_line": "Where does your bag go when you sit down for a coffee?",
+     "primary_text_2_hook": "Where does your bag go when you sit down for a coffee?\nA table strap that loops around your chair, so your bag stays right where you left it.\nLockable zippers, so nobody can open it in a crowd.\nNow 50% off, with a free pouch wallet. 🎁\nTap Get Offer before it's gone."
+    },
+    {
+     "hook": "H2",
+     "id": "P01H2",
+     "ad_name": "LC_261021_Hobo20_BlackFriday_B015_P01_H2_chairtie",
+     "hook_text": "Watch how this strap loops around your chair.",
+     "hook_first_line": "Watch how this strap loops around your chair.",
+     "primary_text_2_hook": "Watch how this strap loops around your chair.\nA table strap that loops around your chair, so your bag stays right where you left it.\nLockable zippers, so nobody can open it in a crowd.\nNow 50% off, with a free pouch wallet. 🎁\nTap Get Offer before it's gone."
+    },
+    {
+     "hook": "H3",
+     "id": "P01H3",
+     "ad_name": "LC_261021_Hobo20_BlackFriday_B015_P01_H3_chairtie",
+     "hook_text": "Hanging your bag on the back of the chair? Look at this.",
+     "hook_first_line": "Hanging your bag on the back of the chair? Look at this.",
+     "primary_text_2_hook": "Hanging your bag on the back of the chair? Look at this.\nA table strap that loops around your chair, so your bag stays right where you left it.\nLockable zippers, so nobody can open it in a crowd.\nNow 50% off, with a free pouch wallet. 🎁\nTap Get Offer before it's gone."
+    },
+    {
+     "hook": "H4",
+     "id": "P01H4",
+     "ad_name": "LC_261021_Hobo20_BlackFriday_B015_P01_H4_chairtie",
+     "hook_text": "Black Friday: the Hobo 2.0 with the table strap, at half price.",
+     "hook_first_line": "Black Friday: the Hobo 2.0 with the table strap, at half price.",
+     "primary_text_2_hook": "Black Friday: the Hobo 2.0 with the table strap, at half price.\nA table strap that loops around your chair, so your bag stays right where you left it.\nLockable zippers, so nobody can open it in a crowd.\nNow 50% off, with a free pouch wallet. 🎁\nTap Get Offer before it's gone."
+    }
+   ]
+  },
+  {
+   "id": "P02",
+   "angle": "layers",
+   "engine": "storyboard",
+   "product": "Hobo 2.0",
+   "winner": null,
+   "primary_text_1": "It looks like a normal leather bag. Look closer.\nThe Hobo 2.0: 50% off + free wallet.",
+   "primary_text_2": "Take a closer look at the Hobo 2.0. 🖤\nLockable zippers, so nobody can open it in a crowd.\nA cut-resistant strap.\nNow 50% off, with a free pouch wallet. 🎁\nTap Get Offer to claim the deal.",
+   "headline_1": "Meet the Hobo 2.0: Lockable Zippers",
+   "headline_2": "Lockable Zippers + Cut-Resistant Strap",
+   "description": "Black Friday: 50% off",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER",
+   "versions": [
+    {
+     "hook": "H1",
+     "id": "P02H1",
+     "ad_name": "LC_261021_Hobo20_BlackFriday_B015_P02_H1_layers",
+     "hook_text": "A bag is only as safe as its weakest spot. Look at this one.",
+     "hook_first_line": "A bag is only as safe as its weakest spot. Look at this one.",
+     "primary_text_2_hook": "A bag is only as safe as its weakest spot. Look at this one.\nLockable zippers, so nobody can open it in a crowd.\nA cut-resistant strap.\nNow 50% off, with a free pouch wallet. 🎁\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H2",
+     "id": "P02H2",
+     "ad_name": "LC_261021_Hobo20_BlackFriday_B015_P02_H2_layers",
+     "hook_text": "Why does your bag only have one way to close?",
+     "hook_first_line": "Why does your bag only have one way to close?",
+     "primary_text_2_hook": "Why does your bag only have one way to close?\nLockable zippers, so nobody can open it in a crowd.\nA cut-resistant strap.\nNow 50% off, with a free pouch wallet. 🎁\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H3",
+     "id": "P02H3",
+     "ad_name": "LC_261021_Hobo20_BlackFriday_B015_P02_H3_layers",
+     "hook_text": "Zips open, straps get cut, cards get scanned. This bag plans for all three.",
+     "hook_first_line": "Zips open, straps get cut, cards get scanned. This bag plans for all three.",
+     "primary_text_2_hook": "Zips open, straps get cut, cards get scanned. This bag plans for all three.\nLockable zippers, so nobody can open it in a crowd.\nA cut-resistant strap.\nNow 50% off, with a free pouch wallet. 🎁\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H4",
+     "id": "P02H4",
+     "ad_name": "LC_261021_Hobo20_BlackFriday_B015_P02_H4_layers",
+     "hook_text": "Black Friday: a bag with layers, at half price.",
+     "hook_first_line": "Black Friday: a bag with layers, at half price.",
+     "primary_text_2_hook": "Black Friday: a bag with layers, at half price.\nLockable zippers, so nobody can open it in a crowd.\nA cut-resistant strap.\nNow 50% off, with a free pouch wallet. 🎁\nTap Get Offer to claim the deal."
+    }
+   ]
+  }
+ ],
+ "notes": [],
+ "problems": []
+}

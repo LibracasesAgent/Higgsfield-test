@@ -18,4 +18,4 @@ Made by `pipeline/ledger.py` at every upload; one row per batch. A batch id is i
 | B012 | 2026-10-20 | Vintage Bag | Evergreen | uploaded | 5 statics + 3 projects | 14 ads | B012 – 2026-10-20 – Vintage Bag – 5 statics + 3 projects | https://drive.google.com/drive/folders/11Bd7VisFSK5zyhk0dIt6IX63tYkS4xVS |
 | B013 | 2026-10-20 | Hobo 2.0 | Evergreen | uploaded | 5 statics + 3 projects | 8 ads | B013 – 2026-10-20 – Hobo 2.0 – 5 statics + 3 projects | https://drive.google.com/drive/folders/1rjcF9S4TeB8O2VcrnPtqGnciq2Qdw8YH |
 | B014 | 2026-10-21 | Hobo Bag | BlackFriday | uploaded | 20 statics + 4 projects | 36 ads | B014 – 2026-10-21 – Hobo Bag BlackFriday – 20 statics + 4 projects | https://drive.google.com/drive/folders/16mnY4LvWls6MYBKQ_OF_0tI9CWGgxpxQ |
-| B015 | 2026-10-21 | Hobo 2.0 | BlackFriday | planned | 8 statics + 2 projects |  | Hobo 2.0 Black Friday: 2 projects with 8 statics (the tie-it-to-the-chair idea) |  |
+| B015 | 2026-10-21 | Hobo 2.0 | BlackFriday | uploaded | 8 statics + 2 projects | 16 ads | B015 – 2026-10-21 – Hobo 2.0 BlackFriday – 8 statics + 2 projects | https://drive.google.com/drive/folders/1_D48lpsjX4tt_jp9aFTvcC1OCdgkCj4f |

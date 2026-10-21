@@ -20,9 +20,28 @@ def sheet():
     return json.load(open(SHEET))
 
 
+def without_own_batch():
+    """The sheet's own batch (B014) is in the novelty log once uploaded: check it against the log as it was before that batch."""
+    import novelty
+    real = novelty.load
+
+    def load(*a, **k):
+        log = copy.deepcopy(real(*a, **k))
+        for p_ in log["products"].values():
+            p_["batches"] = [b for b in p_.get("batches") or [] if "B014" not in str(b.get("name") or "")]
+        return log
+    novelty.load = load
+    return real
+
+
 def test_the_committed_sheet_passes_its_own_check():
-    pr = ideas.product_of("Hobo Bag")
-    P, W = ideas.check(sheet(), pr, 4, 20)
+    import novelty
+    real = without_own_batch()
+    try:
+        pr = ideas.product_of("Hobo Bag")
+        P, W = ideas.check(sheet(), pr, 4, 20)
+    finally:
+        novelty.load = real
     assert not P, P
 
 

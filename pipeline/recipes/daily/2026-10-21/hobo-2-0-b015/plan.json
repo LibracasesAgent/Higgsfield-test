@@ -1,0 +1,969 @@
+{
+ "prefix": "LC_261021_Hobo20_BlackFriday_B015",
+ "rev": 1,
+ "batch_id": {
+  "id": "B015",
+  "n": 15,
+  "rev": 1
+ },
+ "created": "2026-10-21",
+ "request": "Hobo 2.0 Black Friday: 2 projects with 8 statics (the tie-it-to-the-chair idea)",
+ "product": "Hobo 2.0",
+ "product_key": "hobo 2.0",
+ "product_source": "built-in",
+ "theme": "black friday",
+ "theme_name": "BlackFriday",
+ "offer": "50% off + free pouch wallet",
+ "statics": [
+  "LC_261021_Hobo20_BlackFriday_B015_S01_concept",
+  "LC_261021_Hobo20_BlackFriday_B015_S02_native",
+  "LC_261021_Hobo20_BlackFriday_B015_S03_studio",
+  "LC_261021_Hobo20_BlackFriday_B015_S04_concept",
+  "LC_261021_Hobo20_BlackFriday_B015_S05_concept",
+  "LC_261021_Hobo20_BlackFriday_B015_S06_native",
+  "LC_261021_Hobo20_BlackFriday_B015_S07_offer",
+  "LC_261021_Hobo20_BlackFriday_B015_S08_checklist"
+ ],
+ "videos": [
+  {
+   "name": "LC_261021_Hobo20_BlackFriday_B015_P01_H1_chairtie",
+   "id": "P01H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "ugc": {
+    "script": "U01",
+    "angle": "chairtie",
+    "words": 211,
+    "hook": {
+     "type": "question",
+     "label": "CAFE TEST",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Watch how this strap loops around your chair.",
+      "type": "promise",
+      "label": "CHAIR STRAP",
+      "feature": null,
+      "show": [
+       "tie",
+       "placed"
+      ]
+     },
+     {
+      "text": "Hanging your bag on the back of the chair? Look at this.",
+      "type": "problem",
+      "label": "LOOK AT THIS",
+      "feature": null,
+      "show": [
+       "tie",
+       "cafe"
+      ]
+     },
+     {
+      "text": "Black Friday: the Hobo 2.0 with the table strap, at half price.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "hero",
+       "placed"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Watch how this strap loops around your chair.": [
+      [
+       "1k5t-OSFD1AOBHVK1C9LD14pOsK_M8u3A",
+       11.4,
+       1.0
+      ]
+     ],
+     "Hanging your bag on the back of the chair? Look at this.": [
+      [
+       "1uEnMRxZCnNftENEVcNP321hWTE0N2gzF",
+       0.3,
+       1.0
+      ],
+      [
+       "1I9WcHLd5KaIANP9QzC69YCO4pKa7vhmH",
+       2.39,
+       1.0
+      ]
+     ],
+     "Black Friday: the Hobo 2.0 with the table strap, at half price.": [
+      [
+       "1aQBAjT5py7LopNasEMJwnwEBgq3mF2v6",
+       39.3,
+       1.0
+      ],
+      [
+       "1FFnl2Gi3bfeQMOyhEvvh1BuvE_DQA61K",
+       0.3,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 70.5,
+   "project": "P01",
+   "hook_text": "Where does your bag go when you sit down for a coffee?",
+   "hook_label": "CAFE TEST",
+   "hook_type": "question",
+   "opening_shot": [
+    "1KrR781UEs1Kq_ZgfUAylQx5lumykwiBB",
+    0.3
+   ]
+  },
+  {
+   "name": "LC_261021_Hobo20_BlackFriday_B015_P01_H2_chairtie",
+   "id": "P01H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "ugc": {
+    "script": "U01",
+    "angle": "chairtie",
+    "words": 211,
+    "hook": {
+     "type": "question",
+     "label": "CAFE TEST",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Watch how this strap loops around your chair.",
+      "type": "promise",
+      "label": "CHAIR STRAP",
+      "feature": null,
+      "show": [
+       "tie",
+       "placed"
+      ]
+     },
+     {
+      "text": "Hanging your bag on the back of the chair? Look at this.",
+      "type": "problem",
+      "label": "LOOK AT THIS",
+      "feature": null,
+      "show": [
+       "tie",
+       "cafe"
+      ]
+     },
+     {
+      "text": "Black Friday: the Hobo 2.0 with the table strap, at half price.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "hero",
+       "placed"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Watch how this strap loops around your chair.": [
+      [
+       "1k5t-OSFD1AOBHVK1C9LD14pOsK_M8u3A",
+       11.4,
+       1.0
+      ]
+     ],
+     "Hanging your bag on the back of the chair? Look at this.": [
+      [
+       "1uEnMRxZCnNftENEVcNP321hWTE0N2gzF",
+       0.3,
+       1.0
+      ],
+      [
+       "1I9WcHLd5KaIANP9QzC69YCO4pKa7vhmH",
+       2.39,
+       1.0
+      ]
+     ],
+     "Black Friday: the Hobo 2.0 with the table strap, at half price.": [
+      [
+       "1aQBAjT5py7LopNasEMJwnwEBgq3mF2v6",
+       39.3,
+       1.0
+      ],
+      [
+       "1FFnl2Gi3bfeQMOyhEvvh1BuvE_DQA61K",
+       0.3,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 69.2,
+   "project": "P01",
+   "hook_text": "Watch how this strap loops around your chair.",
+   "hook_label": "CHAIR STRAP",
+   "hook_type": "promise",
+   "opening_shot": [
+    "1k5t-OSFD1AOBHVK1C9LD14pOsK_M8u3A",
+    11.4
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261021_Hobo20_BlackFriday_B015_P01_H3_chairtie",
+   "id": "P01H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "ugc": {
+    "script": "U01",
+    "angle": "chairtie",
+    "words": 211,
+    "hook": {
+     "type": "question",
+     "label": "CAFE TEST",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Watch how this strap loops around your chair.",
+      "type": "promise",
+      "label": "CHAIR STRAP",
+      "feature": null,
+      "show": [
+       "tie",
+       "placed"
+      ]
+     },
+     {
+      "text": "Hanging your bag on the back of the chair? Look at this.",
+      "type": "problem",
+      "label": "LOOK AT THIS",
+      "feature": null,
+      "show": [
+       "tie",
+       "cafe"
+      ]
+     },
+     {
+      "text": "Black Friday: the Hobo 2.0 with the table strap, at half price.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "hero",
+       "placed"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Watch how this strap loops around your chair.": [
+      [
+       "1k5t-OSFD1AOBHVK1C9LD14pOsK_M8u3A",
+       11.4,
+       1.0
+      ]
+     ],
+     "Hanging your bag on the back of the chair? Look at this.": [
+      [
+       "1uEnMRxZCnNftENEVcNP321hWTE0N2gzF",
+       0.3,
+       1.0
+      ],
+      [
+       "1I9WcHLd5KaIANP9QzC69YCO4pKa7vhmH",
+       2.39,
+       1.0
+      ]
+     ],
+     "Black Friday: the Hobo 2.0 with the table strap, at half price.": [
+      [
+       "1aQBAjT5py7LopNasEMJwnwEBgq3mF2v6",
+       39.3,
+       1.0
+      ],
+      [
+       "1FFnl2Gi3bfeQMOyhEvvh1BuvE_DQA61K",
+       0.3,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 70.5,
+   "project": "P01",
+   "hook_text": "Hanging your bag on the back of the chair? Look at this.",
+   "hook_label": "LOOK AT THIS",
+   "hook_type": "problem",
+   "opening_shot": [
+    "1uEnMRxZCnNftENEVcNP321hWTE0N2gzF",
+    0.3
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261021_Hobo20_BlackFriday_B015_P01_H4_chairtie",
+   "id": "P01H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "ugc": {
+    "script": "U01",
+    "angle": "chairtie",
+    "words": 211,
+    "hook": {
+     "type": "question",
+     "label": "CAFE TEST",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Watch how this strap loops around your chair.",
+      "type": "promise",
+      "label": "CHAIR STRAP",
+      "feature": null,
+      "show": [
+       "tie",
+       "placed"
+      ]
+     },
+     {
+      "text": "Hanging your bag on the back of the chair? Look at this.",
+      "type": "problem",
+      "label": "LOOK AT THIS",
+      "feature": null,
+      "show": [
+       "tie",
+       "cafe"
+      ]
+     },
+     {
+      "text": "Black Friday: the Hobo 2.0 with the table strap, at half price.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "hero",
+       "placed"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Watch how this strap loops around your chair.": [
+      [
+       "1k5t-OSFD1AOBHVK1C9LD14pOsK_M8u3A",
+       11.4,
+       1.0
+      ]
+     ],
+     "Hanging your bag on the back of the chair? Look at this.": [
+      [
+       "1uEnMRxZCnNftENEVcNP321hWTE0N2gzF",
+       0.3,
+       1.0
+      ],
+      [
+       "1I9WcHLd5KaIANP9QzC69YCO4pKa7vhmH",
+       2.39,
+       1.0
+      ]
+     ],
+     "Black Friday: the Hobo 2.0 with the table strap, at half price.": [
+      [
+       "1aQBAjT5py7LopNasEMJwnwEBgq3mF2v6",
+       39.3,
+       1.0
+      ],
+      [
+       "1FFnl2Gi3bfeQMOyhEvvh1BuvE_DQA61K",
+       0.3,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 70.5,
+   "project": "P01",
+   "hook_text": "Black Friday: the Hobo 2.0 with the table strap, at half price.",
+   "hook_label": "BLACK FRIDAY",
+   "hook_type": "price",
+   "opening_shot": [
+    "1aQBAjT5py7LopNasEMJwnwEBgq3mF2v6",
+    39.3
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261021_Hobo20_BlackFriday_B015_P02_H1_layers",
+   "id": "P02H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "ugc": {
+    "script": "U02",
+    "angle": "layers",
+    "words": 179,
+    "hook": {
+     "type": "promise",
+     "label": "WEAKEST SPOT",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Why does your bag only have one way to close?",
+      "type": "question",
+      "label": "ONE LOCK?",
+      "feature": null,
+      "show": [
+       "lock",
+       "zip"
+      ]
+     },
+     {
+      "text": "Zips open, straps get cut, cards get scanned. This bag plans for all three.",
+      "type": "problem",
+      "label": "THREE WEAK SPOTS",
+      "feature": null,
+      "show": [
+       "lock",
+       "strap",
+       "inside"
+      ]
+     },
+     {
+      "text": "Black Friday: a bag with layers, at half price.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null,
+      "show": [
+       "hero",
+       "lock"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Why does your bag only have one way to close?": [
+      [
+       "1oxUdLpppTglKB5vHrLfaT0hsFWr7G5LG",
+       0.3,
+       1.0
+      ],
+      [
+       "11poF1pVppESMbpDqGtIrZTpBoR9ut1pK",
+       0.3,
+       1.0
+      ]
+     ],
+     "Zips open, straps get cut, cards get scanned. This bag plans for all three.": [
+      [
+       "16pRpwsOoSf3PPoL0SJPACOZWAl-5whCx",
+       1.11,
+       1.0
+      ],
+      [
+       "1D5FDs81T0LPfQ53SinLRqVH2JaM91Vdz",
+       0.3,
+       1.0
+      ]
+     ],
+     "Black Friday: a bag with layers, at half price.": [
+      [
+       "1HWu9K7UA1xCpA8KX9rgiKiJiBvevFsC2",
+       61.4,
+       1.0
+      ],
+      [
+       "1aQBAjT5py7LopNasEMJwnwEBgq3mF2v6",
+       4.76,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 60.2,
+   "project": "P02",
+   "hook_text": "A bag is only as safe as its weakest spot. Look at this one.",
+   "hook_label": "WEAKEST SPOT",
+   "hook_type": "promise",
+   "opening_shot": [
+    "1ukNYoREClAtiOwqccv6XJTEM4e5yC4M6",
+    0.3
+   ]
+  },
+  {
+   "name": "LC_261021_Hobo20_BlackFriday_B015_P02_H2_layers",
+   "id": "P02H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "ugc": {
+    "script": "U02",
+    "angle": "layers",
+    "words": 179,
+    "hook": {
+     "type": "promise",
+     "label": "WEAKEST SPOT",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Why does your bag only have one way to close?",
+      "type": "question",
+      "label": "ONE LOCK?",
+      "feature": null,
+      "show": [
+       "lock",
+       "zip"
+      ]
+     },
+     {
+      "text": "Zips open, straps get cut, cards get scanned. This bag plans for all three.",
+      "type": "problem",
+      "label": "THREE WEAK SPOTS",
+      "feature": null,
+      "show": [
+       "lock",
+       "strap",
+       "inside"
+      ]
+     },
+     {
+      "text": "Black Friday: a bag with layers, at half price.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null,
+      "show": [
+       "hero",
+       "lock"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Why does your bag only have one way to close?": [
+      [
+       "1oxUdLpppTglKB5vHrLfaT0hsFWr7G5LG",
+       0.3,
+       1.0
+      ],
+      [
+       "11poF1pVppESMbpDqGtIrZTpBoR9ut1pK",
+       0.3,
+       1.0
+      ]
+     ],
+     "Zips open, straps get cut, cards get scanned. This bag plans for all three.": [
+      [
+       "16pRpwsOoSf3PPoL0SJPACOZWAl-5whCx",
+       1.11,
+       1.0
+      ],
+      [
+       "1D5FDs81T0LPfQ53SinLRqVH2JaM91Vdz",
+       0.3,
+       1.0
+      ]
+     ],
+     "Black Friday: a bag with layers, at half price.": [
+      [
+       "1HWu9K7UA1xCpA8KX9rgiKiJiBvevFsC2",
+       61.4,
+       1.0
+      ],
+      [
+       "1aQBAjT5py7LopNasEMJwnwEBgq3mF2v6",
+       4.76,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 58.9,
+   "project": "P02",
+   "hook_text": "Why does your bag only have one way to close?",
+   "hook_label": "ONE LOCK?",
+   "hook_type": "question",
+   "opening_shot": [
+    "1oxUdLpppTglKB5vHrLfaT0hsFWr7G5LG",
+    0.3
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261021_Hobo20_BlackFriday_B015_P02_H3_layers",
+   "id": "P02H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "ugc": {
+    "script": "U02",
+    "angle": "layers",
+    "words": 179,
+    "hook": {
+     "type": "promise",
+     "label": "WEAKEST SPOT",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Why does your bag only have one way to close?",
+      "type": "question",
+      "label": "ONE LOCK?",
+      "feature": null,
+      "show": [
+       "lock",
+       "zip"
+      ]
+     },
+     {
+      "text": "Zips open, straps get cut, cards get scanned. This bag plans for all three.",
+      "type": "problem",
+      "label": "THREE WEAK SPOTS",
+      "feature": null,
+      "show": [
+       "lock",
+       "strap",
+       "inside"
+      ]
+     },
+     {
+      "text": "Black Friday: a bag with layers, at half price.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null,
+      "show": [
+       "hero",
+       "lock"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Why does your bag only have one way to close?": [
+      [
+       "1oxUdLpppTglKB5vHrLfaT0hsFWr7G5LG",
+       0.3,
+       1.0
+      ],
+      [
+       "11poF1pVppESMbpDqGtIrZTpBoR9ut1pK",
+       0.3,
+       1.0
+      ]
+     ],
+     "Zips open, straps get cut, cards get scanned. This bag plans for all three.": [
+      [
+       "16pRpwsOoSf3PPoL0SJPACOZWAl-5whCx",
+       1.11,
+       1.0
+      ],
+      [
+       "1D5FDs81T0LPfQ53SinLRqVH2JaM91Vdz",
+       0.3,
+       1.0
+      ]
+     ],
+     "Black Friday: a bag with layers, at half price.": [
+      [
+       "1HWu9K7UA1xCpA8KX9rgiKiJiBvevFsC2",
+       61.4,
+       1.0
+      ],
+      [
+       "1aQBAjT5py7LopNasEMJwnwEBgq3mF2v6",
+       4.76,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 60.2,
+   "project": "P02",
+   "hook_text": "Zips open, straps get cut, cards get scanned. This bag plans for all three.",
+   "hook_label": "THREE WEAK SPOTS",
+   "hook_type": "problem",
+   "opening_shot": [
+    "16pRpwsOoSf3PPoL0SJPACOZWAl-5whCx",
+    1.11
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261021_Hobo20_BlackFriday_B015_P02_H4_layers",
+   "id": "P02H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "ugc": {
+    "script": "U02",
+    "angle": "layers",
+    "words": 179,
+    "hook": {
+     "type": "promise",
+     "label": "WEAKEST SPOT",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Why does your bag only have one way to close?",
+      "type": "question",
+      "label": "ONE LOCK?",
+      "feature": null,
+      "show": [
+       "lock",
+       "zip"
+      ]
+     },
+     {
+      "text": "Zips open, straps get cut, cards get scanned. This bag plans for all three.",
+      "type": "problem",
+      "label": "THREE WEAK SPOTS",
+      "feature": null,
+      "show": [
+       "lock",
+       "strap",
+       "inside"
+      ]
+     },
+     {
+      "text": "Black Friday: a bag with layers, at half price.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null,
+      "show": [
+       "hero",
+       "lock"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Why does your bag only have one way to close?": [
+      [
+       "1oxUdLpppTglKB5vHrLfaT0hsFWr7G5LG",
+       0.3,
+       1.0
+      ],
+      [
+       "11poF1pVppESMbpDqGtIrZTpBoR9ut1pK",
+       0.3,
+       1.0
+      ]
+     ],
+     "Zips open, straps get cut, cards get scanned. This bag plans for all three.": [
+      [
+       "16pRpwsOoSf3PPoL0SJPACOZWAl-5whCx",
+       1.11,
+       1.0
+      ],
+      [
+       "1D5FDs81T0LPfQ53SinLRqVH2JaM91Vdz",
+       0.3,
+       1.0
+      ]
+     ],
+     "Black Friday: a bag with layers, at half price.": [
+      [
+       "1HWu9K7UA1xCpA8KX9rgiKiJiBvevFsC2",
+       61.4,
+       1.0
+      ],
+      [
+       "1aQBAjT5py7LopNasEMJwnwEBgq3mF2v6",
+       4.76,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 58.6,
+   "project": "P02",
+   "hook_text": "Black Friday: a bag with layers, at half price.",
+   "hook_label": "HALF PRICE",
+   "hook_type": "price",
+   "opening_shot": [
+    "1HWu9K7UA1xCpA8KX9rgiKiJiBvevFsC2",
+    61.4
+   ],
+   "hook_source": "script"
+  }
+ ],
+ "tts_lines": 24,
+ "tts_dupes": {},
+ "est_credits": 8.4,
+ "budget": 100.0,
+ "colour_images": {
+  "Dark Sienn": "/tmp/run/bf2/site/clean/hobo_2_0_colour_dark_sienn.jpg",
+  "Beige": "/tmp/run/bf2/site/clean/hobo_2_0_colour_beige.jpg",
+  "Galaxy Black": "/tmp/run/bf2/site/clean/hobo_2_0_colour_galaxy_black.jpg"
+ },
+ "packshots": [
+  "/tmp/run/bf2/site/clean/hobo_2_0_colour_dark_sienn.jpg",
+  "/tmp/run/bf2/site/clean/hobo_2_0_colour_beige.jpg",
+  "/tmp/run/bf2/site/clean/hobo_2_0_colour_galaxy_black.jpg"
+ ],
+ "brief": null,
+ "ai": {
+  "stills": 3,
+  "clips": 0,
+  "est_credits": 3.0,
+  "budget": {
+   "cap": 100.0,
+   "tts_est": 9.0,
+   "reserve": 8.0
+  },
+  "scenes": [
+   "p01_s01",
+   "p01_s04",
+   "p02_s05"
+  ],
+  "next": "python3 pipeline/ai_gen.py show --out /tmp/run/bf2"
+ },
+ "winners_source": null,
+ "winners_note": null,
+ "winners_used": [],
+ "unmatched_winners": [],
+ "warnings": [
+  "ideas: 3 AI studio scenes of 8 statics (about 3 credits plus retries)"
+ ],
+ "winner_reviews": false,
+ "seed": 2,
+ "hooks": 4,
+ "pipeline": "catalog",
+ "video_format": "ugc",
+ "ugc_numbers": [],
+ "voice": {
+  "voice_type": "element",
+  "voice_id": "241459b6-b4e8-4a2a-9868-da8bcdcd0558",
+  "speed": 1.12
+ },
+ "projects": [
+  {
+   "id": "P01",
+   "from_id": "V01",
+   "angle": "chairtie",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P01H1",
+     "name": "LC_261021_Hobo20_BlackFriday_B015_P01_H1_chairtie",
+     "hook_text": "Where does your bag go when you sit down for a coffee?",
+     "label": "CAFE TEST",
+     "type": "question",
+     "shot": [
+      "1KrR781UEs1Kq_ZgfUAylQx5lumykwiBB",
+      0.3
+     ],
+     "est_seconds": 70.5
+    },
+    {
+     "hook": "H2",
+     "id": "P01H2",
+     "name": "LC_261021_Hobo20_BlackFriday_B015_P01_H2_chairtie",
+     "hook_text": "Watch how this strap loops around your chair.",
+     "label": "CHAIR STRAP",
+     "type": "promise",
+     "shot": [
+      "1k5t-OSFD1AOBHVK1C9LD14pOsK_M8u3A",
+      11.4
+     ],
+     "est_seconds": 69.2
+    },
+    {
+     "hook": "H3",
+     "id": "P01H3",
+     "name": "LC_261021_Hobo20_BlackFriday_B015_P01_H3_chairtie",
+     "hook_text": "Hanging your bag on the back of the chair? Look at this.",
+     "label": "LOOK AT THIS",
+     "type": "problem",
+     "shot": [
+      "1uEnMRxZCnNftENEVcNP321hWTE0N2gzF",
+      0.3
+     ],
+     "est_seconds": 70.5
+    },
+    {
+     "hook": "H4",
+     "id": "P01H4",
+     "name": "LC_261021_Hobo20_BlackFriday_B015_P01_H4_chairtie",
+     "hook_text": "Black Friday: the Hobo 2.0 with the table strap, at half price.",
+     "label": "BLACK FRIDAY",
+     "type": "price",
+     "shot": [
+      "1aQBAjT5py7LopNasEMJwnwEBgq3mF2v6",
+      39.3
+     ],
+     "est_seconds": 70.5
+    }
+   ]
+  },
+  {
+   "id": "P02",
+   "from_id": "V02",
+   "angle": "layers",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P02H1",
+     "name": "LC_261021_Hobo20_BlackFriday_B015_P02_H1_layers",
+     "hook_text": "A bag is only as safe as its weakest spot. Look at this one.",
+     "label": "WEAKEST SPOT",
+     "type": "promise",
+     "shot": [
+      "1ukNYoREClAtiOwqccv6XJTEM4e5yC4M6",
+      0.3
+     ],
+     "est_seconds": 60.2
+    },
+    {
+     "hook": "H2",
+     "id": "P02H2",
+     "name": "LC_261021_Hobo20_BlackFriday_B015_P02_H2_layers",
+     "hook_text": "Why does your bag only have one way to close?",
+     "label": "ONE LOCK?",
+     "type": "question",
+     "shot": [
+      "1oxUdLpppTglKB5vHrLfaT0hsFWr7G5LG",
+      0.3
+     ],
+     "est_seconds": 58.9
+    },
+    {
+     "hook": "H3",
+     "id": "P02H3",
+     "name": "LC_261021_Hobo20_BlackFriday_B015_P02_H3_layers",
+     "hook_text": "Zips open, straps get cut, cards get scanned. This bag plans for all three.",
+     "label": "THREE WEAK SPOTS",
+     "type": "problem",
+     "shot": [
+      "16pRpwsOoSf3PPoL0SJPACOZWAl-5whCx",
+      1.11
+     ],
+     "est_seconds": 60.2
+    },
+    {
+     "hook": "H4",
+     "id": "P02H4",
+     "name": "LC_261021_Hobo20_BlackFriday_B015_P02_H4_layers",
+     "hook_text": "Black Friday: a bag with layers, at half price.",
+     "label": "HALF PRICE",
+     "type": "price",
+     "shot": [
+      "1HWu9K7UA1xCpA8KX9rgiKiJiBvevFsC2",
+      61.4
+     ],
+     "est_seconds": 58.6
+    }
+   ]
+  }
+ ],
+ "hooks_seed": 2
+}

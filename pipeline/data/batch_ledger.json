@@ -675,7 +675,107 @@
    "projects": 2,
    "hooks": 4,
    "seed": 2,
-   "status": "planned"
+   "status": "uploaded",
+   "folder": "B015 – 2026-10-21 – Hobo 2.0 BlackFriday – 8 statics + 2 projects",
+   "link": "https://drive.google.com/drive/folders/1_D48lpsjX4tt_jp9aFTvcC1OCdgkCj4f",
+   "ads": [
+    {
+     "name": "LC_261021_Hobo20_BlackFriday_B015_S01_concept",
+     "kind": "static",
+     "fp": "s|concept|AS01.png|tie it to the chair.",
+     "label": "Tie it to the chair."
+    },
+    {
+     "name": "LC_261021_Hobo20_BlackFriday_B015_S02_native",
+     "kind": "static",
+     "fp": "s|native|F_17LUvhickg_0172.jpg|stays where you left it.",
+     "label": "Stays where you left it."
+    },
+    {
+     "name": "LC_261021_Hobo20_BlackFriday_B015_S03_studio",
+     "kind": "static",
+     "fp": "s|studio|hobo_2_0_colour_dark_sienn.jpg|lockable zippers.",
+     "label": "Lockable zippers."
+    },
+    {
+     "name": "LC_261021_Hobo20_BlackFriday_B015_S04_concept",
+     "kind": "static",
+     "fp": "s|concept|AS02.png|right where you left it.",
+     "label": "Right where you left it."
+    },
+    {
+     "name": "LC_261021_Hobo20_BlackFriday_B015_S05_concept",
+     "kind": "static",
+     "fp": "s|concept|AS03.png|built in layers.",
+     "label": "Built in layers."
+    },
+    {
+     "name": "LC_261021_Hobo20_BlackFriday_B015_S06_native",
+     "kind": "static",
+     "fp": "s|native|F_1BJo9-k08c_0432.jpg|layer one: the zippers.",
+     "label": "Layer one: the zippers."
+    },
+    {
+     "name": "LC_261021_Hobo20_BlackFriday_B015_S07_offer",
+     "kind": "static",
+     "fp": "s|offer|hobo_2_0_colour_beige.jpg|meet the hobo 2.0",
+     "label": "Meet the Hobo 2.0"
+    },
+    {
+     "name": "LC_261021_Hobo20_BlackFriday_B015_S08_checklist",
+     "kind": "static",
+     "fp": "s|checklist|hobo_2_0_colour_galaxy_black.jpg|what makes the hobo 2.0 different",
+     "label": "What makes the Hobo 2.0 different"
+    },
+    {
+     "name": "LC_261021_Hobo20_BlackFriday_B015_P01_H1_chairtie",
+     "kind": "video",
+     "fp": "v|where does your bag go when you sit down for a coffee?|",
+     "label": "Where does your bag go when you sit down for a coffee?"
+    },
+    {
+     "name": "LC_261021_Hobo20_BlackFriday_B015_P01_H2_chairtie",
+     "kind": "video",
+     "fp": "v|watch how this strap loops around your chair.|",
+     "label": "Watch how this strap loops around your chair."
+    },
+    {
+     "name": "LC_261021_Hobo20_BlackFriday_B015_P01_H3_chairtie",
+     "kind": "video",
+     "fp": "v|hanging your bag on the back of the chair? look at this.|",
+     "label": "Hanging your bag on the back of the chair? Look at this."
+    },
+    {
+     "name": "LC_261021_Hobo20_BlackFriday_B015_P01_H4_chairtie",
+     "kind": "video",
+     "fp": "v|black friday: the hobo 2.0 with the table strap, at half price.|",
+     "label": "Black Friday: the Hobo 2.0 with the table strap, at half price."
+    },
+    {
+     "name": "LC_261021_Hobo20_BlackFriday_B015_P02_H1_layers",
+     "kind": "video",
+     "fp": "v|a bag is only as safe as its weakest spot. look at this one.|",
+     "label": "A bag is only as safe as its weakest spot. Look at this one."
+    },
+    {
+     "name": "LC_261021_Hobo20_BlackFriday_B015_P02_H2_layers",
+     "kind": "video",
+     "fp": "v|why does your bag only have one way to close?|",
+     "label": "Why does your bag only have one way to close?"
+    },
+    {
+     "name": "LC_261021_Hobo20_BlackFriday_B015_P02_H3_layers",
+     "kind": "video",
+     "fp": "v|zips open, straps get cut, cards get scanned. this bag plans for all three.|",
+     "label": "Zips open, straps get cut, cards get scanned. This bag plans for all three."
+    },
+    {
+     "name": "LC_261021_Hobo20_BlackFriday_B015_P02_H4_layers",
+     "kind": "video",
+     "fp": "v|black friday: a bag with layers, at half price.|",
+     "label": "Black Friday: a bag with layers, at half price."
+    }
+   ]
   }
  ],
  "next": 16

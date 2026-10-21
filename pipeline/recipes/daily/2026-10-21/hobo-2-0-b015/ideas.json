@@ -1,0 +1,400 @@
+{
+ "product": "Hobo 2.0",
+ "theme": "black friday",
+ "date": "2026-10-21",
+ "research": [
+  "Reviewed B013 (Hobo 2.0, 2026-10-20: day, things and demo angles) and the Hobo Bag's Black Friday batch B014: no angle, hook or line repeated.",
+  "The owner's own idea for this bag: tie it to the chair (the Hobo 2.0's table strap) with real footage of that strap and a studio scene made from the real bag; Pacsafe-style 'locks the bag to furniture' is the research's concept 1 (docs/research/2026-10-black-friday-and-bag-ads.md).",
+  "Layered-security argument from the same research (Pacsafe feature pointouts, self-locking zips, RFID pocket); numbers avoided because the facts list five features, not six.",
+  "Compliance: only the packet's facts for this bag (lockable zippers, RFID lining, cut-resistant strap, table strap, hidden pockets and smart compartments, 50% off, free pouch wallet, free US shipping); no warranty / returns line (the Hobo 2.0's facts do not state them), no countdown, no 'theft-proof'."
+ ],
+ "projects": [
+  {
+   "id": "P01",
+   "slug": "chairtie",
+   "title": "Tie it to the chair",
+   "big_idea": "A café scene about the one thing nobody solves: where the bag goes when you sit down. The Hobo 2.0's table strap loops round the chair, so the bag stays right where you left it, and the lockable zippers and cut-resistant strap back it up.",
+   "why_new": "B013 listed the Hobo 2.0's security features. This turns the single most visual one, the table strap, into the whole story with real footage of the strap looped round a chair and table leg, and puts the other features behind it as a layered answer.",
+   "hooks": [
+    {
+     "text": "Where does your bag go when you sit down for a coffee?",
+     "type": "question",
+     "label": "CAFE TEST",
+     "show": [
+      "cafe",
+      "placed"
+     ]
+    },
+    {
+     "text": "Watch how this strap loops around your chair.",
+     "type": "promise",
+     "label": "CHAIR STRAP",
+     "show": [
+      "tie",
+      "placed"
+     ]
+    },
+    {
+     "text": "Hanging your bag on the back of the chair? Look at this.",
+     "type": "problem",
+     "label": "LOOK AT THIS",
+     "show": [
+      "tie",
+      "cafe"
+     ]
+    },
+    {
+     "text": "Black Friday: the Hobo 2.0 with the table strap, at half price.",
+     "type": "price",
+     "label": "BLACK FRIDAY",
+     "show": [
+      "hero",
+      "placed"
+     ]
+    }
+   ],
+   "chapters": [
+    {
+     "kind": "point",
+     "text": "You sit down for a coffee. Where does your bag go? On the floor, under the table, where it can be kicked? Hanging on the back of the chair, where you can't see it?",
+     "show": [
+      "cafe",
+      "placed"
+     ],
+     "tag": null,
+     "number": null,
+     "highlight": [
+      "coffee"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "The Hobo 2.0 has a table strap that loops around your chair, so your bag stays right where you left it.",
+     "show": [
+      "tie",
+      "placed"
+     ],
+     "tag": "TABLE SECURITY STRAP",
+     "number": null,
+     "highlight": [
+      "table strap",
+      "chair"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Loop it round the chair, sit back, and enjoy your coffee. The bag is right there, close to you, and it isn't going anywhere. Do the same at the next table, and the one after.",
+     "show": [
+      "tie",
+      "cafe"
+     ],
+     "tag": null,
+     "number": null,
+     "highlight": [
+      "loop"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "The zippers lock, too, so nobody can open it in a crowd. One lock on each zip, and the bag stays closed while you talk.",
+     "show": [
+      "lock",
+      "zip"
+     ],
+     "tag": "LOCKABLE ZIPPERS",
+     "number": null,
+     "highlight": [
+      "lock",
+      "zippers"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "The strap itself is cut-resistant, so a quick snip on a busy street is not an option.",
+     "show": [
+      "strap",
+      "worn"
+     ],
+     "tag": "CUT-RESISTANT STRAP",
+     "number": null,
+     "highlight": [
+      "cut-resistant"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Inside, an RFID lining that blocks card scanners, plus hidden pockets and smart compartments for everything else. Cards in one spot, phone in another, keys at hand.",
+     "show": [
+      "inside",
+      "pocket"
+     ],
+     "tag": "RFID LINING",
+     "number": null,
+     "highlight": [
+      "RFID",
+      "hidden pockets"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "And you get a free pouch wallet to go with it, for the little things you want close.",
+     "show": [
+      "pouch",
+      "hero"
+     ],
+     "tag": null,
+     "number": null,
+     "highlight": [
+      "free"
+     ]
+    },
+    {
+     "kind": "offer",
+     "text": "It's Black Friday. Fifty percent off the Hobo 2.0, with a free pouch wallet and free US shipping. Tap the link below.",
+     "show": [
+      "hero",
+      "pouch"
+     ],
+     "tag": null,
+     "number": null,
+     "highlight": [
+      "fifty",
+      "free"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "P02",
+   "slug": "layers",
+   "title": "Security, layer by layer",
+   "big_idea": "A bag is only as safe as its weakest spot, so the Hobo 2.0 is built in layers: the zippers lock, the strap resists cuts, the table strap anchors it to a chair, the lining blocks card scanners, the pockets stay hidden. One layer per beat, each shown in use.",
+   "why_new": "A layered argument (each beat adds one more thing a thief would have to get past) instead of a list or a day: the structure is a build-up, and the picture changes with every layer (zip, strap, chair, lining, pocket).",
+   "hooks": [
+    {
+     "text": "A bag is only as safe as its weakest spot. Look at this one.",
+     "type": "promise",
+     "label": "WEAKEST SPOT",
+     "show": [
+      "zip",
+      "strap"
+     ]
+    },
+    {
+     "text": "Why does your bag only have one way to close?",
+     "type": "question",
+     "label": "ONE LOCK?",
+     "show": [
+      "lock",
+      "zip"
+     ]
+    },
+    {
+     "text": "Zips open, straps get cut, cards get scanned. This bag plans for all three.",
+     "type": "problem",
+     "label": "THREE WEAK SPOTS",
+     "show": [
+      "lock",
+      "strap",
+      "inside"
+     ]
+    },
+    {
+     "text": "Black Friday: a bag with layers, at half price.",
+     "type": "price",
+     "label": "HALF PRICE",
+     "show": [
+      "hero",
+      "lock"
+     ]
+    }
+   ],
+   "chapters": [
+    {
+     "kind": "point",
+     "text": "So the Hobo 2.0 is built in layers. Every layer is one more thing to get past, and none of them gets in your way.",
+     "show": [
+      "hero",
+      "handheld"
+     ],
+     "tag": null,
+     "number": null,
+     "highlight": [
+      "layers"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "First, the zippers. They lock, so nobody can open the bag in a crowd. Close it, lock it, and walk on.",
+     "show": [
+      "lock",
+      "zip_hand"
+     ],
+     "tag": "LOCKABLE ZIPPERS",
+     "number": null,
+     "highlight": [
+      "lock"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Next, the strap. It's cut-resistant, so it stays on your shoulder even when the street is busy.",
+     "show": [
+      "strap",
+      "worn"
+     ],
+     "tag": "CUT-RESISTANT STRAP",
+     "number": null,
+     "highlight": [
+      "cut-resistant"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Then the table strap. It loops around your chair, so your bag stays right where you left it, even when you look away.",
+     "show": [
+      "tie",
+      "placed"
+     ],
+     "tag": "TABLE SECURITY STRAP",
+     "number": null,
+     "highlight": [
+      "table strap"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Inside, an RFID lining that blocks card scanners. Your cards stay yours.",
+     "show": [
+      "inside",
+      "pocket"
+     ],
+     "tag": "RFID LINING",
+     "number": null,
+     "highlight": [
+      "RFID"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "And hidden pockets and smart compartments keep the little things out of sight and in order. Cards, keys, lipstick, each in its own place.",
+     "show": [
+      "pocket",
+      "packing"
+     ],
+     "tag": "HIDDEN POCKETS",
+     "number": null,
+     "highlight": [
+      "hidden"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "That's the idea: not one big promise, but lots of small ones stacked up, so the bag does the worrying for you.",
+     "show": [
+      "hero",
+      "handheld"
+     ],
+     "tag": null,
+     "number": null,
+     "highlight": [
+      "stacked"
+     ]
+    },
+    {
+     "kind": "offer",
+     "text": "Black Friday brings fifty percent off the Hobo 2.0, a free pouch wallet, and free US shipping. Tap the link below.",
+     "show": [
+      "hero",
+      "pouch"
+     ],
+     "tag": null,
+     "number": null,
+     "highlight": [
+      "fifty",
+      "free"
+     ]
+    }
+   ]
+  }
+ ],
+ "statics": [
+  {
+   "id": "S01",
+   "project": "P01",
+   "layout": "concept",
+   "idea": "The idea itself: the bag on a café chair with its strap looped round the chair leg, a latte and a notebook on the table.",
+   "headline": "Tie it to the chair.",
+   "kicker": "BLACK FRIDAY",
+   "pill": true,
+   "where": "bottom",
+   "scene": {
+    "kind": "object",
+    "colour": "Black",
+    "prompt": "The handbag stands on the seat of a light oak cafe chair, its long strap looped once around the chair leg and back up to the bag so it is clearly tied to the chair, the strap visible and sharp; a small round marble table beside it with a latte in a white cup and a closed notebook. Soft morning window light from the left, a softly blurred empty cafe interior behind, no other chairs occupied. The bag fills the upper two thirds of the frame; the bottom quarter shows only the calm floor, empty."
+   }
+  },
+  {
+   "id": "S02",
+   "project": "P01",
+   "layout": "native",
+   "idea": "A real footage frame of the strap looped round a chair or table leg.",
+   "headline": "Stays where you left it."
+  },
+  {
+   "id": "S03",
+   "project": "P01",
+   "layout": "studio",
+   "idea": "The real packshot with the lock line.",
+   "headline": "Lockable zippers."
+  },
+  {
+   "id": "S04",
+   "project": "P01",
+   "layout": "concept",
+   "idea": "Café table, bag within reach, strap trailing to the chair: the bag next to its owner's coffee.",
+   "headline": "Right where you left it.",
+   "pill": true,
+   "where": "bottom",
+   "scene": {
+    "kind": "object",
+    "colour": "Brown",
+    "prompt": "The handbag sits upright on a cafe table-side stool next to a round marble table with a coffee cup and a phone, its strap trailing to the leg of the chair beside it. Warm window light, calm blurred cafe behind, nobody in the picture. The bag fills the upper two thirds of the frame; the bottom quarter is empty floor."
+   }
+  },
+  {
+   "id": "S05",
+   "project": "P02",
+   "layout": "concept",
+   "idea": "Dark luxe Black Friday hero: the bag as a premium object, golden bokeh.",
+   "headline": "Built in layers.",
+   "kicker": "BLACK FRIDAY",
+   "pill": true,
+   "where": "bottom",
+   "scene": {
+    "kind": "object",
+    "colour": "Black",
+    "prompt": "Luxury studio product photograph for a Black Friday campaign. The handbag stands upright, slightly angled, on a dark charcoal seamless surface with a soft low reflection; behind it, out of focus, warm golden bokeh lights; a single soft key light from the upper left with gentle rim light on the leather and the gold zips. Rich, elegant, premium. The bag fills the upper two thirds of the frame; the bottom quarter is empty dark surface."
+   }
+  },
+  {
+   "id": "S06",
+   "project": "P02",
+   "layout": "native",
+   "idea": "A real footage frame of a hand at the locking zips.",
+   "headline": "Layer one: the zippers."
+  },
+  {
+   "id": "S07",
+   "project": "P02",
+   "layout": "offer",
+   "idea": "The offer static (the real % and gift)."
+  },
+  {
+   "id": "S08",
+   "project": "P02",
+   "layout": "checklist",
+   "idea": "The feature tags as ticks with the offer pill."
+  }
+ ]
+}
