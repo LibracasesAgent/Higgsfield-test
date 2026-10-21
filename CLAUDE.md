@@ -33,16 +33,30 @@ The repo's default branch is `claude/loving-meitner-4amjii`. Read `docs/PLAYBOOK
    (`$OUT/ai_needed.json`) only when the product's own material is thin (a new product with a few photos and a clip) or the request
    says so (`--ai`): then the real bag in a new scene (cafe, street from behind, hallway ...), still 4:5 / clip 3 s. You make
    exactly what `ai_needed.json` lists (models, prompts, ids): images with `gpt_image_2_5` (medium, 2k), clips with `kling3_0` /
-   `minimax_hailuo`. Never: other generators or models, presets, Ads Studio, AI influencer / avatars / characters,
-   `execute_preset`, upscalers, voice cloning, a face in any picture, a prompt of your own (the one exception: the SCENE of a `concept` static
+   `minimax_hailuo`. Never: other generators or models, presets, Ads Studio, `execute_preset`, upscalers, voice cloning, a face in any
+   picture except the PRESENTER's (below), a prompt of your own (the one exception: the SCENE of a `concept` static
    in the strategist's sheet, section S: surface, props, light, composition; `ai_gen` adds the keep-the-real-bag text, the style and the no-face rule). An AI asset ships only when it passed
    `ai_gen.py gate` / `clips` AND you looked at its contact sheet and the bag is the real bag (shape, colour, handles, hardware)
    in a believable real photo / clip: otherwise `ai_gen.py reject <id>` (render puts the real photo / footage back). `plan
    --no-ai` = real photos and footage only; `--no-frames` = no statics from footage frames.
+   **The presenter (owner 2026-10-21: "avatars accepted if there is an actual story that requires actors"; Julian wants a woman sitting and
+   talking, the footage cut in between):** a project of the strategist's sheet may carry a generated host who says the script to camera
+   (`pipeline/presenter.py`, ideas.py's `presenter` block, docs/PLAYBOOK.md). She is ONE original, realistic adult (data/presenters.json: her
+   Soul-made reference picture, never a real person's face, never a celebrity), a host and never a customer: 'you' form, no "I bought / I love /
+   my", no invented use or result, no testimonial. Her scene stills are `gpt_image_2_5` from TWO references (her picture + the real bag's
+   packshot), her takes `kling3_0` (pro, sound on, start_image = the scene still, the line in the prompt: ~2.5 credits a second); you make exactly
+   what `$OUT/presenter_needed.json` lists, gate it (`presenter.py gate`) and look at `qa/presenter_stills.jpg` / `qa/presenter_takes.jpg`: the
+   bag must be the real bag and she must read as a real person (soft natural skin, only gentle lines); otherwise `presenter.py reject` and make it once more.
+   **Never ask a model for "pores / fine lines / unretouched / no smoothing"** (owner 2026-10-21: that wording gave etched wrinkles and orange shiny
+   skin, "totally fake"): the prompts in `presenter.py` ask for soft, even, natural phone-photo skin; a new host is made the same way.
+   The usual AI statics rules stay (the statics have no faces).
 2. **The only Higgsfield calls:** `generate_audio_batch` (text2speech_v2) for the lines in `tts_needed.json`;
    for the AI assets `media_upload` + `media_confirm`, `generate_image_batch`, `generate_video_batch`; and `jobs_wait`,
-   `balance`, `transactions`. One ugc project (one voice take per chapter + 4 hook lines) costs about 4-5 credits, a full
-   batch (5 projects) about 22; a scene still ~1, a clip 4.5-6. **A batch is capped at 100 credits, voiceover + AI together**
+   `balance`, `transactions`; for a NEW presenter (not a batch): `generate_image_batch` with `soul_2`, `show_characters`
+   (train a Soul ID) and `show_reference_elements`. One ugc project (one voice take per chapter + 4 hook lines) costs about 4-5 credits, a full
+   batch (5 projects) about 22; a scene still ~1, a clip 4.5-6. **A batch is capped at 100 credits, voiceover + AI together** (a batch with a presenter adds her stills and takes on top:
+   ~2.5 credits per second of her talking, a 4-project batch ~900; `plan` caps that part at 1000 (`--presenter-cap X` when the request names
+   more) and prints it as `presenter`)
    (`plan` plans the AI part inside it: 100 - voiceover - a reserve of 8 for one re-make of a failed asset; `plan` refuses more
    than 100 for voiceover alone unless you pass `--budget X`, and takes `--ai-cap X` only when the request names another total).
    **The cap is per batch, not per message:** a message for three bags is three batches (B045, B046, B047), each with its own 100, so

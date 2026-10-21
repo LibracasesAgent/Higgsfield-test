@@ -861,10 +861,10 @@ def expand(out, hooks=4, seed=1, only=None, budget=None, quiet=False):
                                                cold_open=o["range"], est_seconds=est, winner=wn)))
         else:
             blocks = spec.get("blocks") or []
-            vo0 = blocks[0].get("vo") if blocks else None
+            vo0 = (blocks[0].get("vo") or blocks[0].get("talk")) if blocks else None      # (a presenter's hook is her take)
             lab_i = next((i for i, o in enumerate(spec.get("overlays") or []) if o.get("block") == 0 and o.get("type") == "label"), None)
             h1_label = spec["overlays"][lab_i]["text"] if lab_i is not None else ""
-            h1_text = ctx.text_of(vo0) if vo0 else ""
+            h1_text = (blocks[0].get("text") if blocks and blocks[0].get("talk") else ctx.text_of(vo0)) if vo0 else ""
             ug = v.get("ugc")                # the ugc format: H1 is the script's hook (its own types: promise, superlative ...)
             h1 = dict(text=h1_text, label=h1_label, type=(ug["hook"]["type"] if ug else ctx.type_of(h1_text, cands)))
             orig = blocks[0]["broll"][0][:2] if blocks and blocks[0].get("broll") else None
@@ -880,8 +880,11 @@ def expand(out, hooks=4, seed=1, only=None, budget=None, quiet=False):
                 said = [norm(ctx.text_of(b_.get("vo"))) for b_ in blocks[1:] if b_.get("vo")]
                 # never a line the body says in its first 3 blocks (~12 s): the same words twice in a few seconds
                 said_b1 = {norm(ctx.text_of(b_["vo"])) for b_ in blocks[1:4] if b_.get("vo")} - {""}
+                pres, pres_picked = bool(ug and ug.get("presenter")), []
                 if ug:                   # (the script's alternate hooks; a hook that is a sentence of the body is left out)
                     picked = ugc_hooks(ug, h1, n, seed - (p.get("seed") or 1), said)
+                    if pres:             # a presenter's hooks are her own short takes (presenter.py): no voiceover line, no B-roll shot
+                        pres_picked, picked = picked, []
                 else:
                     picked = pick_hooks(ctx, cands, h1, n, fmt, kk, uses, line_labels, said_b1, set(said))
                 b1 = first_shot(blocks[1]) if len(blocks) > 1 else None
@@ -916,7 +919,7 @@ def expand(out, hooks=4, seed=1, only=None, budget=None, quiet=False):
                     ([f"no opening shot left for {', '.join(repr(t) for t in lost)} (every other shot is H1's, block 1's or "
                       f"another version's)"] if lost else [])
                 picked = [(c, got[j]) for j, c in enumerate(picked) if got[j]]
-                if len(picked) < n - 1:
+                if len(picked) < n - 1 and not pres:
                     nv = len(picked) + 1
                     warnings.append(f"{pid}: {nv} hook version{'s' if nv > 1 else ''}, not {n} ({ctx.pr['name']}, {fmt}): "
                                     f"{'; '.join(why)}")
@@ -969,6 +972,20 @@ def expand(out, hooks=4, seed=1, only=None, budget=None, quiet=False):
                         round((v.get("est_seconds") or 0) - say_secs(h1_text) + say_secs(text), 1)
                     hooks_out.append((hid, s, dict(hook_text=text, hook_label=c["label"], hook_type=c["type"],
                                                    opening_shot=shot[:2], est_seconds=est, hook_source=c["source"])))
+                for j, c in enumerate(pres_picked):
+                    hid = f"H{j + 2}"
+                    f = f"talk/{pid}{hid}_hook.mp4"
+                    said_new[f] = c["text"]
+                    s = copy.deepcopy(spec)
+                    s["blocks"][0] = dict(talk=f, text=c["text"], scene=c.get("scene") or blocks[0].get("scene"), broll=[["TALK", 0, 1.0]],
+                                          **({"pad": blocks[0]["pad"]} if "pad" in blocks[0] else {}))
+                    if lab_i is not None:
+                        s["overlays"][lab_i] = dict(s["overlays"][lab_i], text=c["label"])
+                    else:
+                        s["overlays"].insert(0, dict(type="label", text=c["label"], block=0, at=0.1, dur=1.8))
+                    est = round((v.get("est_seconds") or 0) - mb().pres_secs(h1_text) + mb().pres_secs(c["text"]), 1)
+                    hooks_out.append((hid, s, dict(hook_text=c["text"], hook_label=c["label"], hook_type=c["type"],
+                                                   opening_shot=None, est_seconds=est, hook_source=c["source"])))
         proj = dict(id=pid, from_id=vid, angle=angle_of(v), engine=eng, format=v.get("format"), hooks=[])
         if eng == "remix":
             proj["winner"] = {x: (v.get("winner") or {}).get(x) for x in ("key", "ad", "brief_name", "roas", "action", "product")}
@@ -1188,7 +1205,8 @@ def body_of(s):
 def srcs_of(s):
     if "raw" in s:
         return [s["raw"]] + [x[0] for x in (s.get("reviews") or {}).get("broll", [])]
-    return [x[0] for b in s["blocks"] for x in b.get("broll", [])] + [b["clip"] for b in s["blocks"] if "clip" in b] + \
+    return [x[0] for x in [y for b in s["blocks"] for y in b.get("broll", [])] if x != "TALK"] + \
+        [b["clip"] for b in s["blocks"] if "clip" in b] + \
         ([x[0] for b in s["blocks"] for x in b.get("spare", [])] + [x[0] for x in s.get("spare_broll") or []]
          if s.get("mode") == "ugc" else [])        # (ugc: the spare shots too: a split shot may play any of them)
 
@@ -1420,6 +1438,15 @@ def hook_end(out, s):
             edit = any(abs(p0[0] - e) < 0.02 for _, e in remix.claim_ranges(s))
             short = ((remix.PAUSE_EDIT if edit else remix.PAUSE) - tail - max(ws[g[0]]["s"] - p0[0], 0.0)) if g else 0
         return co_len(r) + (round(max(short, 0.12), 2) if short > 0 else 0.0)
+    if s["blocks"][0].get("talk"):        # a presenter's hook: her take from her first word to her last, the edges kept + the hook pad
+        import storyboard
+        from remix import words
+        tp = os.path.join(out, s["blocks"][0]["talk"])
+        if not os.path.exists(tp):
+            return 0.0
+        ws = words(tp)
+        return (ws[-1]["e"] + storyboard.TALK_TAIL - max(ws[0]["s"] - storyboard.TALK_HEAD, 0.0) if ws else ffdur(tp)) + \
+            s["blocks"][0].get("pad", s.get("hook_pad", storyboard.UGC_HOOK_PAD))
     f = os.path.join(out, s["blocks"][0]["vo"])
     if s.get("mode") == "ugc":            # the voice-prepared take (trimmed, sped up) + the hook pad
         import storyboard

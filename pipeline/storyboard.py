@@ -115,6 +115,9 @@ SHORT_CLIP, STILL_GAP = 45.0, 4.0      # a clip under SHORT_CLIP s is one scene:
 MOMENTS = (2.5, -2.5, 4.0, -4.0, 5.5, -5.5)       # other moments of a clip (s from the picked start) when a pick would repeat
 CLOSER = ({"zoom": [1.3, 1.36], "focus": [0.5, 0.55]}, {"zoom": [1.6, 1.66], "focus": [0.5, 0.42]})   # closer framings
 FIN = (".", "?", "!")
+TALK = "TALK"                          # a pick that is the presenter on camera (presenter.py: her take is the block's picture and voice)
+TALK_HEAD, TALK_TAIL = 0.10, 0.22      # a take is cut this long before her first word and after her last (s)
+TALK_FRAME = {"zoom": [1.12, 1.18], "focus": [0.5, 0.42]}   # every second shot of her is this closer framing (a jump cut, as creators edit)
 
 
 def voice_prep(d, name, speed=VOICE_SPEED):
@@ -328,27 +331,45 @@ class Shots:
         return self.add(self.mk(prev["src"], prev["start"], dict(base, **CLOSER[-1]), L), t0)
 
 
-def plan_block(sh, t0, L, lead, ws, picks, pools, drop=None):
+def talk_seg(talk, x, y, n):
+    """The presenter on camera from block second x to y (the n-th such shot of the block): her take from where it is in sync."""
+    s = dict(src=talk["src"], start=round(talk["a"] + x, 3), dur=round(y - x, 3), mute=True)
+    if n % 2:
+        s.update(TALK_FRAME)
+    return s
+
+
+def plan_block(sh, t0, L, lead, ws, picks, pools, drop=None, talk=None):
     """The shots of one ugc voice block (ad second t0, L s long, the voice starting `lead` s in; words ws on the voice's
     seconds): shot_groups of its phrases; the picks fill the groups in order, further groups and the parts of a long
-    group take spares (Shots.place). Picks left over go to `drop` (the later blocks' spares)."""
+    group take spares (Shots.place). Picks left over go to `drop` (the later blocks' spares). A presenter's block (talk:
+    {src, a}): a pick [TALK, 0, 1.0] is her on camera for that group (all its shots, in sync with her words); a last pick
+    that is TALK is the block's last group however many groups the timings make."""
     cuts = phrase_cuts(ws, lead)
     groups = shot_groups(cuts, L)
+    is_t = lambda p: bool(p) and p[0] == TALK                       # noqa: E731
     named = bool(picks) and all(len(p) > 3 and (p[3] or {}).get("say") for p in picks)     # {"say": "beige"}: a colour swatch
-    left, out, gi = list(picks), [], 0
+    tail_talk = bool(talk) and len(picks) > 1 and is_t(picks[-1])
+    body = picks[:-1] if tail_talk else picks
+    left, out, gi, nt = list(body), [], 0, 0
     for a, b in groups:
         pts = ugc_pieces(a, b, ws, lead)
+        gp = [TALK, 0, 1.0] if tail_talk and (a, b) == groups[-1] else (body[gi] if gi < len(body) else None)
         for j, (x, y) in enumerate(zip(pts, pts[1:])):
+            if talk and is_t(gp):
+                out.append(talk_seg(talk, x, y, nt))
+                nt += 1
+                continue
             if named:             # every shot shows the first swatch whose name it says, else the next one
                 said = {norm(w["w"]) for w in ws if x - 0.002 <= lead + w["s"] - CUT_LEAD < y - 0.002}
                 pick = next((p for p in left if all(t in said for t in p[3]["say"].split())), left[0] if left else None)
                 left = [p for p in left if p is not pick]
             else:
-                pick = picks[gi] if j == 0 and gi < len(picks) else None
+                pick = gp if j == 0 else None
             out.append(sh.place(t0 + x, y - x, pick, pools, out[-1] if out else sh.last))
         gi += 1
     if drop is not None and not named:
-        drop += picks[gi:]
+        drop += [p for p in body[gi:] if not is_t(p)]
     return out
 
 
@@ -434,8 +455,8 @@ def said_words(b, d, spans):
         if not src:
             continue
         ws = words(loc(d, src))
-        if "vo" in blk:
-            txt = blk.get("text") or vo_text(d, blk["vo"])
+        if "vo" in blk or "talk" in blk:
+            txt = blk.get("text") or (vo_text(d, blk["vo"]) if "vo" in blk else "")
             if txt and "vo_range" not in blk:
                 ws = script_words(txt, ws)
         n0 = len(out)
@@ -455,11 +476,14 @@ def ugc_shots(d, jobs, segs, spare_all, top):
     sh = Shots(d)
     for jb in sorted(jobs, key=lambda j: (j["k"] == 0, j["k"])):
         k, blk = jb["k"], jb["blk"]
-        ws = words(loc(d, blk["vo"]))
-        ws = script_words(blk["text"], ws) if blk.get("text") else ws
+        if jb.get("talk"):                        # a presenter's take: its words on the seconds of the cut range
+            ws = jb["talk"]["ws"]
+        else:
+            ws = words(loc(d, blk["vo"]))
+            ws = script_words(blk["text"], ws) if blk.get("text") else ws
         drop = None if k == 0 else []             # the hook's spare shots are its own; picks the body does not need
         pools = [jb["own"]] if k == 0 else [jb["own"], spare_all]
-        got = plan_block(sh, jb["t"], jb["L"], jb["lead"], ws, [list(x) for x in blk["broll"]], pools, drop)
+        got = plan_block(sh, jb["t"], jb["L"], jb["lead"], ws, [list(x) for x in blk["broll"]], pools, drop, jb.get("talk"))
         spare_all += drop or []
         if k in top:
             for s in got:
@@ -515,6 +539,20 @@ def build(b, d, info=None):
                 segs += broll_segs(d, blk["broll"], L, spare, used, own)
             audio.append(("file", blk["vo"], L - lead))
             spans.append((t, L, blk["vo"], -lead))
+        elif "talk" in blk:                       # the presenter's take (presenter.py): her picture and her own voice, B-roll cut in
+            tp = loc(d, blk["talk"])              # over it (planned below with the voice blocks: the TALK picks are her on camera)
+            ws_t = words(tp)
+            if blk.get("text"):
+                ws_t = script_words(blk["text"], ws_t)
+            a = max(ws_t[0]["s"] - TALK_HEAD, 0.0) if ws_t else 0.0
+            e = min(ws_t[-1]["e"] + TALK_TAIL, dur(tp)) if ws_t else dur(tp)
+            L = e - a + bp
+            wsr = [dict(w, s=round(w["s"] - a, 3), e=round(w["e"] - a, 3)) for w in ws_t]
+            jobs.append(dict(k=k, i=len(segs), t=t, L=L, lead=0.0, blk=blk, own=own, talk=dict(src=tp, a=round(a, 3), ws=wsr)))
+            segs.append(None)
+            audio.append(("slice", blk["talk"], round(a, 3), round(e, 3)))
+            audio.append(("silence", bp))
+            spans.append((t, L, blk["talk"], a))
         else:
             a, e = blk["range"]
             L = e - a
@@ -606,8 +644,9 @@ def build(b, d, info=None):
         if at is None:
             print("overlay anchor not found: offer", of, file=sys.stderr)
         else:
-            ov.append(dict(type="offer", title=title, sub=sub, at=round(at - 0.2, 2), dur=3.2, y=420) if sub else
-                      dict(type="label", text=title, at=round(at - 0.2, 2), dur=3.2, y=470))
+            oy = b.get("overlay_y")                    # (a presenter video: under her chin, not over her face)
+            ov.append(dict(type="offer", title=title, sub=sub, at=round(at - 0.2, 2), dur=3.2, y=oy or 420) if sub else
+                      dict(type="label", text=title, at=round(at - 0.2, 2), dur=3.2, y=oy or 470))
     ep = os.path.join(d, b["end_photo"]) if b.get("end_photo") else None
     ov.append(dict(type="end", title=b.get("end_title", "The Luxury Hobo Bag"), sub=b.get("end_sub", "Tap the link below"),
                    at=round(t - 2.6, 2), dur=2.6, **({"photo": ep, "offer": b.get("end_offer") or ""} if ep and os.path.exists(ep) else {})))

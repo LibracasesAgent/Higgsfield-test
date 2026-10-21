@@ -582,9 +582,42 @@ scripts". The owner added: statics "look like they were made by some random thin
   prompt: the end where the words go empty; the model only half obeys, so the footer does it); sunglasses / mannequins / people in the
   background trip the face check and are kept out of the prompts; a person is cropped at the shoulders. The AI scenes of the bag keep the
   matching pouch wallet because the real packshots show it.
-- Meta: third-party AI images may be labelled "AI info" (Meta says it will auto-detect them); we show no photoreal faces.
+- Meta: third-party AI images may be labelled "AI info" (Meta says it will auto-detect them); the only photoreal face is the presenter's
+  (4e0000 below).
 - Disk: the session's allowance counts the scratchpad: clear old test runs before a batch (`pipeline/cache/media` alone is 4-5 GB; raise
   `LC_MEDIA_CAP_GB` for a batch whose videos use ~80 different 4K clips).
+
+### 4e0000. The presenter format: a host who talks to camera (owner + Julian 2026-10-21, B016)
+
+Julian wanted "a model or a character sitting there and talking", with cut-ins, like the competitors' mom-talks-to-camera ads. The owner
+allowed avatars when a story needs them. `pipeline/presenter.py`, `data/presenters.json`, `assets/presenter/`.
+- **What it is:** a project whose sheet says `"presenter": "maya"` is spoken by a generated woman. Her takes are Kling 3.0 clips (picture AND
+  sound: the line is in the prompt, so her lips match; one voice for the whole video); library footage cuts in over her voice (`cam` per
+  chapter: open / both / close / full / none) and every hook is her on camera. She is a host: "you" form, never "I", never a customer, never
+  an invented use or result (`ideas.check` and `compliance` enforce it on her words).
+- **How she was made:** Higgsfield Soul 2.0 (`soul_2`), one original face (never a real person's), chosen from candidates; her scene stills
+  (`gpt_image_2_5`, references: her master + the real bag's packshot) put her in a cafe / sofa / car / kitchen with the REAL bag; the take
+  starts from that still. `presenter.py needed|gate|reject` list, check and reject the stills and takes like `ai_gen.py`.
+- **The skin lesson (the owner called the first Maya "totally fake", twice):** asking the model for "visible pores, fine lines, unretouched,
+  no smoothing" makes it draw etched wrinkles and an orange, shiny skin: it reads as AI at once. The second Maya was made with the
+  opposite wording (soft, even, natural phone-photo skin, matte, a few freckles, only gentle expression lines, no heavy texture / etched
+  wrinkles / orange tint), six candidates, and the owner picked her. Still and take prompts keep that wording (`test_presenter.py`
+  forbids the old one). Standard mode (720p) smooths the face more: takes are `mode: pro` (1080p, ~2.5 credits per second).
+- **Cost:** about 2.5 credits per second of speech: a 4-project batch is ~360 take-seconds, ~910 credits with the stills (`plan` caps it at
+  1000, `--presenter-cap`; the usual 100 is for voiceover + AI scenes). Kling fits the line to the clip length (2.4-3.1 words per second),
+  so a take is `ceil(words / 2.7 + 1)` seconds, 4-15 s. She speaks at ~2.5 words per second, slower than the ugc voice: the scorecard's
+  wpm / speech targets are soft misses by design (rule 6 still holds: never shorten the video).
+- **The gate** (`presenter.py gate`): one face, the words she says against the script (numerals and "%" spelled out, hyphens dropped: a
+  transcript says "50 %" where the script says "fifty percent"; a letter-level ratio forgives "Habo"), a starting delay, a tail (Kling often
+  ends the clip right after her last word; under 0.08 s = cut off, under 0.3 s a note only), faces on three frames, no black frame, and the
+  compliance check on words she ADDED (the script itself was checked at plan). A bag that changes between frames or hands that melt are
+  rejected by eye on `qa/presenter_takes.jpg`.
+- **Overlays** sit at y = 960 (`overlay_y`) so a label / tag / offer pill never covers her face.
+- **The statics' face check can be wrong:** the DNN face check skipped two statics of B016 that show no face (the blurred hand and
+  sunglasses of a footage frame; a navy leather chair with a painting). They stay out of Drive (`--include-flagged` is never used).
+- **Making a new host:** `soul_2` candidates (original faces; the prompt wording above) -> pick -> `assets/presenter/<id>.jpg` -> a row in
+  `presenters.json` with `look`, `voice`, `soul_job` (the job id used as the first image reference) -> a character sheet and an
+  expression sheet with `gpt_image_2_5` from the master for the owner.
 
 ### 4e00. Batch numbers (owner 2026-10-20: "make the batches less confusing with a proper naming convention, so we avoid relaunching the same ads")
 Drive had folders named by whatever the request said (`2026-10-16 – Hobo Bag 5 projects 10 statics`, `... hook test 3 videos + 4 statics`)

@@ -1,0 +1,11 @@
+{
+ "_help": "AI hosts of the presenter videos (presenter.py). A host is a generated adult who talks to camera in 'you' form: never a customer, never an invented purchase / use / result. master = the reference picture every scene still of this host is made from (same face, same hair, same earrings); look = how the prompts describe her; voice = what the take prompts ask her voice to be (Kling makes the voice: takes of one host sound alike when asked the same).",
+ "maya": {
+  "name": "Maya",
+  "master": "assets/presenter/maya.jpg",
+  "look": "a real-looking woman of about 40 with a warm medium-brown skin tone, shoulder-length dark brown wavy hair with a few loose flyaway strands, dark brown eyes, a few light freckles and a small mole on her left cheek, small gold stud earrings",
+  "voice": "a warm, natural, conversational American woman's voice",
+  "soul_job": "f7e9e196-342e-4e88-bce1-fd66cff2a1d3",
+  "made": "Higgsfield Soul 2.0 (soul_2), 2026-10-21, original face, second round: the first Maya looked fake (etched wrinkles, orange shiny skin: owner feedback), so she was re-made from 6 candidates with soft, even, natural phone-photo skin and only gentle expression lines; chosen by the owner"
+ }
+}

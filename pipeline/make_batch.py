@@ -145,6 +145,16 @@ UGC_TAKE = 0.075    # silence storyboard.voice_prep keeps at the two ends of a t
 UGC_JOIN = 0.08     # storyboard.UGC_PAD: the pad after a take
 UGC_HOOK_PAD = 0.2  # storyboard.UGC_HOOK_PAD
 UGC_END_PAD = 0.6   # storyboard.END_PAD (remix.TAIL + 0.2)
+PRES_WPS = 2.55     # a presenter's words per second (presenter.py: Kling's own voice, at a natural pace)
+PRES_SPEED = round(PRES_WPS / UGC_WPS, 3)   # (ugc_slots counts a take's words at UGC_WPS x this)
+PRES_OVERLAY_Y = 960   # (px of 1920) where the label / tag / offer pill sit over a presenter video: under her chin, above the bag
+PRES_EDGE = 0.32    # storyboard.TALK_HEAD + TALK_TAIL: what is kept of a take before her first and after her last word
+
+
+def pres_secs(text):
+    """Seconds a presenter's hook line takes in the ad (its words at her pace + the edges kept + the hook pad)."""
+    return len((text or "").split()) / PRES_WPS + PRES_EDGE + UGC_HOOK_PAD
+
 VOICE_FILE = os.path.join(HERE, "data", "voice.json")   # optional {"voice_type", "voice_id", "speed"}: the lead's choice of voice
 PIPELINES = ("catalog", "winners", "new-product")
 BATCH = dict(statics=20, projects=5)   # the owner (2026-10-13): no numbers = 20 statics + 5 projects x 4 hooks = 20 videos
@@ -878,6 +888,11 @@ def est_ugc(spec, texts):
     its ends + the pad after it (the hook's UGC_HOOK_PAD, the last take's UGC_END_PAD, else the board's pad)."""
     sp, last, t = spec.get("voice_speed") or UGC_SPEED, len(spec["blocks"]) - 1, 0.0
     for k, blk in enumerate(spec["blocks"]):
+        if "talk" in blk:             # a presenter's take: her words at her pace
+            pad = blk.get("pad", spec.get("hook_pad", UGC_HOOK_PAD) if k == 0 and last else spec.get("pad", UGC_JOIN))
+            t += len((blk.get("text") or "").split()) / PRES_WPS + PRES_EDGE + (max(pad, UGC_END_PAD) if k == last else pad) + \
+                (blk.get("hold", 0.0) if 0 < k < last else 0.0)
+            continue
         if "vo" not in blk:
             t += blk["range"][1] - blk["range"][0]
             continue
@@ -1270,7 +1285,8 @@ def plan(a):
             print("the strategy sheet has problems (fix them, `python3 pipeline/ideas.py check` shows them again):\n  - " + "\n  - ".join(P_),
                   file=sys.stderr)
             sys.exit(2)
-        shutil.copy(a.ideas, os.path.join(out, "ideas.json"))                       # the sheet travels with the batch: specs, and Drive
+        if os.path.abspath(a.ideas) != os.path.abspath(os.path.join(out, "ideas.json")):    # (CLAUDE.md writes it into $OUT itself)
+            shutil.copy(a.ideas, os.path.join(out, "ideas.json"))                       # the sheet travels with the batch: specs, and Drive
         ideas.sheet_csv(sheet, os.path.join(out, "strategy_sheet.csv"))
         open(os.path.join(out, "strategy_sheet.md"), "w").write(ideas.sheet_md(sheet))
         if (sheet.get("theme") or "").strip().lower() != (a.theme or "").strip().lower():
@@ -2539,6 +2555,7 @@ def plan(a):
         lib, pid = ugc_lib(), "P" + vid[1:]
         uses, jit = {}, v * 5 + a.seed * 3
         hk, alts = dict(sc["hook"]), [dict(h) for h in sc["alt_hooks"]]
+        pres = sc.get("presenter")     # the strategist's presenter project (presenter.py): her takes are the voice and the picture
         if theme_key != "default" and tx["hooks"] and not sc.get("from_sheet"):   # a themed request: its own opening first, the script's hook
             #                                                                    is H2's pool (the strategist's sheet writes its own hooks)
             tl = tx["hooks"][v % len(tx["hooks"])]
@@ -2616,7 +2633,11 @@ def plan(a):
                     for x in sorted(sw, key=lambda x: pos[x[0]])]                                          # it where that name is said
         cterms = {"hook": kw_terms("hero hand")}      # (an opening on hands moves; a bag hanging on a chair does not)
         texts = [("hook", hook)] + [(c["id"], c["text"]) for c in chs]
-        slots = {k_: ugc_slots(t_, ugc_speed, UGC_HOOK_PAD if k_ == "hook" else UGC_JOIN) for k_, t_ in texts}
+        slots = {k_: ugc_slots(t_, PRES_SPEED if pres else ugc_speed, UGC_HOOK_PAD if k_ == "hook" else UGC_JOIN) for k_, t_ in texts}
+
+        def on_cam(ch, j, n):         # is group j of n of this block the presenter on camera? (a chapter's `cam`; the hook: all of it)
+            cam = "full" if ch is None else (ch.get("cam") or "open")
+            return cam == "full" or (cam in ("open", "both") and j == 0) or (cam in ("close", "both") and j == n - 1)
         main, prev, nsl = {}, None, 0
         for k_, t_ in texts:          # the hook first (its shots are its own), then each chapter's phrases in order
             ch = next((c for c in chs if c["id"] == k_), None)
@@ -2626,6 +2647,9 @@ def plan(a):
             ps = swatches_of(t_) if colour else []       # (however many phrases the voice makes: a shot per colour named)
             recent.clear()
             for j, (st_, _) in enumerate(() if colour else slots[k_]):
+                if pres and on_cam(ch, j, len(slots[k_])):
+                    ps.append(["TALK", 0, 1.0])
+                    continue
                 last_slot = ch is not None and ch is chs[-1] and j == len(slots[k_]) - 1
                 c_ = choose({"packshot", "hero"}, {"hero"}, None, prev, uses, {"photo"}) if last_slot and packs else None
                 c_ = c_ or choose(kw_terms(st_), ct, feat, prev, uses, hook=ch is None, opening=ch is None and j == 0,
@@ -2660,7 +2684,7 @@ def plan(a):
             spares[k_] = sp
         gen = [framed(*c_) for c_ in (choose(cterms["hook"], cterms["hook"], None, None, spuse) for _ in range(6)) if c_]
         alt_shots = {}
-        if sc.get("from_sheet"):       # the strategist's hooks H2-H4: each opens on a shot of what its own line says (its `show` tags), a clip
+        if sc.get("from_sheet") and not pres:       # the strategist's hooks H2-H4: each opens on a shot of what its own line says (its `show` tags), a clip
             for h_ in alts:            # no other hook of the batch opens on (the engine's curated hook clips would open every project alike)
                 t_ = h_["text"]
                 n_ = max(1, sum(m_ for _, m_ in ugc_slots(t_, ugc_speed, UGC_HOOK_PAD)))
@@ -2676,16 +2700,23 @@ def plan(a):
         if any(not main[k_] for k_, _ in texts):
             sys.exit(f"{pr['name']}: no footage or photo to show under the voiceover (product has no clips, no clean "
                      f"photos and no site page). Add clips/photos to its Drive folder and re-run the intake.")
-        blocks, ovl = [], [dict(type="label", text=hk["label"], block=0, at=0.1, dur=1.8)]
+        oy = {"y": PRES_OVERLAY_Y} if pres else {}      # (a presenter's face fills the upper half: the words sit under her chin)
+        blocks, ovl = [], [dict(type="label", text=hk["label"], block=0, at=0.1, dur=1.8, **oy)]
         for k_, t_ in texts:
-            blk = dict(vo=line(vid, k_, t_, ugc_voice), broll=main[k_], **({"spare": spares[k_]} if spares.get(k_) else {}))
             ch = next((c for c in chs if c["id"] == k_), None)
+            if pres:                  # her take: a file the presenter step makes (presenter.py needed), the words are the script's
+                f_ = f"talk/{pid}_{k_}.mp4"
+                said[f_] = t_
+                blk = dict(talk=f_, text=t_, scene=(hk if ch is None else ch).get("scene") or pres["scenes"][0]["id"],
+                           broll=main[k_], **({"spare": spares[k_]} if spares.get(k_) else {}))
+            else:
+                blk = dict(vo=line(vid, k_, t_, ugc_voice), broll=main[k_], **({"spare": spares[k_]} if spares.get(k_) else {}))
             if ch is not None and ch["number"]:
                 blk["number"] = ch["number"]
             blocks.append(blk)
             bi = len(blocks) - 1
             if ch is not None and ch["tag"]:
-                ovl.append(dict(type="tag", text=ch["tag"], block=bi, at=0.15, dur=2.6))
+                ovl.append(dict(type="tag", text=ch["tag"], block=bi, at=0.15, dur=2.6, **oy))
             for n_ in (ch or {}).get("reviews") or []:
                 nm = revs[n_]["name"].split()[0].rstrip(".") if n_ in revs else ""
                 ovl.append(dict(type="review", n=n_, block=bi, word=(nm if len(nm) > 1 else "customer").lower(), dur=2.8))
@@ -2694,6 +2725,7 @@ def plan(a):
         kws = list(dict.fromkeys(tx["keywords"] + THEME_WORDS[theme_key] + [k for c in chs for k in c["keywords"]]))
         end_ph = [f_ for f_ in s_packs if studio_pack(f_)]           # the closing card: a clean studio packshot (another colour per project)
         spec = dict(mode="ugc", voice_speed=ugc_speed, blocks=blocks, overlays=ovl, end_title=pr["end"], offer=offer,
+                    **({"presenter": pres["id"], "overlay_y": PRES_OVERLAY_Y} if pres else {}),
                     **({"end_photo": rel(end_ph[(v + a.seed) % len(end_ph)]), "end_offer": tx["offer_title"] or ""} if end_ph else {}),
                     keywords=kws, spare_broll=[x for x in gen if x],
                     music=False if getattr(a, "no_music", False) else dict(seed=(a.seed - 1) * 11 + v + 1))
@@ -2701,7 +2733,8 @@ def plan(a):
         return name, spec, dict(name=name, id=vid, format="ugc", engine="storyboard", hook=hook,
                                 ugc=dict(script=sc["id"], angle=sc["angle"], words=sc["words"], hook=dict(type=hk["type"], label=hk["label"],
                                          feature=hk.get("feature")), alt_hooks=alts, numbers=sc["numbers"],
-                                         **({"alt_shots": alt_shots} if alt_shots else {})))
+                                         **({"alt_shots": alt_shots} if alt_shots else {}),
+                                         **({"presenter": pres} if pres else {})))
 
     seen_v, seen_sc, nsb, per_fmt = {}, set(), 0, {}
 
@@ -3013,6 +3046,17 @@ def plan(a):
         os.environ["LC_PRODUCTS_DIR"] = os.path.abspath(a.products_dir)      # ad_copy / compliance find the product file
     ac, cr = copy_and_check(out, seed=a.seed)
     warnings = list(warnings) + [f"ad copy: {x}" for x in ac["problems"]] + ([f"compliance: {cr['error']}"] if cr.get("error") else [])
+    pres_sum = None
+    if pm and any((v.get("ugc") or {}).get("presenter") for v in p.get("videos") or []):   # presenter projects (presenter.py)
+        import presenter
+        pres_sum = presenter.needed(out, quiet=True)
+        cap_ = getattr(a, "presenter_cap", None) or presenter.CAP
+        if pres_sum and pres_sum["est_credits"] > cap_:
+            print(json.dumps(pres_sum, indent=1), file=sys.stderr)
+            print(f"the presenter's scene stills + takes would cost ~{pres_sum['est_credits']} credits, over the {cap_}-credit presenter cap: "
+                  f"fewer projects / shorter chapters, or --presenter-cap {math.ceil(pres_sum['est_credits'])} if the request names a bigger "
+                  f"budget", file=sys.stderr)
+            sys.exit(2)
     reps = batch_repeats(out, pr["name"], lb["n"])        # ads an earlier batch of this product already had
     if reps:
         warnings += reps
@@ -3021,6 +3065,7 @@ def plan(a):
         json.dump(pj_, open(os.path.join(out, "plan.json"), "w"), indent=1)
     print(json.dumps(dict(plan=os.path.join(out, "plan.json"), **summary, **({"intake": intake} if intake else {}),
                           tts_needed=os.path.join(out, "tts_needed.json"),
+                          **({"presenter": pres_sum} if pres_sum else {}),
                           tts_duplicates=len(dupes), brief=brief, winners_source=p["winners_source"], **listing,
                           unmatched_winners=[f"{u['name']} (ROAS {u.get('roas')}): {u.get('why')}" for u in p["unmatched_winners"]],
                           **copy_summary(ac, cr), warnings=warnings), indent=1, ensure_ascii=False))
@@ -3293,7 +3338,8 @@ def render_one(out, v):
         card, bad = scorecard_line(out, v, f)  # from the render itself (no transcribing again)
         problems += bad
         fc_ = video_faces(f)
-        if fc_ and fc_[0] >= 2:    # (one frame is often a false hit on a hand or a bag's shape: two or more are looked at)
+        if fc_ and fc_[0] >= 2 and not (v.get("ugc") or {}).get("presenter"):   # (one frame is often a false hit on a hand or a bag's shape:
+            #                                                                  two or more are looked at; the presenter's face is the point)
             problems.append(f"face in the picture: {fc_[0]} sampled frames, first at {fc_[1]:.0f}s: look at qa/{v['id']}.jpg / the "
                             f"footage (library clips are checked on 4 frames each)")
     return dict(name=v["name"], id=v["id"], engine=eng, format=v.get("format"), seconds=round(L, 1), ok=ok and not problems,
@@ -3417,6 +3463,11 @@ def render(a):
     missing = sorted({dupes.get(f, f) for f in want if not os.path.exists(os.path.join(out, f))})
     if missing:
         sys.exit(f"voiceover files missing (generate them first, tts_needed.json): {missing}")
+    if any((v.get("ugc") or {}).get("presenter") for v in vids):       # a presenter's takes (presenter.py): all there and passed
+        import presenter
+        bad_ = presenter.not_ready(out, vids)
+        if bad_:
+            sys.exit(f"presenter takes missing or rejected (python3 pipeline/presenter.py show / gate --out {out}): {bad_}")
     for d in ("statics", "videos", "qa"):
         os.makedirs(os.path.join(out, d), exist_ok=True)
     swatches(out, p["colour_images"])
@@ -3680,7 +3731,8 @@ def log_novelty(out, p, name, uploaded):
             seen.add((u["script"], hk_))
             try:          # the project's chapter takes (every version shares them): what its body said
                 sp_ = json.load(open(os.path.join(out, f"{v['name']}.json")))
-                ch_ = [said_[b_["vo"]] for b_ in (sp_.get("blocks") or [])[1:] if b_.get("vo") in said_]
+                ch_ = [said_[b_["vo"]] if b_.get("vo") else b_["text"] for b_ in (sp_.get("blocks") or [])[1:]
+                       if b_.get("vo") in said_ or b_.get("talk")]
             except (OSError, ValueError, KeyError):
                 ch_ = []
             first_ = u["script"] not in {z.get("script") for z in vids}      # (a project's versions share their chapters: once)
@@ -4066,6 +4118,8 @@ def main():
     pl.add_argument("--no-ai", action="store_true", help="no AI scene stills / clips (ai_gen.py): real photos and footage only. "
                     "Default: about 40% of the statics and a few video shots are the real bag placed in new scenes "
                     "(owner 2026-10-20), generated after plan (ai_needed.json) and kept only when they pass the quality gate")
+    pl.add_argument("--presenter-cap", type=float, help="credits for the presenter's scene stills + talking takes (default presenter.CAP: "
+                    "the presenter step costs ~2 credits per second of her talking; the 100 of --ai-cap are for voiceover + AI scenes)")
     pl.add_argument("--ai-cap", type=float, help="credits for voiceover + AI together (default 100, config.json budget."
                     "max_credits_per_batch); only when the request names another budget")
     pl.add_argument("--out", required=True)

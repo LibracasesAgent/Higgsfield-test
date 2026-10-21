@@ -38,6 +38,18 @@ experience, no health / medical claims):
  }]
 }
 The words of the scene prompt are only the scene: the keep-the-real-bag text, the style and the no-face rule are added by ai_gen.
+
+PRESENTER PROJECTS (owner 2026-10-21: "avatars accepted if there is an actual story that requires actors"; Julian wants a woman sitting
+there and talking, the footage cut in between): a project may carry a presenter: a generated adult host who says the whole script to camera
+(presenter.py; ~2 credits per second of her talking). She is a host, never a customer: 'you' form, no first person, no purchase / use /
+result she lived. Her words are the script's words, at her own pace (about 2.5 a second: 135-205 words for 55-80 s), and the library's
+real footage cuts in over her voice wherever a line describes something. Add to the project:
+    "presenter": {"id": "maya", "scenes": [{"id": "cafe", "where": "She sits at a small round table in a sunny cafe, a latte in a white cup in front of her,
+                  warm daylight from the window beside her, a softly blurred cafe behind.", "outfit": "She wears a denim shirt.",
+                  "bag": "resting on her lap", "colour": "brown", "ambience": "Quiet cafe ambience"}, ...  1-3 scenes]}
+    hooks[].scene (default: the first scene), chapters[].scene (default: the first) and chapters[].cam: who is on camera while the chapter
+    is said: "open" (she says the first phrase, the footage shows the rest; the default), "both" (she opens and closes it), "close", "full"
+    (all of it on her: the story beats that need a face) or "none". A hook is always on her. One chapter = one take (at most 15 s: <= 36 words).
 """
 import argparse
 import csv
@@ -54,6 +66,8 @@ HOOK_TYPES = ("promise", "superlative", "question", "problem", "price")
 MAX_HOOK_WORDS = 14
 MAX_CHAPTER_WORDS, MAX_SENTENCES = 70, 5            # (the script engine's own limits are 45 / 3: a strategist's story needs more room)
 WORDS = (170, 285)                                   # the whole script: 55-80 s at 185-215 wpm
+PRES_WORDS, PRES_CHAPTER_WORDS = (135, 205), 36      # a presenter's script: 55-80 s at her 2.5 words a second; one take of at most 15 s
+CAMS = ("open", "both", "close", "full", "none")
 FACE_WORDS = re.compile(r"\b(face|faces|smil\w+|looking at (?:the )?camera|portrait|selfie|eyes|mouth|lips|mannequin|sunglasses)\b", re.I)
 NO_PEOPLE = "Nobody is in the picture, not even blurred in the background."
 MIN_MOMENTS = 4                                      # good footage moments a tag should have for the product before a chapter leans on it
@@ -140,6 +154,21 @@ def check(sheet, pr, n_projects=None, n_statics=None):
     for p in projs:
         pid = p.get("id") or "?"
         where = f"{pid}"
+        pres = p.get("presenter")
+        scene_ids = []
+        if pres:
+            import presenter as PR
+            if pres.get("id") not in PR.hosts():
+                P.append(f"{where}: presenter {pres.get('id')!r} is not in data/presenters.json ({', '.join(k for k in PR.hosts() if k[0] != '_')})")
+            sc_l = pres.get("scenes") or []
+            if not 1 <= len(sc_l) <= 3:
+                P.append(f"{where}: presenter.scenes: 1-3 scenes (id, where, outfit, bag, colour), {len(sc_l)} given")
+            for sc_ in sc_l:
+                scene_ids.append(sc_.get("id"))
+                if not sc_.get("id") or len(str(sc_.get("where") or "")) < 40:
+                    P.append(f"{where}: a presenter scene needs an id and a `where` of at least 40 characters (the room, the light, what she sits at)")
+                if re.search(r"sunglasses|mannequin", str(sc_.get("where") or ""), re.I):
+                    P.append(f"{where}: scene {sc_.get('id')}: no sunglasses or mannequins (they break the face and lip-sync)")
         if pid in seen_ids or not re.fullmatch(r"P\d\d", pid):
             P.append(f"{where}: id must be P01, P02 ... and unique")
         seen_ids.add(pid)
@@ -170,6 +199,8 @@ def check(sheet, pr, n_projects=None, n_statics=None):
                 P.append(f"{where} H{k}: label {label!r} (UPPER CASE, at most 3 words)")
             if U.FIRST.search(t):
                 P.append(f"{where} H{k}: first person in the hook")
+            if pres and h.get("scene") and h["scene"] not in scene_ids:
+                P.append(f"{where} H{k}: scene {h['scene']!r} is not one of the project's presenter scenes {scene_ids}")
             if re.sub(r"\W+", " ", t.lower()).strip() in old_hooks:
                 P.append(f"{where} H{k}: this hook line was used in an earlier batch: {t!r}")
             for tg in h.get("show") or []:
@@ -183,6 +214,12 @@ def check(sheet, pr, n_projects=None, n_statics=None):
         for j, c in enumerate(chs, 1):
             t, cw = c.get("text") or "", f"{where} c{j}"
             words += nwords(t)
+            if pres and nwords(t) > PRES_CHAPTER_WORDS:
+                P.append(f"{cw}: {nwords(t)} words: one take of the presenter is at most 15 s, so at most {PRES_CHAPTER_WORDS} words (split the chapter)")
+            if pres and c.get("cam") not in (None,) + CAMS:
+                P.append(f"{cw}: cam {c.get('cam')!r} (one of {', '.join(CAMS)})")
+            if pres and c.get("scene") and c["scene"] not in scene_ids:
+                P.append(f"{cw}: scene {c['scene']!r} is not one of the project's presenter scenes {scene_ids}")
             if not 1 <= len(sents(t)) <= MAX_SENTENCES or nwords(t) > MAX_CHAPTER_WORDS or not t:
                 P.append(f"{cw}: {len(sents(t))} sentences / {nwords(t)} words (1-{MAX_SENTENCES} / at most {MAX_CHAPTER_WORDS}): one voice take")
             if c.get("kind") not in ("point", "proof", "objection", "offer"):
@@ -207,8 +244,9 @@ def check(sheet, pr, n_projects=None, n_statics=None):
             P.append(f"{where}: the last chapter must be kind offer and end with 'Tap the link below.'")
         if chs and sum(c.get("kind") == "offer" for c in chs) != 1:
             P.append(f"{where}: exactly one offer chapter, the last")
-        if chs and not WORDS[0] <= words + nwords(hooks[0]["text"] if hooks else "") <= WORDS[1]:
-            P.append(f"{where}: {words} words in all: a 55-80 s video needs {WORDS[0]}-{WORDS[1]} (about 3.1 words a second)")
+        wr = PRES_WORDS if pres else WORDS
+        if chs and not wr[0] <= words + nwords(hooks[0]["text"] if hooks else "") <= wr[1]:
+            P.append(f"{where}: {words} words in all: a 55-80 s video needs {wr[0]}-{wr[1]} (about {'2.5' if pres else '3.1'} words a second)")
     allowed = sorted({(int(m.group(1)) if m.group(1).isdigit() else compliance.ONES[m.group(1).lower()])
                       for i_ in items for m in compliance.COUNT_WORD.finditer(i_["text"])})      # ('Five things ...': a count the video shows, not a stat)
     for k, s in enumerate(stats, 1):
@@ -263,7 +301,8 @@ def scripts(sheet, pr, hooks=4):
     out = []
     for i, p in enumerate(sheet["projects"]):
         def hook(h):
-            return dict(U.H(h["text"].strip(), h["type"], h["label"].strip().upper(), None), show=list(h.get("show") or []))
+            return dict(U.H(h["text"].strip(), h["type"], h["label"].strip().upper(), None), show=list(h.get("show") or []),
+                        **({"scene": h.get("scene")} if p.get("presenter") and h.get("scene") else {}))
         hs = [hook(h) for h in p["hooks"][:max(hooks, 1) + 0]] if hooks else [hook(p["hooks"][0])]
         chs = []
         for j, c in enumerate(p["chapters"], 1):
@@ -273,10 +312,14 @@ def scripts(sheet, pr, hooks=4):
             ch = U.chapter(c["text"].strip(), c["kind"], None, c.get("number"), None, kw=kw,
                            keywords=[w.lower() for w in c.get("highlight") or [] if w.lower() in c["text"].lower()][:3])
             ch.update(id=f"c{j}", tag=(c.get("tag") or None), feature=(c.get("tag") or None), show=show)
+            if p.get("presenter"):
+                ch.update(cam=c.get("cam") or "open", **({"scene": c["scene"]} if c.get("scene") else {}))
             chs.append(ch)
         sc = U.finish(ctx, dict(id=f"U{i + 1:02d}", index=i, angle=p["slug"], voice="you", product=pr.get("key"), hook=hs[0],
                                 alt_hooks=hs[1:], chapters=chs))
         sc.update(title=p["title"], idea=p["big_idea"], from_sheet=True)
+        if p.get("presenter"):
+            sc["presenter"] = p["presenter"]
         out.append(sc)
     return out
 
@@ -367,11 +410,17 @@ def sheet_md(sheet, scripts_=None):
         L += [f"## {p['id']} · {p['title']}", f"**Big idea:** {p['big_idea']}", f"**Why it is new:** {p['why_new']}\n", "**Hooks (4 versions, same body):**"]
         for k, h in enumerate(p["hooks"][:4], 1):
             L.append(f"- H{k} [{h['type']}] `{h['label']}`: {h['text']}  _(picture: {', '.join(h.get('show') or []) or '-'})_")
-        L += ["", "**Script:**\n", "| # | Voice | Picture it needs | On screen |", "|---|---|---|---|"]
+        pres = p.get("presenter")
+        if pres:
+            L += ["", f"**Presenter ({pres['id']}, a generated host, never a customer):** " +
+                  "; ".join(f"{x['id']}: {x['where'].strip()}" for x in pres.get("scenes") or [])]
+        L += ["", "**Script:**\n", "| # | " + ("Said by the presenter | On camera | " if pres else "Voice | ") + "Picture it needs | On screen |",
+              "|---|---|---|---|" + ("---|" if pres else "")]
         for j, c in enumerate(p["chapters"], 1):
-            L.append(f"| {j} | {c['text']} | {', '.join(c.get('show') or [])} | {(str(c['number']) + '. ' if c.get('number') else '') + (c.get('tag') or '')} |")
+            L.append(f"| {j} | {c['text']} | " + (f"{c.get('cam') or 'open'} | " if pres else "") +
+                     f"{', '.join(c.get('show') or [])} | {(str(c['number']) + '. ' if c.get('number') else '') + (c.get('tag') or '')} |")
         w = sum(nwords(c["text"]) for c in p["chapters"]) + nwords(p["hooks"][0]["text"])
-        L += [f"\n_{w} words, about {round(w / 3.08)} s._\n"]
+        L += [f"\n_{w} words, about {round(w / (2.55 if pres else 3.08))} s._\n"]
         sts = [s for s in sheet.get("statics") or [] if s.get("project") == p["id"]]
         if sts:
             L += ["**Statics:**\n", "| # | Look | Idea | Words |", "|---|---|---|---|"]

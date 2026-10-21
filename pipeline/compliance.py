@@ -770,6 +770,9 @@ def batch_items(out):
                 for x in (o.get(k) if isinstance(o.get(k), list) else [o.get(k)]):
                     if isinstance(x, str) and x.strip():
                         sink.append(dict(where=f"{vid} {o.get('type', 'overlay')}", text=x, source="ours"))
+        for b_ in spec.get("blocks") or []:            # a presenter's lines (presenter.py): her take says the script's words
+            if b_.get("talk") and b_.get("text"):
+                sink.append(dict(where=f"{vid} presenter {os.path.basename(b_['talk'])}", text=b_["text"], source="ours"))
         off = spec.get("offer") or {}
         for k in ("title", "sub"):
             if off.get(k):
