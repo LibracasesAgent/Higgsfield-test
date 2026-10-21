@@ -901,6 +901,102 @@
      "kind": "static",
      "fp": "s|checklist|hobo_bag_colour_grey.jpg|what makes the hobo bag different",
      "label": "What makes the Hobo Bag different"
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B016_P01_H1_thelist",
+     "kind": "video",
+     "fp": "v|three people on your list, one gift that suits all of them.|",
+     "label": "Three people on your list, one gift that suits all of them."
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B016_P01_H2_thelist",
+     "kind": "video",
+     "fp": "v|who on your list carries their whole life in one hand?|",
+     "label": "Who on your list carries their whole life in one hand?"
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B016_P01_H3_thelist",
+     "kind": "video",
+     "fp": "v|still no idea what to give the one who has everything?|",
+     "label": "Still no idea what to give the one who has everything?"
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B016_P01_H4_thelist",
+     "kind": "video",
+     "fp": "v|a gift that looks expensive, at fifty percent off this black friday.|",
+     "label": "A gift that looks expensive, at fifty percent off this Black Friday."
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B016_P02_H1_friday",
+     "kind": "video",
+     "fp": "v|hands full of shopping bags: where does your phone go?|",
+     "label": "Hands full of shopping bags: where does your phone go?"
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B016_P02_H2_friday",
+     "kind": "video",
+     "fp": "v|here is how to get through black friday with both hands free.|",
+     "label": "Here is how to get through Black Friday with both hands free."
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B016_P02_H3_friday",
+     "kind": "video",
+     "fp": "v|what does the crowd do to your bag in the first few minutes?|",
+     "label": "What does the crowd do to your bag in the first few minutes?"
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B016_P02_H4_friday",
+     "kind": "video",
+     "fp": "v|fifty percent off, a free pouch wallet, and a bag built for the crowd.|",
+     "label": "Fifty percent off, a free pouch wallet, and a bag built for the crowd."
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B016_P03_H1_myths",
+     "kind": "video",
+     "fp": "v|myth: a bag with room for everything is always a mess.|",
+     "label": "Myth: a bag with room for everything is always a mess."
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B016_P03_H2_myths",
+     "kind": "video",
+     "fp": "v|does a big bag have to be a messy bag?|",
+     "label": "Does a big bag have to be a messy bag?"
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B016_P03_H3_myths",
+     "kind": "video",
+     "fp": "v|handbag myths, and what the hobo bag says back.|",
+     "label": "Handbag myths, and what the Hobo Bag says back."
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B016_P03_H4_myths",
+     "kind": "video",
+     "fp": "v|myth: good leather costs full price. not this black friday.|",
+     "label": "Myth: good leather costs full price. Not this Black Friday."
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B016_P04_H1_retire",
+     "kind": "video",
+     "fp": "v|your old bag deserves a quiet retirement. here is its replacement.|",
+     "label": "Your old bag deserves a quiet retirement. Here is its replacement."
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B016_P04_H2_retire",
+     "kind": "video",
+     "fp": "v|how long have you been carrying a bag that fights you?|",
+     "label": "How long have you been carrying a bag that fights you?"
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B016_P04_H3_retire",
+     "kind": "video",
+     "fp": "v|is your bag still the thing you dig through every morning?|",
+     "label": "Is your bag still the thing you dig through every morning?"
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B016_P04_H4_retire",
+     "kind": "video",
+     "fp": "v|retire the old one this black friday: fifty percent off the hobo bag.|",
+     "label": "Retire the old one this Black Friday: fifty percent off the Hobo Bag."
     }
    ]
   }

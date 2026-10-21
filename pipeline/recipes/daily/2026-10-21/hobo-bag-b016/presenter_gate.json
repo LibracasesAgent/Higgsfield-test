@@ -1,0 +1,668 @@
+{
+ "stills": {
+  "PS01": {
+   "ok": true,
+   "problems": [],
+   "faces": 1,
+   "colour": 0.1252,
+   "inliers": 11,
+   "sharp": 695.9
+  },
+  "PS02": {
+   "ok": true,
+   "problems": [],
+   "faces": 1,
+   "colour": 0.1773,
+   "inliers": 20,
+   "sharp": 846.1
+  },
+  "PS03": {
+   "ok": true,
+   "problems": [],
+   "faces": 1,
+   "colour": 0.1327,
+   "inliers": 7,
+   "sharp": 750.0
+  },
+  "PS04": {
+   "ok": true,
+   "problems": [],
+   "faces": 1,
+   "colour": 0.1804,
+   "inliers": 7,
+   "sharp": 905.5
+  },
+  "PS05": {
+   "ok": true,
+   "problems": [],
+   "faces": 1,
+   "colour": 0.213,
+   "inliers": 9,
+   "sharp": 705.5
+  },
+  "PS06": {
+   "ok": true,
+   "problems": [],
+   "faces": 1,
+   "colour": 0.1673,
+   "inliers": 6,
+   "sharp": 780.2
+  },
+  "PS07": {
+   "ok": true,
+   "problems": [],
+   "faces": 1,
+   "colour": 0.1502,
+   "inliers": 27,
+   "sharp": 740.6
+  },
+  "PS08": {
+   "ok": true,
+   "problems": [],
+   "faces": 1,
+   "colour": 0.1185,
+   "inliers": 14,
+   "sharp": 1069.0
+  }
+ },
+ "takes": {
+  "PT01": {
+   "ok": true,
+   "problems": [],
+   "dur": 6.04,
+   "heard": "Who on your list carries their whole life in one hand?",
+   "match": 1.0,
+   "first": 0.0,
+   "last": 4.98,
+   "faces": [
+    1,
+    1,
+    1
+   ]
+  },
+  "PT02": {
+   "ok": true,
+   "problems": [],
+   "dur": 6.04,
+   "heard": "Still no idea what to give the one who has everything.",
+   "match": 1.0,
+   "first": 0.68,
+   "last": 4.62,
+   "faces": [
+    2,
+    1,
+    1
+   ]
+  },
+  "PT03": {
+   "ok": true,
+   "problems": [],
+   "dur": 6.04,
+   "heard": "A gift that looks expensive at 50 % off this Black Friday.",
+   "match": 1.0,
+   "first": 0.0,
+   "last": 5.34,
+   "faces": [
+    1,
+    1,
+    1
+   ]
+  },
+  "PT04": {
+   "ok": true,
+   "problems": [],
+   "dur": 13.04,
+   "heard": "First, the one who never stops moving. Keys and phone ride in her hand because her bag has no place for them. A gold zip on each side fixes that.",
+   "match": 1.0,
+   "first": 0.84,
+   "last": 12.6,
+   "faces": [
+    1,
+    1,
+    1
+   ]
+  },
+  "PT05": {
+   "ok": true,
+   "problems": [],
+   "dur": 13.04,
+   "heard": "Second, the one who loves a crowd and hates the squeeze. The hidden pocket on the back sits flat against her, so her passport and cards stay right where she put them.",
+   "match": 1.0,
+   "first": 0.0,
+   "last": 12.42,
+   "faces": [
+    1,
+    1,
+    1
+   ]
+  },
+  "PT06": {
+   "ok": true,
+   "problems": [],
+   "dur": 11.04,
+   "heard": "Third, the one whose bag is a black hole. Divided compartments inside mean nothing sinks to the bottom, lip balm, charger, sunglasses, each in its own place.",
+   "match": 1.0,
+   "first": 0.0,
+   "last": 10.54,
+   "faces": [
+    1,
+    1,
+    1
+   ]
+  },
+  "PT07": {
+   "ok": true,
+   "problems": [],
+   "dur": 12.04,
+   "heard": "One bag covers all three, two straps let it sit on the shoulder, hang from the hand, or cross the body in soft water -resistant leather that looks expensive.",
+   "match": 1.0,
+   "first": 0.0,
+   "last": 11.66,
+   "faces": [
+    1,
+    2,
+    2
+   ]
+  },
+  "PT08": {
+   "ok": true,
+   "problems": [],
+   "dur": 6.04,
+   "heard": "Not sure it will suit? There is a one -year warranty and easy returns.",
+   "match": 1.0,
+   "first": 0.0,
+   "last": 5.36,
+   "faces": [
+    1,
+    1,
+    1
+   ]
+  },
+  "PT09": {
+   "ok": true,
+   "problems": [],
+   "dur": 12.04,
+   "heard": "This Black Friday, the Hobo bag is 50 % off with a free matching pouch wallet and free U .S. shipping. Your whole list handled, tap the link below.",
+   "match": 1.0,
+   "first": 1.46,
+   "last": 11.48,
+   "faces": [
+    1,
+    1,
+    1
+   ]
+  },
+  "PT10": {
+   "ok": true,
+   "problems": [],
+   "dur": 6.04,
+   "heard": "Three people on your list, one gift that suits all of them.",
+   "match": 1.0,
+   "first": 1.0,
+   "last": 5.64,
+   "faces": [
+    1,
+    1,
+    1
+   ]
+  },
+  "PT11": {
+   "ok": true,
+   "problems": [],
+   "dur": 6.04,
+   "heard": "Here is how to get through Black Friday with both hands free.",
+   "match": 1.0,
+   "first": 0.0,
+   "last": 5.36,
+   "faces": [
+    1,
+    1,
+    1
+   ]
+  },
+  "PT12": {
+   "ok": true,
+   "problems": [
+    "look: she starts late (2.26 s; the cut trims it)"
+   ],
+   "dur": 6.04,
+   "heard": "What does the crowd do to your bag in the first few minutes?",
+   "match": 1.0,
+   "first": 2.26,
+   "last": 5.44,
+   "faces": [
+    1,
+    1,
+    1
+   ]
+  },
+  "PT13": {
+   "ok": true,
+   "problems": [],
+   "dur": 7.04,
+   "heard": "50 % off, a free pouch wallet and a bag built for the crowd.",
+   "match": 1.0,
+   "first": 0.0,
+   "last": 6.58,
+   "faces": [
+    1,
+    1,
+    1
+   ]
+  },
+  "PT14": {
+   "ok": true,
+   "problems": [],
+   "dur": 12.04,
+   "heard": "You park, grab your list, and step into the crowd. This is where a lot of bags let you down. Straps, slip, zip -scape, everything is out of reach.",
+   "match": 0.99,
+   "first": 0.82,
+   "last": 11.58,
+   "faces": [
+    1,
+    1,
+    1
+   ]
+  },
+  "PT15": {
+   "ok": true,
+   "problems": [],
+   "dur": 13.04,
+   "heard": "Step one, stood the strap. Two of them come with the bag so it can sit on your shoulder, hang from your hand, or cross your body, whichever keeps your hands free.",
+   "match": 0.98,
+   "first": 1.38,
+   "last": 12.44,
+   "faces": [
+    1,
+    1,
+    1
+   ]
+  },
+  "PT16": {
+   "ok": true,
+   "problems": [],
+   "dur": 10.04,
+   "heard": "Step two, your cards. The hidden pocket on the back sits flat against you, so your cards and your passport stay right there.",
+   "match": 1.0,
+   "first": 0.0,
+   "last": 9.24,
+   "faces": [
+    1,
+    1,
+    1
+   ]
+  },
+  "PT17": {
+   "ok": true,
+   "problems": [],
+   "dur": 10.04,
+   "heard": "Step 3, your phone and keys. A gold zip on each side keeps them one quick reach away with no digging at the bottom.",
+   "match": 1.0,
+   "first": 0.0,
+   "last": 9.56,
+   "faces": [
+    1,
+    1,
+    1
+   ]
+  },
+  "PT18": {
+   "ok": true,
+   "problems": [],
+   "dur": 8.04,
+   "heard": "Last step, everything else. Divided compartments inside give lip balm, receipts, and a charger each their own place.",
+   "match": 1.0,
+   "first": 0.0,
+   "last": 7.62,
+   "faces": [
+    1,
+    1,
+    1
+   ]
+  },
+  "PT19": {
+   "ok": true,
+   "problems": [],
+   "dur": 7.04,
+   "heard": "The leather is soft water resistant and expensive looking and there is a one -year warranty and easy returns",
+   "match": 1.0,
+   "first": 0.0,
+   "last": 6.68,
+   "faces": [
+    1,
+    1,
+    1
+   ]
+  },
+  "PT20": {
+   "ok": true,
+   "problems": [],
+   "dur": 10.04,
+   "heard": "Black Friday brings 50 % off the Hobo bag with a free matching pouch wallet and free US shipping. Tap the link below.",
+   "match": 1.0,
+   "first": 0.0,
+   "last": 9.68,
+   "faces": [
+    1,
+    1,
+    1
+   ]
+  },
+  "PT21": {
+   "ok": true,
+   "problems": [],
+   "dur": 5.04,
+   "heard": "Hands full of shopping bags, where does your phone go?",
+   "match": 1.0,
+   "first": 0.0,
+   "last": 3.72,
+   "faces": [
+    1,
+    1,
+    1
+   ]
+  },
+  "PT22": {
+   "ok": true,
+   "problems": [],
+   "dur": 5.04,
+   "heard": "Does a big bag have to be a messy bag?",
+   "match": 1.0,
+   "first": 0.92,
+   "last": 4.22,
+   "faces": [
+    1,
+    1,
+    1
+   ]
+  },
+  "PT23": {
+   "ok": true,
+   "problems": [],
+   "dur": 5.04,
+   "heard": "Handbag myths, and what the hobo bag says back.",
+   "match": 1.0,
+   "first": 0.0,
+   "last": 4.54,
+   "faces": [
+    1,
+    1,
+    1
+   ]
+  },
+  "PT24": {
+   "ok": true,
+   "problems": [],
+   "dur": 5.04,
+   "heard": "Myth, good leather costs full price, not this Black Friday.",
+   "match": 1.0,
+   "first": 0.0,
+   "last": 4.64,
+   "faces": [
+    1,
+    1,
+    1
+   ]
+  },
+  "PT25": {
+   "ok": true,
+   "problems": [
+    "look: her last word ends 0.14 s before the clip ends (the cut ends with the clip)"
+   ],
+   "dur": 10.04,
+   "heard": "Myth 1. More room means more mess. Not when divided compartments inside give your things their own places so nothing sinks to the bottom.",
+   "match": 1.0,
+   "first": 0.0,
+   "last": 9.9,
+   "faces": [
+    1,
+    1,
+    1
+   ]
+  },
+  "PT26": {
+   "ok": true,
+   "problems": [],
+   "dur": 10.04,
+   "heard": "Myth 2, side zips are just decoration. These two gold ones, one on each side, are made for your keys and your phone.",
+   "match": 1.0,
+   "first": 0.0,
+   "last": 9.4,
+   "faces": [
+    1,
+    1,
+    1
+   ]
+  },
+  "PT27": {
+   "ok": true,
+   "problems": [],
+   "dur": 11.04,
+   "heard": "Myth 3. A handbag only has one way to be carried. Two straps give you three on the shoulder, in the hand, or across the body.",
+   "match": 1.0,
+   "first": 0.0,
+   "last": 10.66,
+   "faces": [
+    1,
+    1,
+    1
+   ]
+  },
+  "PT28": {
+   "ok": true,
+   "problems": [],
+   "dur": 11.04,
+   "heard": "The last myth, a pocket on the back is a pocket you will never find. This one sits flat against you, hidden for your passport and cards.",
+   "match": 1.0,
+   "first": 0.0,
+   "last": 10.22,
+   "faces": [
+    1,
+    1,
+    1
+   ]
+  },
+  "PT29": {
+   "ok": true,
+   "problems": [],
+   "dur": 7.04,
+   "heard": "And the biggest myth, that leather this soft, water resistant and expensive looking has to cost full price.",
+   "match": 1.0,
+   "first": 0.0,
+   "last": 6.72,
+   "faces": [
+    1,
+    1,
+    1
+   ]
+  },
+  "PT30": {
+   "ok": true,
+   "problems": [],
+   "dur": 12.04,
+   "heard": "This Black Friday, it is 50 % off the Hobo bag with a free matching pouch wallet and free US shipping. One year warranty, easy returns, tap the link below.",
+   "match": 1.0,
+   "first": 0.0,
+   "last": 11.4,
+   "faces": [
+    1,
+    1,
+    1
+   ]
+  },
+  "PT31": {
+   "ok": true,
+   "problems": [],
+   "dur": 6.04,
+   "heard": "Myth. A bag with room for everything is always a mess.",
+   "match": 1.0,
+   "first": 0.0,
+   "last": 5.64,
+   "faces": [
+    1,
+    1,
+    1
+   ]
+  },
+  "PT32": {
+   "ok": true,
+   "problems": [],
+   "dur": 6.04,
+   "heard": "How long have you been carrying a bag that fights you?",
+   "match": 1.0,
+   "first": 0.0,
+   "last": 3.84,
+   "faces": [
+    1,
+    1,
+    1
+   ]
+  },
+  "PT33": {
+   "ok": true,
+   "problems": [],
+   "dur": 6.04,
+   "heard": "Is your bag still the thing you dig through every morning?",
+   "match": 1.0,
+   "first": 0.0,
+   "last": 5.4,
+   "faces": [
+    1,
+    1,
+    1
+   ]
+  },
+  "PT34": {
+   "ok": true,
+   "problems": [],
+   "dur": 6.04,
+   "heard": "Retire the old one this Black Friday 50 % off the Habo bag.",
+   "match": 0.98,
+   "first": 0.0,
+   "last": 5.36,
+   "faces": [
+    1,
+    1,
+    1
+   ]
+  },
+  "PT35": {
+   "ok": true,
+   "problems": [
+    "look: her last word ends 0.20 s before the clip ends (the cut ends with the clip)"
+   ],
+   "dur": 11.04,
+   "heard": "Think about the bag you carried today. It held your phone, your keys, your cards, and a few things it never had a proper place for.",
+   "match": 1.0,
+   "first": 0.82,
+   "last": 10.84,
+   "faces": [
+    1,
+    1,
+    1
+   ]
+  },
+  "PT36": {
+   "ok": true,
+   "problems": [],
+   "dur": 9.04,
+   "heard": "It did its job, but a good bag does more than hold things. It hands them back the second you reach.",
+   "match": 1.0,
+   "first": 1.1,
+   "last": 8.4,
+   "faces": [
+    1,
+    1,
+    1
+   ]
+  },
+  "PT37": {
+   "ok": true,
+   "problems": [
+    "look: her last word ends 0.14 s before the clip ends (the cut ends with the clip)"
+   ],
+   "dur": 11.04,
+   "heard": "A gold zip on each side hands you your keys and phone. A hidden pocket on the back keeps your passport and cards flat against you.",
+   "match": 1.0,
+   "first": 0.84,
+   "last": 10.9,
+   "faces": [
+    1,
+    1,
+    1
+   ]
+  },
+  "PT38": {
+   "ok": true,
+   "problems": [],
+   "dur": 10.04,
+   "heard": "Inside, divided compartments mean nothing gets lost at the bottom, and the soft, water -resistant leather looks expensive and only gets better with time.",
+   "match": 1.0,
+   "first": 0.86,
+   "last": 9.6,
+   "faces": [
+    1,
+    1,
+    1
+   ]
+  },
+  "PT39": {
+   "ok": true,
+   "problems": [],
+   "dur": 8.04,
+   "heard": "Two straps let you carry it your way on the shoulder, in your hand, or across your body.",
+   "match": 1.0,
+   "first": 0.0,
+   "last": 7.5,
+   "faces": [
+    1,
+    1,
+    1
+   ]
+  },
+  "PT40": {
+   "ok": true,
+   "problems": [],
+   "dur": 7.04,
+   "heard": "And if it is not right for you, there is a one -year warranty and easy returns.",
+   "match": 1.0,
+   "first": 0.0,
+   "last": 6.26,
+   "faces": [
+    1,
+    1,
+    1
+   ]
+  },
+  "PT41": {
+   "ok": true,
+   "problems": [
+    "look: her last word ends 0.22 s before the clip ends (the cut ends with the clip)"
+   ],
+   "dur": 13.04,
+   "heard": "So retire the old one with thanks. This Black Friday the Hobo bag is 50 % off with a free matching pouch wallet and free US shipping. Tap the link below.",
+   "match": 1.0,
+   "first": 0.0,
+   "last": 12.82,
+   "faces": [
+    1,
+    1,
+    1
+   ]
+  },
+  "PT42": {
+   "ok": true,
+   "problems": [],
+   "dur": 6.04,
+   "heard": "Your old bag deserves a quiet retirement. Here is its replacement.",
+   "match": 1.0,
+   "first": 0.0,
+   "last": 5.48,
+   "faces": [
+    1,
+    1,
+    1
+   ]
+  }
+ }
+}

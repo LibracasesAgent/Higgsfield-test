@@ -1,0 +1,377 @@
+{
+ "mode": "ugc",
+ "voice_speed": 1.12,
+ "blocks": [
+  {
+   "talk": "talk/P03H4_hook.mp4",
+   "text": "Myth: good leather costs full price. Not this Black Friday.",
+   "scene": "window",
+   "broll": [
+    [
+     "TALK",
+     0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "talk": "talk/P03_c1.mp4",
+   "text": "Myth one: more room means more mess. Not when divided compartments inside give your things their own places, so nothing sinks to the bottom.",
+   "scene": "kitchen",
+   "broll": [
+    [
+     "TALK",
+     0,
+     1.0
+    ],
+    [
+     "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+     16.0,
+     1.0
+    ],
+    [
+     "1H37laFpFlZXnZEBieyhIattc5OOx8_01",
+     29.07,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+     12.0,
+     1.0
+    ],
+    [
+     "1YfDgMaBjey0V1K2PvyuiNaW42CvXmQAM",
+     8.41,
+     1.0
+    ],
+    [
+     "1H37laFpFlZXnZEBieyhIattc5OOx8_01",
+     11.89,
+     1.0
+    ]
+   ],
+   "number": 1
+  },
+  {
+   "talk": "talk/P03_c2.mp4",
+   "text": "Myth two: side zips are just decoration. These two gold ones, one on each side, are made for your keys and your phone.",
+   "scene": "kitchen",
+   "broll": [
+    [
+     "TALK",
+     0,
+     1.0
+    ],
+    [
+     "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+     2.0,
+     1.0
+    ],
+    [
+     "1Rj3QE3QSg73kbPB1qCg7qo7az2SvQEPb",
+     0.3,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+     6.0,
+     1.0
+    ],
+    [
+     "1mnZ266w4JTvXOnLeuzhOhtTBQM-8dYiF",
+     14.54,
+     1.0
+    ],
+    [
+     "1TeEFWPEZ_jATN9so2DZNeyg-mOPQe8jL",
+     15.19,
+     1.0
+    ]
+   ],
+   "number": 2
+  },
+  {
+   "talk": "talk/P03_c3.mp4",
+   "text": "Myth three: a handbag only has one way to be carried. Two straps give you three: on the shoulder, in the hand or across the body.",
+   "scene": "window",
+   "broll": [
+    [
+     "TALK",
+     0,
+     1.0
+    ],
+    [
+     "13WPNZDUpQdyDm4VKoJezn1StKDv4ixu4",
+     11.62,
+     1.0
+    ],
+    [
+     "1XHyroj2cSjTIaPdcN3ChZsYMkRGRtRsG",
+     0.3,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1Rj3QE3QSg73kbPB1qCg7qo7az2SvQEPb",
+     4.6,
+     1.0
+    ],
+    [
+     "13WPNZDUpQdyDm4VKoJezn1StKDv4ixu4",
+     4.41,
+     1.0
+    ],
+    [
+     "1yFMCtT9SSE0_GMq6orEHoHL1JEKAJ1x9",
+     2.93,
+     1.0
+    ]
+   ],
+   "number": 3
+  },
+  {
+   "talk": "talk/P03_c4.mp4",
+   "text": "The last myth: a pocket on the back is a pocket you will never find. This one sits flat against you, hidden, for your passport and cards.",
+   "scene": "window",
+   "broll": [
+    [
+     "TALK",
+     0,
+     1.0
+    ],
+    [
+     "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+     3.6,
+     1.0
+    ],
+    [
+     "1EooqFqunZcjv3bAwwktu7RT8uqcYzqfJ",
+     0.3,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1T-dMODm60gHJ4YV1QHowkhXwwQ8mSMs4",
+     3.86,
+     1.0
+    ],
+    [
+     "177mQyA2s2ACZIjv7BnH4qbMCu0QDQ1qn",
+     0.3,
+     1.0
+    ],
+    [
+     "1XTfJnV-s9YVXmsv30f29mYqy5yV38n96",
+     7.07,
+     1.0
+    ]
+   ],
+   "number": 4
+  },
+  {
+   "talk": "talk/P03_c5.mp4",
+   "text": "And the biggest myth? That leather this soft, water-resistant and expensive-looking has to cost full price.",
+   "scene": "kitchen",
+   "broll": [
+    [
+     "TALK",
+     0,
+     1.0
+    ],
+    [
+     "TALK",
+     0,
+     1.0
+    ],
+    [
+     "TALK",
+     0,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1CcakagPN5oiWEneKORpvJblnPYnQvWHI",
+     4.0,
+     1.0
+    ],
+    [
+     "1nnsvEIfgqziYdrmeUrrtgL3Qo3YHV7Sw",
+     9.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "talk": "talk/P03_c6.mp4",
+   "text": "This Black Friday it is fifty percent off the Hobo Bag, with a free matching pouch wallet and free US shipping. One-year warranty, easy returns. Tap the link below.",
+   "scene": "kitchen",
+   "broll": [
+    [
+     "TALK",
+     0,
+     1.0
+    ],
+    [
+     "1TeEFWPEZ_jATN9so2DZNeyg-mOPQe8jL",
+     5.94,
+     1.0
+    ],
+    [
+     "1T-dMODm60gHJ4YV1QHowkhXwwQ8mSMs4",
+     0.62,
+     1.0
+    ],
+    [
+     "13WPNZDUpQdyDm4VKoJezn1StKDv4ixu4",
+     8.01,
+     1.0
+    ],
+    [
+     "TALK",
+     0,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1TeEFWPEZ_jATN9so2DZNeyg-mOPQe8jL",
+     1.31,
+     1.0
+    ],
+    [
+     "18wOkQ9ToI66y133XanUgEZT0I4Q25Ea1",
+     0.3,
+     1.0
+    ],
+    [
+     "1v8gKfP9ZYsuh7w5yBwlInmv_-U-pY2x_",
+     6.92,
+     1.0
+    ]
+   ]
+  }
+ ],
+ "overlays": [
+  {
+   "type": "label",
+   "text": "HALF PRICE",
+   "block": 0,
+   "at": 0.1,
+   "dur": 1.8,
+   "y": 960
+  },
+  {
+   "type": "tag",
+   "text": "SMART COMPARTMENTS",
+   "block": 1,
+   "at": 0.15,
+   "dur": 2.6,
+   "y": 960
+  },
+  {
+   "type": "tag",
+   "text": "GOLD SIDE ZIPS",
+   "block": 2,
+   "at": 0.15,
+   "dur": 2.6,
+   "y": 960
+  },
+  {
+   "type": "tag",
+   "text": "3 WAYS TO WEAR",
+   "block": 3,
+   "at": 0.15,
+   "dur": 2.6,
+   "y": 960
+  },
+  {
+   "type": "tag",
+   "text": "HIDDEN BACK POCKET",
+   "block": 4,
+   "at": 0.15,
+   "dur": 2.6,
+   "y": 960
+  },
+  {
+   "type": "tag",
+   "text": "SOFT LEATHER",
+   "block": 5,
+   "at": 0.15,
+   "dur": 2.6,
+   "y": 960
+  }
+ ],
+ "end_title": "The Luxury Hobo Bag",
+ "offer": {
+  "block": 6,
+  "word": "50",
+  "title": "BLACK FRIDAY 50% OFF",
+  "sub": "+ FREE MATCHING WALLET"
+ },
+ "presenter": "maya",
+ "overlay_y": 960,
+ "end_photo": "site/hobo_bag_colour_blue.jpg",
+ "end_offer": "BLACK FRIDAY 50% OFF",
+ "keywords": [
+  "50%",
+  "free",
+  "pouch",
+  "wallet",
+  "hidden",
+  "pocket",
+  "leather",
+  "black",
+  "friday",
+  "compartments",
+  "bottom",
+  "gold",
+  "keys",
+  "three",
+  "straps",
+  "back",
+  "price",
+  "fifty"
+ ],
+ "spare_broll": [
+  [
+   "1f_9Fjvv6B2cnF8Z0lFf__xn_RJEvpLQ0",
+   7.75,
+   1.0
+  ],
+  [
+   "1G6B5yfeTUCh6NAy_fq7kc37qoSOgVmKE",
+   24.57,
+   1.0
+  ],
+  [
+   "1zg2CRMvlkQjNlfLzjdEzt-hJG5uwdh6s",
+   2.99,
+   1.0
+  ],
+  [
+   "16bugUA13UINTh8mGcl237pNZ8KnnVjjA",
+   2.17,
+   1.0
+  ],
+  [
+   "1UcPs3RM-Iwrzd5rgOIA6Wxii0i3R3xqL",
+   5.23,
+   1.0
+  ],
+  [
+   "11mRxJemVgJPYmK8Ha6wKD8KGG95Bq4Rn",
+   12.71,
+   1.0
+  ]
+ ],
+ "music": {
+  "seed": 36
+ }
+}

@@ -1,0 +1,396 @@
+{
+ "mode": "ugc",
+ "voice_speed": 1.12,
+ "blocks": [
+  {
+   "talk": "talk/P04H4_hook.mp4",
+   "text": "Retire the old one this Black Friday: fifty percent off the Hobo Bag.",
+   "scene": "sofa2",
+   "broll": [
+    [
+     "TALK",
+     0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "talk": "talk/P04_c1.mp4",
+   "text": "Think about the bag you carried today. It held your phone, your keys, your cards, and a few things it never had a proper place for.",
+   "scene": "window2",
+   "broll": [
+    [
+     "TALK",
+     0,
+     1.0
+    ],
+    [
+     "18wOkQ9ToI66y133XanUgEZT0I4Q25Ea1",
+     0.3,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "18wOkQ9ToI66y133XanUgEZT0I4Q25Ea1",
+     4.87,
+     1.0
+    ],
+    [
+     "1Xj54eAB-FmwD5BYTrnrZDBHDk1rS7gmB",
+     0.3,
+     1.0
+    ],
+    [
+     "1Hh3iKPWqlovbmfcTAQ8_RsXqyxZhLypi",
+     6.81,
+     1.0
+    ],
+    [
+     "1mUmRSbAC9euA9r90fBIehdFwmPG1c3wA",
+     0.3,
+     1.0
+    ]
+   ]
+  },
+  {
+   "talk": "talk/P04_c2.mp4",
+   "text": "It did its job. But a good bag does more than hold things. It hands them back the second you reach.",
+   "scene": "window2",
+   "broll": [
+    [
+     "TALK",
+     0,
+     1.0
+    ],
+    [
+     "TALK",
+     0,
+     1.0
+    ],
+    [
+     "TALK",
+     0,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1bjlxkeRtv0nGVDDFjMAEw4xGTe3Up-D6",
+     9.69,
+     1.0
+    ],
+    [
+     "1G6RyG3jymGyVpCgZxqJLmQihJVNHYlM-",
+     33.13,
+     1.0
+    ],
+    [
+     "1YfDgMaBjey0V1K2PvyuiNaW42CvXmQAM",
+     3.13,
+     1.0
+    ],
+    [
+     "1H37laFpFlZXnZEBieyhIattc5OOx8_01",
+     11.89,
+     1.0
+    ]
+   ]
+  },
+  {
+   "talk": "talk/P04_c3.mp4",
+   "text": "A gold zip on each side hands you your keys and phone. A hidden pocket on the back keeps your passport and cards flat against you.",
+   "scene": "sofa2",
+   "broll": [
+    [
+     "TALK",
+     0,
+     1.0
+    ],
+    [
+     "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+     1.0,
+     1.0
+    ],
+    [
+     "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+     6.0,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1Rj3QE3QSg73kbPB1qCg7qo7az2SvQEPb",
+     0.3,
+     1.0
+    ],
+    [
+     "10uhhKdeKztcGarl-uoLMO4kJk8phF54N",
+     6.23,
+     1.0
+    ],
+    [
+     "1TEuLo_AHVpYwOzvaV3NnrRPxU6Pd2zpt",
+     15.71,
+     1.0
+    ],
+    [
+     "1Z8iNqLT_lv441Ow6mTbJ7kMkCFizByxm",
+     37.11,
+     1.0
+    ]
+   ]
+  },
+  {
+   "talk": "talk/P04_c4.mp4",
+   "text": "Inside, divided compartments mean nothing gets lost at the bottom, and the soft, water-resistant leather looks expensive and only gets better with time.",
+   "scene": "sofa2",
+   "broll": [
+    [
+     "TALK",
+     0,
+     1.0
+    ],
+    [
+     "1nnsvEIfgqziYdrmeUrrtgL3Qo3YHV7Sw",
+     4.0,
+     1.0
+    ],
+    [
+     "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+     12.0,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+     5.0,
+     1.0
+    ],
+    [
+     "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+     16.0,
+     1.0
+    ],
+    [
+     "1_usQ_ZJKJqd5EAu5KR1jM-pIjyQf1tWu",
+     0.3,
+     1.0
+    ]
+   ]
+  },
+  {
+   "talk": "talk/P04_c5.mp4",
+   "text": "Two straps let you carry it your way: on the shoulder, in your hand, or across your body.",
+   "scene": "window2",
+   "broll": [
+    [
+     "TALK",
+     0,
+     1.0
+    ],
+    [
+     "1Rj3QE3QSg73kbPB1qCg7qo7az2SvQEPb",
+     4.6,
+     1.0
+    ],
+    [
+     "1CXTJ01nq_YILemvHR5CmfoiRIcIFkjtZ",
+     2.84,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1TQniUwb0moRuqoiip6okFOIW33_UUXYy",
+     10.21,
+     1.0
+    ],
+    [
+     "1Hh3iKPWqlovbmfcTAQ8_RsXqyxZhLypi",
+     0.56,
+     1.0
+    ]
+   ]
+  },
+  {
+   "talk": "talk/P04_c6.mp4",
+   "text": "And if it is not right for you, there is a one-year warranty and easy returns.",
+   "scene": "window2",
+   "broll": [
+    [
+     "TALK",
+     0,
+     1.0
+    ],
+    [
+     "1T-dMODm60gHJ4YV1QHowkhXwwQ8mSMs4",
+     10.33,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "11mRxJemVgJPYmK8Ha6wKD8KGG95Bq4Rn",
+     12.71,
+     1.0
+    ],
+    [
+     "16bugUA13UINTh8mGcl237pNZ8KnnVjjA",
+     21.2,
+     1.0
+    ],
+    [
+     "1f_uobOObpjWFcDK1U8yedlh19SJbAzZB",
+     1.49,
+     1.0
+    ]
+   ]
+  },
+  {
+   "talk": "talk/P04_c7.mp4",
+   "text": "So retire the old one, with thanks. This Black Friday the Hobo Bag is fifty percent off, with a free matching pouch wallet and free US shipping. Tap the link below.",
+   "scene": "sofa2",
+   "broll": [
+    [
+     "TALK",
+     0,
+     1.0
+    ],
+    [
+     "1sqN76Sbj7sjx9lm4gh9zOK0eLM-n7l4w",
+     10.76,
+     1.0
+    ],
+    [
+     "1TeEFWPEZ_jATN9so2DZNeyg-mOPQe8jL",
+     10.56,
+     1.0
+    ],
+    [
+     "1v8gKfP9ZYsuh7w5yBwlInmv_-U-pY2x_",
+     3.75,
+     1.0
+    ],
+    [
+     "TALK",
+     0,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1TeEFWPEZ_jATN9so2DZNeyg-mOPQe8jL",
+     1.31,
+     1.0
+    ],
+    [
+     "1v8gKfP9ZYsuh7w5yBwlInmv_-U-pY2x_",
+     6.92,
+     1.0
+    ],
+    [
+     "1audN6qYuCaN5d8O42kyq9HQKU7OUprGH",
+     13.91,
+     1.0
+    ]
+   ]
+  }
+ ],
+ "overlays": [
+  {
+   "type": "label",
+   "text": "HALF PRICE",
+   "block": 0,
+   "at": 0.1,
+   "dur": 1.8,
+   "y": 960
+  },
+  {
+   "type": "tag",
+   "text": "GOLD SIDE ZIPS",
+   "block": 3,
+   "at": 0.15,
+   "dur": 2.6,
+   "y": 960
+  },
+  {
+   "type": "tag",
+   "text": "SMART COMPARTMENTS",
+   "block": 4,
+   "at": 0.15,
+   "dur": 2.6,
+   "y": 960
+  },
+  {
+   "type": "tag",
+   "text": "3 WAYS TO WEAR",
+   "block": 5,
+   "at": 0.15,
+   "dur": 2.6,
+   "y": 960
+  }
+ ],
+ "end_title": "The Luxury Hobo Bag",
+ "offer": {
+  "block": 7,
+  "word": "50",
+  "title": "BLACK FRIDAY 50% OFF",
+  "sub": "+ FREE MATCHING WALLET"
+ },
+ "presenter": "maya",
+ "overlay_y": 960,
+ "end_photo": "site/hobo_bag_colour_grey.jpg",
+ "end_offer": "BLACK FRIDAY 50% OFF",
+ "keywords": [
+  "50%",
+  "free",
+  "pouch",
+  "wallet",
+  "hidden",
+  "pocket",
+  "leather",
+  "black",
+  "friday",
+  "gold",
+  "compartments",
+  "straps",
+  "fifty"
+ ],
+ "spare_broll": [
+  [
+   "1f_9Fjvv6B2cnF8Z0lFf__xn_RJEvpLQ0",
+   0.75,
+   1.0
+  ],
+  [
+   "117P6aO1ank_vR6tSzwyFXsBI_ZpDAHtq",
+   1.5,
+   1.0
+  ],
+  [
+   "1G6B5yfeTUCh6NAy_fq7kc37qoSOgVmKE",
+   24.57,
+   1.0
+  ],
+  [
+   "1zg2CRMvlkQjNlfLzjdEzt-hJG5uwdh6s",
+   2.99,
+   1.0
+  ],
+  [
+   "16bugUA13UINTh8mGcl237pNZ8KnnVjjA",
+   2.17,
+   1.0
+  ],
+  [
+   "1UcPs3RM-Iwrzd5rgOIA6Wxii0i3R3xqL",
+   5.23,
+   1.0
+  ]
+ ],
+ "music": {
+  "seed": 37
+ }
+}

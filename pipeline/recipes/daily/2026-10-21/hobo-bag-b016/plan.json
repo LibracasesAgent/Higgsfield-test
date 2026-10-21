@@ -1,0 +1,1615 @@
+{
+ "prefix": "LC_261021_HoboBag_BlackFriday_B016",
+ "rev": 1,
+ "batch_id": {
+  "id": "B016",
+  "n": 16,
+  "rev": 1
+ },
+ "created": "2026-10-21",
+ "request": "Hobo Bag Black Friday, 4 projects with 5 statics each: videos with a presenter sitting and talking, the footage cutting in",
+ "product": "Hobo Bag",
+ "product_key": "hobo bag",
+ "product_source": "built-in",
+ "theme": "black friday",
+ "theme_name": "BlackFriday",
+ "offer": "50% off + free matching pouch wallet",
+ "statics": [
+  "LC_261021_HoboBag_BlackFriday_B016_S01_concept",
+  "LC_261021_HoboBag_BlackFriday_B016_S02_concept",
+  "LC_261021_HoboBag_BlackFriday_B016_S03_native",
+  "LC_261021_HoboBag_BlackFriday_B016_S04_studio",
+  "LC_261021_HoboBag_BlackFriday_B016_S05_native",
+  "LC_261021_HoboBag_BlackFriday_B016_S06_concept",
+  "LC_261021_HoboBag_BlackFriday_B016_S07_concept",
+  "LC_261021_HoboBag_BlackFriday_B016_S08_native",
+  "LC_261021_HoboBag_BlackFriday_B016_S09_studio",
+  "LC_261021_HoboBag_BlackFriday_B016_S10_offer",
+  "LC_261021_HoboBag_BlackFriday_B016_S11_concept",
+  "LC_261021_HoboBag_BlackFriday_B016_S12_concept",
+  "LC_261021_HoboBag_BlackFriday_B016_S13_studio",
+  "LC_261021_HoboBag_BlackFriday_B016_S14_value",
+  "LC_261021_HoboBag_BlackFriday_B016_S15_stars",
+  "LC_261021_HoboBag_BlackFriday_B016_S16_concept",
+  "LC_261021_HoboBag_BlackFriday_B016_S17_concept",
+  "LC_261021_HoboBag_BlackFriday_B016_S18_studio",
+  "LC_261021_HoboBag_BlackFriday_B016_S19_colours",
+  "LC_261021_HoboBag_BlackFriday_B016_S20_checklist"
+ ],
+ "videos": [
+  {
+   "name": "LC_261021_HoboBag_BlackFriday_B016_P01_H1_thelist",
+   "id": "P01H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "ugc": {
+    "script": "U01",
+    "angle": "thelist",
+    "words": 170,
+    "hook": {
+     "type": "promise",
+     "label": "THE LIST",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Who on your list carries their whole life in one hand?",
+      "type": "question",
+      "label": "WHO'S THAT?",
+      "feature": null,
+      "show": [
+       "handheld",
+       "walking"
+      ],
+      "scene": "sofa"
+     },
+     {
+      "text": "Still no idea what to give the one who has everything?",
+      "type": "problem",
+      "label": "STUCK?",
+      "feature": null,
+      "show": [
+       "hero",
+       "leather"
+      ],
+      "scene": "cafe"
+     },
+     {
+      "text": "A gift that looks expensive, at fifty percent off this Black Friday.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null,
+      "show": [
+       "leather",
+       "hero"
+      ],
+      "scene": "cafe"
+     }
+    ],
+    "numbers": [],
+    "presenter": {
+     "id": "maya",
+     "scenes": [
+      {
+       "id": "sofa",
+       "where": "She sits on a light grey sofa in a bright living room, a plant and a bookshelf softly blurred behind her, warm daylight from a window on the left.",
+       "outfit": "She wears a cream knit sweater.",
+       "bag": "standing upright on the sofa cushion beside her, front and zip in clear view",
+       "colour": "black",
+       "ambience": "Quiet living room ambience"
+      },
+      {
+       "id": "cafe",
+       "where": "She sits at a small round marble table in a sunny cafe, a latte in a white cup in front of her, warm daylight from the window beside her, a softly blurred cafe behind her.",
+       "outfit": "She wears a denim shirt.",
+       "bag": "resting on her lap, front and zip in clear view",
+       "colour": "brown",
+       "ambience": "Quiet cafe ambience"
+      }
+     ]
+    }
+   },
+   "est_seconds": 70.1,
+   "project": "P01",
+   "hook_text": "Three people on your list, one gift that suits all of them.",
+   "hook_label": "THE LIST",
+   "hook_type": "promise",
+   "opening_shot": [
+    "TALK",
+    0
+   ]
+  },
+  {
+   "name": "LC_261021_HoboBag_BlackFriday_B016_P01_H2_thelist",
+   "id": "P01H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "ugc": {
+    "script": "U01",
+    "angle": "thelist",
+    "words": 170,
+    "hook": {
+     "type": "promise",
+     "label": "THE LIST",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Who on your list carries their whole life in one hand?",
+      "type": "question",
+      "label": "WHO'S THAT?",
+      "feature": null,
+      "show": [
+       "handheld",
+       "walking"
+      ],
+      "scene": "sofa"
+     },
+     {
+      "text": "Still no idea what to give the one who has everything?",
+      "type": "problem",
+      "label": "STUCK?",
+      "feature": null,
+      "show": [
+       "hero",
+       "leather"
+      ],
+      "scene": "cafe"
+     },
+     {
+      "text": "A gift that looks expensive, at fifty percent off this Black Friday.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null,
+      "show": [
+       "leather",
+       "hero"
+      ],
+      "scene": "cafe"
+     }
+    ],
+    "numbers": [],
+    "presenter": {
+     "id": "maya",
+     "scenes": [
+      {
+       "id": "sofa",
+       "where": "She sits on a light grey sofa in a bright living room, a plant and a bookshelf softly blurred behind her, warm daylight from a window on the left.",
+       "outfit": "She wears a cream knit sweater.",
+       "bag": "standing upright on the sofa cushion beside her, front and zip in clear view",
+       "colour": "black",
+       "ambience": "Quiet living room ambience"
+      },
+      {
+       "id": "cafe",
+       "where": "She sits at a small round marble table in a sunny cafe, a latte in a white cup in front of her, warm daylight from the window beside her, a softly blurred cafe behind her.",
+       "outfit": "She wears a denim shirt.",
+       "bag": "resting on her lap, front and zip in clear view",
+       "colour": "brown",
+       "ambience": "Quiet cafe ambience"
+      }
+     ]
+    }
+   },
+   "est_seconds": 69.7,
+   "project": "P01",
+   "hook_text": "Who on your list carries their whole life in one hand?",
+   "hook_label": "WHO'S THAT?",
+   "hook_type": "question",
+   "opening_shot": null,
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261021_HoboBag_BlackFriday_B016_P01_H3_thelist",
+   "id": "P01H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "ugc": {
+    "script": "U01",
+    "angle": "thelist",
+    "words": 170,
+    "hook": {
+     "type": "promise",
+     "label": "THE LIST",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Who on your list carries their whole life in one hand?",
+      "type": "question",
+      "label": "WHO'S THAT?",
+      "feature": null,
+      "show": [
+       "handheld",
+       "walking"
+      ],
+      "scene": "sofa"
+     },
+     {
+      "text": "Still no idea what to give the one who has everything?",
+      "type": "problem",
+      "label": "STUCK?",
+      "feature": null,
+      "show": [
+       "hero",
+       "leather"
+      ],
+      "scene": "cafe"
+     },
+     {
+      "text": "A gift that looks expensive, at fifty percent off this Black Friday.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null,
+      "show": [
+       "leather",
+       "hero"
+      ],
+      "scene": "cafe"
+     }
+    ],
+    "numbers": [],
+    "presenter": {
+     "id": "maya",
+     "scenes": [
+      {
+       "id": "sofa",
+       "where": "She sits on a light grey sofa in a bright living room, a plant and a bookshelf softly blurred behind her, warm daylight from a window on the left.",
+       "outfit": "She wears a cream knit sweater.",
+       "bag": "standing upright on the sofa cushion beside her, front and zip in clear view",
+       "colour": "black",
+       "ambience": "Quiet living room ambience"
+      },
+      {
+       "id": "cafe",
+       "where": "She sits at a small round marble table in a sunny cafe, a latte in a white cup in front of her, warm daylight from the window beside her, a softly blurred cafe behind her.",
+       "outfit": "She wears a denim shirt.",
+       "bag": "resting on her lap, front and zip in clear view",
+       "colour": "brown",
+       "ambience": "Quiet cafe ambience"
+      }
+     ]
+    }
+   },
+   "est_seconds": 69.7,
+   "project": "P01",
+   "hook_text": "Still no idea what to give the one who has everything?",
+   "hook_label": "STUCK?",
+   "hook_type": "problem",
+   "opening_shot": null,
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261021_HoboBag_BlackFriday_B016_P01_H4_thelist",
+   "id": "P01H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "ugc": {
+    "script": "U01",
+    "angle": "thelist",
+    "words": 170,
+    "hook": {
+     "type": "promise",
+     "label": "THE LIST",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Who on your list carries their whole life in one hand?",
+      "type": "question",
+      "label": "WHO'S THAT?",
+      "feature": null,
+      "show": [
+       "handheld",
+       "walking"
+      ],
+      "scene": "sofa"
+     },
+     {
+      "text": "Still no idea what to give the one who has everything?",
+      "type": "problem",
+      "label": "STUCK?",
+      "feature": null,
+      "show": [
+       "hero",
+       "leather"
+      ],
+      "scene": "cafe"
+     },
+     {
+      "text": "A gift that looks expensive, at fifty percent off this Black Friday.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null,
+      "show": [
+       "leather",
+       "hero"
+      ],
+      "scene": "cafe"
+     }
+    ],
+    "numbers": [],
+    "presenter": {
+     "id": "maya",
+     "scenes": [
+      {
+       "id": "sofa",
+       "where": "She sits on a light grey sofa in a bright living room, a plant and a bookshelf softly blurred behind her, warm daylight from a window on the left.",
+       "outfit": "She wears a cream knit sweater.",
+       "bag": "standing upright on the sofa cushion beside her, front and zip in clear view",
+       "colour": "black",
+       "ambience": "Quiet living room ambience"
+      },
+      {
+       "id": "cafe",
+       "where": "She sits at a small round marble table in a sunny cafe, a latte in a white cup in front of her, warm daylight from the window beside her, a softly blurred cafe behind her.",
+       "outfit": "She wears a denim shirt.",
+       "bag": "resting on her lap, front and zip in clear view",
+       "colour": "brown",
+       "ambience": "Quiet cafe ambience"
+      }
+     ]
+    }
+   },
+   "est_seconds": 70.1,
+   "project": "P01",
+   "hook_text": "A gift that looks expensive, at fifty percent off this Black Friday.",
+   "hook_label": "HALF PRICE",
+   "hook_type": "price",
+   "opening_shot": null,
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261021_HoboBag_BlackFriday_B016_P02_H1_friday",
+   "id": "P02H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "ugc": {
+    "script": "U02",
+    "angle": "friday",
+    "words": 174,
+    "hook": {
+     "type": "problem",
+     "label": "HANDS FULL",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Here is how to get through Black Friday with both hands free.",
+      "type": "promise",
+      "label": "HANDS FREE",
+      "feature": null,
+      "show": [
+       "worn",
+       "strap"
+      ],
+      "scene": "car"
+     },
+     {
+      "text": "What does the crowd do to your bag in the first few minutes?",
+      "type": "question",
+      "label": "THE CROWD",
+      "feature": null,
+      "show": [
+       "outdoor",
+       "walking"
+      ],
+      "scene": "bench"
+     },
+     {
+      "text": "Fifty percent off, a free pouch wallet, and a bag built for the crowd.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "pouch",
+       "hero"
+      ],
+      "scene": "bench"
+     }
+    ],
+    "numbers": [],
+    "presenter": {
+     "id": "maya",
+     "scenes": [
+      {
+       "id": "car",
+       "where": "She sits in the driver's seat of a parked car in daylight, seat belt off, turned slightly towards the camera as if filming herself, a softly blurred car park through the windscreen behind her.",
+       "outfit": "She wears a camel wool coat over a cream top.",
+       "bag": "resting on her lap, front and zip in clear view",
+       "colour": "blue",
+       "ambience": "Quiet car interior ambience"
+      },
+      {
+       "id": "bench",
+       "where": "She sits on a wooden bench in a bright shopping arcade with large windows, two plain paper shopping bags at her feet, the arcade softly blurred behind her.",
+       "outfit": "She wears a camel wool coat over a cream top.",
+       "bag": "resting on her lap, front and zip in clear view",
+       "colour": "blue",
+       "ambience": "Quiet indoor arcade ambience"
+      }
+     ]
+    }
+   },
+   "est_seconds": 72.1,
+   "project": "P02",
+   "hook_text": "Hands full of shopping bags: where does your phone go?",
+   "hook_label": "HANDS FULL",
+   "hook_type": "problem",
+   "opening_shot": [
+    "TALK",
+    0
+   ]
+  },
+  {
+   "name": "LC_261021_HoboBag_BlackFriday_B016_P02_H2_friday",
+   "id": "P02H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "ugc": {
+    "script": "U02",
+    "angle": "friday",
+    "words": 174,
+    "hook": {
+     "type": "problem",
+     "label": "HANDS FULL",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Here is how to get through Black Friday with both hands free.",
+      "type": "promise",
+      "label": "HANDS FREE",
+      "feature": null,
+      "show": [
+       "worn",
+       "strap"
+      ],
+      "scene": "car"
+     },
+     {
+      "text": "What does the crowd do to your bag in the first few minutes?",
+      "type": "question",
+      "label": "THE CROWD",
+      "feature": null,
+      "show": [
+       "outdoor",
+       "walking"
+      ],
+      "scene": "bench"
+     },
+     {
+      "text": "Fifty percent off, a free pouch wallet, and a bag built for the crowd.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "pouch",
+       "hero"
+      ],
+      "scene": "bench"
+     }
+    ],
+    "numbers": [],
+    "presenter": {
+     "id": "maya",
+     "scenes": [
+      {
+       "id": "car",
+       "where": "She sits in the driver's seat of a parked car in daylight, seat belt off, turned slightly towards the camera as if filming herself, a softly blurred car park through the windscreen behind her.",
+       "outfit": "She wears a camel wool coat over a cream top.",
+       "bag": "resting on her lap, front and zip in clear view",
+       "colour": "blue",
+       "ambience": "Quiet car interior ambience"
+      },
+      {
+       "id": "bench",
+       "where": "She sits on a wooden bench in a bright shopping arcade with large windows, two plain paper shopping bags at her feet, the arcade softly blurred behind her.",
+       "outfit": "She wears a camel wool coat over a cream top.",
+       "bag": "resting on her lap, front and zip in clear view",
+       "colour": "blue",
+       "ambience": "Quiet indoor arcade ambience"
+      }
+     ]
+    }
+   },
+   "est_seconds": 72.9,
+   "project": "P02",
+   "hook_text": "Here is how to get through Black Friday with both hands free.",
+   "hook_label": "HANDS FREE",
+   "hook_type": "promise",
+   "opening_shot": null,
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261021_HoboBag_BlackFriday_B016_P02_H3_friday",
+   "id": "P02H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "ugc": {
+    "script": "U02",
+    "angle": "friday",
+    "words": 174,
+    "hook": {
+     "type": "problem",
+     "label": "HANDS FULL",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Here is how to get through Black Friday with both hands free.",
+      "type": "promise",
+      "label": "HANDS FREE",
+      "feature": null,
+      "show": [
+       "worn",
+       "strap"
+      ],
+      "scene": "car"
+     },
+     {
+      "text": "What does the crowd do to your bag in the first few minutes?",
+      "type": "question",
+      "label": "THE CROWD",
+      "feature": null,
+      "show": [
+       "outdoor",
+       "walking"
+      ],
+      "scene": "bench"
+     },
+     {
+      "text": "Fifty percent off, a free pouch wallet, and a bag built for the crowd.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "pouch",
+       "hero"
+      ],
+      "scene": "bench"
+     }
+    ],
+    "numbers": [],
+    "presenter": {
+     "id": "maya",
+     "scenes": [
+      {
+       "id": "car",
+       "where": "She sits in the driver's seat of a parked car in daylight, seat belt off, turned slightly towards the camera as if filming herself, a softly blurred car park through the windscreen behind her.",
+       "outfit": "She wears a camel wool coat over a cream top.",
+       "bag": "resting on her lap, front and zip in clear view",
+       "colour": "blue",
+       "ambience": "Quiet car interior ambience"
+      },
+      {
+       "id": "bench",
+       "where": "She sits on a wooden bench in a bright shopping arcade with large windows, two plain paper shopping bags at her feet, the arcade softly blurred behind her.",
+       "outfit": "She wears a camel wool coat over a cream top.",
+       "bag": "resting on her lap, front and zip in clear view",
+       "colour": "blue",
+       "ambience": "Quiet indoor arcade ambience"
+      }
+     ]
+    }
+   },
+   "est_seconds": 73.3,
+   "project": "P02",
+   "hook_text": "What does the crowd do to your bag in the first few minutes?",
+   "hook_label": "THE CROWD",
+   "hook_type": "question",
+   "opening_shot": null,
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261021_HoboBag_BlackFriday_B016_P02_H4_friday",
+   "id": "P02H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "ugc": {
+    "script": "U02",
+    "angle": "friday",
+    "words": 174,
+    "hook": {
+     "type": "problem",
+     "label": "HANDS FULL",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Here is how to get through Black Friday with both hands free.",
+      "type": "promise",
+      "label": "HANDS FREE",
+      "feature": null,
+      "show": [
+       "worn",
+       "strap"
+      ],
+      "scene": "car"
+     },
+     {
+      "text": "What does the crowd do to your bag in the first few minutes?",
+      "type": "question",
+      "label": "THE CROWD",
+      "feature": null,
+      "show": [
+       "outdoor",
+       "walking"
+      ],
+      "scene": "bench"
+     },
+     {
+      "text": "Fifty percent off, a free pouch wallet, and a bag built for the crowd.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "pouch",
+       "hero"
+      ],
+      "scene": "bench"
+     }
+    ],
+    "numbers": [],
+    "presenter": {
+     "id": "maya",
+     "scenes": [
+      {
+       "id": "car",
+       "where": "She sits in the driver's seat of a parked car in daylight, seat belt off, turned slightly towards the camera as if filming herself, a softly blurred car park through the windscreen behind her.",
+       "outfit": "She wears a camel wool coat over a cream top.",
+       "bag": "resting on her lap, front and zip in clear view",
+       "colour": "blue",
+       "ambience": "Quiet car interior ambience"
+      },
+      {
+       "id": "bench",
+       "where": "She sits on a wooden bench in a bright shopping arcade with large windows, two plain paper shopping bags at her feet, the arcade softly blurred behind her.",
+       "outfit": "She wears a camel wool coat over a cream top.",
+       "bag": "resting on her lap, front and zip in clear view",
+       "colour": "blue",
+       "ambience": "Quiet indoor arcade ambience"
+      }
+     ]
+    }
+   },
+   "est_seconds": 73.7,
+   "project": "P02",
+   "hook_text": "Fifty percent off, a free pouch wallet, and a bag built for the crowd.",
+   "hook_label": "BLACK FRIDAY",
+   "hook_type": "price",
+   "opening_shot": null,
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261021_HoboBag_BlackFriday_B016_P03_H1_myths",
+   "id": "P03H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "ugc": {
+    "script": "U03",
+    "angle": "myths",
+    "words": 156,
+    "hook": {
+     "type": "problem",
+     "label": "BAG MYTHS",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Does a big bag have to be a messy bag?",
+      "type": "question",
+      "label": "MESSY BAG?",
+      "feature": null,
+      "show": [
+       "inside",
+       "placed"
+      ],
+      "scene": "kitchen"
+     },
+     {
+      "text": "Handbag myths, and what the Hobo Bag says back.",
+      "type": "promise",
+      "label": "MYTH BUSTED",
+      "feature": null,
+      "show": [
+       "hero",
+       "handheld"
+      ],
+      "scene": "window"
+     },
+     {
+      "text": "Myth: good leather costs full price. Not this Black Friday.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null,
+      "show": [
+       "leather",
+       "hero"
+      ],
+      "scene": "window"
+     }
+    ],
+    "numbers": [],
+    "presenter": {
+     "id": "maya",
+     "scenes": [
+      {
+       "id": "kitchen",
+       "where": "She sits at a light wooden kitchen table in morning light, a white mug and a bowl of fruit in front of her, a window softly blurred behind her.",
+       "outfit": "She wears a blue and white striped linen shirt.",
+       "bag": "on the table in front of her, its front and zip in clear view",
+       "colour": "burgundy",
+       "ambience": "Quiet kitchen ambience"
+      },
+      {
+       "id": "window",
+       "where": "She sits on a cushioned window seat with a soft throw beside her, morning light through sheer curtains, a plant on the sill softly blurred.",
+       "outfit": "She wears an olive knit cardigan over a white tee.",
+       "bag": "resting on the cushion beside her, front and zip in clear view",
+       "colour": "burgundy",
+       "ambience": "Quiet home ambience"
+      }
+     ]
+    }
+   },
+   "est_seconds": 64.6,
+   "project": "P03",
+   "hook_text": "Myth: a bag with room for everything is always a mess.",
+   "hook_label": "BAG MYTHS",
+   "hook_type": "problem",
+   "opening_shot": [
+    "TALK",
+    0
+   ]
+  },
+  {
+   "name": "LC_261021_HoboBag_BlackFriday_B016_P03_H2_myths",
+   "id": "P03H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "ugc": {
+    "script": "U03",
+    "angle": "myths",
+    "words": 156,
+    "hook": {
+     "type": "problem",
+     "label": "BAG MYTHS",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Does a big bag have to be a messy bag?",
+      "type": "question",
+      "label": "MESSY BAG?",
+      "feature": null,
+      "show": [
+       "inside",
+       "placed"
+      ],
+      "scene": "kitchen"
+     },
+     {
+      "text": "Handbag myths, and what the Hobo Bag says back.",
+      "type": "promise",
+      "label": "MYTH BUSTED",
+      "feature": null,
+      "show": [
+       "hero",
+       "handheld"
+      ],
+      "scene": "window"
+     },
+     {
+      "text": "Myth: good leather costs full price. Not this Black Friday.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null,
+      "show": [
+       "leather",
+       "hero"
+      ],
+      "scene": "window"
+     }
+    ],
+    "numbers": [],
+    "presenter": {
+     "id": "maya",
+     "scenes": [
+      {
+       "id": "kitchen",
+       "where": "She sits at a light wooden kitchen table in morning light, a white mug and a bowl of fruit in front of her, a window softly blurred behind her.",
+       "outfit": "She wears a blue and white striped linen shirt.",
+       "bag": "on the table in front of her, its front and zip in clear view",
+       "colour": "burgundy",
+       "ambience": "Quiet kitchen ambience"
+      },
+      {
+       "id": "window",
+       "where": "She sits on a cushioned window seat with a soft throw beside her, morning light through sheer curtains, a plant on the sill softly blurred.",
+       "outfit": "She wears an olive knit cardigan over a white tee.",
+       "bag": "resting on the cushion beside her, front and zip in clear view",
+       "colour": "burgundy",
+       "ambience": "Quiet home ambience"
+      }
+     ]
+    }
+   },
+   "est_seconds": 64.2,
+   "project": "P03",
+   "hook_text": "Does a big bag have to be a messy bag?",
+   "hook_label": "MESSY BAG?",
+   "hook_type": "question",
+   "opening_shot": null,
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261021_HoboBag_BlackFriday_B016_P03_H3_myths",
+   "id": "P03H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "ugc": {
+    "script": "U03",
+    "angle": "myths",
+    "words": 156,
+    "hook": {
+     "type": "problem",
+     "label": "BAG MYTHS",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Does a big bag have to be a messy bag?",
+      "type": "question",
+      "label": "MESSY BAG?",
+      "feature": null,
+      "show": [
+       "inside",
+       "placed"
+      ],
+      "scene": "kitchen"
+     },
+     {
+      "text": "Handbag myths, and what the Hobo Bag says back.",
+      "type": "promise",
+      "label": "MYTH BUSTED",
+      "feature": null,
+      "show": [
+       "hero",
+       "handheld"
+      ],
+      "scene": "window"
+     },
+     {
+      "text": "Myth: good leather costs full price. Not this Black Friday.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null,
+      "show": [
+       "leather",
+       "hero"
+      ],
+      "scene": "window"
+     }
+    ],
+    "numbers": [],
+    "presenter": {
+     "id": "maya",
+     "scenes": [
+      {
+       "id": "kitchen",
+       "where": "She sits at a light wooden kitchen table in morning light, a white mug and a bowl of fruit in front of her, a window softly blurred behind her.",
+       "outfit": "She wears a blue and white striped linen shirt.",
+       "bag": "on the table in front of her, its front and zip in clear view",
+       "colour": "burgundy",
+       "ambience": "Quiet kitchen ambience"
+      },
+      {
+       "id": "window",
+       "where": "She sits on a cushioned window seat with a soft throw beside her, morning light through sheer curtains, a plant on the sill softly blurred.",
+       "outfit": "She wears an olive knit cardigan over a white tee.",
+       "bag": "resting on the cushion beside her, front and zip in clear view",
+       "colour": "burgundy",
+       "ambience": "Quiet home ambience"
+      }
+     ]
+    }
+   },
+   "est_seconds": 63.8,
+   "project": "P03",
+   "hook_text": "Handbag myths, and what the Hobo Bag says back.",
+   "hook_label": "MYTH BUSTED",
+   "hook_type": "promise",
+   "opening_shot": null,
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261021_HoboBag_BlackFriday_B016_P03_H4_myths",
+   "id": "P03H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "ugc": {
+    "script": "U03",
+    "angle": "myths",
+    "words": 156,
+    "hook": {
+     "type": "problem",
+     "label": "BAG MYTHS",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Does a big bag have to be a messy bag?",
+      "type": "question",
+      "label": "MESSY BAG?",
+      "feature": null,
+      "show": [
+       "inside",
+       "placed"
+      ],
+      "scene": "kitchen"
+     },
+     {
+      "text": "Handbag myths, and what the Hobo Bag says back.",
+      "type": "promise",
+      "label": "MYTH BUSTED",
+      "feature": null,
+      "show": [
+       "hero",
+       "handheld"
+      ],
+      "scene": "window"
+     },
+     {
+      "text": "Myth: good leather costs full price. Not this Black Friday.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null,
+      "show": [
+       "leather",
+       "hero"
+      ],
+      "scene": "window"
+     }
+    ],
+    "numbers": [],
+    "presenter": {
+     "id": "maya",
+     "scenes": [
+      {
+       "id": "kitchen",
+       "where": "She sits at a light wooden kitchen table in morning light, a white mug and a bowl of fruit in front of her, a window softly blurred behind her.",
+       "outfit": "She wears a blue and white striped linen shirt.",
+       "bag": "on the table in front of her, its front and zip in clear view",
+       "colour": "burgundy",
+       "ambience": "Quiet kitchen ambience"
+      },
+      {
+       "id": "window",
+       "where": "She sits on a cushioned window seat with a soft throw beside her, morning light through sheer curtains, a plant on the sill softly blurred.",
+       "outfit": "She wears an olive knit cardigan over a white tee.",
+       "bag": "resting on the cushion beside her, front and zip in clear view",
+       "colour": "burgundy",
+       "ambience": "Quiet home ambience"
+      }
+     ]
+    }
+   },
+   "est_seconds": 64.2,
+   "project": "P03",
+   "hook_text": "Myth: good leather costs full price. Not this Black Friday.",
+   "hook_label": "HALF PRICE",
+   "hook_type": "price",
+   "opening_shot": null,
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261021_HoboBag_BlackFriday_B016_P04_H1_retire",
+   "id": "P04H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "ugc": {
+    "script": "U04",
+    "angle": "retire",
+    "words": 172,
+    "hook": {
+     "type": "promise",
+     "label": "RETIRE IT",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "How long have you been carrying a bag that fights you?",
+      "type": "question",
+      "label": "BAG FIGHT?",
+      "feature": null,
+      "show": [
+       "worn",
+       "walking"
+      ],
+      "scene": "window2"
+     },
+     {
+      "text": "Is your bag still the thing you dig through every morning?",
+      "type": "problem",
+      "label": "THE DIG",
+      "feature": null,
+      "show": [
+       "inside",
+       "packing"
+      ],
+      "scene": "sofa2"
+     },
+     {
+      "text": "Retire the old one this Black Friday: fifty percent off the Hobo Bag.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null,
+      "show": [
+       "leather",
+       "hero"
+      ],
+      "scene": "sofa2"
+     }
+    ],
+    "numbers": [],
+    "presenter": {
+     "id": "maya",
+     "scenes": [
+      {
+       "id": "window2",
+       "where": "She sits on a cushioned window seat with a soft throw beside her, morning light through sheer curtains, a plant on the sill softly blurred.",
+       "outfit": "She wears an olive knit cardigan over a white tee.",
+       "bag": "resting on her lap, front and zip in clear view",
+       "colour": "brown",
+       "ambience": "Quiet home ambience"
+      },
+      {
+       "id": "sofa2",
+       "where": "She sits on a light grey sofa in a bright living room, a plant and a bookshelf softly blurred behind her, warm daylight from a window on the left.",
+       "outfit": "She wears a soft grey knit sweater.",
+       "bag": "resting on her lap, front and zip in clear view",
+       "colour": "brown",
+       "ambience": "Quiet living room ambience"
+      }
+     ]
+    }
+   },
+   "est_seconds": 71.3,
+   "project": "P04",
+   "hook_text": "Your old bag deserves a quiet retirement. Here is its replacement.",
+   "hook_label": "RETIRE IT",
+   "hook_type": "promise",
+   "opening_shot": [
+    "TALK",
+    0
+   ]
+  },
+  {
+   "name": "LC_261021_HoboBag_BlackFriday_B016_P04_H2_retire",
+   "id": "P04H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "ugc": {
+    "script": "U04",
+    "angle": "retire",
+    "words": 172,
+    "hook": {
+     "type": "promise",
+     "label": "RETIRE IT",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "How long have you been carrying a bag that fights you?",
+      "type": "question",
+      "label": "BAG FIGHT?",
+      "feature": null,
+      "show": [
+       "worn",
+       "walking"
+      ],
+      "scene": "window2"
+     },
+     {
+      "text": "Is your bag still the thing you dig through every morning?",
+      "type": "problem",
+      "label": "THE DIG",
+      "feature": null,
+      "show": [
+       "inside",
+       "packing"
+      ],
+      "scene": "sofa2"
+     },
+     {
+      "text": "Retire the old one this Black Friday: fifty percent off the Hobo Bag.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null,
+      "show": [
+       "leather",
+       "hero"
+      ],
+      "scene": "sofa2"
+     }
+    ],
+    "numbers": [],
+    "presenter": {
+     "id": "maya",
+     "scenes": [
+      {
+       "id": "window2",
+       "where": "She sits on a cushioned window seat with a soft throw beside her, morning light through sheer curtains, a plant on the sill softly blurred.",
+       "outfit": "She wears an olive knit cardigan over a white tee.",
+       "bag": "resting on her lap, front and zip in clear view",
+       "colour": "brown",
+       "ambience": "Quiet home ambience"
+      },
+      {
+       "id": "sofa2",
+       "where": "She sits on a light grey sofa in a bright living room, a plant and a bookshelf softly blurred behind her, warm daylight from a window on the left.",
+       "outfit": "She wears a soft grey knit sweater.",
+       "bag": "resting on her lap, front and zip in clear view",
+       "colour": "brown",
+       "ambience": "Quiet living room ambience"
+      }
+     ]
+    }
+   },
+   "est_seconds": 71.3,
+   "project": "P04",
+   "hook_text": "How long have you been carrying a bag that fights you?",
+   "hook_label": "BAG FIGHT?",
+   "hook_type": "question",
+   "opening_shot": null,
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261021_HoboBag_BlackFriday_B016_P04_H3_retire",
+   "id": "P04H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "ugc": {
+    "script": "U04",
+    "angle": "retire",
+    "words": 172,
+    "hook": {
+     "type": "promise",
+     "label": "RETIRE IT",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "How long have you been carrying a bag that fights you?",
+      "type": "question",
+      "label": "BAG FIGHT?",
+      "feature": null,
+      "show": [
+       "worn",
+       "walking"
+      ],
+      "scene": "window2"
+     },
+     {
+      "text": "Is your bag still the thing you dig through every morning?",
+      "type": "problem",
+      "label": "THE DIG",
+      "feature": null,
+      "show": [
+       "inside",
+       "packing"
+      ],
+      "scene": "sofa2"
+     },
+     {
+      "text": "Retire the old one this Black Friday: fifty percent off the Hobo Bag.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null,
+      "show": [
+       "leather",
+       "hero"
+      ],
+      "scene": "sofa2"
+     }
+    ],
+    "numbers": [],
+    "presenter": {
+     "id": "maya",
+     "scenes": [
+      {
+       "id": "window2",
+       "where": "She sits on a cushioned window seat with a soft throw beside her, morning light through sheer curtains, a plant on the sill softly blurred.",
+       "outfit": "She wears an olive knit cardigan over a white tee.",
+       "bag": "resting on her lap, front and zip in clear view",
+       "colour": "brown",
+       "ambience": "Quiet home ambience"
+      },
+      {
+       "id": "sofa2",
+       "where": "She sits on a light grey sofa in a bright living room, a plant and a bookshelf softly blurred behind her, warm daylight from a window on the left.",
+       "outfit": "She wears a soft grey knit sweater.",
+       "bag": "resting on her lap, front and zip in clear view",
+       "colour": "brown",
+       "ambience": "Quiet living room ambience"
+      }
+     ]
+    }
+   },
+   "est_seconds": 71.3,
+   "project": "P04",
+   "hook_text": "Is your bag still the thing you dig through every morning?",
+   "hook_label": "THE DIG",
+   "hook_type": "problem",
+   "opening_shot": null,
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261021_HoboBag_BlackFriday_B016_P04_H4_retire",
+   "id": "P04H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "ugc": {
+    "script": "U04",
+    "angle": "retire",
+    "words": 172,
+    "hook": {
+     "type": "promise",
+     "label": "RETIRE IT",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "How long have you been carrying a bag that fights you?",
+      "type": "question",
+      "label": "BAG FIGHT?",
+      "feature": null,
+      "show": [
+       "worn",
+       "walking"
+      ],
+      "scene": "window2"
+     },
+     {
+      "text": "Is your bag still the thing you dig through every morning?",
+      "type": "problem",
+      "label": "THE DIG",
+      "feature": null,
+      "show": [
+       "inside",
+       "packing"
+      ],
+      "scene": "sofa2"
+     },
+     {
+      "text": "Retire the old one this Black Friday: fifty percent off the Hobo Bag.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null,
+      "show": [
+       "leather",
+       "hero"
+      ],
+      "scene": "sofa2"
+     }
+    ],
+    "numbers": [],
+    "presenter": {
+     "id": "maya",
+     "scenes": [
+      {
+       "id": "window2",
+       "where": "She sits on a cushioned window seat with a soft throw beside her, morning light through sheer curtains, a plant on the sill softly blurred.",
+       "outfit": "She wears an olive knit cardigan over a white tee.",
+       "bag": "resting on her lap, front and zip in clear view",
+       "colour": "brown",
+       "ambience": "Quiet home ambience"
+      },
+      {
+       "id": "sofa2",
+       "where": "She sits on a light grey sofa in a bright living room, a plant and a bookshelf softly blurred behind her, warm daylight from a window on the left.",
+       "outfit": "She wears a soft grey knit sweater.",
+       "bag": "resting on her lap, front and zip in clear view",
+       "colour": "brown",
+       "ambience": "Quiet living room ambience"
+      }
+     ]
+    }
+   },
+   "est_seconds": 72.1,
+   "project": "P04",
+   "hook_text": "Retire the old one this Black Friday: fifty percent off the Hobo Bag.",
+   "hook_label": "HALF PRICE",
+   "hook_type": "price",
+   "opening_shot": null,
+   "hook_source": "script"
+  }
+ ],
+ "tts_lines": 0,
+ "tts_dupes": {},
+ "est_credits": 0.0,
+ "budget": 100.0,
+ "colour_images": {
+  "Dark Sienn": "/tmp/run/pres/site/clean/hobo_bag_colour_dark_sienn_nobadge.jpg",
+  "Galaxy Black": "/tmp/run/pres/site/hobo_bag_colour_galaxy_black.jpg",
+  "Blue": "/tmp/run/pres/site/hobo_bag_colour_blue.jpg",
+  "Grey": "/tmp/run/pres/site/hobo_bag_colour_grey.jpg",
+  "Burgundy": "/tmp/run/pres/site/hobo_bag_colour_burgundy.jpg",
+  "Red": "/tmp/run/pres/site/hobo_bag_colour_red.jpg"
+ },
+ "packshots": [
+  "/tmp/run/pres/site/hobo_bag_colour_galaxy_black.jpg",
+  "/tmp/run/pres/site/hobo_bag_colour_blue.jpg",
+  "/tmp/run/pres/site/hobo_bag_colour_grey.jpg",
+  "/tmp/run/pres/site/hobo_bag_colour_burgundy.jpg",
+  "/tmp/run/pres/site/hobo_bag_colour_red.jpg"
+ ],
+ "brief": null,
+ "ai": {
+  "stills": 8,
+  "clips": 0,
+  "est_credits": 8.0,
+  "budget": {
+   "cap": 100.0,
+   "tts_est": 18.0,
+   "reserve": 8.0
+  },
+  "scenes": [
+   "p01_s01",
+   "p01_s02",
+   "p02_s06",
+   "p02_s07",
+   "p03_s11",
+   "p03_s12",
+   "p04_s16",
+   "p04_s17"
+  ],
+  "next": "python3 pipeline/ai_gen.py show --out /tmp/run/pres"
+ },
+ "winners_source": null,
+ "winners_note": null,
+ "winners_used": [],
+ "unmatched_winners": [],
+ "warnings": [
+  "ideas: 8 AI studio scenes of 20 statics (about 8 credits plus retries)"
+ ],
+ "winner_reviews": false,
+ "seed": 4,
+ "hooks": 4,
+ "pipeline": "catalog",
+ "video_format": "ugc",
+ "ugc_numbers": [],
+ "voice": {
+  "voice_type": "element",
+  "voice_id": "241459b6-b4e8-4a2a-9868-da8bcdcd0558",
+  "speed": 1.12
+ },
+ "projects": [
+  {
+   "id": "P01",
+   "from_id": "V01",
+   "angle": "thelist",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P01H1",
+     "name": "LC_261021_HoboBag_BlackFriday_B016_P01_H1_thelist",
+     "hook_text": "Three people on your list, one gift that suits all of them.",
+     "label": "THE LIST",
+     "type": "promise",
+     "shot": [
+      "TALK",
+      0
+     ],
+     "est_seconds": 70.1
+    },
+    {
+     "hook": "H2",
+     "id": "P01H2",
+     "name": "LC_261021_HoboBag_BlackFriday_B016_P01_H2_thelist",
+     "hook_text": "Who on your list carries their whole life in one hand?",
+     "label": "WHO'S THAT?",
+     "type": "question",
+     "shot": null,
+     "est_seconds": 69.7
+    },
+    {
+     "hook": "H3",
+     "id": "P01H3",
+     "name": "LC_261021_HoboBag_BlackFriday_B016_P01_H3_thelist",
+     "hook_text": "Still no idea what to give the one who has everything?",
+     "label": "STUCK?",
+     "type": "problem",
+     "shot": null,
+     "est_seconds": 69.7
+    },
+    {
+     "hook": "H4",
+     "id": "P01H4",
+     "name": "LC_261021_HoboBag_BlackFriday_B016_P01_H4_thelist",
+     "hook_text": "A gift that looks expensive, at fifty percent off this Black Friday.",
+     "label": "HALF PRICE",
+     "type": "price",
+     "shot": null,
+     "est_seconds": 70.1
+    }
+   ]
+  },
+  {
+   "id": "P02",
+   "from_id": "V02",
+   "angle": "friday",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P02H1",
+     "name": "LC_261021_HoboBag_BlackFriday_B016_P02_H1_friday",
+     "hook_text": "Hands full of shopping bags: where does your phone go?",
+     "label": "HANDS FULL",
+     "type": "problem",
+     "shot": [
+      "TALK",
+      0
+     ],
+     "est_seconds": 72.1
+    },
+    {
+     "hook": "H2",
+     "id": "P02H2",
+     "name": "LC_261021_HoboBag_BlackFriday_B016_P02_H2_friday",
+     "hook_text": "Here is how to get through Black Friday with both hands free.",
+     "label": "HANDS FREE",
+     "type": "promise",
+     "shot": null,
+     "est_seconds": 72.9
+    },
+    {
+     "hook": "H3",
+     "id": "P02H3",
+     "name": "LC_261021_HoboBag_BlackFriday_B016_P02_H3_friday",
+     "hook_text": "What does the crowd do to your bag in the first few minutes?",
+     "label": "THE CROWD",
+     "type": "question",
+     "shot": null,
+     "est_seconds": 73.3
+    },
+    {
+     "hook": "H4",
+     "id": "P02H4",
+     "name": "LC_261021_HoboBag_BlackFriday_B016_P02_H4_friday",
+     "hook_text": "Fifty percent off, a free pouch wallet, and a bag built for the crowd.",
+     "label": "BLACK FRIDAY",
+     "type": "price",
+     "shot": null,
+     "est_seconds": 73.7
+    }
+   ]
+  },
+  {
+   "id": "P03",
+   "from_id": "V03",
+   "angle": "myths",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P03H1",
+     "name": "LC_261021_HoboBag_BlackFriday_B016_P03_H1_myths",
+     "hook_text": "Myth: a bag with room for everything is always a mess.",
+     "label": "BAG MYTHS",
+     "type": "problem",
+     "shot": [
+      "TALK",
+      0
+     ],
+     "est_seconds": 64.6
+    },
+    {
+     "hook": "H2",
+     "id": "P03H2",
+     "name": "LC_261021_HoboBag_BlackFriday_B016_P03_H2_myths",
+     "hook_text": "Does a big bag have to be a messy bag?",
+     "label": "MESSY BAG?",
+     "type": "question",
+     "shot": null,
+     "est_seconds": 64.2
+    },
+    {
+     "hook": "H3",
+     "id": "P03H3",
+     "name": "LC_261021_HoboBag_BlackFriday_B016_P03_H3_myths",
+     "hook_text": "Handbag myths, and what the Hobo Bag says back.",
+     "label": "MYTH BUSTED",
+     "type": "promise",
+     "shot": null,
+     "est_seconds": 63.8
+    },
+    {
+     "hook": "H4",
+     "id": "P03H4",
+     "name": "LC_261021_HoboBag_BlackFriday_B016_P03_H4_myths",
+     "hook_text": "Myth: good leather costs full price. Not this Black Friday.",
+     "label": "HALF PRICE",
+     "type": "price",
+     "shot": null,
+     "est_seconds": 64.2
+    }
+   ]
+  },
+  {
+   "id": "P04",
+   "from_id": "V04",
+   "angle": "retire",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P04H1",
+     "name": "LC_261021_HoboBag_BlackFriday_B016_P04_H1_retire",
+     "hook_text": "Your old bag deserves a quiet retirement. Here is its replacement.",
+     "label": "RETIRE IT",
+     "type": "promise",
+     "shot": [
+      "TALK",
+      0
+     ],
+     "est_seconds": 71.3
+    },
+    {
+     "hook": "H2",
+     "id": "P04H2",
+     "name": "LC_261021_HoboBag_BlackFriday_B016_P04_H2_retire",
+     "hook_text": "How long have you been carrying a bag that fights you?",
+     "label": "BAG FIGHT?",
+     "type": "question",
+     "shot": null,
+     "est_seconds": 71.3
+    },
+    {
+     "hook": "H3",
+     "id": "P04H3",
+     "name": "LC_261021_HoboBag_BlackFriday_B016_P04_H3_retire",
+     "hook_text": "Is your bag still the thing you dig through every morning?",
+     "label": "THE DIG",
+     "type": "problem",
+     "shot": null,
+     "est_seconds": 71.3
+    },
+    {
+     "hook": "H4",
+     "id": "P04H4",
+     "name": "LC_261021_HoboBag_BlackFriday_B016_P04_H4_retire",
+     "hook_text": "Retire the old one this Black Friday: fifty percent off the Hobo Bag.",
+     "label": "HALF PRICE",
+     "type": "price",
+     "shot": null,
+     "est_seconds": 72.1
+    }
+   ]
+  }
+ ],
+ "hooks_seed": 4
+}

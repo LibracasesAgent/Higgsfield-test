@@ -1,0 +1,26 @@
+{
+ "ok": true,
+ "product": "Hobo Bag",
+ "offer": "50% off + free matching pouch wallet",
+ "checked": 538,
+ "problems": [],
+ "allowed": [
+  {
+   "where": "S15_stars.stars",
+   "text": "I love my black Libra Handbag! It's spacious, lightweight, and super functional with lots of pockets. I've received so many compliments, and my order arrived in just four days with a free wallet.",
+   "category": "numbers",
+   "term": "four",
+   "why": "a customer review (verbatim, or attributed to the customer by name)"
+  },
+  {
+   "where": "S15_stars.stars",
+   "text": "Love this bag. Best bag I have ever bought. Don't ever think of discontinuing amazing bag. Will definitely be purchasing more. Already bought for friends.",
+   "category": "claims",
+   "term": "Best bag",
+   "why": "a customer review (verbatim, or attributed to the customer by name)"
+  }
+ ],
+ "raw_story": [],
+ "raw_cuts": [],
+ "report": "/tmp/run/pres/compliance.json"
+}

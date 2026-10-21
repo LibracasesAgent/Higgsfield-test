@@ -1,0 +1,400 @@
+{
+ "mode": "ugc",
+ "voice_speed": 1.12,
+ "blocks": [
+  {
+   "talk": "talk/P01_hook.mp4",
+   "text": "Three people on your list, one gift that suits all of them.",
+   "scene": "sofa",
+   "broll": [
+    [
+     "TALK",
+     0,
+     1.0
+    ],
+    [
+     "TALK",
+     0,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1UcPs3RM-Iwrzd5rgOIA6Wxii0i3R3xqL",
+     0.3,
+     1.0
+    ]
+   ]
+  },
+  {
+   "talk": "talk/P01_c1.mp4",
+   "text": "First, the one who never stops moving. Keys and phone ride in her hand, because her bag has no place for them. A gold zip on each side fixes that.",
+   "scene": "sofa",
+   "broll": [
+    [
+     "TALK",
+     0,
+     1.0
+    ],
+    [
+     "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+     6.0,
+     1.0
+    ],
+    [
+     "1FlWe8ElZtZXmU6mPai0vuswsoVWqjhh4",
+     4.19,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+     2.0,
+     1.0
+    ],
+    [
+     "1Rj3QE3QSg73kbPB1qCg7qo7az2SvQEPb",
+     0.3,
+     1.0
+    ],
+    [
+     "1w_YUX_1q2U8qOkxfWZHWEn2P-xlJRwZe",
+     11.84,
+     1.0
+    ],
+    [
+     "1mnZ266w4JTvXOnLeuzhOhtTBQM-8dYiF",
+     14.54,
+     1.0
+    ]
+   ]
+  },
+  {
+   "talk": "talk/P01_c2.mp4",
+   "text": "Second, the one who loves a crowd and hates the squeeze. The hidden pocket on the back sits flat against her, so her passport and cards stay right where she put them.",
+   "scene": "sofa",
+   "broll": [
+    [
+     "TALK",
+     0,
+     1.0
+    ],
+    [
+     "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+     9.0,
+     1.0
+    ],
+    [
+     "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+     3.6,
+     1.0
+    ],
+    [
+     "1XTfJnV-s9YVXmsv30f29mYqy5yV38n96",
+     12.46,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1EooqFqunZcjv3bAwwktu7RT8uqcYzqfJ",
+     0.3,
+     1.0
+    ],
+    [
+     "1T-dMODm60gHJ4YV1QHowkhXwwQ8mSMs4",
+     3.86,
+     1.0
+    ],
+    [
+     "1XTfJnV-s9YVXmsv30f29mYqy5yV38n96",
+     1.69,
+     1.0
+    ],
+    [
+     "177mQyA2s2ACZIjv7BnH4qbMCu0QDQ1qn",
+     0.3,
+     1.0
+    ]
+   ]
+  },
+  {
+   "talk": "talk/P01_c3.mp4",
+   "text": "Third, the one whose bag is a black hole. Divided compartments inside mean nothing sinks to the bottom: lip balm, charger, sunglasses, each in its own place.",
+   "scene": "cafe",
+   "broll": [
+    [
+     "TALK",
+     0,
+     1.0
+    ],
+    [
+     "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+     5.0,
+     1.0
+    ],
+    [
+     "1YfDgMaBjey0V1K2PvyuiNaW42CvXmQAM",
+     5.88,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+     16.0,
+     1.0
+    ],
+    [
+     "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+     9.5,
+     1.0
+    ],
+    [
+     "1YfDgMaBjey0V1K2PvyuiNaW42CvXmQAM",
+     3.13,
+     1.0
+    ],
+    [
+     "1bjlxkeRtv0nGVDDFjMAEw4xGTe3Up-D6",
+     9.69,
+     1.0
+    ],
+    [
+     "1G6RyG3jymGyVpCgZxqJLmQihJVNHYlM-",
+     33.13,
+     1.0
+    ]
+   ]
+  },
+  {
+   "talk": "talk/P01_c4.mp4",
+   "text": "One bag covers all three. Two straps let it sit on the shoulder, hang from the hand or cross the body, in soft, water-resistant leather that looks expensive.",
+   "scene": "cafe",
+   "broll": [
+    [
+     "TALK",
+     0,
+     1.0
+    ],
+    [
+     "TALK",
+     0,
+     1.0
+    ],
+    [
+     "TALK",
+     0,
+     1.0
+    ],
+    [
+     "TALK",
+     0,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "10c2_gZUqck6flJfON5zOlmQDhXXWBqNT",
+     0.3,
+     1.0
+    ],
+    [
+     "1PVkO22H9kksbsI49gtx_m9_qbdmB8S5W",
+     0.83,
+     1.0
+    ]
+   ]
+  },
+  {
+   "talk": "talk/P01_c5.mp4",
+   "text": "Not sure it will suit? There is a one-year warranty and easy returns.",
+   "scene": "cafe",
+   "broll": [
+    [
+     "TALK",
+     0,
+     1.0
+    ],
+    [
+     "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+     1.0,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1UcPs3RM-Iwrzd5rgOIA6Wxii0i3R3xqL",
+     5.23,
+     1.0
+    ],
+    [
+     "11mRxJemVgJPYmK8Ha6wKD8KGG95Bq4Rn",
+     12.71,
+     1.0
+    ],
+    [
+     "16bugUA13UINTh8mGcl237pNZ8KnnVjjA",
+     21.2,
+     1.0
+    ]
+   ]
+  },
+  {
+   "talk": "talk/P01_c6.mp4",
+   "text": "This Black Friday, the Hobo Bag is fifty percent off, with a free matching pouch wallet and free US shipping. Your whole list, handled. Tap the link below.",
+   "scene": "sofa",
+   "broll": [
+    [
+     "TALK",
+     0,
+     1.0
+    ],
+    [
+     "1audN6qYuCaN5d8O42kyq9HQKU7OUprGH",
+     13.91,
+     1.0
+    ],
+    [
+     "1v8gKfP9ZYsuh7w5yBwlInmv_-U-pY2x_",
+     6.92,
+     1.0
+    ],
+    [
+     "1f7uQE4ewrad8utPEPVYK5qDEafvfBD7n",
+     5.21,
+     1.0
+    ],
+    [
+     "TALK",
+     0,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "18wOkQ9ToI66y133XanUgEZT0I4Q25Ea1",
+     0.3,
+     1.0
+    ],
+    [
+     "1TeEFWPEZ_jATN9so2DZNeyg-mOPQe8jL",
+     5.94,
+     1.0
+    ],
+    [
+     "1NuCVbKCrAGKgLyGpaVgNohAbss7I4zMS",
+     10.1,
+     1.0
+    ]
+   ]
+  }
+ ],
+ "overlays": [
+  {
+   "type": "label",
+   "text": "THE LIST",
+   "block": 0,
+   "at": 0.1,
+   "dur": 1.8,
+   "y": 960
+  },
+  {
+   "type": "tag",
+   "text": "GOLD SIDE ZIPS",
+   "block": 1,
+   "at": 0.15,
+   "dur": 2.6,
+   "y": 960
+  },
+  {
+   "type": "tag",
+   "text": "HIDDEN BACK POCKET",
+   "block": 2,
+   "at": 0.15,
+   "dur": 2.6,
+   "y": 960
+  },
+  {
+   "type": "tag",
+   "text": "SMART COMPARTMENTS",
+   "block": 3,
+   "at": 0.15,
+   "dur": 2.6,
+   "y": 960
+  },
+  {
+   "type": "tag",
+   "text": "3 WAYS TO WEAR",
+   "block": 4,
+   "at": 0.15,
+   "dur": 2.6,
+   "y": 960
+  }
+ ],
+ "end_title": "The Luxury Hobo Bag",
+ "offer": {
+  "block": 6,
+  "word": "50",
+  "title": "BLACK FRIDAY 50% OFF",
+  "sub": "+ FREE MATCHING WALLET"
+ },
+ "presenter": "maya",
+ "overlay_y": 960,
+ "end_photo": "site/hobo_bag_colour_red.jpg",
+ "end_offer": "BLACK FRIDAY 50% OFF",
+ "keywords": [
+  "50%",
+  "free",
+  "pouch",
+  "wallet",
+  "hidden",
+  "pocket",
+  "leather",
+  "black",
+  "friday",
+  "gold",
+  "keys",
+  "phone",
+  "compartments",
+  "bottom",
+  "straps",
+  "fifty"
+ ],
+ "spare_broll": [
+  [
+   "16bugUA13UINTh8mGcl237pNZ8KnnVjjA",
+   2.17,
+   1.0
+  ],
+  [
+   "1f_uobOObpjWFcDK1U8yedlh19SJbAzZB",
+   1.49,
+   1.0
+  ],
+  [
+   "1f_9Fjvv6B2cnF8Z0lFf__xn_RJEvpLQ0",
+   0.75,
+   1.0
+  ],
+  [
+   "117P6aO1ank_vR6tSzwyFXsBI_ZpDAHtq",
+   1.5,
+   1.0
+  ],
+  [
+   "1G6B5yfeTUCh6NAy_fq7kc37qoSOgVmKE",
+   24.57,
+   1.0
+  ],
+  [
+   "1zg2CRMvlkQjNlfLzjdEzt-hJG5uwdh6s",
+   2.99,
+   1.0
+  ]
+ ],
+ "music": {
+  "seed": 34
+ }
+}

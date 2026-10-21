@@ -1,0 +1,906 @@
+{
+ "presenter": {
+  "id": "maya",
+  "name": "Maya",
+  "look": "a real-looking woman of about 40 with a warm medium-brown skin tone, shoulder-length dark brown wavy hair with a few loose flyaway strands, dark brown eyes, a few light freckles and a small mole on her left cheek, small gold stud earrings",
+  "voice": "a warm, natural, conversational American woman's voice",
+  "master": "/home/user/Higgsfield-test/pipeline/assets/presenter/maya.jpg"
+ },
+ "stills": [
+  {
+   "id": "PS01",
+   "project": "P01",
+   "scene": "cafe",
+   "file": "talk/PS01.png",
+   "ref_bag": "/tmp/run/pres/site/clean/hobo_bag_colour_dark_sienn_nobadge.jpg",
+   "colour": "Dark Sienn",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "9:16"
+   },
+   "prompt": "Photorealistic vertical phone-camera video frame, natural light, shot like a real creator's video. Her skin looks like skin in a normal phone photo: soft, even and natural in tone, matte with a faint shine on the nose, a few light freckles, only gentle expression lines at the eye corners, a smooth forehead; no heavy skin texture, no exaggerated pores, no etched wrinkles, no orange or tanned tint, no plastic smoothing. The same woman as in the first reference image: identical face and skin tone, the same dark brown wavy shoulder-length hair with loose flyaway strands, the same age, freckles and small mole, the same small gold stud earrings. She wears a denim shirt. She sits at a small round marble table in a sunny cafe, a latte in a white cup in front of her, warm daylight from the window beside her, a softly blurred cafe behind her. She looks straight into the camera as if about to talk to it, a relaxed half-smile, mouth gently closed. The handbag from the second reference image is resting on her lap, front and zip in clear view, unchanged: the same brown colour, the same shape and proportions, the same straps, the same gold hardware, the same zips and stitching; do not redesign it and do not add a logo. Medium close-up framed from the chest up, the bag visible in the lower part of the frame. No text, no watermark.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "PS02",
+   "project": "P01",
+   "scene": "sofa",
+   "file": "talk/PS02.png",
+   "ref_bag": "/tmp/run/pres/site/hobo_bag_colour_galaxy_black.jpg",
+   "colour": "Galaxy Black",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "9:16"
+   },
+   "prompt": "Photorealistic vertical phone-camera video frame, natural light, shot like a real creator's video. Her skin looks like skin in a normal phone photo: soft, even and natural in tone, matte with a faint shine on the nose, a few light freckles, only gentle expression lines at the eye corners, a smooth forehead; no heavy skin texture, no exaggerated pores, no etched wrinkles, no orange or tanned tint, no plastic smoothing. The same woman as in the first reference image: identical face and skin tone, the same dark brown wavy shoulder-length hair with loose flyaway strands, the same age, freckles and small mole, the same small gold stud earrings. She wears a cream knit sweater. She sits on a light grey sofa in a bright living room, a plant and a bookshelf softly blurred behind her, warm daylight from a window on the left. She looks straight into the camera as if about to talk to it, a relaxed half-smile, mouth gently closed. The handbag from the second reference image is standing upright on the sofa cushion beside her, front and zip in clear view, unchanged: the same black colour, the same shape and proportions, the same straps, the same gold hardware, the same zips and stitching; do not redesign it and do not add a logo. Medium close-up framed from the chest up, the bag visible in the lower part of the frame. No text, no watermark.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "PS03",
+   "project": "P02",
+   "scene": "bench",
+   "file": "talk/PS03.png",
+   "ref_bag": "/tmp/run/pres/site/hobo_bag_colour_blue.jpg",
+   "colour": "Blue",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "9:16"
+   },
+   "prompt": "Photorealistic vertical phone-camera video frame, natural light, shot like a real creator's video. Her skin looks like skin in a normal phone photo: soft, even and natural in tone, matte with a faint shine on the nose, a few light freckles, only gentle expression lines at the eye corners, a smooth forehead; no heavy skin texture, no exaggerated pores, no etched wrinkles, no orange or tanned tint, no plastic smoothing. The same woman as in the first reference image: identical face and skin tone, the same dark brown wavy shoulder-length hair with loose flyaway strands, the same age, freckles and small mole, the same small gold stud earrings. She wears a camel wool coat over a cream top. She sits on a wooden bench in a bright shopping arcade with large windows, two plain paper shopping bags at her feet, the arcade softly blurred behind her. She looks straight into the camera as if about to talk to it, a relaxed half-smile, mouth gently closed. The handbag from the second reference image is resting on her lap, front and zip in clear view, unchanged: the same blue colour, the same shape and proportions, the same straps, the same gold hardware, the same zips and stitching; do not redesign it and do not add a logo. Medium close-up framed from the chest up, the bag visible in the lower part of the frame. No text, no watermark.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "PS04",
+   "project": "P02",
+   "scene": "car",
+   "file": "talk/PS04.png",
+   "ref_bag": "/tmp/run/pres/site/hobo_bag_colour_blue.jpg",
+   "colour": "Blue",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "9:16"
+   },
+   "prompt": "Photorealistic vertical phone-camera video frame, natural light, shot like a real creator's video. Her skin looks like skin in a normal phone photo: soft, even and natural in tone, matte with a faint shine on the nose, a few light freckles, only gentle expression lines at the eye corners, a smooth forehead; no heavy skin texture, no exaggerated pores, no etched wrinkles, no orange or tanned tint, no plastic smoothing. The same woman as in the first reference image: identical face and skin tone, the same dark brown wavy shoulder-length hair with loose flyaway strands, the same age, freckles and small mole, the same small gold stud earrings. She wears a camel wool coat over a cream top. She sits in the driver's seat of a parked car in daylight, seat belt off, turned slightly towards the camera as if filming herself, a softly blurred car park through the windscreen behind her. She looks straight into the camera as if about to talk to it, a relaxed half-smile, mouth gently closed. The handbag from the second reference image is resting on her lap, front and zip in clear view, unchanged: the same blue colour, the same shape and proportions, the same straps, the same gold hardware, the same zips and stitching; do not redesign it and do not add a logo. Medium close-up framed from the chest up, the bag visible in the lower part of the frame. No text, no watermark.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "PS05",
+   "project": "P03",
+   "scene": "kitchen",
+   "file": "talk/PS05.png",
+   "ref_bag": "/tmp/run/pres/site/hobo_bag_colour_burgundy.jpg",
+   "colour": "Burgundy",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "9:16"
+   },
+   "prompt": "Photorealistic vertical phone-camera video frame, natural light, shot like a real creator's video. Her skin looks like skin in a normal phone photo: soft, even and natural in tone, matte with a faint shine on the nose, a few light freckles, only gentle expression lines at the eye corners, a smooth forehead; no heavy skin texture, no exaggerated pores, no etched wrinkles, no orange or tanned tint, no plastic smoothing. The same woman as in the first reference image: identical face and skin tone, the same dark brown wavy shoulder-length hair with loose flyaway strands, the same age, freckles and small mole, the same small gold stud earrings. She wears a blue and white striped linen shirt. She sits at a light wooden kitchen table in morning light, a white mug and a bowl of fruit in front of her, a window softly blurred behind her. She looks straight into the camera as if about to talk to it, a relaxed half-smile, mouth gently closed. The handbag from the second reference image is on the table in front of her, its front and zip in clear view, unchanged: the same burgundy colour, the same shape and proportions, the same straps, the same gold hardware, the same zips and stitching; do not redesign it and do not add a logo. Medium close-up framed from the chest up, the bag visible in the lower part of the frame. No text, no watermark.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "PS06",
+   "project": "P03",
+   "scene": "window",
+   "file": "talk/PS06.png",
+   "ref_bag": "/tmp/run/pres/site/hobo_bag_colour_burgundy.jpg",
+   "colour": "Burgundy",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "9:16"
+   },
+   "prompt": "Photorealistic vertical phone-camera video frame, natural light, shot like a real creator's video. Her skin looks like skin in a normal phone photo: soft, even and natural in tone, matte with a faint shine on the nose, a few light freckles, only gentle expression lines at the eye corners, a smooth forehead; no heavy skin texture, no exaggerated pores, no etched wrinkles, no orange or tanned tint, no plastic smoothing. The same woman as in the first reference image: identical face and skin tone, the same dark brown wavy shoulder-length hair with loose flyaway strands, the same age, freckles and small mole, the same small gold stud earrings. She wears an olive knit cardigan over a white tee. She sits on a cushioned window seat with a soft throw beside her, morning light through sheer curtains, a plant on the sill softly blurred. She looks straight into the camera as if about to talk to it, a relaxed half-smile, mouth gently closed. The handbag from the second reference image is resting on the cushion beside her, front and zip in clear view, unchanged: the same burgundy colour, the same shape and proportions, the same straps, the same gold hardware, the same zips and stitching; do not redesign it and do not add a logo. Medium close-up framed from the chest up, the bag visible in the lower part of the frame. No text, no watermark.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "PS07",
+   "project": "P04",
+   "scene": "sofa2",
+   "file": "talk/PS07.png",
+   "ref_bag": "/tmp/run/pres/site/clean/hobo_bag_colour_dark_sienn_nobadge.jpg",
+   "colour": "Dark Sienn",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "9:16"
+   },
+   "prompt": "Photorealistic vertical phone-camera video frame, natural light, shot like a real creator's video. Her skin looks like skin in a normal phone photo: soft, even and natural in tone, matte with a faint shine on the nose, a few light freckles, only gentle expression lines at the eye corners, a smooth forehead; no heavy skin texture, no exaggerated pores, no etched wrinkles, no orange or tanned tint, no plastic smoothing. The same woman as in the first reference image: identical face and skin tone, the same dark brown wavy shoulder-length hair with loose flyaway strands, the same age, freckles and small mole, the same small gold stud earrings. She wears a soft grey knit sweater. She sits on a light grey sofa in a bright living room, a plant and a bookshelf softly blurred behind her, warm daylight from a window on the left. She looks straight into the camera as if about to talk to it, a relaxed half-smile, mouth gently closed. The handbag from the second reference image is resting on her lap, front and zip in clear view, unchanged: the same brown colour, the same shape and proportions, the same straps, the same gold hardware, the same zips and stitching; do not redesign it and do not add a logo. Medium close-up framed from the chest up, the bag visible in the lower part of the frame. No text, no watermark.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "PS08",
+   "project": "P04",
+   "scene": "window2",
+   "file": "talk/PS08.png",
+   "ref_bag": "/tmp/run/pres/site/clean/hobo_bag_colour_dark_sienn_nobadge.jpg",
+   "colour": "Dark Sienn",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "9:16"
+   },
+   "prompt": "Photorealistic vertical phone-camera video frame, natural light, shot like a real creator's video. Her skin looks like skin in a normal phone photo: soft, even and natural in tone, matte with a faint shine on the nose, a few light freckles, only gentle expression lines at the eye corners, a smooth forehead; no heavy skin texture, no exaggerated pores, no etched wrinkles, no orange or tanned tint, no plastic smoothing. The same woman as in the first reference image: identical face and skin tone, the same dark brown wavy shoulder-length hair with loose flyaway strands, the same age, freckles and small mole, the same small gold stud earrings. She wears an olive knit cardigan over a white tee. She sits on a cushioned window seat with a soft throw beside her, morning light through sheer curtains, a plant on the sill softly blurred. She looks straight into the camera as if about to talk to it, a relaxed half-smile, mouth gently closed. The handbag from the second reference image is resting on her lap, front and zip in clear view, unchanged: the same brown colour, the same shape and proportions, the same straps, the same gold hardware, the same zips and stitching; do not redesign it and do not add a logo. Medium close-up framed from the chest up, the bag visible in the lower part of the frame. No text, no watermark.",
+   "est_credits": 1.0
+  }
+ ],
+ "takes": [
+  {
+   "id": "PT01",
+   "file": "talk/P01H2_hook.mp4",
+   "project": "P01",
+   "scene": "sofa",
+   "still": "PS02",
+   "text": "Who on your list carries their whole life in one hand?",
+   "duration": 6,
+   "model": "kling3_0",
+   "params": {
+    "mode": "pro",
+    "sound": "on",
+    "aspect_ratio": "9:16",
+    "duration": 6
+   },
+   "prompt": "Handheld phone video of the woman talking straight to the camera. She says in a warm, natural, conversational American woman's voice: \"Who on your list carries their whole life in one hand?\" She starts speaking right away, within the first half second, at an easy natural pace. Her lips move in sync with the words, natural blinking, small head movements and small hand gestures, a relaxed, ordinary, unperformed expression, not a presenter's grin. Quiet living room ambience, no music. Her skin stays soft and natural, as in the start image, with no added texture or wrinkles. The camera stays steady at chest-up framing. The handbag stays exactly as it is.",
+   "est_credits": 15.0
+  },
+  {
+   "id": "PT02",
+   "file": "talk/P01H3_hook.mp4",
+   "project": "P01",
+   "scene": "cafe",
+   "still": "PS01",
+   "text": "Still no idea what to give the one who has everything?",
+   "duration": 6,
+   "model": "kling3_0",
+   "params": {
+    "mode": "pro",
+    "sound": "on",
+    "aspect_ratio": "9:16",
+    "duration": 6
+   },
+   "prompt": "Handheld phone video of the woman talking straight to the camera. She says in a warm, natural, conversational American woman's voice: \"Still no idea what to give the one who has everything?\" She starts speaking right away, within the first half second, at an easy natural pace. Her lips move in sync with the words, natural blinking, small head movements and small hand gestures, a relaxed, ordinary, unperformed expression, not a presenter's grin. Quiet cafe ambience, no music. Her skin stays soft and natural, as in the start image, with no added texture or wrinkles. The camera stays steady at chest-up framing. The handbag stays exactly as it is.",
+   "est_credits": 15.0
+  },
+  {
+   "id": "PT03",
+   "file": "talk/P01H4_hook.mp4",
+   "project": "P01",
+   "scene": "cafe",
+   "still": "PS01",
+   "text": "A gift that looks expensive, at fifty percent off this Black Friday.",
+   "duration": 6,
+   "model": "kling3_0",
+   "params": {
+    "mode": "pro",
+    "sound": "on",
+    "aspect_ratio": "9:16",
+    "duration": 6
+   },
+   "prompt": "Handheld phone video of the woman talking straight to the camera. She says in a warm, natural, conversational American woman's voice: \"A gift that looks expensive, at fifty percent off this Black Friday.\" She starts speaking right away, within the first half second, at an easy natural pace. Her lips move in sync with the words, natural blinking, small head movements and small hand gestures, a relaxed, ordinary, unperformed expression, not a presenter's grin. Quiet cafe ambience, no music. Her skin stays soft and natural, as in the start image, with no added texture or wrinkles. The camera stays steady at chest-up framing. The handbag stays exactly as it is.",
+   "est_credits": 15.0
+  },
+  {
+   "id": "PT04",
+   "file": "talk/P01_c1.mp4",
+   "project": "P01",
+   "scene": "sofa",
+   "still": "PS02",
+   "text": "First, the one who never stops moving. Keys and phone ride in her hand, because her bag has no place for them. A gold zip on each side fixes that.",
+   "duration": 13,
+   "model": "kling3_0",
+   "params": {
+    "mode": "pro",
+    "sound": "on",
+    "aspect_ratio": "9:16",
+    "duration": 13
+   },
+   "prompt": "Handheld phone video of the woman talking straight to the camera. She says in a warm, natural, conversational American woman's voice: \"First, the one who never stops moving. Keys and phone ride in her hand, because her bag has no place for them. A gold zip on each side fixes that.\" She starts speaking right away, within the first half second, at an easy natural pace. Her lips move in sync with the words, natural blinking, small head movements and small hand gestures, a relaxed, ordinary, unperformed expression, not a presenter's grin. Quiet living room ambience, no music. Her skin stays soft and natural, as in the start image, with no added texture or wrinkles. The camera stays steady at chest-up framing. The handbag stays exactly as it is.",
+   "est_credits": 32.5
+  },
+  {
+   "id": "PT05",
+   "file": "talk/P01_c2.mp4",
+   "project": "P01",
+   "scene": "sofa",
+   "still": "PS02",
+   "text": "Second, the one who loves a crowd and hates the squeeze. The hidden pocket on the back sits flat against her, so her passport and cards stay right where she put them.",
+   "duration": 13,
+   "model": "kling3_0",
+   "params": {
+    "mode": "pro",
+    "sound": "on",
+    "aspect_ratio": "9:16",
+    "duration": 13
+   },
+   "prompt": "Handheld phone video of the woman talking straight to the camera. She says in a warm, natural, conversational American woman's voice: \"Second, the one who loves a crowd and hates the squeeze. The hidden pocket on the back sits flat against her, so her passport and cards stay right where she put them.\" She starts speaking right away, within the first half second, at an easy natural pace. Her lips move in sync with the words, natural blinking, small head movements and small hand gestures, a relaxed, ordinary, unperformed expression, not a presenter's grin. Quiet living room ambience, no music. Her skin stays soft and natural, as in the start image, with no added texture or wrinkles. The camera stays steady at chest-up framing. The handbag stays exactly as it is.",
+   "est_credits": 32.5
+  },
+  {
+   "id": "PT06",
+   "file": "talk/P01_c3.mp4",
+   "project": "P01",
+   "scene": "cafe",
+   "still": "PS01",
+   "text": "Third, the one whose bag is a black hole. Divided compartments inside mean nothing sinks to the bottom: lip balm, charger, sunglasses, each in its own place.",
+   "duration": 11,
+   "model": "kling3_0",
+   "params": {
+    "mode": "pro",
+    "sound": "on",
+    "aspect_ratio": "9:16",
+    "duration": 11
+   },
+   "prompt": "Handheld phone video of the woman talking straight to the camera. She says in a warm, natural, conversational American woman's voice: \"Third, the one whose bag is a black hole. Divided compartments inside mean nothing sinks to the bottom: lip balm, charger, sunglasses, each in its own place.\" She starts speaking right away, within the first half second, at an easy natural pace. Her lips move in sync with the words, natural blinking, small head movements and small hand gestures, a relaxed, ordinary, unperformed expression, not a presenter's grin. Quiet cafe ambience, no music. Her skin stays soft and natural, as in the start image, with no added texture or wrinkles. The camera stays steady at chest-up framing. The handbag stays exactly as it is.",
+   "est_credits": 27.5
+  },
+  {
+   "id": "PT07",
+   "file": "talk/P01_c4.mp4",
+   "project": "P01",
+   "scene": "cafe",
+   "still": "PS01",
+   "text": "One bag covers all three. Two straps let it sit on the shoulder, hang from the hand or cross the body, in soft, water-resistant leather that looks expensive.",
+   "duration": 12,
+   "model": "kling3_0",
+   "params": {
+    "mode": "pro",
+    "sound": "on",
+    "aspect_ratio": "9:16",
+    "duration": 12
+   },
+   "prompt": "Handheld phone video of the woman talking straight to the camera. She says in a warm, natural, conversational American woman's voice: \"One bag covers all three. Two straps let it sit on the shoulder, hang from the hand or cross the body, in soft, water-resistant leather that looks expensive.\" She starts speaking right away, within the first half second, at an easy natural pace. Her lips move in sync with the words, natural blinking, small head movements and small hand gestures, a relaxed, ordinary, unperformed expression, not a presenter's grin. Quiet cafe ambience, no music. Her skin stays soft and natural, as in the start image, with no added texture or wrinkles. The camera stays steady at chest-up framing. The handbag stays exactly as it is.",
+   "est_credits": 30.0
+  },
+  {
+   "id": "PT08",
+   "file": "talk/P01_c5.mp4",
+   "project": "P01",
+   "scene": "cafe",
+   "still": "PS01",
+   "text": "Not sure it will suit? There is a one-year warranty and easy returns.",
+   "duration": 6,
+   "model": "kling3_0",
+   "params": {
+    "mode": "pro",
+    "sound": "on",
+    "aspect_ratio": "9:16",
+    "duration": 6
+   },
+   "prompt": "Handheld phone video of the woman talking straight to the camera. She says in a warm, natural, conversational American woman's voice: \"Not sure it will suit? There is a one-year warranty and easy returns.\" She starts speaking right away, within the first half second, at an easy natural pace. Her lips move in sync with the words, natural blinking, small head movements and small hand gestures, a relaxed, ordinary, unperformed expression, not a presenter's grin. Quiet cafe ambience, no music. Her skin stays soft and natural, as in the start image, with no added texture or wrinkles. The camera stays steady at chest-up framing. The handbag stays exactly as it is.",
+   "est_credits": 15.0
+  },
+  {
+   "id": "PT09",
+   "file": "talk/P01_c6.mp4",
+   "project": "P01",
+   "scene": "sofa",
+   "still": "PS02",
+   "text": "This Black Friday, the Hobo Bag is fifty percent off, with a free matching pouch wallet and free US shipping. Your whole list, handled. Tap the link below.",
+   "duration": 12,
+   "model": "kling3_0",
+   "params": {
+    "mode": "pro",
+    "sound": "on",
+    "aspect_ratio": "9:16",
+    "duration": 12
+   },
+   "prompt": "Handheld phone video of the woman talking straight to the camera. She says in a warm, natural, conversational American woman's voice: \"This Black Friday, the Hobo Bag is fifty percent off, with a free matching pouch wallet and free US shipping. Your whole list, handled. Tap the link below.\" She starts speaking right away, within the first half second, at an easy natural pace. Her lips move in sync with the words, natural blinking, small head movements and small hand gestures, a relaxed, ordinary, unperformed expression, not a presenter's grin. Quiet living room ambience, no music. Her skin stays soft and natural, as in the start image, with no added texture or wrinkles. The camera stays steady at chest-up framing. The handbag stays exactly as it is.",
+   "est_credits": 30.0
+  },
+  {
+   "id": "PT10",
+   "file": "talk/P01_hook.mp4",
+   "project": "P01",
+   "scene": "sofa",
+   "still": "PS02",
+   "text": "Three people on your list, one gift that suits all of them.",
+   "duration": 6,
+   "model": "kling3_0",
+   "params": {
+    "mode": "pro",
+    "sound": "on",
+    "aspect_ratio": "9:16",
+    "duration": 6
+   },
+   "prompt": "Handheld phone video of the woman talking straight to the camera. She says in a warm, natural, conversational American woman's voice: \"Three people on your list, one gift that suits all of them.\" She starts speaking right away, within the first half second, at an easy natural pace. Her lips move in sync with the words, natural blinking, small head movements and small hand gestures, a relaxed, ordinary, unperformed expression, not a presenter's grin. Quiet living room ambience, no music. Her skin stays soft and natural, as in the start image, with no added texture or wrinkles. The camera stays steady at chest-up framing. The handbag stays exactly as it is.",
+   "est_credits": 15.0
+  },
+  {
+   "id": "PT11",
+   "file": "talk/P02H2_hook.mp4",
+   "project": "P02",
+   "scene": "car",
+   "still": "PS04",
+   "text": "Here is how to get through Black Friday with both hands free.",
+   "duration": 6,
+   "model": "kling3_0",
+   "params": {
+    "mode": "pro",
+    "sound": "on",
+    "aspect_ratio": "9:16",
+    "duration": 6
+   },
+   "prompt": "Handheld phone video of the woman talking straight to the camera. She says in a warm, natural, conversational American woman's voice: \"Here is how to get through Black Friday with both hands free.\" She starts speaking right away, within the first half second, at an easy natural pace. Her lips move in sync with the words, natural blinking, small head movements and small hand gestures, a relaxed, ordinary, unperformed expression, not a presenter's grin. Quiet car interior ambience, no music. Her skin stays soft and natural, as in the start image, with no added texture or wrinkles. The camera stays steady at chest-up framing. The handbag stays exactly as it is.",
+   "est_credits": 15.0
+  },
+  {
+   "id": "PT12",
+   "file": "talk/P02H3_hook.mp4",
+   "project": "P02",
+   "scene": "bench",
+   "still": "PS03",
+   "text": "What does the crowd do to your bag in the first few minutes?",
+   "duration": 6,
+   "model": "kling3_0",
+   "params": {
+    "mode": "pro",
+    "sound": "on",
+    "aspect_ratio": "9:16",
+    "duration": 6
+   },
+   "prompt": "Handheld phone video of the woman talking straight to the camera. She says in a warm, natural, conversational American woman's voice: \"What does the crowd do to your bag in the first few minutes?\" She starts speaking right away, within the first half second, at an easy natural pace. Her lips move in sync with the words, natural blinking, small head movements and small hand gestures, a relaxed, ordinary, unperformed expression, not a presenter's grin. Quiet indoor arcade ambience, no music. Her skin stays soft and natural, as in the start image, with no added texture or wrinkles. The camera stays steady at chest-up framing. The handbag stays exactly as it is.",
+   "est_credits": 15.0
+  },
+  {
+   "id": "PT13",
+   "file": "talk/P02H4_hook.mp4",
+   "project": "P02",
+   "scene": "bench",
+   "still": "PS03",
+   "text": "Fifty percent off, a free pouch wallet, and a bag built for the crowd.",
+   "duration": 7,
+   "model": "kling3_0",
+   "params": {
+    "mode": "pro",
+    "sound": "on",
+    "aspect_ratio": "9:16",
+    "duration": 7
+   },
+   "prompt": "Handheld phone video of the woman talking straight to the camera. She says in a warm, natural, conversational American woman's voice: \"Fifty percent off, a free pouch wallet, and a bag built for the crowd.\" She starts speaking right away, within the first half second, at an easy natural pace. Her lips move in sync with the words, natural blinking, small head movements and small hand gestures, a relaxed, ordinary, unperformed expression, not a presenter's grin. Quiet indoor arcade ambience, no music. Her skin stays soft and natural, as in the start image, with no added texture or wrinkles. The camera stays steady at chest-up framing. The handbag stays exactly as it is.",
+   "est_credits": 17.5
+  },
+  {
+   "id": "PT14",
+   "file": "talk/P02_c1.mp4",
+   "project": "P02",
+   "scene": "car",
+   "still": "PS04",
+   "text": "You park, grab your list and step into the crowd. This is where a lot of bags let you down: straps slip, zips gape, everything is out of reach.",
+   "duration": 12,
+   "model": "kling3_0",
+   "params": {
+    "mode": "pro",
+    "sound": "on",
+    "aspect_ratio": "9:16",
+    "duration": 12
+   },
+   "prompt": "Handheld phone video of the woman talking straight to the camera. She says in a warm, natural, conversational American woman's voice: \"You park, grab your list and step into the crowd. This is where a lot of bags let you down: straps slip, zips gape, everything is out of reach.\" She starts speaking right away, within the first half second, at an easy natural pace. Her lips move in sync with the words, natural blinking, small head movements and small hand gestures, a relaxed, ordinary, unperformed expression, not a presenter's grin. Quiet car interior ambience, no music. Her skin stays soft and natural, as in the start image, with no added texture or wrinkles. The camera stays steady at chest-up framing. The handbag stays exactly as it is.",
+   "est_credits": 30.0
+  },
+  {
+   "id": "PT15",
+   "file": "talk/P02_c2.mp4",
+   "project": "P02",
+   "scene": "car",
+   "still": "PS04",
+   "text": "Step one, the strap. Two of them come with the bag, so it can sit on your shoulder, hang from your hand or cross your body, whichever keeps your hands free.",
+   "duration": 13,
+   "model": "kling3_0",
+   "params": {
+    "mode": "pro",
+    "sound": "on",
+    "aspect_ratio": "9:16",
+    "duration": 13
+   },
+   "prompt": "Handheld phone video of the woman talking straight to the camera. She says in a warm, natural, conversational American woman's voice: \"Step one, the strap. Two of them come with the bag, so it can sit on your shoulder, hang from your hand or cross your body, whichever keeps your hands free.\" She starts speaking right away, within the first half second, at an easy natural pace. Her lips move in sync with the words, natural blinking, small head movements and small hand gestures, a relaxed, ordinary, unperformed expression, not a presenter's grin. Quiet car interior ambience, no music. Her skin stays soft and natural, as in the start image, with no added texture or wrinkles. The camera stays steady at chest-up framing. The handbag stays exactly as it is.",
+   "est_credits": 32.5
+  },
+  {
+   "id": "PT16",
+   "file": "talk/P02_c3.mp4",
+   "project": "P02",
+   "scene": "car",
+   "still": "PS04",
+   "text": "Step two, your cards. The hidden pocket on the back sits flat against you, so your cards and your passport stay right there.",
+   "duration": 10,
+   "model": "kling3_0",
+   "params": {
+    "mode": "pro",
+    "sound": "on",
+    "aspect_ratio": "9:16",
+    "duration": 10
+   },
+   "prompt": "Handheld phone video of the woman talking straight to the camera. She says in a warm, natural, conversational American woman's voice: \"Step two, your cards. The hidden pocket on the back sits flat against you, so your cards and your passport stay right there.\" She starts speaking right away, within the first half second, at an easy natural pace. Her lips move in sync with the words, natural blinking, small head movements and small hand gestures, a relaxed, ordinary, unperformed expression, not a presenter's grin. Quiet car interior ambience, no music. Her skin stays soft and natural, as in the start image, with no added texture or wrinkles. The camera stays steady at chest-up framing. The handbag stays exactly as it is.",
+   "est_credits": 25.0
+  },
+  {
+   "id": "PT17",
+   "file": "talk/P02_c4.mp4",
+   "project": "P02",
+   "scene": "bench",
+   "still": "PS03",
+   "text": "Step three, your phone and keys. A gold zip on each side keeps them one quick reach away, with no digging at the bottom.",
+   "duration": 10,
+   "model": "kling3_0",
+   "params": {
+    "mode": "pro",
+    "sound": "on",
+    "aspect_ratio": "9:16",
+    "duration": 10
+   },
+   "prompt": "Handheld phone video of the woman talking straight to the camera. She says in a warm, natural, conversational American woman's voice: \"Step three, your phone and keys. A gold zip on each side keeps them one quick reach away, with no digging at the bottom.\" She starts speaking right away, within the first half second, at an easy natural pace. Her lips move in sync with the words, natural blinking, small head movements and small hand gestures, a relaxed, ordinary, unperformed expression, not a presenter's grin. Quiet indoor arcade ambience, no music. Her skin stays soft and natural, as in the start image, with no added texture or wrinkles. The camera stays steady at chest-up framing. The handbag stays exactly as it is.",
+   "est_credits": 25.0
+  },
+  {
+   "id": "PT18",
+   "file": "talk/P02_c5.mp4",
+   "project": "P02",
+   "scene": "bench",
+   "still": "PS03",
+   "text": "Last step, everything else. Divided compartments inside give lip balm, receipts and a charger each their own place.",
+   "duration": 8,
+   "model": "kling3_0",
+   "params": {
+    "mode": "pro",
+    "sound": "on",
+    "aspect_ratio": "9:16",
+    "duration": 8
+   },
+   "prompt": "Handheld phone video of the woman talking straight to the camera. She says in a warm, natural, conversational American woman's voice: \"Last step, everything else. Divided compartments inside give lip balm, receipts and a charger each their own place.\" She starts speaking right away, within the first half second, at an easy natural pace. Her lips move in sync with the words, natural blinking, small head movements and small hand gestures, a relaxed, ordinary, unperformed expression, not a presenter's grin. Quiet indoor arcade ambience, no music. Her skin stays soft and natural, as in the start image, with no added texture or wrinkles. The camera stays steady at chest-up framing. The handbag stays exactly as it is.",
+   "est_credits": 20.0
+  },
+  {
+   "id": "PT19",
+   "file": "talk/P02_c6.mp4",
+   "project": "P02",
+   "scene": "bench",
+   "still": "PS03",
+   "text": "The leather is soft, water-resistant and expensive-looking, and there is a one-year warranty and easy returns.",
+   "duration": 7,
+   "model": "kling3_0",
+   "params": {
+    "mode": "pro",
+    "sound": "on",
+    "aspect_ratio": "9:16",
+    "duration": 7
+   },
+   "prompt": "Handheld phone video of the woman talking straight to the camera. She says in a warm, natural, conversational American woman's voice: \"The leather is soft, water-resistant and expensive-looking, and there is a one-year warranty and easy returns.\" She starts speaking right away, within the first half second, at an easy natural pace. Her lips move in sync with the words, natural blinking, small head movements and small hand gestures, a relaxed, ordinary, unperformed expression, not a presenter's grin. Quiet indoor arcade ambience, no music. Her skin stays soft and natural, as in the start image, with no added texture or wrinkles. The camera stays steady at chest-up framing. The handbag stays exactly as it is.",
+   "est_credits": 17.5
+  },
+  {
+   "id": "PT20",
+   "file": "talk/P02_c7.mp4",
+   "project": "P02",
+   "scene": "car",
+   "still": "PS04",
+   "text": "Black Friday brings fifty percent off the Hobo Bag, with a free matching pouch wallet and free US shipping. Tap the link below.",
+   "duration": 10,
+   "model": "kling3_0",
+   "params": {
+    "mode": "pro",
+    "sound": "on",
+    "aspect_ratio": "9:16",
+    "duration": 10
+   },
+   "prompt": "Handheld phone video of the woman talking straight to the camera. She says in a warm, natural, conversational American woman's voice: \"Black Friday brings fifty percent off the Hobo Bag, with a free matching pouch wallet and free US shipping. Tap the link below.\" She starts speaking right away, within the first half second, at an easy natural pace. Her lips move in sync with the words, natural blinking, small head movements and small hand gestures, a relaxed, ordinary, unperformed expression, not a presenter's grin. Quiet car interior ambience, no music. Her skin stays soft and natural, as in the start image, with no added texture or wrinkles. The camera stays steady at chest-up framing. The handbag stays exactly as it is.",
+   "est_credits": 25.0
+  },
+  {
+   "id": "PT21",
+   "file": "talk/P02_hook.mp4",
+   "project": "P02",
+   "scene": "car",
+   "still": "PS04",
+   "text": "Hands full of shopping bags: where does your phone go?",
+   "duration": 5,
+   "model": "kling3_0",
+   "params": {
+    "mode": "pro",
+    "sound": "on",
+    "aspect_ratio": "9:16",
+    "duration": 5
+   },
+   "prompt": "Handheld phone video of the woman talking straight to the camera. She says in a warm, natural, conversational American woman's voice: \"Hands full of shopping bags: where does your phone go?\" She starts speaking right away, within the first half second, at an easy natural pace. Her lips move in sync with the words, natural blinking, small head movements and small hand gestures, a relaxed, ordinary, unperformed expression, not a presenter's grin. Quiet car interior ambience, no music. Her skin stays soft and natural, as in the start image, with no added texture or wrinkles. The camera stays steady at chest-up framing. The handbag stays exactly as it is.",
+   "est_credits": 12.5
+  },
+  {
+   "id": "PT22",
+   "file": "talk/P03H2_hook.mp4",
+   "project": "P03",
+   "scene": "kitchen",
+   "still": "PS05",
+   "text": "Does a big bag have to be a messy bag?",
+   "duration": 5,
+   "model": "kling3_0",
+   "params": {
+    "mode": "pro",
+    "sound": "on",
+    "aspect_ratio": "9:16",
+    "duration": 5
+   },
+   "prompt": "Handheld phone video of the woman talking straight to the camera. She says in a warm, natural, conversational American woman's voice: \"Does a big bag have to be a messy bag?\" She starts speaking right away, within the first half second, at an easy natural pace. Her lips move in sync with the words, natural blinking, small head movements and small hand gestures, a relaxed, ordinary, unperformed expression, not a presenter's grin. Quiet kitchen ambience, no music. Her skin stays soft and natural, as in the start image, with no added texture or wrinkles. The camera stays steady at chest-up framing. The handbag stays exactly as it is.",
+   "est_credits": 12.5
+  },
+  {
+   "id": "PT23",
+   "file": "talk/P03H3_hook.mp4",
+   "project": "P03",
+   "scene": "window",
+   "still": "PS06",
+   "text": "Handbag myths, and what the Hobo Bag says back.",
+   "duration": 5,
+   "model": "kling3_0",
+   "params": {
+    "mode": "pro",
+    "sound": "on",
+    "aspect_ratio": "9:16",
+    "duration": 5
+   },
+   "prompt": "Handheld phone video of the woman talking straight to the camera. She says in a warm, natural, conversational American woman's voice: \"Handbag myths, and what the Hobo Bag says back.\" She starts speaking right away, within the first half second, at an easy natural pace. Her lips move in sync with the words, natural blinking, small head movements and small hand gestures, a relaxed, ordinary, unperformed expression, not a presenter's grin. Quiet home ambience, no music. Her skin stays soft and natural, as in the start image, with no added texture or wrinkles. The camera stays steady at chest-up framing. The handbag stays exactly as it is.",
+   "est_credits": 12.5
+  },
+  {
+   "id": "PT24",
+   "file": "talk/P03H4_hook.mp4",
+   "project": "P03",
+   "scene": "window",
+   "still": "PS06",
+   "text": "Myth: good leather costs full price. Not this Black Friday.",
+   "duration": 5,
+   "model": "kling3_0",
+   "params": {
+    "mode": "pro",
+    "sound": "on",
+    "aspect_ratio": "9:16",
+    "duration": 5
+   },
+   "prompt": "Handheld phone video of the woman talking straight to the camera. She says in a warm, natural, conversational American woman's voice: \"Myth: good leather costs full price. Not this Black Friday.\" She starts speaking right away, within the first half second, at an easy natural pace. Her lips move in sync with the words, natural blinking, small head movements and small hand gestures, a relaxed, ordinary, unperformed expression, not a presenter's grin. Quiet home ambience, no music. Her skin stays soft and natural, as in the start image, with no added texture or wrinkles. The camera stays steady at chest-up framing. The handbag stays exactly as it is.",
+   "est_credits": 12.5
+  },
+  {
+   "id": "PT25",
+   "file": "talk/P03_c1.mp4",
+   "project": "P03",
+   "scene": "kitchen",
+   "still": "PS05",
+   "text": "Myth one: more room means more mess. Not when divided compartments inside give your things their own places, so nothing sinks to the bottom.",
+   "duration": 10,
+   "model": "kling3_0",
+   "params": {
+    "mode": "pro",
+    "sound": "on",
+    "aspect_ratio": "9:16",
+    "duration": 10
+   },
+   "prompt": "Handheld phone video of the woman talking straight to the camera. She says in a warm, natural, conversational American woman's voice: \"Myth one: more room means more mess. Not when divided compartments inside give your things their own places, so nothing sinks to the bottom.\" She starts speaking right away, within the first half second, at an easy natural pace. Her lips move in sync with the words, natural blinking, small head movements and small hand gestures, a relaxed, ordinary, unperformed expression, not a presenter's grin. Quiet kitchen ambience, no music. Her skin stays soft and natural, as in the start image, with no added texture or wrinkles. The camera stays steady at chest-up framing. The handbag stays exactly as it is.",
+   "est_credits": 25.0
+  },
+  {
+   "id": "PT26",
+   "file": "talk/P03_c2.mp4",
+   "project": "P03",
+   "scene": "kitchen",
+   "still": "PS05",
+   "text": "Myth two: side zips are just decoration. These two gold ones, one on each side, are made for your keys and your phone.",
+   "duration": 10,
+   "model": "kling3_0",
+   "params": {
+    "mode": "pro",
+    "sound": "on",
+    "aspect_ratio": "9:16",
+    "duration": 10
+   },
+   "prompt": "Handheld phone video of the woman talking straight to the camera. She says in a warm, natural, conversational American woman's voice: \"Myth two: side zips are just decoration. These two gold ones, one on each side, are made for your keys and your phone.\" She starts speaking right away, within the first half second, at an easy natural pace. Her lips move in sync with the words, natural blinking, small head movements and small hand gestures, a relaxed, ordinary, unperformed expression, not a presenter's grin. Quiet kitchen ambience, no music. Her skin stays soft and natural, as in the start image, with no added texture or wrinkles. The camera stays steady at chest-up framing. The handbag stays exactly as it is.",
+   "est_credits": 25.0
+  },
+  {
+   "id": "PT27",
+   "file": "talk/P03_c3.mp4",
+   "project": "P03",
+   "scene": "window",
+   "still": "PS06",
+   "text": "Myth three: a handbag only has one way to be carried. Two straps give you three: on the shoulder, in the hand or across the body.",
+   "duration": 11,
+   "model": "kling3_0",
+   "params": {
+    "mode": "pro",
+    "sound": "on",
+    "aspect_ratio": "9:16",
+    "duration": 11
+   },
+   "prompt": "Handheld phone video of the woman talking straight to the camera. She says in a warm, natural, conversational American woman's voice: \"Myth three: a handbag only has one way to be carried. Two straps give you three: on the shoulder, in the hand or across the body.\" She starts speaking right away, within the first half second, at an easy natural pace. Her lips move in sync with the words, natural blinking, small head movements and small hand gestures, a relaxed, ordinary, unperformed expression, not a presenter's grin. Quiet home ambience, no music. Her skin stays soft and natural, as in the start image, with no added texture or wrinkles. The camera stays steady at chest-up framing. The handbag stays exactly as it is.",
+   "est_credits": 27.5
+  },
+  {
+   "id": "PT28",
+   "file": "talk/P03_c4.mp4",
+   "project": "P03",
+   "scene": "window",
+   "still": "PS06",
+   "text": "The last myth: a pocket on the back is a pocket you will never find. This one sits flat against you, hidden, for your passport and cards.",
+   "duration": 11,
+   "model": "kling3_0",
+   "params": {
+    "mode": "pro",
+    "sound": "on",
+    "aspect_ratio": "9:16",
+    "duration": 11
+   },
+   "prompt": "Handheld phone video of the woman talking straight to the camera. She says in a warm, natural, conversational American woman's voice: \"The last myth: a pocket on the back is a pocket you will never find. This one sits flat against you, hidden, for your passport and cards.\" She starts speaking right away, within the first half second, at an easy natural pace. Her lips move in sync with the words, natural blinking, small head movements and small hand gestures, a relaxed, ordinary, unperformed expression, not a presenter's grin. Quiet home ambience, no music. Her skin stays soft and natural, as in the start image, with no added texture or wrinkles. The camera stays steady at chest-up framing. The handbag stays exactly as it is.",
+   "est_credits": 27.5
+  },
+  {
+   "id": "PT29",
+   "file": "talk/P03_c5.mp4",
+   "project": "P03",
+   "scene": "kitchen",
+   "still": "PS05",
+   "text": "And the biggest myth? That leather this soft, water-resistant and expensive-looking has to cost full price.",
+   "duration": 7,
+   "model": "kling3_0",
+   "params": {
+    "mode": "pro",
+    "sound": "on",
+    "aspect_ratio": "9:16",
+    "duration": 7
+   },
+   "prompt": "Handheld phone video of the woman talking straight to the camera. She says in a warm, natural, conversational American woman's voice: \"And the biggest myth? That leather this soft, water-resistant and expensive-looking has to cost full price.\" She starts speaking right away, within the first half second, at an easy natural pace. Her lips move in sync with the words, natural blinking, small head movements and small hand gestures, a relaxed, ordinary, unperformed expression, not a presenter's grin. Quiet kitchen ambience, no music. Her skin stays soft and natural, as in the start image, with no added texture or wrinkles. The camera stays steady at chest-up framing. The handbag stays exactly as it is.",
+   "est_credits": 17.5
+  },
+  {
+   "id": "PT30",
+   "file": "talk/P03_c6.mp4",
+   "project": "P03",
+   "scene": "kitchen",
+   "still": "PS05",
+   "text": "This Black Friday it is fifty percent off the Hobo Bag, with a free matching pouch wallet and free US shipping. One-year warranty, easy returns. Tap the link below.",
+   "duration": 12,
+   "model": "kling3_0",
+   "params": {
+    "mode": "pro",
+    "sound": "on",
+    "aspect_ratio": "9:16",
+    "duration": 12
+   },
+   "prompt": "Handheld phone video of the woman talking straight to the camera. She says in a warm, natural, conversational American woman's voice: \"This Black Friday it is fifty percent off the Hobo Bag, with a free matching pouch wallet and free US shipping. One-year warranty, easy returns. Tap the link below.\" She starts speaking right away, within the first half second, at an easy natural pace. Her lips move in sync with the words, natural blinking, small head movements and small hand gestures, a relaxed, ordinary, unperformed expression, not a presenter's grin. Quiet kitchen ambience, no music. Her skin stays soft and natural, as in the start image, with no added texture or wrinkles. The camera stays steady at chest-up framing. The handbag stays exactly as it is.",
+   "est_credits": 30.0
+  },
+  {
+   "id": "PT31",
+   "file": "talk/P03_hook.mp4",
+   "project": "P03",
+   "scene": "kitchen",
+   "still": "PS05",
+   "text": "Myth: a bag with room for everything is always a mess.",
+   "duration": 6,
+   "model": "kling3_0",
+   "params": {
+    "mode": "pro",
+    "sound": "on",
+    "aspect_ratio": "9:16",
+    "duration": 6
+   },
+   "prompt": "Handheld phone video of the woman talking straight to the camera. She says in a warm, natural, conversational American woman's voice: \"Myth: a bag with room for everything is always a mess.\" She starts speaking right away, within the first half second, at an easy natural pace. Her lips move in sync with the words, natural blinking, small head movements and small hand gestures, a relaxed, ordinary, unperformed expression, not a presenter's grin. Quiet kitchen ambience, no music. Her skin stays soft and natural, as in the start image, with no added texture or wrinkles. The camera stays steady at chest-up framing. The handbag stays exactly as it is.",
+   "est_credits": 15.0
+  },
+  {
+   "id": "PT32",
+   "file": "talk/P04H2_hook.mp4",
+   "project": "P04",
+   "scene": "window2",
+   "still": "PS08",
+   "text": "How long have you been carrying a bag that fights you?",
+   "duration": 6,
+   "model": "kling3_0",
+   "params": {
+    "mode": "pro",
+    "sound": "on",
+    "aspect_ratio": "9:16",
+    "duration": 6
+   },
+   "prompt": "Handheld phone video of the woman talking straight to the camera. She says in a warm, natural, conversational American woman's voice: \"How long have you been carrying a bag that fights you?\" She starts speaking right away, within the first half second, at an easy natural pace. Her lips move in sync with the words, natural blinking, small head movements and small hand gestures, a relaxed, ordinary, unperformed expression, not a presenter's grin. Quiet home ambience, no music. Her skin stays soft and natural, as in the start image, with no added texture or wrinkles. The camera stays steady at chest-up framing. The handbag stays exactly as it is.",
+   "est_credits": 15.0
+  },
+  {
+   "id": "PT33",
+   "file": "talk/P04H3_hook.mp4",
+   "project": "P04",
+   "scene": "sofa2",
+   "still": "PS07",
+   "text": "Is your bag still the thing you dig through every morning?",
+   "duration": 6,
+   "model": "kling3_0",
+   "params": {
+    "mode": "pro",
+    "sound": "on",
+    "aspect_ratio": "9:16",
+    "duration": 6
+   },
+   "prompt": "Handheld phone video of the woman talking straight to the camera. She says in a warm, natural, conversational American woman's voice: \"Is your bag still the thing you dig through every morning?\" She starts speaking right away, within the first half second, at an easy natural pace. Her lips move in sync with the words, natural blinking, small head movements and small hand gestures, a relaxed, ordinary, unperformed expression, not a presenter's grin. Quiet living room ambience, no music. Her skin stays soft and natural, as in the start image, with no added texture or wrinkles. The camera stays steady at chest-up framing. The handbag stays exactly as it is.",
+   "est_credits": 15.0
+  },
+  {
+   "id": "PT34",
+   "file": "talk/P04H4_hook.mp4",
+   "project": "P04",
+   "scene": "sofa2",
+   "still": "PS07",
+   "text": "Retire the old one this Black Friday: fifty percent off the Hobo Bag.",
+   "duration": 6,
+   "model": "kling3_0",
+   "params": {
+    "mode": "pro",
+    "sound": "on",
+    "aspect_ratio": "9:16",
+    "duration": 6
+   },
+   "prompt": "Handheld phone video of the woman talking straight to the camera. She says in a warm, natural, conversational American woman's voice: \"Retire the old one this Black Friday: fifty percent off the Hobo Bag.\" She starts speaking right away, within the first half second, at an easy natural pace. Her lips move in sync with the words, natural blinking, small head movements and small hand gestures, a relaxed, ordinary, unperformed expression, not a presenter's grin. Quiet living room ambience, no music. Her skin stays soft and natural, as in the start image, with no added texture or wrinkles. The camera stays steady at chest-up framing. The handbag stays exactly as it is.",
+   "est_credits": 15.0
+  },
+  {
+   "id": "PT35",
+   "file": "talk/P04_c1.mp4",
+   "project": "P04",
+   "scene": "window2",
+   "still": "PS08",
+   "text": "Think about the bag you carried today. It held your phone, your keys, your cards, and a few things it never had a proper place for.",
+   "duration": 11,
+   "model": "kling3_0",
+   "params": {
+    "mode": "pro",
+    "sound": "on",
+    "aspect_ratio": "9:16",
+    "duration": 11
+   },
+   "prompt": "Handheld phone video of the woman talking straight to the camera. She says in a warm, natural, conversational American woman's voice: \"Think about the bag you carried today. It held your phone, your keys, your cards, and a few things it never had a proper place for.\" She starts speaking right away, within the first half second, at an easy natural pace. Her lips move in sync with the words, natural blinking, small head movements and small hand gestures, a relaxed, ordinary, unperformed expression, not a presenter's grin. Quiet home ambience, no music. Her skin stays soft and natural, as in the start image, with no added texture or wrinkles. The camera stays steady at chest-up framing. The handbag stays exactly as it is.",
+   "est_credits": 27.5
+  },
+  {
+   "id": "PT36",
+   "file": "talk/P04_c2.mp4",
+   "project": "P04",
+   "scene": "window2",
+   "still": "PS08",
+   "text": "It did its job. But a good bag does more than hold things. It hands them back the second you reach.",
+   "duration": 9,
+   "model": "kling3_0",
+   "params": {
+    "mode": "pro",
+    "sound": "on",
+    "aspect_ratio": "9:16",
+    "duration": 9
+   },
+   "prompt": "Handheld phone video of the woman talking straight to the camera. She says in a warm, natural, conversational American woman's voice: \"It did its job. But a good bag does more than hold things. It hands them back the second you reach.\" She starts speaking right away, within the first half second, at an easy natural pace. Her lips move in sync with the words, natural blinking, small head movements and small hand gestures, a relaxed, ordinary, unperformed expression, not a presenter's grin. Quiet home ambience, no music. Her skin stays soft and natural, as in the start image, with no added texture or wrinkles. The camera stays steady at chest-up framing. The handbag stays exactly as it is.",
+   "est_credits": 22.5
+  },
+  {
+   "id": "PT37",
+   "file": "talk/P04_c3.mp4",
+   "project": "P04",
+   "scene": "sofa2",
+   "still": "PS07",
+   "text": "A gold zip on each side hands you your keys and phone. A hidden pocket on the back keeps your passport and cards flat against you.",
+   "duration": 11,
+   "model": "kling3_0",
+   "params": {
+    "mode": "pro",
+    "sound": "on",
+    "aspect_ratio": "9:16",
+    "duration": 11
+   },
+   "prompt": "Handheld phone video of the woman talking straight to the camera. She says in a warm, natural, conversational American woman's voice: \"A gold zip on each side hands you your keys and phone. A hidden pocket on the back keeps your passport and cards flat against you.\" She starts speaking right away, within the first half second, at an easy natural pace. Her lips move in sync with the words, natural blinking, small head movements and small hand gestures, a relaxed, ordinary, unperformed expression, not a presenter's grin. Quiet living room ambience, no music. Her skin stays soft and natural, as in the start image, with no added texture or wrinkles. The camera stays steady at chest-up framing. The handbag stays exactly as it is.",
+   "est_credits": 27.5
+  },
+  {
+   "id": "PT38",
+   "file": "talk/P04_c4.mp4",
+   "project": "P04",
+   "scene": "sofa2",
+   "still": "PS07",
+   "text": "Inside, divided compartments mean nothing gets lost at the bottom, and the soft, water-resistant leather looks expensive and only gets better with time.",
+   "duration": 10,
+   "model": "kling3_0",
+   "params": {
+    "mode": "pro",
+    "sound": "on",
+    "aspect_ratio": "9:16",
+    "duration": 10
+   },
+   "prompt": "Handheld phone video of the woman talking straight to the camera. She says in a warm, natural, conversational American woman's voice: \"Inside, divided compartments mean nothing gets lost at the bottom, and the soft, water-resistant leather looks expensive and only gets better with time.\" She starts speaking right away, within the first half second, at an easy natural pace. Her lips move in sync with the words, natural blinking, small head movements and small hand gestures, a relaxed, ordinary, unperformed expression, not a presenter's grin. Quiet living room ambience, no music. Her skin stays soft and natural, as in the start image, with no added texture or wrinkles. The camera stays steady at chest-up framing. The handbag stays exactly as it is.",
+   "est_credits": 25.0
+  },
+  {
+   "id": "PT39",
+   "file": "talk/P04_c5.mp4",
+   "project": "P04",
+   "scene": "window2",
+   "still": "PS08",
+   "text": "Two straps let you carry it your way: on the shoulder, in your hand, or across your body.",
+   "duration": 8,
+   "model": "kling3_0",
+   "params": {
+    "mode": "pro",
+    "sound": "on",
+    "aspect_ratio": "9:16",
+    "duration": 8
+   },
+   "prompt": "Handheld phone video of the woman talking straight to the camera. She says in a warm, natural, conversational American woman's voice: \"Two straps let you carry it your way: on the shoulder, in your hand, or across your body.\" She starts speaking right away, within the first half second, at an easy natural pace. Her lips move in sync with the words, natural blinking, small head movements and small hand gestures, a relaxed, ordinary, unperformed expression, not a presenter's grin. Quiet home ambience, no music. Her skin stays soft and natural, as in the start image, with no added texture or wrinkles. The camera stays steady at chest-up framing. The handbag stays exactly as it is.",
+   "est_credits": 20.0
+  },
+  {
+   "id": "PT40",
+   "file": "talk/P04_c6.mp4",
+   "project": "P04",
+   "scene": "window2",
+   "still": "PS08",
+   "text": "And if it is not right for you, there is a one-year warranty and easy returns.",
+   "duration": 7,
+   "model": "kling3_0",
+   "params": {
+    "mode": "pro",
+    "sound": "on",
+    "aspect_ratio": "9:16",
+    "duration": 7
+   },
+   "prompt": "Handheld phone video of the woman talking straight to the camera. She says in a warm, natural, conversational American woman's voice: \"And if it is not right for you, there is a one-year warranty and easy returns.\" She starts speaking right away, within the first half second, at an easy natural pace. Her lips move in sync with the words, natural blinking, small head movements and small hand gestures, a relaxed, ordinary, unperformed expression, not a presenter's grin. Quiet home ambience, no music. Her skin stays soft and natural, as in the start image, with no added texture or wrinkles. The camera stays steady at chest-up framing. The handbag stays exactly as it is.",
+   "est_credits": 17.5
+  },
+  {
+   "id": "PT41",
+   "file": "talk/P04_c7.mp4",
+   "project": "P04",
+   "scene": "sofa2",
+   "still": "PS07",
+   "text": "So retire the old one, with thanks. This Black Friday the Hobo Bag is fifty percent off, with a free matching pouch wallet and free US shipping. Tap the link below.",
+   "duration": 13,
+   "model": "kling3_0",
+   "params": {
+    "mode": "pro",
+    "sound": "on",
+    "aspect_ratio": "9:16",
+    "duration": 13
+   },
+   "prompt": "Handheld phone video of the woman talking straight to the camera. She says in a warm, natural, conversational American woman's voice: \"So retire the old one, with thanks. This Black Friday the Hobo Bag is fifty percent off, with a free matching pouch wallet and free US shipping. Tap the link below.\" She starts speaking right away, within the first half second, at an easy natural pace. Her lips move in sync with the words, natural blinking, small head movements and small hand gestures, a relaxed, ordinary, unperformed expression, not a presenter's grin. Quiet living room ambience, no music. Her skin stays soft and natural, as in the start image, with no added texture or wrinkles. The camera stays steady at chest-up framing. The handbag stays exactly as it is.",
+   "est_credits": 32.5
+  },
+  {
+   "id": "PT42",
+   "file": "talk/P04_hook.mp4",
+   "project": "P04",
+   "scene": "window2",
+   "still": "PS08",
+   "text": "Your old bag deserves a quiet retirement. Here is its replacement.",
+   "duration": 6,
+   "model": "kling3_0",
+   "params": {
+    "mode": "pro",
+    "sound": "on",
+    "aspect_ratio": "9:16",
+    "duration": 6
+   },
+   "prompt": "Handheld phone video of the woman talking straight to the camera. She says in a warm, natural, conversational American woman's voice: \"Your old bag deserves a quiet retirement. Here is its replacement.\" She starts speaking right away, within the first half second, at an easy natural pace. Her lips move in sync with the words, natural blinking, small head movements and small hand gestures, a relaxed, ordinary, unperformed expression, not a presenter's grin. Quiet home ambience, no music. Her skin stays soft and natural, as in the start image, with no added texture or wrinkles. The camera stays steady at chest-up framing. The handbag stays exactly as it is.",
+   "est_credits": 15.0
+  }
+ ],
+ "est_credits": 908.0,
+ "cap": 1000.0,
+ "steps": [
+  "1. Upload the host's master picture (`presenter.master`) and each distinct `ref_bag` once (media_upload, curl PUT, media_confirm).",
+  "2. generate_image_batch (max 12 per call): every still with model / params / prompt exactly as listed, medias [{value: <master id>, role: image_references}, {value: <that still's bag id>, role: image_references}], use_unlim false; jobs_wait; download to $OUT/<file>.",
+  "3. python3 pipeline/presenter.py gate --out $OUT ; LOOK at $OUT/qa/presenter_stills.jpg (the bag's packshot | the still): the bag must be the real bag (shape, colour, strap, hardware), the woman the host (same face), nothing odd in her hands: python3 pipeline/presenter.py reject --out $OUT PS02 ...  and generate that still again (one retry).",
+  "4. generate_video_batch (max 6 per call, then jobs_wait): every take of a passing still with model / params / prompt as listed, medias [{value: <the still's job id>, role: start_image}], use_unlim false. A submission answered with a preset recommendation: send it again with declined_preset_id = that preset's id. Download to $OUT/<file> (talk/P01_c1.mp4 ...).",
+  "5. python3 pipeline/presenter.py gate --out $OUT ; LOOK at $OUT/qa/presenter_takes.jpg: reject (and make once more) a take whose words differ from the script, whose lips are off, whose bag changes, whose hands melt. Then render as usual."
+ ]
+}

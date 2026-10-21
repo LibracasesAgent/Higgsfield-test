@@ -1,0 +1,875 @@
+{
+ "product": "Hobo Bag",
+ "theme": "black friday",
+ "date": "2026-10-21",
+ "research": [
+  "Julian (media buyer, 2026-10-21): wants videos with a model or character sitting and talking, the footage cutting in between, like the mom in the winners; the owner approved avatars when the story needs actors.",
+  "Winner RAWs (94-H4, 123-H4, 147-H1): the proven shape is one person telling a story to camera with b-roll cuts; here the person is a generated host, not a customer, so every line is in 'you' form (Higgsfield's own UGC rules: a generated creator is a host, never a synthetic testimonial).",
+  "B014 (packout, behind, giftcheck, fivechecks) and B015 (chairtie, layers): none had a presenter and none used a person-by-person, step-by-step, myth-and-answer or farewell structure.",
+  "docs/research/2026-10-black-friday-and-bag-ads.md: Black Friday ads win on a clear offer and a story; no fake urgency, no sale end date; the offer is fifty percent off + a free matching pouch wallet + free US shipping.",
+  "Test 2026-10-21: Kling 3.0 takes (about 2 credits a second) speak the written line exactly, with natural lips and one steady voice across scenes; the real bag stays faithful when made from its packshot."
+ ],
+ "projects": [
+  {
+   "id": "P01",
+   "slug": "thelist",
+   "title": "Three people on your list",
+   "presenter": {
+    "id": "maya",
+    "scenes": [
+     {
+      "id": "sofa",
+      "where": "She sits on a light grey sofa in a bright living room, a plant and a bookshelf softly blurred behind her, warm daylight from a window on the left.",
+      "outfit": "She wears a cream knit sweater.",
+      "bag": "standing upright on the sofa cushion beside her, front and zip in clear view",
+      "colour": "black",
+      "ambience": "Quiet living room ambience"
+     },
+     {
+      "id": "cafe",
+      "where": "She sits at a small round marble table in a sunny cafe, a latte in a white cup in front of her, warm daylight from the window beside her, a softly blurred cafe behind her.",
+      "outfit": "She wears a denim shirt.",
+      "bag": "resting on her lap, front and zip in clear view",
+      "colour": "brown",
+      "ambience": "Quiet cafe ambience"
+     }
+    ]
+   },
+   "big_idea": "A gift-guide told like a conversation: a host introduces the three people on a Black Friday gift list (the one who never stops, the one in the crowd, the one whose bag is a black hole), and one feature of the Hobo Bag answers each of them.",
+   "why_new": "No earlier batch was a person-by-person gift guide; B014's gift video checked three boxes a gift must tick. This one is told by a presenter on camera, with the footage cutting in for each person's problem.",
+   "hooks": [
+    {
+     "text": "Three people on your list, one gift that suits all of them.",
+     "type": "promise",
+     "label": "THE LIST",
+     "show": [
+      "handheld",
+      "hero"
+     ],
+     "scene": "sofa"
+    },
+    {
+     "text": "Who on your list carries their whole life in one hand?",
+     "type": "question",
+     "label": "WHO'S THAT?",
+     "show": [
+      "handheld",
+      "walking"
+     ],
+     "scene": "sofa"
+    },
+    {
+     "text": "Still no idea what to give the one who has everything?",
+     "type": "problem",
+     "label": "STUCK?",
+     "show": [
+      "hero",
+      "leather"
+     ],
+     "scene": "cafe"
+    },
+    {
+     "text": "A gift that looks expensive, at fifty percent off this Black Friday.",
+     "type": "price",
+     "label": "HALF PRICE",
+     "show": [
+      "leather",
+      "hero"
+     ],
+     "scene": "cafe"
+    }
+   ],
+   "chapters": [
+    {
+     "kind": "point",
+     "text": "First, the one who never stops moving. Keys and phone ride in her hand, because her bag has no place for them. A gold zip on each side fixes that.",
+     "show": [
+      "side_zip",
+      "zip_hand",
+      "handheld"
+     ],
+     "cam": "open",
+     "tag": "GOLD SIDE ZIPS",
+     "scene": "sofa",
+     "highlight": [
+      "gold",
+      "keys",
+      "phone"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Second, the one who loves a crowd and hates the squeeze. The hidden pocket on the back sits flat against her, so her passport and cards stay right where she put them.",
+     "show": [
+      "pocket",
+      "placed",
+      "worn"
+     ],
+     "cam": "open",
+     "tag": "HIDDEN BACK POCKET",
+     "scene": "sofa",
+     "highlight": [
+      "hidden",
+      "pocket"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Third, the one whose bag is a black hole. Divided compartments inside mean nothing sinks to the bottom: lip balm, charger, sunglasses, each in its own place.",
+     "show": [
+      "inside",
+      "packing"
+     ],
+     "cam": "open",
+     "tag": "SMART COMPARTMENTS",
+     "scene": "cafe",
+     "highlight": [
+      "compartments",
+      "bottom"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "One bag covers all three. Two straps let it sit on the shoulder, hang from the hand or cross the body, in soft, water-resistant leather that looks expensive.",
+     "show": [
+      "strap",
+      "worn",
+      "leather"
+     ],
+     "cam": "full",
+     "tag": "3 WAYS TO WEAR",
+     "scene": "cafe",
+     "highlight": [
+      "straps",
+      "leather"
+     ]
+    },
+    {
+     "kind": "objection",
+     "text": "Not sure it will suit? There is a one-year warranty and easy returns.",
+     "show": [
+      "hero",
+      "handheld"
+     ],
+     "cam": "open",
+     "scene": "cafe"
+    },
+    {
+     "kind": "offer",
+     "text": "This Black Friday, the Hobo Bag is fifty percent off, with a free matching pouch wallet and free US shipping. Your whole list, handled. Tap the link below.",
+     "show": [
+      "pouch",
+      "hero"
+     ],
+     "cam": "both",
+     "scene": "sofa",
+     "highlight": [
+      "fifty",
+      "free"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "P02",
+   "slug": "friday",
+   "title": "Black Friday, step by step",
+   "presenter": {
+    "id": "maya",
+    "scenes": [
+     {
+      "id": "car",
+      "where": "She sits in the driver's seat of a parked car in daylight, seat belt off, turned slightly towards the camera as if filming herself, a softly blurred car park through the windscreen behind her.",
+      "outfit": "She wears a camel wool coat over a cream top.",
+      "bag": "resting on her lap, front and zip in clear view",
+      "colour": "blue",
+      "ambience": "Quiet car interior ambience"
+     },
+     {
+      "id": "bench",
+      "where": "She sits on a wooden bench in a bright shopping arcade with large windows, two plain paper shopping bags at her feet, the arcade softly blurred behind her.",
+      "outfit": "She wears a camel wool coat over a cream top.",
+      "bag": "resting on her lap, front and zip in clear view",
+      "colour": "blue",
+      "ambience": "Quiet indoor arcade ambience"
+     }
+    ]
+   },
+   "big_idea": "A second-person walk through the Black Friday crowd, told by a presenter sitting in her parked car: park, step in, and four steps (strap, cards, phone and keys, everything else) that keep both hands free.",
+   "why_new": "B014's crowd video was a list of features; this is a chronological story in the second person, sat in a car outside the shops, with each step answered by the footage.",
+   "hooks": [
+    {
+     "text": "Hands full of shopping bags: where does your phone go?",
+     "type": "problem",
+     "label": "HANDS FULL",
+     "show": [
+      "handheld",
+      "side_zip"
+     ],
+     "scene": "car"
+    },
+    {
+     "text": "Here is how to get through Black Friday with both hands free.",
+     "type": "promise",
+     "label": "HANDS FREE",
+     "show": [
+      "worn",
+      "strap"
+     ],
+     "scene": "car"
+    },
+    {
+     "text": "What does the crowd do to your bag in the first few minutes?",
+     "type": "question",
+     "label": "THE CROWD",
+     "show": [
+      "outdoor",
+      "walking"
+     ],
+     "scene": "bench"
+    },
+    {
+     "text": "Fifty percent off, a free pouch wallet, and a bag built for the crowd.",
+     "type": "price",
+     "label": "BLACK FRIDAY",
+     "show": [
+      "pouch",
+      "hero"
+     ],
+     "scene": "bench"
+    }
+   ],
+   "chapters": [
+    {
+     "kind": "point",
+     "text": "You park, grab your list and step into the crowd. This is where a lot of bags let you down: straps slip, zips gape, everything is out of reach.",
+     "show": [
+      "outdoor",
+      "walking",
+      "street"
+     ],
+     "cam": "open",
+     "scene": "car"
+    },
+    {
+     "kind": "point",
+     "text": "Step one, the strap. Two of them come with the bag, so it can sit on your shoulder, hang from your hand or cross your body, whichever keeps your hands free.",
+     "show": [
+      "strap",
+      "worn",
+      "walking"
+     ],
+     "cam": "open",
+     "tag": "3 WAYS TO WEAR",
+     "scene": "car",
+     "number": 1,
+     "highlight": [
+      "strap",
+      "free"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Step two, your cards. The hidden pocket on the back sits flat against you, so your cards and your passport stay right there.",
+     "show": [
+      "pocket",
+      "placed"
+     ],
+     "cam": "open",
+     "tag": "HIDDEN BACK POCKET",
+     "scene": "car",
+     "number": 2,
+     "highlight": [
+      "hidden",
+      "cards"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Step three, your phone and keys. A gold zip on each side keeps them one quick reach away, with no digging at the bottom.",
+     "show": [
+      "side_zip",
+      "zip_hand"
+     ],
+     "cam": "open",
+     "tag": "GOLD SIDE ZIPS",
+     "scene": "bench",
+     "number": 3,
+     "highlight": [
+      "gold",
+      "reach"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Last step, everything else. Divided compartments inside give lip balm, receipts and a charger each their own place.",
+     "show": [
+      "inside",
+      "packing"
+     ],
+     "cam": "open",
+     "tag": "SMART COMPARTMENTS",
+     "scene": "bench",
+     "number": 4,
+     "highlight": [
+      "compartments"
+     ]
+    },
+    {
+     "kind": "objection",
+     "text": "The leather is soft, water-resistant and expensive-looking, and there is a one-year warranty and easy returns.",
+     "show": [
+      "leather",
+      "hero"
+     ],
+     "cam": "full",
+     "tag": "SOFT LEATHER",
+     "scene": "bench",
+     "highlight": [
+      "leather",
+      "warranty"
+     ]
+    },
+    {
+     "kind": "offer",
+     "text": "Black Friday brings fifty percent off the Hobo Bag, with a free matching pouch wallet and free US shipping. Tap the link below.",
+     "show": [
+      "pouch",
+      "hero"
+     ],
+     "cam": "both",
+     "scene": "car",
+     "highlight": [
+      "fifty",
+      "free"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "P03",
+   "slug": "myths",
+   "title": "Four handbag myths, answered",
+   "presenter": {
+    "id": "maya",
+    "scenes": [
+     {
+      "id": "kitchen",
+      "where": "She sits at a light wooden kitchen table in morning light, a white mug and a bowl of fruit in front of her, a window softly blurred behind her.",
+      "outfit": "She wears a blue and white striped linen shirt.",
+      "bag": "on the table in front of her, its front and zip in clear view",
+      "colour": "burgundy",
+      "ambience": "Quiet kitchen ambience"
+     },
+     {
+      "id": "window",
+      "where": "She sits on a cushioned window seat with a soft throw beside her, morning light through sheer curtains, a plant on the sill softly blurred.",
+      "outfit": "She wears an olive knit cardigan over a white tee.",
+      "bag": "resting on the cushion beside her, front and zip in clear view",
+      "colour": "burgundy",
+      "ambience": "Quiet home ambience"
+     }
+    ]
+   },
+   "big_idea": "A host who sits down with a mug and takes four handbag myths one at a time (more room means more mess, side zips are decoration, one way to carry, good leather costs full price), each answered by a feature and a shot.",
+   "why_new": "No earlier batch used a myth-and-answer structure, and none had a presenter sitting down to argue a point to the camera.",
+   "hooks": [
+    {
+     "text": "Myth: a bag with room for everything is always a mess.",
+     "type": "problem",
+     "label": "BAG MYTHS",
+     "show": [
+      "inside",
+      "packing"
+     ],
+     "scene": "kitchen"
+    },
+    {
+     "text": "Does a big bag have to be a messy bag?",
+     "type": "question",
+     "label": "MESSY BAG?",
+     "show": [
+      "inside",
+      "placed"
+     ],
+     "scene": "kitchen"
+    },
+    {
+     "text": "Handbag myths, and what the Hobo Bag says back.",
+     "type": "promise",
+     "label": "MYTH BUSTED",
+     "show": [
+      "hero",
+      "handheld"
+     ],
+     "scene": "window"
+    },
+    {
+     "text": "Myth: good leather costs full price. Not this Black Friday.",
+     "type": "price",
+     "label": "HALF PRICE",
+     "show": [
+      "leather",
+      "hero"
+     ],
+     "scene": "window"
+    }
+   ],
+   "chapters": [
+    {
+     "kind": "point",
+     "text": "Myth one: more room means more mess. Not when divided compartments inside give your things their own places, so nothing sinks to the bottom.",
+     "show": [
+      "inside",
+      "packing"
+     ],
+     "cam": "open",
+     "tag": "SMART COMPARTMENTS",
+     "scene": "kitchen",
+     "number": 1,
+     "highlight": [
+      "compartments",
+      "bottom"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Myth two: side zips are just decoration. These two gold ones, one on each side, are made for your keys and your phone.",
+     "show": [
+      "side_zip",
+      "zip_hand"
+     ],
+     "cam": "open",
+     "tag": "GOLD SIDE ZIPS",
+     "scene": "kitchen",
+     "number": 2,
+     "highlight": [
+      "gold",
+      "keys"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Myth three: a handbag only has one way to be carried. Two straps give you three: on the shoulder, in the hand or across the body.",
+     "show": [
+      "strap",
+      "worn",
+      "handheld"
+     ],
+     "cam": "open",
+     "tag": "3 WAYS TO WEAR",
+     "scene": "window",
+     "number": 3,
+     "highlight": [
+      "three",
+      "straps"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "The last myth: a pocket on the back is a pocket you will never find. This one sits flat against you, hidden, for your passport and cards.",
+     "show": [
+      "pocket",
+      "placed"
+     ],
+     "cam": "open",
+     "tag": "HIDDEN BACK POCKET",
+     "scene": "window",
+     "number": 4,
+     "highlight": [
+      "hidden",
+      "back"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "And the biggest myth? That leather this soft, water-resistant and expensive-looking has to cost full price.",
+     "show": [
+      "leather",
+      "hero"
+     ],
+     "cam": "full",
+     "tag": "SOFT LEATHER",
+     "scene": "kitchen",
+     "highlight": [
+      "leather",
+      "price"
+     ]
+    },
+    {
+     "kind": "offer",
+     "text": "This Black Friday it is fifty percent off the Hobo Bag, with a free matching pouch wallet and free US shipping. One-year warranty, easy returns. Tap the link below.",
+     "show": [
+      "pouch",
+      "hero"
+     ],
+     "cam": "both",
+     "scene": "kitchen",
+     "highlight": [
+      "fifty",
+      "free"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "P04",
+   "slug": "retire",
+   "title": "Retire your old bag",
+   "presenter": {
+    "id": "maya",
+    "scenes": [
+     {
+      "id": "window2",
+      "where": "She sits on a cushioned window seat with a soft throw beside her, morning light through sheer curtains, a plant on the sill softly blurred.",
+      "outfit": "She wears an olive knit cardigan over a white tee.",
+      "bag": "resting on her lap, front and zip in clear view",
+      "colour": "brown",
+      "ambience": "Quiet home ambience"
+     },
+     {
+      "id": "sofa2",
+      "where": "She sits on a light grey sofa in a bright living room, a plant and a bookshelf softly blurred behind her, warm daylight from a window on the left.",
+      "outfit": "She wears a soft grey knit sweater.",
+      "bag": "resting on her lap, front and zip in clear view",
+      "colour": "brown",
+      "ambience": "Quiet living room ambience"
+     }
+    ]
+   },
+   "big_idea": "A gentle farewell story: the bag you carried today did its job, and Black Friday is the day to retire it with thanks and swap it for one that hands things back the moment you reach.",
+   "why_new": "B014 and B015 told stories of features and of security; this one has an emotional arc (thank the old bag, retire it), told to camera by a presenter on a window seat.",
+   "hooks": [
+    {
+     "text": "Your old bag deserves a quiet retirement. Here is its replacement.",
+     "type": "promise",
+     "label": "RETIRE IT",
+     "show": [
+      "hero",
+      "handheld"
+     ],
+     "scene": "window2"
+    },
+    {
+     "text": "How long have you been carrying a bag that fights you?",
+     "type": "question",
+     "label": "BAG FIGHT?",
+     "show": [
+      "worn",
+      "walking"
+     ],
+     "scene": "window2"
+    },
+    {
+     "text": "Is your bag still the thing you dig through every morning?",
+     "type": "problem",
+     "label": "THE DIG",
+     "show": [
+      "inside",
+      "packing"
+     ],
+     "scene": "sofa2"
+    },
+    {
+     "text": "Retire the old one this Black Friday: fifty percent off the Hobo Bag.",
+     "type": "price",
+     "label": "HALF PRICE",
+     "show": [
+      "leather",
+      "hero"
+     ],
+     "scene": "sofa2"
+    }
+   ],
+   "chapters": [
+    {
+     "kind": "point",
+     "text": "Think about the bag you carried today. It held your phone, your keys, your cards, and a few things it never had a proper place for.",
+     "show": [
+      "worn",
+      "walking",
+      "street"
+     ],
+     "cam": "open",
+     "scene": "window2"
+    },
+    {
+     "kind": "point",
+     "text": "It did its job. But a good bag does more than hold things. It hands them back the second you reach.",
+     "show": [
+      "handheld",
+      "packing"
+     ],
+     "cam": "full",
+     "scene": "window2"
+    },
+    {
+     "kind": "point",
+     "text": "A gold zip on each side hands you your keys and phone. A hidden pocket on the back keeps your passport and cards flat against you.",
+     "show": [
+      "side_zip",
+      "pocket",
+      "zip_hand"
+     ],
+     "cam": "open",
+     "tag": "GOLD SIDE ZIPS",
+     "scene": "sofa2",
+     "highlight": [
+      "gold",
+      "hidden"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Inside, divided compartments mean nothing gets lost at the bottom, and the soft, water-resistant leather looks expensive and only gets better with time.",
+     "show": [
+      "inside",
+      "leather"
+     ],
+     "cam": "open",
+     "tag": "SMART COMPARTMENTS",
+     "scene": "sofa2",
+     "highlight": [
+      "compartments",
+      "leather"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Two straps let you carry it your way: on the shoulder, in your hand, or across your body.",
+     "show": [
+      "strap",
+      "worn"
+     ],
+     "cam": "open",
+     "tag": "3 WAYS TO WEAR",
+     "scene": "window2",
+     "highlight": [
+      "straps"
+     ]
+    },
+    {
+     "kind": "objection",
+     "text": "And if it is not right for you, there is a one-year warranty and easy returns.",
+     "show": [
+      "hero",
+      "handheld"
+     ],
+     "cam": "open",
+     "scene": "window2"
+    },
+    {
+     "kind": "offer",
+     "text": "So retire the old one, with thanks. This Black Friday the Hobo Bag is fifty percent off, with a free matching pouch wallet and free US shipping. Tap the link below.",
+     "show": [
+      "pouch",
+      "hero"
+     ],
+     "cam": "both",
+     "scene": "sofa2",
+     "highlight": [
+      "fifty",
+      "free"
+     ]
+    }
+   ]
+  }
+ ],
+ "statics": [
+  {
+   "id": "S01",
+   "project": "P01",
+   "layout": "concept",
+   "idea": "A flat-lay: the bag on cream linen with three small gift boxes in kraft, sage and cream paper: the three people.",
+   "headline": "One bag. Three of them.",
+   "kicker": "BLACK FRIDAY",
+   "pill": true,
+   "where": "bottom",
+   "scene": {
+    "kind": "object",
+    "colour": "Black",
+    "prompt": "Soft top-down flat-lay on cream linen. The handbag lies in the upper-middle of the frame; beside it three small plain gift boxes, one in kraft paper, one in sage-green paper and one in cream paper, tied with thin natural twine, and a sprig of dried eucalyptus. Soft diffused daylight, calm premium styling. The lower quarter of the frame is plain empty linen."
+   }
+  },
+  {
+   "id": "S02",
+   "project": "P01",
+   "layout": "concept",
+   "idea": "An armchair corner: the bag on a cosy armchair beside a wool throw and a mug, the gift for the one who has everything.",
+   "headline": "The gift they will carry.",
+   "pill": true,
+   "where": "bottom",
+   "scene": {
+    "kind": "object",
+    "colour": "Brown",
+    "prompt": "The handbag sits upright on a rust-coloured velvet armchair with a chunky cream wool throw folded over the arm, a ceramic mug on a small side table beside it, soft golden window light from the left, a softly blurred warm living room behind. The bag is large in the frame and clearly visible; the lower quarter of the frame shows only the calm chair seat, empty."
+   }
+  },
+  {
+   "id": "S03",
+   "project": "P01",
+   "layout": "native",
+   "idea": "A real footage frame of keys and phone going into the side zip.",
+   "headline": "Keys, phone, cards."
+  },
+  {
+   "id": "S04",
+   "project": "P01",
+   "layout": "studio",
+   "idea": "The packshot with its matching pouch wallet: the gift line.",
+   "headline": "Free matching pouch wallet."
+  },
+  {
+   "id": "S05",
+   "project": "P01",
+   "layout": "native",
+   "idea": "A real footage frame of the soft leather and the gold hardware up close.",
+   "headline": "Soft, expensive-looking leather."
+  },
+  {
+   "id": "S06",
+   "project": "P02",
+   "layout": "concept",
+   "idea": "A shopping-arcade bench: the bag beside two plain paper shopping bags, the crowd scene without the crowd.",
+   "headline": "Hands full? Bag handled.",
+   "kicker": "BLACK FRIDAY",
+   "pill": true,
+   "where": "top",
+   "scene": {
+    "kind": "object",
+    "colour": "Blue",
+    "prompt": "The handbag stands upright on a pale wooden bench in a bright shopping arcade with tall windows, two plain unbranded paper shopping bags beside it, soft overhead daylight, the arcade softly blurred behind. The bag is large in the frame, its front and zip clearly visible; the upper quarter of the frame is calm, empty blurred wall."
+   }
+  },
+  {
+   "id": "S07",
+   "project": "P02",
+   "layout": "concept",
+   "idea": "A woman seen from behind on a decorated shopping street, bag worn crossbody: both hands free.",
+   "headline": "Both hands free.",
+   "pill": true,
+   "where": "bottom",
+   "scene": {
+    "kind": "worn",
+    "colour": "Galaxy Black",
+    "prompt": "A woman in a long wool coat walks away from the camera along a bright pedestrian shopping street with soft out-of-focus string lights, seen from behind and slightly from the side, cropped at the shoulders, wearing the handbag crossbody with one hand loosely on the strap. Late afternoon light, calm composition, the lower quarter of the frame is empty pavement."
+   }
+  },
+  {
+   "id": "S08",
+   "project": "P02",
+   "layout": "native",
+   "idea": "A real footage frame of the hidden back pocket in use.",
+   "headline": "Cards stay put."
+  },
+  {
+   "id": "S09",
+   "project": "P02",
+   "layout": "studio",
+   "idea": "The packshot with the gold side zips line.",
+   "headline": "Gold zips for keys and phone."
+  },
+  {
+   "id": "S10",
+   "project": "P02",
+   "layout": "offer",
+   "idea": "The offer static (the real % and gift)."
+  },
+  {
+   "id": "S11",
+   "project": "P03",
+   "layout": "concept",
+   "idea": "A kitchen stool scene: the bag beside a mug and an open notebook, the 'big bag, no mess' myth.",
+   "headline": "Big bag. Zero mess.",
+   "pill": true,
+   "where": "bottom",
+   "scene": {
+    "kind": "object",
+    "colour": "Burgundy",
+    "prompt": "The handbag stands upright on a light oak kitchen counter stool beside a white mug and a closed linen-bound notebook with a pen, morning window light from the left, a softly blurred bright kitchen behind. The bag is large and clearly visible; the lower quarter of the frame shows only the calm counter, empty."
+   }
+  },
+  {
+   "id": "S12",
+   "project": "P03",
+   "layout": "concept",
+   "idea": "Evening luxe: the bag on a stone ledge with warm string-light bokeh, the 'looks expensive' myth.",
+   "headline": "Looks expensive. Half price.",
+   "kicker": "BLACK FRIDAY",
+   "pill": true,
+   "where": "bottom",
+   "scene": {
+    "kind": "object",
+    "colour": "Dark Sienn",
+    "prompt": "The handbag stands upright, slightly angled, on a smooth pale stone ledge at dusk, warm golden string-light bokeh far behind it, a soft glow on the leather and the gold hardware. Premium, calm, realistic product photography. The lower quarter of the frame is plain empty stone."
+   }
+  },
+  {
+   "id": "S13",
+   "project": "P03",
+   "layout": "native",
+   "idea": "A real footage frame of the inside of the open bag.",
+   "headline": "Nothing sinks."
+  },
+  {
+   "id": "S14",
+   "project": "P03",
+   "layout": "value",
+   "idea": "The real price struck through (the plan checks it against the site)."
+  },
+  {
+   "id": "S15",
+   "project": "P03",
+   "layout": "stars",
+   "idea": "Verbatim review snippets with stars."
+  },
+  {
+   "id": "S16",
+   "project": "P04",
+   "layout": "concept",
+   "idea": "A window seat: the bag on soft cushions in morning light, the new everyday.",
+   "headline": "Meet the new everyday.",
+   "pill": true,
+   "where": "bottom",
+   "scene": {
+    "kind": "object",
+    "colour": "Dark Sienn",
+    "prompt": "The handbag rests upright on a cushioned window seat with a cream bouclé cushion and a soft throw, soft morning light through sheer curtains, a small plant on the sill softly blurred. The bag is large and clearly visible; the lower quarter of the frame shows only the calm cushion, empty."
+   }
+  },
+  {
+   "id": "S17",
+   "project": "P04",
+   "layout": "concept",
+   "idea": "A hand lifts the bag by its strap against a plaster wall: carried your way.",
+   "headline": "Carried your way.",
+   "kicker": "BLACK FRIDAY",
+   "pill": true,
+   "where": "bottom",
+   "scene": {
+    "kind": "hand",
+    "colour": "Dark Sienn",
+    "prompt": "A single hand and wrist in a cream sleeve lifts the handbag by its top strap against a plain warm plaster wall, soft daylight from the left, the bag hangs clearly visible and large in the frame, only the hand and forearm in the picture. The lower quarter of the frame is plain empty wall."
+   }
+  },
+  {
+   "id": "S18",
+   "project": "P04",
+   "layout": "studio",
+   "idea": "The packshot with the three-ways line.",
+   "headline": "Three ways to wear."
+  },
+  {
+   "id": "S19",
+   "project": "P04",
+   "layout": "colours",
+   "idea": "The real colours."
+  },
+  {
+   "id": "S20",
+   "project": "P04",
+   "layout": "checklist",
+   "idea": "The feature tags as ticks with the offer pill."
+  }
+ ]
+}
