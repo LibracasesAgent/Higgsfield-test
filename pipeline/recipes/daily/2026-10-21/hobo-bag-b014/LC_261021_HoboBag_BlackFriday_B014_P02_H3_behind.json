@@ -1,0 +1,414 @@
+{
+ "mode": "ugc",
+ "voice_speed": 1.12,
+ "blocks": [
+  {
+   "vo": "P02H3_hook.mp3",
+   "broll": [
+    [
+     "1ZgpbxwiYGvvWCBBIFZBfgzD7DIlOnPeD",
+     0.3,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1EvMG7FM3iHBjj7nonDzWnMoM8bswgjg5",
+     0.3,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V02_c1.mp3",
+   "broll": [
+    [
+     "1urTv7Aoymn68CNFfbHi7mL0kIx14vcnX",
+     0.3,
+     1.0
+    ],
+    [
+     "1AUluz7URPC6lpawt-o44jCxvTwO2K03Y",
+     4.73,
+     1.0
+    ],
+    [
+     "1JHZhA2ED91gbFlyzXLo7xEHKvjFPGphi",
+     0.3,
+     1.0
+    ],
+    [
+     "1MtOonVbf-pqmrcU5DUgY6995LObDfwn7",
+     3.0,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "15AFGw3XpH8pQ7HL4epI2uzoFrT-8c69s",
+     12.01,
+     1.0
+    ],
+    [
+     "1rW8joq7MZKj_AKkX4IJJzjfgqlnMg8ph",
+     5.59,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V02_c2.mp3",
+   "broll": [
+    [
+     "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+     1.0,
+     1.0
+    ],
+    [
+     "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+     3.6,
+     1.0
+    ],
+    [
+     "1lJsFt50wgto7Fv61KsjqKZsPVp-Q80UZ",
+     0.3,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "18wOkQ9ToI66y133XanUgEZT0I4Q25Ea1",
+     4.87,
+     1.0
+    ],
+    [
+     "1J6TLYwW_SOJEzXCD09Doaw7w5n_WDVnx",
+     11.16,
+     1.0
+    ],
+    [
+     "1Rj3QE3QSg73kbPB1qCg7qo7az2SvQEPb",
+     4.6,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V02_c3.mp3",
+   "broll": [
+    [
+     "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+     6.0,
+     1.0
+    ],
+    [
+     "10uhhKdeKztcGarl-uoLMO4kJk8phF54N",
+     8.96,
+     1.0
+    ],
+    [
+     "1Y9IQ_9h6Aq5xE0RZdX4vIITk49ogFgIM",
+     10.94,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+     2.0,
+     1.0
+    ],
+    [
+     "1TeEFWPEZ_jATN9so2DZNeyg-mOPQe8jL",
+     15.19,
+     1.0
+    ],
+    [
+     "1mnZ266w4JTvXOnLeuzhOhtTBQM-8dYiF",
+     20.76,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V02_c4.mp3",
+   "broll": [
+    [
+     "1JlS7-GlKLkqklk0xTO2jwXZ2VezE4us4",
+     3.15,
+     1.0
+    ],
+    [
+     "1NyzIbBW2CLLzo3Wr2z3co67-jV6V9-Lj",
+     3.35,
+     1.0
+    ],
+    [
+     "1yFMCtT9SSE0_GMq6orEHoHL1JEKAJ1x9",
+     0.3,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "15AFGw3XpH8pQ7HL4epI2uzoFrT-8c69s",
+     4.58,
+     1.0
+    ],
+    [
+     "1J6TLYwW_SOJEzXCD09Doaw7w5n_WDVnx",
+     6.3,
+     1.0
+    ],
+    [
+     "1NyzIbBW2CLLzo3Wr2z3co67-jV6V9-Lj",
+     0.45,
+     1.0
+    ],
+    [
+     "1BHVZu65IFUz5QJqtY1EV3Y_4ICbh-1bJ",
+     0.35,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V02_c5.mp3",
+   "broll": [
+    [
+     "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+     5.0,
+     1.0
+    ],
+    [
+     "1AUluz7URPC6lpawt-o44jCxvTwO2K03Y",
+     1.75,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+     9.5,
+     1.0
+    ],
+    [
+     "1TIc3blFRxaHvZyWpOCe6nGyPxXb88wL2",
+     18.3,
+     1.0
+    ],
+    [
+     "1wUQMlHgMYsSS3gEfCx8MoN11ptS3lRWN",
+     3.43,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V02_c6.mp3",
+   "broll": [
+    [
+     "1nnsvEIfgqziYdrmeUrrtgL3Qo3YHV7Sw",
+     4.0,
+     1.0
+    ],
+    [
+     "1CcakagPN5oiWEneKORpvJblnPYnQvWHI",
+     0.5,
+     1.0
+    ],
+    [
+     "1nnsvEIfgqziYdrmeUrrtgL3Qo3YHV7Sw",
+     12.0,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1CcakagPN5oiWEneKORpvJblnPYnQvWHI",
+     4.0,
+     1.0
+    ],
+    [
+     "1nnsvEIfgqziYdrmeUrrtgL3Qo3YHV7Sw",
+     15.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V02_c7.mp3",
+   "broll": [
+    [
+     "1UcPs3RM-Iwrzd5rgOIA6Wxii0i3R3xqL",
+     0.3,
+     1.0
+    ],
+    [
+     "1f_9Fjvv6B2cnF8Z0lFf__xn_RJEvpLQ0",
+     0.75,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1zg2CRMvlkQjNlfLzjdEzt-hJG5uwdh6s",
+     2.99,
+     1.0
+    ],
+    [
+     "1UcPs3RM-Iwrzd5rgOIA6Wxii0i3R3xqL",
+     5.23,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V02_c8.mp3",
+   "broll": [
+    [
+     "1TeEFWPEZ_jATN9so2DZNeyg-mOPQe8jL",
+     10.56,
+     1.0
+    ],
+    [
+     "1audN6qYuCaN5d8O42kyq9HQKU7OUprGH",
+     13.91,
+     1.0
+    ],
+    [
+     "site/hobo_bag_colour_red.jpg",
+     0,
+     1.0,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ]
+     }
+    ]
+   ],
+   "spare": [
+    [
+     "1NuCVbKCrAGKgLyGpaVgNohAbss7I4zMS",
+     10.1,
+     1.0
+    ],
+    [
+     "1v8gKfP9ZYsuh7w5yBwlInmv_-U-pY2x_",
+     6.92,
+     1.0
+    ]
+   ]
+  }
+ ],
+ "overlays": [
+  {
+   "type": "label",
+   "text": "CROWDED?",
+   "block": 0,
+   "at": 0.1,
+   "dur": 1.8
+  },
+  {
+   "type": "tag",
+   "text": "HIDDEN BACK POCKET",
+   "block": 2,
+   "at": 0.15,
+   "dur": 2.6
+  },
+  {
+   "type": "tag",
+   "text": "GOLD SIDE ZIPS",
+   "block": 3,
+   "at": 0.15,
+   "dur": 2.6
+  },
+  {
+   "type": "tag",
+   "text": "3 WAYS TO WEAR",
+   "block": 4,
+   "at": 0.15,
+   "dur": 2.6
+  },
+  {
+   "type": "tag",
+   "text": "SMART COMPARTMENTS",
+   "block": 5,
+   "at": 0.15,
+   "dur": 2.6
+  },
+  {
+   "type": "tag",
+   "text": "SOFT LEATHER",
+   "block": 6,
+   "at": 0.15,
+   "dur": 2.6
+  }
+ ],
+ "end_title": "The Luxury Hobo Bag",
+ "offer": {
+  "block": 8,
+  "word": "50",
+  "title": "BLACK FRIDAY 50% OFF",
+  "sub": "+ FREE MATCHING WALLET"
+ },
+ "end_photo": "site/hobo_bag_colour_red.jpg",
+ "end_offer": "BLACK FRIDAY 50% OFF",
+ "keywords": [
+  "50%",
+  "free",
+  "pouch",
+  "wallet",
+  "hidden",
+  "pocket",
+  "leather",
+  "black",
+  "friday",
+  "packed",
+  "anti-theft",
+  "gold",
+  "zips",
+  "crossbody",
+  "compartments",
+  "handbag",
+  "warranty",
+  "returns",
+  "fifty"
+ ],
+ "spare_broll": [
+  [
+   "1viEJyIzgtQXsEU3C2n3cpY7NUNr6Hrqy",
+   0.59,
+   1.0
+  ],
+  [
+   "1f_9Fjvv6B2cnF8Z0lFf__xn_RJEvpLQ0",
+   4.25,
+   1.0
+  ],
+  [
+   "1Ud2dhrP5f_E0z2WRMS7yxXJmhTda91-t",
+   2.61,
+   1.0
+  ],
+  [
+   "1YhwNw7JcsdFLXmpOvCeTDELVraU3Uicm",
+   0.3,
+   1.0
+  ],
+  [
+   "1NfJpAj3lHf0XhhUR3984nRv8rKAy4Lo_",
+   4.13,
+   1.0
+  ],
+  [
+   "1RDfbLshVfj_-0pZXhC0I46RJ3obq3U3F",
+   4.67,
+   1.0
+  ]
+ ],
+ "music": {
+  "seed": 24
+ }
+}

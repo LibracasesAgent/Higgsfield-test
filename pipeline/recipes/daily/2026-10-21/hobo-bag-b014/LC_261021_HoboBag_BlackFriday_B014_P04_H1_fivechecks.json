@@ -1,0 +1,420 @@
+{
+ "mode": "ugc",
+ "voice_speed": 1.12,
+ "blocks": [
+  {
+   "vo": "V04_hook.mp3",
+   "broll": [
+    [
+     "1TeEFWPEZ_jATN9so2DZNeyg-mOPQe8jL",
+     10.56,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1UcPs3RM-Iwrzd5rgOIA6Wxii0i3R3xqL",
+     5.23,
+     1.0
+    ],
+    [
+     "1f_9Fjvv6B2cnF8Z0lFf__xn_RJEvpLQ0",
+     4.25,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V04_c1.mp3",
+   "broll": [
+    [
+     "1T9jkUynTVM406VuPbvnj6ZJB5TmECMx2",
+     6.68,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1YhwNw7JcsdFLXmpOvCeTDELVraU3Uicm",
+     0.3,
+     1.0
+    ],
+    [
+     "1ew4LpLFUTvH1qO52xwOpzLblWLFdr9y4",
+     1.49,
+     1.0
+    ],
+    [
+     "1RDfbLshVfj_-0pZXhC0I46RJ3obq3U3F",
+     4.67,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V04_c2.mp3",
+   "broll": [
+    [
+     "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+     3.6,
+     1.0
+    ],
+    [
+     "1J6TLYwW_SOJEzXCD09Doaw7w5n_WDVnx",
+     11.16,
+     1.0
+    ],
+    [
+     "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+     1.0,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "18wOkQ9ToI66y133XanUgEZT0I4Q25Ea1",
+     4.87,
+     1.0
+    ],
+    [
+     "1lJsFt50wgto7Fv61KsjqKZsPVp-Q80UZ",
+     0.3,
+     1.0
+    ],
+    [
+     "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+     9.0,
+     1.0
+    ]
+   ],
+   "number": 1
+  },
+  {
+   "vo": "V04_c3.mp3",
+   "broll": [
+    [
+     "10uhhKdeKztcGarl-uoLMO4kJk8phF54N",
+     6.23,
+     1.0
+    ],
+    [
+     "1mnZ266w4JTvXOnLeuzhOhtTBQM-8dYiF",
+     14.54,
+     1.0
+    ],
+    [
+     "1TeEFWPEZ_jATN9so2DZNeyg-mOPQe8jL",
+     15.19,
+     1.0
+    ],
+    [
+     "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+     6.0,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1mnZ266w4JTvXOnLeuzhOhtTBQM-8dYiF",
+     20.76,
+     1.0
+    ],
+    [
+     "1w_YUX_1q2U8qOkxfWZHWEn2P-xlJRwZe",
+     11.84,
+     1.0
+    ],
+    [
+     "1Ud2dhrP5f_E0z2WRMS7yxXJmhTda91-t",
+     17.04,
+     1.0
+    ]
+   ],
+   "number": 2
+  },
+  {
+   "vo": "V04_c4.mp3",
+   "broll": [
+    [
+     "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+     12.0,
+     1.0
+    ],
+    [
+     "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+     5.0,
+     1.0
+    ],
+    [
+     "18BhL1GgesvH_uyQ5lciQL_JPQise3zca",
+     5.81,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+     16.0,
+     1.0
+    ],
+    [
+     "1C9xk64VLWK7Z2IDYf2RzvYUZZX5v-JL1",
+     1.08,
+     1.0
+    ]
+   ],
+   "number": 3
+  },
+  {
+   "vo": "V04_c5.mp3",
+   "broll": [
+    [
+     "17sZzNvas8SySLaS3BpNjXmKn38qRY8Y1",
+     2.8,
+     1.0
+    ],
+    [
+     "1NyzIbBW2CLLzo3Wr2z3co67-jV6V9-Lj",
+     6.25,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "15AFGw3XpH8pQ7HL4epI2uzoFrT-8c69s",
+     12.01,
+     1.0
+    ],
+    [
+     "1IZyntRG7-VHd01spVJms3AQObclRPzUn",
+     0.3,
+     1.0
+    ],
+    [
+     "1J6TLYwW_SOJEzXCD09Doaw7w5n_WDVnx",
+     6.3,
+     1.0
+    ]
+   ],
+   "number": 4
+  },
+  {
+   "vo": "V04_c6.mp3",
+   "broll": [
+    [
+     "1CcakagPN5oiWEneKORpvJblnPYnQvWHI",
+     4.0,
+     1.0
+    ],
+    [
+     "1nnsvEIfgqziYdrmeUrrtgL3Qo3YHV7Sw",
+     9.0,
+     1.0
+    ],
+    [
+     "1CcakagPN5oiWEneKORpvJblnPYnQvWHI",
+     0.5,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1nnsvEIfgqziYdrmeUrrtgL3Qo3YHV7Sw",
+     15.0,
+     1.0
+    ],
+    [
+     "1GQ2ZD0p_Gjpu6vmjXYAxMCOEJqfX1IL-",
+     2.17,
+     1.0
+    ]
+   ],
+   "number": 5
+  },
+  {
+   "vo": "V04_c7.mp3",
+   "broll": [
+    [
+     "11mRxJemVgJPYmK8Ha6wKD8KGG95Bq4Rn",
+     12.71,
+     1.0
+    ],
+    [
+     "117P6aO1ank_vR6tSzwyFXsBI_ZpDAHtq",
+     1.5,
+     1.0
+    ],
+    [
+     "1zg2CRMvlkQjNlfLzjdEzt-hJG5uwdh6s",
+     2.99,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1f_9Fjvv6B2cnF8Z0lFf__xn_RJEvpLQ0",
+     0.75,
+     1.0
+    ],
+    [
+     "1n_n64uSzJxegasRwW_1cRTo1dYNuzy3G",
+     0.94,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V04_c8.mp3",
+   "broll": [
+    [
+     "1sqN76Sbj7sjx9lm4gh9zOK0eLM-n7l4w",
+     10.76,
+     1.0
+    ],
+    [
+     "1T9jkUynTVM406VuPbvnj6ZJB5TmECMx2",
+     16.92,
+     1.0
+    ],
+    [
+     "1iovtE-e43Nm1_WbLDAQFjQrt02s-cHxv",
+     9.34,
+     1.0
+    ],
+    [
+     "site/hobo_bag_08.jpg",
+     0,
+     1.0,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ]
+     }
+    ]
+   ],
+   "spare": [
+    [
+     "1v8gKfP9ZYsuh7w5yBwlInmv_-U-pY2x_",
+     6.92,
+     1.0
+    ],
+    [
+     "1TeEFWPEZ_jATN9so2DZNeyg-mOPQe8jL",
+     5.94,
+     1.0
+    ],
+    [
+     "1NuCVbKCrAGKgLyGpaVgNohAbss7I4zMS",
+     10.1,
+     1.0
+    ]
+   ]
+  }
+ ],
+ "overlays": [
+  {
+   "type": "label",
+   "text": "CHECK FIRST",
+   "block": 0,
+   "at": 0.1,
+   "dur": 1.8
+  },
+  {
+   "type": "tag",
+   "text": "HIDDEN BACK POCKET",
+   "block": 2,
+   "at": 0.15,
+   "dur": 2.6
+  },
+  {
+   "type": "tag",
+   "text": "GOLD SIDE ZIPS",
+   "block": 3,
+   "at": 0.15,
+   "dur": 2.6
+  },
+  {
+   "type": "tag",
+   "text": "SMART COMPARTMENTS",
+   "block": 4,
+   "at": 0.15,
+   "dur": 2.6
+  },
+  {
+   "type": "tag",
+   "text": "3 WAYS TO WEAR",
+   "block": 5,
+   "at": 0.15,
+   "dur": 2.6
+  },
+  {
+   "type": "tag",
+   "text": "SOFT LEATHER",
+   "block": 6,
+   "at": 0.15,
+   "dur": 2.6
+  }
+ ],
+ "end_title": "The Luxury Hobo Bag",
+ "offer": {
+  "block": 8,
+  "word": "50",
+  "title": "BLACK FRIDAY 50% OFF",
+  "sub": "+ FREE MATCHING WALLET"
+ },
+ "end_photo": "site/hobo_bag_colour_blue.jpg",
+ "end_offer": "BLACK FRIDAY 50% OFF",
+ "keywords": [
+  "50%",
+  "free",
+  "pouch",
+  "wallet",
+  "hidden",
+  "pocket",
+  "leather",
+  "black",
+  "friday",
+  "five",
+  "zips",
+  "inside",
+  "straps",
+  "warranty",
+  "fifty"
+ ],
+ "spare_broll": [
+  [
+   "1f_9Fjvv6B2cnF8Z0lFf__xn_RJEvpLQ0",
+   7.75,
+   1.0
+  ],
+  [
+   "1viEJyIzgtQXsEU3C2n3cpY7NUNr6Hrqy",
+   0.59,
+   1.0
+  ],
+  [
+   "1Ud2dhrP5f_E0z2WRMS7yxXJmhTda91-t",
+   2.61,
+   1.0
+  ],
+  [
+   "1NfJpAj3lHf0XhhUR3984nRv8rKAy4Lo_",
+   4.13,
+   1.0
+  ],
+  [
+   "10ev2Mfet9vPJ-jRrxK4fdn2sr3BmTFTV",
+   29.8,
+   1.0
+  ],
+  [
+   "1UcPs3RM-Iwrzd5rgOIA6Wxii0i3R3xqL",
+   0.3,
+   1.0
+  ]
+ ],
+ "music": {
+  "seed": 26
+ }
+}

@@ -1,0 +1,1893 @@
+{
+ "prefix": "LC_261021_HoboBag_BlackFriday_B014",
+ "rev": 1,
+ "batch_id": {
+  "id": "B014",
+  "n": 14,
+  "rev": 1
+ },
+ "created": "2026-10-21",
+ "request": "four projects with five statics each, Black Friday, 50% off",
+ "product": "Hobo Bag",
+ "product_key": "hobo bag",
+ "product_source": "built-in",
+ "theme": "black friday",
+ "theme_name": "BlackFriday",
+ "offer": "50% off + free matching pouch wallet",
+ "statics": [
+  "LC_261021_HoboBag_BlackFriday_B014_S01_concept",
+  "LC_261021_HoboBag_BlackFriday_B014_S02_concept",
+  "LC_261021_HoboBag_BlackFriday_B014_S03_native",
+  "LC_261021_HoboBag_BlackFriday_B014_S04_studio",
+  "LC_261021_HoboBag_BlackFriday_B014_S05_value",
+  "LC_261021_HoboBag_BlackFriday_B014_S06_concept",
+  "LC_261021_HoboBag_BlackFriday_B014_S07_concept",
+  "LC_261021_HoboBag_BlackFriday_B014_S08_native",
+  "LC_261021_HoboBag_BlackFriday_B014_S09_quotes",
+  "LC_261021_HoboBag_BlackFriday_B014_S10_studio",
+  "LC_261021_HoboBag_BlackFriday_B014_S11_concept",
+  "LC_261021_HoboBag_BlackFriday_B014_S12_concept",
+  "LC_261021_HoboBag_BlackFriday_B014_S13_studio",
+  "LC_261021_HoboBag_BlackFriday_B014_S14_offer",
+  "LC_261021_HoboBag_BlackFriday_B014_S15_stars",
+  "LC_261021_HoboBag_BlackFriday_B014_S16_concept",
+  "LC_261021_HoboBag_BlackFriday_B014_S17_studio",
+  "LC_261021_HoboBag_BlackFriday_B014_S18_concept",
+  "LC_261021_HoboBag_BlackFriday_B014_S19_colours",
+  "LC_261021_HoboBag_BlackFriday_B014_S20_checklist"
+ ],
+ "videos": [
+  {
+   "name": "LC_261021_HoboBag_BlackFriday_B014_P01_H1_packout",
+   "id": "P01H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "ugc": {
+    "script": "U01",
+    "angle": "packout",
+    "words": 186,
+    "hook": {
+     "type": "promise",
+     "label": "WHAT FITS",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "How much of your day can one bag really hold?",
+      "type": "question",
+      "label": "HOW MUCH?",
+      "feature": null,
+      "show": [
+       "packing",
+       "handheld"
+      ]
+     },
+     {
+      "text": "If your bag swallows everything, watch this pack-out.",
+      "type": "problem",
+      "label": "NO BLACK HOLE",
+      "feature": null,
+      "show": [
+       "packing",
+       "inside"
+      ]
+     },
+     {
+      "text": "Black Friday: half price, and it holds your whole day.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "hero",
+       "packing"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "How much of your day can one bag really hold?": [
+      [
+       "1gTX_SxJtJsLhMCOPj1WmEWQKSF9zvosb",
+       11.62,
+       1.0
+      ],
+      [
+       "1C9xk64VLWK7Z2IDYf2RzvYUZZX5v-JL1",
+       13.56,
+       1.0
+      ]
+     ],
+     "If your bag swallows everything, watch this pack-out.": [
+      [
+       "1wUQMlHgMYsSS3gEfCx8MoN11ptS3lRWN",
+       0.3,
+       1.0
+      ]
+     ],
+     "Black Friday: half price, and it holds your whole day.": [
+      [
+       "1JYQVa4J7nip-TLeL3ztP17SyQ4NJUi6u",
+       0.3,
+       1.0
+      ],
+      [
+       "1sqN76Sbj7sjx9lm4gh9zOK0eLM-n7l4w",
+       0.68,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 62.4,
+   "project": "P01",
+   "hook_text": "Pack one bag for a whole day. Watch what fits.",
+   "hook_label": "WHAT FITS",
+   "hook_type": "promise",
+   "opening_shot": [
+    "1x-9cSXeUtyq2HsuUU9p8BASaqDpzWlpi",
+    1.85
+   ]
+  },
+  {
+   "name": "LC_261021_HoboBag_BlackFriday_B014_P01_H2_packout",
+   "id": "P01H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "ugc": {
+    "script": "U01",
+    "angle": "packout",
+    "words": 186,
+    "hook": {
+     "type": "promise",
+     "label": "WHAT FITS",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "How much of your day can one bag really hold?",
+      "type": "question",
+      "label": "HOW MUCH?",
+      "feature": null,
+      "show": [
+       "packing",
+       "handheld"
+      ]
+     },
+     {
+      "text": "If your bag swallows everything, watch this pack-out.",
+      "type": "problem",
+      "label": "NO BLACK HOLE",
+      "feature": null,
+      "show": [
+       "packing",
+       "inside"
+      ]
+     },
+     {
+      "text": "Black Friday: half price, and it holds your whole day.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "hero",
+       "packing"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "How much of your day can one bag really hold?": [
+      [
+       "1gTX_SxJtJsLhMCOPj1WmEWQKSF9zvosb",
+       11.62,
+       1.0
+      ],
+      [
+       "1C9xk64VLWK7Z2IDYf2RzvYUZZX5v-JL1",
+       13.56,
+       1.0
+      ]
+     ],
+     "If your bag swallows everything, watch this pack-out.": [
+      [
+       "1wUQMlHgMYsSS3gEfCx8MoN11ptS3lRWN",
+       0.3,
+       1.0
+      ]
+     ],
+     "Black Friday: half price, and it holds your whole day.": [
+      [
+       "1JYQVa4J7nip-TLeL3ztP17SyQ4NJUi6u",
+       0.3,
+       1.0
+      ],
+      [
+       "1sqN76Sbj7sjx9lm4gh9zOK0eLM-n7l4w",
+       0.68,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 62.4,
+   "project": "P01",
+   "hook_text": "How much of your day can one bag really hold?",
+   "hook_label": "HOW MUCH?",
+   "hook_type": "question",
+   "opening_shot": [
+    "1gTX_SxJtJsLhMCOPj1WmEWQKSF9zvosb",
+    11.62
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261021_HoboBag_BlackFriday_B014_P01_H3_packout",
+   "id": "P01H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "ugc": {
+    "script": "U01",
+    "angle": "packout",
+    "words": 186,
+    "hook": {
+     "type": "promise",
+     "label": "WHAT FITS",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "How much of your day can one bag really hold?",
+      "type": "question",
+      "label": "HOW MUCH?",
+      "feature": null,
+      "show": [
+       "packing",
+       "handheld"
+      ]
+     },
+     {
+      "text": "If your bag swallows everything, watch this pack-out.",
+      "type": "problem",
+      "label": "NO BLACK HOLE",
+      "feature": null,
+      "show": [
+       "packing",
+       "inside"
+      ]
+     },
+     {
+      "text": "Black Friday: half price, and it holds your whole day.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "hero",
+       "packing"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "How much of your day can one bag really hold?": [
+      [
+       "1gTX_SxJtJsLhMCOPj1WmEWQKSF9zvosb",
+       11.62,
+       1.0
+      ],
+      [
+       "1C9xk64VLWK7Z2IDYf2RzvYUZZX5v-JL1",
+       13.56,
+       1.0
+      ]
+     ],
+     "If your bag swallows everything, watch this pack-out.": [
+      [
+       "1wUQMlHgMYsSS3gEfCx8MoN11ptS3lRWN",
+       0.3,
+       1.0
+      ]
+     ],
+     "Black Friday: half price, and it holds your whole day.": [
+      [
+       "1JYQVa4J7nip-TLeL3ztP17SyQ4NJUi6u",
+       0.3,
+       1.0
+      ],
+      [
+       "1sqN76Sbj7sjx9lm4gh9zOK0eLM-n7l4w",
+       0.68,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 61.8,
+   "project": "P01",
+   "hook_text": "If your bag swallows everything, watch this pack-out.",
+   "hook_label": "NO BLACK HOLE",
+   "hook_type": "problem",
+   "opening_shot": [
+    "1wUQMlHgMYsSS3gEfCx8MoN11ptS3lRWN",
+    0.3
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261021_HoboBag_BlackFriday_B014_P01_H4_packout",
+   "id": "P01H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "ugc": {
+    "script": "U01",
+    "angle": "packout",
+    "words": 186,
+    "hook": {
+     "type": "promise",
+     "label": "WHAT FITS",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "How much of your day can one bag really hold?",
+      "type": "question",
+      "label": "HOW MUCH?",
+      "feature": null,
+      "show": [
+       "packing",
+       "handheld"
+      ]
+     },
+     {
+      "text": "If your bag swallows everything, watch this pack-out.",
+      "type": "problem",
+      "label": "NO BLACK HOLE",
+      "feature": null,
+      "show": [
+       "packing",
+       "inside"
+      ]
+     },
+     {
+      "text": "Black Friday: half price, and it holds your whole day.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "hero",
+       "packing"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "How much of your day can one bag really hold?": [
+      [
+       "1gTX_SxJtJsLhMCOPj1WmEWQKSF9zvosb",
+       11.62,
+       1.0
+      ],
+      [
+       "1C9xk64VLWK7Z2IDYf2RzvYUZZX5v-JL1",
+       13.56,
+       1.0
+      ]
+     ],
+     "If your bag swallows everything, watch this pack-out.": [
+      [
+       "1wUQMlHgMYsSS3gEfCx8MoN11ptS3lRWN",
+       0.3,
+       1.0
+      ]
+     ],
+     "Black Friday: half price, and it holds your whole day.": [
+      [
+       "1JYQVa4J7nip-TLeL3ztP17SyQ4NJUi6u",
+       0.3,
+       1.0
+      ],
+      [
+       "1sqN76Sbj7sjx9lm4gh9zOK0eLM-n7l4w",
+       0.68,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 62.4,
+   "project": "P01",
+   "hook_text": "Black Friday: half price, and it holds your whole day.",
+   "hook_label": "BLACK FRIDAY",
+   "hook_type": "price",
+   "opening_shot": [
+    "1JYQVa4J7nip-TLeL3ztP17SyQ4NJUi6u",
+    0.3
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261021_HoboBag_BlackFriday_B014_P02_H1_behind",
+   "id": "P02H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "ugc": {
+    "script": "U02",
+    "angle": "behind",
+    "words": 187,
+    "hook": {
+     "type": "promise",
+     "label": "LOOK CLOSER",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Packed train, bag swinging behind you. Sound familiar?",
+      "type": "problem",
+      "label": "PACKED TRAIN?",
+      "feature": null,
+      "show": [
+       "walking",
+       "street",
+       "worn"
+      ]
+     },
+     {
+      "text": "Where do your passport and cards ride when it's crowded?",
+      "type": "question",
+      "label": "CROWDED?",
+      "feature": null,
+      "show": [
+       "pocket",
+       "worn"
+      ]
+     },
+     {
+      "text": "Black Friday: the anti-theft Hobo Bag at half price.",
+      "type": "price",
+      "label": "ANTI-THEFT",
+      "feature": null,
+      "show": [
+       "pocket",
+       "hero"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Packed train, bag swinging behind you. Sound familiar?": [
+      [
+       "18wOkQ9ToI66y133XanUgEZT0I4Q25Ea1",
+       0.3,
+       1.0
+      ]
+     ],
+     "Where do your passport and cards ride when it's crowded?": [
+      [
+       "1ZgpbxwiYGvvWCBBIFZBfgzD7DIlOnPeD",
+       0.3,
+       1.0
+      ],
+      [
+       "1EvMG7FM3iHBjj7nonDzWnMoM8bswgjg5",
+       0.3,
+       1.0
+      ]
+     ],
+     "Black Friday: the anti-theft Hobo Bag at half price.": [
+      [
+       "1sqN76Sbj7sjx9lm4gh9zOK0eLM-n7l4w",
+       0.68,
+       1.0
+      ],
+      [
+       "1JYQVa4J7nip-TLeL3ztP17SyQ4NJUi6u",
+       3.54,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 62.7,
+   "project": "P02",
+   "hook_text": "Look at where this pocket sits.",
+   "hook_label": "LOOK CLOSER",
+   "hook_type": "promise",
+   "opening_shot": [
+    "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+    9.0
+   ]
+  },
+  {
+   "name": "LC_261021_HoboBag_BlackFriday_B014_P02_H2_behind",
+   "id": "P02H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "ugc": {
+    "script": "U02",
+    "angle": "behind",
+    "words": 187,
+    "hook": {
+     "type": "promise",
+     "label": "LOOK CLOSER",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Packed train, bag swinging behind you. Sound familiar?",
+      "type": "problem",
+      "label": "PACKED TRAIN?",
+      "feature": null,
+      "show": [
+       "walking",
+       "street",
+       "worn"
+      ]
+     },
+     {
+      "text": "Where do your passport and cards ride when it's crowded?",
+      "type": "question",
+      "label": "CROWDED?",
+      "feature": null,
+      "show": [
+       "pocket",
+       "worn"
+      ]
+     },
+     {
+      "text": "Black Friday: the anti-theft Hobo Bag at half price.",
+      "type": "price",
+      "label": "ANTI-THEFT",
+      "feature": null,
+      "show": [
+       "pocket",
+       "hero"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Packed train, bag swinging behind you. Sound familiar?": [
+      [
+       "18wOkQ9ToI66y133XanUgEZT0I4Q25Ea1",
+       0.3,
+       1.0
+      ]
+     ],
+     "Where do your passport and cards ride when it's crowded?": [
+      [
+       "1ZgpbxwiYGvvWCBBIFZBfgzD7DIlOnPeD",
+       0.3,
+       1.0
+      ],
+      [
+       "1EvMG7FM3iHBjj7nonDzWnMoM8bswgjg5",
+       0.3,
+       1.0
+      ]
+     ],
+     "Black Friday: the anti-theft Hobo Bag at half price.": [
+      [
+       "1sqN76Sbj7sjx9lm4gh9zOK0eLM-n7l4w",
+       0.68,
+       1.0
+      ],
+      [
+       "1JYQVa4J7nip-TLeL3ztP17SyQ4NJUi6u",
+       3.54,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 63.3,
+   "project": "P02",
+   "hook_text": "Packed train, bag swinging behind you. Sound familiar?",
+   "hook_label": "PACKED TRAIN?",
+   "hook_type": "problem",
+   "opening_shot": [
+    "18wOkQ9ToI66y133XanUgEZT0I4Q25Ea1",
+    0.3
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261021_HoboBag_BlackFriday_B014_P02_H3_behind",
+   "id": "P02H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "ugc": {
+    "script": "U02",
+    "angle": "behind",
+    "words": 187,
+    "hook": {
+     "type": "promise",
+     "label": "LOOK CLOSER",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Packed train, bag swinging behind you. Sound familiar?",
+      "type": "problem",
+      "label": "PACKED TRAIN?",
+      "feature": null,
+      "show": [
+       "walking",
+       "street",
+       "worn"
+      ]
+     },
+     {
+      "text": "Where do your passport and cards ride when it's crowded?",
+      "type": "question",
+      "label": "CROWDED?",
+      "feature": null,
+      "show": [
+       "pocket",
+       "worn"
+      ]
+     },
+     {
+      "text": "Black Friday: the anti-theft Hobo Bag at half price.",
+      "type": "price",
+      "label": "ANTI-THEFT",
+      "feature": null,
+      "show": [
+       "pocket",
+       "hero"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Packed train, bag swinging behind you. Sound familiar?": [
+      [
+       "18wOkQ9ToI66y133XanUgEZT0I4Q25Ea1",
+       0.3,
+       1.0
+      ]
+     ],
+     "Where do your passport and cards ride when it's crowded?": [
+      [
+       "1ZgpbxwiYGvvWCBBIFZBfgzD7DIlOnPeD",
+       0.3,
+       1.0
+      ],
+      [
+       "1EvMG7FM3iHBjj7nonDzWnMoM8bswgjg5",
+       0.3,
+       1.0
+      ]
+     ],
+     "Black Friday: the anti-theft Hobo Bag at half price.": [
+      [
+       "1sqN76Sbj7sjx9lm4gh9zOK0eLM-n7l4w",
+       0.68,
+       1.0
+      ],
+      [
+       "1JYQVa4J7nip-TLeL3ztP17SyQ4NJUi6u",
+       3.54,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 64.0,
+   "project": "P02",
+   "hook_text": "Where do your passport and cards ride when it's crowded?",
+   "hook_label": "CROWDED?",
+   "hook_type": "question",
+   "opening_shot": [
+    "1ZgpbxwiYGvvWCBBIFZBfgzD7DIlOnPeD",
+    0.3
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261021_HoboBag_BlackFriday_B014_P02_H4_behind",
+   "id": "P02H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "ugc": {
+    "script": "U02",
+    "angle": "behind",
+    "words": 187,
+    "hook": {
+     "type": "promise",
+     "label": "LOOK CLOSER",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Packed train, bag swinging behind you. Sound familiar?",
+      "type": "problem",
+      "label": "PACKED TRAIN?",
+      "feature": null,
+      "show": [
+       "walking",
+       "street",
+       "worn"
+      ]
+     },
+     {
+      "text": "Where do your passport and cards ride when it's crowded?",
+      "type": "question",
+      "label": "CROWDED?",
+      "feature": null,
+      "show": [
+       "pocket",
+       "worn"
+      ]
+     },
+     {
+      "text": "Black Friday: the anti-theft Hobo Bag at half price.",
+      "type": "price",
+      "label": "ANTI-THEFT",
+      "feature": null,
+      "show": [
+       "pocket",
+       "hero"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Packed train, bag swinging behind you. Sound familiar?": [
+      [
+       "18wOkQ9ToI66y133XanUgEZT0I4Q25Ea1",
+       0.3,
+       1.0
+      ]
+     ],
+     "Where do your passport and cards ride when it's crowded?": [
+      [
+       "1ZgpbxwiYGvvWCBBIFZBfgzD7DIlOnPeD",
+       0.3,
+       1.0
+      ],
+      [
+       "1EvMG7FM3iHBjj7nonDzWnMoM8bswgjg5",
+       0.3,
+       1.0
+      ]
+     ],
+     "Black Friday: the anti-theft Hobo Bag at half price.": [
+      [
+       "1sqN76Sbj7sjx9lm4gh9zOK0eLM-n7l4w",
+       0.68,
+       1.0
+      ],
+      [
+       "1JYQVa4J7nip-TLeL3ztP17SyQ4NJUi6u",
+       3.54,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 63.7,
+   "project": "P02",
+   "hook_text": "Black Friday: the anti-theft Hobo Bag at half price.",
+   "hook_label": "ANTI-THEFT",
+   "hook_type": "price",
+   "opening_shot": [
+    "1sqN76Sbj7sjx9lm4gh9zOK0eLM-n7l4w",
+    0.68
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261021_HoboBag_BlackFriday_B014_P03_H1_giftcheck",
+   "id": "P03H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "ugc": {
+    "script": "U03",
+    "angle": "giftcheck",
+    "words": 184,
+    "hook": {
+     "type": "promise",
+     "label": "GIFT SORTED",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Still hunting for a gift she'll reach for every day?",
+      "type": "question",
+      "label": "GIFT IDEA?",
+      "feature": null,
+      "show": [
+       "hero",
+       "handheld",
+       "worn"
+      ]
+     },
+     {
+      "text": "Skip the gift that ends up in a drawer.",
+      "type": "problem",
+      "label": "NO DRAWER GIFTS",
+      "feature": null,
+      "show": [
+       "worn",
+       "hero"
+      ]
+     },
+     {
+      "text": "Black Friday gift idea: half price, plus a free pouch wallet.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "hero",
+       "pouch"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Still hunting for a gift she'll reach for every day?": [
+      [
+       "1J6TLYwW_SOJEzXCD09Doaw7w5n_WDVnx",
+       11.16,
+       1.0
+      ],
+      [
+       "17sZzNvas8SySLaS3BpNjXmKn38qRY8Y1",
+       5.34,
+       1.0
+      ]
+     ],
+     "Skip the gift that ends up in a drawer.": [
+      [
+       "1YbYGRFkUKLETA74_QwQot7tA-JlrXxHU",
+       1.07,
+       1.0
+      ],
+      [
+       "1IZyntRG7-VHd01spVJms3AQObclRPzUn",
+       0.3,
+       1.0
+      ]
+     ],
+     "Black Friday gift idea: half price, plus a free pouch wallet.": [
+      [
+       "1iovtE-e43Nm1_WbLDAQFjQrt02s-cHxv",
+       23.13,
+       1.0
+      ],
+      [
+       "1NuCVbKCrAGKgLyGpaVgNohAbss7I4zMS",
+       3.76,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 61.8,
+   "project": "P03",
+   "hook_text": "A gift that comes with its own matching pouch wallet.",
+   "hook_label": "GIFT SORTED",
+   "hook_type": "promise",
+   "opening_shot": [
+    "1NuCVbKCrAGKgLyGpaVgNohAbss7I4zMS",
+    10.1
+   ]
+  },
+  {
+   "name": "LC_261021_HoboBag_BlackFriday_B014_P03_H2_giftcheck",
+   "id": "P03H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "ugc": {
+    "script": "U03",
+    "angle": "giftcheck",
+    "words": 184,
+    "hook": {
+     "type": "promise",
+     "label": "GIFT SORTED",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Still hunting for a gift she'll reach for every day?",
+      "type": "question",
+      "label": "GIFT IDEA?",
+      "feature": null,
+      "show": [
+       "hero",
+       "handheld",
+       "worn"
+      ]
+     },
+     {
+      "text": "Skip the gift that ends up in a drawer.",
+      "type": "problem",
+      "label": "NO DRAWER GIFTS",
+      "feature": null,
+      "show": [
+       "worn",
+       "hero"
+      ]
+     },
+     {
+      "text": "Black Friday gift idea: half price, plus a free pouch wallet.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "hero",
+       "pouch"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Still hunting for a gift she'll reach for every day?": [
+      [
+       "1J6TLYwW_SOJEzXCD09Doaw7w5n_WDVnx",
+       11.16,
+       1.0
+      ],
+      [
+       "17sZzNvas8SySLaS3BpNjXmKn38qRY8Y1",
+       5.34,
+       1.0
+      ]
+     ],
+     "Skip the gift that ends up in a drawer.": [
+      [
+       "1YbYGRFkUKLETA74_QwQot7tA-JlrXxHU",
+       1.07,
+       1.0
+      ],
+      [
+       "1IZyntRG7-VHd01spVJms3AQObclRPzUn",
+       0.3,
+       1.0
+      ]
+     ],
+     "Black Friday gift idea: half price, plus a free pouch wallet.": [
+      [
+       "1iovtE-e43Nm1_WbLDAQFjQrt02s-cHxv",
+       23.13,
+       1.0
+      ],
+      [
+       "1NuCVbKCrAGKgLyGpaVgNohAbss7I4zMS",
+       3.76,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 61.8,
+   "project": "P03",
+   "hook_text": "Still hunting for a gift she'll reach for every day?",
+   "hook_label": "GIFT IDEA?",
+   "hook_type": "question",
+   "opening_shot": [
+    "1J6TLYwW_SOJEzXCD09Doaw7w5n_WDVnx",
+    11.16
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261021_HoboBag_BlackFriday_B014_P03_H3_giftcheck",
+   "id": "P03H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "ugc": {
+    "script": "U03",
+    "angle": "giftcheck",
+    "words": 184,
+    "hook": {
+     "type": "promise",
+     "label": "GIFT SORTED",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Still hunting for a gift she'll reach for every day?",
+      "type": "question",
+      "label": "GIFT IDEA?",
+      "feature": null,
+      "show": [
+       "hero",
+       "handheld",
+       "worn"
+      ]
+     },
+     {
+      "text": "Skip the gift that ends up in a drawer.",
+      "type": "problem",
+      "label": "NO DRAWER GIFTS",
+      "feature": null,
+      "show": [
+       "worn",
+       "hero"
+      ]
+     },
+     {
+      "text": "Black Friday gift idea: half price, plus a free pouch wallet.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "hero",
+       "pouch"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Still hunting for a gift she'll reach for every day?": [
+      [
+       "1J6TLYwW_SOJEzXCD09Doaw7w5n_WDVnx",
+       11.16,
+       1.0
+      ],
+      [
+       "17sZzNvas8SySLaS3BpNjXmKn38qRY8Y1",
+       5.34,
+       1.0
+      ]
+     ],
+     "Skip the gift that ends up in a drawer.": [
+      [
+       "1YbYGRFkUKLETA74_QwQot7tA-JlrXxHU",
+       1.07,
+       1.0
+      ],
+      [
+       "1IZyntRG7-VHd01spVJms3AQObclRPzUn",
+       0.3,
+       1.0
+      ]
+     ],
+     "Black Friday gift idea: half price, plus a free pouch wallet.": [
+      [
+       "1iovtE-e43Nm1_WbLDAQFjQrt02s-cHxv",
+       23.13,
+       1.0
+      ],
+      [
+       "1NuCVbKCrAGKgLyGpaVgNohAbss7I4zMS",
+       3.76,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 61.5,
+   "project": "P03",
+   "hook_text": "Skip the gift that ends up in a drawer.",
+   "hook_label": "NO DRAWER GIFTS",
+   "hook_type": "problem",
+   "opening_shot": [
+    "1YbYGRFkUKLETA74_QwQot7tA-JlrXxHU",
+    1.07
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261021_HoboBag_BlackFriday_B014_P03_H4_giftcheck",
+   "id": "P03H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "ugc": {
+    "script": "U03",
+    "angle": "giftcheck",
+    "words": 184,
+    "hook": {
+     "type": "promise",
+     "label": "GIFT SORTED",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Still hunting for a gift she'll reach for every day?",
+      "type": "question",
+      "label": "GIFT IDEA?",
+      "feature": null,
+      "show": [
+       "hero",
+       "handheld",
+       "worn"
+      ]
+     },
+     {
+      "text": "Skip the gift that ends up in a drawer.",
+      "type": "problem",
+      "label": "NO DRAWER GIFTS",
+      "feature": null,
+      "show": [
+       "worn",
+       "hero"
+      ]
+     },
+     {
+      "text": "Black Friday gift idea: half price, plus a free pouch wallet.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "hero",
+       "pouch"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Still hunting for a gift she'll reach for every day?": [
+      [
+       "1J6TLYwW_SOJEzXCD09Doaw7w5n_WDVnx",
+       11.16,
+       1.0
+      ],
+      [
+       "17sZzNvas8SySLaS3BpNjXmKn38qRY8Y1",
+       5.34,
+       1.0
+      ]
+     ],
+     "Skip the gift that ends up in a drawer.": [
+      [
+       "1YbYGRFkUKLETA74_QwQot7tA-JlrXxHU",
+       1.07,
+       1.0
+      ],
+      [
+       "1IZyntRG7-VHd01spVJms3AQObclRPzUn",
+       0.3,
+       1.0
+      ]
+     ],
+     "Black Friday gift idea: half price, plus a free pouch wallet.": [
+      [
+       "1iovtE-e43Nm1_WbLDAQFjQrt02s-cHxv",
+       23.13,
+       1.0
+      ],
+      [
+       "1NuCVbKCrAGKgLyGpaVgNohAbss7I4zMS",
+       3.76,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 62.1,
+   "project": "P03",
+   "hook_text": "Black Friday gift idea: half price, plus a free pouch wallet.",
+   "hook_label": "BLACK FRIDAY",
+   "hook_type": "price",
+   "opening_shot": [
+    "1iovtE-e43Nm1_WbLDAQFjQrt02s-cHxv",
+    23.13
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261021_HoboBag_BlackFriday_B014_P04_H1_fivechecks",
+   "id": "P04H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "ugc": {
+    "script": "U04",
+    "angle": "fivechecks",
+    "words": 196,
+    "hook": {
+     "type": "problem",
+     "label": "CHECK FIRST",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Can you reach your keys without opening your bag?",
+      "type": "question",
+      "label": "KEYS TEST",
+      "feature": null,
+      "show": [
+       "side_zip",
+       "zip_hand"
+      ]
+     },
+     {
+      "text": "Five things that tell you if a bag is worth it.",
+      "type": "promise",
+      "label": "5 THINGS",
+      "feature": null,
+      "show": [
+       "inside",
+       "pocket",
+       "strap"
+      ]
+     },
+     {
+      "text": "Black Friday: the bag that passes every check, at half price.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null,
+      "show": [
+       "hero",
+       "pouch"
+      ]
+     }
+    ],
+    "numbers": [
+     5
+    ],
+    "alt_shots": {
+     "Can you reach your keys without opening your bag?": [
+      [
+       "10uhhKdeKztcGarl-uoLMO4kJk8phF54N",
+       0.45,
+       1.0
+      ],
+      [
+       "10ev2Mfet9vPJ-jRrxK4fdn2sr3BmTFTV",
+       21.0,
+       1.0
+      ]
+     ],
+     "Five things that tell you if a bag is worth it.": [
+      [
+       "1C9xk64VLWK7Z2IDYf2RzvYUZZX5v-JL1",
+       13.56,
+       1.0
+      ],
+      [
+       "1M8Wa96GbYXrc25pTXwLCudGwYneQTrFJ",
+       66.31,
+       1.0
+      ]
+     ],
+     "Black Friday: the bag that passes every check, at half price.": [
+      [
+       "1CJzEYOTuCr-sZYjkvP7e7F-fHcOTx9GS",
+       8.46,
+       1.0
+      ],
+      [
+       "1JYQVa4J7nip-TLeL3ztP17SyQ4NJUi6u",
+       3.54,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 65.7,
+   "project": "P04",
+   "hook_text": "Do not buy a bag this Black Friday before you check these five things.",
+   "hook_label": "CHECK FIRST",
+   "hook_type": "problem",
+   "opening_shot": [
+    "1TeEFWPEZ_jATN9so2DZNeyg-mOPQe8jL",
+    10.56
+   ]
+  },
+  {
+   "name": "LC_261021_HoboBag_BlackFriday_B014_P04_H2_fivechecks",
+   "id": "P04H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "ugc": {
+    "script": "U04",
+    "angle": "fivechecks",
+    "words": 196,
+    "hook": {
+     "type": "problem",
+     "label": "CHECK FIRST",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Can you reach your keys without opening your bag?",
+      "type": "question",
+      "label": "KEYS TEST",
+      "feature": null,
+      "show": [
+       "side_zip",
+       "zip_hand"
+      ]
+     },
+     {
+      "text": "Five things that tell you if a bag is worth it.",
+      "type": "promise",
+      "label": "5 THINGS",
+      "feature": null,
+      "show": [
+       "inside",
+       "pocket",
+       "strap"
+      ]
+     },
+     {
+      "text": "Black Friday: the bag that passes every check, at half price.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null,
+      "show": [
+       "hero",
+       "pouch"
+      ]
+     }
+    ],
+    "numbers": [
+     5
+    ],
+    "alt_shots": {
+     "Can you reach your keys without opening your bag?": [
+      [
+       "10uhhKdeKztcGarl-uoLMO4kJk8phF54N",
+       0.45,
+       1.0
+      ],
+      [
+       "10ev2Mfet9vPJ-jRrxK4fdn2sr3BmTFTV",
+       21.0,
+       1.0
+      ]
+     ],
+     "Five things that tell you if a bag is worth it.": [
+      [
+       "1C9xk64VLWK7Z2IDYf2RzvYUZZX5v-JL1",
+       13.56,
+       1.0
+      ],
+      [
+       "1M8Wa96GbYXrc25pTXwLCudGwYneQTrFJ",
+       66.31,
+       1.0
+      ]
+     ],
+     "Black Friday: the bag that passes every check, at half price.": [
+      [
+       "1CJzEYOTuCr-sZYjkvP7e7F-fHcOTx9GS",
+       8.46,
+       1.0
+      ],
+      [
+       "1JYQVa4J7nip-TLeL3ztP17SyQ4NJUi6u",
+       3.54,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 64.1,
+   "project": "P04",
+   "hook_text": "Can you reach your keys without opening your bag?",
+   "hook_label": "KEYS TEST",
+   "hook_type": "question",
+   "opening_shot": [
+    "10uhhKdeKztcGarl-uoLMO4kJk8phF54N",
+    0.45
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261021_HoboBag_BlackFriday_B014_P04_H3_fivechecks",
+   "id": "P04H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "ugc": {
+    "script": "U04",
+    "angle": "fivechecks",
+    "words": 196,
+    "hook": {
+     "type": "problem",
+     "label": "CHECK FIRST",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Can you reach your keys without opening your bag?",
+      "type": "question",
+      "label": "KEYS TEST",
+      "feature": null,
+      "show": [
+       "side_zip",
+       "zip_hand"
+      ]
+     },
+     {
+      "text": "Five things that tell you if a bag is worth it.",
+      "type": "promise",
+      "label": "5 THINGS",
+      "feature": null,
+      "show": [
+       "inside",
+       "pocket",
+       "strap"
+      ]
+     },
+     {
+      "text": "Black Friday: the bag that passes every check, at half price.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null,
+      "show": [
+       "hero",
+       "pouch"
+      ]
+     }
+    ],
+    "numbers": [
+     5
+    ],
+    "alt_shots": {
+     "Can you reach your keys without opening your bag?": [
+      [
+       "10uhhKdeKztcGarl-uoLMO4kJk8phF54N",
+       0.45,
+       1.0
+      ],
+      [
+       "10ev2Mfet9vPJ-jRrxK4fdn2sr3BmTFTV",
+       21.0,
+       1.0
+      ]
+     ],
+     "Five things that tell you if a bag is worth it.": [
+      [
+       "1C9xk64VLWK7Z2IDYf2RzvYUZZX5v-JL1",
+       13.56,
+       1.0
+      ],
+      [
+       "1M8Wa96GbYXrc25pTXwLCudGwYneQTrFJ",
+       66.31,
+       1.0
+      ]
+     ],
+     "Black Friday: the bag that passes every check, at half price.": [
+      [
+       "1CJzEYOTuCr-sZYjkvP7e7F-fHcOTx9GS",
+       8.46,
+       1.0
+      ],
+      [
+       "1JYQVa4J7nip-TLeL3ztP17SyQ4NJUi6u",
+       3.54,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 64.7,
+   "project": "P04",
+   "hook_text": "Five things that tell you if a bag is worth it.",
+   "hook_label": "5 THINGS",
+   "hook_type": "promise",
+   "opening_shot": [
+    "1C9xk64VLWK7Z2IDYf2RzvYUZZX5v-JL1",
+    13.56
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261021_HoboBag_BlackFriday_B014_P04_H4_fivechecks",
+   "id": "P04H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "ugc": {
+    "script": "U04",
+    "angle": "fivechecks",
+    "words": 196,
+    "hook": {
+     "type": "problem",
+     "label": "CHECK FIRST",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Can you reach your keys without opening your bag?",
+      "type": "question",
+      "label": "KEYS TEST",
+      "feature": null,
+      "show": [
+       "side_zip",
+       "zip_hand"
+      ]
+     },
+     {
+      "text": "Five things that tell you if a bag is worth it.",
+      "type": "promise",
+      "label": "5 THINGS",
+      "feature": null,
+      "show": [
+       "inside",
+       "pocket",
+       "strap"
+      ]
+     },
+     {
+      "text": "Black Friday: the bag that passes every check, at half price.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null,
+      "show": [
+       "hero",
+       "pouch"
+      ]
+     }
+    ],
+    "numbers": [
+     5
+    ],
+    "alt_shots": {
+     "Can you reach your keys without opening your bag?": [
+      [
+       "10uhhKdeKztcGarl-uoLMO4kJk8phF54N",
+       0.45,
+       1.0
+      ],
+      [
+       "10ev2Mfet9vPJ-jRrxK4fdn2sr3BmTFTV",
+       21.0,
+       1.0
+      ]
+     ],
+     "Five things that tell you if a bag is worth it.": [
+      [
+       "1C9xk64VLWK7Z2IDYf2RzvYUZZX5v-JL1",
+       13.56,
+       1.0
+      ],
+      [
+       "1M8Wa96GbYXrc25pTXwLCudGwYneQTrFJ",
+       66.31,
+       1.0
+      ]
+     ],
+     "Black Friday: the bag that passes every check, at half price.": [
+      [
+       "1CJzEYOTuCr-sZYjkvP7e7F-fHcOTx9GS",
+       8.46,
+       1.0
+      ],
+      [
+       "1JYQVa4J7nip-TLeL3ztP17SyQ4NJUi6u",
+       3.54,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 64.7,
+   "project": "P04",
+   "hook_text": "Black Friday: the bag that passes every check, at half price.",
+   "hook_label": "HALF PRICE",
+   "hook_type": "price",
+   "opening_shot": [
+    "1CJzEYOTuCr-sZYjkvP7e7F-fHcOTx9GS",
+    8.46
+   ],
+   "hook_source": "script"
+  }
+ ],
+ "tts_lines": 48,
+ "tts_dupes": {},
+ "est_credits": 16.8,
+ "budget": 100.0,
+ "colour_images": {
+  "Dark Sienn": "/tmp/run/bf/site/clean/hobo_bag_colour_dark_sienn_nobadge.jpg",
+  "Galaxy Black": "/tmp/run/bf/site/hobo_bag_colour_galaxy_black.jpg",
+  "Blue": "/tmp/run/bf/site/hobo_bag_colour_blue.jpg",
+  "Grey": "/tmp/run/bf/site/hobo_bag_colour_grey.jpg",
+  "Burgundy": "/tmp/run/bf/site/hobo_bag_colour_burgundy.jpg",
+  "Red": "/tmp/run/bf/site/hobo_bag_colour_red.jpg"
+ },
+ "packshots": [
+  "/tmp/run/bf/site/hobo_bag_colour_galaxy_black.jpg",
+  "/tmp/run/bf/site/hobo_bag_colour_blue.jpg",
+  "/tmp/run/bf/site/hobo_bag_colour_grey.jpg",
+  "/tmp/run/bf/site/hobo_bag_colour_burgundy.jpg",
+  "/tmp/run/bf/site/hobo_bag_colour_red.jpg"
+ ],
+ "brief": null,
+ "ai": {
+  "stills": 8,
+  "clips": 0,
+  "est_credits": 8.0,
+  "budget": {
+   "cap": 100.0,
+   "tts_est": 18.0,
+   "reserve": 8.0
+  },
+  "scenes": [
+   "p01_s01",
+   "p01_s02",
+   "p02_s06",
+   "p02_s07",
+   "p03_s11",
+   "p03_s12",
+   "p04_s16",
+   "p04_s18"
+  ],
+  "next": "python3 pipeline/ai_gen.py show --out /tmp/run/bf"
+ },
+ "winners_source": null,
+ "winners_note": null,
+ "winners_used": [],
+ "unmatched_winners": [],
+ "warnings": [
+  "ideas: 8 AI studio scenes of 20 statics (about 8 credits plus retries)"
+ ],
+ "winner_reviews": false,
+ "seed": 3,
+ "hooks": 4,
+ "pipeline": "catalog",
+ "video_format": "ugc",
+ "ugc_numbers": [
+  5
+ ],
+ "voice": {
+  "voice_type": "element",
+  "voice_id": "241459b6-b4e8-4a2a-9868-da8bcdcd0558",
+  "speed": 1.12
+ },
+ "projects": [
+  {
+   "id": "P01",
+   "from_id": "V01",
+   "angle": "packout",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P01H1",
+     "name": "LC_261021_HoboBag_BlackFriday_B014_P01_H1_packout",
+     "hook_text": "Pack one bag for a whole day. Watch what fits.",
+     "label": "WHAT FITS",
+     "type": "promise",
+     "shot": [
+      "1x-9cSXeUtyq2HsuUU9p8BASaqDpzWlpi",
+      1.85
+     ],
+     "est_seconds": 62.4
+    },
+    {
+     "hook": "H2",
+     "id": "P01H2",
+     "name": "LC_261021_HoboBag_BlackFriday_B014_P01_H2_packout",
+     "hook_text": "How much of your day can one bag really hold?",
+     "label": "HOW MUCH?",
+     "type": "question",
+     "shot": [
+      "1gTX_SxJtJsLhMCOPj1WmEWQKSF9zvosb",
+      11.62
+     ],
+     "est_seconds": 62.4
+    },
+    {
+     "hook": "H3",
+     "id": "P01H3",
+     "name": "LC_261021_HoboBag_BlackFriday_B014_P01_H3_packout",
+     "hook_text": "If your bag swallows everything, watch this pack-out.",
+     "label": "NO BLACK HOLE",
+     "type": "problem",
+     "shot": [
+      "1wUQMlHgMYsSS3gEfCx8MoN11ptS3lRWN",
+      0.3
+     ],
+     "est_seconds": 61.8
+    },
+    {
+     "hook": "H4",
+     "id": "P01H4",
+     "name": "LC_261021_HoboBag_BlackFriday_B014_P01_H4_packout",
+     "hook_text": "Black Friday: half price, and it holds your whole day.",
+     "label": "BLACK FRIDAY",
+     "type": "price",
+     "shot": [
+      "1JYQVa4J7nip-TLeL3ztP17SyQ4NJUi6u",
+      0.3
+     ],
+     "est_seconds": 62.4
+    }
+   ]
+  },
+  {
+   "id": "P02",
+   "from_id": "V02",
+   "angle": "behind",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P02H1",
+     "name": "LC_261021_HoboBag_BlackFriday_B014_P02_H1_behind",
+     "hook_text": "Look at where this pocket sits.",
+     "label": "LOOK CLOSER",
+     "type": "promise",
+     "shot": [
+      "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+      9.0
+     ],
+     "est_seconds": 62.7
+    },
+    {
+     "hook": "H2",
+     "id": "P02H2",
+     "name": "LC_261021_HoboBag_BlackFriday_B014_P02_H2_behind",
+     "hook_text": "Packed train, bag swinging behind you. Sound familiar?",
+     "label": "PACKED TRAIN?",
+     "type": "problem",
+     "shot": [
+      "18wOkQ9ToI66y133XanUgEZT0I4Q25Ea1",
+      0.3
+     ],
+     "est_seconds": 63.3
+    },
+    {
+     "hook": "H3",
+     "id": "P02H3",
+     "name": "LC_261021_HoboBag_BlackFriday_B014_P02_H3_behind",
+     "hook_text": "Where do your passport and cards ride when it's crowded?",
+     "label": "CROWDED?",
+     "type": "question",
+     "shot": [
+      "1ZgpbxwiYGvvWCBBIFZBfgzD7DIlOnPeD",
+      0.3
+     ],
+     "est_seconds": 64.0
+    },
+    {
+     "hook": "H4",
+     "id": "P02H4",
+     "name": "LC_261021_HoboBag_BlackFriday_B014_P02_H4_behind",
+     "hook_text": "Black Friday: the anti-theft Hobo Bag at half price.",
+     "label": "ANTI-THEFT",
+     "type": "price",
+     "shot": [
+      "1sqN76Sbj7sjx9lm4gh9zOK0eLM-n7l4w",
+      0.68
+     ],
+     "est_seconds": 63.7
+    }
+   ]
+  },
+  {
+   "id": "P03",
+   "from_id": "V03",
+   "angle": "giftcheck",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P03H1",
+     "name": "LC_261021_HoboBag_BlackFriday_B014_P03_H1_giftcheck",
+     "hook_text": "A gift that comes with its own matching pouch wallet.",
+     "label": "GIFT SORTED",
+     "type": "promise",
+     "shot": [
+      "1NuCVbKCrAGKgLyGpaVgNohAbss7I4zMS",
+      10.1
+     ],
+     "est_seconds": 61.8
+    },
+    {
+     "hook": "H2",
+     "id": "P03H2",
+     "name": "LC_261021_HoboBag_BlackFriday_B014_P03_H2_giftcheck",
+     "hook_text": "Still hunting for a gift she'll reach for every day?",
+     "label": "GIFT IDEA?",
+     "type": "question",
+     "shot": [
+      "1J6TLYwW_SOJEzXCD09Doaw7w5n_WDVnx",
+      11.16
+     ],
+     "est_seconds": 61.8
+    },
+    {
+     "hook": "H3",
+     "id": "P03H3",
+     "name": "LC_261021_HoboBag_BlackFriday_B014_P03_H3_giftcheck",
+     "hook_text": "Skip the gift that ends up in a drawer.",
+     "label": "NO DRAWER GIFTS",
+     "type": "problem",
+     "shot": [
+      "1YbYGRFkUKLETA74_QwQot7tA-JlrXxHU",
+      1.07
+     ],
+     "est_seconds": 61.5
+    },
+    {
+     "hook": "H4",
+     "id": "P03H4",
+     "name": "LC_261021_HoboBag_BlackFriday_B014_P03_H4_giftcheck",
+     "hook_text": "Black Friday gift idea: half price, plus a free pouch wallet.",
+     "label": "BLACK FRIDAY",
+     "type": "price",
+     "shot": [
+      "1iovtE-e43Nm1_WbLDAQFjQrt02s-cHxv",
+      23.13
+     ],
+     "est_seconds": 62.1
+    }
+   ]
+  },
+  {
+   "id": "P04",
+   "from_id": "V04",
+   "angle": "fivechecks",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P04H1",
+     "name": "LC_261021_HoboBag_BlackFriday_B014_P04_H1_fivechecks",
+     "hook_text": "Do not buy a bag this Black Friday before you check these five things.",
+     "label": "CHECK FIRST",
+     "type": "problem",
+     "shot": [
+      "1TeEFWPEZ_jATN9so2DZNeyg-mOPQe8jL",
+      10.56
+     ],
+     "est_seconds": 65.7
+    },
+    {
+     "hook": "H2",
+     "id": "P04H2",
+     "name": "LC_261021_HoboBag_BlackFriday_B014_P04_H2_fivechecks",
+     "hook_text": "Can you reach your keys without opening your bag?",
+     "label": "KEYS TEST",
+     "type": "question",
+     "shot": [
+      "10uhhKdeKztcGarl-uoLMO4kJk8phF54N",
+      0.45
+     ],
+     "est_seconds": 64.1
+    },
+    {
+     "hook": "H3",
+     "id": "P04H3",
+     "name": "LC_261021_HoboBag_BlackFriday_B014_P04_H3_fivechecks",
+     "hook_text": "Five things that tell you if a bag is worth it.",
+     "label": "5 THINGS",
+     "type": "promise",
+     "shot": [
+      "1C9xk64VLWK7Z2IDYf2RzvYUZZX5v-JL1",
+      13.56
+     ],
+     "est_seconds": 64.7
+    },
+    {
+     "hook": "H4",
+     "id": "P04H4",
+     "name": "LC_261021_HoboBag_BlackFriday_B014_P04_H4_fivechecks",
+     "hook_text": "Black Friday: the bag that passes every check, at half price.",
+     "label": "HALF PRICE",
+     "type": "price",
+     "shot": [
+      "1CJzEYOTuCr-sZYjkvP7e7F-fHcOTx9GS",
+      8.46
+     ],
+     "est_seconds": 64.7
+    }
+   ]
+  }
+ ],
+ "hooks_seed": 3
+}

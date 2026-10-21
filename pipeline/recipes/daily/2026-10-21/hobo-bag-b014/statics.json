@@ -1,0 +1,257 @@
+{
+ "ads": [
+  {
+   "layout": "concept",
+   "photo": "ai/AS01.png",
+   "kicker": "BLACK FRIDAY",
+   "headline": "Everything fits.",
+   "sub": "Plus a free matching pouch wallet.",
+   "where": "bottom",
+   "pct": 50,
+   "name": "LC_261021_HoboBag_BlackFriday_B014_S01_concept",
+   "ai": {
+    "id": "AS01",
+    "scene": "p01_s01",
+    "colour": "Galaxy Black"
+   }
+  },
+  {
+   "layout": "concept",
+   "photo": "ai/AS02.png",
+   "headline": "Phone. Keys. Cards. Done.",
+   "where": "bottom",
+   "pct": 50,
+   "name": "LC_261021_HoboBag_BlackFriday_B014_S02_concept",
+   "ai": {
+    "id": "AS02",
+    "scene": "p01_s02",
+    "colour": "Blue"
+   }
+  },
+  {
+   "layout": "native",
+   "photo": "photos/frames/F_1EooqFqunZ_0009.jpg",
+   "caption": "Room for the whole day.",
+   "pct": 50,
+   "name": "LC_261021_HoboBag_BlackFriday_B014_S03_native",
+   "frame": {
+    "clip": "1EooqFqunZcjv3bAwwktu7RT8uqcYzqfJ",
+    "t": 0.95
+   }
+  },
+  {
+   "layout": "studio",
+   "photo": "site/hobo_bag_colour_galaxy_black.jpg",
+   "pct": 50,
+   "name": "LC_261021_HoboBag_BlackFriday_B014_S04_studio",
+   "caption": "Nothing sinks to the bottom."
+  },
+  {
+   "layout": "value",
+   "photo": "site/hobo_bag_colour_blue.jpg",
+   "price": "$52.50",
+   "was": "$105.00",
+   "pct": 50,
+   "gift": "free matching pouch wallet",
+   "headline": "The Hobo Bag",
+   "cta": "Get the Black Friday deal",
+   "name": "LC_261021_HoboBag_BlackFriday_B014_S05_value"
+  },
+  {
+   "layout": "concept",
+   "photo": "ai/AS03.png",
+   "headline": "The pocket nobody sees.",
+   "where": "bottom",
+   "pct": 50,
+   "name": "LC_261021_HoboBag_BlackFriday_B014_S06_concept",
+   "ai": {
+    "id": "AS03",
+    "scene": "p02_s06",
+    "colour": "Burgundy"
+   }
+  },
+  {
+   "layout": "concept",
+   "photo": "ai/AS04.png",
+   "kicker": "BLACK FRIDAY",
+   "headline": "Look where it sits.",
+   "where": "top",
+   "pct": 50,
+   "name": "LC_261021_HoboBag_BlackFriday_B014_S07_concept",
+   "ai": {
+    "id": "AS04",
+    "scene": "p02_s07",
+    "colour": "Brown"
+   }
+  },
+  {
+   "layout": "native",
+   "photo": "photos/frames/F_1DjvCgAMMS_0026.jpg",
+   "caption": "Hidden back pocket.",
+   "pct": 50,
+   "name": "LC_261021_HoboBag_BlackFriday_B014_S08_native",
+   "frame": {
+    "clip": "1DjvCgAMMSb6Of4L80Hiw9LnzN_nzAYfM",
+    "t": 2.68
+   }
+  },
+  {
+   "layout": "quotes",
+   "photo": "site/hobo_bag_colour_galaxy_black.jpg",
+   "reviews": [
+    6
+   ],
+   "pct": 50,
+   "gift": "free matching pouch wallet",
+   "cta": "Get the Black Friday deal",
+   "name": "LC_261021_HoboBag_BlackFriday_B014_S09_quotes"
+  },
+  {
+   "layout": "studio",
+   "photo": "site/hobo_bag_colour_blue.jpg",
+   "pct": 50,
+   "name": "LC_261021_HoboBag_BlackFriday_B014_S10_studio",
+   "caption": "Anti-theft back pocket."
+  },
+  {
+   "layout": "concept",
+   "photo": "ai/AS05.png",
+   "kicker": "BLACK FRIDAY",
+   "headline": "Gift sorted.",
+   "sub": "Free matching pouch wallet.",
+   "where": "bottom",
+   "pct": 50,
+   "name": "LC_261021_HoboBag_BlackFriday_B014_S11_concept",
+   "ai": {
+    "id": "AS05",
+    "scene": "p03_s11",
+    "colour": "Burgundy"
+   }
+  },
+  {
+   "layout": "concept",
+   "photo": "ai/AS06.png",
+   "kicker": "BLACK FRIDAY",
+   "headline": "The Hobo Bag.",
+   "where": "bottom",
+   "pct": 50,
+   "name": "LC_261021_HoboBag_BlackFriday_B014_S12_concept",
+   "ai": {
+    "id": "AS06",
+    "scene": "p03_s12",
+    "colour": "Red"
+   }
+  },
+  {
+   "layout": "studio",
+   "photo": "site/hobo_bag_colour_red.jpg",
+   "pct": 50,
+   "name": "LC_261021_HoboBag_BlackFriday_B014_S13_studio",
+   "caption": "Bag plus pouch wallet."
+  },
+  {
+   "layout": "offer",
+   "photo": "site/hobo_bag_colour_galaxy_black.jpg",
+   "pct": 50,
+   "kicker": "BLACK FRIDAY",
+   "headline": "Your new everyday bag",
+   "gift": "free matching pouch wallet",
+   "cta": "Get the Black Friday deal",
+   "price": "$52.50",
+   "was": "$105.00",
+   "name": "LC_261021_HoboBag_BlackFriday_B014_S14_offer"
+  },
+  {
+   "layout": "stars",
+   "photo": "site/hobo_bag_colour_blue.jpg",
+   "reviews": [
+    2,
+    12,
+    7
+   ],
+   "headline": "Real customers. Real words.",
+   "cta": "Get the Black Friday deal",
+   "name": "LC_261021_HoboBag_BlackFriday_B014_S15_stars"
+  },
+  {
+   "layout": "concept",
+   "photo": "ai/AS07.png",
+   "headline": "One bag. Every check.",
+   "where": "bottom",
+   "pct": 50,
+   "name": "LC_261021_HoboBag_BlackFriday_B014_S16_concept",
+   "ai": {
+    "id": "AS07",
+    "scene": "p04_s16",
+    "colour": "Blue"
+   }
+  },
+  {
+   "layout": "studio",
+   "photo": "site/hobo_bag_colour_burgundy.jpg",
+   "name": "LC_261021_HoboBag_BlackFriday_B014_S17_studio",
+   "caption": "Divided compartments."
+  },
+  {
+   "layout": "concept",
+   "photo": "ai/AS08.png",
+   "headline": "Hands free, all day.",
+   "where": "bottom",
+   "pct": 50,
+   "name": "LC_261021_HoboBag_BlackFriday_B014_S18_concept",
+   "ai": {
+    "id": "AS08",
+    "scene": "p04_s18",
+    "colour": "Galaxy Black"
+   }
+  },
+  {
+   "layout": "colours",
+   "photos": [
+    {
+     "src": "site/hobo_bag_colour_blue.jpg",
+     "name": "Blue"
+    },
+    {
+     "src": "site/hobo_bag_colour_grey.jpg",
+     "name": "Grey"
+    },
+    {
+     "src": "site/hobo_bag_colour_burgundy.jpg",
+     "name": "Burgundy"
+    },
+    {
+     "src": "site/hobo_bag_colour_red.jpg",
+     "name": "Red"
+    },
+    {
+     "src": "site/clean/hobo_bag_colour_dark_sienn_nobadge.jpg",
+     "name": "Dark Sienn"
+    },
+    {
+     "src": "site/hobo_bag_colour_galaxy_black.jpg",
+     "name": "Galaxy Black"
+    }
+   ],
+   "headline": "Which colour are you?",
+   "sub": "Every colour comes with a free matching pouch wallet.",
+   "cta": "Get the Black Friday deal",
+   "name": "LC_261021_HoboBag_BlackFriday_B014_S19_colours"
+  },
+  {
+   "layout": "checklist",
+   "photo": "site/hobo_bag_colour_blue.jpg",
+   "headline": "Why the Hobo Bag?",
+   "ticks": [
+    "Smart compartments",
+    "3 ways to wear",
+    "Soft leather",
+    "Hidden back pocket"
+   ],
+   "offer": "BLACK FRIDAY 50% OFF + FREE WALLET",
+   "cta": "Get the Black Friday deal",
+   "name": "LC_261021_HoboBag_BlackFriday_B014_S20_checklist"
+  }
+ ],
+ "card_photos": []
+}

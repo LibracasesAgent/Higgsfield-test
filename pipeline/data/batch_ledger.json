@@ -440,7 +440,227 @@
    "projects": 4,
    "hooks": 4,
    "seed": 3,
-   "status": "planned"
+   "status": "uploaded",
+   "folder": "B014 – 2026-10-21 – Hobo Bag BlackFriday – 20 statics + 4 projects",
+   "link": "https://drive.google.com/drive/folders/16mnY4LvWls6MYBKQ_OF_0tI9CWGgxpxQ",
+   "ads": [
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B014_S01_concept",
+     "kind": "static",
+     "fp": "s|concept|AS01.png|everything fits.",
+     "label": "Everything fits."
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B014_S02_concept",
+     "kind": "static",
+     "fp": "s|concept|AS02.png|phone. keys. cards. done.",
+     "label": "Phone. Keys. Cards. Done."
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B014_S03_native",
+     "kind": "static",
+     "fp": "s|native|F_1EooqFqunZ_0009.jpg|room for the whole day.",
+     "label": "Room for the whole day."
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B014_S04_studio",
+     "kind": "static",
+     "fp": "s|studio|hobo_bag_colour_galaxy_black.jpg|nothing sinks to the bottom.",
+     "label": "Nothing sinks to the bottom."
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B014_S05_value",
+     "kind": "static",
+     "fp": "s|value|hobo_bag_colour_blue.jpg|the hobo bag",
+     "label": "The Hobo Bag"
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B014_S06_concept",
+     "kind": "static",
+     "fp": "s|concept|AS03.png|the pocket nobody sees.",
+     "label": "The pocket nobody sees."
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B014_S07_concept",
+     "kind": "static",
+     "fp": "s|concept|AS04.png|look where it sits.",
+     "label": "Look where it sits."
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B014_S08_native",
+     "kind": "static",
+     "fp": "s|native|F_1DjvCgAMMS_0026.jpg|hidden back pocket.",
+     "label": "Hidden back pocket."
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B014_S09_quotes",
+     "kind": "static",
+     "fp": "s|quotes|hobo_bag_colour_galaxy_black.jpg|",
+     "label": ""
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B014_S10_studio",
+     "kind": "static",
+     "fp": "s|studio|hobo_bag_colour_blue.jpg|anti-theft back pocket.",
+     "label": "Anti-theft back pocket."
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B014_S11_concept",
+     "kind": "static",
+     "fp": "s|concept|AS05.png|gift sorted.",
+     "label": "Gift sorted."
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B014_S12_concept",
+     "kind": "static",
+     "fp": "s|concept|AS06.png|the hobo bag.",
+     "label": "The Hobo Bag."
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B014_S13_studio",
+     "kind": "static",
+     "fp": "s|studio|hobo_bag_colour_red.jpg|bag plus pouch wallet.",
+     "label": "Bag plus pouch wallet."
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B014_S14_offer",
+     "kind": "static",
+     "fp": "s|offer|hobo_bag_colour_galaxy_black.jpg|your new everyday bag",
+     "label": "Your new everyday bag"
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B014_S15_stars",
+     "kind": "static",
+     "fp": "s|stars|hobo_bag_colour_blue.jpg|real customers. real words.",
+     "label": "Real customers. Real words."
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B014_S16_concept",
+     "kind": "static",
+     "fp": "s|concept|AS07.png|one bag. every check.",
+     "label": "One bag. Every check."
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B014_S17_studio",
+     "kind": "static",
+     "fp": "s|studio|hobo_bag_colour_burgundy.jpg|divided compartments.",
+     "label": "Divided compartments."
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B014_S18_concept",
+     "kind": "static",
+     "fp": "s|concept|AS08.png|hands free, all day.",
+     "label": "Hands free, all day."
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B014_S19_colours",
+     "kind": "static",
+     "fp": "s|colours||which colour are you?",
+     "label": "Which colour are you?"
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B014_S20_checklist",
+     "kind": "static",
+     "fp": "s|checklist|hobo_bag_colour_blue.jpg|why the hobo bag?",
+     "label": "Why the Hobo Bag?"
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B014_P01_H1_packout",
+     "kind": "video",
+     "fp": "v|pack one bag for a whole day. watch what fits.|",
+     "label": "Pack one bag for a whole day. Watch what fits."
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B014_P01_H2_packout",
+     "kind": "video",
+     "fp": "v|how much of your day can one bag really hold?|",
+     "label": "How much of your day can one bag really hold?"
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B014_P01_H3_packout",
+     "kind": "video",
+     "fp": "v|if your bag swallows everything, watch this pack-out.|",
+     "label": "If your bag swallows everything, watch this pack-out."
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B014_P01_H4_packout",
+     "kind": "video",
+     "fp": "v|black friday: half price, and it holds your whole day.|",
+     "label": "Black Friday: half price, and it holds your whole day."
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B014_P02_H1_behind",
+     "kind": "video",
+     "fp": "v|look at where this pocket sits.|",
+     "label": "Look at where this pocket sits."
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B014_P02_H2_behind",
+     "kind": "video",
+     "fp": "v|packed train, bag swinging behind you. sound familiar?|",
+     "label": "Packed train, bag swinging behind you. Sound familiar?"
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B014_P02_H3_behind",
+     "kind": "video",
+     "fp": "v|where do your passport and cards ride when it's crowded?|",
+     "label": "Where do your passport and cards ride when it's crowded?"
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B014_P02_H4_behind",
+     "kind": "video",
+     "fp": "v|black friday: the anti-theft hobo bag at half price.|",
+     "label": "Black Friday: the anti-theft Hobo Bag at half price."
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B014_P03_H1_giftcheck",
+     "kind": "video",
+     "fp": "v|a gift that comes with its own matching pouch wallet.|",
+     "label": "A gift that comes with its own matching pouch wallet."
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B014_P03_H2_giftcheck",
+     "kind": "video",
+     "fp": "v|still hunting for a gift she'll reach for every day?|",
+     "label": "Still hunting for a gift she'll reach for every day?"
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B014_P03_H3_giftcheck",
+     "kind": "video",
+     "fp": "v|skip the gift that ends up in a drawer.|",
+     "label": "Skip the gift that ends up in a drawer."
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B014_P03_H4_giftcheck",
+     "kind": "video",
+     "fp": "v|black friday gift idea: half price, plus a free pouch wallet.|",
+     "label": "Black Friday gift idea: half price, plus a free pouch wallet."
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B014_P04_H1_fivechecks",
+     "kind": "video",
+     "fp": "v|do not buy a bag this black friday before you check these five things.|",
+     "label": "Do not buy a bag this Black Friday before you check these five things."
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B014_P04_H2_fivechecks",
+     "kind": "video",
+     "fp": "v|can you reach your keys without opening your bag?|",
+     "label": "Can you reach your keys without opening your bag?"
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B014_P04_H3_fivechecks",
+     "kind": "video",
+     "fp": "v|five things that tell you if a bag is worth it.|",
+     "label": "Five things that tell you if a bag is worth it."
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B014_P04_H4_fivechecks",
+     "kind": "video",
+     "fp": "v|black friday: the bag that passes every check, at half price.|",
+     "label": "Black Friday: the bag that passes every check, at half price."
+    }
+   ]
   },
   {
    "id": "B015",

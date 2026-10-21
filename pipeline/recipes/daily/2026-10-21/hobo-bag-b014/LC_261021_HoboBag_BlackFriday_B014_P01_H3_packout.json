@@ -1,0 +1,419 @@
+{
+ "mode": "ugc",
+ "voice_speed": 1.12,
+ "blocks": [
+  {
+   "vo": "P01H3_hook.mp3",
+   "broll": [
+    [
+     "1wUQMlHgMYsSS3gEfCx8MoN11ptS3lRWN",
+     0.3,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V01_c1.mp3",
+   "broll": [
+    [
+     "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+     16.0,
+     1.0
+    ],
+    [
+     "1x-9cSXeUtyq2HsuUU9p8BASaqDpzWlpi",
+     13.28,
+     1.0
+    ],
+    [
+     "1TIc3blFRxaHvZyWpOCe6nGyPxXb88wL2",
+     1.76,
+     1.0
+    ],
+    [
+     "10ev2Mfet9vPJ-jRrxK4fdn2sr3BmTFTV",
+     21.0,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+     9.5,
+     1.0
+    ],
+    [
+     "10ev2Mfet9vPJ-jRrxK4fdn2sr3BmTFTV",
+     3.4,
+     1.0
+    ],
+    [
+     "18BhL1GgesvH_uyQ5lciQL_JPQise3zca",
+     5.81,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V01_c2.mp3",
+   "broll": [
+    [
+     "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+     2.0,
+     1.0
+    ],
+    [
+     "1Rj3QE3QSg73kbPB1qCg7qo7az2SvQEPb",
+     0.3,
+     1.0
+    ],
+    [
+     "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+     6.0,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "10uhhKdeKztcGarl-uoLMO4kJk8phF54N",
+     6.23,
+     1.0
+    ],
+    [
+     "1Rj3QE3QSg73kbPB1qCg7qo7az2SvQEPb",
+     4.6,
+     1.0
+    ],
+    [
+     "1Y9IQ_9h6Aq5xE0RZdX4vIITk49ogFgIM",
+     15.72,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V01_c3.mp3",
+   "broll": [
+    [
+     "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+     3.6,
+     1.0
+    ],
+    [
+     "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+     1.0,
+     1.0
+    ],
+    [
+     "1gRdQChxJOyp5_CFVQk2w3fF4M9SHYxOD",
+     4.73,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+     9.0,
+     1.0
+    ],
+    [
+     "1XTfJnV-s9YVXmsv30f29mYqy5yV38n96",
+     7.07,
+     1.0
+    ],
+    [
+     "1JIEAwHHQq-euKPoS9A91KQSmMEGg7EPj",
+     0.3,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V01_c4.mp3",
+   "broll": [
+    [
+     "18BhL1GgesvH_uyQ5lciQL_JPQise3zca",
+     19.44,
+     1.0
+    ],
+    [
+     "1TeEFWPEZ_jATN9so2DZNeyg-mOPQe8jL",
+     5.94,
+     1.0
+    ],
+    [
+     "18wOkQ9ToI66y133XanUgEZT0I4Q25Ea1",
+     0.3,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1TeEFWPEZ_jATN9so2DZNeyg-mOPQe8jL",
+     10.56,
+     1.0
+    ],
+    [
+     "1NuCVbKCrAGKgLyGpaVgNohAbss7I4zMS",
+     10.1,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V01_c5.mp3",
+   "broll": [
+    [
+     "1JlS7-GlKLkqklk0xTO2jwXZ2VezE4us4",
+     0.3,
+     1.0
+    ],
+    [
+     "18wOkQ9ToI66y133XanUgEZT0I4Q25Ea1",
+     4.87,
+     1.0
+    ],
+    [
+     "1NyzIbBW2CLLzo3Wr2z3co67-jV6V9-Lj",
+     9.0,
+     1.0
+    ],
+    [
+     "1yFMCtT9SSE0_GMq6orEHoHL1JEKAJ1x9",
+     2.93,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1NyzIbBW2CLLzo3Wr2z3co67-jV6V9-Lj",
+     0.45,
+     1.0
+    ],
+    [
+     "1yFMCtT9SSE0_GMq6orEHoHL1JEKAJ1x9",
+     0.3,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V01_c6.mp3",
+   "broll": [
+    [
+     "1CcakagPN5oiWEneKORpvJblnPYnQvWHI",
+     4.0,
+     1.0
+    ],
+    [
+     "1nnsvEIfgqziYdrmeUrrtgL3Qo3YHV7Sw",
+     9.0,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1nnsvEIfgqziYdrmeUrrtgL3Qo3YHV7Sw",
+     15.0,
+     1.0
+    ],
+    [
+     "1CcakagPN5oiWEneKORpvJblnPYnQvWHI",
+     0.5,
+     1.0
+    ],
+    [
+     "1nnsvEIfgqziYdrmeUrrtgL3Qo3YHV7Sw",
+     4.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V01_c7.mp3",
+   "broll": [
+    [
+     "10ev2Mfet9vPJ-jRrxK4fdn2sr3BmTFTV",
+     29.8,
+     1.0
+    ],
+    [
+     "1f_9Fjvv6B2cnF8Z0lFf__xn_RJEvpLQ0",
+     7.75,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1f_9Fjvv6B2cnF8Z0lFf__xn_RJEvpLQ0",
+     4.25,
+     1.0
+    ],
+    [
+     "1zg2CRMvlkQjNlfLzjdEzt-hJG5uwdh6s",
+     2.99,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V01_c8.mp3",
+   "broll": [
+    [
+     "1sqN76Sbj7sjx9lm4gh9zOK0eLM-n7l4w",
+     10.76,
+     1.0
+    ],
+    [
+     "1TeEFWPEZ_jATN9so2DZNeyg-mOPQe8jL",
+     1.31,
+     1.0
+    ],
+    [
+     "1v8gKfP9ZYsuh7w5yBwlInmv_-U-pY2x_",
+     6.92,
+     1.0
+    ],
+    [
+     "site/hobo_bag_colour_blue.jpg",
+     0,
+     1.0,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ]
+     }
+    ]
+   ],
+   "spare": [
+    [
+     "1audN6qYuCaN5d8O42kyq9HQKU7OUprGH",
+     13.91,
+     1.0
+    ],
+    [
+     "1v8gKfP9ZYsuh7w5yBwlInmv_-U-pY2x_",
+     3.75,
+     1.0
+    ]
+   ]
+  }
+ ],
+ "overlays": [
+  {
+   "type": "label",
+   "text": "NO BLACK HOLE",
+   "block": 0,
+   "at": 0.1,
+   "dur": 1.8
+  },
+  {
+   "type": "tag",
+   "text": "SMART COMPARTMENTS",
+   "block": 1,
+   "at": 0.15,
+   "dur": 2.6
+  },
+  {
+   "type": "tag",
+   "text": "GOLD SIDE ZIPS",
+   "block": 2,
+   "at": 0.15,
+   "dur": 2.6
+  },
+  {
+   "type": "tag",
+   "text": "HIDDEN BACK POCKET",
+   "block": 3,
+   "at": 0.15,
+   "dur": 2.6
+  },
+  {
+   "type": "tag",
+   "text": "FREE POUCH WALLET",
+   "block": 4,
+   "at": 0.15,
+   "dur": 2.6
+  },
+  {
+   "type": "tag",
+   "text": "3 WAYS TO WEAR",
+   "block": 5,
+   "at": 0.15,
+   "dur": 2.6
+  },
+  {
+   "type": "tag",
+   "text": "SOFT LEATHER",
+   "block": 6,
+   "at": 0.15,
+   "dur": 2.6
+  }
+ ],
+ "end_title": "The Luxury Hobo Bag",
+ "offer": {
+  "block": 8,
+  "word": "50",
+  "title": "BLACK FRIDAY 50% OFF",
+  "sub": "+ FREE MATCHING WALLET"
+ },
+ "end_photo": "site/hobo_bag_colour_burgundy.jpg",
+ "end_offer": "BLACK FRIDAY 50% OFF",
+ "keywords": [
+  "50%",
+  "free",
+  "pouch",
+  "wallet",
+  "hidden",
+  "pocket",
+  "leather",
+  "black",
+  "friday",
+  "compartments",
+  "gold",
+  "keys",
+  "passport",
+  "shoulder",
+  "crossbody",
+  "soft",
+  "warranty",
+  "returns",
+  "fifty"
+ ],
+ "spare_broll": [
+  [
+   "1f_9Fjvv6B2cnF8Z0lFf__xn_RJEvpLQ0",
+   0.75,
+   1.0
+  ],
+  [
+   "1n_n64uSzJxegasRwW_1cRTo1dYNuzy3G",
+   0.94,
+   1.0
+  ],
+  [
+   "1UcPs3RM-Iwrzd5rgOIA6Wxii0i3R3xqL",
+   5.23,
+   1.0
+  ],
+  [
+   "1viEJyIzgtQXsEU3C2n3cpY7NUNr6Hrqy",
+   0.59,
+   1.0
+  ],
+  [
+   "1Ud2dhrP5f_E0z2WRMS7yxXJmhTda91-t",
+   2.61,
+   1.0
+  ],
+  [
+   "1YhwNw7JcsdFLXmpOvCeTDELVraU3Uicm",
+   0.3,
+   1.0
+  ]
+ ],
+ "music": {
+  "seed": 23
+ }
+}
