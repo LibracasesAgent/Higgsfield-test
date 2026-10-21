@@ -612,6 +612,9 @@ allowed avatars when a story needs them. `pipeline/presenter.py`, `data/presente
   ends the clip right after her last word; under 0.08 s = cut off, under 0.3 s a note only), faces on three frames, no black frame, and the
   compliance check on words she ADDED (the script itself was checked at plan). A bag that changes between frames or hands that melt are
   rejected by eye on `qa/presenter_takes.jpg`.
+- **Never `upload` while videos are rendering:** `upload` deletes the shared shot cache (`$OUT/_seg`), so the videos being rendered at that
+  moment fail with "Impossible to open .../_seg/....mp4" (B016: the statics upload killed P01H1 and P02H1; `render --only P01H1,P02H1`
+  after the pass redoes them). Upload the statics before the videos start, or wait for the render to finish.
 - **Overlays** sit at y = 960 (`overlay_y`) so a label / tag / offer pill never covers her face.
 - **The statics' face check can be wrong:** the DNN face check skipped two statics of B016 that show no face (the blurred hand and
   sunglasses of a footage frame; a navy leather chair with a painting). They stay out of Drive (`--include-flagged` is never used).
