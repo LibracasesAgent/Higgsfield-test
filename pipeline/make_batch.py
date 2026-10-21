@@ -135,6 +135,7 @@ QA_SECONDS = {"storyboard": (35, 95), "remix": (15, 110),    # a winner body is 
 FLOOR = {"storyboard": MIN_SECONDS, "remix": 15}                # ugc: the default storyboard format (owner 2026-10-14: 55-80 s)
 UGC_ANGLE = dict(n_things="things", demo="demo", stop_x="stop", travel="travel", value="value", day="day")   # ugc_script angle -> the name part
 REUSE = 7.0          # ugc shots: what showing one moment again costs against a better match (a strong feature match is worth 5-8)
+CLIP_ECON = 1.0        # ugc shots: a bonus for a clip the batch already uses (its other labelled moments cost no new 4K download)
 AI_SHOTS_MAX = 5      # AI clips in one ugc video (of ~30 shots): the real footage stays the base
 UGC_WPS = 2.75      # words per second of a voice take before the speed-up (ugc_script.VPS / storyboard.VOICE_SPEED)
 UGC_SPEED = 1.12    # storyboard.VOICE_SPEED: the voice takes are sped up this much
@@ -2415,6 +2416,7 @@ def plan(a):
     STILLS = (".jpg", ".jpeg", ".png", ".webp")
     ugc_voice, ugc_speed = voice_cfg()
     ugc_sc, ulib, dnote, dlong = [], [], {}, {}
+    batch_srcs = set()                 # the library clips the batch's videos use so far (a new 4K clip is a download: see CLIP_ECON)
     if a.videos and sheet is not None:      # the strategist's scripts (ideas.py): written for this batch, not the engine's templates
         import ideas
         ugc_sc = ideas.scripts(sheet, pr, a.hooks)[:a.videos]
@@ -2574,13 +2576,14 @@ def plan(a):
                 s = 3.0 * len(e["kw"] & terms) + 1.5 * len(e["kw"] & cterms) + (6.0 if feat and e["tag"] == feat and not (wants and sem < 0) else 0.0) \
                     + (4.0 if hook and e["hook"] else 0.0) + (2.5 * bool(e["kw"] & HOOK_MOVE) - 2.5 * ("hang" in e["kw"]) if hook else 0.0) - e["pen"] - 6.0 * (prev is not None and e["src"] == prev and not e["long"]) \
                     - 5.0 * recent.count(e["src"]) * (not e["long"]) - 0.01 * ((i * 7 + jit) % 13)
-                s += sem
+                s += sem + (CLIP_ECON if e["p"][0] == "drive" and e["src"] in batch_srcs else 0.0)
                 s -= REUSE * use.get(i, 0)                           # a moment shown again costs REUSE: a good match shown twice (the 2nd
                 if best is None or -s < best[0]:                    # time a closer framing) beats a shot that shows something else
                     best = (-s, i)
             if best is None:
                 return None
             use[best[1]] = use.get(best[1], 0) + 1
+            batch_srcs.add(lib[best[1]]["src"])
             ai_n[0] += lib[best[1]]["p"][0] == "ai"
             recent.append(lib[best[1]]["src"])
             return best[1], use[best[1]] - 1
@@ -3149,7 +3152,7 @@ def prefetch(out, videos):
     """Download every Drive / https source once, before parallel renders (two renders must not fetch the same file at
     once), with the same 600 MB rule the renders use (remix.loc), and transcribe clips that keep their own sound."""
     from remix import loc, words
-    seen = set()
+    seen, todo = set(), []
     for v in videos:
         s = json.load(open(os.path.join(out, v["name"] + ".json")))
         if v.get("engine") == "remix":
@@ -3163,11 +3166,16 @@ def prefetch(out, videos):
             if src in seen or not (DRIVE_ID.match(src) or src.startswith("http")) or os.path.exists(os.path.join(out, src)):
                 continue
             seen.add(src)
-            print(f"prefetch {src}", file=sys.stderr, flush=True)
-            loc(out, src)
+            todo.append(src)
         for blk in s.get("blocks", []):
             if "clip" in blk and not blk.get("mute"):
                 words(loc(out, blk["clip"]))
+
+    def one(src):
+        print(f"prefetch {src}", file=sys.stderr, flush=True)
+        loc(out, src)
+    with cf.ThreadPoolExecutor(3) as ex:          # (three clips at a time: a batch's ~80 4K clips are most of its wait)
+        list(ex.map(one, todo))
 
 
 HARD = ("render failed", "file missing", "face", "too short")       # QA problems that keep a file out of Drive
@@ -3264,15 +3272,34 @@ def render_one(out, v):
                 **({"scorecard": card} if card else {}))
 
 
-def video_faces(f, step=0.6):
-    """(frames with a face, first second) in a rendered video: a frame every `step` s through the DNN face check (new_product.count_faces).
-    The library footage is checked on 4 frames per clip when it is indexed; a shot may still catch someone passing: a soft flag."""
+def video_faces(f, step=0.6, min_score=0.88):
+    """(frames with a face, first second) in a rendered video: a frame every `step` s through the YuNet face detector at the frame's own
+    size (and mirrored), a hit only when it is sure (score >= min_score) and the face is no tiny blob: hands, zips and bag shapes fooled
+    the multi-scale statics check (new_product.count_faces) in 2 of 2 videos of B014 (the frames were looked at: no face). The library
+    footage is checked on 4 frames per clip when it is indexed; a shot may still catch someone passing: a soft flag."""
+    import cv2
     import new_product
     tmp = tempfile.mkdtemp(prefix="vfaces_")
     try:
-        subprocess.run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-i", f, "-vf", f"fps={1 / step:.3f},scale=480:-2", "-q:v", "4",
+        dnn, _ = new_product.detectors()
+        if dnn is None:
+            return None
+        subprocess.run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-i", f, "-vf", f"fps={1 / step:.3f},scale=540:-2", "-q:v", "3",
                         os.path.join(tmp, "%04d.jpg")], capture_output=True, timeout=300)
-        hits = [k for k, x in enumerate(sorted(os.listdir(tmp))) if new_product.count_faces(os.path.join(tmp, x), strict=False)]
+        hits = []
+        for k, x in enumerate(sorted(os.listdir(tmp))):
+            img = cv2.imread(os.path.join(tmp, x))
+            if img is None:
+                continue
+            h, w = img.shape[:2]
+            sure = 0
+            with new_product._FACE_LOCK:
+                dnn.setInputSize((w, h))
+                for im in (img, cv2.flip(img, 1)):
+                    det = dnn.detect(im)[1]
+                    sure += sum(1 for d in (det if det is not None else []) if float(d[-1]) >= min_score and min(d[2], d[3]) >= 0.05 * min(w, h))
+            if sure:
+                hits.append(k)
         return (len(hits), hits[0] * step) if hits else None
     except (subprocess.SubprocessError, OSError):
         return None
