@@ -441,7 +441,22 @@
    "hooks": 4,
    "seed": 3,
    "status": "planned"
+  },
+  {
+   "id": "B015",
+   "n": 15,
+   "rev": 1,
+   "date": "2026-10-21",
+   "product": "Hobo 2.0",
+   "theme": "BlackFriday",
+   "pipeline": "catalog",
+   "request": "Hobo 2.0 Black Friday: 2 projects with 8 statics (the tie-it-to-the-chair idea)",
+   "statics": 8,
+   "projects": 2,
+   "hooks": 4,
+   "seed": 2,
+   "status": "planned"
   }
  ],
- "next": 15
+ "next": 16
 }

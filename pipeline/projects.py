@@ -894,9 +894,21 @@ def expand(out, hooks=4, seed=1, only=None, budget=None, quiet=False):
                 #        feature hook on its own feature's footage; the body's first block is what the hook's seconds touch)
                 scenes = {b_["clip"] for b_ in blocks[1:] if b_.get("clip")}    # clips the body plays as scenes
                 hinted = {j for j, c in enumerate(picked) if c.get("feature") and any(x["tag"] == c["feature"] for x in shots)}
+                alt_sh = (ug or {}).get("alt_shots") or {}
+
+                def sheet_shots(c):      # the strategist's hook: the shots make_batch chose for what its line says (its `show` tags), those
+                    res_ = []            # that clash with nothing (H1's shot, another version's, block 1's scene, the body's first block)
+                    for x in alt_sh.get(c["text"]) or []:
+                        d = dict(src=x[0], start=x[1], still=str(x[0]).lower().endswith(STILL))
+                        if (orig and same_shot(d, orig[0], orig[1])) or any(same_shot(d, t[0], t[1]) for t in taken) \
+                                or (b1 and d["src"] == b1[0] and (d["still"] or abs(float(d["start"]) - float(b1[1] or 0)) < B1_SCENE)) \
+                                or any(same_shot(d, a, st) for a, st in body):
+                            continue
+                        res_.append(x)
+                    return res_
                 for j in sorted(range(len(picked)), key=lambda j: (j not in hinted, j)):   # feature hooks choose first
-                    got[j] = pick_shot(shots, picked[j], orig, b1, taken, body, kk + j, line_shots.get(norm(picked[j]["text"]), ()),
-                                       scenes, spares)
+                    got[j] = (sheet_shots(picked[j]) or [None])[0] or \
+                        pick_shot(shots, picked[j], orig, b1, taken, body, kk + j, line_shots.get(norm(picked[j]["text"]), ()), scenes, spares)
                     if got[j]:
                         taken.append(got[j][:2])
                 lost = [c["text"] for j, c in enumerate(picked) if not got[j]]
@@ -925,9 +937,11 @@ def expand(out, hooks=4, seed=1, only=None, budget=None, quiet=False):
                     s["blocks"][0] = dict(vo=f, broll=[shot], **({"pad": blocks[0].get("pad", 0.35)} if not ug or "pad" in blocks[0] else {}))
                     if ug:                    # ugc: a shot per phrase of the line as storyboard cuts it: the first shot opens, the
                         more = sum(m_ for _, m_ in mb().ugc_slots(text, spec.get("voice_speed") or mb().UGC_SPEED)) - 1  # rest are
+                        pool = [x_ for x_ in sheet_shots(c) if x_[:2] != shot[:2]]
                         for q in range(more):  # its own spare shots, a shot the body shows only when no other is left
-                            sp = pick_shot(shots, c, orig, b1, taken + [shot[:2]] + [x_[:2] for x_ in s["blocks"][0].get("spare", [])],
-                                           body, kk + j + 5 + q, line_shots.get(norm(c["text"]), ()), scenes, spares)
+                            sp = pool.pop(0) if pool else pick_shot(
+                                shots, c, orig, b1, taken + [shot[:2]] + [x_[:2] for x_ in s["blocks"][0].get("spare", [])],
+                                body, kk + j + 5 + q, line_shots.get(norm(c["text"]), ()), scenes, spares)
                             if sp:            # (the hook's own spares are the only ones it may use: storyboard plans it last)
                                 s["blocks"][0].setdefault("spare", []).append(sp)
                     elif say_secs(text) + 0.35 > MAX_SHOT - 0.7:   # a 2nd opening shot, used only if the voice runs > 4 s

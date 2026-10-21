@@ -559,6 +559,12 @@ scripts". The owner added: statics "look like they were made by some random thin
   shot of something else). The old failure: shots were picked by the client's folder words and a +6 feature bonus on curated clips, so a
   compilation clip of a woman with the bag (faces) was picked for every strap line. Clip-bank clips whose notes name a woman / customer /
   model are out of the ugc pool now (`has_person`).
+- **Hook openings (B014 lesson):** the first B014 render opened 12 of 16 videos on the same four curated "hook clips" (the café chair, the
+  woman on the porch ...), because pick_shot in `projects.expand` ranks the engine's `hook` clips first for H2-H4 and `choose` gave them +4. For
+  the strategist's batches `ugc_board` now picks each alt hook's opening (and its spare shots) itself from its `show` tags
+  (`ugc.alt_shots` in the plan, used by `projects.sheet_shots`), with `OPEN_REUSE` against a clip another hook of the batch opens on, and
+  `BATCH_REUSE` against a moment another video of the batch already shows. All 16 openers of B014 are different clips that show what the
+  hook says. A video body may still share a few moments with another project (7 of 45 clips in all four); the sheet's `show` tags decide.
 - **No review chapters / cards** in ugc videos (`ugc_script.REVIEWS = False`); the proof chapter is a recap, the objection a fact
   (warranty, returns). Statics keep one verbatim review.
 - **End card** (`longform.end_png`): the old one was a grey band over whatever the last photo was (the site's detail collage!) in Meta's

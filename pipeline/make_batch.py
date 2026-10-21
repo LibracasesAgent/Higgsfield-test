@@ -134,6 +134,8 @@ QA_SECONDS = {"storyboard": (35, 95), "remix": (15, 110),    # a winner body is 
               "ugc": (55, 85)}                                # the classic 1.5-2 min storytelling format (Julian, 2026-10-09);
 FLOOR = {"storyboard": MIN_SECONDS, "remix": 15}                # ugc: the default storyboard format (owner 2026-10-14: 55-80 s)
 UGC_ANGLE = dict(n_things="things", demo="demo", stop_x="stop", travel="travel", value="value", day="day")   # ugc_script angle -> the name part
+BATCH_REUSE = 2.5                # ugc shots: cost of a moment another video of the batch already shows (the projects must not look alike)
+OPEN_REUSE = 5.0                 # cost (per earlier hook version of the batch) of opening on a clip another hook already opens on
 REUSE = 7.0          # ugc shots: what showing one moment again costs against a better match (a strong feature match is worth 5-8)
 CLIP_ECON = 1.0        # ugc shots: a bonus for a clip the batch already uses (its other labelled moments cost no new 4K download)
 AI_SHOTS_MAX = 5      # AI clips in one ugc video (of ~30 shots): the real footage stays the base
@@ -2417,6 +2419,8 @@ def plan(a):
     ugc_voice, ugc_speed = voice_cfg()
     ugc_sc, ulib, dnote, dlong = [], [], {}, {}
     batch_srcs = set()                 # the library clips the batch's videos use so far (a new 4K clip is a download: see CLIP_ECON)
+    batch_uses = {}                    # (source, 2.5 s slot) -> how many videos of this batch already show that moment (BATCH_REUSE)
+    open_used = {}                     # source -> how many hook versions of this batch open on it (an opening is rarely shown twice: OPEN_REUSE)
     if a.videos and sheet is not None:      # the strategist's scripts (ideas.py): written for this batch, not the engine's templates
         import ideas
         ugc_sc = ideas.scripts(sheet, pr, a.hooks)[:a.videos]
@@ -2476,7 +2480,8 @@ def plan(a):
                 kws = note_kw(p) | set(extra) if own_kw is None else own_kw
                 # tags: what the shot SHOWS (shotmatch): a labelled library moment's own, else read from its notes / feature words
                 tg = set(tags) if tags is not None else shotmatch.tags_of_text(" ".join(sorted(kws | ({tag.lower()} if tag else set()))))
-                ulib.append(dict(p=list(p), kw=kws, tag=tag, kind=kind, src=str(x[0]), pen=pen, only=set(only),
+                ulib.append(dict(p=list(p), kw=kws, tag=tag, kind=kind, src=str(x[0]), st=float(x[1] or 0) if isinstance(x[1], (int, float)) else 0.0,
+                                 pen=pen, only=set(only),
                                  hook=hook, long=kind == "photo" or long_clip(p), once=pkind.get(pnum.get(f_)) == "other",
                                  tags=tg, q=q))
         for line_, tag_, ps_ in fs:
@@ -2565,7 +2570,7 @@ def plan(a):
             ids_ = sorted(ai_mine)
             ai_mine = {ids_[(v * 3 + j_) % len(ids_)] for j_ in range(4)}
 
-        def choose(terms, cterms, feat, prev, use, kinds=None, hook=False, wants=None):
+        def choose(terms, cterms, feat, prev, use, kinds=None, hook=False, wants=None, opening=False):
             best = None
             for i, e in enumerate(lib):
                 if e["p"][0] == "ai" and (ai_n[0] >= AI_SHOTS_MAX or e["p"][1] not in ai_mine):   # (mostly the real footage)
@@ -2574,9 +2579,12 @@ def plan(a):
                     continue
                 sem = shotmatch.score(e.get("tags"), wants, e.get("q", "good")) if (wants or e.get("q") == "weak") and e["p"][0] != "photo" else 0.0
                 s = 3.0 * len(e["kw"] & terms) + 1.5 * len(e["kw"] & cterms) + (6.0 if feat and e["tag"] == feat and not (wants and sem < 0) else 0.0) \
-                    + (4.0 if hook and e["hook"] else 0.0) + (2.5 * bool(e["kw"] & HOOK_MOVE) - 2.5 * ("hang" in e["kw"]) if hook else 0.0) - e["pen"] - 6.0 * (prev is not None and e["src"] == prev and not e["long"]) \
+                    + (4.0 if hook and e["hook"] and not sc.get("from_sheet") else 0.0) + (2.5 * bool(e["kw"] & HOOK_MOVE) - 2.5 * ("hang" in e["kw"]) if hook else 0.0) - e["pen"] - 6.0 * (prev is not None and e["src"] == prev and not e["long"]) \
                     - 5.0 * recent.count(e["src"]) * (not e["long"]) - 0.01 * ((i * 7 + jit) % 13)
                 s += sem + (CLIP_ECON if e["p"][0] == "drive" and e["src"] in batch_srcs else 0.0)
+                s -= OPEN_REUSE * open_used.get(e["src"], 0) * opening
+                if e["kind"] != "photo":
+                    s -= BATCH_REUSE * batch_uses.get((e["src"], int(e.get("st", 0.0) // 2.5)), 0)
                 s -= REUSE * use.get(i, 0)                           # a moment shown again costs REUSE: a good match shown twice (the 2nd
                 if best is None or -s < best[0]:                    # time a closer framing) beats a shot that shows something else
                     best = (-s, i)
@@ -2584,6 +2592,8 @@ def plan(a):
                 return None
             use[best[1]] = use.get(best[1], 0) + 1
             batch_srcs.add(lib[best[1]]["src"])
+            if opening:
+                open_used[lib[best[1]]["src"]] = open_used.get(lib[best[1]]["src"], 0) + 1
             ai_n[0] += lib[best[1]]["p"][0] == "ai"
             recent.append(lib[best[1]]["src"])
             return best[1], use[best[1]] - 1
@@ -2618,7 +2628,7 @@ def plan(a):
             for j, (st_, _) in enumerate(() if colour else slots[k_]):
                 last_slot = ch is not None and ch is chs[-1] and j == len(slots[k_]) - 1
                 c_ = choose({"packshot", "hero"}, {"hero"}, None, prev, uses, {"photo"}) if last_slot and packs else None
-                c_ = c_ or choose(kw_terms(st_), ct, feat, prev, uses, hook=ch is None,
+                c_ = c_ or choose(kw_terms(st_), ct, feat, prev, uses, hook=ch is None, opening=ch is None and j == 0,
                                   wants=shotmatch.wants(st_, (ch or {}).get("tag") or hk.get("feature"), (ch or hk).get("show") or ()))
                 x_ = framed(*c_) if c_ else None
                 if x_:
@@ -2628,6 +2638,10 @@ def plan(a):
                     prev = str(x_[0])
             main[k_] = ps
             nsl += len(ps)
+            for x_ in ps:          # (shown now: the batch's next videos pay BATCH_REUSE for the same moment)
+                if x_ and not str(x_[0]).lower().endswith(STILLS) and isinstance(x_[1], (int, float)):
+                    k2_ = (str(x_[0]), int(float(x_[1]) // 2.5))
+                    batch_uses[k2_] = batch_uses.get(k2_, 0) + 1
         spuse, spares = dict(uses), {}
         recent.clear()
         for k_, t_ in texts:          # the spares: shots no block shows (a long phrase is split onto them), the block's own kind
@@ -2645,6 +2659,20 @@ def plan(a):
                     sp.append(x_)
             spares[k_] = sp
         gen = [framed(*c_) for c_ in (choose(cterms["hook"], cterms["hook"], None, None, spuse) for _ in range(6)) if c_]
+        alt_shots = {}
+        if sc.get("from_sheet"):       # the strategist's hooks H2-H4: each opens on a shot of what its own line says (its `show` tags), a clip
+            for h_ in alts:            # no other hook of the batch opens on (the engine's curated hook clips would open every project alike)
+                t_ = h_["text"]
+                n_ = max(1, sum(m_ for _, m_ in ugc_slots(t_, ugc_speed, UGC_HOOK_PAD)))
+                w_ = shotmatch.wants(t_, h_.get("feature"), h_.get("show") or ())
+                recent.clear()
+                got_ = []
+                for q_ in range(n_):
+                    c_ = choose(kw_terms(t_), cterms["hook"], h_.get("feature"), None, spuse, hook=True, wants=w_, opening=q_ == 0)
+                    x_ = framed(*c_) if c_ else None
+                    if x_ and not any(x_[0] == y[0] and x_[1] == y[1] for y in got_):
+                        got_.append(x_)
+                alt_shots[t_] = got_
         if any(not main[k_] for k_, _ in texts):
             sys.exit(f"{pr['name']}: no footage or photo to show under the voiceover (product has no clips, no clean "
                      f"photos and no site page). Add clips/photos to its Drive folder and re-run the intake.")
@@ -2672,7 +2700,8 @@ def plan(a):
         name = f"{prefix}_{vid}_{UGC_ANGLE.get(sc['angle']) or re.sub(r'[^A-Za-z0-9]', '', sc['angle'])[:14]}"
         return name, spec, dict(name=name, id=vid, format="ugc", engine="storyboard", hook=hook,
                                 ugc=dict(script=sc["id"], angle=sc["angle"], words=sc["words"], hook=dict(type=hk["type"], label=hk["label"],
-                                         feature=hk.get("feature")), alt_hooks=alts, numbers=sc["numbers"]))
+                                         feature=hk.get("feature")), alt_hooks=alts, numbers=sc["numbers"],
+                                         **({"alt_shots": alt_shots} if alt_shots else {})))
 
     seen_v, seen_sc, nsb, per_fmt = {}, set(), 0, {}
 
