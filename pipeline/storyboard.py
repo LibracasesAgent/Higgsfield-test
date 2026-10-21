@@ -20,6 +20,7 @@ board.json (paths relative to the JSON):
   "offer": {"block": 4, "word": "50", "title": "50% OFF", "sub": "+ FREE MATCHING WALLET"},
                                                      # offer card at that word ("fifty" also matches); "" sub: title only
   "end_title": "The Vintage Bag", "end_sub": "Tap the link below", "keywords": [...], "no_captions_blocks": [3],
+  "end_photo": "site/vintage_bag_08.jpg", "end_offer": "BLACK FRIDAY 50% OFF",   # the closing studio card's packshot and offer pill (both optional)
   "caption_top_blocks": [2],                         # captions in the upper area during these blocks (product detail low)
   "spare_broll": [[src, start], ...],                # unused shots: a VO shot that would run > 4 s is split onto them
   "music": {"seed": 3},                              # music bed (music.py: a client track, else a generated bed); false: none
@@ -607,8 +608,9 @@ def build(b, d, info=None):
         else:
             ov.append(dict(type="offer", title=title, sub=sub, at=round(at - 0.2, 2), dur=3.2, y=420) if sub else
                       dict(type="label", text=title, at=round(at - 0.2, 2), dur=3.2, y=470))
+    ep = os.path.join(d, b["end_photo"]) if b.get("end_photo") else None
     ov.append(dict(type="end", title=b.get("end_title", "The Luxury Hobo Bag"), sub=b.get("end_sub", "Tap the link below"),
-                   at=round(t - 2.6, 2), dur=2.6))
+                   at=round(t - 2.6, 2), dur=2.6, **({"photo": ep, "offer": b.get("end_offer") or ""} if ep and os.path.exists(ep) else {})))
     nocap = [[round(spans[k][0], 2), round(spans[k][0] + spans[k][1], 2)] for k in b.get("no_captions_blocks", [])]
     return segs, audio, ov, t, nocap, [round(x[0], 2) for x in spans[1:]]
 

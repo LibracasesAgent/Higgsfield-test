@@ -12,6 +12,8 @@ for faces (YuNet), sharpness and brightness, and tags the clip from the folder /
   python3 pipeline/footage_index.py merge                  # passing clips -> pipeline/data/clip_index.json
   python3 pipeline/footage_index.py sheets --product "Hobo Bag" --n 40 --out DIR   # contact sheets to look at (a sample)
   python3 pipeline/footage_index.py stats                  # what the scan found
+  python3 pipeline/footage_index.py label-sheets --out DIR # contact sheets of the usable clips with no `moments` yet (+ the guide for
+                                                           #   labelling agents), then: label-merge --dir DIR  (tags of each frame)
 """
 import argparse
 import concurrent.futures as cf
@@ -425,6 +427,126 @@ def frame_bank(product, n, out_dir, avoid=(), seed=1, workers=4):
     return out[:n]
 
 
+# ------------------------------------------------------------------ what each frame SHOWS (so a script's words get matching footage)
+# Julian 2026-10-21: "the b-roll must match what the script says" (a line about the snap close showed the strap). A model (an agent that
+# looks at contact sheets) labels the 4 analysis frames of every usable clip with tags from a fixed vocabulary; merge writes them into
+# clip_index.json as `moments` [{t, tags, q, desc}] and shotmatch.py scores a script's phrase against them.
+LABEL_GUIDE = r"""# Labelling the Libra Cases clip frames (what does each frame SHOW?)
+
+Contact sheets: $S/sheets/<name>.jpg (p### portrait clips: 4 clips per sheet; l### landscape: 5 per sheet). Each row = one clip (key like c052,
+product, the client's folder words, length) and its 4 frames c052.0 ... c052.3 (12%, 37%, 62%, 87% of the clip). The bags are Libra Cases handbags
+(Hobo Bag, Hobo 2.0 with gold side zips, Vintage Bag with a clasp, Slouchy). Faces were already screened out, but check again.
+
+For EVERY frame give tags, a quality and a short plain description. Tags describe only what is clearly visible in that frame (never guess).
+Tags (use these words exactly, as many as truly apply):
+  snap      a snap / clasp / magnetic closure / buckle-lock on the bag is visible and the subject, or a hand fastening / opening it
+  zip       a zipper of the bag is visible and in focus          zip_hand  a hand is opening / closing / pulling a zip
+  side_zip  the long gold zips on the bag's sides / ends          lock      a lock, padlock or lockable zipper pull / security hardware
+  pocket    an outer or back pocket of the bag, or a hand sliding something into it
+  inside    the inside of an open bag (lining, compartments, organiser, contents)
+  packing   items going in / out of the bag (phone, wallet, keys, lipstick, bottle, tablet, book, sunglasses)
+  strap     the strap is the subject (adjusting, buckle / ring hardware, strap across the body, strap on a shoulder)
+  tie       a strap looped / tied round a chair, table leg or hook to secure the bag
+  worn      the bag worn on a shoulder / arm / crossbody by a person (no face)      walking  the person is walking with it
+  handheld  held in a hand by the handle / strap, lifted, shown to the camera
+  placed    the bag sits or hangs on a chair, table, sofa, floor, hook, nobody touching it
+  hero      the whole bag clear and centred like a product shot (any place)
+  leather   close-up of leather grain, stitching, gold hardware, tassel, logo
+  pouch     the small pouch wallet shown          colours  more than one bag colour in the view
+  place words when evident: cafe street stairs home office car shop outdoor door crowd
+q: "good" = sharp, the bag clear, a usable shot in a vertical ad;  "weak" = blurry, dark, bag cut off, a hand or arm hides it, shaky;
+   "bad" = a face / eyes / mouth visible, no bag at all, packaging or text overlay, a different product.
+desc: at most 12 plain words of what the picture shows ("hand opens the black bag's gold side zip", "bag hanging on cafe chair back").
+
+Output: one JSON object per clip, one line each, appended to YOUR jsonl file (path given to you):
+{"key":"c052","frames":[{"k":0,"tags":["worn","strap","cafe"],"q":"good","desc":"black bag on shoulder in cafe, hand on strap"}, {"k":1,...}, {"k":2,...}, {"k":3,...}]}
+All 4 frames of a clip, even if they look alike (a 3 s clip's frames often do). Do not skip any clip on your sheets.
+"""
+TAGS = ("snap zip zip_hand side_zip lock pocket inside packing strap tie worn walking handheld placed hero leather pouch colours "
+        "cafe street stairs home office car shop outdoor door crowd").split()
+
+
+def label_rows(redo=False):
+    """The usable clips of the four bags that have frames in the scan cache and (unless redo) no `moments` yet."""
+    rows = json.load(open(INDEX))
+    return [r for r in rows if r.get("usable") == "yes" and r.get("product") != "2in1 Backpack" and (redo or not r.get("moments"))
+            and os.path.exists(os.path.join(OUTDIR, "frames", f"{r['id']}_0.jpg"))]
+
+
+def cmd_label_sheets(a):
+    """Contact sheets (portrait clips 4 a sheet, landscape 5) + manifest.json + README.md in a.out: one row a clip (key, folder words,
+    its 4 frames). Hand the sheets to labelling agents with README.md (their output: one jsonl line a clip, see the guide), then
+    `label-merge`."""
+    from PIL import Image, ImageDraw, ImageFont
+    rows = sorted(label_rows(a.redo), key=lambda r: (r["product"], r["path"]))
+    os.makedirs(os.path.join(a.out, "sheets"), exist_ok=True)
+    os.makedirs(os.path.join(a.out, "out"), exist_ok=True)
+    fb = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", 15)
+    fr = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 12)
+    for i, r in enumerate(rows, 1):
+        r["key"] = f"c{i:03d}"
+
+    def build(group, name, cw, ch):
+        h = 22 + ch
+        im = Image.new("RGB", (cw * 4 + 6, h * len(group)), (30, 30, 30))
+        d = ImageDraw.Draw(im)
+        for j, r in enumerate(group):
+            y = j * h
+            d.text((4, y + 3), f"{r['key']}  {r['product']} | {r['path'].split('/', 1)[-1][:60]} | {r['duration']:.0f}s", fill=(255, 255, 0), font=fr)
+            for k in range(FRAMES):
+                p = os.path.join(OUTDIR, "frames", f"{r['id']}_{k}.jpg")
+                if os.path.exists(p):
+                    x = Image.open(p).convert("RGB")
+                    x.thumbnail((cw, ch))
+                    im.paste(x, (k * (cw + 2), y + 22))
+                    d.text((k * (cw + 2) + 3, y + 24), f"{r['key']}.{k}", fill=(255, 255, 255), font=fb)
+        im.save(os.path.join(a.out, "sheets", f"{name}.jpg"), quality=82)
+    port = [r for r in rows if r["width"] <= r["height"]]
+    land = [r for r in rows if r["width"] > r["height"]]
+    man = []
+    for i in range(0, len(port), 4):
+        build(port[i:i + 4], f"p{i // 4 + 1:03d}", 200, 356)
+        man.append(dict(sheet=f"p{i // 4 + 1:03d}", keys=[r["key"] for r in port[i:i + 4]]))
+    for i in range(0, len(land), 5):
+        build(land[i:i + 5], f"l{i // 5 + 1:03d}", 356, 200)
+        man.append(dict(sheet=f"l{i // 5 + 1:03d}", keys=[r["key"] for r in land[i:i + 5]]))
+    json.dump(dict(sheets=man, clips={r["key"]: dict(id=r["id"], product=r["product"], path=r["path"], duration=r["duration"]) for r in rows}),
+              open(os.path.join(a.out, "manifest.json"), "w"))
+    open(os.path.join(a.out, "README.md"), "w").write(LABEL_GUIDE.replace("$S", a.out))
+    print(f"{len(rows)} clips on {len(man)} sheets in {a.out}/sheets (hand them to labelling agents with {a.out}/README.md; their jsonl goes in {a.out}/out/)")
+
+
+def cmd_label_merge(a):
+    """<dir>/out/*.jsonl + <dir>/manifest.json -> `moments` in clip_index.json: t = the frame's time (12.5 / 37.5 / 62.5 / 87.5 % of the
+    clip), tags (the vocabulary only), q (good / weak / bad), desc."""
+    man = json.load(open(os.path.join(a.dir, "manifest.json")))["clips"]
+    got = {}
+    for f in sorted(os.listdir(os.path.join(a.dir, "out"))):
+        if f.endswith(".jsonl"):
+            for ln in open(os.path.join(a.dir, "out", f)):
+                if ln.strip():
+                    try:
+                        r = json.loads(ln)
+                        got[r["key"]] = r["frames"]
+                    except (ValueError, KeyError):
+                        print("skipped a line of", f)
+    rows = json.load(open(INDEX))
+    by_id = {r["id"]: r for r in rows}
+    n = 0
+    for key, frames in got.items():
+        c = man.get(key)
+        r = by_id.get(c["id"]) if c else None
+        if not r:
+            continue
+        dur = float(r["duration"])
+        r["moments"] = [dict(t=round(dur * (int(f["k"]) + 0.5) / FRAMES, 2), tags=sorted({t for t in f.get("tags") or [] if t in TAGS}),
+                             q=f.get("q") if f.get("q") in ("good", "weak", "bad") else "weak", desc=str(f.get("desc") or "")[:100])
+                        for f in sorted(frames, key=lambda f: int(f["k"]))]
+        n += 1
+    json.dump(rows, open(INDEX, "w"), indent=1, ensure_ascii=False)
+    print(f"{n} clips labelled in {INDEX}")
+
+
 def main():
     ap = argparse.ArgumentParser()
     sub = ap.add_subparsers(dest="cmd", required=True)
@@ -439,8 +561,14 @@ def main():
     sh.add_argument("--product", required=True)
     sh.add_argument("--n", type=int, default=36)
     sh.add_argument("--out", required=True)
+    ls = sub.add_parser("label-sheets")
+    ls.add_argument("--out", required=True)
+    ls.add_argument("--redo", action="store_true", help="every usable clip, not only those without moments")
+    lm = sub.add_parser("label-merge")
+    lm.add_argument("--dir", required=True)
     a = ap.parse_args()
-    {"select": cmd_select, "scan": cmd_scan, "merge": cmd_merge, "stats": cmd_stats, "sheets": cmd_sheets}[a.cmd](a)
+    {"select": cmd_select, "scan": cmd_scan, "merge": cmd_merge, "stats": cmd_stats, "sheets": cmd_sheets,
+     "label-sheets": cmd_label_sheets, "label-merge": cmd_label_merge}[a.cmd](a)
 
 
 if __name__ == "__main__":

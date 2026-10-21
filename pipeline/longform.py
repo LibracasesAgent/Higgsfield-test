@@ -699,21 +699,33 @@ def offer_png(path, o):
 
 
 def end_png(path, o):
-    im = Image.new("RGBA", (W, H), (0, 0, 0, 0))
+    """The closing card, a full opaque frame (Julian 2026-10-21: the grey band over a product-page collage "looks off"): with a
+    studio packshot (`photo`, an absolute path) it is the studio static in 9:16: the real bag large on a calm tinted backdrop, the
+    wordmark, the product's name, the offer pill (`offer`, when there is one) and a button; without one a plain espresso card with the
+    name and the button. Everything sits between Meta's top header (260 px) and the Reels caption / button zone (the lowest 380 px)."""
+    t, s = o.get("title", "The Hobo Bag"), o.get("sub", "Tap the link below")
+    ph = o.get("photo")
+    if ph and os.path.exists(ph):
+        try:
+            import brand_statics as bs
+            c = bs.l_studio(dict(size=[W, H], photo=os.path.basename(ph), caption=t, badge=o.get("offer") or "", cta=s, top=260, bottom=400,
+                                 hsize=76), os.path.dirname(ph))
+            c.convert("RGBA").save(path)
+            return
+        except Exception as e:  # noqa: BLE001  (a card must always be made: the plain one below)
+            print(f"end card: studio card skipped ({type(e).__name__}: {e})", file=sys.stderr)
+    im = Image.new("RGBA", (W, H), (28, 22, 19, 255))
     d = ImageDraw.Draw(im)
     ft, fs = font("CormorantGaramond.ttf", 120, "SemiBold"), font("Montserrat.ttf", 54, "ExtraBold")
-    y = o.get("y", 1180)
-    t, s = o.get("title", "The Hobo Bag"), o.get("sub", "Tap the link below")
-    d.rectangle([0, y - 60, W, y + 330], fill=(18, 14, 12, 255 if o.get("opaque") else 200))   # opaque: hides burned captions
     size = 120
-    while d.textlength(t, font=ft, **FEAT) > W - 100 and size > 60:   # shrink long titles to fit
+    while d.textlength(t, font=ft, **FEAT) > W - 140 and size > 60:
         size -= 6
         ft = font("CormorantGaramond.ttf", size, "SemiBold")
     tw = d.textlength(t, font=ft, **FEAT)
-    d.text(((W - tw) / 2, y - 20), t, font=ft, fill=(250, 244, 236, 255), **FEAT)
+    d.text(((W - tw) / 2, 640), t, font=ft, fill=(250, 244, 236, 255), **FEAT)
     sw = d.textlength(s, font=fs)
-    d.rounded_rectangle([(W - sw) / 2 - 44, y + 170, (W + sw) / 2 + 44, y + 270], radius=50, fill=RED + (255,))
-    d.text(((W - sw) / 2, y + 186), s, font=fs, fill=(255, 255, 255, 255))
+    d.rounded_rectangle([(W - sw) / 2 - 44, 880, (W + sw) / 2 + 44, 980], radius=50, fill=RED + (255,))
+    d.text(((W - sw) / 2, 896), s, font=fs, fill=(255, 255, 255, 255))
     im.save(path)
 
 

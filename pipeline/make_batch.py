@@ -120,6 +120,7 @@ ROOT = os.path.dirname(HERE)
 sys.path.insert(0, HERE)
 import ai_gen  # noqa: E402  (AI scene stills / clips, owner 2026-10-20)
 import novelty  # noqa: E402
+import shotmatch  # noqa: E402  (what a phrase asks the picture for, what a labelled moment shows: Julian 2026-10-21)
 
 BRAND_VOICE = {"voice_type": "element", "voice_id": "241459b6-b4e8-4a2a-9868-da8bcdcd0558"}
 NARRATOR = {"voice_type": "preset", "voice_id": "64cf4f1a-61c8-5938-9aea-83d12b2e1d13"}
@@ -133,6 +134,7 @@ QA_SECONDS = {"storyboard": (35, 95), "remix": (15, 110),    # a winner body is 
               "ugc": (55, 85)}                                # the classic 1.5-2 min storytelling format (Julian, 2026-10-09);
 FLOOR = {"storyboard": MIN_SECONDS, "remix": 15}                # ugc: the default storyboard format (owner 2026-10-14: 55-80 s)
 UGC_ANGLE = dict(n_things="things", demo="demo", stop_x="stop", travel="travel", value="value", day="day")   # ugc_script angle -> the name part
+REUSE = 7.0          # ugc shots: what showing one moment again costs against a better match (a strong feature match is worth 5-8)
 AI_SHOTS_MAX = 5      # AI clips in one ugc video (of ~30 shots): the real footage stays the base
 UGC_WPS = 2.75      # words per second of a voice take before the speed-up (ugc_script.VPS / storyboard.VOICE_SPEED)
 UGC_SPEED = 1.12    # storyboard.VOICE_SPEED: the voice takes are sped up this much
@@ -972,17 +974,27 @@ INDEX_PRODUCT = {"hobo bag": "Hobo Bag", "hobo 2.0": "Hobo 2.0", "slouchy": "Slo
 def index_clips(pk, taken=()):
     """The client's library footage of a built-in bag that clip_bank.json does not hold, for the ugc videos' shot pool: clips of
     pipeline/data/clip_index.json marked usable, no face, no on-screen text, at least 720p and 2.5 s, not a winner's RAW. ->
-    [(Drive id, duration s, note + folder words)]. `taken`: Drive ids to leave out (the ones the bank has)."""
+    [(Drive id, duration s, note + folder words, moments)]; moments = what each labelled frame shows ([{t, tags, q, desc}], footage_index
+    label-merge; [] for a clip nobody labelled yet). `taken`: Drive ids to leave out (the ones the bank has)."""
     name = INDEX_PRODUCT.get(pk)
     try:
         rows = json.load(open(os.path.join(HERE, "data", "clip_index.json")))
     except (OSError, ValueError):
         return []
-    return [(r["id"], float(r["duration"]), f"{r.get('note') or ''} {r.get('path') or ''}") for r in rows
+    return [(r["id"], float(r["duration"]), f"{r.get('note') or ''} {r.get('path') or ''}", r.get("moments") or []) for r in rows
             if name and r.get("product") == name and r.get("usable") == "yes" and r.get("faces") == "none"
             and r.get("text") in (None, "", "none") and r["id"] not in taken and DRIVE_ID.match(str(r["id"]))
             and min(int(r.get("width") or 0), int(r.get("height") or 0)) >= 720 and float(r.get("duration") or 0) >= 2.5
             and not re.search(r"\bRAW\b|Concept \d|Creative Delivery", r.get("path") or "")]
+
+
+def is_collage(path):
+    """A product-page collage (detail circles round a small bag): brand_statics.collage; never a packshot or a closing shot."""
+    import brand_statics
+    try:
+        return brand_statics.collage(brand_statics.load(os.path.dirname(path), os.path.basename(path)))
+    except Exception:  # noqa: BLE001
+        return False
 
 
 def safe_name(s):
@@ -1226,6 +1238,8 @@ def plan(a):
                 if f in site_imgs[:1]:
                     return None       # image 00: sale badges
                 u = site_assets.unbadged(f, os.path.join(site, "clean"))
+                if u and is_collage(u):
+                    return None       # a product-page collage of detail circles: never a packshot, a closing shot or a hero
                 return u if u and (sc.get(f, 0) if u == f else site_assets.clean_score(u)) >= lo else None
             colour_imgs, painted = [], set()
             for n_, f_ in facts["colours"].items():   # every site colour gets its swatch: a packshot with a sale badge
@@ -1555,14 +1569,16 @@ def plan(a):
                 continue
             if native:
                 if f_ not in studio:
-                    studio[f_] = bs.studio_white(bs.load(os.path.dirname(f_), os.path.basename(f_)))
+                    im_ = bs.load(os.path.dirname(f_), os.path.basename(f_))
+                    studio[f_] = bs.studio_white(im_) and not bs.collage(im_)         # (the site's detail collage is no packshot)
                 if studio[f_]:
                     continue
             return k_
         return None
     def studio_pack(f_):               # a packshot on a white studio backdrop (the studio layout needs one)
         if f_ not in studio:
-            studio[f_] = bs.studio_white(bs.load(os.path.dirname(f_), os.path.basename(f_)))
+            im_ = bs.load(os.path.dirname(f_), os.path.basename(f_))
+            studio[f_] = bs.studio_white(im_) and not bs.collage(im_)
         return studio[f_]
     cards = {rel(f) for f in s_packs if bs.textured(f)}     # light textured backdrop: a framed card, never a grey box
     ptag = {rel(f): x[1] for x in reversed(pr["features"]) for p in x[2] if p and p[0] == "photo" and isinstance(p[1], str)
@@ -2372,14 +2388,18 @@ def plan(a):
                 return float(c.get("dur") or 0) >= 60
             return float(((b.get(p[0]) or {}).get(p[1]) or {}).get("dur") or 0) >= 60
 
-        def add(p, extra=(), tag=None, kind="clip", pen=0.0, only=(), hook=False):
+        def add(p, extra=(), tag=None, kind="clip", pen=0.0, only=(), hook=False, tags=None, q="good", own_kw=None):
             if not p or unfit(p) or any(near(p, e["p"]) for e in ulib):
                 return
             x = pick(p)
             if x:                   # once: a photo of kind 'other' (a product page's diagram with its words) is shown whole, one time
                 f_ = photo_file(p) if p[0] == "photo" else None
-                ulib.append(dict(p=list(p), kw=note_kw(p) | set(extra), tag=tag, kind=kind, src=str(x[0]), pen=pen, only=set(only),
-                                 hook=hook, long=kind == "photo" or long_clip(p), once=pkind.get(pnum.get(f_)) == "other"))
+                kws = note_kw(p) | set(extra) if own_kw is None else own_kw
+                # tags: what the shot SHOWS (shotmatch): a labelled library moment's own, else read from its notes / feature words
+                tg = set(tags) if tags is not None else shotmatch.tags_of_text(" ".join(sorted(kws | ({tag.lower()} if tag else set()))))
+                ulib.append(dict(p=list(p), kw=kws, tag=tag, kind=kind, src=str(x[0]), pen=pen, only=set(only),
+                                 hook=hook, long=kind == "photo" or long_clip(p), once=pkind.get(pnum.get(f_)) == "other",
+                                 tags=tg, q=q))
         for line_, tag_, ps_ in fs:
             fk = kw_terms(f"{line_} {tag_}")
             for p in ps_:
@@ -2407,13 +2427,21 @@ def plan(a):
         if pr["source"] == "built-in":
             taken = {e["id"] for d_ in b.values() if isinstance(d_, dict) for e in d_.values() if isinstance(e, dict) and e.get("id")}
             seen_ = set(novelty.recent(pr["name"], "clip_id", last=2))     # library clips the last 2 batches' videos showed: avoided
-            for id_, dur_, note_ in index_clips(pk, taken):
+            for id_, dur_, note_, mom_ in index_clips(pk, taken):
                 dnote[id_], dlong[id_] = note_, dur_ >= 60
+                pen_ = 0.5 + (2.0 if id_ in seen_ else 0.0)
+                if mom_:             # labelled (footage_index label-merge): one shot at each frame that shows the bag, that frame inside it
+                    for m_ in sorted((m for m in mom_ if m.get("q") != "bad"), key=lambda m: (m.get("q") != "good", m["t"])):
+                        add(["drive", id_, round(min(max(m_["t"] - 1.0, 0.3), max(dur_ - 2.6, 0.3)), 2)], (), None, "clip",
+                            pen_ + (0.0 if m_.get("q") == "good" else 0.5), tags=m_.get("tags") or [], q=m_.get("q") or "good",
+                            own_kw=kw_terms(m_.get("desc") or "") | shotmatch.fold(m_.get("tags") or ()))
+                    continue
                 for g in gen_moments(dur_, 5):
-                    add(["drive", id_, g], (), None, "clip", 0.5 + (2.0 if id_ in seen_ else 0.0))
+                    add(["drive", id_, g], (), None, "clip", pen_)
         for c_ in ai_plan["clips"]:    # planned AI clips (ai_gen.py): scenes the client never filmed (a cafe, the street), matched on
             ulib.append(dict(p=["ai", c_["id"], 0.0], kw=kw_terms(" ".join(c_["tags"])), tag=None, kind="clip",   # their scene words
-                             src=ai_gen.clip_file(out, c_["id"]), pen=0.0, only=set(), hook=False, long=False, once=False))
+                             src=ai_gen.clip_file(out, c_["id"]), pen=0.0, only=set(), hook=False, long=False, once=False,
+                             tags=shotmatch.tags_of_text(" ".join(c_["tags"])), q="good"))
         for p in photo_picks:
             f_ = photo_file(p)
             kind_ = pkind.get(pnum.get(f_)) or "packshot"
@@ -2457,7 +2485,7 @@ def plan(a):
             ids_ = sorted(ai_mine)
             ai_mine = {ids_[(v * 3 + j_) % len(ids_)] for j_ in range(4)}
 
-        def choose(terms, cterms, feat, prev, use, kinds=None, hook=False):
+        def choose(terms, cterms, feat, prev, use, kinds=None, hook=False, wants=None):
             best = None
             for i, e in enumerate(lib):
                 if e["p"][0] == "ai" and (ai_n[0] >= AI_SHOTS_MAX or e["p"][1] not in ai_mine):   # (mostly the real footage)
@@ -2467,8 +2495,10 @@ def plan(a):
                 s = 3.0 * len(e["kw"] & terms) + 1.5 * len(e["kw"] & cterms) + (6.0 if feat and e["tag"] == feat else 0.0) \
                     + (4.0 if hook and e["hook"] else 0.0) + (2.5 * bool(e["kw"] & HOOK_MOVE) - 2.5 * ("hang" in e["kw"]) if hook else 0.0) - e["pen"] - 6.0 * (prev is not None and e["src"] == prev and not e["long"]) \
                     - 5.0 * recent.count(e["src"]) * (not e["long"]) - 0.01 * ((i * 7 + jit) % 13)
-                if best is None or (use.get(i, 0), -s) < best[0]:     # the fewest showings first: never the same moment
-                    best = ((use.get(i, 0), -s), i)                  # twice while another is left, then the best match
+                s += shotmatch.score(e.get("tags"), wants, e.get("q", "good")) if (wants or e.get("q") == "weak") and e["p"][0] != "photo" else 0.0
+                s -= REUSE * use.get(i, 0)                           # a moment shown again costs REUSE: a good match shown twice (the 2nd
+                if best is None or -s < best[0]:                    # time a closer framing) beats a shot that shows something else
+                    best = (-s, i)
             if best is None:
                 return None
             use[best[1]] = use.get(best[1], 0) + 1
@@ -2506,7 +2536,8 @@ def plan(a):
             for j, (st_, _) in enumerate(() if colour else slots[k_]):
                 last_slot = ch is not None and ch is chs[-1] and j == len(slots[k_]) - 1
                 c_ = choose({"packshot", "hero"}, {"hero"}, None, prev, uses, {"photo"}) if last_slot and packs else None
-                c_ = c_ or choose(kw_terms(st_), ct, feat, prev, uses, hook=ch is None)
+                c_ = c_ or choose(kw_terms(st_), ct, feat, prev, uses, hook=ch is None,
+                                  wants=shotmatch.wants(st_, (ch or {}).get("tag") or hk.get("feature"), (ch or {}).get("show") or ()))
                 x_ = framed(*c_) if c_ else None
                 if x_:
                     if last_slot and len(x_) > 3 and x_[3].get("fit"):
@@ -2525,7 +2556,8 @@ def plan(a):
             sp = []
             recent.clear()
             for _ in range(0 if colour else more):
-                c_ = choose(ct, ct, hk.get("feature") if ch is None else ch["feature"], None, spuse)
+                c_ = choose(ct, ct, hk.get("feature") if ch is None else ch["feature"], None, spuse,
+                            wants=shotmatch.wants(t_, (ch or {}).get("tag") or hk.get("feature"), (ch or {}).get("show") or ()))
                 x_ = framed(*c_) if c_ else None
                 if x_ and not any(x_[0] == y[0] and x_[1] == y[1] for y in sp):
                     sp.append(x_)
@@ -2550,7 +2582,9 @@ def plan(a):
         offer = (dict(block=len(blocks) - 1, word=sc["offer"]["word"], title=tx["offer_title"], sub=tx["offer_sub"])
                  if sc["offer"] and tx["offer_title"] and tx["offer_word"] else None)
         kws = list(dict.fromkeys(tx["keywords"] + THEME_WORDS[theme_key] + [k for c in chs for k in c["keywords"]]))
+        end_ph = [f_ for f_ in s_packs if studio_pack(f_)]           # the closing card: a clean studio packshot (another colour per project)
         spec = dict(mode="ugc", voice_speed=ugc_speed, blocks=blocks, overlays=ovl, end_title=pr["end"], offer=offer,
+                    **({"end_photo": rel(end_ph[(v + a.seed) % len(end_ph)]), "end_offer": tx["offer_title"] or ""} if end_ph else {}),
                     keywords=kws, spare_broll=[x for x in gen if x],
                     music=False if getattr(a, "no_music", False) else dict(seed=(a.seed - 1) * 11 + v + 1))
         name = f"{prefix}_{vid}_{UGC_ANGLE[sc['angle']]}"

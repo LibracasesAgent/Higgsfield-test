@@ -63,6 +63,8 @@ PRODUCT_NOUNS = set("bag tote crossbody purse satchel clutch backpack handbag sh
 MASS = set("room leather stitching storage space comfort style protection security hardware material fabric canvas suede "
            "padding capacity".split())
 ITEMS = re.compile(r"\b(passport|keys|phone|wallet|cards|table|chair|shoulder|crossbody|lipstick|laptop|coffee|zip|lining)\b", re.I)
+REVIEWS = False       # ugc videos carry no "<name> says: ..." review chapter and no review cards (media buyer 2026-10-21: "I don't think it is
+#                       good as objection handling before the CTA"): the proof chapter is the recap, the objection a fact. Statics keep quotes.
 PRICE_PIECE = "looks expensive but price was so nice"     # review 8 (Beverly): the answer to a price doubt
 
 
@@ -425,7 +427,7 @@ def objection_chapter(ctx, rng, used, reviews_used=()):
     review ('looks expensive but price was so nice'), or the notes' price and was price. (None: nothing true to say.)"""
     O, V = ctx["arcs"]["objection"], ctx["V"]
     c = [fill(t, V) for t in (O["warranty"] if V["warranty"] else O["returns"] if V["returns"] else [])]
-    if not c and ctx["pct"] and 8 in (ctx["pr"].get("reviews") or []) and 8 not in reviews_used and review_ok(ctx, 8, PRICE_PIECE) \
+    if not c and REVIEWS and ctx["pct"] and 8 in (ctx["pr"].get("reviews") or []) and 8 not in reviews_used and review_ok(ctx, 8, PRICE_PIECE) \
             and not used[f"piece {PRICE_PIECE}"]:
         c = list(O["price"])
     if not c and ctx["priced"]:
@@ -564,7 +566,7 @@ def day_chapter(ctx, f, rng, used):
     bt, c = f["beat"], f["c"]
     lead = choose(bt["when"], "", rng, used, fresh=True) or choose(bt["when"], "", rng, used)
     fx = fix_line(ctx, f, rng, used, lead or "", lead or "")
-    aft = choose(c.get("after") or [], f["line_l"], rng, used, f"{lead or ''} {fx}", fresh=True) if rng.random() < 0.85 else None
+    aft = choose(c.get("after") or [], f["line_l"], rng, used, f"{lead or ''} {fx}", fresh=True) if (rng.random() < 0.85 or not REVIEWS) else None
     parts = [p for p in (lead, fx, aft) if p]
     while len(parts) > 1 and (nwords(" ".join(parts)) > MAX_CHAPTER_WORDS or sum(len(sents(p)) for p in parts) > MAX_SENTENCES):
         parts.pop()
@@ -608,7 +610,7 @@ def build_engine(ctx, angle, i, seed, rng, used, taken, n_alt, bump=0):
                 "travel": "moment" if f["c"].get("travel") and f["c"].get("moment") else "problem", "value": "problem"}[angle]
         chs.append(point(ctx, f, rng, used, mode, number=j + 1 if angle == "n_things" else None))
     ship = ship_phrase(ctx, rng, used)
-    rv = reviews_chapter(ctx, rng, used, prefer=(8,) if angle == "value" else (6,) if angle == "travel" else ())
+    rv = reviews_chapter(ctx, rng, used, prefer=(8,) if angle == "value" else (6,) if angle == "travel" else ()) if REVIEWS else None
     ex = dict(proof=rv or recap_chapter(ctx, sel, rng, used))
     if angle == "value" or (angle in ("n_things", "stop_x") and rng.random() < 0.6):
         ex["objection"] = objection_chapter(ctx, rng, used, rv["reviews"] if rv else ())
@@ -680,6 +682,8 @@ def hand_script(ctx, hs, seed, used, taken, n_alt, rng):
     for j, ch in enumerate(hs["chapters"]):
         kind = ch["kind"]
         text = ch["alt"] if seed > 1 and (seed + j) % 2 == 0 and ch.get("alt") else ch.get("text")     # seeds: other wording
+        if kind == "reviews" and not REVIEWS:
+            continue
         if kind == "reviews":
             keep = [(n, arcs["reviews"]["pieces"][str(n)][k]) for n, k in ch["reviews"] if n in (ctx["pr"].get("reviews") or [])
                     and review_ok(ctx, n, arcs["reviews"]["pieces"][str(n)][k])]

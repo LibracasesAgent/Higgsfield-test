@@ -1127,6 +1127,18 @@ def studio_white(im, band=0.06, lim=244):
     return sum(v >= lim for v in px) / max(len(px), 1) > 0.9
 
 
+def collage(im, min_share=0.012, parts=4):
+    """True for a product-page collage (a small bag in the middle ringed by round detail photos, or a grid): after the white backdrop is
+    taken away it falls into `parts` or more separate pieces each at least min_share of the picture (a packshot is one piece, or two
+    with its pouch). Such a photo is never a studio packshot, a video's closing shot or a static's hero."""
+    import cv2
+    import numpy as np
+    g = np.asarray(whiten(im).convert("L").resize((240, 240)), dtype=np.uint8)
+    m = cv2.dilate((g < 236).astype("uint8"), np.ones((5, 5), "uint8"))
+    n, _, st, _ = cv2.connectedComponentsWithStats(m, connectivity=8)
+    return sum(1 for k in range(1, n) if st[k, cv2.CC_STAT_AREA] >= min_share * 240 * 240) >= parts
+
+
 _FACES = {}
 
 
@@ -1328,20 +1340,22 @@ def l_studio(a, sd):
     words only."""
     W, H = a.get("size", [1080, 1350])
     im = load(sd, a["photo"])
-    if getattr(im, "_card", False) or not studio_white(im):
-        raise ValueError("studio: needs a packshot on a white studio backdrop")
+    if getattr(im, "_card", False) or not studio_white(im) or collage(im):
+        raise ValueError("studio: needs a packshot on a white studio backdrop (one bag, not a collage of details)")
     tint = tuple(a["tint"]) if a.get("tint") else studio_tint(bag_colour(im))
     text, offer = a.get("caption") or a.get("headline"), offer_text(a)
     c = studio_backdrop((W, H), tint, (W / 2, H * 0.47))
     d = ImageDraw.Draw(c)
     ink = ESPRESSO
-    top = brand_mark(d, W, 62, ink) + 28
+    top = brand_mark(d, W, a.get("top", 62), ink) + 28
     f = fit(d, text, SERIF, a.get("hsize", 70), W - 200, 1, 46) if text else None
     ph = (put(d, text, f, ink, 0, W - 200, lh=1.0, dry=True) if text else 0)
     pill_h = int(36 * 2.4) if offer else 0
+    cta = a.get("cta")                                    # (a video's end card: a dark button under the offer, above Meta's bottom UI)
+    cta_h = int(34 * 2.4) if cta else 0
     gap = 26
-    block = ph + (gap if text and offer else 0) + pill_h
-    y_block = H - 84 - block
+    block = ph + (gap if text and offer else 0) + pill_h + (gap if cta and (text or offer) else 0) + cta_h
+    y_block = H - a.get("bottom", 84) - block
     area = room((60, top, W - 60, y_block - (46 if block else 20)), 560)
     keep, TRACK[0] = TRACK[0], False                    # (a dry run: where the bag lands, to put its floor shadow there first)
     bx0, by0, bx1, by1 = place_studio(c.copy(), load(sd, a["photo"]), area)
@@ -1356,7 +1370,9 @@ def l_studio(a, sd):
     if text:
         y = put(d, text, f, ink, y, W - 200, lh=1.0) + gap
     if offer:
-        pill(d, W, y, offer, bg=RED, size=34, bold=True)
+        y = pill(d, W, y, offer, bg=RED, size=34, bold=True) + gap
+    if cta:
+        pill(d, W, y, cta, bg=ESPRESSO, size=34)
     return c.convert("RGBA")
 
 
