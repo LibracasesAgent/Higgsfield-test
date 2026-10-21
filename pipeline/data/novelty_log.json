@@ -1450,6 +1450,112 @@
        "script": "U04"
       }
      ]
+    },
+    {
+     "clips": [],
+     "date": "2026-10-21",
+     "name": "B016 – 2026-10-21 – Hobo Bag BlackFriday – 20 statics + 4 projects",
+     "statics": [
+      {
+       "caption": "One bag. Three of them.",
+       "colour": "Galaxy Black",
+       "layout": "concept",
+       "scene": "p01_s01"
+      },
+      {
+       "caption": "Keys, phone, cards.",
+       "frame_clip": "1uD0qy0zejwR5ivs-GDmykUYJAyeQEiJf",
+       "layout": "native",
+       "photo": "F_1uD0qy0zej_0026.jpg"
+      },
+      {
+       "caption": "Free matching pouch wallet.",
+       "layout": "studio",
+       "photo": "hobo_bag_colour_blue.jpg"
+      },
+      {
+       "caption": "Soft, expensive-looking leather.",
+       "frame_clip": "1T9jkUynTVM406VuPbvnj6ZJB5TmECMx2",
+       "layout": "native",
+       "photo": "F_1T9jkUynTV_0024.jpg"
+      },
+      {
+       "caption": "Hands full? Bag handled.",
+       "colour": "Blue",
+       "layout": "concept",
+       "scene": "p02_s06"
+      },
+      {
+       "caption": "Both hands free.",
+       "colour": "Galaxy Black",
+       "layout": "concept",
+       "scene": "p02_s07"
+      },
+      {
+       "caption": "Gold zips for keys and phone.",
+       "layout": "studio",
+       "photo": "hobo_bag_colour_blue.jpg"
+      },
+      {
+       "caption": "The Hobo Bag",
+       "layout": "offer",
+       "photo": "hobo_bag_colour_grey.jpg"
+      },
+      {
+       "caption": "Big bag. Zero mess.",
+       "colour": "Burgundy",
+       "layout": "concept",
+       "scene": "p03_s11"
+      },
+      {
+       "caption": "Looks expensive. Half price.",
+       "colour": "Galaxy Black",
+       "layout": "concept",
+       "scene": "p03_s12"
+      },
+      {
+       "caption": "Nothing sinks.",
+       "layout": "studio",
+       "photo": "hobo_bag_colour_galaxy_black.jpg"
+      },
+      {
+       "caption": "Meet the Hobo Bag",
+       "layout": "value",
+       "photo": "hobo_bag_colour_blue.jpg"
+      },
+      {
+       "caption": "What our customers say",
+       "layout": "stars",
+       "photo": "hobo_bag_colour_grey.jpg"
+      },
+      {
+       "caption": "Meet the new everyday.",
+       "colour": "Blue",
+       "layout": "concept",
+       "scene": "p04_s16"
+      },
+      {
+       "caption": "Carried your way.",
+       "colour": "Grey",
+       "layout": "concept",
+       "scene": "p04_s17"
+      },
+      {
+       "caption": "Three ways to wear.",
+       "layout": "studio",
+       "photo": "hobo_bag_colour_galaxy_black.jpg"
+      },
+      {
+       "caption": "Pick your colour.",
+       "layout": "colours"
+      },
+      {
+       "caption": "What makes the Hobo Bag different",
+       "layout": "checklist",
+       "photo": "hobo_bag_colour_grey.jpg"
+      }
+     ],
+     "videos": []
     }
    ]
   },

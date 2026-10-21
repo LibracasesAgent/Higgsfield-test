@@ -776,7 +776,134 @@
      "label": "Black Friday: a bag with layers, at half price."
     }
    ]
+  },
+  {
+   "id": "B016",
+   "n": 16,
+   "rev": 1,
+   "date": "2026-10-21",
+   "product": "Hobo Bag",
+   "theme": "BlackFriday",
+   "pipeline": "catalog",
+   "request": "Hobo Bag Black Friday, 4 projects with 5 statics each: videos with a presenter sitting and talking, the footage cutting in",
+   "statics": 20,
+   "projects": 4,
+   "hooks": 4,
+   "seed": 4,
+   "status": "uploaded",
+   "folder": "B016 – 2026-10-21 – Hobo Bag BlackFriday – 20 statics + 4 projects",
+   "link": "https://drive.google.com/drive/folders/1ObUfXVKD_RN2MAGPX6aXaF9TaHpFq4Ka",
+   "ads": [
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B016_S01_concept",
+     "kind": "static",
+     "fp": "s|concept|AS01.png|one bag. three of them.",
+     "label": "One bag. Three of them."
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B016_S03_native",
+     "kind": "static",
+     "fp": "s|native|F_1uD0qy0zej_0026.jpg|keys, phone, cards.",
+     "label": "Keys, phone, cards."
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B016_S04_studio",
+     "kind": "static",
+     "fp": "s|studio|hobo_bag_colour_blue.jpg|free matching pouch wallet.",
+     "label": "Free matching pouch wallet."
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B016_S05_native",
+     "kind": "static",
+     "fp": "s|native|F_1T9jkUynTV_0024.jpg|soft, expensive-looking leather.",
+     "label": "Soft, expensive-looking leather."
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B016_S06_concept",
+     "kind": "static",
+     "fp": "s|concept|AS03.png|hands full? bag handled.",
+     "label": "Hands full? Bag handled."
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B016_S07_concept",
+     "kind": "static",
+     "fp": "s|concept|AS04.png|both hands free.",
+     "label": "Both hands free."
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B016_S09_studio",
+     "kind": "static",
+     "fp": "s|studio|hobo_bag_colour_blue.jpg|gold zips for keys and phone.",
+     "label": "Gold zips for keys and phone."
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B016_S10_offer",
+     "kind": "static",
+     "fp": "s|offer|hobo_bag_colour_grey.jpg|the hobo bag",
+     "label": "The Hobo Bag"
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B016_S11_concept",
+     "kind": "static",
+     "fp": "s|concept|AS05.png|big bag. zero mess.",
+     "label": "Big bag. Zero mess."
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B016_S12_concept",
+     "kind": "static",
+     "fp": "s|concept|AS06.png|looks expensive. half price.",
+     "label": "Looks expensive. Half price."
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B016_S13_studio",
+     "kind": "static",
+     "fp": "s|studio|hobo_bag_colour_galaxy_black.jpg|nothing sinks.",
+     "label": "Nothing sinks."
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B016_S14_value",
+     "kind": "static",
+     "fp": "s|value|hobo_bag_colour_blue.jpg|meet the hobo bag",
+     "label": "Meet the Hobo Bag"
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B016_S15_stars",
+     "kind": "static",
+     "fp": "s|stars|hobo_bag_colour_grey.jpg|what our customers say",
+     "label": "What our customers say"
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B016_S16_concept",
+     "kind": "static",
+     "fp": "s|concept|AS07.png|meet the new everyday.",
+     "label": "Meet the new everyday."
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B016_S17_concept",
+     "kind": "static",
+     "fp": "s|concept|AS08.png|carried your way.",
+     "label": "Carried your way."
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B016_S18_studio",
+     "kind": "static",
+     "fp": "s|studio|hobo_bag_colour_galaxy_black.jpg|three ways to wear.",
+     "label": "Three ways to wear."
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B016_S19_colours",
+     "kind": "static",
+     "fp": "s|colours||pick your colour.",
+     "label": "Pick your colour."
+    },
+    {
+     "name": "LC_261021_HoboBag_BlackFriday_B016_S20_checklist",
+     "kind": "static",
+     "fp": "s|checklist|hobo_bag_colour_grey.jpg|what makes the hobo bag different",
+     "label": "What makes the Hobo Bag different"
+    }
+   ]
   }
  ],
- "next": 16
+ "next": 17
 }
