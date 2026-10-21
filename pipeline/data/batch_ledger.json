@@ -189,7 +189,244 @@
    "link": "https://drive.google.com/drive/folders/1eIDShfIUtgsz5c8z6IKlXpsYu7vBaakF",
    "legacy": true,
    "ads": []
+  },
+  {
+   "id": "B011",
+   "n": 11,
+   "rev": 1,
+   "date": "2026-10-20",
+   "product": "Hobo Bag",
+   "theme": "Evergreen",
+   "pipeline": "catalog",
+   "request": "3 videos and 5 statics for Hobo Bag",
+   "statics": 5,
+   "projects": 3,
+   "hooks": 4,
+   "seed": 1,
+   "status": "uploaded",
+   "folder": "B011 – 2026-10-20 – Hobo Bag – 5 statics + 3 projects",
+   "link": "https://drive.google.com/drive/folders/161YFsNmgz5eoxMFPXf_U7zNJVcn4qDtF",
+   "ads": [
+    {
+     "name": "LC_261020_HoboBag_Evergreen_B011_S01_native",
+     "kind": "static",
+     "fp": "s|native|F_1no4sfl12S_0220.jpg|gold side zips.",
+     "label": "Gold Side Zips."
+    },
+    {
+     "name": "LC_261020_HoboBag_Evergreen_B011_S02_studio",
+     "kind": "static",
+     "fp": "s|studio|hobo_bag_colour_red.jpg|",
+     "label": ""
+    },
+    {
+     "name": "LC_261020_HoboBag_Evergreen_B011_S03_offer",
+     "kind": "static",
+     "fp": "s|offer|hobo_bag_colour_galaxy_black.jpg|the hobo bag",
+     "label": "The Hobo Bag"
+    },
+    {
+     "name": "LC_261020_HoboBag_Evergreen_B011_S04_native",
+     "kind": "static",
+     "fp": "s|native|F_1uaFFQN2BD_0020.jpg|hidden back pocket. gold side zips.",
+     "label": "Hidden Back Pocket. Gold Side Zips."
+    },
+    {
+     "name": "LC_261020_HoboBag_Evergreen_B011_S05_quotes",
+     "kind": "static",
+     "fp": "s|quotes|hobo_bag_colour_grey.jpg|",
+     "label": ""
+    },
+    {
+     "name": "LC_261020_HoboBag_Evergreen_B011_P01_H3_day",
+     "kind": "video",
+     "fp": "v|this could be the most thoughtful bag you'll see all year.|",
+     "label": "This could be the most thoughtful bag you'll see all year."
+    },
+    {
+     "name": "LC_261020_HoboBag_Evergreen_B011_P02_H2_things",
+     "kind": "video",
+     "fp": "v|clutching your bag on a packed train gets old fast.|",
+     "label": "Clutching your bag on a packed train gets old fast."
+    },
+    {
+     "name": "LC_261020_HoboBag_Evergreen_B011_P02_H3_things",
+     "kind": "video",
+     "fp": "v|where do you keep your cards when you're in a crowd?|",
+     "label": "Where do you keep your cards when you're in a crowd?"
+    }
+   ]
+  },
+  {
+   "id": "B012",
+   "n": 12,
+   "rev": 1,
+   "date": "2026-10-20",
+   "product": "Vintage Bag",
+   "theme": "Evergreen",
+   "pipeline": "catalog",
+   "request": "3 videos and 5 statics for vintage",
+   "statics": 5,
+   "projects": 3,
+   "hooks": 4,
+   "seed": 1,
+   "status": "uploaded",
+   "folder": "B012 – 2026-10-20 – Vintage Bag – 5 statics + 3 projects",
+   "link": "https://drive.google.com/drive/folders/11Bd7VisFSK5zyhk0dIt6IX63tYkS4xVS",
+   "ads": [
+    {
+     "name": "LC_261020_VintageBag_Evergreen_B012r2_S01_native",
+     "kind": "static",
+     "fp": "s|native|F_1MoUjspVCD_0032.jpg|meet the vintage bag.",
+     "label": "Meet the Vintage Bag."
+    },
+    {
+     "name": "LC_261020_VintageBag_Evergreen_B012r2_S02_studio",
+     "kind": "static",
+     "fp": "s|studio|vintage_colour_chocolate.jpg|the vintage bag.",
+     "label": "The Vintage Bag."
+    },
+    {
+     "name": "LC_261020_VintageBag_Evergreen_B012r2_S03_offer",
+     "kind": "static",
+     "fp": "s|offer|vintage_colour_red.jpg|the vintage bag",
+     "label": "The Vintage Bag"
+    },
+    {
+     "name": "LC_261020_VintageBag_Evergreen_B012r2_S04_native",
+     "kind": "static",
+     "fp": "s|native|F_16tPrjwInS_0069.jpg|one-hand clasp. room for everything.",
+     "label": "One-Hand Clasp. Room For Everything."
+    },
+    {
+     "name": "LC_261020_VintageBag_Evergreen_B012r2_S05_quotes",
+     "kind": "static",
+     "fp": "s|quotes|vintage_colour_chocolate.jpg|",
+     "label": ""
+    },
+    {
+     "name": "LC_261020_VintageBag_Evergreen_B012r2_P01_H2_things",
+     "kind": "video",
+     "fp": "v|does your bag open with one hand?|",
+     "label": "Does your bag open with one hand?"
+    },
+    {
+     "name": "LC_261020_VintageBag_Evergreen_B012r2_P01_H4_things",
+     "kind": "video",
+     "fp": "v|the most versatile bag you'll see today might be this one.|",
+     "label": "The most versatile bag you'll see today might be this one."
+    },
+    {
+     "name": "LC_261020_VintageBag_Evergreen_B012r2_P02_H1_demo",
+     "kind": "video",
+     "fp": "v|here's the vintage bag, one feature at a time.|",
+     "label": "Here's the Vintage Bag, one feature at a time."
+    },
+    {
+     "name": "LC_261020_VintageBag_Evergreen_B012r2_P02_H3_demo",
+     "kind": "video",
+     "fp": "v|if your bag is one big black hole, keep watching.|",
+     "label": "If your bag is one big black hole, keep watching."
+    },
+    {
+     "name": "LC_261020_VintageBag_Evergreen_B012r2_P02_H4_demo",
+     "kind": "video",
+     "fp": "v|what would you change about your everyday bag?|",
+     "label": "What would you change about your everyday bag?"
+    },
+    {
+     "name": "LC_261020_VintageBag_Evergreen_B012r2_P03_H1_stop",
+     "kind": "video",
+     "fp": "v|no more needing both hands just to open your bag.|",
+     "label": "No more needing both hands just to open your bag."
+    },
+    {
+     "name": "LC_261020_VintageBag_Evergreen_B012r2_P03_H2_stop",
+     "kind": "video",
+     "fp": "v|this might be the most practical bag you'll see today.|",
+     "label": "This might be the most practical bag you'll see today."
+    },
+    {
+     "name": "LC_261020_VintageBag_Evergreen_B012r2_P03_H3_stop",
+     "kind": "video",
+     "fp": "v|classic on the outside. organized on the inside.|",
+     "label": "Classic on the outside. Organized on the inside."
+    },
+    {
+     "name": "LC_261020_VintageBag_Evergreen_B012r2_P03_H4_stop",
+     "kind": "video",
+     "fp": "v|half price: here's the vintage bag.|",
+     "label": "Half price: here's the Vintage Bag."
+    }
+   ]
+  },
+  {
+   "id": "B013",
+   "n": 13,
+   "rev": 1,
+   "date": "2026-10-20",
+   "product": "Hobo 2.0",
+   "theme": "Evergreen",
+   "pipeline": "catalog",
+   "request": "3 videos and 5 statics for Hobo 2.0",
+   "statics": 5,
+   "projects": 3,
+   "hooks": 4,
+   "seed": 1,
+   "status": "uploaded",
+   "folder": "B013 – 2026-10-20 – Hobo 2.0 – 5 statics + 3 projects",
+   "link": "https://drive.google.com/drive/folders/1rjcF9S4TeB8O2VcrnPtqGnciq2Qdw8YH",
+   "ads": [
+    {
+     "name": "LC_261020_Hobo20_Evergreen_B013_S01_native",
+     "kind": "static",
+     "fp": "s|native|F_1hLNRckTxM_0147.jpg|meet the hobo 2.0.",
+     "label": "Meet the Hobo 2.0."
+    },
+    {
+     "name": "LC_261020_Hobo20_Evergreen_B013_S02_studio",
+     "kind": "static",
+     "fp": "s|studio|hobo_2_0_colour_dark_sienn.jpg|the hobo 2.0.",
+     "label": "The Hobo 2.0."
+    },
+    {
+     "name": "LC_261020_Hobo20_Evergreen_B013_S03_offer",
+     "kind": "static",
+     "fp": "s|offer|hobo_2_0_colour_galaxy_black.jpg|the hobo 2.0",
+     "label": "The Hobo 2.0"
+    },
+    {
+     "name": "LC_261020_Hobo20_Evergreen_B013_S04_native",
+     "kind": "static",
+     "fp": "s|native|F_1LwZFyd8ES_0243.jpg|lockable zippers. rfid lining.",
+     "label": "Lockable Zippers. RFID Lining."
+    },
+    {
+     "name": "LC_261020_Hobo20_Evergreen_B013_S05_quotes",
+     "kind": "static",
+     "fp": "s|quotes|hobo_2_0_colour_beige.jpg|",
+     "label": ""
+    },
+    {
+     "name": "LC_261020_Hobo20_Evergreen_B013_P01_H3_day",
+     "kind": "video",
+     "fp": "v|is your everyday bag keeping up with you?|",
+     "label": "Is your everyday bag keeping up with you?"
+    },
+    {
+     "name": "LC_261020_Hobo20_Evergreen_B013_P03_H1_demo",
+     "kind": "video",
+     "fp": "v|watch what the hobo 2.0 can do.|",
+     "label": "Watch what the Hobo 2.0 can do."
+    },
+    {
+     "name": "LC_261020_Hobo20_Evergreen_B013_P03_H4_demo",
+     "kind": "video",
+     "fp": "v|stop settling for a bag that makes your day harder.|",
+     "label": "Stop settling for a bag that makes your day harder."
+    }
+   ]
   }
  ],
- "next": 11
+ "next": 14
 }

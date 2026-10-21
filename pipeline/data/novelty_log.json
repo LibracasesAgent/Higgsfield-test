@@ -1,5 +1,190 @@
 {
  "products": {
+  "hobo-2-0": {
+   "batches": [
+    {
+     "clips": [
+      {
+       "clip_id": "1_i6NIha8DuiazqV7RMQoF7ExwjxhkOcE"
+      },
+      {
+       "clip_id": "1fUhovMajs9q_WS55_Hn1HMjL7zqKyFE2"
+      },
+      {
+       "clip_id": "1PkP56aGjs6ZI2Hr3tRpJz4Qyy8hSN5qT"
+      },
+      {
+       "clip_id": "1xN6lY9N7k_y44j37nGaZkRpfUn4zs8i4"
+      },
+      {
+       "clip_id": "1rTljXS3QBebptAP6GxvST3ithqFmc6IY"
+      },
+      {
+       "clip_id": "1v8tnIbXjO1dcBxtBqUnObWHvTEKpKf08"
+      },
+      {
+       "clip_id": "1IGWx7rvSoT1FPx1elh5QU06GiMi7CTvO"
+      },
+      {
+       "clip_id": "1f6kyaiBCEWKytXqZIqUsR1vZ6dL0HyAl"
+      },
+      {
+       "clip_id": "1EUn2G9e3MybyEgwQsdUaXgsbXu3bQXfa"
+      },
+      {
+       "clip_id": "1BIyTpW4MOBNJ3dCrNJ24FmqaoI8gTMnz"
+      },
+      {
+       "clip_id": "1d-NfhyXONZdjfr9UBSKd99VUPx9mK7HB"
+      },
+      {
+       "clip_id": "1dX1fsrLKj3h7B8-aZ-L8z9tv-ksqokvK"
+      },
+      {
+       "clip_id": "10j9-dvCZTDz7C9i8bYCyk7IS0aN3FKCs"
+      },
+      {
+       "clip_id": "1CjZGYrcaE63PlI4z57Yhrsh_RUIa-MI9"
+      },
+      {
+       "clip_id": "1zDY-z9U8C-gSgGlSIZg0Fn1F6Hy4C-7F"
+      },
+      {
+       "clip_id": "1xckKfgWOCLTomMMu9jksmpS5IW_mI78-"
+      },
+      {
+       "clip_id": "1q92559Q2tuT8XdkFxrNeoJ9r-S_8bymJ"
+      },
+      {
+       "clip_id": "102anEGqkM2gnS6c0FR615wAqdjCFVxhR"
+      },
+      {
+       "clip_id": "1uXgrPZLbk7r6YAhgTcw7-6twlZDfSRsO"
+      },
+      {
+       "clip_id": "1jj9bUZ0Abd154CbKbjT6OU8I_pBoYg7S"
+      },
+      {
+       "clip_id": "1nxzzSt-G9vABq76AoPtjSqnHNSP2xxBS"
+      },
+      {
+       "clip_id": "11tqk2IZR6czbE_Rol_zpxOSGyApOQDmy"
+      },
+      {
+       "clip_id": "1D5FDs81T0LPfQ53SinLRqVH2JaM91Vdz"
+      },
+      {
+       "clip_id": "1juPX-JUyhBssX6HkWEaTlZSS1WdrwQZz"
+      },
+      {
+       "clip_id": "1Lobu7k12nY6T6yr5DJZPvFutrZQ87q3k"
+      },
+      {
+       "clip_id": "11poF1pVppESMbpDqGtIrZTpBoR9ut1pK"
+      },
+      {
+       "clip_id": "1RUnAvISNlqtfTs_HSwZUH7qVgNMVmDQa"
+      },
+      {
+       "clip_id": "1Hqw6w4u05Kp8CjuNu4Hvt37q_f2egxfJ"
+      },
+      {
+       "clip_id": "1_pbWyiMT0R3Ixq7vjTyfbjH_e2wFnKA5"
+      },
+      {
+       "clip_id": "1M_7E-FiVV22EMBTT_VumlAi8tZDycHt7"
+      },
+      {
+       "clip_id": "1TKLbTtGCIdOSyM1eE4YR6Xis6SklYKDT"
+      },
+      {
+       "clip_id": "1vC03P1A_eTO8tavCEUVV_vTR6MtYeIVX"
+      },
+      {
+       "clip_id": "1oWnYbZ3oxsUjlNVJBCq6up4u877bO_YF"
+      },
+      {
+       "clip_id": "16pRpwsOoSf3PPoL0SJPACOZWAl-5whCx"
+      },
+      {
+       "clip_id": "1_asIntjy-vOHagR2ipCx9e-NuhCBSTDl"
+      }
+     ],
+     "date": "2026-10-20",
+     "name": "B013 – 2026-10-20 – Hobo 2.0 – 5 statics + 3 projects",
+     "statics": [
+      {
+       "caption": "Meet the Hobo 2.0.",
+       "frame_clip": "1hLNRckTxMFQZJ8Zc4-wKHTrlfssMhs77",
+       "layout": "native",
+       "photo": "F_1hLNRckTxM_0147.jpg"
+      },
+      {
+       "caption": "The Hobo 2.0.",
+       "layout": "studio",
+       "photo": "hobo_2_0_colour_dark_sienn.jpg"
+      },
+      {
+       "caption": "The Hobo 2.0",
+       "layout": "offer",
+       "photo": "hobo_2_0_colour_galaxy_black.jpg"
+      },
+      {
+       "caption": "Lockable Zippers. RFID Lining.",
+       "frame_clip": "1LwZFyd8ESV9qd_SH7I4PKw8jaSCi6pHr",
+       "layout": "native",
+       "photo": "F_1LwZFyd8ES_0243.jpg"
+      },
+      {
+       "layout": "quotes",
+       "photo": "hobo_2_0_colour_beige.jpg"
+      }
+     ],
+     "videos": [
+      {
+       "angle": "day",
+       "chapters": [
+        "Out the door in a hurry? Inside, hidden pockets and smart compartments keep everything in its place. Out of sight, out of mind.",
+        "Heading into town. Hook the table strap around your chair and your bag stays right there. Now you can finish your coffee in peace.",
+        "At the café. The RFID lining blocks card scanners. Crowded station or busy street, you're covered.",
+        "Busy market? The cut-resistant strap is a nice extra. Small detail, big peace of mind.",
+        "Off to dinner. Lockable zippers mean nobody opens your bag in a crowd. Zip, lock, walk.",
+        "To sum up: hidden pockets, table security strap, RFID lining. That's what you get.",
+        "Sarah says: the lockable zippers and RFID lining are genuinely incredible. Carol says: already bought for friends. Mercy says: they have the best customer service that can't be beat.",
+        "Wondering about the price? Beverly says: looks expensive but price was so nice.",
+        "Grab the Hobo 2.0 at fifty percent off, and a free pouch wallet comes with it. Free US shipping too. Tap the link below."
+       ],
+       "hook": "Is your everyday bag keeping up with you?",
+       "hook_type": "promise",
+       "script": "U01"
+      },
+      {
+       "angle": "demo",
+       "chapters": [
+        "Watch the zippers. Lockable zippers, so nobody can open it in a crowd. Lock them and you're done thinking about it.",
+        "Look inside. It's all organized, with hidden pockets and smart compartments. Cards here, keys there, lip balm over there.",
+        "Open it and look. An RFID lining that blocks card scanners. Walk through any crowd with your cards covered.",
+        "Pull up a chair. Loop the table strap around your chair and your bag stays right where you left it. No fuss.",
+        "Look at the strap. There's a cut-resistant strap, too. One less thing to worry about.",
+        "Lockable zippers, hidden pockets, RFID lining. All in the Hobo 2.0, ready to go.",
+        "Carol says: will definitely be purchasing more. Beverly says: love my Libra bag, will buy again. Mercy says: the best bag for travel and every day use.",
+        "Wondering about shipping? You get free US shipping.",
+        "Right now you get fifty percent off, plus a free pouch wallet. Tap the link below."
+       ],
+       "hook": "Watch what the Hobo 2.0 can do.",
+       "hook_type": "promise",
+       "script": "U03"
+      },
+      {
+       "angle": "demo",
+       "hook": "Stop settling for a bag that makes your day harder.",
+       "hook_type": "promise",
+       "script": "U03"
+      }
+     ]
+    }
+   ]
+  },
   "hobo-bag": {
    "batches": [
     {
@@ -370,6 +555,182 @@
        "script": "U05"
       }
      ]
+    },
+    {
+     "clips": [
+      {
+       "clip_id": "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx"
+      },
+      {
+       "clip_id": "1XTfJnV-s9YVXmsv30f29mYqy5yV38n96"
+      },
+      {
+       "clip_id": "1524uBg6iCo25tT2dqKoDXFTeZjWODEQV"
+      },
+      {
+       "clip_id": "1lyxmzAu5IZH2XZIDzxfexxv4XqzOIdbO"
+      },
+      {
+       "clip_id": "16bugUA13UINTh8mGcl237pNZ8KnnVjjA"
+      },
+      {
+       "clip_id": "1G6B5yfeTUCh6NAy_fq7kc37qoSOgVmKE"
+      },
+      {
+       "clip_id": "1G-kBGQcUbvDKMV0xB_E8JJDkcfE05n30"
+      },
+      {
+       "clip_id": "12Ec7mfUk6Ys9vxFA04eGQpmpcsLiPcbS"
+      },
+      {
+       "clip_id": "1Ni2LrpV6gsxH-smicF6r01i4SlwQkmeH"
+      },
+      {
+       "clip_id": "12qiyl7FV85hnSYait8tRRCuxovMyad1L"
+      },
+      {
+       "clip_id": "11CJ79tF3sbQAlDvI8JIsjJIyTbyGdVjm"
+      },
+      {
+       "clip_id": "1Mtx32enLMlOkpIfl_Cr1EYezTdody3E1"
+      },
+      {
+       "clip_id": "1JIEAwHHQq-euKPoS9A91KQSmMEGg7EPj"
+      },
+      {
+       "clip_id": "1r4YXR3QAVsj2CjVx2zjzAcP6TBHSzVRm"
+      },
+      {
+       "clip_id": "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X"
+      },
+      {
+       "clip_id": "1BidTuA7vhnKJ0W923VLBYlXX0LIIueg5"
+      },
+      {
+       "clip_id": "1CcakagPN5oiWEneKORpvJblnPYnQvWHI"
+      },
+      {
+       "clip_id": "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06"
+      },
+      {
+       "clip_id": "1nnsvEIfgqziYdrmeUrrtgL3Qo3YHV7Sw"
+      },
+      {
+       "clip_id": "1f_uobOObpjWFcDK1U8yedlh19SJbAzZB"
+      },
+      {
+       "clip_id": "1Cwb5IeFopc-HHtfcKXpxiauUYVkTc30C"
+      },
+      {
+       "clip_id": "1LjnCWc5SyUtUqAnV-9nnxMILweyDJdL5"
+      },
+      {
+       "clip_id": "1cDI6dnwlwz-ARmQQ3PfOahefAEy2JYbx"
+      },
+      {
+       "clip_id": "177mQyA2s2ACZIjv7BnH4qbMCu0QDQ1qn"
+      },
+      {
+       "clip_id": "1_S0UvWZSIsuisD9-virT1ZPzijMaF-08"
+      },
+      {
+       "clip_id": "1Rj3QE3QSg73kbPB1qCg7qo7az2SvQEPb"
+      },
+      {
+       "clip_id": "10AwB1uAdRXbIY2gjhJl1q1pbuip29YJN"
+      },
+      {
+       "clip_id": "1SCQdB1Bi9TpZSHUCsI3PLZvoyzXtbxHZ"
+      },
+      {
+       "clip_id": "1LUzW9ET7osh2jwTOalBdPFH3vxigrHUB"
+      },
+      {
+       "clip_id": "11nXYAzAyigFbEf3y1D543JU73p-BBgmu"
+      },
+      {
+       "clip_id": "17YpEh4iZIekpsDr-kE03SIpYBvWPqHWu"
+      },
+      {
+       "clip_id": "1rW8joq7MZKj_AKkX4IJJzjfgqlnMg8ph"
+      },
+      {
+       "clip_id": "10P7VEuWg8XrzZjwgFEFYSX8AAAX9Khdj"
+      },
+      {
+       "clip_id": "1Nf_uv34APWabGxhiwHqz9o0RgfCvhHBh"
+      }
+     ],
+     "date": "2026-10-20",
+     "name": "B011 – 2026-10-20 – Hobo Bag – 5 statics + 3 projects",
+     "statics": [
+      {
+       "caption": "Gold Side Zips.",
+       "frame_clip": "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+       "layout": "native",
+       "photo": "F_1no4sfl12S_0220.jpg"
+      },
+      {
+       "layout": "studio",
+       "photo": "hobo_bag_colour_red.jpg"
+      },
+      {
+       "caption": "The Hobo Bag",
+       "layout": "offer",
+       "photo": "hobo_bag_colour_galaxy_black.jpg"
+      },
+      {
+       "caption": "Hidden Back Pocket. Gold Side Zips.",
+       "frame_clip": "1uaFFQN2BDs_Mx3G9QUtl2_B2LRLtGd1R",
+       "layout": "native",
+       "photo": "F_1uaFFQN2BD_0020.jpg"
+      },
+      {
+       "layout": "quotes",
+       "photo": "hobo_bag_colour_grey.jpg"
+      }
+     ],
+     "videos": [
+      {
+       "angle": "day",
+       "chapters": [
+        "Out the door in a hurry? It comes with two adjustable straps: handbag, shoulder or crossbody. Hands-free for your coffee.",
+        "At your table. There's a gold zip on each side, made for your keys and phone. Open, close, done.",
+        "Busy market? Your passport and cards go in the hidden pocket on the back, flat against you. Out of sight, out of mind.",
+        "Back at work. Everything gets its own spot in the divided compartments, so nothing sinks to the bottom.",
+        "Evening plans. The leather is soft, scratch-proof and water-resistant.",
+        "To sum up: 3 ways to wear, gold side zips, hidden back pocket. That's what you get.",
+        "Margie says: has other zipper compartments for other essentials. Mercy says: they have the best customer service that can't be beat. Jenny says: it's spacious, lightweight, and super functional with lots of pockets.",
+        "Sounds too good to be true? There's a one-year warranty and easy returns.",
+        "It's fifty percent off right now, and it comes with a free matching pouch wallet. Plus free US shipping. Tap the link below."
+       ],
+       "hook": "This could be the most thoughtful bag you'll see all year.",
+       "hook_type": "promise",
+       "script": "U01"
+      },
+      {
+       "angle": "n_things",
+       "chapters": [
+        "Patting your bag every few minutes to make sure it's all still there is a thing of the past. The hidden anti-theft pocket on the back sits flat against you, so your passport and cards stay right there. It stays flat and out of sight.",
+        "Do you still empty your bag to find one thing? The divided compartments mean nothing sinks to the bottom. Cards here, lip balm there, keys over there.",
+        "You stop leaving your bag half open without noticing. The two gold side zips keep your keys and phone within reach. Nothing to it.",
+        "Tired of carrying your bag the same way all day? Two adjustable straps: wear it on the shoulder, as a handbag, or crossbody. Switch it up whenever you like.",
+        "You notice the material first. It's soft, water-resistant, scratch-proof leather, and it only gets better with time. It looks expensive.",
+        "Here's what real customers say. Felicia says: it's really stylish and versatile. One customer says: it fits all my essentials, and the strong strap is super comfortable.",
+        "Not sure yet? You get a one-year warranty and easy returns.",
+        "Grab the Hobo Bag at fifty percent off, and a free matching pouch wallet comes with it. You also get free US shipping. Tap the link below."
+       ],
+       "hook": "Clutching your bag on a packed train gets old fast.",
+       "hook_type": "promise",
+       "script": "U02"
+      },
+      {
+       "angle": "n_things",
+       "hook": "Where do you keep your cards when you're in a crowd?",
+       "hook_type": "promise",
+       "script": "U02"
+      }
+     ]
     }
    ]
   },
@@ -502,6 +863,204 @@
       }
      ],
      "videos": []
+    }
+   ]
+  },
+  "vintage-bag": {
+   "batches": [
+    {
+     "clips": [
+      {
+       "clip_id": "1zWksUIjdI39dANvjXlGZoTaY11CJrBRZ"
+      },
+      {
+       "clip_id": "1kvkyYZCu3c60QKlGQNEDDbrMp_gzaf40"
+      },
+      {
+       "clip_id": "19ppUzbQeGxUQvZWpmf6HN9Bj8P_MC_t4"
+      },
+      {
+       "clip_id": "1u_BcAe6ont2BTbyK5uSi7-QFbgZ8sgML"
+      },
+      {
+       "clip_id": "10aSieQA3Lb3YEflOG3dXN2sIgckqMv4f"
+      },
+      {
+       "clip_id": "1-rzfYRYKmmUocjp-CfJnrVDnsUBGq_t-"
+      },
+      {
+       "clip_id": "17NS2UkififrDzubGafZAFDCII3K88Y34"
+      },
+      {
+       "clip_id": "1sLYQ_kZRbjFPCQ1AvZZ87Bmtpats2Ynf"
+      },
+      {
+       "clip_id": "1RvlXOQ5hCCqLQm-paz6wpMtJaH_gT5FG"
+      },
+      {
+       "clip_id": "1dth2GGvV8qdLLg4SGXId1S_m09SCj9vw"
+      },
+      {
+       "clip_id": "1HNUEQK0mMmDiVbvsG41nEmwlON-IFoU9"
+      },
+      {
+       "clip_id": "1dKZIPJdzTK5XalUeYccAQqTH-jLEkPt2"
+      },
+      {
+       "clip_id": "18DAFSqkzMMUEnbSdL5eeRhvxDTkAq80k"
+      },
+      {
+       "clip_id": "1LyryrXa2Haxk8f1x29x3jDkEn8Y3Dh-A"
+      },
+      {
+       "clip_id": "16tPrjwInS7Kzcvs17bMHBP4OwEjFc_Yn"
+      },
+      {
+       "clip_id": "1aJoixN_KNw1NiTQ8YYlPlWFzVv5aKnVn"
+      },
+      {
+       "clip_id": "1OWzkp0HeAlic-V3o1APSNI-TRYTvLIDr"
+      },
+      {
+       "clip_id": "1eNxj6EENheI3Xup2YsPtao1BeR6KcHr1"
+      },
+      {
+       "clip_id": "1ni45Zrqs01boihMG9jmX7TP95mIh9WvJ"
+      },
+      {
+       "clip_id": "1Vmnc83ejq0iUAhhxmKpOq0gn8OnvM0W6"
+      },
+      {
+       "clip_id": "1mA13j2449PmvcydF2bI5p1zkI-k-bpTg"
+      },
+      {
+       "clip_id": "1ADfvEWAKMrFQiOui9z0_DXf_SQoGOEzc"
+      },
+      {
+       "clip_id": "1zn83W0ED0-6bWHyu4SPGhLk_Kd0kPxG5"
+      },
+      {
+       "clip_id": "1Vcefc5naY-dxPPYcj_ePTCiSv0nVojoh"
+      },
+      {
+       "clip_id": "1DnFy_6UsG79iMT132CdUr6x5XF-g3M4m"
+      },
+      {
+       "clip_id": "1MvdPIZHiVIGTM7oedtSmDPBNcj7zMq2y"
+      }
+     ],
+     "date": "2026-10-20",
+     "name": "B012 – 2026-10-20 – Vintage Bag – 5 statics + 3 projects",
+     "statics": [
+      {
+       "caption": "Meet the Vintage Bag.",
+       "frame_clip": "1MoUjspVCDavSAwBB5LPt3FJ1U56XH1ri",
+       "layout": "native",
+       "photo": "F_1MoUjspVCD_0032.jpg"
+      },
+      {
+       "caption": "The Vintage Bag.",
+       "layout": "studio",
+       "photo": "vintage_colour_chocolate.jpg"
+      },
+      {
+       "caption": "The Vintage Bag",
+       "layout": "offer",
+       "photo": "vintage_colour_red.jpg"
+      },
+      {
+       "caption": "One-Hand Clasp. Room For Everything.",
+       "frame_clip": "16tPrjwInS7Kzcvs17bMHBP4OwEjFc_Yn",
+       "layout": "native",
+       "photo": "F_16tPrjwInS_0069.jpg"
+      },
+      {
+       "layout": "quotes",
+       "photo": "vintage_colour_chocolate.jpg"
+      }
+     ],
+     "videos": [
+      {
+       "angle": "n_things",
+       "chapters": [
+        "Needing both hands just to open your bag is a thing of the past. Snap the clasp shut with one hand. Open it, close it, move on.",
+        "Do you still carry your bag the same way all day? Adjust the strap and wear it as a handbag or crossbody. Switch it up whenever you like.",
+        "You stop leaving something behind because it won't fit. You get room for your phone, wallet and keys, each in its own spot. Pack what you need and go.",
+        "Still not sure? Mercy says: the best bag for travel and every day use. Carol says: best bag I have ever bought.",
+        "Worried about delivery costs? Free US shipping covers it.",
+        "Grab the Vintage Bag at fifty percent off. Tap the link below."
+       ],
+       "hook": "Does your bag open with one hand?",
+       "hook_type": "promise",
+       "script": "U01"
+      },
+      {
+       "angle": "n_things",
+       "hook": "The most versatile bag you'll see today might be this one.",
+       "hook_type": "promise",
+       "script": "U01"
+      },
+      {
+       "angle": "demo",
+       "chapters": [
+        "Watch this. A clasp that snaps shut with one hand. It just works.",
+        "Now the straps. The adjustable strap lets you wear it as a handbag or crossbody. Hands-free for your coffee.",
+        "Watch what goes in. Open it up and there's room for your phone, wallet and keys, all in their own spot. No tricks.",
+        "Remember: a one-hand clasp, adjustable strap, room for everything. Not bad for one bag.",
+        "Want proof? Mercy says: they have the best customer service that can't be beat. Felicia says: it's really stylish and versatile.",
+        "No shipping costs to worry about: free US shipping.",
+        "The Vintage Bag is fifty percent off at the moment. Tap the link below."
+       ],
+       "hook": "Here's the Vintage Bag, one feature at a time.",
+       "hook_type": "promise",
+       "script": "U02"
+      },
+      {
+       "angle": "demo",
+       "hook": "If your bag is one big black hole, keep watching.",
+       "hook_type": "promise",
+       "script": "U02"
+      },
+      {
+       "angle": "demo",
+       "hook": "What would you change about your everyday bag?",
+       "hook_type": "promise",
+       "script": "U02"
+      },
+      {
+       "angle": "stop_x",
+       "chapters": [
+        "Snap it shut with one hand. That's one thing fewer to think about. No learning curve.",
+        "Stop carrying your bag the same way all day. Handbag or crossbody: the strap adjusts. Your call.",
+        "Stop standing at the door choosing what to leave at home. Your phone, wallet and keys each get their own spot inside. Small thing, big difference.",
+        "Quick recap: a one-hand clasp, adjustable strap, room for everything. That's the Vintage Bag.",
+        "Here's what customers say. Carol says: already bought for friends. Felicia says: love all the compartments too.",
+        "Shipping won't cost extra: it's free US shipping.",
+        "It's fifty percent off right now. Tap the link below."
+       ],
+       "hook": "No more needing both hands just to open your bag.",
+       "hook_type": "problem",
+       "script": "U03"
+      },
+      {
+       "angle": "stop_x",
+       "hook": "This might be the most practical bag you'll see today.",
+       "hook_type": "problem",
+       "script": "U03"
+      },
+      {
+       "angle": "stop_x",
+       "hook": "Classic on the outside. Organized on the inside.",
+       "hook_type": "problem",
+       "script": "U03"
+      },
+      {
+       "angle": "stop_x",
+       "hook": "Half price: here's the Vintage Bag.",
+       "hook_type": "problem",
+       "script": "U03"
+      }
+     ]
     }
    ]
   }

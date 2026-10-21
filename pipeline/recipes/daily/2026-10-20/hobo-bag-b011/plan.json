@@ -1,0 +1,978 @@
+{
+ "prefix": "LC_261020_HoboBag_Evergreen_B011",
+ "rev": 1,
+ "batch_id": {
+  "id": "B011",
+  "n": 11,
+  "rev": 1
+ },
+ "created": "2026-10-20",
+ "request": "3 videos and 5 statics for Hobo Bag",
+ "product": "Hobo Bag",
+ "product_key": "hobo bag",
+ "product_source": "built-in",
+ "theme": "default",
+ "theme_name": "Evergreen",
+ "offer": "50% off + free matching pouch wallet",
+ "statics": [
+  "LC_261020_HoboBag_Evergreen_B011_S01_native",
+  "LC_261020_HoboBag_Evergreen_B011_S02_studio",
+  "LC_261020_HoboBag_Evergreen_B011_S03_offer",
+  "LC_261020_HoboBag_Evergreen_B011_S04_native",
+  "LC_261020_HoboBag_Evergreen_B011_S05_quotes"
+ ],
+ "videos": [
+  {
+   "name": "LC_261020_HoboBag_Evergreen_B011_P01_H1_day",
+   "id": "P01H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "ugc": {
+    "script": "U01",
+    "angle": "day",
+    "words": 185,
+    "hook": {
+     "type": "promise",
+     "label": "ONE DAY",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Carrying your bag one way all day gets old.",
+      "type": "problem",
+      "label": "YOUR CALL",
+      "feature": "3 WAYS TO WEAR"
+     },
+     {
+      "text": "This could be the most thoughtful bag you'll see all year.",
+      "type": "superlative",
+      "label": "MOST THOUGHTFUL",
+      "feature": null
+     },
+     {
+      "text": "Fifty percent off, plus a free matching pouch wallet: meet the Hobo Bag.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null
+     },
+     {
+      "text": "How do you carry your bag, in your hand or on your shoulder?",
+      "type": "question",
+      "label": "QUICK QUESTION",
+      "feature": "3 WAYS TO WEAR"
+     },
+     {
+      "text": "Stop settling for a bag that makes your day harder.",
+      "type": "problem",
+      "label": "SOUND FAMILIAR?",
+      "feature": null
+     }
+    ],
+    "numbers": []
+   },
+   "est_seconds": 62.3,
+   "project": "P01",
+   "hook_text": "A day with the Hobo Bag, from morning to night.",
+   "hook_label": "ONE DAY",
+   "hook_type": "promise",
+   "opening_shot": [
+    "1G6B5yfeTUCh6NAy_fq7kc37qoSOgVmKE",
+    6.9
+   ]
+  },
+  {
+   "name": "LC_261020_HoboBag_Evergreen_B011_P01_H2_day",
+   "id": "P01H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "ugc": {
+    "script": "U01",
+    "angle": "day",
+    "words": 185,
+    "hook": {
+     "type": "promise",
+     "label": "ONE DAY",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Carrying your bag one way all day gets old.",
+      "type": "problem",
+      "label": "YOUR CALL",
+      "feature": "3 WAYS TO WEAR"
+     },
+     {
+      "text": "This could be the most thoughtful bag you'll see all year.",
+      "type": "superlative",
+      "label": "MOST THOUGHTFUL",
+      "feature": null
+     },
+     {
+      "text": "Fifty percent off, plus a free matching pouch wallet: meet the Hobo Bag.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null
+     },
+     {
+      "text": "How do you carry your bag, in your hand or on your shoulder?",
+      "type": "question",
+      "label": "QUICK QUESTION",
+      "feature": "3 WAYS TO WEAR"
+     },
+     {
+      "text": "Stop settling for a bag that makes your day harder.",
+      "type": "problem",
+      "label": "SOUND FAMILIAR?",
+      "feature": null
+     }
+    ],
+    "numbers": []
+   },
+   "est_seconds": 62.0,
+   "project": "P01",
+   "hook_text": "Carrying your bag one way all day gets old.",
+   "hook_label": "YOUR CALL",
+   "hook_type": "problem",
+   "opening_shot": [
+    "1DbVATxAeMvr_FnP999-dnJymLQ7pn9H8",
+    84.0
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261020_HoboBag_Evergreen_B011_P01_H3_day",
+   "id": "P01H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "ugc": {
+    "script": "U01",
+    "angle": "day",
+    "words": 185,
+    "hook": {
+     "type": "promise",
+     "label": "ONE DAY",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Carrying your bag one way all day gets old.",
+      "type": "problem",
+      "label": "YOUR CALL",
+      "feature": "3 WAYS TO WEAR"
+     },
+     {
+      "text": "This could be the most thoughtful bag you'll see all year.",
+      "type": "superlative",
+      "label": "MOST THOUGHTFUL",
+      "feature": null
+     },
+     {
+      "text": "Fifty percent off, plus a free matching pouch wallet: meet the Hobo Bag.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null
+     },
+     {
+      "text": "How do you carry your bag, in your hand or on your shoulder?",
+      "type": "question",
+      "label": "QUICK QUESTION",
+      "feature": "3 WAYS TO WEAR"
+     },
+     {
+      "text": "Stop settling for a bag that makes your day harder.",
+      "type": "problem",
+      "label": "SOUND FAMILIAR?",
+      "feature": null
+     }
+    ],
+    "numbers": []
+   },
+   "est_seconds": 62.6,
+   "project": "P01",
+   "hook_text": "This could be the most thoughtful bag you'll see all year.",
+   "hook_label": "MOST THOUGHTFUL",
+   "hook_type": "superlative",
+   "opening_shot": [
+    "1Mtx32enLMlOkpIfl_Cr1EYezTdody3E1",
+    1.0
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261020_HoboBag_Evergreen_B011_P01_H4_day",
+   "id": "P01H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "ugc": {
+    "script": "U01",
+    "angle": "day",
+    "words": 185,
+    "hook": {
+     "type": "promise",
+     "label": "ONE DAY",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Carrying your bag one way all day gets old.",
+      "type": "problem",
+      "label": "YOUR CALL",
+      "feature": "3 WAYS TO WEAR"
+     },
+     {
+      "text": "This could be the most thoughtful bag you'll see all year.",
+      "type": "superlative",
+      "label": "MOST THOUGHTFUL",
+      "feature": null
+     },
+     {
+      "text": "Fifty percent off, plus a free matching pouch wallet: meet the Hobo Bag.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null
+     },
+     {
+      "text": "How do you carry your bag, in your hand or on your shoulder?",
+      "type": "question",
+      "label": "QUICK QUESTION",
+      "feature": "3 WAYS TO WEAR"
+     },
+     {
+      "text": "Stop settling for a bag that makes your day harder.",
+      "type": "problem",
+      "label": "SOUND FAMILIAR?",
+      "feature": null
+     }
+    ],
+    "numbers": []
+   },
+   "est_seconds": 63.3,
+   "project": "P01",
+   "hook_text": "Fifty percent off, plus a free matching pouch wallet: meet the Hobo Bag.",
+   "hook_label": "HALF PRICE",
+   "hook_type": "price",
+   "opening_shot": [
+    "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+    1.0
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261020_HoboBag_Evergreen_B011_P02_H1_things",
+   "id": "P02H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "ugc": {
+    "script": "U02",
+    "angle": "n_things",
+    "words": 220,
+    "hook": {
+     "type": "promise",
+     "label": "5 THINGS",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Clutching your bag on a packed train gets old fast.",
+      "type": "problem",
+      "label": "STOP CLUTCHING",
+      "feature": "HIDDEN BACK POCKET"
+     },
+     {
+      "text": "Where do you keep your cards when you're in a crowd?",
+      "type": "question",
+      "label": "BE HONEST",
+      "feature": "HIDDEN BACK POCKET"
+     },
+     {
+      "text": "Fifty percent off right now: that's the Hobo Bag.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null
+     },
+     {
+      "text": "Could this be the most useful bag out there?",
+      "type": "superlative",
+      "label": "MOST USEFUL",
+      "feature": null
+     },
+     {
+      "text": "Most days, your bag should be the easy part.",
+      "type": "problem",
+      "label": "STOP SCROLLING",
+      "feature": null
+     }
+    ],
+    "numbers": [
+     5
+    ]
+   },
+   "est_seconds": 73.5,
+   "project": "P02",
+   "hook_text": "Five reasons the Hobo Bag is worth a closer look.",
+   "hook_label": "5 THINGS",
+   "hook_type": "promise",
+   "opening_shot": [
+    "1G6B5yfeTUCh6NAy_fq7kc37qoSOgVmKE",
+    26.2
+   ]
+  },
+  {
+   "name": "LC_261020_HoboBag_Evergreen_B011_P02_H2_things",
+   "id": "P02H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "ugc": {
+    "script": "U02",
+    "angle": "n_things",
+    "words": 220,
+    "hook": {
+     "type": "promise",
+     "label": "5 THINGS",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Clutching your bag on a packed train gets old fast.",
+      "type": "problem",
+      "label": "STOP CLUTCHING",
+      "feature": "HIDDEN BACK POCKET"
+     },
+     {
+      "text": "Where do you keep your cards when you're in a crowd?",
+      "type": "question",
+      "label": "BE HONEST",
+      "feature": "HIDDEN BACK POCKET"
+     },
+     {
+      "text": "Fifty percent off right now: that's the Hobo Bag.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null
+     },
+     {
+      "text": "Could this be the most useful bag out there?",
+      "type": "superlative",
+      "label": "MOST USEFUL",
+      "feature": null
+     },
+     {
+      "text": "Most days, your bag should be the easy part.",
+      "type": "problem",
+      "label": "STOP SCROLLING",
+      "feature": null
+     }
+    ],
+    "numbers": [
+     5
+    ]
+   },
+   "est_seconds": 73.5,
+   "project": "P02",
+   "hook_text": "Clutching your bag on a packed train gets old fast.",
+   "hook_label": "STOP CLUTCHING",
+   "hook_type": "problem",
+   "opening_shot": [
+    "1DbVATxAeMvr_FnP999-dnJymLQ7pn9H8",
+    0.5
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261020_HoboBag_Evergreen_B011_P02_H3_things",
+   "id": "P02H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "ugc": {
+    "script": "U02",
+    "angle": "n_things",
+    "words": 220,
+    "hook": {
+     "type": "promise",
+     "label": "5 THINGS",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Clutching your bag on a packed train gets old fast.",
+      "type": "problem",
+      "label": "STOP CLUTCHING",
+      "feature": "HIDDEN BACK POCKET"
+     },
+     {
+      "text": "Where do you keep your cards when you're in a crowd?",
+      "type": "question",
+      "label": "BE HONEST",
+      "feature": "HIDDEN BACK POCKET"
+     },
+     {
+      "text": "Fifty percent off right now: that's the Hobo Bag.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null
+     },
+     {
+      "text": "Could this be the most useful bag out there?",
+      "type": "superlative",
+      "label": "MOST USEFUL",
+      "feature": null
+     },
+     {
+      "text": "Most days, your bag should be the easy part.",
+      "type": "problem",
+      "label": "STOP SCROLLING",
+      "feature": null
+     }
+    ],
+    "numbers": [
+     5
+    ]
+   },
+   "est_seconds": 73.8,
+   "project": "P02",
+   "hook_text": "Where do you keep your cards when you're in a crowd?",
+   "hook_label": "BE HONEST",
+   "hook_type": "question",
+   "opening_shot": [
+    "1Mtx32enLMlOkpIfl_Cr1EYezTdody3E1",
+    1.0
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261020_HoboBag_Evergreen_B011_P02_H4_things",
+   "id": "P02H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "ugc": {
+    "script": "U02",
+    "angle": "n_things",
+    "words": 220,
+    "hook": {
+     "type": "promise",
+     "label": "5 THINGS",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Clutching your bag on a packed train gets old fast.",
+      "type": "problem",
+      "label": "STOP CLUTCHING",
+      "feature": "HIDDEN BACK POCKET"
+     },
+     {
+      "text": "Where do you keep your cards when you're in a crowd?",
+      "type": "question",
+      "label": "BE HONEST",
+      "feature": "HIDDEN BACK POCKET"
+     },
+     {
+      "text": "Fifty percent off right now: that's the Hobo Bag.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null
+     },
+     {
+      "text": "Could this be the most useful bag out there?",
+      "type": "superlative",
+      "label": "MOST USEFUL",
+      "feature": null
+     },
+     {
+      "text": "Most days, your bag should be the easy part.",
+      "type": "problem",
+      "label": "STOP SCROLLING",
+      "feature": null
+     }
+    ],
+    "numbers": [
+     5
+    ]
+   },
+   "est_seconds": 73.2,
+   "project": "P02",
+   "hook_text": "Fifty percent off right now: that's the Hobo Bag.",
+   "hook_label": "HALF PRICE",
+   "hook_type": "price",
+   "opening_shot": [
+    "1CcakagPN5oiWEneKORpvJblnPYnQvWHI",
+    4.0
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261020_HoboBag_Evergreen_B011_P03_H1_demo",
+   "id": "P03H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "ugc": {
+    "script": "U03",
+    "angle": "demo",
+    "words": 194,
+    "hook": {
+     "type": "promise",
+     "label": "WATCH THIS",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Tired of a bag that gets in your way?",
+      "type": "problem",
+      "label": "BEEN THERE?",
+      "feature": null
+     },
+     {
+      "text": "This might be the most useful bag you'll see today.",
+      "type": "superlative",
+      "label": "MOST USEFUL",
+      "feature": null
+     },
+     {
+      "text": "Is your bag helping you or slowing you down?",
+      "type": "question",
+      "label": "YOUR ANSWER?",
+      "feature": null
+     },
+     {
+      "text": "Fifty percent off on the Hobo Bag right now.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null
+     },
+     {
+      "text": "A bag shouldn't be something you have to manage all day.",
+      "type": "problem",
+      "label": "STOP SCROLLING",
+      "feature": null
+     }
+    ],
+    "numbers": []
+   },
+   "est_seconds": 65.2,
+   "project": "P03",
+   "hook_text": "Watch what the Hobo Bag can do.",
+   "hook_label": "WATCH THIS",
+   "hook_type": "promise",
+   "opening_shot": [
+    "1lyxmzAu5IZH2XZIDzxfexxv4XqzOIdbO",
+    9.2
+   ]
+  },
+  {
+   "name": "LC_261020_HoboBag_Evergreen_B011_P03_H2_demo",
+   "id": "P03H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "ugc": {
+    "script": "U03",
+    "angle": "demo",
+    "words": 194,
+    "hook": {
+     "type": "promise",
+     "label": "WATCH THIS",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Tired of a bag that gets in your way?",
+      "type": "problem",
+      "label": "BEEN THERE?",
+      "feature": null
+     },
+     {
+      "text": "This might be the most useful bag you'll see today.",
+      "type": "superlative",
+      "label": "MOST USEFUL",
+      "feature": null
+     },
+     {
+      "text": "Is your bag helping you or slowing you down?",
+      "type": "question",
+      "label": "YOUR ANSWER?",
+      "feature": null
+     },
+     {
+      "text": "Fifty percent off on the Hobo Bag right now.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null
+     },
+     {
+      "text": "A bag shouldn't be something you have to manage all day.",
+      "type": "problem",
+      "label": "STOP SCROLLING",
+      "feature": null
+     }
+    ],
+    "numbers": []
+   },
+   "est_seconds": 65.8,
+   "project": "P03",
+   "hook_text": "Tired of a bag that gets in your way?",
+   "hook_label": "BEEN THERE?",
+   "hook_type": "problem",
+   "opening_shot": [
+    "1Mtx32enLMlOkpIfl_Cr1EYezTdody3E1",
+    1.0
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261020_HoboBag_Evergreen_B011_P03_H3_demo",
+   "id": "P03H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "ugc": {
+    "script": "U03",
+    "angle": "demo",
+    "words": 194,
+    "hook": {
+     "type": "promise",
+     "label": "WATCH THIS",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Tired of a bag that gets in your way?",
+      "type": "problem",
+      "label": "BEEN THERE?",
+      "feature": null
+     },
+     {
+      "text": "This might be the most useful bag you'll see today.",
+      "type": "superlative",
+      "label": "MOST USEFUL",
+      "feature": null
+     },
+     {
+      "text": "Is your bag helping you or slowing you down?",
+      "type": "question",
+      "label": "YOUR ANSWER?",
+      "feature": null
+     },
+     {
+      "text": "Fifty percent off on the Hobo Bag right now.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null
+     },
+     {
+      "text": "A bag shouldn't be something you have to manage all day.",
+      "type": "problem",
+      "label": "STOP SCROLLING",
+      "feature": null
+     }
+    ],
+    "numbers": []
+   },
+   "est_seconds": 66.2,
+   "project": "P03",
+   "hook_text": "This might be the most useful bag you'll see today.",
+   "hook_label": "MOST USEFUL",
+   "hook_type": "superlative",
+   "opening_shot": [
+    "1DbVATxAeMvr_FnP999-dnJymLQ7pn9H8",
+    0.5
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261020_HoboBag_Evergreen_B011_P03_H4_demo",
+   "id": "P03H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "ugc": {
+    "script": "U03",
+    "angle": "demo",
+    "words": 194,
+    "hook": {
+     "type": "promise",
+     "label": "WATCH THIS",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Tired of a bag that gets in your way?",
+      "type": "problem",
+      "label": "BEEN THERE?",
+      "feature": null
+     },
+     {
+      "text": "This might be the most useful bag you'll see today.",
+      "type": "superlative",
+      "label": "MOST USEFUL",
+      "feature": null
+     },
+     {
+      "text": "Is your bag helping you or slowing you down?",
+      "type": "question",
+      "label": "YOUR ANSWER?",
+      "feature": null
+     },
+     {
+      "text": "Fifty percent off on the Hobo Bag right now.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null
+     },
+     {
+      "text": "A bag shouldn't be something you have to manage all day.",
+      "type": "problem",
+      "label": "STOP SCROLLING",
+      "feature": null
+     }
+    ],
+    "numbers": []
+   },
+   "est_seconds": 65.8,
+   "project": "P03",
+   "hook_text": "Is your bag helping you or slowing you down?",
+   "hook_label": "YOUR ANSWER?",
+   "hook_type": "question",
+   "opening_shot": [
+    "1CcakagPN5oiWEneKORpvJblnPYnQvWHI",
+    4.0
+   ],
+   "hook_source": "script"
+  }
+ ],
+ "tts_lines": 38,
+ "tts_dupes": {},
+ "est_credits": 13.3,
+ "budget": 40,
+ "colour_images": {
+  "Dark Sienn": "/tmp/run/hobo/site/clean/hobo_bag_colour_dark_sienn_nobadge.jpg",
+  "Galaxy Black": "/tmp/run/hobo/site/hobo_bag_colour_galaxy_black.jpg",
+  "Blue": "/tmp/run/hobo/site/hobo_bag_colour_blue.jpg",
+  "Grey": "/tmp/run/hobo/site/hobo_bag_colour_grey.jpg",
+  "Burgundy": "/tmp/run/hobo/site/hobo_bag_colour_burgundy.jpg",
+  "Red": "/tmp/run/hobo/site/hobo_bag_colour_red.jpg"
+ },
+ "packshots": [
+  "/tmp/run/hobo/site/hobo_bag_colour_galaxy_black.jpg",
+  "/tmp/run/hobo/site/hobo_bag_colour_blue.jpg",
+  "/tmp/run/hobo/site/hobo_bag_colour_grey.jpg",
+  "/tmp/run/hobo/site/hobo_bag_colour_burgundy.jpg",
+  "/tmp/run/hobo/site/hobo_bag_colour_red.jpg"
+ ],
+ "brief": null,
+ "winners_source": null,
+ "winners_note": null,
+ "winners_used": [],
+ "unmatched_winners": [],
+ "warnings": [
+  "Hobo Bag has 3 earlier batch(es) in the novelty log: the statics start 3 step(s) further in their photo / headline cycle (other photos and captions than before)",
+  "AI scenes: off (the product has enough real photos / footage; --ai makes the scene statics and clips)"
+ ],
+ "winner_reviews": false,
+ "seed": 1,
+ "hooks": 4,
+ "pipeline": "catalog",
+ "video_format": "ugc",
+ "ugc_numbers": [
+  5
+ ],
+ "voice": {
+  "voice_type": "element",
+  "voice_id": "241459b6-b4e8-4a2a-9868-da8bcdcd0558",
+  "speed": 1.12
+ },
+ "projects": [
+  {
+   "id": "P01",
+   "from_id": "V01",
+   "angle": "day",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P01H1",
+     "name": "LC_261020_HoboBag_Evergreen_B011_P01_H1_day",
+     "hook_text": "A day with the Hobo Bag, from morning to night.",
+     "label": "ONE DAY",
+     "type": "promise",
+     "shot": [
+      "1G6B5yfeTUCh6NAy_fq7kc37qoSOgVmKE",
+      6.9
+     ],
+     "est_seconds": 62.3
+    },
+    {
+     "hook": "H2",
+     "id": "P01H2",
+     "name": "LC_261020_HoboBag_Evergreen_B011_P01_H2_day",
+     "hook_text": "Carrying your bag one way all day gets old.",
+     "label": "YOUR CALL",
+     "type": "problem",
+     "shot": [
+      "1DbVATxAeMvr_FnP999-dnJymLQ7pn9H8",
+      84.0
+     ],
+     "est_seconds": 62.0
+    },
+    {
+     "hook": "H3",
+     "id": "P01H3",
+     "name": "LC_261020_HoboBag_Evergreen_B011_P01_H3_day",
+     "hook_text": "This could be the most thoughtful bag you'll see all year.",
+     "label": "MOST THOUGHTFUL",
+     "type": "superlative",
+     "shot": [
+      "1Mtx32enLMlOkpIfl_Cr1EYezTdody3E1",
+      1.0
+     ],
+     "est_seconds": 62.6
+    },
+    {
+     "hook": "H4",
+     "id": "P01H4",
+     "name": "LC_261020_HoboBag_Evergreen_B011_P01_H4_day",
+     "hook_text": "Fifty percent off, plus a free matching pouch wallet: meet the Hobo Bag.",
+     "label": "HALF PRICE",
+     "type": "price",
+     "shot": [
+      "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+      1.0
+     ],
+     "est_seconds": 63.3
+    }
+   ]
+  },
+  {
+   "id": "P02",
+   "from_id": "V02",
+   "angle": "things",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P02H1",
+     "name": "LC_261020_HoboBag_Evergreen_B011_P02_H1_things",
+     "hook_text": "Five reasons the Hobo Bag is worth a closer look.",
+     "label": "5 THINGS",
+     "type": "promise",
+     "shot": [
+      "1G6B5yfeTUCh6NAy_fq7kc37qoSOgVmKE",
+      26.2
+     ],
+     "est_seconds": 73.5
+    },
+    {
+     "hook": "H2",
+     "id": "P02H2",
+     "name": "LC_261020_HoboBag_Evergreen_B011_P02_H2_things",
+     "hook_text": "Clutching your bag on a packed train gets old fast.",
+     "label": "STOP CLUTCHING",
+     "type": "problem",
+     "shot": [
+      "1DbVATxAeMvr_FnP999-dnJymLQ7pn9H8",
+      0.5
+     ],
+     "est_seconds": 73.5
+    },
+    {
+     "hook": "H3",
+     "id": "P02H3",
+     "name": "LC_261020_HoboBag_Evergreen_B011_P02_H3_things",
+     "hook_text": "Where do you keep your cards when you're in a crowd?",
+     "label": "BE HONEST",
+     "type": "question",
+     "shot": [
+      "1Mtx32enLMlOkpIfl_Cr1EYezTdody3E1",
+      1.0
+     ],
+     "est_seconds": 73.8
+    },
+    {
+     "hook": "H4",
+     "id": "P02H4",
+     "name": "LC_261020_HoboBag_Evergreen_B011_P02_H4_things",
+     "hook_text": "Fifty percent off right now: that's the Hobo Bag.",
+     "label": "HALF PRICE",
+     "type": "price",
+     "shot": [
+      "1CcakagPN5oiWEneKORpvJblnPYnQvWHI",
+      4.0
+     ],
+     "est_seconds": 73.2
+    }
+   ]
+  },
+  {
+   "id": "P03",
+   "from_id": "V03",
+   "angle": "demo",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P03H1",
+     "name": "LC_261020_HoboBag_Evergreen_B011_P03_H1_demo",
+     "hook_text": "Watch what the Hobo Bag can do.",
+     "label": "WATCH THIS",
+     "type": "promise",
+     "shot": [
+      "1lyxmzAu5IZH2XZIDzxfexxv4XqzOIdbO",
+      9.2
+     ],
+     "est_seconds": 65.2
+    },
+    {
+     "hook": "H2",
+     "id": "P03H2",
+     "name": "LC_261020_HoboBag_Evergreen_B011_P03_H2_demo",
+     "hook_text": "Tired of a bag that gets in your way?",
+     "label": "BEEN THERE?",
+     "type": "problem",
+     "shot": [
+      "1Mtx32enLMlOkpIfl_Cr1EYezTdody3E1",
+      1.0
+     ],
+     "est_seconds": 65.8
+    },
+    {
+     "hook": "H3",
+     "id": "P03H3",
+     "name": "LC_261020_HoboBag_Evergreen_B011_P03_H3_demo",
+     "hook_text": "This might be the most useful bag you'll see today.",
+     "label": "MOST USEFUL",
+     "type": "superlative",
+     "shot": [
+      "1DbVATxAeMvr_FnP999-dnJymLQ7pn9H8",
+      0.5
+     ],
+     "est_seconds": 66.2
+    },
+    {
+     "hook": "H4",
+     "id": "P03H4",
+     "name": "LC_261020_HoboBag_Evergreen_B011_P03_H4_demo",
+     "hook_text": "Is your bag helping you or slowing you down?",
+     "label": "YOUR ANSWER?",
+     "type": "question",
+     "shot": [
+      "1CcakagPN5oiWEneKORpvJblnPYnQvWHI",
+      4.0
+     ],
+     "est_seconds": 65.8
+    }
+   ]
+  }
+ ],
+ "hooks_seed": 1
+}

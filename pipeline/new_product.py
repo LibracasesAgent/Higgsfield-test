@@ -558,7 +558,16 @@ def detectors():
     return _DET["dnn"], _DET["haar"]
 
 
+import threading as _threading
+_FACE_LOCK = _threading.Lock()      # the shared YuNet detector is not thread-safe (render runs 2 videos at once: OpenCV 5 asserts)
+
+
 def count_faces(path, strict=False):
+    with _FACE_LOCK:
+        return _count_faces(path, strict)
+
+
+def _count_faces(path, strict=False):
     """Faces in a photo or a rendered static (None: no detector, or the file can't be read).
     The DNN (YuNet, on the photo and its mirror image, at a few sizes) finds frontal, turned, small and sunglasses faces and does not
     fire on bags, so it is the check for packshots and the render QA of every static. strict=True is the 'safe' check

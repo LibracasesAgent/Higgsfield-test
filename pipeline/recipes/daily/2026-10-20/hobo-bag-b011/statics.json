@@ -1,0 +1,53 @@
+{
+ "ads": [
+  {
+   "layout": "native",
+   "photo": "photos/frames/F_1no4sfl12S_0220.jpg",
+   "caption": "Gold Side Zips.",
+   "pct": 50,
+   "name": "LC_261020_HoboBag_Evergreen_B011_S01_native",
+   "frame": {
+    "clip": "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+    "t": 22.07
+   }
+  },
+  {
+   "layout": "studio",
+   "photo": "site/hobo_bag_colour_red.jpg",
+   "pct": 50,
+   "name": "LC_261020_HoboBag_Evergreen_B011_S02_studio"
+  },
+  {
+   "layout": "offer",
+   "photo": "site/hobo_bag_colour_galaxy_black.jpg",
+   "pct": 50,
+   "headline": "The Hobo Bag",
+   "gift": "free matching pouch wallet",
+   "cta": "Shop now \u00b7 50% off",
+   "name": "LC_261020_HoboBag_Evergreen_B011_S03_offer"
+  },
+  {
+   "layout": "native",
+   "photo": "photos/frames/F_1uaFFQN2BD_0020.jpg",
+   "caption": "Hidden Back Pocket. Gold Side Zips.",
+   "pct": 50,
+   "name": "LC_261020_HoboBag_Evergreen_B011_S04_native",
+   "frame": {
+    "clip": "1uaFFQN2BDs_Mx3G9QUtl2_B2LRLtGd1R",
+    "t": 2.03
+   }
+  },
+  {
+   "layout": "quotes",
+   "photo": "site/hobo_bag_colour_grey.jpg",
+   "reviews": [
+    7
+   ],
+   "pct": 50,
+   "gift": "free matching pouch wallet",
+   "cta": "Shop now \u00b7 50% off",
+   "name": "LC_261020_HoboBag_Evergreen_B011_S05_quotes"
+  }
+ ],
+ "card_photos": []
+}

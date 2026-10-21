@@ -1,0 +1,222 @@
+{
+ "ok": true,
+ "created": "2026-10-20",
+ "product": "Vintage Bag",
+ "theme": "default",
+ "theme_name": "Evergreen",
+ "offer": "50% off",
+ "seed": 1,
+ "cta": "Shop Now",
+ "rows": 17,
+ "csv": "/tmp/run/vintage/ad_copy.csv",
+ "statics": [
+  {
+   "id": "S01",
+   "ad_name": "LC_261020_VintageBag_Evergreen_B012r2_S01_native",
+   "angle": "native",
+   "primary_text_1": "Stop carrying a bag that swallows your keys.\nThe Vintage Bag: 50% off.",
+   "primary_text_2": "Here's what makes the Vintage Bag different.\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nA clasp that snaps shut with one hand.\nIt's 50% off right now. 👜\nTap Shop Now to find yours.",
+   "headline_1": "Adjustable Strap + One-Hand Clasp",
+   "headline_2": "Now 50% Off: The Vintage Bag",
+   "description": "50% off + free US shipping",
+   "cta": "Shop Now",
+   "cta_type": "SHOP_NOW"
+  },
+  {
+   "id": "S02",
+   "ad_name": "LC_261020_VintageBag_Evergreen_B012r2_S02_studio",
+   "angle": "studio",
+   "primary_text_1": "Classic on the outside. Organised on the inside.\n50% off the Vintage Bag.",
+   "primary_text_2": "This might be the most practical bag you'll see today.\nOpen it up and there's room for your phone, wallet and keys, all in their own spot.\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nIt's 50% off right now. 👜\nTap Shop Now to get yours.",
+   "headline_1": "Vintage Bag: 50% Off",
+   "headline_2": "The Vintage Bag: Room for Everything",
+   "description": "4 colours + free US shipping",
+   "cta": "Shop Now",
+   "cta_type": "SHOP_NOW"
+  },
+  {
+   "id": "S03",
+   "ad_name": "LC_261020_VintageBag_Evergreen_B012r2_S03_offer",
+   "angle": "offer",
+   "primary_text_1": "Phone, wallet and keys all loose at the bottom of your bag?\nThe Vintage Bag: 50% off.",
+   "primary_text_2": "Meet the Vintage Bag.\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nA clasp that snaps shut with one hand.\nIt's 50% off right now. 👜\nTap Shop Now to get yours.",
+   "headline_1": "50% Off the Vintage Bag",
+   "headline_2": "Meet the Vintage Bag: Adjustable Strap",
+   "description": "4 colours to choose from",
+   "cta": "Shop Now",
+   "cta_type": "SHOP_NOW"
+  },
+  {
+   "id": "S04",
+   "ad_name": "LC_261020_VintageBag_Evergreen_B012r2_S04_native",
+   "angle": "native",
+   "primary_text_1": "One hand, one snap, and it's shut.\n50% off the Vintage Bag.",
+   "primary_text_2": "Take a closer look at the Vintage Bag.\nOpen it up and there's room for your phone, wallet and keys, all in their own spot.\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nNow 50% off. 👜\nTap Shop Now to get yours.",
+   "headline_1": "Room for Everything + Adjustable Strap",
+   "headline_2": "50% Off the Vintage Bag",
+   "description": "Free US shipping",
+   "cta": "Shop Now",
+   "cta_type": "SHOP_NOW"
+  },
+  {
+   "id": "S05",
+   "ad_name": "LC_261020_VintageBag_Evergreen_B012r2_S05_quotes",
+   "angle": "quotes",
+   "primary_text_1": "Handbag or crossbody? With this one, you don't have to choose.\nThe Vintage Bag, now 50% off.",
+   "primary_text_2": "\"The best bag for travel and every day use.\" - Mercy A.\nOpen it up and there's room for your phone, wallet and keys, all in their own spot.\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nNow 50% off. 👜\nTap Shop Now to find yours.",
+   "headline_1": "Shop the Vintage Bag",
+   "headline_2": "Now 50% Off: The Vintage Bag",
+   "description": "50% off + free US shipping",
+   "cta": "Shop Now",
+   "cta_type": "SHOP_NOW"
+  }
+ ],
+ "projects": [
+  {
+   "id": "P01",
+   "angle": "things",
+   "engine": "storyboard",
+   "product": "Vintage Bag",
+   "winner": null,
+   "primary_text_1": "Does your bag close with one hand?\nThe Vintage Bag, now 50% off.",
+   "primary_text_2": "Have you seen the Vintage Bag yet?\nA clasp that snaps shut with one hand.\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nNow 50% off. 👜\nTap Shop Now to get yours.",
+   "headline_1": "The Vintage Bag: One-Hand Clasp",
+   "headline_2": "One-Hand Clasp + Adjustable Strap",
+   "description": "Now 50% off",
+   "cta": "Shop Now",
+   "cta_type": "SHOP_NOW",
+   "versions": [
+    {
+     "hook": "H1",
+     "id": "P01H1",
+     "ad_name": "LC_261020_VintageBag_Evergreen_B012r2_P01_H1_things",
+     "hook_text": "Three details worth a closer look on the Vintage Bag.",
+     "hook_first_line": "Three details worth a closer look on the Vintage Bag.",
+     "primary_text_2_hook": "Three details worth a closer look on the Vintage Bag.\nA clasp that snaps shut with one hand.\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nNow 50% off. 👜\nTap Shop Now to get yours."
+    },
+    {
+     "hook": "H2",
+     "id": "P01H2",
+     "ad_name": "LC_261020_VintageBag_Evergreen_B012r2_P01_H2_things",
+     "hook_text": "Does your bag open with one hand?",
+     "hook_first_line": "Does your bag open with one hand?",
+     "primary_text_2_hook": "Does your bag open with one hand?\nA clasp that snaps shut with one hand.\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nNow 50% off. 👜\nTap Shop Now to get yours."
+    },
+    {
+     "hook": "H3",
+     "id": "P01H3",
+     "ad_name": "LC_261020_VintageBag_Evergreen_B012r2_P01_H3_things",
+     "hook_text": "Fumbling with your bag while your hands are full is no fun.",
+     "hook_first_line": "Fumbling with your bag while your hands are full is no fun.",
+     "primary_text_2_hook": "Fumbling with your bag while your hands are full is no fun.\nA clasp that snaps shut with one hand.\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nNow 50% off. 👜\nTap Shop Now to get yours."
+    },
+    {
+     "hook": "H4",
+     "id": "P01H4",
+     "ad_name": "LC_261020_VintageBag_Evergreen_B012r2_P01_H4_things",
+     "hook_text": "The most versatile bag you'll see today might be this one.",
+     "hook_first_line": "The most versatile bag you'll see today might be this one.",
+     "primary_text_2_hook": "The most versatile bag you'll see today might be this one.\nA clasp that snaps shut with one hand.\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nNow 50% off. 👜\nTap Shop Now to get yours."
+    }
+   ]
+  },
+  {
+   "id": "P02",
+   "angle": "demo",
+   "engine": "storyboard",
+   "product": "Vintage Bag",
+   "winner": null,
+   "primary_text_1": "Looking for a gift with a vintage look?\nThe Vintage Bag: 50% off.",
+   "primary_text_2": "Looking for a gift? Meet the Vintage Bag.\nA clasp that snaps shut with one hand.\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nIt's 50% off right now. 👜\nTap Shop Now to get yours.",
+   "headline_1": "Meet the Vintage Bag: One-Hand Clasp",
+   "headline_2": "Vintage Bag: 50% Off",
+   "description": "Free US shipping",
+   "cta": "Shop Now",
+   "cta_type": "SHOP_NOW",
+   "versions": [
+    {
+     "hook": "H1",
+     "id": "P02H1",
+     "ad_name": "LC_261020_VintageBag_Evergreen_B012r2_P02_H1_demo",
+     "hook_text": "Here's the Vintage Bag, one feature at a time.",
+     "hook_first_line": "Here's the Vintage Bag, one feature at a time.",
+     "primary_text_2_hook": "Here's the Vintage Bag, one feature at a time.\nA clasp that snaps shut with one hand.\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nIt's 50% off right now. 👜\nTap Shop Now to get yours."
+    },
+    {
+     "hook": "H2",
+     "id": "P02H2",
+     "ad_name": "LC_261020_VintageBag_Evergreen_B012r2_P02_H2_demo",
+     "hook_text": "Right now the Vintage Bag is half price. Here's why it's worth a look.",
+     "hook_first_line": "Right now the Vintage Bag is half price. Here's why it's worth a look.",
+     "primary_text_2_hook": "Right now the Vintage Bag is half price. Here's why it's worth a look.\nA clasp that snaps shut with one hand.\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nIt's 50% off right now. 👜\nTap Shop Now to get yours."
+    },
+    {
+     "hook": "H3",
+     "id": "P02H3",
+     "ad_name": "LC_261020_VintageBag_Evergreen_B012r2_P02_H3_demo",
+     "hook_text": "If your bag is one big black hole, keep watching.",
+     "hook_first_line": "If your bag is one big black hole, keep watching.",
+     "primary_text_2_hook": "If your bag is one big black hole, keep watching.\nA clasp that snaps shut with one hand.\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nIt's 50% off right now. 👜\nTap Shop Now to get yours."
+    },
+    {
+     "hook": "H4",
+     "id": "P02H4",
+     "ad_name": "LC_261020_VintageBag_Evergreen_B012r2_P02_H4_demo",
+     "hook_text": "What would you change about your everyday bag?",
+     "hook_first_line": "What would you change about your everyday bag?",
+     "primary_text_2_hook": "What would you change about your everyday bag?\nA clasp that snaps shut with one hand.\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nIt's 50% off right now. 👜\nTap Shop Now to get yours."
+    }
+   ]
+  },
+  {
+   "id": "P03",
+   "angle": "stop",
+   "engine": "storyboard",
+   "product": "Vintage Bag",
+   "winner": null,
+   "primary_text_1": "You snap it shut with one hand and you're out the door.\n50% off the Vintage Bag.",
+   "primary_text_2": "Day trip? Adjust the strap and wear it crossbody.\nA clasp that snaps shut with one hand.\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nNow 50% off. 👜\nTap Shop Now to get yours.",
+   "headline_1": "The Vintage Bag: One-Hand Clasp",
+   "headline_2": "One-Hand Clasp + Adjustable Strap",
+   "description": "Now 50% off",
+   "cta": "Shop Now",
+   "cta_type": "SHOP_NOW",
+   "versions": [
+    {
+     "hook": "H1",
+     "id": "P03H1",
+     "ad_name": "LC_261020_VintageBag_Evergreen_B012r2_P03_H1_stop",
+     "hook_text": "No more needing both hands just to open your bag.",
+     "hook_first_line": "No more needing both hands just to open your bag.",
+     "primary_text_2_hook": "No more needing both hands just to open your bag.\nA clasp that snaps shut with one hand.\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nNow 50% off. 👜\nTap Shop Now to get yours."
+    },
+    {
+     "hook": "H2",
+     "id": "P03H2",
+     "ad_name": "LC_261020_VintageBag_Evergreen_B012r2_P03_H2_stop",
+     "hook_text": "This might be the most practical bag you'll see today.",
+     "hook_first_line": "This might be the most practical bag you'll see today.",
+     "primary_text_2_hook": "This might be the most practical bag you'll see today.\nA clasp that snaps shut with one hand.\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nNow 50% off. 👜\nTap Shop Now to get yours."
+    },
+    {
+     "hook": "H3",
+     "id": "P03H3",
+     "ad_name": "LC_261020_VintageBag_Evergreen_B012r2_P03_H3_stop",
+     "hook_text": "Classic on the outside. Organized on the inside.",
+     "hook_first_line": "Classic on the outside. Organized on the inside.",
+     "primary_text_2_hook": "Classic on the outside. Organized on the inside.\nA clasp that snaps shut with one hand.\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nNow 50% off. 👜\nTap Shop Now to get yours."
+    },
+    {
+     "hook": "H4",
+     "id": "P03H4",
+     "ad_name": "LC_261020_VintageBag_Evergreen_B012r2_P03_H4_stop",
+     "hook_text": "Half price: here's the Vintage Bag.",
+     "hook_first_line": "Half price: here's the Vintage Bag.",
+     "primary_text_2_hook": "Half price: here's the Vintage Bag.\nA clasp that snaps shut with one hand.\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nNow 50% off. 👜\nTap Shop Now to get yours."
+    }
+   ]
+  }
+ ],
+ "notes": [],
+ "problems": []
+}
