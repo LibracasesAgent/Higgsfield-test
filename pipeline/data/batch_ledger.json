@@ -999,7 +999,152 @@
      "label": "Retire the old one this Black Friday: fifty percent off the Hobo Bag."
     }
    ]
+  },
+  {
+   "id": "B017",
+   "n": 17,
+   "rev": 1,
+   "date": "2026-10-22",
+   "product": "Hobo 2.0",
+   "theme": "Evergreen",
+   "pipeline": "catalog",
+   "request": "4 videos and 5 statics for the Hobo 2.0, 2 with the presenter talking to camera, 2 with normal voiceover, each with its own idea",
+   "statics": 5,
+   "projects": 4,
+   "hooks": 4,
+   "seed": 1,
+   "status": "uploaded",
+   "folder": "B017 – 2026-10-22 – Hobo 2.0 – 5 statics + 4 projects",
+   "link": "https://drive.google.com/drive/folders/1Etd8ww33KZxh259P2gvapZFCCPUU5lOe",
+   "ads": [
+    {
+     "name": "LC_261022_Hobo20_Evergreen_B017_S01_concept",
+     "kind": "static",
+     "fp": "s|concept|AS01.png|packed for the weekend.",
+     "label": "Packed for the weekend."
+    },
+    {
+     "name": "LC_261022_Hobo20_Evergreen_B017_S02_concept",
+     "kind": "static",
+     "fp": "s|concept|AS02.png|the gift they will use daily.",
+     "label": "The gift they will use daily."
+    },
+    {
+     "name": "LC_261022_Hobo20_Evergreen_B017_S03_concept",
+     "kind": "static",
+     "fp": "s|concept|AS03.png|zipped shut in the crowd.",
+     "label": "Zipped shut in the crowd."
+    },
+    {
+     "name": "LC_261022_Hobo20_Evergreen_B017_S04_native",
+     "kind": "static",
+     "fp": "s|native|F_1-9zQrGLHj_0059.jpg|yes, the zip locks.",
+     "label": "Yes, the zip locks."
+    },
+    {
+     "name": "LC_261022_Hobo20_Evergreen_B017_S05_studio",
+     "kind": "static",
+     "fp": "s|studio|hobo_2_0_colour_dark_sienn.jpg|zips that lock. lining that blocks.",
+     "label": "Zips that lock. Lining that blocks."
+    },
+    {
+     "name": "LC_261022_Hobo20_Evergreen_B017_P01_H1_fourqs",
+     "kind": "video",
+     "fp": "v|can a zip really lock? here is a straight answer.|",
+     "label": "Can a zip really lock? Here is a straight answer."
+    },
+    {
+     "name": "LC_261022_Hobo20_Evergreen_B017_P01_H2_fourqs",
+     "kind": "video",
+     "fp": "v|a plain zip is easy for anyone to pull open.|",
+     "label": "A plain zip is easy for anyone to pull open."
+    },
+    {
+     "name": "LC_261022_Hobo20_Evergreen_B017_P01_H3_fourqs",
+     "kind": "video",
+     "fp": "v|your questions about a safer bag, answered in one minute.|",
+     "label": "Your questions about a safer bag, answered in one minute."
+    },
+    {
+     "name": "LC_261022_Hobo20_Evergreen_B017_P01_H4_fourqs",
+     "kind": "video",
+     "fp": "v|a bag with lockable zippers, at fifty percent off.|",
+     "label": "A bag with lockable zippers, at fifty percent off."
+    },
+    {
+     "name": "LC_261022_Hobo20_Evergreen_B017_P02_H1_giftask",
+     "kind": "video",
+     "fp": "v|buying a bag as a gift? ask these three things first.|",
+     "label": "Buying a bag as a gift? Ask these three things first."
+    },
+    {
+     "name": "LC_261022_Hobo20_Evergreen_B017_P02_H2_giftask",
+     "kind": "video",
+     "fp": "v|a pretty bag is easy to find. one that helps every day is not.|",
+     "label": "A pretty bag is easy to find. One that helps every day is not."
+    },
+    {
+     "name": "LC_261022_Hobo20_Evergreen_B017_P02_H3_giftask",
+     "kind": "video",
+     "fp": "v|the gift guide for the person who carries everything.|",
+     "label": "The gift guide for the person who carries everything."
+    },
+    {
+     "name": "LC_261022_Hobo20_Evergreen_B017_P02_H4_giftask",
+     "kind": "video",
+     "fp": "v|a gift bag at fifty percent off, with a free pouch wallet.|",
+     "label": "A gift bag at fifty percent off, with a free pouch wallet."
+    },
+    {
+     "name": "LC_261022_Hobo20_Evergreen_B017_P03_H1_weekend",
+     "kind": "video",
+     "fp": "v|five things to pack for a weekend away, and where each goes.|",
+     "label": "Five things to pack for a weekend away, and where each goes."
+    },
+    {
+     "name": "LC_261022_Hobo20_Evergreen_B017_P03_H2_weekend",
+     "kind": "video",
+     "fp": "v|where does everything go when you pack a weekend bag?|",
+     "label": "Where does everything go when you pack a weekend bag?"
+    },
+    {
+     "name": "LC_261022_Hobo20_Evergreen_B017_P03_H3_weekend",
+     "kind": "video",
+     "fp": "v|packed for the trip, then digging for your keys at the station?|",
+     "label": "Packed for the trip, then digging for your keys at the station?"
+    },
+    {
+     "name": "LC_261022_Hobo20_Evergreen_B017_P03_H4_weekend",
+     "kind": "video",
+     "fp": "v|a bag that sorts your weekend away, at fifty percent off.|",
+     "label": "A bag that sorts your weekend away, at fifty percent off."
+    },
+    {
+     "name": "LC_261022_Hobo20_Evergreen_B017_P04_H1_versus",
+     "kind": "video",
+     "fp": "v|your bag closes with a plain zip. is that enough?|",
+     "label": "Your bag closes with a plain zip. Is that enough?"
+    },
+    {
+     "name": "LC_261022_Hobo20_Evergreen_B017_P04_H2_versus",
+     "kind": "video",
+     "fp": "v|an ordinary bag, or this one? look at the differences.|",
+     "label": "An ordinary bag, or this one? Look at the differences."
+    },
+    {
+     "name": "LC_261022_Hobo20_Evergreen_B017_P04_H3_versus",
+     "kind": "video",
+     "fp": "v|a plain zip, a plain strap, a plain lining: that is the problem.|",
+     "label": "A plain zip, a plain strap, a plain lining: that is the problem."
+    },
+    {
+     "name": "LC_261022_Hobo20_Evergreen_B017_P04_H4_versus",
+     "kind": "video",
+     "fp": "v|every upgrade over an ordinary bag, at fifty percent off.|",
+     "label": "Every upgrade over an ordinary bag, at fifty percent off."
+    }
+   ]
   }
  ],
- "next": 17
+ "next": 18
 }

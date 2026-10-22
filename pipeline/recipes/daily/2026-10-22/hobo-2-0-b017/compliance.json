@@ -1,0 +1,19 @@
+{
+ "ok": true,
+ "product": "Hobo 2.0",
+ "offer": "50% off + free pouch wallet",
+ "checked": 378,
+ "problems": [],
+ "allowed": [
+  {
+   "where": "voiceover V03_hook.mp3, ad copy LC_261022_Hobo20_Evergreen_B017_P03_H1_weekend hook_first_line",
+   "text": "Five things to pack for a weekend away, and where each goes.",
+   "category": "numbers",
+   "term": "Five",
+   "why": "the count of the chapters the video shows ('Four things ...'), not a stat"
+  }
+ ],
+ "raw_story": [],
+ "raw_cuts": [],
+ "report": "/tmp/run/hobo20-4v5s/compliance.json"
+}

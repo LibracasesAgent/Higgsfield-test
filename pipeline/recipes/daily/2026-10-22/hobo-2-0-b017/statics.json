@@ -1,0 +1,67 @@
+{
+ "ads": [
+  {
+   "layout": "concept",
+   "photo": "ai/AS01.png",
+   "kicker": "WEEKEND AWAY",
+   "headline": "Packed for the weekend.",
+   "where": "bottom",
+   "pct": 50,
+   "name": "LC_261022_Hobo20_Evergreen_B017_S01_concept",
+   "ai": {
+    "id": "AS01",
+    "scene": "p03_s01",
+    "colour": "Galaxy Black"
+   }
+  },
+  {
+   "layout": "concept",
+   "photo": "ai/AS02.png",
+   "kicker": "GIFT IDEA",
+   "headline": "The gift they will use daily.",
+   "where": "bottom",
+   "pct": 50,
+   "name": "LC_261022_Hobo20_Evergreen_B017_S02_concept",
+   "ai": {
+    "id": "AS02",
+    "scene": "p02_s02",
+    "colour": "Dark Sienn"
+   }
+  },
+  {
+   "layout": "concept",
+   "photo": "ai/AS03.png",
+   "headline": "Zipped shut in the crowd.",
+   "where": "bottom",
+   "pct": 50,
+   "name": "LC_261022_Hobo20_Evergreen_B017_S03_concept",
+   "ai": {
+    "id": "AS03",
+    "scene": "p01_s03",
+    "colour": "Galaxy Black"
+   }
+  },
+  {
+   "layout": "native",
+   "photo": "photos/frames/F_1-9zQrGLHj_0059.jpg",
+   "caption": "Yes, the zip locks.",
+   "pct": 50,
+   "name": "LC_261022_Hobo20_Evergreen_B017_S04_native",
+   "frame": {
+    "clip": "1-9zQrGLHjuze_qWD0LOSugGqZivp7HPR",
+    "t": 5.95
+   }
+  },
+  {
+   "layout": "studio",
+   "photo": "site/clean/hobo_2_0_colour_dark_sienn.jpg",
+   "pct": 50,
+   "name": "LC_261022_Hobo20_Evergreen_B017_S05_studio",
+   "caption": "Zips that lock. Lining that blocks."
+  }
+ ],
+ "card_photos": [
+  "site/clean/hobo_2_0_colour_beige.jpg",
+  "site/clean/hobo_2_0_colour_galaxy_black.jpg"
+ ]
+}

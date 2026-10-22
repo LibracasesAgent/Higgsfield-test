@@ -58,7 +58,7 @@ _NUM = {"0": "zero", "1": "one", "2": "two", "3": "three", "4": "four", "5": "fi
 def norm_words(t):
     """Words of a script or of a transcript on one footing: numerals and '%' spelled out, hyphens and punctuation dropped (a transcript says
     '50 %' where the script says 'fifty percent', 'water -resistant' where it says 'water-resistant')."""
-    t = (t or "").lower().replace("%", " percent ").replace("-", "")
+    t = re.sub(r"(\d)\.(\d)", r"\1 \2", (t or "").lower()).replace("%", " percent ").replace("-", "")    # "2.0" = "2" ".0" in a transcript = "two zero"
     ws = []
     for w in t.split():
         w = re.sub(r"[^a-z0-9]", "", w)

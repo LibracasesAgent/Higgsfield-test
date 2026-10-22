@@ -1,0 +1,748 @@
+{
+ "product": "Hobo 2.0",
+ "theme": "evergreen",
+ "date": "2026-10-22",
+ "research": [
+  "CLIENT_GUIDE request row: 2 presenter + 2 voiceover projects, each with its own story; the presenter is a host in 'you' form, never a customer (CLAUDE.md rule 1).",
+  "Packet (B013 day/demo, B015 chairtie/layers): earlier Hobo 2.0 batches did a day, a demo, the chair strap and a layers build; none did an objection Q&A, a buyer's guide, a packing list or an ordinary-vs-this comparison, and none sat the host down.",
+  "docs/research/2026-10-black-friday-and-bag-ads.md: Pacsafe-style pointouts and 'us vs them' (no competitor named), Dagne Dover packing for a scenario, Bellroy 'five reasons' listicle, objection cards ('Are crossbody bags safe in crowds?') answered with a demo: all are fresh for Hobo 2.0.",
+  "Footage counts: many moments for zip, pocket, inside, packing, strap, placed, worn, pouch; tie 20 is enough for one chapter; walking, stairs, car are thin and are not used as the picture of a line."
+ ],
+ "projects": [
+  {
+   "id": "P01",
+   "slug": "fourqs",
+   "title": "Four questions about a bag that locks",
+   "presenter": {
+    "id": "maya",
+    "scenes": [
+     {
+      "id": "kitchen",
+      "where": "She sits at a light wooden kitchen table in morning light, a white mug in front of her, a window softly blurred behind her.",
+      "outfit": "She wears a blue and white striped linen shirt.",
+      "bag": "on the table in front of her, its front and zip in clear view",
+      "colour": "black",
+      "ambience": "Quiet kitchen ambience"
+     },
+     {
+      "id": "sofa",
+      "where": "She sits on a light grey sofa in a bright living room, a plant softly blurred behind her, warm daylight from a window on the left.",
+      "outfit": "She wears a cream knit sweater.",
+      "bag": "standing upright on the sofa cushion beside her, front and zip in clear view",
+      "colour": "black",
+      "ambience": "Quiet living room ambience"
+     }
+    ]
+   },
+   "big_idea": "A host sits down and answers the four questions people ask about a bag built for security (can a zip really lock, can a strap be cut, does RFID matter, where does everything go), one straight answer and one shot each.",
+   "why_new": "No earlier Hobo 2.0 batch was an objection Q&A, and none had a host on camera: this one argues each doubt out loud and shows the answer.",
+   "hooks": [
+    {
+     "text": "Can a zip really lock? Here is a straight answer.",
+     "type": "question",
+     "label": "ZIP LOCK?",
+     "show": [
+      "lock",
+      "zip_hand"
+     ],
+     "scene": "kitchen"
+    },
+    {
+     "text": "A plain zip is easy for anyone to pull open.",
+     "type": "problem",
+     "label": "PLAIN ZIP?",
+     "show": [
+      "zip",
+      "side_zip"
+     ],
+     "scene": "kitchen"
+    },
+    {
+     "text": "Your questions about a safer bag, answered in one minute.",
+     "type": "promise",
+     "label": "BAG QUESTIONS",
+     "show": [
+      "hero",
+      "handheld"
+     ],
+     "scene": "sofa"
+    },
+    {
+     "text": "A bag with lockable zippers, at fifty percent off.",
+     "type": "price",
+     "label": "HALF PRICE",
+     "show": [
+      "lock",
+      "hero"
+     ],
+     "scene": "sofa"
+    }
+   ],
+   "chapters": [
+    {
+     "kind": "point",
+     "text": "Say you are choosing a bag you can trust. A few questions come up again and again, and each one has a straight answer.",
+     "tag": null,
+     "number": null,
+     "show": [
+      "hero",
+      "handheld"
+     ],
+     "highlight": [
+      "five",
+      "questions"
+     ],
+     "cam": "open",
+     "scene": "kitchen"
+    },
+    {
+     "kind": "point",
+     "text": "Question one: can a zip really lock? Yes. The Hobo 2.0 has lockable zippers, so nobody can open it in a crowd.",
+     "tag": "LOCKABLE ZIPPERS",
+     "number": 1,
+     "show": [
+      "lock",
+      "zip_hand",
+      "zip"
+     ],
+     "highlight": [
+      "lock",
+      "crowd"
+     ],
+     "cam": "open",
+     "scene": "kitchen"
+    },
+    {
+     "kind": "point",
+     "text": "Question two: what about the strap? It is cut-resistant, so it is built to stay on your shoulder.",
+     "tag": "CUT-RESISTANT STRAP",
+     "number": 2,
+     "show": [
+      "strap",
+      "worn",
+      "leather"
+     ],
+     "highlight": [
+      "cut-resistant",
+      "strap"
+     ],
+     "cam": "open",
+     "scene": "kitchen"
+    },
+    {
+     "kind": "point",
+     "text": "Question three: does RFID matter? The lining blocks card scanners, so your cards stay private while you are out and about.",
+     "tag": "RFID LINING",
+     "number": 3,
+     "show": [
+      "pocket",
+      "inside",
+      "placed"
+     ],
+     "highlight": [
+      "blocks",
+      "scanners"
+     ],
+     "cam": "open",
+     "scene": "sofa"
+    },
+    {
+     "kind": "point",
+     "text": "Next question: where does everything else go? Hidden pockets and smart compartments give each thing a place, so you stop digging.",
+     "tag": "HIDDEN POCKETS",
+     "number": 4,
+     "show": [
+      "pocket",
+      "inside",
+      "packing"
+     ],
+     "highlight": [
+      "hidden",
+      "compartments"
+     ],
+     "cam": "open",
+     "scene": "sofa"
+    },
+    {
+     "kind": "point",
+     "text": "Last question: what about a table? A strap loops around your chair, so your bag stays right where you left it.",
+     "tag": "TABLE SECURITY STRAP",
+     "number": 5,
+     "show": [
+      "placed",
+      "tie",
+      "cafe"
+     ],
+     "highlight": [
+      "table",
+      "strap"
+     ],
+     "cam": "open",
+     "scene": "sofa"
+    },
+    {
+     "kind": "proof",
+     "text": "So the answer to all of them is the same bag: lockable zippers, a cut-resistant strap, an RFID lining, hidden pockets and a table strap.",
+     "tag": null,
+     "number": null,
+     "show": [
+      "lock",
+      "strap",
+      "pocket"
+     ],
+     "highlight": [
+      "lockable",
+      "RFID"
+     ],
+     "cam": "full",
+     "scene": "kitchen"
+    },
+    {
+     "kind": "offer",
+     "text": "The Hobo 2.0 is fifty percent off, with a free pouch wallet and free US shipping. Tap the link below.",
+     "tag": null,
+     "number": null,
+     "show": [
+      "pouch",
+      "hero"
+     ],
+     "highlight": [
+      "fifty",
+      "free"
+     ],
+     "cam": "both",
+     "scene": "kitchen"
+    }
+   ]
+  },
+  {
+   "id": "P02",
+   "slug": "giftask",
+   "title": "Buying a bag as a gift: ask three things",
+   "presenter": {
+    "id": "maya",
+    "scenes": [
+     {
+      "id": "cafe",
+      "where": "She sits at a small round marble table in a sunny cafe, a latte in a white cup in front of her, warm daylight from the window beside her, a softly blurred cafe behind her.",
+      "outfit": "She wears a denim shirt.",
+      "bag": "resting on her lap, front and zip in clear view",
+      "colour": "brown",
+      "ambience": "Quiet cafe ambience"
+     },
+     {
+      "id": "window",
+      "where": "She sits on a cushioned window seat with a soft throw beside her, morning light through sheer curtains, a plant on the sill softly blurred.",
+      "outfit": "She wears an olive knit cardigan over a white tee.",
+      "bag": "resting on the cushion beside her, front and zip in clear view",
+      "colour": "brown",
+      "ambience": "Quiet home ambience"
+     }
+    ]
+   },
+   "big_idea": "A buyer's guide for the person shopping for someone else: three questions to ask before paying for a bag as a gift, answered by the Hobo 2.0's features, ending on the free pouch wallet.",
+   "why_new": "No earlier Hobo 2.0 batch was a gift guide or a buyer's checklist told to camera: the viewer is the one giving the bag, not carrying it.",
+   "hooks": [
+    {
+     "text": "Buying a bag as a gift? Ask these three things first.",
+     "type": "question",
+     "label": "GIFT CHECK",
+     "show": [
+      "hero",
+      "handheld"
+     ],
+     "scene": "cafe"
+    },
+    {
+     "text": "A pretty bag is easy to find. One that helps every day is not.",
+     "type": "problem",
+     "label": "MORE THAN PRETTY",
+     "show": [
+      "leather",
+      "hero"
+     ],
+     "scene": "cafe"
+    },
+    {
+     "text": "The gift guide for the person who carries everything.",
+     "type": "promise",
+     "label": "GIFT GUIDE",
+     "show": [
+      "pouch",
+      "hero"
+     ],
+     "scene": "window"
+    },
+    {
+     "text": "A gift bag at fifty percent off, with a free pouch wallet.",
+     "type": "price",
+     "label": "HALF PRICE",
+     "show": [
+      "pouch",
+      "hero"
+     ],
+     "scene": "window"
+    }
+   ],
+   "chapters": [
+    {
+     "kind": "point",
+     "text": "Shopping for someone else? Ask three things before you pay. They tell a nice bag from a gift that gets used every single day.",
+     "tag": null,
+     "number": null,
+     "show": [
+      "hero",
+      "handheld"
+     ],
+     "highlight": [
+      "three",
+      "gift"
+     ],
+     "cam": "open",
+     "scene": "cafe"
+    },
+    {
+     "kind": "point",
+     "text": "One: does it keep their things safe? The Hobo 2.0 has lockable zippers and a cut-resistant strap, so it is made for busy streets.",
+     "tag": "LOCKABLE ZIPPERS",
+     "number": 1,
+     "show": [
+      "lock",
+      "zip_hand",
+      "strap"
+     ],
+     "highlight": [
+      "lockable",
+      "cut-resistant"
+     ],
+     "cam": "open",
+     "scene": "cafe"
+    },
+    {
+     "kind": "point",
+     "text": "Two: does it keep them organised? Hidden pockets and smart compartments give every small thing a spot, from keys to cards.",
+     "tag": "HIDDEN POCKETS",
+     "number": 2,
+     "show": [
+      "pocket",
+      "inside",
+      "packing"
+     ],
+     "highlight": [
+      "hidden",
+      "compartments"
+     ],
+     "cam": "open",
+     "scene": "cafe"
+    },
+    {
+     "kind": "point",
+     "text": "Three: does it protect what is inside? An RFID lining blocks card scanners, so their cards stay private.",
+     "tag": "RFID LINING",
+     "number": 3,
+     "show": [
+      "pocket",
+      "inside",
+      "placed"
+     ],
+     "highlight": [
+      "blocks",
+      "scanners"
+     ],
+     "cam": "open",
+     "scene": "window"
+    },
+    {
+     "kind": "point",
+     "text": "And a table strap loops around a chair, so the bag stays right where they left it. A small touch with a big payoff.",
+     "tag": "TABLE SECURITY STRAP",
+     "number": null,
+     "show": [
+      "placed",
+      "tie",
+      "cafe"
+     ],
+     "highlight": [
+      "table",
+      "strap"
+     ],
+     "cam": "open",
+     "scene": "window"
+    },
+    {
+     "kind": "offer",
+     "text": "As a gift, the Hobo 2.0 is fifty percent off, with a free pouch wallet and free US shipping. Tap the link below.",
+     "tag": null,
+     "number": null,
+     "show": [
+      "pouch",
+      "hero"
+     ],
+     "highlight": [
+      "fifty",
+      "free"
+     ],
+     "cam": "both",
+     "scene": "window"
+    }
+   ]
+  },
+  {
+   "id": "P03",
+   "slug": "weekend",
+   "title": "Pack it for a weekend away",
+   "big_idea": "Pack the bag in the order a weekend away uses it: reach-for things, little things, cards, the walk, the café stop, and see which feature takes each.",
+   "why_new": "No earlier Hobo 2.0 batch packed the bag for a trip or told the features as a packing order with five numbered steps.",
+   "hooks": [
+    {
+     "text": "Five things to pack for a weekend away, and where each goes.",
+     "type": "promise",
+     "label": "PACK IT",
+     "show": [
+      "packing",
+      "inside"
+     ]
+    },
+    {
+     "text": "Where does everything go when you pack a weekend bag?",
+     "type": "question",
+     "label": "WHERE IT GOES",
+     "show": [
+      "packing",
+      "pocket"
+     ]
+    },
+    {
+     "text": "Packed for the trip, then digging for your keys at the station?",
+     "type": "problem",
+     "label": "STOP DIGGING",
+     "show": [
+      "pocket",
+      "zip_hand"
+     ]
+    },
+    {
+     "text": "A bag that sorts your weekend away, at fifty percent off.",
+     "type": "price",
+     "label": "HALF PRICE",
+     "show": [
+      "inside",
+      "hero"
+     ]
+    }
+   ],
+   "chapters": [
+    {
+     "kind": "point",
+     "text": "Time to pack the Hobo 2.0 for a weekend away. Watch where each thing goes, and which part of the bag takes care of it.",
+     "tag": null,
+     "number": null,
+     "show": [
+      "hero",
+      "packing"
+     ],
+     "highlight": [
+      "pack",
+      "weekend"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "One: the things you reach for most. Phone, keys, tickets. Hidden pockets keep them easy to find, so you stop digging through the bag.",
+     "tag": "HIDDEN POCKETS",
+     "number": 1,
+     "show": [
+      "pocket",
+      "zip_hand",
+      "packing"
+     ],
+     "highlight": [
+      "hidden",
+      "pockets"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Two: the little stuff. A charger, lip balm, a notebook. Smart compartments give each one its own place, so nothing sinks to the bottom.",
+     "tag": "SMART COMPARTMENTS",
+     "number": 2,
+     "show": [
+      "inside",
+      "packing"
+     ],
+     "highlight": [
+      "compartments",
+      "bottom"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Three: your cards. The RFID lining blocks card scanners, and lockable zippers keep the bag shut in a crowded station.",
+     "tag": "RFID LINING",
+     "number": 3,
+     "show": [
+      "lock",
+      "zip",
+      "pocket"
+     ],
+     "highlight": [
+      "RFID",
+      "lockable"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Next: the walk to the hotel. The cut-resistant strap sits on your shoulder and leaves your hands free for the luggage.",
+     "tag": "CUT-RESISTANT STRAP",
+     "number": 4,
+     "show": [
+      "strap",
+      "worn",
+      "outdoor"
+     ],
+     "highlight": [
+      "cut-resistant",
+      "hands"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Last: the café stop. Loop the table strap around your chair, and the bag stays right where you left it while you relax.",
+     "tag": "TABLE SECURITY STRAP",
+     "number": 5,
+     "show": [
+      "placed",
+      "tie",
+      "cafe"
+     ],
+     "highlight": [
+      "table",
+      "strap"
+     ]
+    },
+    {
+     "kind": "offer",
+     "text": "Everything has a place, and you are ready to go. The Hobo 2.0 is fifty percent off, with a free pouch wallet and free US shipping. Tap the link below.",
+     "tag": null,
+     "number": null,
+     "show": [
+      "pouch",
+      "hero"
+     ],
+     "highlight": [
+      "fifty",
+      "free"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "P04",
+   "slug": "versus",
+   "title": "An ordinary bag versus the Hobo 2.0",
+   "big_idea": "Five pairs, each one an ordinary bag detail set against the Hobo 2.0's answer (zip, strap, lining, pockets, table strap), told as a fair side-by-side with no competitor named.",
+   "why_new": "No earlier Hobo 2.0 batch was a comparison: each line sets what an ordinary bag has against what this one adds.",
+   "hooks": [
+    {
+     "text": "Your bag closes with a plain zip. Is that enough?",
+     "type": "question",
+     "label": "PLAIN ZIP?",
+     "show": [
+      "zip",
+      "side_zip"
+     ]
+    },
+    {
+     "text": "An ordinary bag, or this one? Look at the differences.",
+     "type": "promise",
+     "label": "SIDE BY SIDE",
+     "show": [
+      "hero",
+      "lock"
+     ]
+    },
+    {
+     "text": "A plain zip, a plain strap, a plain lining: that is the problem.",
+     "type": "problem",
+     "label": "TOO PLAIN",
+     "show": [
+      "strap",
+      "zip"
+     ]
+    },
+    {
+     "text": "Every upgrade over an ordinary bag, at fifty percent off.",
+     "type": "price",
+     "label": "HALF PRICE",
+     "show": [
+      "lock",
+      "hero"
+     ]
+    }
+   ],
+   "chapters": [
+    {
+     "kind": "point",
+     "text": "Put an ordinary bag next to the Hobo 2.0, and the differences show up fast. Here they are, one pair at a time, starting with the zip.",
+     "tag": null,
+     "number": null,
+     "show": [
+      "hero",
+      "handheld"
+     ],
+     "highlight": [
+      "differences",
+      "pair"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "One: the zip. An ordinary bag closes with a plain zip. The Hobo 2.0 has lockable zippers, so nobody can open it in a crowd.",
+     "tag": "LOCKABLE ZIPPERS",
+     "number": 1,
+     "show": [
+      "zip",
+      "lock",
+      "zip_hand"
+     ],
+     "highlight": [
+      "plain",
+      "lockable"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Two: the strap. An ordinary strap is just a strap. This one is cut-resistant, so it stays on your shoulder.",
+     "tag": "CUT-RESISTANT STRAP",
+     "number": 2,
+     "show": [
+      "strap",
+      "worn"
+     ],
+     "highlight": [
+      "cut-resistant",
+      "strap"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Three: the lining. An ordinary lining is just fabric. This one is RFID, and it blocks card scanners.",
+     "tag": "RFID LINING",
+     "number": 3,
+     "show": [
+      "inside",
+      "pocket"
+     ],
+     "highlight": [
+      "RFID",
+      "scanners"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Then: the pockets. An ordinary bag has a big open space. This one has hidden pockets and smart compartments for everything else.",
+     "tag": "HIDDEN POCKETS",
+     "number": 4,
+     "show": [
+      "pocket",
+      "inside",
+      "packing"
+     ],
+     "highlight": [
+      "hidden",
+      "compartments"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Last: the table. An ordinary bag goes on the floor. This one has a table strap that loops around your chair, so it stays right where you left it.",
+     "tag": "TABLE SECURITY STRAP",
+     "number": 5,
+     "show": [
+      "placed",
+      "tie",
+      "cafe"
+     ],
+     "highlight": [
+      "table",
+      "chair"
+     ]
+    },
+    {
+     "kind": "offer",
+     "text": "That is the difference, in one bag. The Hobo 2.0 is fifty percent off, with a free pouch wallet and free US shipping. Tap the link below.",
+     "tag": null,
+     "number": null,
+     "show": [
+      "pouch",
+      "hero"
+     ],
+     "highlight": [
+      "fifty",
+      "free"
+     ]
+    }
+   ]
+  }
+ ],
+ "statics": [
+  {
+   "id": "S01",
+   "project": "P03",
+   "layout": "concept",
+   "idea": "A weekend-away still life: the bag on a cream hard-shell suitcase with a folded scarf and a mug, packed and ready to go.",
+   "headline": "Packed for the weekend.",
+   "kicker": "WEEKEND AWAY",
+   "pill": true,
+   "where": "bottom",
+   "scene": {
+    "kind": "object",
+    "colour": "Black",
+    "prompt": "The handbag stands upright on top of a closed cream hard-shell suitcase in a bright hallway, a folded oatmeal wool scarf and a white ceramic mug beside it, soft morning window light from the left, a softly blurred plain wall behind. The bag is large in the frame, its front and zip clearly visible; the lower quarter of the frame is calm, empty pale floor."
+   }
+  },
+  {
+   "id": "S02",
+   "project": "P02",
+   "layout": "concept",
+   "idea": "Gift styling: the bag on a cream table beside a sage-wrapped gift box and a satin ribbon, a gift for the one who carries everything.",
+   "headline": "The gift they will use daily.",
+   "kicker": "GIFT IDEA",
+   "pill": true,
+   "where": "bottom",
+   "scene": {
+    "kind": "object",
+    "colour": "Brown",
+    "prompt": "The handbag stands upright on a cream linen tablecloth beside a small gift box wrapped in plain sage-green paper with a satin ribbon, and a loose coil of cream ribbon, soft diffused daylight from the left, a softly blurred neutral wall behind. The bag is large and clearly visible; the lower quarter of the frame is plain empty linen."
+   }
+  },
+  {
+   "id": "S03",
+   "project": "P01",
+   "layout": "concept",
+   "idea": "A woman seen from behind on a bright station concourse, bag worn crossbody and zipped shut: the crowd without the crowd.",
+   "headline": "Zipped shut in the crowd.",
+   "pill": true,
+   "where": "bottom",
+   "scene": {
+    "kind": "worn",
+    "colour": "Black",
+    "prompt": "A woman in a camel trench coat walks away from the camera across a bright, empty train station concourse with tall windows, seen from behind and slightly from the side, cropped at the shoulders, wearing the handbag crossbody with one hand on the strap. Soft daylight, calm composition, no other people. The lower quarter of the frame is empty polished floor."
+   }
+  },
+  {
+   "id": "S04",
+   "project": "P01",
+   "layout": "native",
+   "idea": "A real footage frame of a hand on the gold zip pulls: the zip answer.",
+   "headline": "Yes, the zip locks."
+  },
+  {
+   "id": "S05",
+   "project": "P04",
+   "layout": "studio",
+   "idea": "The real packshot with the ordinary-vs-this line.",
+   "headline": "Zips that lock. Lining that blocks."
+  }
+ ]
+}

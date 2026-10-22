@@ -1,0 +1,1759 @@
+{
+ "prefix": "LC_261022_Hobo20_Evergreen_B017",
+ "rev": 1,
+ "batch_id": {
+  "id": "B017",
+  "n": 17,
+  "rev": 1
+ },
+ "created": "2026-10-22",
+ "request": "4 videos and 5 statics for the Hobo 2.0, 2 with the presenter talking to camera, 2 with normal voiceover, each with its own idea",
+ "product": "Hobo 2.0",
+ "product_key": "hobo 2.0",
+ "product_source": "built-in",
+ "theme": "default",
+ "theme_name": "Evergreen",
+ "offer": "50% off + free pouch wallet",
+ "statics": [
+  "LC_261022_Hobo20_Evergreen_B017_S01_concept",
+  "LC_261022_Hobo20_Evergreen_B017_S02_concept",
+  "LC_261022_Hobo20_Evergreen_B017_S03_concept",
+  "LC_261022_Hobo20_Evergreen_B017_S04_native",
+  "LC_261022_Hobo20_Evergreen_B017_S05_studio"
+ ],
+ "videos": [
+  {
+   "name": "LC_261022_Hobo20_Evergreen_B017_P01_H1_fourqs",
+   "id": "P01H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "ugc": {
+    "script": "U01",
+    "angle": "fourqs",
+    "words": 182,
+    "hook": {
+     "type": "question",
+     "label": "ZIP LOCK?",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "A plain zip is easy for anyone to pull open.",
+      "type": "problem",
+      "label": "PLAIN ZIP?",
+      "feature": null,
+      "show": [
+       "zip",
+       "side_zip"
+      ],
+      "scene": "kitchen"
+     },
+     {
+      "text": "Your questions about a safer bag, answered in one minute.",
+      "type": "promise",
+      "label": "BAG QUESTIONS",
+      "feature": null,
+      "show": [
+       "hero",
+       "handheld"
+      ],
+      "scene": "sofa"
+     },
+     {
+      "text": "A bag with lockable zippers, at fifty percent off.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null,
+      "show": [
+       "lock",
+       "hero"
+      ],
+      "scene": "sofa"
+     }
+    ],
+    "numbers": [],
+    "presenter": {
+     "id": "maya",
+     "scenes": [
+      {
+       "id": "kitchen",
+       "where": "She sits at a light wooden kitchen table in morning light, a white mug in front of her, a window softly blurred behind her.",
+       "outfit": "She wears a blue and white striped linen shirt.",
+       "bag": "on the table in front of her, its front and zip in clear view",
+       "colour": "black",
+       "ambience": "Quiet kitchen ambience"
+      },
+      {
+       "id": "sofa",
+       "where": "She sits on a light grey sofa in a bright living room, a plant softly blurred behind her, warm daylight from a window on the left.",
+       "outfit": "She wears a cream knit sweater.",
+       "bag": "standing upright on the sofa cushion beside her, front and zip in clear view",
+       "colour": "black",
+       "ambience": "Quiet living room ambience"
+      }
+     ]
+    }
+   },
+   "est_seconds": 75.6,
+   "project": "P01",
+   "hook_text": "Can a zip really lock? Here is a straight answer.",
+   "hook_label": "ZIP LOCK?",
+   "hook_type": "question",
+   "opening_shot": [
+    "TALK",
+    0
+   ]
+  },
+  {
+   "name": "LC_261022_Hobo20_Evergreen_B017_P01_H2_fourqs",
+   "id": "P01H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "ugc": {
+    "script": "U01",
+    "angle": "fourqs",
+    "words": 182,
+    "hook": {
+     "type": "question",
+     "label": "ZIP LOCK?",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "A plain zip is easy for anyone to pull open.",
+      "type": "problem",
+      "label": "PLAIN ZIP?",
+      "feature": null,
+      "show": [
+       "zip",
+       "side_zip"
+      ],
+      "scene": "kitchen"
+     },
+     {
+      "text": "Your questions about a safer bag, answered in one minute.",
+      "type": "promise",
+      "label": "BAG QUESTIONS",
+      "feature": null,
+      "show": [
+       "hero",
+       "handheld"
+      ],
+      "scene": "sofa"
+     },
+     {
+      "text": "A bag with lockable zippers, at fifty percent off.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null,
+      "show": [
+       "lock",
+       "hero"
+      ],
+      "scene": "sofa"
+     }
+    ],
+    "numbers": [],
+    "presenter": {
+     "id": "maya",
+     "scenes": [
+      {
+       "id": "kitchen",
+       "where": "She sits at a light wooden kitchen table in morning light, a white mug in front of her, a window softly blurred behind her.",
+       "outfit": "She wears a blue and white striped linen shirt.",
+       "bag": "on the table in front of her, its front and zip in clear view",
+       "colour": "black",
+       "ambience": "Quiet kitchen ambience"
+      },
+      {
+       "id": "sofa",
+       "where": "She sits on a light grey sofa in a bright living room, a plant softly blurred behind her, warm daylight from a window on the left.",
+       "outfit": "She wears a cream knit sweater.",
+       "bag": "standing upright on the sofa cushion beside her, front and zip in clear view",
+       "colour": "black",
+       "ambience": "Quiet living room ambience"
+      }
+     ]
+    }
+   },
+   "est_seconds": 75.6,
+   "project": "P01",
+   "hook_text": "A plain zip is easy for anyone to pull open.",
+   "hook_label": "PLAIN ZIP?",
+   "hook_type": "problem",
+   "opening_shot": null,
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261022_Hobo20_Evergreen_B017_P01_H3_fourqs",
+   "id": "P01H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "ugc": {
+    "script": "U01",
+    "angle": "fourqs",
+    "words": 182,
+    "hook": {
+     "type": "question",
+     "label": "ZIP LOCK?",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "A plain zip is easy for anyone to pull open.",
+      "type": "problem",
+      "label": "PLAIN ZIP?",
+      "feature": null,
+      "show": [
+       "zip",
+       "side_zip"
+      ],
+      "scene": "kitchen"
+     },
+     {
+      "text": "Your questions about a safer bag, answered in one minute.",
+      "type": "promise",
+      "label": "BAG QUESTIONS",
+      "feature": null,
+      "show": [
+       "hero",
+       "handheld"
+      ],
+      "scene": "sofa"
+     },
+     {
+      "text": "A bag with lockable zippers, at fifty percent off.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null,
+      "show": [
+       "lock",
+       "hero"
+      ],
+      "scene": "sofa"
+     }
+    ],
+    "numbers": [],
+    "presenter": {
+     "id": "maya",
+     "scenes": [
+      {
+       "id": "kitchen",
+       "where": "She sits at a light wooden kitchen table in morning light, a white mug in front of her, a window softly blurred behind her.",
+       "outfit": "She wears a blue and white striped linen shirt.",
+       "bag": "on the table in front of her, its front and zip in clear view",
+       "colour": "black",
+       "ambience": "Quiet kitchen ambience"
+      },
+      {
+       "id": "sofa",
+       "where": "She sits on a light grey sofa in a bright living room, a plant softly blurred behind her, warm daylight from a window on the left.",
+       "outfit": "She wears a cream knit sweater.",
+       "bag": "standing upright on the sofa cushion beside her, front and zip in clear view",
+       "colour": "black",
+       "ambience": "Quiet living room ambience"
+      }
+     ]
+    }
+   },
+   "est_seconds": 75.6,
+   "project": "P01",
+   "hook_text": "Your questions about a safer bag, answered in one minute.",
+   "hook_label": "BAG QUESTIONS",
+   "hook_type": "promise",
+   "opening_shot": null,
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261022_Hobo20_Evergreen_B017_P01_H4_fourqs",
+   "id": "P01H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "ugc": {
+    "script": "U01",
+    "angle": "fourqs",
+    "words": 182,
+    "hook": {
+     "type": "question",
+     "label": "ZIP LOCK?",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "A plain zip is easy for anyone to pull open.",
+      "type": "problem",
+      "label": "PLAIN ZIP?",
+      "feature": null,
+      "show": [
+       "zip",
+       "side_zip"
+      ],
+      "scene": "kitchen"
+     },
+     {
+      "text": "Your questions about a safer bag, answered in one minute.",
+      "type": "promise",
+      "label": "BAG QUESTIONS",
+      "feature": null,
+      "show": [
+       "hero",
+       "handheld"
+      ],
+      "scene": "sofa"
+     },
+     {
+      "text": "A bag with lockable zippers, at fifty percent off.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null,
+      "show": [
+       "lock",
+       "hero"
+      ],
+      "scene": "sofa"
+     }
+    ],
+    "numbers": [],
+    "presenter": {
+     "id": "maya",
+     "scenes": [
+      {
+       "id": "kitchen",
+       "where": "She sits at a light wooden kitchen table in morning light, a white mug in front of her, a window softly blurred behind her.",
+       "outfit": "She wears a blue and white striped linen shirt.",
+       "bag": "on the table in front of her, its front and zip in clear view",
+       "colour": "black",
+       "ambience": "Quiet kitchen ambience"
+      },
+      {
+       "id": "sofa",
+       "where": "She sits on a light grey sofa in a bright living room, a plant softly blurred behind her, warm daylight from a window on the left.",
+       "outfit": "She wears a cream knit sweater.",
+       "bag": "standing upright on the sofa cushion beside her, front and zip in clear view",
+       "colour": "black",
+       "ambience": "Quiet living room ambience"
+      }
+     ]
+    }
+   },
+   "est_seconds": 75.2,
+   "project": "P01",
+   "hook_text": "A bag with lockable zippers, at fifty percent off.",
+   "hook_label": "HALF PRICE",
+   "hook_type": "price",
+   "opening_shot": null,
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261022_Hobo20_Evergreen_B017_P02_H1_giftask",
+   "id": "P02H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "ugc": {
+    "script": "U02",
+    "angle": "giftask",
+    "words": 145,
+    "hook": {
+     "type": "question",
+     "label": "GIFT CHECK",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "A pretty bag is easy to find. One that helps every day is not.",
+      "type": "problem",
+      "label": "MORE THAN PRETTY",
+      "feature": null,
+      "show": [
+       "leather",
+       "hero"
+      ],
+      "scene": "cafe"
+     },
+     {
+      "text": "The gift guide for the person who carries everything.",
+      "type": "promise",
+      "label": "GIFT GUIDE",
+      "feature": null,
+      "show": [
+       "pouch",
+       "hero"
+      ],
+      "scene": "window"
+     },
+     {
+      "text": "A gift bag at fifty percent off, with a free pouch wallet.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null,
+      "show": [
+       "pouch",
+       "hero"
+      ],
+      "scene": "window"
+     }
+    ],
+    "numbers": [
+     3
+    ],
+    "presenter": {
+     "id": "maya",
+     "scenes": [
+      {
+       "id": "cafe",
+       "where": "She sits at a small round marble table in a sunny cafe, a latte in a white cup in front of her, warm daylight from the window beside her, a softly blurred cafe behind her.",
+       "outfit": "She wears a denim shirt.",
+       "bag": "resting on her lap, front and zip in clear view",
+       "colour": "brown",
+       "ambience": "Quiet cafe ambience"
+      },
+      {
+       "id": "window",
+       "where": "She sits on a cushioned window seat with a soft throw beside her, morning light through sheer curtains, a plant on the sill softly blurred.",
+       "outfit": "She wears an olive knit cardigan over a white tee.",
+       "bag": "resting on the cushion beside her, front and zip in clear view",
+       "colour": "brown",
+       "ambience": "Quiet home ambience"
+      }
+     ]
+    }
+   },
+   "est_seconds": 60.3,
+   "project": "P02",
+   "hook_text": "Buying a bag as a gift? Ask these three things first.",
+   "hook_label": "GIFT CHECK",
+   "hook_type": "question",
+   "opening_shot": [
+    "TALK",
+    0
+   ]
+  },
+  {
+   "name": "LC_261022_Hobo20_Evergreen_B017_P02_H2_giftask",
+   "id": "P02H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "ugc": {
+    "script": "U02",
+    "angle": "giftask",
+    "words": 145,
+    "hook": {
+     "type": "question",
+     "label": "GIFT CHECK",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "A pretty bag is easy to find. One that helps every day is not.",
+      "type": "problem",
+      "label": "MORE THAN PRETTY",
+      "feature": null,
+      "show": [
+       "leather",
+       "hero"
+      ],
+      "scene": "cafe"
+     },
+     {
+      "text": "The gift guide for the person who carries everything.",
+      "type": "promise",
+      "label": "GIFT GUIDE",
+      "feature": null,
+      "show": [
+       "pouch",
+       "hero"
+      ],
+      "scene": "window"
+     },
+     {
+      "text": "A gift bag at fifty percent off, with a free pouch wallet.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null,
+      "show": [
+       "pouch",
+       "hero"
+      ],
+      "scene": "window"
+     }
+    ],
+    "numbers": [
+     3
+    ],
+    "presenter": {
+     "id": "maya",
+     "scenes": [
+      {
+       "id": "cafe",
+       "where": "She sits at a small round marble table in a sunny cafe, a latte in a white cup in front of her, warm daylight from the window beside her, a softly blurred cafe behind her.",
+       "outfit": "She wears a denim shirt.",
+       "bag": "resting on her lap, front and zip in clear view",
+       "colour": "brown",
+       "ambience": "Quiet cafe ambience"
+      },
+      {
+       "id": "window",
+       "where": "She sits on a cushioned window seat with a soft throw beside her, morning light through sheer curtains, a plant on the sill softly blurred.",
+       "outfit": "She wears an olive knit cardigan over a white tee.",
+       "bag": "resting on the cushion beside her, front and zip in clear view",
+       "colour": "brown",
+       "ambience": "Quiet home ambience"
+      }
+     ]
+    }
+   },
+   "est_seconds": 61.5,
+   "project": "P02",
+   "hook_text": "A pretty bag is easy to find. One that helps every day is not.",
+   "hook_label": "MORE THAN PRETTY",
+   "hook_type": "problem",
+   "opening_shot": null,
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261022_Hobo20_Evergreen_B017_P02_H3_giftask",
+   "id": "P02H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "ugc": {
+    "script": "U02",
+    "angle": "giftask",
+    "words": 145,
+    "hook": {
+     "type": "question",
+     "label": "GIFT CHECK",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "A pretty bag is easy to find. One that helps every day is not.",
+      "type": "problem",
+      "label": "MORE THAN PRETTY",
+      "feature": null,
+      "show": [
+       "leather",
+       "hero"
+      ],
+      "scene": "cafe"
+     },
+     {
+      "text": "The gift guide for the person who carries everything.",
+      "type": "promise",
+      "label": "GIFT GUIDE",
+      "feature": null,
+      "show": [
+       "pouch",
+       "hero"
+      ],
+      "scene": "window"
+     },
+     {
+      "text": "A gift bag at fifty percent off, with a free pouch wallet.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null,
+      "show": [
+       "pouch",
+       "hero"
+      ],
+      "scene": "window"
+     }
+    ],
+    "numbers": [
+     3
+    ],
+    "presenter": {
+     "id": "maya",
+     "scenes": [
+      {
+       "id": "cafe",
+       "where": "She sits at a small round marble table in a sunny cafe, a latte in a white cup in front of her, warm daylight from the window beside her, a softly blurred cafe behind her.",
+       "outfit": "She wears a denim shirt.",
+       "bag": "resting on her lap, front and zip in clear view",
+       "colour": "brown",
+       "ambience": "Quiet cafe ambience"
+      },
+      {
+       "id": "window",
+       "where": "She sits on a cushioned window seat with a soft throw beside her, morning light through sheer curtains, a plant on the sill softly blurred.",
+       "outfit": "She wears an olive knit cardigan over a white tee.",
+       "bag": "resting on the cushion beside her, front and zip in clear view",
+       "colour": "brown",
+       "ambience": "Quiet home ambience"
+      }
+     ]
+    }
+   },
+   "est_seconds": 59.5,
+   "project": "P02",
+   "hook_text": "The gift guide for the person who carries everything.",
+   "hook_label": "GIFT GUIDE",
+   "hook_type": "promise",
+   "opening_shot": null,
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261022_Hobo20_Evergreen_B017_P02_H4_giftask",
+   "id": "P02H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "ugc": {
+    "script": "U02",
+    "angle": "giftask",
+    "words": 145,
+    "hook": {
+     "type": "question",
+     "label": "GIFT CHECK",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "A pretty bag is easy to find. One that helps every day is not.",
+      "type": "problem",
+      "label": "MORE THAN PRETTY",
+      "feature": null,
+      "show": [
+       "leather",
+       "hero"
+      ],
+      "scene": "cafe"
+     },
+     {
+      "text": "The gift guide for the person who carries everything.",
+      "type": "promise",
+      "label": "GIFT GUIDE",
+      "feature": null,
+      "show": [
+       "pouch",
+       "hero"
+      ],
+      "scene": "window"
+     },
+     {
+      "text": "A gift bag at fifty percent off, with a free pouch wallet.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null,
+      "show": [
+       "pouch",
+       "hero"
+      ],
+      "scene": "window"
+     }
+    ],
+    "numbers": [
+     3
+    ],
+    "presenter": {
+     "id": "maya",
+     "scenes": [
+      {
+       "id": "cafe",
+       "where": "She sits at a small round marble table in a sunny cafe, a latte in a white cup in front of her, warm daylight from the window beside her, a softly blurred cafe behind her.",
+       "outfit": "She wears a denim shirt.",
+       "bag": "resting on her lap, front and zip in clear view",
+       "colour": "brown",
+       "ambience": "Quiet cafe ambience"
+      },
+      {
+       "id": "window",
+       "where": "She sits on a cushioned window seat with a soft throw beside her, morning light through sheer curtains, a plant on the sill softly blurred.",
+       "outfit": "She wears an olive knit cardigan over a white tee.",
+       "bag": "resting on the cushion beside her, front and zip in clear view",
+       "colour": "brown",
+       "ambience": "Quiet home ambience"
+      }
+     ]
+    }
+   },
+   "est_seconds": 60.7,
+   "project": "P02",
+   "hook_text": "A gift bag at fifty percent off, with a free pouch wallet.",
+   "hook_label": "HALF PRICE",
+   "hook_type": "price",
+   "opening_shot": null,
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261022_Hobo20_Evergreen_B017_P03_H1_weekend",
+   "id": "P03H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "ugc": {
+    "script": "U03",
+    "angle": "weekend",
+    "words": 179,
+    "hook": {
+     "type": "promise",
+     "label": "PACK IT",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Where does everything go when you pack a weekend bag?",
+      "type": "question",
+      "label": "WHERE IT GOES",
+      "feature": null,
+      "show": [
+       "packing",
+       "pocket"
+      ]
+     },
+     {
+      "text": "Packed for the trip, then digging for your keys at the station?",
+      "type": "problem",
+      "label": "STOP DIGGING",
+      "feature": null,
+      "show": [
+       "pocket",
+       "zip_hand"
+      ]
+     },
+     {
+      "text": "A bag that sorts your weekend away, at fifty percent off.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null,
+      "show": [
+       "inside",
+       "hero"
+      ]
+     }
+    ],
+    "numbers": [
+     5
+    ],
+    "alt_shots": {
+     "Where does everything go when you pack a weekend bag?": [
+      [
+       "1ItSXfHChsxKSBJ4DarasSeBoS_ruiRIO",
+       6.15,
+       1.0
+      ],
+      [
+       "1ekqw02DJjLI-s4z_gW2sAlGxVdwmGHR-",
+       0.92,
+       1.0
+      ]
+     ],
+     "Packed for the trip, then digging for your keys at the station?": [
+      [
+       "1xckKfgWOCLTomMMu9jksmpS5IW_mI78-",
+       4.09,
+       1.0
+      ],
+      [
+       "1CjZGYrcaE63PlI4z57Yhrsh_RUIa-MI9",
+       17.63,
+       1.0
+      ]
+     ],
+     "A bag that sorts your weekend away, at fifty percent off.": [
+      [
+       "1QyTd_HZn3Ugh4uERNnMQ6F1THsaGp0Un",
+       40.21,
+       1.0
+      ],
+      [
+       "1KKrhuDdTbmFTH03YD-rL6vqet5mv1dmX",
+       7.75,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 60.0,
+   "project": "P03",
+   "hook_text": "Five things to pack for a weekend away, and where each goes.",
+   "hook_label": "PACK IT",
+   "hook_type": "promise",
+   "opening_shot": [
+    "1ekqw02DJjLI-s4z_gW2sAlGxVdwmGHR-",
+    8.59
+   ]
+  },
+  {
+   "name": "LC_261022_Hobo20_Evergreen_B017_P03_H2_weekend",
+   "id": "P03H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "ugc": {
+    "script": "U03",
+    "angle": "weekend",
+    "words": 179,
+    "hook": {
+     "type": "promise",
+     "label": "PACK IT",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Where does everything go when you pack a weekend bag?",
+      "type": "question",
+      "label": "WHERE IT GOES",
+      "feature": null,
+      "show": [
+       "packing",
+       "pocket"
+      ]
+     },
+     {
+      "text": "Packed for the trip, then digging for your keys at the station?",
+      "type": "problem",
+      "label": "STOP DIGGING",
+      "feature": null,
+      "show": [
+       "pocket",
+       "zip_hand"
+      ]
+     },
+     {
+      "text": "A bag that sorts your weekend away, at fifty percent off.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null,
+      "show": [
+       "inside",
+       "hero"
+      ]
+     }
+    ],
+    "numbers": [
+     5
+    ],
+    "alt_shots": {
+     "Where does everything go when you pack a weekend bag?": [
+      [
+       "1ItSXfHChsxKSBJ4DarasSeBoS_ruiRIO",
+       6.15,
+       1.0
+      ],
+      [
+       "1ekqw02DJjLI-s4z_gW2sAlGxVdwmGHR-",
+       0.92,
+       1.0
+      ]
+     ],
+     "Packed for the trip, then digging for your keys at the station?": [
+      [
+       "1xckKfgWOCLTomMMu9jksmpS5IW_mI78-",
+       4.09,
+       1.0
+      ],
+      [
+       "1CjZGYrcaE63PlI4z57Yhrsh_RUIa-MI9",
+       17.63,
+       1.0
+      ]
+     ],
+     "A bag that sorts your weekend away, at fifty percent off.": [
+      [
+       "1QyTd_HZn3Ugh4uERNnMQ6F1THsaGp0Un",
+       40.21,
+       1.0
+      ],
+      [
+       "1KKrhuDdTbmFTH03YD-rL6vqet5mv1dmX",
+       7.75,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 59.4,
+   "project": "P03",
+   "hook_text": "Where does everything go when you pack a weekend bag?",
+   "hook_label": "WHERE IT GOES",
+   "hook_type": "question",
+   "opening_shot": [
+    "1ItSXfHChsxKSBJ4DarasSeBoS_ruiRIO",
+    6.15
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261022_Hobo20_Evergreen_B017_P03_H3_weekend",
+   "id": "P03H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "ugc": {
+    "script": "U03",
+    "angle": "weekend",
+    "words": 179,
+    "hook": {
+     "type": "promise",
+     "label": "PACK IT",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Where does everything go when you pack a weekend bag?",
+      "type": "question",
+      "label": "WHERE IT GOES",
+      "feature": null,
+      "show": [
+       "packing",
+       "pocket"
+      ]
+     },
+     {
+      "text": "Packed for the trip, then digging for your keys at the station?",
+      "type": "problem",
+      "label": "STOP DIGGING",
+      "feature": null,
+      "show": [
+       "pocket",
+       "zip_hand"
+      ]
+     },
+     {
+      "text": "A bag that sorts your weekend away, at fifty percent off.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null,
+      "show": [
+       "inside",
+       "hero"
+      ]
+     }
+    ],
+    "numbers": [
+     5
+    ],
+    "alt_shots": {
+     "Where does everything go when you pack a weekend bag?": [
+      [
+       "1ItSXfHChsxKSBJ4DarasSeBoS_ruiRIO",
+       6.15,
+       1.0
+      ],
+      [
+       "1ekqw02DJjLI-s4z_gW2sAlGxVdwmGHR-",
+       0.92,
+       1.0
+      ]
+     ],
+     "Packed for the trip, then digging for your keys at the station?": [
+      [
+       "1xckKfgWOCLTomMMu9jksmpS5IW_mI78-",
+       4.09,
+       1.0
+      ],
+      [
+       "1CjZGYrcaE63PlI4z57Yhrsh_RUIa-MI9",
+       17.63,
+       1.0
+      ]
+     ],
+     "A bag that sorts your weekend away, at fifty percent off.": [
+      [
+       "1QyTd_HZn3Ugh4uERNnMQ6F1THsaGp0Un",
+       40.21,
+       1.0
+      ],
+      [
+       "1KKrhuDdTbmFTH03YD-rL6vqet5mv1dmX",
+       7.75,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 60.0,
+   "project": "P03",
+   "hook_text": "Packed for the trip, then digging for your keys at the station?",
+   "hook_label": "STOP DIGGING",
+   "hook_type": "problem",
+   "opening_shot": [
+    "1xckKfgWOCLTomMMu9jksmpS5IW_mI78-",
+    4.09
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261022_Hobo20_Evergreen_B017_P03_H4_weekend",
+   "id": "P03H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "ugc": {
+    "script": "U03",
+    "angle": "weekend",
+    "words": 179,
+    "hook": {
+     "type": "promise",
+     "label": "PACK IT",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Where does everything go when you pack a weekend bag?",
+      "type": "question",
+      "label": "WHERE IT GOES",
+      "feature": null,
+      "show": [
+       "packing",
+       "pocket"
+      ]
+     },
+     {
+      "text": "Packed for the trip, then digging for your keys at the station?",
+      "type": "problem",
+      "label": "STOP DIGGING",
+      "feature": null,
+      "show": [
+       "pocket",
+       "zip_hand"
+      ]
+     },
+     {
+      "text": "A bag that sorts your weekend away, at fifty percent off.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null,
+      "show": [
+       "inside",
+       "hero"
+      ]
+     }
+    ],
+    "numbers": [
+     5
+    ],
+    "alt_shots": {
+     "Where does everything go when you pack a weekend bag?": [
+      [
+       "1ItSXfHChsxKSBJ4DarasSeBoS_ruiRIO",
+       6.15,
+       1.0
+      ],
+      [
+       "1ekqw02DJjLI-s4z_gW2sAlGxVdwmGHR-",
+       0.92,
+       1.0
+      ]
+     ],
+     "Packed for the trip, then digging for your keys at the station?": [
+      [
+       "1xckKfgWOCLTomMMu9jksmpS5IW_mI78-",
+       4.09,
+       1.0
+      ],
+      [
+       "1CjZGYrcaE63PlI4z57Yhrsh_RUIa-MI9",
+       17.63,
+       1.0
+      ]
+     ],
+     "A bag that sorts your weekend away, at fifty percent off.": [
+      [
+       "1QyTd_HZn3Ugh4uERNnMQ6F1THsaGp0Un",
+       40.21,
+       1.0
+      ],
+      [
+       "1KKrhuDdTbmFTH03YD-rL6vqet5mv1dmX",
+       7.75,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 59.7,
+   "project": "P03",
+   "hook_text": "A bag that sorts your weekend away, at fifty percent off.",
+   "hook_label": "HALF PRICE",
+   "hook_type": "price",
+   "opening_shot": [
+    "1QyTd_HZn3Ugh4uERNnMQ6F1THsaGp0Un",
+    40.21
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261022_Hobo20_Evergreen_B017_P04_H1_versus",
+   "id": "P04H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "ugc": {
+    "script": "U04",
+    "angle": "versus",
+    "words": 178,
+    "hook": {
+     "type": "question",
+     "label": "PLAIN ZIP?",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "An ordinary bag, or this one? Look at the differences.",
+      "type": "promise",
+      "label": "SIDE BY SIDE",
+      "feature": null,
+      "show": [
+       "hero",
+       "lock"
+      ]
+     },
+     {
+      "text": "A plain zip, a plain strap, a plain lining: that is the problem.",
+      "type": "problem",
+      "label": "TOO PLAIN",
+      "feature": null,
+      "show": [
+       "strap",
+       "zip"
+      ]
+     },
+     {
+      "text": "Every upgrade over an ordinary bag, at fifty percent off.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null,
+      "show": [
+       "lock",
+       "hero"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "An ordinary bag, or this one? Look at the differences.": [
+      [
+       "1fKQ6MF6lWMUQnekaOP-KLVdEFaLAHH06",
+       6.61,
+       1.0
+      ],
+      [
+       "1DheWHopiniQ2Eqj19EnuBdB4BGLYKaP1",
+       24.91,
+       1.0
+      ]
+     ],
+     "A plain zip, a plain strap, a plain lining: that is the problem.": [
+      [
+       "1D5FDs81T0LPfQ53SinLRqVH2JaM91Vdz",
+       0.3,
+       1.0
+      ],
+      [
+       "1fvGoS-3nfaIZzcUEzzfun-2s_gSqH3Mw",
+       4.49,
+       1.0
+      ]
+     ],
+     "Every upgrade over an ordinary bag, at fifty percent off.": [
+      [
+       "1HWu9K7UA1xCpA8KX9rgiKiJiBvevFsC2",
+       86.36,
+       1.0
+      ],
+      [
+       "1QyTd_HZn3Ugh4uERNnMQ6F1THsaGp0Un",
+       40.21,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 59.7,
+   "project": "P04",
+   "hook_text": "Your bag closes with a plain zip. Is that enough?",
+   "hook_label": "PLAIN ZIP?",
+   "hook_type": "question",
+   "opening_shot": [
+    "1GxB8sUITUM8oVrNzP6l-yCLHyvM55Jxj",
+    14.35
+   ]
+  },
+  {
+   "name": "LC_261022_Hobo20_Evergreen_B017_P04_H2_versus",
+   "id": "P04H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "ugc": {
+    "script": "U04",
+    "angle": "versus",
+    "words": 178,
+    "hook": {
+     "type": "question",
+     "label": "PLAIN ZIP?",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "An ordinary bag, or this one? Look at the differences.",
+      "type": "promise",
+      "label": "SIDE BY SIDE",
+      "feature": null,
+      "show": [
+       "hero",
+       "lock"
+      ]
+     },
+     {
+      "text": "A plain zip, a plain strap, a plain lining: that is the problem.",
+      "type": "problem",
+      "label": "TOO PLAIN",
+      "feature": null,
+      "show": [
+       "strap",
+       "zip"
+      ]
+     },
+     {
+      "text": "Every upgrade over an ordinary bag, at fifty percent off.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null,
+      "show": [
+       "lock",
+       "hero"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "An ordinary bag, or this one? Look at the differences.": [
+      [
+       "1fKQ6MF6lWMUQnekaOP-KLVdEFaLAHH06",
+       6.61,
+       1.0
+      ],
+      [
+       "1DheWHopiniQ2Eqj19EnuBdB4BGLYKaP1",
+       24.91,
+       1.0
+      ]
+     ],
+     "A plain zip, a plain strap, a plain lining: that is the problem.": [
+      [
+       "1D5FDs81T0LPfQ53SinLRqVH2JaM91Vdz",
+       0.3,
+       1.0
+      ],
+      [
+       "1fvGoS-3nfaIZzcUEzzfun-2s_gSqH3Mw",
+       4.49,
+       1.0
+      ]
+     ],
+     "Every upgrade over an ordinary bag, at fifty percent off.": [
+      [
+       "1HWu9K7UA1xCpA8KX9rgiKiJiBvevFsC2",
+       86.36,
+       1.0
+      ],
+      [
+       "1QyTd_HZn3Ugh4uERNnMQ6F1THsaGp0Un",
+       40.21,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 59.7,
+   "project": "P04",
+   "hook_text": "An ordinary bag, or this one? Look at the differences.",
+   "hook_label": "SIDE BY SIDE",
+   "hook_type": "promise",
+   "opening_shot": [
+    "1fKQ6MF6lWMUQnekaOP-KLVdEFaLAHH06",
+    6.61
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261022_Hobo20_Evergreen_B017_P04_H3_versus",
+   "id": "P04H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "ugc": {
+    "script": "U04",
+    "angle": "versus",
+    "words": 178,
+    "hook": {
+     "type": "question",
+     "label": "PLAIN ZIP?",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "An ordinary bag, or this one? Look at the differences.",
+      "type": "promise",
+      "label": "SIDE BY SIDE",
+      "feature": null,
+      "show": [
+       "hero",
+       "lock"
+      ]
+     },
+     {
+      "text": "A plain zip, a plain strap, a plain lining: that is the problem.",
+      "type": "problem",
+      "label": "TOO PLAIN",
+      "feature": null,
+      "show": [
+       "strap",
+       "zip"
+      ]
+     },
+     {
+      "text": "Every upgrade over an ordinary bag, at fifty percent off.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null,
+      "show": [
+       "lock",
+       "hero"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "An ordinary bag, or this one? Look at the differences.": [
+      [
+       "1fKQ6MF6lWMUQnekaOP-KLVdEFaLAHH06",
+       6.61,
+       1.0
+      ],
+      [
+       "1DheWHopiniQ2Eqj19EnuBdB4BGLYKaP1",
+       24.91,
+       1.0
+      ]
+     ],
+     "A plain zip, a plain strap, a plain lining: that is the problem.": [
+      [
+       "1D5FDs81T0LPfQ53SinLRqVH2JaM91Vdz",
+       0.3,
+       1.0
+      ],
+      [
+       "1fvGoS-3nfaIZzcUEzzfun-2s_gSqH3Mw",
+       4.49,
+       1.0
+      ]
+     ],
+     "Every upgrade over an ordinary bag, at fifty percent off.": [
+      [
+       "1HWu9K7UA1xCpA8KX9rgiKiJiBvevFsC2",
+       86.36,
+       1.0
+      ],
+      [
+       "1QyTd_HZn3Ugh4uERNnMQ6F1THsaGp0Un",
+       40.21,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 60.7,
+   "project": "P04",
+   "hook_text": "A plain zip, a plain strap, a plain lining: that is the problem.",
+   "hook_label": "TOO PLAIN",
+   "hook_type": "problem",
+   "opening_shot": [
+    "1D5FDs81T0LPfQ53SinLRqVH2JaM91Vdz",
+    0.3
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261022_Hobo20_Evergreen_B017_P04_H4_versus",
+   "id": "P04H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "ugc": {
+    "script": "U04",
+    "angle": "versus",
+    "words": 178,
+    "hook": {
+     "type": "question",
+     "label": "PLAIN ZIP?",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "An ordinary bag, or this one? Look at the differences.",
+      "type": "promise",
+      "label": "SIDE BY SIDE",
+      "feature": null,
+      "show": [
+       "hero",
+       "lock"
+      ]
+     },
+     {
+      "text": "A plain zip, a plain strap, a plain lining: that is the problem.",
+      "type": "problem",
+      "label": "TOO PLAIN",
+      "feature": null,
+      "show": [
+       "strap",
+       "zip"
+      ]
+     },
+     {
+      "text": "Every upgrade over an ordinary bag, at fifty percent off.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null,
+      "show": [
+       "lock",
+       "hero"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "An ordinary bag, or this one? Look at the differences.": [
+      [
+       "1fKQ6MF6lWMUQnekaOP-KLVdEFaLAHH06",
+       6.61,
+       1.0
+      ],
+      [
+       "1DheWHopiniQ2Eqj19EnuBdB4BGLYKaP1",
+       24.91,
+       1.0
+      ]
+     ],
+     "A plain zip, a plain strap, a plain lining: that is the problem.": [
+      [
+       "1D5FDs81T0LPfQ53SinLRqVH2JaM91Vdz",
+       0.3,
+       1.0
+      ],
+      [
+       "1fvGoS-3nfaIZzcUEzzfun-2s_gSqH3Mw",
+       4.49,
+       1.0
+      ]
+     ],
+     "Every upgrade over an ordinary bag, at fifty percent off.": [
+      [
+       "1HWu9K7UA1xCpA8KX9rgiKiJiBvevFsC2",
+       86.36,
+       1.0
+      ],
+      [
+       "1QyTd_HZn3Ugh4uERNnMQ6F1THsaGp0Un",
+       40.21,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 59.7,
+   "project": "P04",
+   "hook_text": "Every upgrade over an ordinary bag, at fifty percent off.",
+   "hook_label": "HALF PRICE",
+   "hook_type": "price",
+   "opening_shot": [
+    "1HWu9K7UA1xCpA8KX9rgiKiJiBvevFsC2",
+    86.36
+   ],
+   "hook_source": "script"
+  }
+ ],
+ "tts_lines": 22,
+ "tts_dupes": {},
+ "est_credits": 7.7,
+ "budget": 100.0,
+ "colour_images": {
+  "Dark Sienn": "/tmp/run/hobo20-4v5s/site/clean/hobo_2_0_colour_dark_sienn.jpg",
+  "Beige": "/tmp/run/hobo20-4v5s/site/clean/hobo_2_0_colour_beige.jpg",
+  "Galaxy Black": "/tmp/run/hobo20-4v5s/site/clean/hobo_2_0_colour_galaxy_black.jpg"
+ },
+ "packshots": [
+  "/tmp/run/hobo20-4v5s/site/clean/hobo_2_0_colour_dark_sienn.jpg",
+  "/tmp/run/hobo20-4v5s/site/clean/hobo_2_0_colour_beige.jpg",
+  "/tmp/run/hobo20-4v5s/site/clean/hobo_2_0_colour_galaxy_black.jpg"
+ ],
+ "brief": null,
+ "ai": {
+  "stills": 3,
+  "clips": 0,
+  "est_credits": 3.0,
+  "budget": {
+   "cap": 100.0,
+   "tts_est": 18.0,
+   "reserve": 8.0
+  },
+  "scenes": [
+   "p01_s03",
+   "p02_s02",
+   "p03_s01"
+  ],
+  "next": "python3 pipeline/ai_gen.py show --out /tmp/run/hobo20-4v5s"
+ },
+ "winners_source": null,
+ "winners_note": null,
+ "winners_used": [],
+ "unmatched_winners": [],
+ "warnings": [
+  "ideas: 3 AI studio scenes of 5 statics (about 3 credits plus retries)",
+  "ideas: the sheet's theme is 'evergreen', the request's ''",
+  "Hobo 2.0 has 2 earlier batch(es) in the novelty log: the statics start 2 step(s) further in their photo / headline cycle (other photos and captions than before)"
+ ],
+ "winner_reviews": false,
+ "seed": 1,
+ "hooks": 4,
+ "pipeline": "catalog",
+ "video_format": "ugc",
+ "ugc_numbers": [
+  3,
+  5
+ ],
+ "voice": {
+  "voice_type": "element",
+  "voice_id": "241459b6-b4e8-4a2a-9868-da8bcdcd0558",
+  "speed": 1.12
+ },
+ "projects": [
+  {
+   "id": "P01",
+   "from_id": "V01",
+   "angle": "fourqs",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P01H1",
+     "name": "LC_261022_Hobo20_Evergreen_B017_P01_H1_fourqs",
+     "hook_text": "Can a zip really lock? Here is a straight answer.",
+     "label": "ZIP LOCK?",
+     "type": "question",
+     "shot": [
+      "TALK",
+      0
+     ],
+     "est_seconds": 75.6
+    },
+    {
+     "hook": "H2",
+     "id": "P01H2",
+     "name": "LC_261022_Hobo20_Evergreen_B017_P01_H2_fourqs",
+     "hook_text": "A plain zip is easy for anyone to pull open.",
+     "label": "PLAIN ZIP?",
+     "type": "problem",
+     "shot": null,
+     "est_seconds": 75.6
+    },
+    {
+     "hook": "H3",
+     "id": "P01H3",
+     "name": "LC_261022_Hobo20_Evergreen_B017_P01_H3_fourqs",
+     "hook_text": "Your questions about a safer bag, answered in one minute.",
+     "label": "BAG QUESTIONS",
+     "type": "promise",
+     "shot": null,
+     "est_seconds": 75.6
+    },
+    {
+     "hook": "H4",
+     "id": "P01H4",
+     "name": "LC_261022_Hobo20_Evergreen_B017_P01_H4_fourqs",
+     "hook_text": "A bag with lockable zippers, at fifty percent off.",
+     "label": "HALF PRICE",
+     "type": "price",
+     "shot": null,
+     "est_seconds": 75.2
+    }
+   ]
+  },
+  {
+   "id": "P02",
+   "from_id": "V02",
+   "angle": "giftask",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P02H1",
+     "name": "LC_261022_Hobo20_Evergreen_B017_P02_H1_giftask",
+     "hook_text": "Buying a bag as a gift? Ask these three things first.",
+     "label": "GIFT CHECK",
+     "type": "question",
+     "shot": [
+      "TALK",
+      0
+     ],
+     "est_seconds": 60.3
+    },
+    {
+     "hook": "H2",
+     "id": "P02H2",
+     "name": "LC_261022_Hobo20_Evergreen_B017_P02_H2_giftask",
+     "hook_text": "A pretty bag is easy to find. One that helps every day is not.",
+     "label": "MORE THAN PRETTY",
+     "type": "problem",
+     "shot": null,
+     "est_seconds": 61.5
+    },
+    {
+     "hook": "H3",
+     "id": "P02H3",
+     "name": "LC_261022_Hobo20_Evergreen_B017_P02_H3_giftask",
+     "hook_text": "The gift guide for the person who carries everything.",
+     "label": "GIFT GUIDE",
+     "type": "promise",
+     "shot": null,
+     "est_seconds": 59.5
+    },
+    {
+     "hook": "H4",
+     "id": "P02H4",
+     "name": "LC_261022_Hobo20_Evergreen_B017_P02_H4_giftask",
+     "hook_text": "A gift bag at fifty percent off, with a free pouch wallet.",
+     "label": "HALF PRICE",
+     "type": "price",
+     "shot": null,
+     "est_seconds": 60.7
+    }
+   ]
+  },
+  {
+   "id": "P03",
+   "from_id": "V03",
+   "angle": "weekend",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P03H1",
+     "name": "LC_261022_Hobo20_Evergreen_B017_P03_H1_weekend",
+     "hook_text": "Five things to pack for a weekend away, and where each goes.",
+     "label": "PACK IT",
+     "type": "promise",
+     "shot": [
+      "1ekqw02DJjLI-s4z_gW2sAlGxVdwmGHR-",
+      8.59
+     ],
+     "est_seconds": 60.0
+    },
+    {
+     "hook": "H2",
+     "id": "P03H2",
+     "name": "LC_261022_Hobo20_Evergreen_B017_P03_H2_weekend",
+     "hook_text": "Where does everything go when you pack a weekend bag?",
+     "label": "WHERE IT GOES",
+     "type": "question",
+     "shot": [
+      "1ItSXfHChsxKSBJ4DarasSeBoS_ruiRIO",
+      6.15
+     ],
+     "est_seconds": 59.4
+    },
+    {
+     "hook": "H3",
+     "id": "P03H3",
+     "name": "LC_261022_Hobo20_Evergreen_B017_P03_H3_weekend",
+     "hook_text": "Packed for the trip, then digging for your keys at the station?",
+     "label": "STOP DIGGING",
+     "type": "problem",
+     "shot": [
+      "1xckKfgWOCLTomMMu9jksmpS5IW_mI78-",
+      4.09
+     ],
+     "est_seconds": 60.0
+    },
+    {
+     "hook": "H4",
+     "id": "P03H4",
+     "name": "LC_261022_Hobo20_Evergreen_B017_P03_H4_weekend",
+     "hook_text": "A bag that sorts your weekend away, at fifty percent off.",
+     "label": "HALF PRICE",
+     "type": "price",
+     "shot": [
+      "1QyTd_HZn3Ugh4uERNnMQ6F1THsaGp0Un",
+      40.21
+     ],
+     "est_seconds": 59.7
+    }
+   ]
+  },
+  {
+   "id": "P04",
+   "from_id": "V04",
+   "angle": "versus",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P04H1",
+     "name": "LC_261022_Hobo20_Evergreen_B017_P04_H1_versus",
+     "hook_text": "Your bag closes with a plain zip. Is that enough?",
+     "label": "PLAIN ZIP?",
+     "type": "question",
+     "shot": [
+      "1GxB8sUITUM8oVrNzP6l-yCLHyvM55Jxj",
+      14.35
+     ],
+     "est_seconds": 59.7
+    },
+    {
+     "hook": "H2",
+     "id": "P04H2",
+     "name": "LC_261022_Hobo20_Evergreen_B017_P04_H2_versus",
+     "hook_text": "An ordinary bag, or this one? Look at the differences.",
+     "label": "SIDE BY SIDE",
+     "type": "promise",
+     "shot": [
+      "1fKQ6MF6lWMUQnekaOP-KLVdEFaLAHH06",
+      6.61
+     ],
+     "est_seconds": 59.7
+    },
+    {
+     "hook": "H3",
+     "id": "P04H3",
+     "name": "LC_261022_Hobo20_Evergreen_B017_P04_H3_versus",
+     "hook_text": "A plain zip, a plain strap, a plain lining: that is the problem.",
+     "label": "TOO PLAIN",
+     "type": "problem",
+     "shot": [
+      "1D5FDs81T0LPfQ53SinLRqVH2JaM91Vdz",
+      0.3
+     ],
+     "est_seconds": 60.7
+    },
+    {
+     "hook": "H4",
+     "id": "P04H4",
+     "name": "LC_261022_Hobo20_Evergreen_B017_P04_H4_versus",
+     "hook_text": "Every upgrade over an ordinary bag, at fifty percent off.",
+     "label": "HALF PRICE",
+     "type": "price",
+     "shot": [
+      "1HWu9K7UA1xCpA8KX9rgiKiJiBvevFsC2",
+      86.36
+     ],
+     "est_seconds": 59.7
+    }
+   ]
+  }
+ ],
+ "hooks_seed": 1
+}
