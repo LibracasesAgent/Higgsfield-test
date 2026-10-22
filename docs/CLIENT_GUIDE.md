@@ -102,6 +102,10 @@ ads from the new files.
 | No music | add `no music` |
 | A fix | reply in the same thread: `P02 H3 with a different hook` or `redo project 2` (the redo keeps the batch number: `B045r2`) |
 
+| A woman talking to camera (the presenter, Maya) with the footage cut in | `Higgsfield-test: 4 videos and 5 statics for the Hobo 2.0, 2 of the videos with the presenter talking to camera, 2 normal voiceover, each with its own story` (say "all 4 with the presenter" or "no presenter" if you want that instead) |
+
+A presenter project costs about 225 credits (she is generated: about 2.5 credits per second of her talking), so 4 presenter videos are about 900 credits and take 2 hours or more; a mix of 2 and 2 is about 450. Normal voiceover projects cost 4-5 credits each. She is a host who talks to the viewer ("you"), never a customer: she never tells a made-up story of having bought or used the bag.
+
 Don't want one of the ads? Just don't upload it to Meta: Claude never deletes or moves files in Drive.
 
 ## Videos come in projects
