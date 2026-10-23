@@ -327,8 +327,24 @@ def hook_lines(prod, w, angle, k, avoid=()):
     return [h for h in out if h.lower() not in {a.lower() for a in avoid if a}]
 
 
+CAMP = [None]    # the plan's store-wide sale campaign (campaign.py): its offer lines, headlines and description come first
+
+
+def camp_lines(field):
+    """The campaign's own copy for a field (primary / headline / description), [] without a campaign."""
+    c = CAMP[0] or {}
+    x = (c.get("copy") or {}).get(field)
+    return [x] if isinstance(x, str) else list(x or [])
+
+
 def offer_lines(prod):
     v, th = prod.v, prod.theme
+    if CAMP[0] and prod.pct:          # (a bag with its own %: the sale's line, then the bag's own)
+        key = th if th in mb.SALE_THEMES else "default"
+        own = [x for x in (fill(t, v) for t in prod.tpls(OFFER_LINE[key])) if x]
+        gift2 = __import__("campaign").gift_line(CAMP[0], 2)
+        return list(dict.fromkeys([f"{SALE_NAME.get(th, 'Black Friday')} Sale: up to {CAMP[0]['bundle_pct']}% off + free gifts."] +
+                                  ([f"Buy 2 bags, get {gift2}."] if gift2 else []) + own))
     if prod.pct:
         key = th if th in mb.SALE_THEMES else "gifting" if th in ("christmas", "gift", "mothers day") else "default"
         return [x for x in (fill(t, v) for t in prod.tpls(OFFER_LINE[key] + OFFER_LINE["default"])) if x]
@@ -440,7 +456,7 @@ def copy_set(prod, w, gid, angle, k, tag_order=None, review_n=None, avoid_hooks=
     first_f, second_f = HEADLINE_PREFS[hk]
 
     def heads(fams):
-        out = []
+        out = [x for x in camp_lines("headline") if "sale" in fams or "themed" in fams or "offer" in fams]
         for f in fams:
             if f == "themed":
                 f = "sale" if prod.theme in mb.SALE_THEMES and prod.pct else prod.theme if prod.theme in HEADLINES else ""
@@ -457,7 +473,8 @@ def copy_set(prod, w, gid, angle, k, tag_order=None, review_n=None, avoid_hooks=
         (["gift_item"] if prod.gift and prod.theme in ("christmas", "gift", "mothers day") else []) + \
         (["colours"] if fam == "colours" else []) + (["offer"] if prod.pct else []) + \
         rot(["gift_item", "colours", "trust"], num(w.seed, f"d{k}"))
-    descs = [x for f in dfam for x in (fill(t, v) for t in prod.tpls(DESCRIPTIONS[f])) if x]
+    descs = [x for x in camp_lines("description") if len(x) <= LIMITS["description"]] + \
+        [x for f in dfam for x in (fill(t, v) for t in prod.tpls(DESCRIPTIONS[f])) if x]
     d = w.pick("description", descs, prod, gid, fallback=[x for x in (fill(t, v) for t in prod.tpls(DESCRIPTIONS["generic"]))
                                                           if x], avoid=[h1, h2])
     return dict(primary_text_1=p1, primary_text_2=p2, headline_1=h1, headline_2=h2, description=d, cta=cta,
@@ -515,6 +532,8 @@ def winner_product(out, x, spec, main, cache):
 def write(out, seed=1):
     out = os.path.abspath(out)
     p = json.load(open(os.path.join(out, "plan.json")))
+    CAMP[0] = p.get("campaign")
+    compliance.use_campaign(CAMP[0])
     stp = os.path.join(out, "statics.json")
     statics = {s["name"]: s for s in (json.load(open(stp)).get("ads") or [])} if os.path.exists(stp) else {}
     main = Product(out, p.get("product_key") or p.get("product"), offer=p.get("offer"), theme=p.get("theme") or "default")

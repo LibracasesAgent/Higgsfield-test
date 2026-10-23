@@ -223,6 +223,7 @@ THEMES = {
         sub="{feats}.", cta=["Shop now · {P} off", "Shop now"], lead=""),
 }
 SALE_THEMES = ("black friday", "cyber monday", "cyber week")
+CAMP = [None]    # the store-wide sale campaign this plan runs in (campaign.py, data/campaign.json): set by plan()
 # request word -> theme, the specific occasion first: "mother's day gift" is Mother's Day, "holiday travel" is travel;
 # a plain "gift" (birthday, Valentine's, Father's Day) is the neutral gift theme, "gift" + a Christmas word is Christmas.
 # Spaces also match a hyphen or nothing ("CyberMonday", "X-mas").
@@ -688,6 +689,14 @@ def offer_texts(pr, th):
         ws = (list(dict.fromkeys(f[1] for f in pr["features"])) or [f"MEET THE {pr['short'].upper()}"])[0].split()
         bold = [" ".join(ws[:-1]), ws[-1] + "."] if len(ws) > 1 else [ws[0] + "."]
     gift_words = [w for w in re.findall(r"[a-z]+", (gift or "").lower()) if w in ("free", "pouch", "wallet", "purse", "gift")]
+    camp = CAMP[0]
+    close = (T("close") or "Tap the link below.") if bi else (lead + " " if lead else "") + (o.get("close") or "Tap the link below.")
+    if camp and camp.get("close") and camp["close"] not in close:     # the sale's gift, said once before the call to action
+        close = re.sub(r"(?=Tap the link below)", camp["close"] + " ", close, count=1) if "Tap the link below" in close \
+            else f"{close} {camp['close']}"
+    if camp:
+        hooks = list(dict.fromkeys(list(camp.get("hooks") or []) + hooks))
+        gift_words += ["gift", "gifts"]
     return dict(badge=o.get("badge") or None, promo_badge=dict(o["badge"], top="SALE") if o.get("badge") else None,
                 gift_tail=f" and a {gift}." if gift else ".",
                 promo_sub=("+ " + re.sub(r"^free\b", "FREE", gift, flags=re.I)) if gift else statics_sub or (f"Now {pct}% off." if pct else ""),
@@ -695,9 +704,10 @@ def offer_texts(pr, th):
                 colours_line=f"Every colour comes with a {gift}." if gift else "Which one is yours?",
                 bold_sub=(T("sub") or statics_sub or (f"Now {pct}% off." if pct else "")) if bi else statics_sub,
                 cta=T("cta") or "Shop now", offer_title=T("offer_title") or ("" if bi else o.get("offer_title") or ""),
-                offer_sub=(T("offer_sub") or "") if bi else o.get("offer_sub") or "",
+                offer_sub=(camp["card_sub"] if camp and camp.get("card_sub") else (T("offer_sub") or "") if bi else o.get("offer_sub") or ""),
                 offer_word=str(pct) if pct else ("free" if gift else None),
-                close=(T("close") or "Tap the link below.") if bi else (lead + " " if lead else "") + (o.get("close") or "Tap the link below."),
+                close=close,
+                end_title=(camp or {}).get("end_title"), end_offer=(camp or {}).get("end_pill"), campaign=(camp or {}).get("id"),
                 hooks=hooks, hero=T("hero") or tpl(d["hero"], v), bold=bold,
                 keywords=([f"{pct}%"] if pct else []) + gift_words + (["hidden", "pocket"] if bi else []) + ["leather"],
                 compare_left=["Keys lost at the bottom", "One big empty space",
@@ -989,6 +999,31 @@ INDEX_PRODUCT = {"hobo bag": "Hobo Bag", "hobo 2.0": "Hobo 2.0", "slouchy": "Slo
 #                                                                    product in pipeline/data/clip_index.json (the client's library)
 
 
+DESIGN = [None]       # the look of a two-look product this plan shows (design_of: data/designs.json), for clip_ok
+
+
+def design_of(name):
+    """The looks of a product whose material shows two different bags (data/designs.json: show / site / library / bank_sections /
+    designs), None for every other product."""
+    try:
+        d = json.load(open(os.path.join(HERE, "data", "designs.json"), encoding="utf-8")).get("products") or {}
+    except (OSError, ValueError):
+        return None
+    e = d.get(name)
+    return dict(e, product=name) if isinstance(e, dict) and e.get("show") else None
+
+
+def clip_ok(e, sec=None):
+    """False for footage of the other look of the plan's two-look product (DESIGN): a clip_bank entry of one of its bank_sections
+    (sec) or a clip_index.json row of it (sec None), whose own "design" (else the product's "library" look) is not the one shown."""
+    dz = DESIGN[0]
+    if not dz or not isinstance(e, dict):
+        return True
+    if (sec not in (dz.get("bank_sections") or [])) if sec is not None else e.get("product") != dz["product"]:
+        return True
+    return (e.get("design") or dz.get("library")) == dz["show"]
+
+
 def index_clips(pk, taken=()):
     """The client's library footage of a built-in bag that clip_bank.json does not hold, for the ugc videos' shot pool: clips of
     pipeline/data/clip_index.json marked usable, no face, no on-screen text, at least 720p and 2.5 s, not a winner's RAW. ->
@@ -1001,7 +1036,7 @@ def index_clips(pk, taken=()):
         return []
     return [(r["id"], float(r["duration"]), f"{r.get('note') or ''} {r.get('path') or ''}", r.get("moments") or []) for r in rows
             if name and r.get("product") == name and r.get("usable") == "yes" and r.get("faces") == "none"
-            and r.get("text") in (None, "", "none") and r["id"] not in taken and DRIVE_ID.match(str(r["id"]))
+            and r.get("text") in (None, "", "none") and r["id"] not in taken and DRIVE_ID.match(str(r["id"])) and clip_ok(r)
             and min(int(r.get("width") or 0), int(r.get("height") or 0)) >= 720 and float(r.get("duration") or 0) >= 2.5
             and not re.search(r"\bRAW\b|Concept \d|Creative Delivery", r.get("path") or "")]
 
@@ -1143,6 +1178,14 @@ def plan(a):
     tname = theme_name(a.theme, theme_key)
     pdir = products_dir(a)
     early = []
+    import campaign as campaign_mod
+    import compliance as compliance_mod
+    CAMP[0] = None if getattr(a, "no_campaign", False) else campaign_mod.active(theme_key)
+    compliance_mod.use_campaign(CAMP[0])
+    if CAMP[0]:
+        early.append(f"campaign: {CAMP[0]['name']} ({CAMP[0]['from']} to {CAMP[0]['until']}, client-approved): end cards say "
+                     f"'{CAMP[0]['end_title']}' + '{CAMP[0]['end_pill']}', offer cards '{CAMP[0]['card_sub']}', the statics include the "
+                     f"free-gifts and bundle layouts, the close and the ad copy name the gifts; each bag's own % stays its offer")
     if getattr(a, "new_product", None) and (getattr(a, "pipeline", None) or "catalog") != "new-product":
         if (getattr(a, "pipeline", None) or "catalog") == "catalog":   # a Drive folder never reads the site / built-in ads
             early.append(f"--new-product {a.new_product!r} without --pipeline new-product: planned as --pipeline new-product")
@@ -1275,6 +1318,18 @@ def plan(a):
                     colour_imgs.append((n_, u))
             clean_site = [u for f in facts["clean_images"] if f not in facts["colours"].values() for u in [usable(f, 0.8)] if u]
             packs = [f for _, f in colour_imgs if f not in painted] or clean_site
+    DESIGN[0] = dz = design_of(pr["name"])
+    if dz and need:                   # a product whose site photos and footage show two different bags: one look per batch
+        look = lambda k: f"the {dz.get(k)} bag ({((dz.get('designs') or {}).get(dz.get(k)) or '').split(':')[-1].strip()})"  # noqa: E731
+        if dz["show"] != dz.get("site"):
+            colour_imgs, packs, clean_site, pr["site_lifestyle"] = [], [], [], []
+            warnings.append(f"design: libracases.com's {pr['name']} photos show {look('site')}, the footage {look('library')}; this "
+                            f"batch shows only the {dz['show']} bag (data/designs.json 'show'), so it uses none of the site's photos: "
+                            f"the end card is the plain card, the statics are footage frames and text layouts, no AI scenes and no "
+                            f"presenter of this bag; tell the client the site's photos show another bag than the footage")
+        if dz["show"] != dz.get("library"):
+            warnings.append(f"design: this batch shows only the {dz['show']} bag (data/designs.json 'show'): the {pr['name']} footage "
+                            f"of {look('library')} is left out (only clips tagged \"design\": \"{dz['show']}\" in clip_index.json are used)")
     pr["offer"] = resolve_offer(pr, facts, warnings)
     honest(pr, warnings)
     if sheet is not None:
@@ -1485,7 +1540,7 @@ def plan(a):
                     want_ = min(FRAMES_PER_BATCH, max(5, round(0.45 * a.statics) + 1))       # (20 statics: 9 frames; 5 statics: 5)
                     got = footage_index.frame_bank(
                         name_, want_, os.path.join(out, "photos", "frames"), avoid=novelty.recent(pr["name"], "frame_clip"),
-                        seed=a.seed + len(novelty.batches(pr["name"])))
+                        seed=a.seed + len(novelty.batches(pr["name"])), keep=clip_ok)
                 except Exception as e:  # noqa: BLE001 - frames are an extra: the packshot statics still work
                     warnings.append(f"footage frames skipped ({type(e).__name__}: {e}): statics from the packshots only")
                 if got and len(got) < want_:
@@ -1554,6 +1609,8 @@ def plan(a):
         if str(src).startswith("http") or str(p[1]).startswith("ai_"):
             warnings.append(f"pick {p!r} is an AI clip: real footage only, skipped")
             return None
+        if not clip_ok(b[p[0]][p[1]], p[0]):     # footage of the product's other look (data/designs.json; said once, in plan)
+            return None
         return [src, p[2], w]
 
     def picks(ps, fallback=True, w=1.0):
@@ -1578,6 +1635,18 @@ def plan(a):
     hobo_ = clean_mode and pk == "hobo bag" and pr["source"] == "built-in"
     life_ = clean_mode and pr["source"] != "built-in" and len(lifestyle()) >= 3      # the client's own worn / detail photos
     seq = static_cycle(clean_mode, hobo_, life_, getattr(a, "classic", False), len(frame_photos()))   # (--classic: the old cycle)
+    camp = CAMP[0]
+    gift_files = []
+    if camp and a.statics:            # the sale's gifts (campaign.py): their photos into $OUT/site for the gifts static
+        os.makedirs(os.path.join(out, "site"), exist_ok=True)
+        for g_ in camp.get("gifts") or []:
+            if g_.get("photo") and os.path.exists(g_["photo"]):
+                dst_ = os.path.join(out, "site", "gift_" + os.path.basename(g_["photo"]))
+                shutil.copyfile(g_["photo"], dst_)
+                gift_files.append((g_, dst_))
+        if not getattr(a, "classic", False):     # the sale's own statics early in the cycle: the gifts 3rd, the bundle 5th
+            seq = list(seq)
+            seq[2:3], seq[4:5] = ["gifts"], ["bundle"]
     if sheet is not None and sheet.get("statics"):      # the sheet's own order; an AI studio scene's stand-in is a real footage frame
         seq = [("native" if x["layout"] == "concept" else x["layout"]) for x in sheet["statics"]]
     if not clean_mode and a.statics and lifestyle():
@@ -1712,6 +1781,25 @@ def plan(a):
             return dict(layout="stars", photo=photo, reviews=sorted(sq, key=lambda n: (c_.get(n, 0), sq.index(n)))[:3],
                         headline=V("What our customers say", "Loved by our customers", "Real customers. Real words."),
                         cta=tx["cta"])
+        if lay == "gifts":            # the sale's free gifts: the bag + each gift's photo, one row per tier (campaign.py)
+            gs_ = [g_ for g_, _ in gift_files]
+            rows_ = []                  # '2 bags: a free mirrored jewellery box (worth $19.95)', '3+ bags: + a free cosmetic bag (...)'
+            for k_, g_ in enumerate(sorted(gs_, key=lambda x: x["with"])):
+                worth_ = f"worth ${g_['worth']:.2f}" if k_ == 0 else f"together worth ${camp.get('gifts_worth') or g_['worth']:.2f}"
+                rows_.append(f"{g_['with']}{'+' if k_ else ''} bags: {'+ ' if k_ else ''}a free {g_['name']} ({worth_})")
+            return dict(layout="gifts", photo=photo, kicker=(camp.get("end_title") or "").upper(),
+                        headline=V(ov("Buy 2 bags, get a free gift.", "gifts"), "Free gifts with 2 or more bags.",
+                                   f"Free gifts with your {pr['short']}."),
+                        gifts=[dict(src=rel(f_), label=("FREE " if k_ == 0 else "+ FREE ") + g_["short"].upper())
+                               for k_, (g_, f_) in enumerate(gift_files)],
+                        rows=rows_, note="Only bags count · while stocks last", cta=tx["cta"])
+        if lay == "bundle":           # buy 2 or 3 bags: 60% off together (campaign.py); other colours side by side
+            ph_ = [rel(f_) for _, f_ in s_colours if studio_pack(f_)] or [rel(f_) for f_ in s_packs if studio_pack(f_)]
+            k_ = 3 if len(ph_) >= 3 and hv % 2 else 2
+            return dict(layout="bundle", photos=rot(ph_, hv)[:k_], kicker=(camp.get("end_title") or "").upper(),
+                        headline=V(ov("One for you, one for her.", "bundle"), "Better together.", "One for you, one to gift."),
+                        pill=f"{camp['bundle_pct']}% OFF 2 OR 3 BAGS",
+                        sub="+ free gifts while stocks last" if gift_files else None, cta=tx["cta"])
         if lay == "checklist":
             pill_ = " + ".join(x for x in ((tx["offer_title"] or (f"{s_v['P']} OFF" if s_pct else "")),
                                            f"FREE {s_v['GIFT_W']}" if s_gift and s_v["GIFT_W"] else "") if x)
@@ -1732,9 +1820,13 @@ def plan(a):
                 and any(rel(f_) not in cards and studio_pack(f_) for f_ in s_packs),   # a white-backdrop packshot; at most 2 more
                 #                                                                        studio statics than there are such packshots
                 "quotes": lambda: clean_mode and bool(quote_revs),            # a real review with a verbatim snippet
+                "gifts": lambda: bool(camp and gift_files and s_packs),      # a sale with gifts (campaign.py) and a packshot
+                "bundle": lambda: bool(camp and camp.get("bundle_pct") and
+                                       len([f_ for _, f_ in s_colours if studio_pack(f_)] or [f_ for f_ in s_packs if studio_pack(f_)]) >= 2),
                 "value": lambda: clean_mode and value_ok}.get(lay, lambda: True)()   # the real price, % within 2 points
     instead = {"offer": "studio", "checklist": "studio", "stars": "quotes", "review": "studio", "colours": "studio", "native": "lifestyle",
-               "lifestyle": "studio", "value": "offer", "quotes": "native", "studio": "hero"}   # (the clean ones first: hero always works)
+               "lifestyle": "studio", "value": "offer", "quotes": "native", "studio": "hero", "gifts": "offer", "bundle": "colours"}
+    #                                                                                     (the clean ones first: hero always works)
     last = ["compare", "bold", "promo", "hero"] if clean_mode else ["compare", "bold"]
     if getattr(a, "classic", False):      # the old cycle's fallbacks, unchanged
         instead = {"offer": "hero", "checklist": "promo", "stars": "review", "review": "lifestyle", "colours": "lifestyle",
@@ -1783,6 +1875,8 @@ def plan(a):
             if i_ < len(statics) and x_["layout"] in ("studio", "native") and x_.get("headline"):
                 statics[i_].pop("headline", None)
                 statics[i_]["caption"] = x_["headline"]
+            elif i_ < len(statics) and x_["layout"] == statics[i_].get("layout") in ("gifts", "bundle") and x_.get("headline"):
+                statics[i_]["headline"] = x_["headline"]
     if no_photo:                      # one warning, not one per static (a clips-only folder)
         bi_ = pr["source"] == "built-in"
         warnings.append(f"{no_photo} of {a.statics} statics left out: {pr['name']} has no photo a static may use (no clean "
@@ -1824,7 +1918,10 @@ def plan(a):
         spec = dict(raw=e["id"], start=ed.get("start") or 0.0, end=ed.get("end"), cut=ed.get("cut") or [],
                     **({"claim_cuts": ed["claim_cuts"]} if ed.get("claim_cuts") else {}), insert_at=ed.get("insert_at"), offer_word=ed.get("offer_word"), offer_after=ed.get("offer_after"),
                     burned_captions=bool(ed.get("burned_captions")), labels=ed.get("labels") or [],
-                    end_title=ed.get("end_title") or wp["end"],
+                    end_title=wtx.get("end_title") or ed.get("end_title") or wp["end"],
+                    **({"end_offer": wtx["end_offer"]} if wtx.get("end_offer") else {}),
+                    **({"end_photo": rel(w_end[i % len(w_end)])} if wtx.get("end_offer") and wp["name"] == pr["name"]
+                       and (w_end := [f_ for f_ in s_packs if studio_pack(f_)]) else {}),
                     offer_title=ed.get("offer_title", wtx["offer_title"]), offer_sub=ed.get("offer_sub", wtx["offer_sub"]),
                     keywords=list(dict.fromkeys(wtx["keywords"] + THEME_WORDS[theme_key])),
                     music=False if getattr(a, "no_music", False) else dict(auto=True, seed=(a.seed - 1) * 11 + i + 1))
@@ -1861,6 +1958,7 @@ def plan(a):
             for p in ps:
                 x = pick(p) if wp is pr else ([clip(b, p[0], p[1]), p[2]] if p and p[0] in b else None)
                 if x and not str(x[0]).startswith("http") and not str(p[1]).startswith("ai_") and \
+                        clip_ok((b.get(p[0]) or {}).get(p[1]), p[0]) and \
                         not str(x[0]).lower().endswith((".jpg", ".png")) and \
                         not any(c[0] == x[0] and abs(float(c[1]) - float(x[1])) < 2.5 for c in cand):   # real footage, once
                     cand.append([x[0], x[1]])
@@ -2293,7 +2391,8 @@ def plan(a):
         offer = (dict(block=len(blocks) - 1, word=tx["offer_word"], title=tx["offer_title"], sub=tx["offer_sub"])
                  if tx["offer_title"] and tx["offer_word"] else None)
         spare = [x for x in rot(all_shots, v + o) if not is_shown(x) and not unfit(x)][:6]
-        spec = dict(blocks=blocks, overlays=ovl, end_title=pr["end"], offer=offer,
+        spec = dict(blocks=blocks, overlays=ovl, end_title=tx.get("end_title") or pr["end"], offer=offer,
+                    **({"end_offer": tx["end_offer"]} if tx.get("end_offer") else {}),
                     keywords=list(dict.fromkeys(tx["keywords"] + THEME_WORDS[theme_key])),
                     spare_broll=picks(spare, fallback=False),
                     music=False if getattr(a, "no_music", False) else dict(seed=(a.seed - 1) * 11 + v + 1))   # a bed under the voice (music.py;
@@ -2518,7 +2617,8 @@ def plan(a):
         for sec in secs:
             for key, e in b[sec].items():
                 notes = e.get("notes", "") if isinstance(e, dict) else ""
-                if not isinstance(e, dict) or key.startswith("ai_") or (sec, key) in scenes or "REAL CUSTOMER" in notes or e.get("text"):
+                if not isinstance(e, dict) or key.startswith("ai_") or (sec, key) in scenes or "REAL CUSTOMER" in notes or e.get("text") \
+                        or not clip_ok(e, sec):
                     continue                  # (a clip with "text": printed words fill its frame: the captions sit on them)
                 gift = bool(re.search(r"gift|unbox|reveal|reaction", f"{notes} {key}", re.I))
                 for g in e.get("good") or gen_moments(e.get("dur"), 6):
@@ -2724,9 +2824,10 @@ def plan(a):
                  if sc["offer"] and tx["offer_title"] and tx["offer_word"] else None)
         kws = list(dict.fromkeys(tx["keywords"] + THEME_WORDS[theme_key] + [k for c in chs for k in c["keywords"]]))
         end_ph = [f_ for f_ in s_packs if studio_pack(f_)]           # the closing card: a clean studio packshot (another colour per project)
-        spec = dict(mode="ugc", voice_speed=ugc_speed, blocks=blocks, overlays=ovl, end_title=pr["end"], offer=offer,
+        spec = dict(mode="ugc", voice_speed=ugc_speed, blocks=blocks, overlays=ovl, end_title=tx.get("end_title") or pr["end"], offer=offer,
                     **({"presenter": pres["id"], "overlay_y": PRES_OVERLAY_Y} if pres else {}),
-                    **({"end_photo": rel(end_ph[(v + a.seed) % len(end_ph)]), "end_offer": tx["offer_title"] or ""} if end_ph else {}),
+                    **({"end_photo": rel(end_ph[(v + a.seed) % len(end_ph)]), "end_offer": tx.get("end_offer") or tx["offer_title"] or ""}
+                       if end_ph else {}),
                     keywords=kws, spare_broll=[x for x in gen if x],
                     music=False if getattr(a, "no_music", False) else dict(seed=(a.seed - 1) * 11 + v + 1))
         name = f"{prefix}_{vid}_{UGC_ANGLE.get(sc['angle']) or re.sub(r'[^A-Za-z0-9]', '', sc['angle'])[:14]}"
@@ -2928,6 +3029,7 @@ def plan(a):
     brief = sel["brief"] if sel else None
     p = dict(prefix=prefix, rev=rev, batch_id=lb, created=datetime.date.today().isoformat(), request=a.request or "", product=pr["name"],
              product_key=pk, product_source=pr["source"], theme=theme_key, theme_name=tname, offer=summary["offer"],
+             **({"campaign": CAMP[0]} if CAMP[0] else {}),
              statics=[s["name"] for s in statics], videos=videos, tts_lines=len(tts_u), tts_dupes=dupes, est_credits=est,
              budget=limit, colour_images=dict(colour_imgs), packshots=packs, brief=brief, **({"ai": ai_sum} if ai_sum else {}),
              winners_source=sel["source"] if sel else None, winners_note=sel["note"] if sel else None,
@@ -3049,6 +3151,12 @@ def plan(a):
     pres_sum = None
     if pm and any((v.get("ugc") or {}).get("presenter") for v in p.get("videos") or []):   # presenter projects (presenter.py)
         import presenter
+        if not p.get("colour_images") and not p.get("packshots") and DESIGN[0]:
+            print(f"presenter projects need a packshot of the bag she holds: {DESIGN[0]['product']} has none of the "
+                  f"{DESIGN[0]['show']} bag this batch shows (data/designs.json: libracases.com's photos show the "
+                  f"{DESIGN[0].get('site')} one). Make these projects without the presenter (normal voiceover) and say so, "
+                  f"or add a clean packshot of the {DESIGN[0]['show']} bag.", file=sys.stderr)
+            sys.exit(2)
         pres_sum = presenter.needed(out, quiet=True)
         cap_ = getattr(a, "presenter_cap", None) or presenter.CAP
         if pres_sum and pres_sum["est_credits"] > cap_:
@@ -4082,6 +4190,8 @@ def main():
     pl.add_argument("--allow-draft", action="store_true", help="build from a product file still marked draft")
     pl.add_argument("--theme", default="")
     pl.add_argument("--request", default="", help="the user's message, for the folder name and report")
+    pl.add_argument("--no-campaign", action="store_true", help="ignore the store-wide sale campaign running today (data/campaign.json): "
+                    "the theme's own lines and each bag's own offer only")
     pl.add_argument("--lines", help="json with overrides: hero, bold, colours, V01_hook, V01_close ... (P01_hook = V01_hook: "
                     "project P01's H1 line)")
     pl.add_argument("--seed", type=int, help="variation (default 1; new-product without --only: 1 + the batches its "

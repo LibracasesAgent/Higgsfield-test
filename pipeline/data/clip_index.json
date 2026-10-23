@@ -1328,7 +1328,8 @@
     "q": "good",
     "desc": "hand holds beige strap by clip, gold hardware visible"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 32,
@@ -1386,7 +1387,8 @@
     "q": "good",
     "desc": "hands hold brown strap showing gold eyelets and buckle"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 33,
@@ -1440,7 +1442,8 @@
     "q": "good",
     "desc": "hands adjust black strap, ring hardware visible"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 34,
@@ -1519,7 +1522,8 @@
     "q": "good",
     "desc": "orange bag on bench, front zip pocket, strap hanging"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 36,
@@ -1577,7 +1581,8 @@
     "q": "good",
     "desc": "macro beige leather grain and gold zip pull"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 37,
@@ -1633,7 +1638,8 @@
     "q": "good",
     "desc": "brown bag's back zip pocket clear, hand at left edge"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 38,
@@ -1699,7 +1705,8 @@
     "q": "good",
     "desc": "brown bag with back pocket zip and shoulder strap"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 39,
@@ -1760,7 +1767,8 @@
     "q": "good",
     "desc": "black bag back zip pocket closed, hand resting on bag"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 40,
@@ -1821,7 +1829,8 @@
     "q": "good",
     "desc": "brown bag's long gold side zip and strap ring close up"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 41,
@@ -1880,7 +1889,8 @@
     "q": "good",
     "desc": "hand holds beige strap showing gold rivets and ring"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 42,
@@ -1938,7 +1948,8 @@
     "q": "good",
     "desc": "close black bag back pocket with gold zip pull"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 43,
@@ -1999,7 +2010,8 @@
     "q": "good",
     "desc": "fingers pull gold zip pulls on brown bag top"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 44,
@@ -2074,7 +2086,8 @@
     "q": "good",
     "desc": "fingers hold the two gold zip pulls together as a lock"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 46,
@@ -2139,7 +2152,8 @@
     "q": "good",
     "desc": "beige bag hanging by strap, gold hardware, car wheel behind"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 47,
@@ -2215,7 +2229,8 @@
     "q": "good",
     "desc": "close brown strap with gold eyelets and rings"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 49,
@@ -2664,7 +2679,8 @@
   "faces": "none",
   "usable": "yes",
   "note": "RAW textless winner body",
-  "text": "none"
+  "text": "none",
+  "design": "eyelet"
  },
  {
   "n": 66,
@@ -2680,7 +2696,8 @@
   "faces": "none",
   "usable": "yes",
   "note": "RAW textless",
-  "text": "none"
+  "text": "none",
+  "design": "eyelet"
  },
  {
   "n": 67,
@@ -2696,7 +2713,8 @@
   "faces": "none",
   "usable": "yes",
   "note": "RAW textless",
-  "text": "none"
+  "text": "none",
+  "design": "eyelet"
  },
  {
   "n": 68,
@@ -3895,7 +3913,8 @@
     "q": "good",
     "desc": "open black bag showing organiser pockets inside, hand on rim"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 111,
@@ -3980,7 +3999,8 @@
     "q": "weak",
     "desc": "fourth frame missing from sheet, not seen"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 113,
@@ -4106,7 +4126,8 @@
     "q": "good",
     "desc": "top view of open bag with organiser and packed items"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 117,
@@ -4188,7 +4209,8 @@
     "q": "good",
     "desc": "back pocket zip pull close up, navy leather grain"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 119,
@@ -4252,7 +4274,8 @@
     "q": "good",
     "desc": "black bag worn on shoulder with strap, side view"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 120,
@@ -4334,7 +4357,8 @@
     "q": "weak",
     "desc": "blurry close-up of black leather, hand moving past"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 122,
@@ -4396,7 +4420,8 @@
     "q": "good",
     "desc": "open black bag with glasses, power bank, wallet inside"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 123,
@@ -4462,7 +4487,8 @@
     "q": "good",
     "desc": "black bag worn on shoulder, gold side zip visible"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 124,
@@ -4523,7 +4549,8 @@
     "q": "weak",
     "desc": "hand at bag's side pocket opening, partly hidden"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 125,
@@ -4631,7 +4658,8 @@
     "q": "good",
     "desc": "gold strap rings and top zip of tan bag, close-up"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 128,
@@ -4714,7 +4742,8 @@
     "q": "weak",
     "desc": "woman with tan bag seen far through glass door"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 130,
@@ -4768,7 +4797,8 @@
     "q": "bad",
     "desc": "window and wall, no bag in view"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 131,
@@ -4822,7 +4852,8 @@
     "q": "bad",
     "desc": "ceiling fan, shutters, hand and edge of head at bottom"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 132,
@@ -4880,7 +4911,8 @@
     "q": "weak",
     "desc": "hand grips suitcase handle, tan bag cut off"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 133,
@@ -4945,7 +4977,8 @@
     "q": "good",
     "desc": "front of tan bag hanging by strap, clear product shot"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 134,
@@ -5011,7 +5044,8 @@
     "q": "good",
     "desc": "hand presses tan bag, back zip pocket in view"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 135,
@@ -5077,7 +5111,8 @@
     "q": "good",
     "desc": "tan bag on shoulder, gold side zip, seen from behind"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 136,
@@ -5138,7 +5173,8 @@
     "q": "bad",
     "desc": "frame missing, blank"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 137,
@@ -5294,7 +5330,8 @@
     "q": "bad",
     "desc": "frame missing, blank"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 143,
@@ -5406,7 +5443,8 @@
     "q": "good",
     "desc": "beige bag with flap and tassel hanging by strap"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 146,
@@ -5520,7 +5558,8 @@
     "q": "good",
     "desc": "black bag crossbody, gold side zip and strap hardware"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 149,
@@ -5583,7 +5622,8 @@
     "q": "good",
     "desc": "tan crossbody bag worn by woman from behind by bench"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 150,
@@ -5644,7 +5684,8 @@
     "q": "good",
     "desc": "inside of bag, empty cup pocket, laptop and gold zip"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 151,
@@ -5766,7 +5807,8 @@
     "q": "weak",
     "desc": "bag contents dumped on table, bag not in view"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 155,
@@ -5893,7 +5935,8 @@
     "q": "good",
     "desc": "closed black bag with gold top zip, hand beside it"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 159,
@@ -5979,7 +6022,8 @@
     "q": "weak",
     "desc": "close-up of black leather and zip, hand covers part"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 161,
@@ -6045,7 +6089,8 @@
     "q": "good",
     "desc": "black bag with front zip pocket, hand on top"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 162,
@@ -6109,7 +6154,8 @@
     "q": "weak",
     "desc": "hand pulls gold zip at bag's end, arm covers bag"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 163,
@@ -6176,7 +6222,8 @@
     "q": "good",
     "desc": "front of black bag hanging from studded strap"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 164,
@@ -6241,7 +6288,8 @@
     "q": "good",
     "desc": "hand lifts black bag by studded strap, front view"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 165,
@@ -6306,7 +6354,8 @@
     "q": "good",
     "desc": "close-up of pouch gold zip pull in both hands"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 166,
@@ -6375,7 +6424,8 @@
     "q": "good",
     "desc": "front of black bag with gold top zip, hanging"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 167,
@@ -6438,7 +6488,8 @@
     "q": "good",
     "desc": "black bag sitting on cream tufted bench, handles up"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 168,
@@ -6502,7 +6553,8 @@
     "q": "good",
     "desc": "black bag side with gold zip and leather seam"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 169,
@@ -6568,7 +6620,8 @@
     "q": "good",
     "desc": "hands on gold side zip and strap clip, black bag"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 170,
@@ -6631,7 +6684,8 @@
     "q": "good",
     "desc": "black bag hanging by strap on cream chair back"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 171,
@@ -6694,7 +6748,8 @@
     "q": "good",
     "desc": "black bag sitting on cream tufted bench, handles up"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 172,
@@ -6755,7 +6810,8 @@
     "q": "good",
     "desc": "hands hold gold strap clip hardware and black strap"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 173,
@@ -6834,7 +6890,8 @@
     "q": "good",
     "desc": "hands pull studded black strap, gold clip on bag"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 175,
@@ -6899,7 +6956,8 @@
     "q": "good",
     "desc": "closed black bag on table with gold zip, hand at edge"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 176,
@@ -6963,7 +7021,8 @@
     "q": "weak",
     "desc": "hand pressed on black bag by gold zip"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 177,
@@ -7028,7 +7087,8 @@
     "q": "good",
     "desc": "tan bag's zip pulls joined at strap, gold hardware"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 178,
@@ -7116,7 +7176,8 @@
     "q": "good",
     "desc": "hand opens gold side zip pocket, strap lifted"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 180,
@@ -7224,7 +7285,8 @@
     "q": "good",
     "desc": "black bag worn on shoulder, hand holding it open"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 183,
@@ -7294,7 +7356,8 @@
     "q": "good",
     "desc": "black bag on studded strap, gold side zip, cafe"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 184,
@@ -7378,7 +7441,8 @@
     "q": "good",
     "desc": "studded strap with gold ring and zip of black bag"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 186,
@@ -7465,7 +7529,8 @@
     "q": "good",
     "desc": "hand lifts white cup, black bag worn on shoulder"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 188,
@@ -7571,7 +7636,8 @@
     "q": "good",
     "desc": "two gold zip pulls at the top of black bag"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 191,
@@ -7638,7 +7704,8 @@
     "q": "good",
     "desc": "hand adjusts strap clip, bag hanging on chair back"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 192,
@@ -7702,7 +7769,8 @@
     "q": "good",
     "desc": "open bag showing grey lining and inner zip pocket"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 193,
@@ -7785,7 +7853,8 @@
     "q": "good",
     "desc": "hands set black pouch wallet beside bag on floor"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 195,
@@ -7850,7 +7919,8 @@
     "q": "weak",
     "desc": "black bag cut off at left edge, keys on rug"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 196,
@@ -7912,7 +7982,8 @@
     "q": "good",
     "desc": "open black bag from above, packed with diapers and bottle"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 197,
@@ -7977,7 +8048,8 @@
     "q": "weak",
     "desc": "open black bag with items, hand cut off at corner"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 198,
@@ -8061,7 +8133,8 @@
     "q": "good",
     "desc": "closed black bag on wooden floor, hand resting on it"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 200,
@@ -8129,7 +8202,8 @@
     "q": "good",
     "desc": "hand holds studded strap, black bag side zip and tassel"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 201,
@@ -8198,7 +8272,8 @@
     "q": "good",
     "desc": "black bag with gold side zip and tassel, hand on strap"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 202,
@@ -8264,7 +8339,8 @@
     "q": "good",
     "desc": "black bag beside woman, gold strap clip and side zip"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 203,
@@ -8334,7 +8410,8 @@
     "q": "good",
     "desc": "fingers on gold side zip of black bag worn on shoulder"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 204,
@@ -8400,7 +8477,8 @@
     "q": "good",
     "desc": "black bag on cafe chair, gold strap clip and side zip"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 205,
@@ -8592,7 +8670,8 @@
     "q": "good",
     "desc": "hand slides gold top zip of black bag on lap"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 212,
@@ -8827,7 +8906,8 @@
     "q": "good",
     "desc": "black bag on shoulder, strap studs and gold side zip"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 221,
@@ -8931,7 +9011,8 @@
     "q": "good",
     "desc": "close-up of rose gold zip pulls on navy leather bag"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 224,
@@ -9016,7 +9097,8 @@
     "q": "good",
     "desc": "rose gold zip pulls locked together on navy bag"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 226,
@@ -9077,7 +9159,8 @@
     "q": "good",
     "desc": "closed black bag lying on white bedspread, small in frame"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 227,
@@ -9141,7 +9224,8 @@
     "q": "good",
     "desc": "gold zip pulls locked together on tan leather bag"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 228,
@@ -9666,7 +9750,8 @@
     "q": "good",
     "desc": "tan bag opened wide, contents and gold side zip visible"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 251,
@@ -9772,7 +9857,8 @@
     "q": "good",
     "desc": "hands hold tan bag, strap clip and gold side zip"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 254,
@@ -9834,7 +9920,8 @@
     "q": "good",
     "desc": "open empty tan bag, grey lining and inner pockets"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 255,
@@ -9899,7 +9986,8 @@
     "q": "weak",
     "desc": "tan bag tilted on table, partly out of frame"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 256,
@@ -9961,7 +10049,8 @@
     "q": "good",
     "desc": "hand opens tan bag lining, inner pockets and strip"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 257,
@@ -10023,7 +10112,8 @@
     "q": "good",
     "desc": "open black bag, lining and inner pockets on bed"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 258,
@@ -10088,7 +10178,8 @@
     "q": "good",
     "desc": "black bag on grass, back zip pocket closed"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 259,
@@ -10153,7 +10244,8 @@
     "q": "good",
     "desc": "black bag's back zip pocket closed, clear view"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 260,
@@ -10258,7 +10350,8 @@
     "q": "good",
     "desc": "close-up of beige leather grain with pink fingernail"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 263,
@@ -10321,7 +10414,8 @@
     "q": "good",
     "desc": "black bag's back zip pocket closed, leather grain visible"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 264,
@@ -10387,7 +10481,8 @@
     "q": "good",
     "desc": "black bag with studded strap on orange booth seat"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 265,
@@ -10552,7 +10647,8 @@
     "q": "good",
     "desc": "open black bag showing tan organiser and gold zip"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 271,
@@ -10637,7 +10733,8 @@
     "q": "good",
     "desc": "open palm beside black bag's back zip pocket and strap"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 273,
@@ -10703,7 +10800,8 @@
     "q": "good",
     "desc": "black pouch wallet held above open bag, strap draped"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 274,
@@ -10786,7 +10884,8 @@
     "q": "good",
     "desc": "gold side zip with tassel on black pebbled leather"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 276,
@@ -10846,7 +10945,8 @@
     "q": "good",
     "desc": "black pouch wallet with gold zip held flat, pen at edge"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 277,
@@ -10950,7 +11050,8 @@
     "q": "weak",
     "desc": "blurred hand moving over inner pocket"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 280,
@@ -11011,7 +11112,8 @@
     "q": "good",
     "desc": "open bag interior with lining, zip and strap stud"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 281,
@@ -11097,7 +11199,8 @@
     "q": "good",
     "desc": "gold side zip with pull and strap ring on black bag"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 283,
@@ -11159,7 +11262,8 @@
     "q": "good",
     "desc": "gold zip pull resting on black bag, no hands"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 284,
@@ -11225,7 +11329,8 @@
     "q": "good",
     "desc": "gold strap clip hooked round table leg, tan bag"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 285,
@@ -11354,7 +11459,8 @@
     "q": "good",
     "desc": "hand lifts strap tied to chair, tan bag in seat"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 289,
@@ -11437,7 +11543,8 @@
     "q": "good",
     "desc": "hand pulls grey strip of inner pocket in open tan bag"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 291,
@@ -11523,7 +11630,8 @@
     "q": "good",
     "desc": "tan bag with strap secured round bench rail"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 293,
@@ -11631,7 +11739,8 @@
     "q": "good",
     "desc": "hand tucks sunglasses into bag's inner pocket"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 296,
@@ -11764,7 +11873,8 @@
     "q": "good",
     "desc": "tan bag strap looped round table leg, gold clip"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 300,
@@ -11867,7 +11977,8 @@
     "q": "weak",
     "desc": "woman standing in bedroom, hair hides face, carries tan bag"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 303,
@@ -12099,7 +12210,8 @@
     "q": "weak",
     "desc": "dark open bag tilted, hands and pouch cut off"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 312,
@@ -12163,7 +12275,8 @@
     "q": "weak",
     "desc": "hand holds strap with stud buckle over open bag"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 313,
@@ -12246,7 +12359,8 @@
     "q": "weak",
     "desc": "beige bag at frame edge, hand gripping, paving below"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 315,
@@ -12376,7 +12490,8 @@
     "q": "good",
     "desc": "hand holds small black pouch wallet with banknote over bag"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 319,
@@ -12461,7 +12576,8 @@
     "q": "weak",
     "desc": "corner of dark bag on white bed, mostly empty frame"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 321,
@@ -12547,7 +12663,8 @@
     "q": "good",
     "desc": "open tan bag on floor showing grey organiser"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 323,
@@ -12613,7 +12730,8 @@
     "q": "good",
     "desc": "closed black bag on bench, gold end zip, strap"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 324,
@@ -12697,7 +12815,8 @@
     "q": "good",
     "desc": "tan bag closed zip on chair, no hands"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 326,
@@ -12760,7 +12879,8 @@
     "q": "good",
     "desc": "water bottle in inner side pocket of open black bag"
    }
-  ]
+  ],
+  "design": "eyelet"
  },
  {
   "n": 327,

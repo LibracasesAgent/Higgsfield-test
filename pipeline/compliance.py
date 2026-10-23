@@ -298,8 +298,18 @@ def parse_offer(o):
     return (int(m.group(1)) if m else None), (re.sub(r"^(?:a|an)\s+", "", gift, flags=re.I) if gift else None)
 
 
-def context(product=None, offer=None, facts=None, out=None, extra=()):
+_CAMPAIGN = [None]       # the store-wide sale campaign of the batch being checked (campaign.py; plan / check_out set it)
+
+
+def use_campaign(c):
+    """Every context() from now on carries this campaign (None: none): its facts back claims and numbers, its approved
+    phrases ('up to 60% off', 'free gifts', 'a free jewellery box') back offer words."""
+    _CAMPAIGN[0] = c or None
+
+
+def context(product=None, offer=None, facts=None, out=None, extra=(), campaign=False):
     """What the texts of one product may say: its real offer, its facts (corpus for claims) and the numbers in them.
+    campaign: a campaign dict (campaign.py), None for none; default: the one use_campaign() set.
     product: a key / name ('Hobo Bag', 'vintage', a product file) or a make_batch product dict; offer: see
     parse_offer (default: the product's stored offer); facts: a site facts dict or file (default: $OUT/site). A
     Drive-only product (drive_only()): only its product file (notes, features), never PLAYBOOK section 1 or $OUT/site."""
@@ -334,7 +344,13 @@ def context(product=None, offer=None, facts=None, out=None, extra=()):
         facts.get("title"), facts.get("description"), " ".join(facts.get("bullets") or []),
         " ".join(facts.get("highlights") or []), pf.get("title"), pf.get("description"), pf.get("notes"),
         " ".join(f"{f[0]} {f[1]}" for f in (pr or {}).get("features") or [])] + list(extra) if x)
+    camp = _CAMPAIGN[0] if campaign is False else campaign
+    if camp:
+        import campaign as campaign_mod
+        prod += "\n" + campaign_mod.corpus(camp)
     nums = {round(v, 2) for v, *_ in numbers(prod)}
+    if camp:
+        nums |= {round(x, 2) for x in campaign_mod.numbers(camp)}
     pct, gift = deal or (None, None)
     nums |= {float(x) for x in (pct,) if x}
     for k in ("price", "compare_at"):
@@ -345,7 +361,7 @@ def context(product=None, offer=None, facts=None, out=None, extra=()):
     if colours:
         nums.add(float(len(colours)))
     return dict(product=(pr or {}).get("name"), key=(pr or {}).get("key"), offer=deal, pct=pct, gift=gift,
-                corpus=corpus_text(prod, store), numbers=nums, colours=colours, drive_only=only)
+                corpus=corpus_text(prod, store), numbers=nums, colours=colours, drive_only=only, campaign=camp or None)
 
 
 def drive_only(pr):
@@ -661,7 +677,11 @@ def check(texts, product=None, offer=None, facts=None, ctx=None, source="ours", 
             for m in TESTIMONIAL.finditer(t):
                 hit("testimonial", m.group(0), WHY["testimonial"], m.start(), m.end())
         # (new_product.unbacked takes 'free US shipping' for a free gift: it only knows 'free shipping / delivery')
-        why_offer = new_product.unbacked(re.sub(r"\bfree (?:US|U\.S\.) (shipping|delivery)\b", r"free \1", t, flags=re.I),
+        t_offer = t
+        if ctx.get("campaign"):           # 'up to 60% off', 'free gifts', 'a free jewellery box': the sale's own words
+            import campaign as campaign_mod
+            t_offer = campaign_mod.strip(t, ctx["campaign"])
+        why_offer = new_product.unbacked(re.sub(r"\bfree (?:US|U\.S\.) (shipping|delivery)\b", r"free \1", t_offer, flags=re.I),
                                          ctx["pct"], ctx["gift"]) if ctx.get("offer") is not None else None
         if why_offer:
             hit("offer", why_offer, f"it claims {why_offer}: {WHY['offer']} ({_offer_str(ctx)})", 0, 0)
@@ -831,6 +851,7 @@ def count_words(probs, allowed, nums):
 def check_out(out):
     p, items, other = batch_items(out)
     probs, allowed = [], []
+    use_campaign(p.get("campaign"))
     ctx = context(p.get("product_key") or p.get("product"), offer=p.get("offer"), out=out)
     probs += count_words(check(dedupe(items), ctx=ctx, allowed=allowed), allowed, p.get("ugc_numbers"))
     for name, its in other.items():       # a winner of another product (its own offer and facts)
@@ -851,7 +872,12 @@ def main():
     ap.add_argument("--text", action="append", help="a line to check (repeatable)")
     ap.add_argument("--product", help="product for --text (its facts and offer)")
     ap.add_argument("--offer", help="offer for --text, e.g. '50%% off + free matching pouch wallet' (default: the product's)")
+    ap.add_argument("--theme", help="for --text: the batch's theme ('black friday'): the sale campaign running today backs its words")
     a = ap.parse_args()
+    if a.theme and not a.out:
+        import campaign as campaign_mod
+        import make_batch
+        use_campaign(campaign_mod.active(make_batch.pick_theme(a.theme)))
     if a.out:
         rep = check_out(os.path.abspath(a.out))
         rep["report"] = os.path.join(os.path.abspath(a.out), "compliance.json")

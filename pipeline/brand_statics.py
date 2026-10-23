@@ -1089,6 +1089,97 @@ def l_checklist(a, sd):
     return c.convert("RGBA")
 
 
+# ---------------------------------------------------------------- sale-campaign layouts (gifts, bundle: campaign.py)
+def gift_card(c, d, im, box, label, host=None):
+    """A gift's photo as a framed card (rounded, soft shadow) in box with its label under it; returns the label's bottom."""
+    fl = XB(26)
+    lh = metrics(fl)[0] + int(fl.size * 0.5)
+    x0, y0, x1, y1 = box
+    im._card = True
+    px0, py0, px1, py1 = place_packshot(c, im, (int(x0), int(y0), int(x1), int(y1 - lh - 16)), host=host)
+    return put(d, label, fl, RED, py1 + 16, x1 - x0, cx=(x0 + x1) / 2, host=host)
+
+
+def l_gifts(a, sd):
+    """The sale's free gifts (campaign.py, the client's own offer): the kicker and headline, the bag's packshot large, beside it each
+    gift as a framed photo card with its label ('FREE JEWELLERY BOX'), one ticked row per gift tier ('2 bags: a free mirrored
+    jewellery box (worth $19.95)'), a small note ('Only bags count · while stocks last') and the CTA. Spec keys: photo, gifts
+    [{src, label}], headline, kicker, rows, note, cta. Every word and number comes from the spec: nothing is added here."""
+    W, H = a.get("size", [1080, 1350])
+    gifts = list(a.get("gifts") or [])[:2]
+    if not gifts:
+        raise ValueError("gifts: needs the gift photos")
+    c = Image.new("RGB", (W, H), tuple(a.get("bg", CREAM)))
+    d = ImageDraw.Draw(c)
+    y = brand_mark(d, W, 54)
+    if a.get("kicker"):
+        y = put(d, [spaced(a["kicker"])], fit_font(d, spaced(a["kicker"]), XB, 28, W - 120, 18), RED, y + 30, W - 100)
+    fh = fit(d, a["headline"], SERIF, a.get("hsize", 74), W - 140, 2, 46)
+    y = put(d, a["headline"], fh, ESPRESSO, y + air(fh, k=0.45), W - 140, lh=1.0)
+    py = H - 150
+    fr, fn = SANS(32, "SemiBold"), SANS(26)
+    rows, note_ = list(a.get("rows") or []), a.get("note")
+    lw = W - 150
+    nh = put(d, note_, fn, MUTED, 0, W - 160, lh=1.25, dry=True) if note_ else 0
+    rh = tick_list(d, rows, fr, 0, 0, lw, gap=int(fr.size * 0.6), dry=True) if rows else 0
+    bot_text = py - 34
+    note_top = bot_text - nh
+    rows_top = note_top - (24 if note_ else 0) - rh
+    _, top, _, area_bot = room((60, y + 40, W - 60, rows_top - 40), 380)
+    split = int(W * 0.56)
+    place_packshot(c, load(sd, a["photo"]), (60, top, split - 10, area_bot))
+    gh = int((area_bot - top - 24 * (len(gifts) - 1)) / len(gifts))
+    for k, g in enumerate(gifts):
+        g0 = top + k * (gh + 24)
+        gift_card(c, d, load(sd, g["src"]), (split + 20, g0, W - 60, g0 + gh), g.get("label") or "FREE GIFT")
+    if rows:
+        tick_list(d, rows, fr, 75, rows_top, lw, gap=int(fr.size * 0.6))
+    if note_:
+        put(d, note_, fn, MUTED, note_top, W - 160, lh=1.25)
+    pill(d, W, py, a.get("cta", "Shop now"), bg=RED)
+    return c.convert("RGBA")
+
+
+def l_bundle(a, sd):
+    """Buy 2 or 3 bags (the sale's bundle offer, campaign.py): two or three packshots side by side (other colours) on a calm tinted
+    backdrop, the kicker, a serif headline ('One for you, one for her.'), the red pill ('60% OFF 2 OR 3 BAGS'), an optional sub
+    ('+ free gifts while stocks last') and the CTA. Spec keys: photos [src, src(, src)], headline, kicker, pill, sub, cta."""
+    W, H = a.get("size", [1080, 1350])
+    ph = list(a.get("photos") or [])[:3]
+    if len(ph) < 2:
+        raise ValueError("bundle: needs 2-3 packshots")
+    ims = [load(sd, p["src"] if isinstance(p, dict) else p) for p in ph]
+    if not all(studio_white(im) and not collage(im) for im in ims):
+        raise ValueError("bundle: needs packshots on a white studio backdrop")
+    tint = tuple(a["tint"]) if a.get("tint") else studio_tint(bag_colour(ims[0]))
+    c = studio_backdrop((W, H), tint, (W / 2, H * 0.52))
+    d = ImageDraw.Draw(c)
+    y = brand_mark(d, W, 54)
+    if a.get("kicker"):
+        y = put(d, [spaced(a["kicker"])], fit_font(d, spaced(a["kicker"]), XB, 28, W - 120, 18), RED, y + 30, W - 100)
+    fh = fit(d, a["headline"], SERIF, a.get("hsize", 76), W - 140, 2, 46)
+    y = put(d, a["headline"], fh, ESPRESSO, y + air(fh, k=0.45), W - 140, lh=1.0)
+    py = H - 150
+    fs = SANS(32)
+    sh_ = put(d, a.get("sub"), fs, MUTED, 0, W - 180, lh=1.25, dry=True) if a.get("sub") else 0
+    ph_ = pill(d, W, 0, a["pill"], size=38, bold=True, dry=True) if a.get("pill") else 0
+    bot = py - 34
+    sub_top = bot - sh_
+    pill_top = sub_top - (22 if sh_ else 0) - ph_
+    _, top, _, area_bot = room((60, y + 44, W - 60, pill_top - 44), 420)
+    n = len(ims)
+    cw = (W - 120) / n
+    for k, im in enumerate(ims):          # the bags side by side, the middle one a little forward when there are three
+        inset = 0 if n == 2 or k == 1 else 30
+        place_packshot(c, im, (int(60 + k * cw + 8), top + inset, int(60 + (k + 1) * cw - 8), area_bot))
+    if a.get("pill"):
+        pill(d, W, pill_top, a["pill"], bg=RED, size=38, bold=True)
+    if sh_:
+        put(d, a["sub"], fs, MUTED, sub_top, W - 180, lh=1.25)
+    pill(d, W, py, a.get("cta", "Shop now"), bg=ESPRESSO)
+    return c.convert("RGBA")
+
+
 # ---------------------------------------------------------------- Ad Library layouts (native, quotes, value)
 def new_layouts():
     """The layouts modelled on the top-impression Ad Library statics, for make_batch's static cycle."""

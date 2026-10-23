@@ -498,8 +498,12 @@ def build(r, d, info=None):
             print(f"overlay anchor not found: offer word {r['offer_word']!r}", file=sys.stderr)
     if hook:                       # label box ends at y~412, the offer card starts at 420: both can show at once
         ov.insert(0, hook)
+    ep = r.get("end_photo")                   # a studio packshot (relative to the spec) and the sale's pill: the studio end card
+    ep = (ep if os.path.isabs(ep) else os.path.join(d, ep)) if ep else None
     ov.append(dict(type="end", title=r.get("end_title", "The Luxury Hobo Bag"), sub=r.get("end_sub", "Tap the link below"),
-                   at=round(t - 2.6, 2), dur=2.6, opaque=bool(r.get("burned_captions"))))   # covers the RAW's own captions
+                   at=round(t - 2.6, 2), dur=2.6, opaque=bool(r.get("burned_captions")),   # covers the RAW's own captions
+                   **({"offer": r["end_offer"]} if r.get("end_offer") else {}),
+                   **({"photo": ep} if ep and os.path.exists(ep) else {})))
     breaks = sorted({round(x[2], 2) for x in raw_to_out} | ({round(review_at, 2), round(review_end, 2)} if review_at is not None
                                                               else set()))
     if info is not None:

@@ -1,0 +1,97 @@
+{
+ "_help": "Store-wide sale campaigns the client confirmed (campaign.py). While one runs (from .. until, inclusive) a batch whose theme is one of its themes uses it: the end card ('Black Friday Sale' + 'UP TO 60% OFF + FREE GIFTS'), the offer card's sub line, the gifts / bundle statics, a sentence in the script's close, the engine's hooks, the ad copy and the strategy packet's facts; compliance accepts exactly these facts and phrases (approved), nothing more. Each product's own % (the site's price vs compare-at) stays the product's offer: the Hobo Bag is still '50% off', the 60% is only ever said of buying 2 or 3 bags together ('up to 60% off'). A new sale: add a campaign with the client's words in 'approved'.",
+ "campaigns": [
+  {
+   "id": "bf2026",
+   "name": "Black Friday Sale 2026",
+   "approved": "Wouter (owner), 2026-10-23: the Black Friday Sale went live on 23 October and runs until 30 November (Cyber Monday). Up to 50% off sitewide; 60% off bundles (2 or 3 bags bought together at 60% off the regular price); free gifts while stocks last: buy 2 bags, get a free mirrored jewellery box (worth $19.95); buy 3+ bags, get the jewellery box + a free cosmetic bag (together worth $44.90); only bags count, not accessories. The site banner (2026-10-23): 'EARLY BLACK FRIDAY: 50% OFF EVERYTHING | BUY 2 BAGS = 1 FREE GIFT | BUY 3 = 2 FREE GIFTS | ORDER TODAY WHILE STOCKS LAST!'",
+   "from": "2026-10-23",
+   "until": "2026-11-30",
+   "themes": [
+    "black friday",
+    "cyber monday",
+    "cyber week"
+   ],
+   "banner": "Black Friday Sale – up to 60% off + free gifts",
+   "end_title": {
+    "black friday": "Black Friday Sale",
+    "cyber monday": "Cyber Monday Sale",
+    "cyber week": "Cyber Week Sale"
+   },
+   "end_pill": "UP TO 60% OFF + FREE GIFTS",
+   "card_sub": "+ FREE GIFTS WITH 2 BAGS",
+   "bundle_pct": 60,
+   "gifts": [
+    {
+     "name": "mirrored jewellery box",
+     "short": "jewellery box",
+     "worth": 19.95,
+     "with": 2,
+     "photo": "assets/gifts/jewellery_box.jpg"
+    },
+    {
+     "name": "cosmetic bag",
+     "short": "cosmetic bag",
+     "worth": 24.95,
+     "with": 3,
+     "photo": "assets/gifts/cosmetic_bag.jpg"
+    }
+   ],
+   "gifts_worth": 44.9,
+   "dates": {
+    "black friday": "27 November",
+    "cyber monday": "30 November",
+    "ends": "30 November"
+   },
+   "facts": [
+    "Black Friday Sale: live now (from 23 October), it runs until 30 November (Cyber Monday). Black Friday is 27 November.",
+    "Up to 50% off sitewide (each bag's own % is on its offer card: the Hobo Bag is 50% off).",
+    "60% off bundles: buy 2 or 3 bags together and get 60% off the regular price (say it of buying 2 or 3 bags, never of one bag).",
+    "Free gifts while stocks last: buy 2 bags, get a free mirrored jewellery box (worth $19.95).",
+    "Buy 3 or more bags, get the jewellery box and a free cosmetic bag (together worth $44.90).",
+    "Only bags count for the gifts, not accessories.",
+    "Black Friday prices are live now: no need to wait."
+   ],
+   "close": {
+    "black friday": "Buy two bags and you also get a free jewellery box, while stocks last.",
+    "cyber monday": "Buy two bags and you also get a free jewellery box, while stocks last. The sale ends on the thirtieth of November.",
+    "cyber week": "Buy two bags and you also get a free jewellery box, while stocks last."
+   },
+   "hooks": {
+    "black friday": [
+     "Black Friday prices are live now. No need to wait.",
+     "Black Friday: up to sixty percent off, plus free gifts.",
+     "Buy two bags this Black Friday and get a free jewellery box."
+    ],
+    "cyber monday": [
+     "Last chance: up to sixty percent off, plus free gifts.",
+     "Cyber Monday is the last day of the sale."
+    ],
+    "cyber week": [
+     "Cyber Week: up to sixty percent off, plus free gifts."
+    ]
+   },
+   "copy": {
+    "primary": [
+     "Black Friday Sale: up to 60% off + free gifts. 🎁 Buy 2 bags, get a free mirrored jewellery box (worth $19.95). Buy 3, add a free cosmetic bag (together worth $44.90). While stocks last.",
+     "60% off when you buy 2 or 3 bags together: one for you, one for her. Plus free gifts while stocks last."
+    ],
+    "headline": [
+     "Up to 60% off + free gifts",
+     "Buy 2 bags, get a free gift",
+     "Black Friday prices are live"
+    ],
+    "description": "Up to 60% off + free gifts"
+   },
+   "approved_phrases": [
+    "up to (?:60|sixty) ?(?:%|percent) off",
+    "(?:60|sixty) ?(?:%|percent) off\\b[^.!?]{0,60}\\b(?:bundles?|together|(?:2|two) (?:or (?:3|three) )?bags|(?:3|three) bags|(?:2|two) or (?:3|three)|second bag)",
+    "\\bbundles?\\b[^.!?]{0,30}(?:60|sixty) ?(?:%|percent) off",
+    "(?:\\d|two|three|2|3) free gifts?",
+    "free gifts?",
+    "(?:a |the )?free (?:mirrored )?jewell?e?ry box(?:es)?",
+    "(?:a |the )?free (?:travel )?cosmetic bags?"
+   ]
+  }
+ ]
+}

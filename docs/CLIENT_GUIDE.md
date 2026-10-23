@@ -108,6 +108,29 @@ A presenter project costs about 225 credits (she is generated: about 2.5 credits
 
 Don't want one of the ads? Just don't upload it to Meta: Claude never deletes or moves files in Drive.
 
+## The Hobo 2.0: one bag per ad
+
+The Hobo 2.0 photos on libracases.com show a bag with a thin top handle; all the Hobo 2.0 footage in the Drive library shows a bigger
+bag with a wide eyelet strap. Since 23 October every Hobo 2.0 ad shows only the bag in the footage (no site photos, no presenter for
+the Hobo 2.0). If the thin-handle bag is the one you ship, tell us: the ads switch to it (and we need footage of it for the videos).
+
+## The Black Friday Sale (23 October - 30 November 2026)
+
+Any request with `Black Friday` (or `Cyber Monday` / `Cyber Week`) while the sale runs gets the sale you confirmed: the end card says
+"Black Friday Sale" over the bag with "UP TO 60% OFF + FREE GIFTS", the offer card adds "+ FREE GIFTS WITH 2 BAGS", the voice's close
+says "Buy two bags and you also get a free jewellery box, while stocks last", and every batch has a free-gifts static (the jewellery box
+and the cosmetic bag) and a bundle static ("One for you, one for her", 60% off 2 or 3 bags). Each bag keeps its own % (the Hobo Bag
+is still "50% off"); "60% off" is only ever said of buying 2 or 3 bags together.
+
+| You want | Copy into the DM |
+|---|---|
+| Black Friday versions of the winners | `Higgsfield-test: new batch for the winners, Black Friday` (or named: `versions of 94-H4 and 148-H5, Black Friday`) |
+| New Black Friday concepts | `Higgsfield-test: batch for the Hobo Bag, Black Friday` · `Higgsfield-test: 4 videos and 10 statics for the Hobo Bag 3-Piece Set, Black Friday` |
+| The last days | `Higgsfield-test: 3 videos and 6 statics for the Hobo Bag, Cyber Monday` (adds "The sale ends on the thirtieth of November") |
+
+The sale's dates, gifts and wording live in one file (`pipeline/data/campaign.json`); a new sale (or a changed gift) is a change there.
+
+
 ## Videos come in projects
 
 Like the agency ads (ACH - MAX - 94 - H4): every video is a **project** with 4 versions, **H1 to H4**,

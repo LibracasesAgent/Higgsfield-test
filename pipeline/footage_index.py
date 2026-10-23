@@ -367,15 +367,16 @@ def portrait_window(path, aspect=0.8):
     return path
 
 
-def frame_bank(product, n, out_dir, avoid=(), seed=1, workers=4):
+def frame_bank(product, n, out_dir, avoid=(), seed=1, workers=4, keep=None):
     """n real frames from n different indexed clips of the product, as statics photos: the sharpest face-free frame of 7 taken
     across each clip (4K vertical clips first), written to out_dir as JPGs (1440 px wide). `avoid`: Drive ids the product's last
-    batches already used (other clips first, repeats only when too few are left). -> [{file, id, t, w, h, note, sharp}]; fewer than n
-    (or none) when the library has too few clips: the caller says so."""
+    batches already used (other clips first, repeats only when too few are left). `keep`: a filter of the index rows (make_batch.clip_ok:
+    only the look of a two-look product the batch shows). -> [{file, id, t, w, h, note, sharp}]; fewer than n (or none) when the
+    library has too few clips: the caller says so."""
     import hashlib
     import ai_gen
     import new_product
-    rows = bank_rows(product)
+    rows = [r for r in bank_rows(product) if keep is None or keep(r)]
     avoid = set(avoid)
     rows.sort(key=lambda r: (r["id"] in avoid, -(max(r["width"], r["height"]) >= 3840),
                              hashlib.md5(f"{seed}{r['id']}".encode()).hexdigest()))

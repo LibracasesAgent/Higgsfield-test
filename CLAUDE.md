@@ -261,6 +261,9 @@ python3 pipeline/make_batch.py plan --product "<name>" [--theme "<words>"] --sta
 "batch" with no numbers: `--batch` instead of the counts. A product on libracases.com that `plan` does not know
 ("unknown product") and that has no New Products folder: `python3 pipeline/new_product.py intake --site <url|handle>`,
 then `--product "<key>"`. No folder, no photos, not on the site: make nothing and say what is needed.
+**Hobo 2.0:** its site photos and its footage show two different bags, so a batch shows one (`pipeline/data/designs.json` `show`,
+PLAYBOOK 4g; plan warns `design: ...`: say it in the reply). With the footage's bag (the default) presenter projects exit 2: make them
+as normal voiceover projects and say so.
 **Upload** lands in `Outputs/B045 – <date> – …`; **specs:** `pipeline/recipes/daily/<date>/<name>`.
 
 ## 4. Request → plan flags (every pipeline)
@@ -272,6 +275,7 @@ then `--product "<key>"`. No folder, no photos, not on the site: make nothing an
 | "single videos" / "no hook versions" | add `--hooks 1` (V01, V02 … as before, winners too) |
 | a product (catalog) | `--product "<name>"`: Hobo Bag (default), Hobo 2.0, 3-piece set, vintage, slouchy, or any product file in `pipeline/data/products/` |
 | a theme | `--theme "<words>"`: black friday, cyber monday, christmas, gift, mother's day, travel are built in; any other theme: `--theme "<words>"` plus your own short lines with `--lines` (keys `hero`, `bold`, `colours`, `P01_hook` / `V01_hook`, `P01_close` …) |
+| "Black Friday" / "Cyber Monday" / "Cyber Week" while the sale runs (23 Oct - 30 Nov 2026) | `--theme "black friday"` (or `cyber monday`): plan adds the campaign by itself (`data/campaign.json`, warning `campaign: ...`): end card "Black Friday Sale" + "UP TO 60% OFF + FREE GIFTS", the gift sentence in the close, a `gifts` and a `bundle` static. Each bag keeps its own % ("60% off" only of 2 or 3 bags together); PLAYBOOK 4f |
 | "story" / "long video" / "storytelling" | add `--story` (the classic story format, 1.5-2 min where the product has the footage; plan warns when it runs shorter: say so) |
 | "presenter" / "a woman talking" / "someone talking to camera" / "like the mom videos" / "with a model" | no flag: in the strategist's `ideas.json` the named number of projects carry `"presenter": {"id": "maya", ...}` (all of them when no number is named; "mix" = about half, the rest normal ugc voiceover projects, each with a different idea). `plan` prints the `presenter` credits (~2.5 per second of her talking: a presenter project ~225, four ~900; cap 1000). Say the cost in the reply. No presenter words in the message = normal ugc videos only |
 | "the old format" / "classic videos" | add `--classic` (the pre-2026-10-14 output: classic video formats showcase / features / reviews / colours, 40-60 s, and the old static cycle). Only when the request asks for it |

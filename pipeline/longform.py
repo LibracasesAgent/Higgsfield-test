@@ -724,6 +724,12 @@ def end_png(path, o):
         ft = font("CormorantGaramond.ttf", size, "SemiBold")
     tw = d.textlength(t, font=ft, **FEAT)
     d.text(((W - tw) / 2, 640), t, font=ft, fill=(250, 244, 236, 255), **FEAT)
+    if o.get("offer"):                    # the sale's line ('UP TO 60% OFF + FREE GIFTS') between the name and the button
+        fo, osz = font("Montserrat.ttf", 46, "ExtraBold"), 46
+        while d.textlength(o["offer"], font=fo) > W - 160 and osz > 28:
+            osz -= 2
+            fo = font("Montserrat.ttf", osz, "ExtraBold")
+        d.text(((W - d.textlength(o["offer"], font=fo)) / 2, 800), o["offer"], font=fo, fill=(232, 196, 150, 255))
     sw = d.textlength(s, font=fs)
     d.rounded_rectangle([(W - sw) / 2 - 44, 880, (W + sw) / 2 + 44, 980], radius=50, fill=RED + (255,))
     d.text(((W - sw) / 2, 896), s, font=fs, fill=(255, 255, 255, 255))

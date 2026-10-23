@@ -31,6 +31,10 @@ forces `pipeline/make_batch.py` (templates, real photos and footage; AI only as 
   the three pieces, not a gift). Free US shipping store-wide (the built-in bags; a Drive-only new product's ads
   say it only when its notes do: `compliance.drive_only`). Site banner: "FINAL CLEARANCE SALE ENDS TODAY 50% OFF +
   FREE SHIPPING". `make_batch.py plan` reads the % and the gift from the site on every run.
+- **Black Friday Sale 2026 (Wouter, 2026-10-23; `data/campaign.json`, section 4f):** live 23 October - 30 November (Cyber
+  Monday); up to 50% off sitewide; 60% off bundles (2 or 3 bags together, off the regular price); free gifts while stocks last:
+  2 bags = a free mirrored jewellery box (worth $19.95), 3+ bags = + a free cosmetic bag (together worth $44.90); only bags count.
+  Site banner 2026-10-23: "EARLY BLACK FRIDAY: 50% OFF EVERYTHING | BUY 2 BAGS = 1 FREE GIFT | BUY 3 = 2 FREE GIFTS".
 - **Approved by the client (allowed in ads):** the 50% offer, "anti-theft", the Susan / workshop-closing /
   arthritis story used in his own RAW ads, all 10 customer reviews with names ("Yes on all"), plus the two
   reviews on the website (Jenny H., Sarah M.). "Use everything on libracases.com."
@@ -238,7 +242,7 @@ Examples that were used:
   link below."
 Write "fifty percent" in TTS text (spoken correctly); captions turn it into "50%".
 **Themes:** apply to hook, headline, offer wording and end card. Black Friday: "Black Friday: 50% off + free
-wallet", urgency lines ("ends tonight": 113-H2 is the best winner for this), dark/bold statics (`bold` layout, red
+wallet" (during the 2026 sale also the campaign: 4f), urgency lines ("ends tonight": 113-H2 is the best winner for this), dark/bold statics (`bold` layout, red
 accent). Never "our biggest sale (of the year)": the same % runs all year (site banner), so it is unprovable
 (compliance flags it). Christmas/Mother's Day: gift angle (V13 recipe).
 
@@ -621,6 +625,47 @@ allowed avatars when a story needs them. `pipeline/presenter.py`, `data/presente
 - **Making a new host:** `soul_2` candidates (original faces; the prompt wording above) -> pick -> `assets/presenter/<id>.jpg` -> a row in
   `presenters.json` with `look`, `voice`, `soul_job` (the job id used as the first image reference) -> a character sheet and an
   expression sheet with `gpt_image_2_5` from the master for the owner.
+
+### 4f. Store-wide sale campaigns: the Black Friday Sale 2026 (owner 2026-10-23)
+
+Wouter: "BF versions of the winners first, then new BF concepts: bundles / one for you, one for her, free gifts, the 3-Piece Set,
+Christmas gifting, BF prices are live now; lots of variations". `pipeline/campaign.py`, `data/campaign.json`, `assets/gifts/`.
+- **When:** a batch whose theme is one of the campaign's (`black friday`, `cyber monday`, `cyber week`) on a day inside its `from` ..
+  `until` gets it (plan warns `campaign: ...`; plan.json `"campaign"`); outside the dates the theme falls back to the plain one.
+  `--no-campaign` turns it off for one plan. `python3 pipeline/campaign.py show --theme "cyber monday"` shows what a batch gets.
+- **What changes:** the end card of every video (ugc, classic, winner remix): title "Black Friday Sale" (Cyber Monday / Cyber Week Sale),
+  the pill "UP TO 60% OFF + FREE GIFTS", over the bag's packshot (winners: when the winner's product is the plan product); the offer card's
+  sub line "+ FREE GIFTS WITH 2 BAGS"; one sentence before "Tap the link below" in the close ("Buy two bags and you also get a free
+  jewellery box, while stocks last."; Cyber Monday adds the end date); the engine's hooks put the campaign's first ("Black Friday prices are
+  live now. No need to wait."); ad copy primary texts / headlines / description lead with the sale; the strategy packet lists its facts
+  and the client's idea list. Statics: slot 3 = `gifts` (the bag + the two gift packshots, "2 bags: ... 3+ bags: ...", "Only bags count ·
+  while stocks last"), slot 5 = `bundle` (2-3 colour packshots, "One for you, one for her.", pill "60% OFF 2 OR 3 BAGS"); both only during
+  a campaign (ideas sheets may ask for them then).
+- **The rule that matters:** each bag keeps its own % from the site (the Hobo Bag is "50% off"); "60% off" is said only of 2 or 3 bags
+  together or as "up to 60% off". Compliance takes the campaign's facts as evidence and strips only its `approved_phrases` before the
+  offer check, so "The Hobo Bag is 60% off." is still flagged, and so is any gift value other than $19.95 / $44.90.
+- **Gift photos:** `assets/gifts/jewellery_box.jpg`, `cosmetic_bag.jpg` (the site's product photos, no other brand in them).
+- **A new sale:** add a campaign to `campaign.json` with the client's words in `approved`, its dates, themes, gifts and phrases; nothing
+  else changes. `tests/test_campaign.py` covers the window, the compliance cases and the two layouts.
+
+### 4g. One bag per ad: the Hobo 2.0's two looks (owner 2026-10-23, after B017)
+
+The owner on B017: "the bag is not in the correct dimensions. It's not the correct size." Two different bags were mixed in one ad.
+- **The two looks:** every library clip of the Hobo 2.0 (`Raw files/HOBO 2.0`: 120 usable clips uploaded 7 July - 12 October 2026, all
+  looked at; the one library photo too) shows the **eyelet** bag: a wide flat strap with metal eyelets and rivets, a large slouchy body,
+  a front zip pocket, a 15-inch laptop fits. libracases.com's 14 photos (uploaded 4-5 June 2026, several named "BananaProAI", so
+  possibly AI-made; the "NEW" packshots; the Black Friday banner photo of 23 October) show the **slim** bag: a thin rolled top handle,
+  a neater, flatter body. B015 and B017 used the site photos for the end card, the studio / colour statics, the AI scenes and the
+  presenter's bag, and the footage for every cut: the bag changed size between shots.
+- **The guard:** `data/designs.json` lists the product's looks and which one a batch shows (`show`); `make_batch.design_of` /
+  `clip_ok`. With `show` = the footage's look (the default since 2026-10-23): none of the site's photos is used (the end card is the
+  plain card, statics are footage frames + text layouts, no gifts / bundle / studio / colours statics, no AI scenes); presenter
+  projects exit 2 (she needs a packshot of the bag she holds: make those projects with the normal voice). With `show` = the site's look:
+  the footage is left out (clip_bank `hobo_2_0` + the clip_index rows) unless a clip is tagged `"design": "slim"`.
+- **Not yet confirmed:** the footage's bag was chosen because real footage filmed July - October shows what customers get, and the
+  videos are built from it. If Wouter says the slim bag ships, set `show` to "slim" and ask for footage of it. Either way the site's
+  photos and the footage show two different bags: the client should know.
+- **A new product with two looks:** add it to `designs.json` (`site`, `library`, `bank_sections`, `designs`), tag the clips.
 
 ### 4e00. Batch numbers (owner 2026-10-20: "make the batches less confusing with a proper naming convention, so we avoid relaunching the same ads")
 Drive had folders named by whatever the request said (`2026-10-16 – Hobo Bag 5 projects 10 statics`, `... hook test 3 videos + 4 statics`)
