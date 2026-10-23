@@ -464,9 +464,19 @@ def said_words(b, d, spans):
             if off - 0.02 <= w["s"] < off + L - 0.05:
                 out.append(dict(w=w["w"], s=round(t0 + w["s"] - off, 3), e=round(t0 + min(w["e"], off + L) - off, 3),
                                 **({"k": "script"} if w.get("k") == "script" else {})))
-        if b.get("mode") == "ugc" and blk.get("number") and len(out) > n0:     # ugc chapter number: "1." before the first caption
-            out[n0]["pre"] = f"{blk['number']}."
-    return out
+        if b.get("mode") == "ugc" and blk.get("number") and len(out) > n0 and not says_number(out[n0:n0 + 4], blk["number"]):
+            out[n0]["pre"] = f"{blk['number']}."    # ugc chapter number: "1." before the first caption (not when the chapter says
+    return out                                   # its number itself: "Three: does it ...", "Step two", "Myth one": no "3. Three:")
+
+
+NUM_WORDS = {1: ("one", "first"), 2: ("two", "second"), 3: ("three", "third"), 4: ("four", "fourth"), 5: ("five", "fifth"),
+             6: ("six", "sixth"), 7: ("seven", "seventh"), 8: ("eight", "eighth"), 9: ("nine", "ninth"), 10: ("ten", "tenth")}
+
+
+def says_number(ws, n):
+    """True when these words (a chapter's first few) name the chapter's number n: '3', 'three', 'third'."""
+    said = {re.sub(r"[^a-z0-9]", "", w["w"].lower()) for w in ws}
+    return str(n) in said or any(x in said for x in NUM_WORDS.get(int(n), ()))
 
 
 def ugc_shots(d, jobs, segs, spare_all, top):

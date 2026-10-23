@@ -90,7 +90,8 @@ def take_prompt(host, sc, text):
     return (
         f"Handheld phone video of the woman talking straight to the camera. She says in {host['voice']}: \"{text.strip()}\" She starts "
         "speaking right away, within the first half second, at an easy natural pace. Her lips move in sync with the words, natural "
-        "blinking, small head movements and small hand gestures, a relaxed, ordinary, unperformed expression, not a presenter's grin. "
+        "blinking, small head movements and small hand gestures, a relaxed, ordinary, unperformed expression, not a presenter's grin; "
+        "her eyebrows stay relaxed and level (no big eyebrow raises), so her forehead stays smooth. "
         f"{sc.get('ambience') or 'Quiet room ambience'}, no music. Her skin stays soft and natural, as in the start image, with no added texture or wrinkles. The camera stays "
         "steady at chest-up framing. The handbag stays exactly as it is.")
 
