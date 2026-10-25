@@ -119,6 +119,9 @@ STORY = {"health", "crime"}       # the RAW's approved story (heard as is in its
 LABEL_STORY = {"crime"}           # allowed in an on-screen label that repeats the RAW ('HER SISTER WAS ROBBED'); a label
 #                                   never names a health condition, not even the RAW's ('THE ARTHRITIS HAS WON': no)
 
+# a returns promise while a final-sale campaign runs (campaign.json final_sale: the Black Friday terms say sale items can't be returned)
+FINAL_SALE = re.compile(r"\b(?:(?:free|easy|simple|hassle[- ]free) returns?|\d+[- ]day returns?|returns? (?:are|is) (?:free|easy)|"
+                        r"send it back|return it|returnable|no questions asked|risk[- ]free|money[- ]back)\b", re.I)
 # claims that are only true when the product's facts (site, product data, PLAYBOOK section 1) say them
 CLAIMS = [
     (r"water ?proof", "waterproof (the site says water-resistant)"),
@@ -666,7 +669,14 @@ def check(texts, product=None, offer=None, facts=None, ctx=None, source="ours", 
         for cat, rx, why in CATEGORIES:
             for m in rx.finditer(t):
                 hit(cat, m.group(0), why, m.start(), m.end(), rx)
+        final = bool((ctx.get("campaign") or {}).get("final_sale"))
+        if final:
+            for m in FINAL_SALE.finditer(t):
+                hit("claims", m.group(0), "a returns promise: Black Friday Sale items are final sale (the site's sale terms); the 1-year "
+                    "warranty and faulty-item cover still hold, say those instead", m.start(), m.end())
         for rx, what in CLAIMS:
+            if final and what in ("returns", "a guarantee"):
+                continue                  # (FINAL_SALE above)
             for m in rx.finditer(t):
                 ph = flat(m.group(0))
                 if ph in ctx["corpus"] or (what == "free shipping" and " free shipping " in ctx["corpus"].replace(

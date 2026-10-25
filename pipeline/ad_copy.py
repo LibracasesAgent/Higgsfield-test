@@ -475,6 +475,8 @@ def copy_set(prod, w, gid, angle, k, tag_order=None, review_n=None, avoid_hooks=
         rot(["gift_item", "colours", "trust"], num(w.seed, f"d{k}"))
     descs = [x for x in camp_lines("description") if len(x) <= LIMITS["description"]] + \
         [x for f in dfam for x in (fill(t, v) for t in prod.tpls(DESCRIPTIONS[f])) if x]
+    if (CAMP[0] or {}).get("final_sale"):     # sale items can't be returned: '1-year warranty' without 'easy returns'
+        descs = [re.sub(r"\s*\+\s*easy returns", " included", x) for x in descs]
     d = w.pick("description", descs, prod, gid, fallback=[x for x in (fill(t, v) for t in prod.tpls(DESCRIPTIONS["generic"]))
                                                           if x], avoid=[h1, h2])
     return dict(primary_text_1=p1, primary_text_2=p2, headline_1=h1, headline_2=h2, description=d, cta=cta,

@@ -61,10 +61,20 @@ def find(d, n):
     return next((b for b in d["batches"] if b["n"] == n), None)
 
 
-def reserve(product, theme, pipeline, request, statics, projects, hooks, seed, created, number=None, p=None):
+def reserve(product, theme, pipeline, request, statics, projects, hooks, seed, created, number=None, p=None, claim=None, reuse=False):
     """The next batch number (saved at once: three plans of one request get B045, B046, B047 even before anything is uploaded), or, with
-    `number`, another run of that batch (rev + 1: a redo of one of its ads keeps the batch id and adds r2). -> the batch entry."""
+    `number`, another run of that batch (rev + 1: a redo of one of its ads keeps the batch id and adds r2; with `reuse`, a re-plan of a
+    batch still only planned keeps its number as it is). `claim(next) -> n`: the
+    number this run owns across runs (batch_lock.claim: Drive), never lower than the ledger's next. -> the batch entry."""
     d = load(p)
+    if number and reuse:           # a re-plan of a batch nobody uploaded yet (same --out): the same number, no r2
+        b = find(d, number)
+        if b and b.get("status") == "planned" and b.get("product") == product:
+            b.update(theme=theme, pipeline=pipeline or "catalog", request=request or "", statics=statics, projects=projects,
+                     hooks=hooks, seed=seed)
+            save(d, p)
+            return b
+        number = None
     if number:
         b = find(d, number)
         if b:
@@ -74,7 +84,8 @@ def reserve(product, theme, pipeline, request, statics, projects, hooks, seed, c
             return b
         d["next"] = max(d["next"], number + 1)
     else:
-        number, d["next"] = d["next"], d["next"] + 1
+        number = max(d["next"], claim(d["next"])) if claim else d["next"]
+        d["next"] = number + 1
     b = dict(id=bid(number), n=number, rev=1, date=created, product=product, theme=theme, pipeline=pipeline or "catalog",
              request=request or "", statics=statics, projects=projects, hooks=hooks, seed=seed, status="planned")
     d["batches"].append(b)

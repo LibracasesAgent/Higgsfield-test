@@ -1,5 +1,5 @@
 {
- "_help": "Store-wide sale campaigns the client confirmed (campaign.py). While one runs (from .. until, inclusive) a batch whose theme is one of its themes uses it: the end card ('Black Friday Sale' + 'UP TO 60% OFF + FREE GIFTS'), the offer card's sub line, the gifts / bundle statics, a sentence in the script's close, the engine's hooks, the ad copy and the strategy packet's facts; compliance accepts exactly these facts and phrases (approved), nothing more. Each product's own % (the site's price vs compare-at) stays the product's offer: the Hobo Bag is still '50% off', the 60% is only ever said of buying 2 or 3 bags together ('up to 60% off'). A new sale: add a campaign with the client's words in 'approved'.",
+ "_help": "Store-wide sale campaigns the client confirmed (campaign.py). While one runs (from .. until, inclusive) a batch whose theme is one of its themes uses it: the end card ('Black Friday Sale' + 'UP TO 60% OFF + FREE GIFTS'), the offer card's sub line, the gifts / bundle statics, a sentence in the script's close, the engine's hooks, the ad copy and the strategy packet's facts; compliance accepts exactly these facts and phrases (approved), nothing more. Each product's own % (the site's price vs compare-at) stays the product's offer: the Hobo Bag is still '50% off', the 60% is only ever said of buying 2 or 3 bags together ('up to 60% off'). A new sale: add a campaign with the client's words in 'approved'. final_sale: the sale's items cannot be returned (its terms page), so no returns promise while it runs (compliance, ad copy, scripts).",
  "campaigns": [
   {
    "id": "bf2026",
@@ -50,7 +50,8 @@
     "Free gifts while stocks last: buy 2 bags, get a free mirrored jewellery box (worth $19.95).",
     "Buy 3 or more bags, get the jewellery box and a free cosmetic bag (together worth $44.90).",
     "Only bags count for the gifts, not accessories.",
-    "Black Friday prices are live now: no need to wait."
+    "Black Friday prices are live now: no need to wait.",
+    "Sale items are final sale: they cannot be returned (the site's Black Friday terms); faulty items are still covered and the 1-year warranty still applies. Never say 'easy returns', 'free returns' or 'send it back' in a Black Friday ad."
    ],
    "close": {
     "black friday": "Buy two bags and you also get a free jewellery box, while stocks last.",
@@ -91,7 +92,9 @@
     "free gifts?",
     "(?:a |the )?free (?:mirrored )?jewell?e?ry box(?:es)?",
     "(?:a |the )?free (?:travel )?cosmetic bags?"
-   ]
+   ],
+   "final_sale": true,
+   "terms": "https://libracases.com/pages/terms-and-conditions-black-friday-sale"
   }
  ]
 }

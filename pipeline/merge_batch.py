@@ -56,6 +56,9 @@ def pick(b, o, t):
 def merge_ledger(base, ours, theirs):
     key = lambda x: (x["n"], x.get("rev", 1))          # noqa: E731
     B, O, T = ({key(x): x for x in d.get("batches") or []} for d in (base, ours, theirs))
+    for k in set(O) & set(T) - set(B):     # both sides made a NEW batch with this number: two runs at once (batch_lock.py prevents it)
+        if (O[k].get("product"), O[k].get("request")) != (T[k].get("product"), T[k].get("request")):
+            raise Stop(f"two runs took B{k[0]:03d} ({O[k].get('product')} / {T[k].get('product')}): renumber one by hand")
     batches = [pick(B.get(k), O.get(k), T.get(k)) for k in sorted(set(O) | set(T))]
     nxt = max([ours.get("next") or 0, theirs.get("next") or 0] + [b["n"] + 1 for b in batches])
     return dict(ours, batches=batches, next=nxt)
