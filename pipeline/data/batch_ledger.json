@@ -1512,7 +1512,110 @@
      "label": "Quality leather that gets better with age."
     }
    ]
+  },
+  {
+   "id": "B025",
+   "n": 25,
+   "rev": 1,
+   "date": "2026-10-25",
+   "product": "Hobo Bag 3-Piece Set",
+   "theme": "BlackFriday",
+   "pipeline": "catalog",
+   "request": "4 videos and 10 statics for the Hobo Bag 3-Piece Set, Black Friday. Ideas: one for you, one for her; Black Friday prices are live now; Christmas gifting; everything you get in the set",
+   "statics": 10,
+   "projects": 4,
+   "hooks": 4,
+   "seed": 1,
+   "status": "uploaded",
+   "folder": "B025 – 2026-10-25 – Hobo Bag 3-Piece Set BlackFriday – 10 statics + 4 projects",
+   "link": "https://drive.google.com/drive/folders/15rSTCynMGIJ8n26wADg1w7KM5q7ciygc",
+   "ads": [
+    {
+     "name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_S01_bundle",
+     "kind": "static",
+     "fp": "s|bundle||one for you. one for her.",
+     "label": "One for you. One for her."
+    },
+    {
+     "name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_S02_concept",
+     "kind": "static",
+     "fp": "s|concept|AS01.png|a set for her.",
+     "label": "A set for her."
+    },
+    {
+     "name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_S03_concept",
+     "kind": "static",
+     "fp": "s|concept|AS02.png|three pieces. one price.",
+     "label": "Three pieces. One price."
+    },
+    {
+     "name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_S04_value",
+     "kind": "static",
+     "fp": "s|value|3_piece_set_colour_grey.jpg|the 3-piece set",
+     "label": "The 3-Piece Set"
+    },
+    {
+     "name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_S05_concept",
+     "kind": "static",
+     "fp": "s|concept|AS03.png|gift sorted.",
+     "label": "Gift sorted."
+    },
+    {
+     "name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_S06_studio",
+     "kind": "static",
+     "fp": "s|studio|3_piece_set_colour_black.jpg|",
+     "label": ""
+    },
+    {
+     "name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_S07_gifts",
+     "kind": "static",
+     "fp": "s|gifts|3_piece_set_colour_brown.jpg|buy two bags, get a gift.",
+     "label": "Buy two bags, get a gift."
+    },
+    {
+     "name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_S08_concept",
+     "kind": "static",
+     "fp": "s|concept|AS05.png|everything in the set.",
+     "label": "Everything in the set."
+    },
+    {
+     "name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_S09_checklist",
+     "kind": "static",
+     "fp": "s|checklist|3_piece_set_colour_blue.jpg|why the 3-piece set?",
+     "label": "Why the 3-Piece Set?"
+    },
+    {
+     "name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_S10_colours",
+     "kind": "static",
+     "fp": "s|colours||pick your colour.",
+     "label": "Pick your colour."
+    },
+    {
+     "name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_P01_H1_youandher",
+     "kind": "video",
+     "fp": "v|one for you, one for her. black friday prices are live.|",
+     "label": "One for you, one for her. Black Friday prices are live."
+    },
+    {
+     "name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_P01_H2_youandher",
+     "kind": "video",
+     "fp": "v|shopping for her, and a little for yourself too?|",
+     "label": "Shopping for her, and a little for yourself too?"
+    },
+    {
+     "name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_P02_H1_livenow",
+     "kind": "video",
+     "fp": "v|black friday prices are live now. no need to wait.|",
+     "label": "Black Friday prices are live now. No need to wait."
+    },
+    {
+     "name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_P02_H4_livenow",
+     "kind": "video",
+     "fp": "v|three pieces, one price, and sixty percent off.|",
+     "label": "Three pieces, one price, and sixty percent off."
+    }
+   ]
   }
  ],
- "next": 21
+ "next": 26
 }
