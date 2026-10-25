@@ -1,0 +1,59 @@
+{
+ "raw": "1Nb9BxsCCB04WwUjD3X9_MKQx660BiHKy",
+ "start": 0.0,
+ "end": null,
+ "cut": [
+  [
+   7.5,
+   20.05
+  ],
+  [
+   31.79,
+   36.28
+  ],
+  [
+   93.99,
+   102.9
+  ]
+ ],
+ "claim_cuts": [
+  {
+   "range": [
+    88.7,
+    90.12
+   ],
+   "said": "that prevents pain."
+  }
+ ],
+ "insert_at": 70.45,
+ "offer_word": "50",
+ "offer_after": null,
+ "burned_captions": false,
+ "labels": [],
+ "end_title": "Black Friday Sale",
+ "end_offer": "UP TO 60% OFF + FREE GIFTS",
+ "offer_title": "BLACK FRIDAY 50% OFF",
+ "offer_sub": "+ FREE GIFTS WITH 2 BAGS",
+ "keywords": [
+  "50%",
+  "free",
+  "pouch",
+  "wallet",
+  "gift",
+  "gifts",
+  "hidden",
+  "pocket",
+  "leather",
+  "black",
+  "friday"
+ ],
+ "music": {
+  "auto": true,
+  "seed": 4
+ },
+ "cold_open": [
+  75.76,
+  79.63
+ ],
+ "hook_label": "HER LAST BAGS EVER"
+}

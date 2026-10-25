@@ -2171,6 +2171,128 @@
        "script": "U04"
       }
      ]
+    },
+    {
+     "clips": [
+      {
+       "clip_id": "1uyGfb81M5nKpoV13GS70UFVo0KH1YW2l"
+      }
+     ],
+     "date": "2026-10-25",
+     "name": "B019 – 2026-10-25 – Hobo Bag BlackFriday – 20 statics + 5 projects",
+     "statics": [
+      {
+       "caption": "Done shopping in one order.",
+       "colour": "Dark Sienna",
+       "layout": "concept",
+       "scene": "p01_s01"
+      },
+      {
+       "caption": "Black Friday: 50% off.",
+       "layout": "studio",
+       "photo": "hobo_bag_colour_galaxy_black.jpg"
+      },
+      {
+       "caption": "Two bags. One free gift.",
+       "layout": "gifts",
+       "photo": "hobo_bag_colour_blue.jpg"
+      },
+      {
+       "caption": "Soft, water-resistant leather.",
+       "frame_clip": "1tdhK5RpMNQNhGObrdfcRG2jlL5b8s1Pa",
+       "layout": "native",
+       "photo": "F_1tdhK5RpMN_0066.jpg"
+      },
+      {
+       "caption": "Gold on black.",
+       "colour": "Galaxy Black",
+       "layout": "concept",
+       "scene": "p01_s05"
+      },
+      {
+       "caption": "Her colour. Your colour.",
+       "layout": "bundle"
+      },
+      {
+       "caption": "Grab it. Go.",
+       "colour": "Grey",
+       "layout": "concept",
+       "scene": "p01_s07"
+      },
+      {
+       "caption": "Two gold zips, one on each side.",
+       "frame_clip": "1Dn5muvqCqBWNV_-hqC8F6OWlzbGJIBoc",
+       "layout": "native",
+       "photo": "F_1Dn5muvqCq_0124.jpg"
+      },
+      {
+       "caption": "Pack the day. Zip it shut.",
+       "colour": "Blue",
+       "layout": "concept",
+       "scene": "p01_s09"
+      },
+      {
+       "caption": "The Hobo Bag",
+       "layout": "value",
+       "photo": "hobo_bag_colour_grey.jpg"
+      },
+      {
+       "caption": "A gift worth unwrapping.",
+       "colour": "Red",
+       "layout": "concept",
+       "scene": "p01_s11"
+      },
+      {
+       "caption": "A matching pouch wallet, free.",
+       "layout": "studio",
+       "photo": "hobo_bag_colour_red.jpg"
+      },
+      {
+       "caption": "Packed for the trip.",
+       "colour": "Dark Sienna",
+       "layout": "concept",
+       "scene": "p01_s14"
+      },
+      {
+       "layout": "quotes",
+       "photo": "hobo_bag_colour_blue.jpg"
+      },
+      {
+       "caption": "Gets better with time.",
+       "colour": "Dark Sienna",
+       "layout": "concept",
+       "scene": "p01_s16"
+      },
+      {
+       "caption": "The Hobo Bag",
+       "layout": "offer",
+       "photo": "hobo_bag_colour_burgundy.jpg"
+      },
+      {
+       "caption": "Burgundy season.",
+       "colour": "Burgundy",
+       "layout": "concept",
+       "scene": "p01_s18"
+      },
+      {
+       "caption": "Pick your colour.",
+       "layout": "colours"
+      },
+      {
+       "caption": "Goes with the coat.",
+       "colour": "Dark Sienna",
+       "layout": "concept",
+       "scene": "p01_s20"
+      }
+     ],
+     "videos": []
+    },
+    {
+     "clips": [],
+     "date": "2026-10-25",
+     "name": "B020 – 2026-10-25 – Hobo Bag BlackFriday – 4 projects",
+     "statics": [],
+     "videos": []
     }
    ]
   },

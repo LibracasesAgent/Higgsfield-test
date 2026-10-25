@@ -144,8 +144,8 @@ those, and a count not named is 0 ("6 statics" = 6 statics and no videos). "N vi
 cd <repo>
 command -v ffmpeg || bash .claude/hooks/session-start.sh        # Slack sessions don't run hooks
 command -v pdftotext || (apt-get update -qq && apt-get install -y -qq poppler-utils)   # PDF notes in a New Products folder (pypdf: fallback)
-python3 -c "import faster_whisper, PIL, numpy, cv2, pillow_heif, pypdf" 2>/dev/null || \
-    pip install -q faster-whisper pillow numpy pillow-heif opencv-python-headless pypdf
+python3 -c "import faster_whisper, PIL, numpy, cv2, pillow_heif, pypdf, openpyxl" 2>/dev/null || \
+    python3 -m pip install -q faster-whisper pillow numpy pillow-heif opencv-python-headless pypdf openpyxl
 python3 pipeline/drive_upload.py check                          # Drive login ok?
 ```
 
@@ -383,9 +383,11 @@ python3 pipeline/make_batch.py plan <flags> --ideas $OUT/ideas.json --request "<
    same product throughout, no black frames. A miss is reported, never "fixed" by cutting the video (rule 6).
 5. **Upload:** `python3 pipeline/make_batch.py upload --out $OUT` (no `--name`: the folder is `B045 – <date> – <product> – N statics + M
    projects`, made from the plan) → prints the Drive folder link (`drive_path`: where it landed), the batch id and the uploaded ads; once
-   the whole batch is in Drive it also writes `<prefix>_ads.csv` there (one row per ad, an empty `launched` column for the media buyer).
+   the whole batch is in Drive it also writes `<prefix>_ads.csv` there (one row per ad, an empty `launched` column for the media buyer)
+   and adds the batch and its ads to the ad tracker sheet (`pipeline/tracker.py`, `tracker` in the output; it keeps everything the team
+   typed there). The run report says `ad tracker NOT updated` when it failed: run `python3 pipeline/tracker.py sync --batch B045`.
    Higgsfield `balance` again.
-6. **Reply** (one short message, the pipeline's format above): **batch id (B045) and Drive folder link** · any `repeat:` warning (an ad
+6. **Reply** (one short message, the pipeline's format above): **batch id (B045) and Drive folder link** · the ad tracker link · any `repeat:` warning (an ad
    an earlier batch already had: say which) · statics one line each · videos
    one block per project · the ad copy file · plan warnings (fewer than 4 versions, openings already used in an
    earlier batch, a hook line opening 3+ versions, `thin script`, "needs a human" items) · QA flags · the scorecard (one line for

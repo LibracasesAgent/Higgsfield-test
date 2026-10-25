@@ -1,0 +1,60 @@
+{
+ "product": "Hobo Bag", "theme": "black friday", "date": "2026-10-25",
+ "research": [
+  "Read docs/research/2026-10-black-friday-and-bag-ads.md: statics win with one big visual and one offer line; flat lays, gift styling and 'what fits' scenes beat busy lifestyle (Bluedrop, Promer, Bellroy, Dagne Dover); kept every static to one idea, minimal words.",
+  "Read the packet's earlier-batch list (B011, B014, B016): their headlines (Everything fits, Phone. Keys. Cards. Done., Gift sorted, Both hands free, Big bag. Zero mess ...) and scenes (cafe chair, back pocket, gift styling, dark luxe) are not reused; new scenes here: wrapping table, entryway bench, flat lay of the day, travel bench, autumn wall, plum velvet, coat hook, gold-on-black.",
+  "Read the Black Friday Sale 2026 facts: 60% only for 2-3 bags together, free jewellery box with 2 bags, sale runs to 30 November; the Hobo Bag itself stays 50% off. This is a winners batch: the five winner videos keep their RAW bodies, so only the statics are new; the one project below is a stand-in the winners pipeline does not render (the sheet format needs a project for its statics to belong to)."
+ ],
+ "projects": [{
+  "id": "P01", "slug": "foryouforher", "title": "One for you, one for her",
+  "big_idea": "A bundle walk-through: pick two Hobo Bags in two colours, one for you and one for her, and see what each bag does and what two bags unlock this Black Friday.",
+  "why_new": "No earlier batch told the bundle story: two bags, 60% off together, the free jewellery box, in the order of the bag's features.",
+  "hooks": [
+   {"text": "Buy two Hobo Bags this Black Friday: up to sixty percent off.", "type": "promise", "label": "TWO BAGS DEAL", "show": ["colours", "hero"]},
+   {"text": "Who gets the second Hobo Bag on your list?", "type": "question", "label": "ONE FOR HER", "show": ["handheld", "colours"]},
+   {"text": "Sixty percent off the regular price when you buy two bags together.", "type": "price", "label": "BUNDLE DEAL", "show": ["hero", "colours"]},
+   {"text": "Shopping for her and for you? Do it in one order.", "type": "problem", "label": "ONE ORDER", "show": ["pouch", "handheld"]}
+  ],
+  "chapters": [
+   {"kind": "point", "text": "Here is how Black Friday works at Libra Cases. You get sixty percent off the regular price when you buy two bags together. Pick one for you and one for her.", "tag": "BUNDLE DEAL", "number": null, "show": ["colours", "hero"]},
+   {"kind": "point", "text": "Start with the leather. It is soft and water-resistant, it looks expensive, and it only gets better with time.", "tag": "SOFT LEATHER", "number": 1, "show": ["leather", "handheld"]},
+   {"kind": "point", "text": "Turn it around and there is a hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.", "tag": "HIDDEN BACK POCKET", "number": 2, "show": ["pocket", "placed"]},
+   {"kind": "point", "text": "Two gold side zips, one on each side, keep your keys and phone close.", "tag": "GOLD SIDE ZIPS", "number": 3, "show": ["side_zip", "strap"]},
+   {"kind": "point", "text": "Open it up and divided compartments keep everything in its place, so nothing sinks to the bottom.", "tag": "SMART COMPARTMENTS", "number": 4, "show": ["inside", "packing"]},
+   {"kind": "point", "text": "Two straps let you wear it on the shoulder, as a handbag, or crossbody, whoever carries it.", "tag": "3 WAYS TO WEAR", "number": 5, "show": ["worn", "strap"]},
+   {"kind": "proof", "text": "Every Hobo Bag comes with a free matching pouch wallet, and it is fifty percent off right now.", "tag": "FREE POUCH WALLET", "number": null, "show": ["pouch", "packing"]},
+   {"kind": "offer", "text": "Buy two bags and you also get a free jewellery box, while stocks last. The Black Friday sale runs until the thirtieth of November. Tap the link below.", "tag": null, "number": null, "show": ["colours", "hero"]}
+  ]
+ }],
+ "statics": [
+  {"id": "S01", "project": "P01", "layout": "concept", "idea": "The bag on a kraft-paper wrapping table with ribbon and a pine sprig: shopping done in one order.", "kicker": "BLACK FRIDAY", "headline": "Done shopping in one order.", "pill": true, "where": "top", "tone": "light",
+   "scene": {"kind": "object", "colour": "Dark Sienna", "prompt": "The bag stands upright on a wide wooden table covered with kraft wrapping paper, a spool of red ribbon, scissors and a small pine sprig beside it, soft window light from the left, calm empty paper surface across the top third of the frame, bag fully visible and large, photographed like a campaign still."}},
+  {"id": "S02", "project": "P01", "layout": "studio", "idea": "The packshot large on a tinted backdrop with the sale in one line.", "headline": "Black Friday: 50% off.", "pill": true},
+  {"id": "S03", "project": "P01", "layout": "gifts", "idea": "The bag with the two real gift photos and one line per tier.", "kicker": "BLACK FRIDAY SALE", "headline": "Two bags. One free gift."},
+  {"id": "S04", "project": "P01", "layout": "native", "idea": "A real footage frame of the leather, one caption.", "headline": "Soft, water-resistant leather."},
+  {"id": "S05", "project": "P01", "layout": "concept", "idea": "Gold on black: the black bag on dark slate with one brass key, side light on the zips.", "kicker": "BLACK FRIDAY", "headline": "Gold on black.", "pill": true, "where": "bottom", "tone": "dark",
+   "scene": {"kind": "object", "colour": "Galaxy Black", "prompt": "The black bag stands on a dark slate surface with one brass key lying beside it, a low raking side light that makes the gold zips glow, deep shadows, calm empty dark slate across the bottom third of the frame, bag fully visible and large, moody luxury campaign photograph."}},
+  {"id": "S06", "project": "P01", "layout": "bundle", "idea": "Two colours side by side for the bundle: her colour, your colour.", "kicker": "BLACK FRIDAY SALE", "headline": "Her colour. Your colour.", "sub": "+ free gifts while stocks last"},
+  {"id": "S07", "project": "P01", "layout": "concept", "idea": "Entryway bench by the front door with keys in a dish: grab it and go.", "kicker": "BLACK FRIDAY", "headline": "Grab it. Go.", "pill": true, "where": "top", "tone": "light",
+   "scene": {"kind": "object", "colour": "Grey", "prompt": "The bag sits on a pale oak entryway bench by a white front door, a ceramic dish of keys and a folded cream scarf next to it, soft morning daylight, calm empty white wall across the top third of the frame, bag fully visible and large, realistic interior photograph."}},
+  {"id": "S08", "project": "P01", "layout": "native", "idea": "A real footage frame of the side zips.", "headline": "Two gold zips, one on each side."},
+  {"id": "S09", "project": "P01", "layout": "concept", "idea": "Flat lay of the day: the closed bag with phone, keys, passport and notebook around it on linen.", "kicker": "BLACK FRIDAY", "headline": "Pack the day. Zip it shut.", "pill": true, "where": "bottom", "tone": "light",
+   "scene": {"kind": "object", "colour": "Blue", "prompt": "Top-down flat lay on natural linen: the closed bag in the centre, a phone, a set of keys, a closed passport, a small notebook and a lipstick arranged neatly around it, soft even daylight, calm empty linen across the bottom third of the frame, bag fully visible, no text anywhere."}},
+  {"id": "S10", "project": "P01", "layout": "value", "idea": "The real price struck through.", "headline": "Black Friday price."},
+  {"id": "S11", "project": "P01", "layout": "concept", "idea": "Two wrapped gift boxes with red ribbon beside the bag on a cream rug: a gift worth unwrapping.", "kicker": "BLACK FRIDAY", "headline": "A gift worth unwrapping.", "pill": true, "where": "top", "tone": "light",
+   "scene": {"kind": "object", "colour": "Red", "prompt": "The bag stands beside two wrapped gift boxes tied with red ribbon on a cream wool rug, a small pine branch and warm fairy lights softly blurred behind, warm evening light, calm empty cream wall across the top third of the frame, bag fully visible and large, premium holiday campaign photograph."}},
+  {"id": "S12", "project": "P01", "layout": "studio", "idea": "The packshot with the free wallet line.", "headline": "A matching pouch wallet, free."},
+  {"id": "S13", "project": "P01", "layout": "native", "idea": "A real footage frame of the open compartments.", "headline": "Divided compartments inside."},
+  {"id": "S14", "project": "P01", "layout": "concept", "idea": "Hotel luggage bench with a folded jumper: packed for the trip.", "kicker": "BLACK FRIDAY", "headline": "Packed for the trip.", "pill": true, "where": "bottom", "tone": "light",
+   "scene": {"kind": "object", "colour": "Dark Sienna", "prompt": "The bag rests on a hotel luggage rack beside a folded oatmeal jumper and a closed passport, soft neutral hotel room light, calm empty beige carpet and wall across the bottom third of the frame, bag fully visible and large, realistic travel photograph."}},
+  {"id": "S15", "project": "P01", "layout": "quotes", "idea": "One verbatim review by the packshot."},
+  {"id": "S16", "project": "P01", "layout": "concept", "idea": "The bag on a stone garden wall with fallen maple leaves at golden hour: leather that gets better with time.", "kicker": "BLACK FRIDAY", "headline": "Gets better with time.", "pill": true, "where": "top", "tone": "light",
+   "scene": {"kind": "object", "colour": "Dark Sienna", "prompt": "The bag sits on a weathered stone garden wall with a few fallen maple leaves around it, low golden hour sunlight, softly blurred autumn foliage far behind, calm empty pale sky across the top third of the frame, bag fully visible and large, realistic outdoor photograph."}},
+  {"id": "S17", "project": "P01", "layout": "offer", "idea": "The offer card with the real price."},
+  {"id": "S18", "project": "P01", "layout": "concept", "idea": "Burgundy bag on plum velvet with a brass candlestick: the colour of the season.", "kicker": "BLACK FRIDAY", "headline": "Burgundy season.", "pill": true, "where": "bottom", "tone": "dark",
+   "scene": {"kind": "object", "colour": "Burgundy", "prompt": "The burgundy bag stands on deep plum velvet next to a brass candlestick with an unlit candle, warm low light, rich dark tones, calm empty velvet across the bottom third of the frame, bag fully visible and large, luxury campaign photograph."}},
+  {"id": "S19", "project": "P01", "layout": "colours", "idea": "Every colour in a row.", "headline": "Six colours. Pick yours."},
+  {"id": "S20", "project": "P01", "layout": "concept", "idea": "The bag on a brass wall hook beside a camel coat on a hanger: it goes with the coat.", "kicker": "BLACK FRIDAY", "headline": "Goes with the coat.", "pill": true, "where": "top", "tone": "light",
+   "scene": {"kind": "object", "colour": "Dark Sienna", "prompt": "The bag hangs by its strap from a brass wall hook next to a camel wool coat on a wooden hanger against a warm off-white wall, soft side light, calm empty off-white wall across the top third of the frame, bag fully visible and large, realistic interior photograph, nobody in the picture."}}
+ ]
+}

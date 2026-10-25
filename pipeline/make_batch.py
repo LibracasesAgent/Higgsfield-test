@@ -4120,6 +4120,19 @@ def upload(a):
             notes.append(f"the novelty log records this batch (the next one avoids its scenes, photos, captions and hooks): {nlog}")
     except Exception as e:  # noqa: BLE001 - the ads are in Drive: a log that can't be written must not stop the run report
         print(f"WARNING novelty log not updated: {type(e).__name__}: {e}", file=sys.stderr)
+    tracked = None
+    if lbt.get("id") and uploaded:   # the ad tracker sheet (tracker.py): this batch's row and one row per ad, by itself
+        try:
+            import tracker
+            held = [re.sub(r"^.*_B\d{3}(?:r\d+)?_", "", s_["name"]) for s_ in skipped]      # 'S13_native'
+            tnote = (f"Not uploaded: {', '.join(held)} (QA)." if held else "") + \
+                    (f" Not rendered yet: {', '.join(pending)}." if pending else "")
+            tracked = tracker.sync([lbt["id"]], notes={lbt["id"]: tnote.strip()}, quiet=True)
+            notes.append(f"ad tracker updated ({len(tracked['batches_added'])} batch row(s), {tracked['ads_added']} ad row(s) added): "
+                         f"{tracked['link']}")
+        except Exception as e:  # noqa: BLE001 - the ads are in Drive: the tracker can be synced later (tracker.py sync)
+            notes.append(f"ad tracker NOT updated ({type(e).__name__}: {e}): python3 pipeline/tracker.py sync --batch {lbt['id']}")
+            print(f"WARNING ad tracker not updated: {type(e).__name__}: {e}", file=sys.stderr)
     open(txt, "w").write(run_report(p, report, uploaded, skipped, name, flagged, notes, pending, copy))
     run("upload", txt, "--folder", folder)          # a fresh report every upload, never skipped
     if tested:
@@ -4127,6 +4140,7 @@ def upload(a):
     if not pending:               # everything of the batch is in Drive: the shot cache the hook versions shared is not needed any more
         shutil.rmtree(os.path.join(out, "_seg"), ignore_errors=True)
     print(json.dumps(dict(folder=link, name=name, batch=lbt.get("id"), pipeline=pipe, drive_path=f"{where}/{name}", files=len(uploaded),
+                          **({"tracker": tracked["link"]} if tracked else {}),
                           **({"ad_index": ad_index} if ad_index else {}),
                           **({"product_file_updated": tested} if tested else {}),
                           **({"project_folders": {f"Videos/{project_folder(projs[k])}": f"https://drive.google.com/drive/folders/{d}"

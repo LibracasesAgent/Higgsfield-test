@@ -1146,6 +1146,374 @@
    ]
   },
   {
+   "id": "B019",
+   "n": 19,
+   "rev": 1,
+   "date": "2026-10-25",
+   "product": "Hobo Bag",
+   "theme": "BlackFriday",
+   "pipeline": "winners",
+   "request": "versions of 94-H4, 148-H5, 121-H2, 113-H2 and 158-H2, Black Friday, and 20 statics",
+   "statics": 20,
+   "projects": 5,
+   "hooks": 4,
+   "seed": 1,
+   "status": "uploaded",
+   "folder": "B019 – 2026-10-25 – Hobo Bag BlackFriday – 20 statics + 5 projects",
+   "link": "https://drive.google.com/drive/folders/1-7_c_Qtowyv6lh-KBJ3X4WzsrtaMUay2",
+   "ads": [
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B019_S01_concept",
+     "kind": "static",
+     "fp": "s|concept|AS01.png|done shopping in one order.",
+     "label": "Done shopping in one order."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B019_S02_studio",
+     "kind": "static",
+     "fp": "s|studio|hobo_bag_colour_galaxy_black.jpg|black friday: 50% off.",
+     "label": "Black Friday: 50% off."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B019_S03_gifts",
+     "kind": "static",
+     "fp": "s|gifts|hobo_bag_colour_blue.jpg|two bags. one free gift.",
+     "label": "Two bags. One free gift."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B019_S04_native",
+     "kind": "static",
+     "fp": "s|native|F_1tdhK5RpMN_0066.jpg|soft, water-resistant leather.",
+     "label": "Soft, water-resistant leather."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B019_S05_concept",
+     "kind": "static",
+     "fp": "s|concept|AS02.png|gold on black.",
+     "label": "Gold on black."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B019_S06_bundle",
+     "kind": "static",
+     "fp": "s|bundle||her colour. your colour.",
+     "label": "Her colour. Your colour."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B019_S07_concept",
+     "kind": "static",
+     "fp": "s|concept|AS03.png|grab it. go.",
+     "label": "Grab it. Go."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B019_S08_native",
+     "kind": "static",
+     "fp": "s|native|F_1Dn5muvqCq_0124.jpg|two gold zips, one on each side.",
+     "label": "Two gold zips, one on each side."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B019_S09_concept",
+     "kind": "static",
+     "fp": "s|concept|AS04.png|pack the day. zip it shut.",
+     "label": "Pack the day. Zip it shut."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B019_S10_value",
+     "kind": "static",
+     "fp": "s|value|hobo_bag_colour_grey.jpg|the hobo bag",
+     "label": "The Hobo Bag"
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B019_S11_concept",
+     "kind": "static",
+     "fp": "s|concept|AS05.png|a gift worth unwrapping.",
+     "label": "A gift worth unwrapping."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B019_S12_studio",
+     "kind": "static",
+     "fp": "s|studio|hobo_bag_colour_red.jpg|a matching pouch wallet, free.",
+     "label": "A matching pouch wallet, free."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B019_S14_concept",
+     "kind": "static",
+     "fp": "s|concept|AS06.png|packed for the trip.",
+     "label": "Packed for the trip."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B019_S15_quotes",
+     "kind": "static",
+     "fp": "s|quotes|hobo_bag_colour_blue.jpg|",
+     "label": ""
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B019_S16_concept",
+     "kind": "static",
+     "fp": "s|concept|AS07.png|gets better with time.",
+     "label": "Gets better with time."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B019_S17_offer",
+     "kind": "static",
+     "fp": "s|offer|hobo_bag_colour_burgundy.jpg|the hobo bag",
+     "label": "The Hobo Bag"
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B019_S18_concept",
+     "kind": "static",
+     "fp": "s|concept|AS08.png|burgundy season.",
+     "label": "Burgundy season."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B019_S19_colours",
+     "kind": "static",
+     "fp": "s|colours||pick your colour.",
+     "label": "Pick your colour."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B019_S20_concept",
+     "kind": "static",
+     "fp": "s|concept|AS09.png|goes with the coat.",
+     "label": "Goes with the coat."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B019_P01_H1_remix94",
+     "kind": "video",
+     "fp": "v|most bags look terrible after a year. mine looks better after a decade.|",
+     "label": "Most bags look terrible after a year. Mine looks better after a decade."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B019_P01_H2_remix94",
+     "kind": "video",
+     "fp": "v|no more dumping your entire bag out just to find your keys.|",
+     "label": "No more dumping your entire bag out just to find your keys."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B019_P01_H3_remix94",
+     "kind": "video",
+     "fp": "v|this is your last chance to own one before i close my workshop forever.|",
+     "label": "This is your last chance to own one before I close my workshop forever."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B019_P01_H4_remix94",
+     "kind": "video",
+     "fp": "v|but my hands can't do this anymore. the arthritis has won.|",
+     "label": "But my hands can't do this anymore. The arthritis has won."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B019_P02_H1_remix148",
+     "kind": "video",
+     "fp": "v|let me show you how to get this bag for the lowest price it'll ever be.|",
+     "label": "Let me show you how to get this bag for the lowest price it'll ever be."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B019_P02_H2_remix148",
+     "kind": "video",
+     "fp": "v|and the third, your bag ships out fast, straight from susan's workshop.|",
+     "label": "And the third, your bag ships out fast, straight from Susan's workshop."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B019_P02_H3_remix148",
+     "kind": "video",
+     "fp": "v|you do need to hurry because susan's closing her workshop for good, and these are almost gone.|",
+     "label": "You do need to hurry because Susan's closing her workshop for good, and these are almost gone."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B019_P02_H4_remix148",
+     "kind": "video",
+     "fp": "v|you've also just unlocked your second one, a free matching wallet included with every order.|",
+     "label": "You've also just unlocked your second one, a free matching wallet included with every order."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B019_P03_H1_remix121",
+     "kind": "video",
+     "fp": "v|grandma, you're literally in love with this bag.|",
+     "label": "Grandma, you're literally in love with this bag."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B019_P03_H2_remix121",
+     "kind": "video",
+     "fp": "v|i don't worry about someone bumping into me in a crowd or reaching into my bag without me noticing.|",
+     "label": "I don't worry about someone bumping into me in a crowd or reaching into my bag without me noticing."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B019_P03_H3_remix121",
+     "kind": "video",
+     "fp": "v|because you see, sweetheart, this is the only bag that doesn't make me feel like i'm going to lose something.|",
+     "label": "Because you see, sweetheart, this is the only bag that doesn't make me feel like I'm going to lose something."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B019_P03_H4_remix121",
+     "kind": "video",
+     "fp": "v|i used to be so anxious going out alone. i'd check my purse three times before leaving the house.|",
+     "label": "I used to be so anxious going out alone. I'd check my purse three times before leaving the house."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B019_P04_H1_remix113",
+     "kind": "video",
+     "fp": "v|this crazy deal ends tonight.|",
+     "label": "This crazy deal ends tonight."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B019_P04_H2_remix113",
+     "kind": "video",
+     "fp": "v|you're going to regret not taking advantage, so tap on the shopping cart and buy right now.|",
+     "label": "You're going to regret not taking advantage, so tap on the shopping cart and buy right now."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B019_P04_H3_remix113",
+     "kind": "video",
+     "fp": "v|these are the last few hours.|",
+     "label": "These are the last few hours."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B019_P04_H4_remix113",
+     "kind": "video",
+     "fp": "v|this crazy deal ends tonight.|",
+     "label": "This crazy deal ends tonight."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B019_P05_H1_remix158",
+     "kind": "video",
+     "fp": "v|and then the poor woman thinks my bag fell apart on her. it breaks my heart because that was never my bag.|",
+     "label": "And then the poor woman thinks my bag fell apart on her. It breaks my heart because that was never my bag."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B019_P05_H2_remix158",
+     "kind": "video",
+     "fp": "v|so i can't stay quiet anymore. i owe it to every woman who's trusted my name to tell her the truth.|",
+     "label": "So I can't stay quiet anymore. I owe it to every woman who's trusted my name to tell her the truth."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B019_P05_H3_remix158",
+     "kind": "video",
+     "fp": "v|before you buy one of my bags, i need to warn you about something.|",
+     "label": "Before you buy one of my bags, I need to warn you about something."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B019_P05_H4_remix158",
+     "kind": "video",
+     "fp": "v|everything's 50% off with a free matching wallet. the only real one is in the link below.|",
+     "label": "Everything's 50% off with a free matching wallet. The only real one is in the link below."
+    }
+   ]
+  },
+  {
+   "id": "B020",
+   "n": 20,
+   "rev": 1,
+   "date": "2026-10-25",
+   "product": "Hobo Bag",
+   "theme": "BlackFriday",
+   "pipeline": "winners",
+   "request": "versions of 147-H1, 139-H4, 123-H4 and 86(2), Black Friday",
+   "statics": 0,
+   "projects": 4,
+   "hooks": 4,
+   "seed": 1,
+   "status": "uploaded",
+   "folder": "B020 – 2026-10-25 – Hobo Bag BlackFriday – 4 projects",
+   "link": "https://drive.google.com/drive/folders/1W7R-SItBaACm5W0pUe9UzD7TCjVKzuKp",
+   "ads": [
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B020_P01_H1_remix147",
+     "kind": "video",
+     "fp": "v|leather that only gets more beautiful with age. women have carried these for 15-20 years.|",
+     "label": "Leather that only gets more beautiful with age. Women have carried these for 15-20 years."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B020_P01_H2_remix147",
+     "kind": "video",
+     "fp": "v|there's a hidden back pocket she designed after her sister was robbed. divided compartments so you're never digging for your keys.|",
+     "label": "There's a hidden back pocket she designed after her sister was robbed. Divided compartments so you're never digging for your keys."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B020_P01_H3_remix147",
+     "kind": "video",
+     "fp": "v|there's no next batch. when the workshop closes, it closes.|",
+     "label": "There's no next batch. When the workshop closes, it closes."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B020_P01_H4_remix147",
+     "kind": "video",
+     "fp": "v|i love your mom's bags, but can you ask her to lower the price?|",
+     "label": "I love your mom's bags, but can you ask her to lower the price?"
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B020_P02_H1_remix139",
+     "kind": "video",
+     "fp": "v|my old bag was one big black hole. this one has divided compartments, so i'm never digging for my keys again.|",
+     "label": "My old bag was one big black hole. This one has divided compartments, so I'm never digging for my keys again."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B020_P02_H2_remix139",
+     "kind": "video",
+     "fp": "v|susan designed it after her sister was robbed overseas.|",
+     "label": "Susan designed it after her sister was robbed overseas."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B020_P02_H3_remix139",
+     "kind": "video",
+     "fp": "v|i caved and bought the bag everyone won't stop talking about.|",
+     "label": "I caved and bought the bag everyone won't stop talking about."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B020_P02_H4_remix139",
+     "kind": "video",
+     "fp": "v|this is quality leather that gets more beautiful with age.|",
+     "label": "This is quality leather that gets more beautiful with age."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B020_P03_H1_remix123",
+     "kind": "video",
+     "fp": "v|a hidden back pocket i designed after my own sister was robbed. divided compartments.|",
+     "label": "A hidden back pocket I designed after my own sister was robbed. Divided compartments."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B020_P03_H2_remix123",
+     "kind": "video",
+     "fp": "v|hi, i'm susan, and this is the biggest discount i've ever offered in 31 years.|",
+     "label": "Hi, I'm Susan, and this is the biggest discount I've ever offered in 31 years."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B020_P03_H3_remix123",
+     "kind": "video",
+     "fp": "v|hand-stitched seams with 3.5 millimeter spacing.|",
+     "label": "Hand-stitched seams with 3.5 millimeter spacing."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B020_P03_H4_remix123",
+     "kind": "video",
+     "fp": "v|there's no next batch, and no one is taking over my workshop. as sad as it may sound, this really is the end.|",
+     "label": "There's no next batch, and no one is taking over my workshop. As sad as it may sound, this really is the end."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B020_P04_H1_remix86",
+     "kind": "video",
+     "fp": "v|when i was 20, she made me my first luxury hobo bag. i'm 36 now. still carrying the same bag. still looks perfect.|",
+     "label": "When I was 20, she made me my first luxury hobo bag. I'm 36 now. Still carrying the same bag. Still looks perfect."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B020_P04_H2_remix86",
+     "kind": "video",
+     "fp": "v|these are the last bags she'll ever make with her own hands.|",
+     "label": "These are the last bags she'll ever make with her own hands."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B020_P04_H3_remix86",
+     "kind": "video",
+     "fp": "v|my mom has made luxury bags by hand for 31 years.|",
+     "label": "My mom has made luxury bags by hand for 31 years."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B020_P04_H4_remix86",
+     "kind": "video",
+     "fp": "v|quality leather that gets better with age.|",
+     "label": "Quality leather that gets better with age."
+    }
+   ]
+  },
+  {
    "id": "B025",
    "n": 25,
    "rev": 1,

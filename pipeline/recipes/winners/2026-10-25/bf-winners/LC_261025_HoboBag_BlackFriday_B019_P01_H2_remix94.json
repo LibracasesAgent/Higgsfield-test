@@ -1,0 +1,73 @@
+{
+ "raw": "1LEOgUgU_hBiRceIx-SW4za6XJZlCQNrH",
+ "start": 0.0,
+ "end": null,
+ "cut": [],
+ "claim_cuts": [
+  {
+   "range": [
+    31.88,
+    33.3
+   ],
+   "said": "that prevents shoulder pain."
+  }
+ ],
+ "insert_at": 47.3,
+ "offer_word": "50",
+ "offer_after": null,
+ "burned_captions": false,
+ "labels": [
+  {
+   "text": "REASON 1",
+   "word": "one",
+   "after": 7
+  },
+  {
+   "text": "REASON 2",
+   "word": "two",
+   "after": 7
+  },
+  {
+   "text": "REASON 3",
+   "word": "three",
+   "after": 7
+  },
+  {
+   "text": "REASON 4",
+   "word": "four",
+   "after": 7
+  },
+  {
+   "text": "REASON 5",
+   "word": "five",
+   "after": 7
+  }
+ ],
+ "end_title": "Black Friday Sale",
+ "end_offer": "UP TO 60% OFF + FREE GIFTS",
+ "end_photo": "site/clean/hobo_bag_colour_dark_sienna.jpg",
+ "offer_title": "BLACK FRIDAY 50% OFF",
+ "offer_sub": "+ FREE GIFTS WITH 2 BAGS",
+ "keywords": [
+  "50%",
+  "free",
+  "pouch",
+  "wallet",
+  "gift",
+  "gifts",
+  "hidden",
+  "pocket",
+  "leather",
+  "black",
+  "friday"
+ ],
+ "music": {
+  "auto": true,
+  "seed": 1
+ },
+ "cold_open": [
+  26.91,
+  30.01
+ ],
+ "hook_label": "NO MORE DIGGING"
+}

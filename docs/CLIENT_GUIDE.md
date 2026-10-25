@@ -108,6 +108,13 @@ A presenter project costs about 225 credits (she is generated: about 2.5 credits
 
 Don't want one of the ads? Just don't upload it to Meta: Claude never deletes or moves files in Drive.
 
+## The ad tracker
+
+Every batch and every ad is listed in the Google Sheet [Libra Cases – Ad Tracker](https://docs.google.com/spreadsheets/d/1jznf-Vq_AFWulDGjHFhVZUFuK6iF8qLHsvD6g-WGX7c/edit)
+(Drive, Ad Creative Pipeline), with links to the files. Each new batch adds itself when it is uploaded. Fill in the yellow columns
+(launched, spend, purchases, revenue, verdict, what worked) from Ads Manager; hook rate, CTR, CPA and ROAS work themselves out, and
+the Batches and Summary tabs add them up. You can add your own columns and tabs; the updates keep them (not hand-made cell colours).
+
 ## The Hobo 2.0: one bag per ad
 
 The Hobo 2.0 photos on libracases.com show a bag with a thin top handle; all the Hobo 2.0 footage in the Drive library shows a bigger

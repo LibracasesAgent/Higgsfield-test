@@ -1,0 +1,1111 @@
+{
+ "prefix": "LC_261025_HoboBag_BlackFriday_B019",
+ "rev": 1,
+ "batch_id": {
+  "id": "B019",
+  "n": 19,
+  "rev": 1
+ },
+ "created": "2026-10-25",
+ "request": "versions of 94-H4, 148-H5, 121-H2, 113-H2 and 158-H2, Black Friday, and 20 statics",
+ "product": "Hobo Bag",
+ "product_key": "hobo bag",
+ "product_source": "built-in",
+ "theme": "black friday",
+ "theme_name": "BlackFriday",
+ "offer": "50% off + free matching pouch wallet",
+ "campaign": {
+  "id": "bf2026",
+  "name": "Black Friday Sale 2026",
+  "theme": "black friday",
+  "banner": "Black Friday Sale \u2013 up to 60% off + free gifts",
+  "until": "2026-11-30",
+  "from": "2026-10-23",
+  "end_title": "Black Friday Sale",
+  "end_pill": "UP TO 60% OFF + FREE GIFTS",
+  "card_sub": "+ FREE GIFTS WITH 2 BAGS",
+  "close": "Buy two bags and you also get a free jewellery box, while stocks last.",
+  "hooks": [
+   "Black Friday prices are live now. No need to wait.",
+   "Black Friday: up to sixty percent off, plus free gifts.",
+   "Buy two bags this Black Friday and get a free jewellery box."
+  ],
+  "facts": [
+   "Black Friday Sale: live now (from 23 October), it runs until 30 November (Cyber Monday). Black Friday is 27 November.",
+   "Up to 50% off sitewide (each bag's own % is on its offer card: the Hobo Bag is 50% off).",
+   "60% off bundles: buy 2 or 3 bags together and get 60% off the regular price (say it of buying 2 or 3 bags, never of one bag).",
+   "Free gifts while stocks last: buy 2 bags, get a free mirrored jewellery box (worth $19.95).",
+   "Buy 3 or more bags, get the jewellery box and a free cosmetic bag (together worth $44.90).",
+   "Only bags count for the gifts, not accessories.",
+   "Black Friday prices are live now: no need to wait."
+  ],
+  "bundle_pct": 60,
+  "gifts": [
+   {
+    "name": "mirrored jewellery box",
+    "short": "jewellery box",
+    "worth": 19.95,
+    "with": 2,
+    "photo": "/home/user/higgsfield-test/pipeline/assets/gifts/jewellery_box.jpg"
+   },
+   {
+    "name": "cosmetic bag",
+    "short": "cosmetic bag",
+    "worth": 24.95,
+    "with": 3,
+    "photo": "/home/user/higgsfield-test/pipeline/assets/gifts/cosmetic_bag.jpg"
+   }
+  ],
+  "gifts_worth": 44.9,
+  "dates": {
+   "black friday": "27 November",
+   "cyber monday": "30 November",
+   "ends": "30 November"
+  },
+  "copy": {
+   "primary": [
+    "Black Friday Sale: up to 60% off + free gifts. \ud83c\udf81 Buy 2 bags, get a free mirrored jewellery box (worth $19.95). Buy 3, add a free cosmetic bag (together worth $44.90). While stocks last.",
+    "60% off when you buy 2 or 3 bags together: one for you, one for her. Plus free gifts while stocks last."
+   ],
+   "headline": [
+    "Up to 60% off + free gifts",
+    "Buy 2 bags, get a free gift",
+    "Black Friday prices are live"
+   ],
+   "description": "Up to 60% off + free gifts"
+  },
+  "approved_phrases": [
+   "up to (?:60|sixty) ?(?:%|percent) off",
+   "(?:60|sixty) ?(?:%|percent) off\\b[^.!?]{0,60}\\b(?:bundles?|together|(?:2|two) (?:or (?:3|three) )?bags|(?:3|three) bags|(?:2|two) or (?:3|three)|second bag)",
+   "\\bbundles?\\b[^.!?]{0,30}(?:60|sixty) ?(?:%|percent) off",
+   "(?:\\d|two|three|2|3) free gifts?",
+   "free gifts?",
+   "(?:a |the )?free (?:mirrored )?jewell?e?ry box(?:es)?",
+   "(?:a |the )?free (?:travel )?cosmetic bags?"
+  ],
+  "approved": "Wouter (owner), 2026-10-23: the Black Friday Sale went live on 23 October and runs until 30 November (Cyber Monday). Up to 50% off sitewide; 60% off bundles (2 or 3 bags bought together at 60% off the regular price); free gifts while stocks last: buy 2 bags, get a free mirrored jewellery box (worth $19.95); buy 3+ bags, get the jewellery box + a free cosmetic bag (together worth $44.90); only bags count, not accessories. The site banner (2026-10-23): 'EARLY BLACK FRIDAY: 50% OFF EVERYTHING | BUY 2 BAGS = 1 FREE GIFT | BUY 3 = 2 FREE GIFTS | ORDER TODAY WHILE STOCKS LAST!'"
+ },
+ "statics": [
+  "LC_261025_HoboBag_BlackFriday_B019_S01_concept",
+  "LC_261025_HoboBag_BlackFriday_B019_S02_studio",
+  "LC_261025_HoboBag_BlackFriday_B019_S03_gifts",
+  "LC_261025_HoboBag_BlackFriday_B019_S04_native",
+  "LC_261025_HoboBag_BlackFriday_B019_S05_concept",
+  "LC_261025_HoboBag_BlackFriday_B019_S06_bundle",
+  "LC_261025_HoboBag_BlackFriday_B019_S07_concept",
+  "LC_261025_HoboBag_BlackFriday_B019_S08_native",
+  "LC_261025_HoboBag_BlackFriday_B019_S09_concept",
+  "LC_261025_HoboBag_BlackFriday_B019_S10_value",
+  "LC_261025_HoboBag_BlackFriday_B019_S11_concept",
+  "LC_261025_HoboBag_BlackFriday_B019_S12_studio",
+  "LC_261025_HoboBag_BlackFriday_B019_S13_native",
+  "LC_261025_HoboBag_BlackFriday_B019_S14_concept",
+  "LC_261025_HoboBag_BlackFriday_B019_S15_quotes",
+  "LC_261025_HoboBag_BlackFriday_B019_S16_concept",
+  "LC_261025_HoboBag_BlackFriday_B019_S17_offer",
+  "LC_261025_HoboBag_BlackFriday_B019_S18_concept",
+  "LC_261025_HoboBag_BlackFriday_B019_S19_colours",
+  "LC_261025_HoboBag_BlackFriday_B019_S20_concept"
+ ],
+ "videos": [
+  {
+   "name": "LC_261025_HoboBag_BlackFriday_B019_P01_H1_remix94",
+   "id": "P01H1",
+   "format": "remix",
+   "engine": "remix",
+   "hook": "H1",
+   "hook_label": "10 YEARS LATER",
+   "winner": {
+    "key": "raw94_H4",
+    "ad": "MAX-94-H4",
+    "brief_name": "MAX-94-H4",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag",
+    "cold_open": [
+     12.34,
+     16.26
+    ],
+    "reviews": [],
+    "intro": null
+   },
+   "est_seconds": 58.4,
+   "project": "P01",
+   "hook_text": "Most bags look terrible after a year. Mine looks better after a decade.",
+   "hook_type": "curiosity",
+   "cold_open": [
+    12.34,
+    16.26
+   ]
+  },
+  {
+   "name": "LC_261025_HoboBag_BlackFriday_B019_P01_H2_remix94",
+   "id": "P01H2",
+   "format": "remix",
+   "engine": "remix",
+   "hook": "H2",
+   "hook_label": "NO MORE DIGGING",
+   "winner": {
+    "key": "raw94_H4",
+    "ad": "MAX-94-H4",
+    "brief_name": "MAX-94-H4",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag",
+    "cold_open": [
+     26.91,
+     30.01
+    ],
+    "reviews": [],
+    "intro": null
+   },
+   "est_seconds": 57.6,
+   "project": "P01",
+   "hook_text": "No more dumping your entire bag out just to find your keys.",
+   "hook_type": "problem",
+   "cold_open": [
+    26.91,
+    30.01
+   ]
+  },
+  {
+   "name": "LC_261025_HoboBag_BlackFriday_B019_P01_H3_remix94",
+   "id": "P01H3",
+   "format": "remix",
+   "engine": "remix",
+   "hook": "H3",
+   "hook_label": "YOUR LAST CHANCE",
+   "winner": {
+    "key": "raw94_H4",
+    "ad": "MAX-94-H4",
+    "brief_name": "MAX-94-H4",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag",
+    "cold_open": [
+     51.72,
+     55.1
+    ],
+    "reviews": [],
+    "intro": null
+   },
+   "est_seconds": 57.9,
+   "project": "P01",
+   "hook_text": "This is your last chance to own one before I close my workshop forever.",
+   "hook_type": "offer",
+   "cold_open": [
+    51.72,
+    55.1
+   ]
+  },
+  {
+   "name": "LC_261025_HoboBag_BlackFriday_B019_P01_H4_remix94",
+   "id": "P01H4",
+   "format": "remix",
+   "engine": "remix",
+   "hook": "H4",
+   "hook_label": "HER LAST COLLECTION",
+   "winner": {
+    "key": "raw94_H4",
+    "ad": "MAX-94-H4",
+    "brief_name": "MAX-94-H4",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag",
+    "cold_open": [
+     44.31,
+     47.24
+    ],
+    "reviews": [],
+    "intro": null
+   },
+   "est_seconds": 57.4,
+   "project": "P01",
+   "hook_text": "But my hands can't do this anymore. The arthritis has won.",
+   "hook_type": "story",
+   "cold_open": [
+    44.31,
+    47.24
+   ]
+  },
+  {
+   "name": "LC_261025_HoboBag_BlackFriday_B019_P02_H1_remix148",
+   "id": "P02H1",
+   "format": "remix",
+   "engine": "remix",
+   "hook": "H1",
+   "hook_label": "LOWEST PRICE EVER",
+   "winner": {
+    "key": "raw148_H5",
+    "ad": "YEVH-148-H5",
+    "brief_name": "YEVH-148-H5",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag",
+    "cold_open": null,
+    "reviews": [],
+    "intro": null
+   },
+   "est_seconds": 30.5,
+   "project": "P02",
+   "hook_text": "Let me show you how to get this bag for the lowest price it'll ever be.",
+   "hook_type": "offer",
+   "cold_open": null
+  },
+  {
+   "name": "LC_261025_HoboBag_BlackFriday_B019_P02_H2_remix148",
+   "id": "P02H2",
+   "format": "remix",
+   "engine": "remix",
+   "hook": "H2",
+   "hook_label": "FROM SUSAN'S WORKSHOP",
+   "winner": {
+    "key": "raw148_H5",
+    "ad": "YEVH-148-H5",
+    "brief_name": "YEVH-148-H5",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag",
+    "cold_open": [
+     12.68,
+     16.42
+    ],
+    "reviews": [],
+    "intro": null
+   },
+   "est_seconds": 34.2,
+   "project": "P02",
+   "hook_text": "And the third, your bag ships out fast, straight from Susan's workshop.",
+   "hook_type": "story",
+   "cold_open": [
+    12.68,
+    16.42
+   ]
+  },
+  {
+   "name": "LC_261025_HoboBag_BlackFriday_B019_P02_H3_remix148",
+   "id": "P02H3",
+   "format": "remix",
+   "engine": "remix",
+   "hook": "H3",
+   "hook_label": "ALMOST GONE",
+   "winner": {
+    "key": "raw148_H5",
+    "ad": "YEVH-148-H5",
+    "brief_name": "YEVH-148-H5",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag",
+    "cold_open": [
+     16.54,
+     20.86
+    ],
+    "reviews": [],
+    "intro": null
+   },
+   "est_seconds": 34.8,
+   "project": "P02",
+   "hook_text": "You do need to hurry because Susan's closing her workshop for good, and these are almost gone.",
+   "hook_type": "offer",
+   "cold_open": [
+    16.54,
+    20.86
+   ]
+  },
+  {
+   "name": "LC_261025_HoboBag_BlackFriday_B019_P02_H4_remix148",
+   "id": "P02H4",
+   "format": "remix",
+   "engine": "remix",
+   "hook": "H4",
+   "hook_label": "FREE MATCHING WALLET",
+   "winner": {
+    "key": "raw148_H5",
+    "ad": "YEVH-148-H5",
+    "brief_name": "YEVH-148-H5",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag",
+    "cold_open": [
+     8.16,
+     12.62
+    ],
+    "reviews": [],
+    "intro": null
+   },
+   "est_seconds": 35.0,
+   "project": "P02",
+   "hook_text": "You've also just unlocked your second one, a free matching wallet included with every order.",
+   "hook_type": "offer",
+   "cold_open": [
+    8.16,
+    12.62
+   ]
+  },
+  {
+   "name": "LC_261025_HoboBag_BlackFriday_B019_P03_H1_remix121",
+   "id": "P03H1",
+   "format": "remix",
+   "engine": "remix",
+   "hook": "H1",
+   "hook_label": "GRANDMA'S FAVOURITE BAG",
+   "winner": {
+    "key": "raw121_H2",
+    "ad": "MAX-121-H2",
+    "brief_name": "MAX-121-H2",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag",
+    "cold_open": null,
+    "reviews": [],
+    "intro": null
+   },
+   "est_seconds": 86.2,
+   "project": "P03",
+   "hook_text": "Grandma, you're literally in love with this bag.",
+   "hook_type": "story",
+   "cold_open": null
+  },
+  {
+   "name": "LC_261025_HoboBag_BlackFriday_B019_P03_H2_remix121",
+   "id": "P03H2",
+   "format": "remix",
+   "engine": "remix",
+   "hook": "H2",
+   "hook_label": "SAFE IN A CROWD",
+   "winner": {
+    "key": "raw121_H2",
+    "ad": "MAX-121-H2",
+    "brief_name": "MAX-121-H2",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag",
+    "cold_open": [
+     51.64,
+     57.04
+    ],
+    "reviews": [],
+    "intro": null
+   },
+   "est_seconds": 91.6,
+   "project": "P03",
+   "hook_text": "I don't worry about someone bumping into me in a crowd or reaching into my bag without me noticing.",
+   "hook_type": "feature",
+   "cold_open": [
+    51.64,
+    57.04
+   ]
+  },
+  {
+   "name": "LC_261025_HoboBag_BlackFriday_B019_P03_H3_remix121",
+   "id": "P03H3",
+   "format": "remix",
+   "engine": "remix",
+   "hook": "H3",
+   "hook_label": "WHY GRANDMA LOVES IT",
+   "winner": {
+    "key": "raw121_H2",
+    "ad": "MAX-121-H2",
+    "brief_name": "MAX-121-H2",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag",
+    "cold_open": [
+     8.09,
+     14.04
+    ],
+    "reviews": [],
+    "intro": null
+   },
+   "est_seconds": 92.2,
+   "project": "P03",
+   "hook_text": "Because you see, sweetheart, this is the only bag that doesn't make me feel like I'm going to lose something.",
+   "hook_type": "curiosity",
+   "cold_open": [
+    8.09,
+    14.04
+   ]
+  },
+  {
+   "name": "LC_261025_HoboBag_BlackFriday_B019_P03_H4_remix121",
+   "id": "P03H4",
+   "format": "remix",
+   "engine": "remix",
+   "hook": "H4",
+   "hook_label": "ALWAYS CHECKING YOUR PURSE?",
+   "winner": {
+    "key": "raw121_H2",
+    "ad": "MAX-121-H2",
+    "brief_name": "MAX-121-H2",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag",
+    "cold_open": [
+     14.14,
+     20.36
+    ],
+    "reviews": [],
+    "intro": null
+   },
+   "est_seconds": 92.4,
+   "project": "P03",
+   "hook_text": "I used to be so anxious going out alone. I'd check my purse three times before leaving the house.",
+   "hook_type": "problem",
+   "cold_open": [
+    14.14,
+    20.36
+   ]
+  },
+  {
+   "name": "LC_261025_HoboBag_BlackFriday_B019_P04_H1_remix113",
+   "id": "P04H1",
+   "format": "remix",
+   "engine": "remix",
+   "hook": "H1",
+   "hook_label": "ENDS TONIGHT",
+   "winner": {
+    "key": "raw113_H2",
+    "ad": "113-H2",
+    "brief_name": "113-H2",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag",
+    "cold_open": null,
+    "reviews": [],
+    "intro": null
+   },
+   "est_seconds": 16.0,
+   "project": "P04",
+   "hook_text": "This crazy deal ends tonight.",
+   "hook_type": "offer",
+   "cold_open": null
+  },
+  {
+   "name": "LC_261025_HoboBag_BlackFriday_B019_P04_H2_remix113",
+   "id": "P04H2",
+   "format": "remix",
+   "engine": "remix",
+   "hook": "H2",
+   "hook_label": "YOU'LL REGRET MISSING THIS",
+   "winner": {
+    "key": "raw113_H2",
+    "ad": "113-H2",
+    "brief_name": "113-H2",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag",
+    "cold_open": [
+     10.7,
+     15.93
+    ],
+    "reviews": [],
+    "intro": null
+   },
+   "est_seconds": 21.2,
+   "project": "P04",
+   "hook_text": "You're going to regret not taking advantage, so tap on the shopping cart and buy right now.",
+   "hook_type": "problem",
+   "cold_open": [
+    10.7,
+    15.93
+   ]
+  },
+  {
+   "name": "LC_261025_HoboBag_BlackFriday_B019_P04_H3_remix113",
+   "id": "P04H3",
+   "format": "remix",
+   "engine": "remix",
+   "hook": "H3",
+   "hook_label": "LAST FEW HOURS",
+   "winner": {
+    "key": "raw113_H2",
+    "ad": "113-H2",
+    "brief_name": "113-H2",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag",
+    "cold_open": [
+     8.48,
+     10.7
+    ],
+    "reviews": [],
+    "intro": null
+   },
+   "est_seconds": 18.2,
+   "project": "P04",
+   "hook_text": "These are the last few hours.",
+   "hook_type": "offer",
+   "cold_open": [
+    8.48,
+    10.7
+   ]
+  },
+  {
+   "name": "LC_261025_HoboBag_BlackFriday_B019_P04_H4_remix113",
+   "id": "P04H4",
+   "format": "remix",
+   "engine": "remix",
+   "hook": "H4",
+   "hook_label": "STILL THINKING ABOUT IT?",
+   "winner": {
+    "key": "raw113_H2",
+    "ad": "113-H2",
+    "brief_name": "113-H2",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag",
+    "cold_open": null,
+    "reviews": [],
+    "intro": null
+   },
+   "est_seconds": 16.0,
+   "project": "P04",
+   "hook_text": "This crazy deal ends tonight.",
+   "hook_type": "question",
+   "cold_open": null
+  },
+  {
+   "name": "LC_261025_HoboBag_BlackFriday_B019_P05_H1_remix158",
+   "id": "P05H1",
+   "format": "remix",
+   "engine": "remix",
+   "hook": "H1",
+   "hook_label": "IT WAS NEVER MY BAG",
+   "winner": {
+    "key": "raw158_H2",
+    "ad": "MAX-158-H2",
+    "brief_name": "MAX-158-H2",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag",
+    "cold_open": [
+     54.04,
+     59.25
+    ],
+    "reviews": [],
+    "intro": null
+   },
+   "est_seconds": 90.7,
+   "project": "P05",
+   "hook_text": "And then the poor woman thinks my bag fell apart on her. It breaks my heart because that was never my bag.",
+   "hook_type": "problem",
+   "cold_open": [
+    54.04,
+    59.25
+   ]
+  },
+  {
+   "name": "LC_261025_HoboBag_BlackFriday_B019_P05_H2_remix158",
+   "id": "P05H2",
+   "format": "remix",
+   "engine": "remix",
+   "hook": "H2",
+   "hook_label": "I CAN'T STAY QUIET",
+   "winner": {
+    "key": "raw158_H2",
+    "ad": "MAX-158-H2",
+    "brief_name": "MAX-158-H2",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag",
+    "cold_open": [
+     24.98,
+     30.04
+    ],
+    "reviews": [],
+    "intro": null
+   },
+   "est_seconds": 90.6,
+   "project": "P05",
+   "hook_text": "So I can't stay quiet anymore. I owe it to every woman who's trusted my name to tell her the truth.",
+   "hook_type": "story",
+   "cold_open": [
+    24.98,
+    30.04
+   ]
+  },
+  {
+   "name": "LC_261025_HoboBag_BlackFriday_B019_P05_H3_remix158",
+   "id": "P05H3",
+   "format": "remix",
+   "engine": "remix",
+   "hook": "H3",
+   "hook_label": "BEFORE YOU BUY",
+   "winner": {
+    "key": "raw158_H2",
+    "ad": "MAX-158-H2",
+    "brief_name": "MAX-158-H2",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag",
+    "cold_open": null,
+    "reviews": [],
+    "intro": null
+   },
+   "est_seconds": 85.5,
+   "project": "P05",
+   "hook_text": "Before you buy one of my bags, I need to warn you about something.",
+   "hook_type": "curiosity",
+   "cold_open": null
+  },
+  {
+   "name": "LC_261025_HoboBag_BlackFriday_B019_P05_H4_remix158",
+   "id": "P05H4",
+   "format": "remix",
+   "engine": "remix",
+   "hook": "H4",
+   "hook_label": "THE ONLY REAL ONE",
+   "winner": {
+    "key": "raw158_H2",
+    "ad": "MAX-158-H2",
+    "brief_name": "MAX-158-H2",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag",
+    "cold_open": [
+     80.74,
+     85.48
+    ],
+    "reviews": [],
+    "intro": null
+   },
+   "est_seconds": 90.2,
+   "project": "P05",
+   "hook_text": "Everything's 50% off with a free matching wallet. The only real one is in the link below.",
+   "hook_type": "offer",
+   "cold_open": [
+    80.74,
+    85.48
+   ]
+  }
+ ],
+ "tts_lines": 0,
+ "tts_dupes": {},
+ "est_credits": 0.0,
+ "budget": 100.0,
+ "colour_images": {
+  "Dark Sienna": "/tmp/run/bf-winners/site/clean/hobo_bag_colour_dark_sienna.jpg",
+  "Galaxy Black": "/tmp/run/bf-winners/site/hobo_bag_colour_galaxy_black.jpg",
+  "Blue": "/tmp/run/bf-winners/site/hobo_bag_colour_blue.jpg",
+  "Grey": "/tmp/run/bf-winners/site/hobo_bag_colour_grey.jpg",
+  "Burgundy": "/tmp/run/bf-winners/site/hobo_bag_colour_burgundy.jpg",
+  "Red": "/tmp/run/bf-winners/site/hobo_bag_colour_red.jpg"
+ },
+ "packshots": [
+  "/tmp/run/bf-winners/site/clean/hobo_bag_colour_dark_sienna.jpg",
+  "/tmp/run/bf-winners/site/hobo_bag_colour_galaxy_black.jpg",
+  "/tmp/run/bf-winners/site/hobo_bag_colour_blue.jpg",
+  "/tmp/run/bf-winners/site/hobo_bag_colour_grey.jpg",
+  "/tmp/run/bf-winners/site/hobo_bag_colour_burgundy.jpg",
+  "/tmp/run/bf-winners/site/hobo_bag_colour_red.jpg"
+ ],
+ "brief": null,
+ "ai": {
+  "stills": 9,
+  "clips": 0,
+  "est_credits": 9.0,
+  "budget": {
+   "cap": 100.0,
+   "tts_est": 0.0,
+   "reserve": 8.0
+  },
+  "scenes": [
+   "p01_s01",
+   "p01_s05",
+   "p01_s07",
+   "p01_s09",
+   "p01_s11",
+   "p01_s14",
+   "p01_s16",
+   "p01_s18",
+   "p01_s20"
+  ],
+  "next": "python3 pipeline/ai_gen.py show --out /tmp/run/bf-winners"
+ },
+ "winners_source": "codes",
+ "winners_note": null,
+ "winners_used": [
+  {
+   "key": "raw94_H4",
+   "name": "MAX-94-H4",
+   "roas": null,
+   "action": null
+  },
+  {
+   "key": "raw148_H5",
+   "name": "YEVH-148-H5",
+   "roas": null,
+   "action": null
+  },
+  {
+   "key": "raw121_H2",
+   "name": "MAX-121-H2",
+   "roas": null,
+   "action": null
+  },
+  {
+   "key": "raw113_H2",
+   "name": "113-H2",
+   "roas": null,
+   "action": null
+  },
+  {
+   "key": "raw158_H2",
+   "name": "MAX-158-H2",
+   "roas": null,
+   "action": null
+  }
+ ],
+ "unmatched_winners": [],
+ "warnings": [
+  "campaign: Black Friday Sale 2026 (2026-10-23 to 2026-11-30, client-approved): end cards say 'Black Friday Sale' + 'UP TO 60% OFF + FREE GIFTS', offer cards '+ FREE GIFTS WITH 2 BAGS', the statics include the free-gifts and bundle layouts, the close and the ad copy name the gifts; each bag's own % stays its offer",
+  "ideas: 9 AI studio scenes of 20 statics (about 9 credits plus retries)",
+  "Hobo Bag has 6 earlier batch(es) in the novelty log: the statics start 6 step(s) further in their photo / headline cycle (other photos and captions than before)",
+  "raw94_H4 (MAX-94-H4): Julian's health rule: \"that prevents shoulder pain.\" is cut out of its proven body (RAW 31.9-33.3 s), so it says \"...Reason four, an adjustable strap.\": needs a human to listen to that line once",
+  "raw94_H4 (MAX-94-H4): needs a human (Julian's health rule): its approved RAW story (PLAYBOOK section 1) plays as is: \"The arthritis has won.\"; cold open HER LAST COLLECTION says it too (used last, its label names no condition)",
+  "raw121_H2 (MAX-121-H2): needs a human (Julian's health rule): its approved RAW story (PLAYBOOK section 1) plays as is: \"I used to be so anxious going out alone.\"; \"My glasses, my wallet, my makeup, even some medicine in case I need it.\"; \"I actually heard that Susan, the woman who makes these, is closing her workshop for good, since her arthritis won't let her keep making them by hand, so they're almost gone.\"; cold open ALWAYS CHECKING YOUR PURSE? says it too (used last, its label names no condition)",
+  "raw121_H2: the RAW never says the offer: its 'BLACK FRIDAY 50% OFF' card shows just before the end card",
+  "P04 (113-H2): H4 differs from H1 by its on-screen hook only (label 'STILL THINKING ABOUT IT?' over the same opening: the RAW from the top): raw113_H2 has no other clean spoken opening",
+  "winner projects whose versions repeat a hook type (the versions differ in the opening line and label): P02 YEVH-148-H5 offerx3+story; P04 113-H2 offerx2+problem+question",
+  "winner versions that open like ads already delivered (pipeline/recipes): P01 MAX-94-H4 H1 (2026-10-02); P02 YEVH-148-H5 H1 (2026-10-02); P03 MAX-121-H2 H1 (2026-10-02); P04 113-H2 H1, H4 (2026-10-02): they differ from those ads only in the offer card and end card (and the review section those had); new openings need new cold opens (python3 pipeline/winner_prep.py)",
+  "repeat: S19_colours was already made in B016 (2026-10-21): don't launch it twice (re-plan with another --seed for other ads)"
+ ],
+ "winner_reviews": false,
+ "seed": 1,
+ "hooks": 4,
+ "pipeline": "winners",
+ "video_format": "classic",
+ "projects": [
+  {
+   "id": "P01",
+   "from_id": "V01",
+   "angle": "remix94",
+   "engine": "remix",
+   "format": "remix",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P01H1",
+     "name": "LC_261025_HoboBag_BlackFriday_B019_P01_H1_remix94",
+     "hook_text": "Most bags look terrible after a year. Mine looks better after a decade.",
+     "label": "10 YEARS LATER",
+     "type": "curiosity",
+     "cold_open": [
+      12.34,
+      16.26
+     ],
+     "est_seconds": 58.4
+    },
+    {
+     "hook": "H2",
+     "id": "P01H2",
+     "name": "LC_261025_HoboBag_BlackFriday_B019_P01_H2_remix94",
+     "hook_text": "No more dumping your entire bag out just to find your keys.",
+     "label": "NO MORE DIGGING",
+     "type": "problem",
+     "cold_open": [
+      26.91,
+      30.01
+     ],
+     "est_seconds": 57.6
+    },
+    {
+     "hook": "H3",
+     "id": "P01H3",
+     "name": "LC_261025_HoboBag_BlackFriday_B019_P01_H3_remix94",
+     "hook_text": "This is your last chance to own one before I close my workshop forever.",
+     "label": "YOUR LAST CHANCE",
+     "type": "offer",
+     "cold_open": [
+      51.72,
+      55.1
+     ],
+     "est_seconds": 57.9
+    },
+    {
+     "hook": "H4",
+     "id": "P01H4",
+     "name": "LC_261025_HoboBag_BlackFriday_B019_P01_H4_remix94",
+     "hook_text": "But my hands can't do this anymore. The arthritis has won.",
+     "label": "HER LAST COLLECTION",
+     "type": "story",
+     "cold_open": [
+      44.31,
+      47.24
+     ],
+     "est_seconds": 57.4
+    }
+   ],
+   "winner": {
+    "key": "raw94_H4",
+    "ad": "MAX-94-H4",
+    "brief_name": "MAX-94-H4",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag"
+   }
+  },
+  {
+   "id": "P02",
+   "from_id": "V02",
+   "angle": "remix148",
+   "engine": "remix",
+   "format": "remix",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P02H1",
+     "name": "LC_261025_HoboBag_BlackFriday_B019_P02_H1_remix148",
+     "hook_text": "Let me show you how to get this bag for the lowest price it'll ever be.",
+     "label": "LOWEST PRICE EVER",
+     "type": "offer",
+     "cold_open": null,
+     "est_seconds": 30.5
+    },
+    {
+     "hook": "H2",
+     "id": "P02H2",
+     "name": "LC_261025_HoboBag_BlackFriday_B019_P02_H2_remix148",
+     "hook_text": "And the third, your bag ships out fast, straight from Susan's workshop.",
+     "label": "FROM SUSAN'S WORKSHOP",
+     "type": "story",
+     "cold_open": [
+      12.68,
+      16.42
+     ],
+     "est_seconds": 34.2
+    },
+    {
+     "hook": "H3",
+     "id": "P02H3",
+     "name": "LC_261025_HoboBag_BlackFriday_B019_P02_H3_remix148",
+     "hook_text": "You do need to hurry because Susan's closing her workshop for good, and these are almost gone.",
+     "label": "ALMOST GONE",
+     "type": "offer",
+     "cold_open": [
+      16.54,
+      20.86
+     ],
+     "est_seconds": 34.8
+    },
+    {
+     "hook": "H4",
+     "id": "P02H4",
+     "name": "LC_261025_HoboBag_BlackFriday_B019_P02_H4_remix148",
+     "hook_text": "You've also just unlocked your second one, a free matching wallet included with every order.",
+     "label": "FREE MATCHING WALLET",
+     "type": "offer",
+     "cold_open": [
+      8.16,
+      12.62
+     ],
+     "est_seconds": 35.0
+    }
+   ],
+   "winner": {
+    "key": "raw148_H5",
+    "ad": "YEVH-148-H5",
+    "brief_name": "YEVH-148-H5",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag"
+   }
+  },
+  {
+   "id": "P03",
+   "from_id": "V03",
+   "angle": "remix121",
+   "engine": "remix",
+   "format": "remix",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P03H1",
+     "name": "LC_261025_HoboBag_BlackFriday_B019_P03_H1_remix121",
+     "hook_text": "Grandma, you're literally in love with this bag.",
+     "label": "GRANDMA'S FAVOURITE BAG",
+     "type": "story",
+     "cold_open": null,
+     "est_seconds": 86.2
+    },
+    {
+     "hook": "H2",
+     "id": "P03H2",
+     "name": "LC_261025_HoboBag_BlackFriday_B019_P03_H2_remix121",
+     "hook_text": "I don't worry about someone bumping into me in a crowd or reaching into my bag without me noticing.",
+     "label": "SAFE IN A CROWD",
+     "type": "feature",
+     "cold_open": [
+      51.64,
+      57.04
+     ],
+     "est_seconds": 91.6
+    },
+    {
+     "hook": "H3",
+     "id": "P03H3",
+     "name": "LC_261025_HoboBag_BlackFriday_B019_P03_H3_remix121",
+     "hook_text": "Because you see, sweetheart, this is the only bag that doesn't make me feel like I'm going to lose something.",
+     "label": "WHY GRANDMA LOVES IT",
+     "type": "curiosity",
+     "cold_open": [
+      8.09,
+      14.04
+     ],
+     "est_seconds": 92.2
+    },
+    {
+     "hook": "H4",
+     "id": "P03H4",
+     "name": "LC_261025_HoboBag_BlackFriday_B019_P03_H4_remix121",
+     "hook_text": "I used to be so anxious going out alone. I'd check my purse three times before leaving the house.",
+     "label": "ALWAYS CHECKING YOUR PURSE?",
+     "type": "problem",
+     "cold_open": [
+      14.14,
+      20.36
+     ],
+     "est_seconds": 92.4
+    }
+   ],
+   "winner": {
+    "key": "raw121_H2",
+    "ad": "MAX-121-H2",
+    "brief_name": "MAX-121-H2",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag"
+   }
+  },
+  {
+   "id": "P04",
+   "from_id": "V04",
+   "angle": "remix113",
+   "engine": "remix",
+   "format": "remix",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P04H1",
+     "name": "LC_261025_HoboBag_BlackFriday_B019_P04_H1_remix113",
+     "hook_text": "This crazy deal ends tonight.",
+     "label": "ENDS TONIGHT",
+     "type": "offer",
+     "cold_open": null,
+     "est_seconds": 16.0
+    },
+    {
+     "hook": "H2",
+     "id": "P04H2",
+     "name": "LC_261025_HoboBag_BlackFriday_B019_P04_H2_remix113",
+     "hook_text": "You're going to regret not taking advantage, so tap on the shopping cart and buy right now.",
+     "label": "YOU'LL REGRET MISSING THIS",
+     "type": "problem",
+     "cold_open": [
+      10.7,
+      15.93
+     ],
+     "est_seconds": 21.2
+    },
+    {
+     "hook": "H3",
+     "id": "P04H3",
+     "name": "LC_261025_HoboBag_BlackFriday_B019_P04_H3_remix113",
+     "hook_text": "These are the last few hours.",
+     "label": "LAST FEW HOURS",
+     "type": "offer",
+     "cold_open": [
+      8.48,
+      10.7
+     ],
+     "est_seconds": 18.2
+    },
+    {
+     "hook": "H4",
+     "id": "P04H4",
+     "name": "LC_261025_HoboBag_BlackFriday_B019_P04_H4_remix113",
+     "hook_text": "This crazy deal ends tonight.",
+     "label": "STILL THINKING ABOUT IT?",
+     "type": "question",
+     "cold_open": null,
+     "est_seconds": 16.0
+    }
+   ],
+   "winner": {
+    "key": "raw113_H2",
+    "ad": "113-H2",
+    "brief_name": "113-H2",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag"
+   }
+  },
+  {
+   "id": "P05",
+   "from_id": "V05",
+   "angle": "remix158",
+   "engine": "remix",
+   "format": "remix",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P05H1",
+     "name": "LC_261025_HoboBag_BlackFriday_B019_P05_H1_remix158",
+     "hook_text": "And then the poor woman thinks my bag fell apart on her. It breaks my heart because that was never my bag.",
+     "label": "IT WAS NEVER MY BAG",
+     "type": "problem",
+     "cold_open": [
+      54.04,
+      59.25
+     ],
+     "est_seconds": 90.7
+    },
+    {
+     "hook": "H2",
+     "id": "P05H2",
+     "name": "LC_261025_HoboBag_BlackFriday_B019_P05_H2_remix158",
+     "hook_text": "So I can't stay quiet anymore. I owe it to every woman who's trusted my name to tell her the truth.",
+     "label": "I CAN'T STAY QUIET",
+     "type": "story",
+     "cold_open": [
+      24.98,
+      30.04
+     ],
+     "est_seconds": 90.6
+    },
+    {
+     "hook": "H3",
+     "id": "P05H3",
+     "name": "LC_261025_HoboBag_BlackFriday_B019_P05_H3_remix158",
+     "hook_text": "Before you buy one of my bags, I need to warn you about something.",
+     "label": "BEFORE YOU BUY",
+     "type": "curiosity",
+     "cold_open": null,
+     "est_seconds": 85.5
+    },
+    {
+     "hook": "H4",
+     "id": "P05H4",
+     "name": "LC_261025_HoboBag_BlackFriday_B019_P05_H4_remix158",
+     "hook_text": "Everything's 50% off with a free matching wallet. The only real one is in the link below.",
+     "label": "THE ONLY REAL ONE",
+     "type": "offer",
+     "cold_open": [
+      80.74,
+      85.48
+     ],
+     "est_seconds": 90.2
+    }
+   ],
+   "winner": {
+    "key": "raw158_H2",
+    "ad": "MAX-158-H2",
+    "brief_name": "MAX-158-H2",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag"
+   }
+  }
+ ],
+ "hooks_seed": 1
+}

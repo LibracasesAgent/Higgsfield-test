@@ -1,0 +1,50 @@
+{
+ "raw": "1_4f-FZM8Oqsve8xTALY_8C53Ycn9lVvh",
+ "start": 0.0,
+ "end": null,
+ "cut": [],
+ "insert_at": 16.5,
+ "offer_word": "50",
+ "offer_after": 20,
+ "burned_captions": false,
+ "labels": [
+  {
+   "text": "STEP 1",
+   "word": "first",
+   "after": 0
+  },
+  {
+   "text": "STEP 2",
+   "word": "second",
+   "after": 0
+  },
+  {
+   "text": "STEP 3",
+   "word": "third",
+   "after": 0
+  }
+ ],
+ "end_title": "Black Friday Sale",
+ "end_offer": "UP TO 60% OFF + FREE GIFTS",
+ "end_photo": "site/hobo_bag_colour_galaxy_black.jpg",
+ "offer_title": "BLACK FRIDAY 50% OFF",
+ "offer_sub": "+ FREE GIFTS WITH 2 BAGS",
+ "keywords": [
+  "50%",
+  "free",
+  "pouch",
+  "wallet",
+  "gift",
+  "gifts",
+  "hidden",
+  "pocket",
+  "leather",
+  "black",
+  "friday"
+ ],
+ "music": {
+  "auto": true,
+  "seed": 2
+ },
+ "hook_label": "LOWEST PRICE EVER"
+}
