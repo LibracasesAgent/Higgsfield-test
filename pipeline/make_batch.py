@@ -1445,8 +1445,19 @@ def plan(a):
                                     f", not in Drive yet): its hooks and statics are not in the novelty log yet, so the two batches may "
                                     f"share some; say so in the reply")
                 return n_
+            again = None              # a re-plan into the same --out (a fixed script, a compliance rewording): keep its number
+            try:
+                pj_ = json.load(open(os.path.join(out, "plan.json")))
+                n0_ = (pj_.get("batch_id") or {}).get("n") if pj_.get("product") == pr["name"] else None
+                b0_ = ledger.find(ledger.load(), n0_) if n0_ and not asked else None
+                again = n0_ if b0_ and b0_.get("status") == "planned" else None
+            except (OSError, ValueError, AttributeError):
+                pass
             b_ = ledger.reserve(pr["name"], tname, pipe, a.request, a.statics, a.videos + a.winner_videos, a.hooks, a.seed,
-                                datetime.date.today().isoformat(), number=asked, claim=None if asked else claim_)
+                                datetime.date.today().isoformat(), number=asked or again, reuse=bool(again and not asked),
+                                claim=None if (asked or again) else claim_)
+            if again and not asked:
+                warnings.append(f"re-plan: keeps batch number B{again:03d} (planned in this --out, not uploaded yet)")
             lb = dict(id=ledger.bid(b_["n"], b_.get("rev")), n=b_["n"], rev=int(b_.get("rev") or 1))
             if a.only and not asked:
                 warnings.append(f"--only without --batch-id made a NEW batch number ({lb['id']}): to redo ads of an earlier batch "

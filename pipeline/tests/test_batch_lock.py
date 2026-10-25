@@ -86,6 +86,18 @@ def test_the_ledger_takes_the_claimed_number():
         assert b["id"] == "B028"
 
 
+def test_a_re_plan_keeps_its_number():
+    with tempfile.TemporaryDirectory() as d:
+        p = os.path.join(d, "ledger.json")
+        b = ledger.reserve("Hobo Bag", "BlackFriday", "catalog", "x", 10, 4, 4, 1, "2026-10-25", p=p, claim=lambda nxt: 26)
+        b2 = ledger.reserve("Hobo Bag", "BlackFriday", "catalog", "x fixed", 10, 4, 4, 1, "2026-10-25", p=p, number=26, reuse=True)
+        assert b2["id"] == "B026" and b2.get("rev", 1) == 1 and b2["request"] == "x fixed" and ledger.load(p)["next"] == 27
+        ledger.uploaded(26, "B026 – folder", "link", [], p=p)
+        b3 = ledger.reserve("Hobo Bag", "BlackFriday", "catalog", "y", 10, 4, 4, 1, "2026-10-25", p=p, number=26, reuse=True,
+                            claim=lambda nxt: nxt)
+        assert b3["id"] == "B027"                                # an uploaded batch is never reused: a new number
+
+
 def test_a_merge_refuses_two_new_batches_with_one_number():
     base = {"batches": [], "next": 26}
     ours = {"batches": [dict(n=26, rev=1, product="Hobo Bag", request="a")], "next": 27}
