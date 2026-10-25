@@ -1,0 +1,200 @@
+{
+ "stills": [
+  {
+   "id": "AS01",
+   "use": "static",
+   "scene": "p01_s01",
+   "kind": "object",
+   "colour": "Dark Sienna",
+   "layout": "concept",
+   "ref": "/tmp/run/bf-winners/site/clean/hobo_bag_colour_dark_sienna.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS01.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 0,
+   "prompt": "Photorealistic candid lifestyle photograph, natural light, shot on a 35mm lens, shallow depth of field, true-to-life colours, fine film grain, no text, no logos, no watermark. The exact handbag from the reference image, unchanged: same colour (dark sienna), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The bag stands upright on a wide wooden table covered with kraft wrapping paper, a spool of red ribbon, scissors and a small pine sprig beside it, soft window light from the left, calm empty paper surface across the top third of the frame, bag fully visible and large, photographed like a campaign still. Nobody is in the picture, not even blurred in the background. Portrait 4:5 composition, the handbag clearly visible and large in the frame.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS02",
+   "use": "static",
+   "scene": "p01_s05",
+   "kind": "object",
+   "colour": "Galaxy Black",
+   "layout": "concept",
+   "ref": "/tmp/run/bf-winners/site/hobo_bag_colour_galaxy_black.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS02.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 4,
+   "prompt": "Photorealistic candid lifestyle photograph, natural light, shot on a 35mm lens, shallow depth of field, true-to-life colours, fine film grain, no text, no logos, no watermark. The exact handbag from the reference image, unchanged: same colour (galaxy black), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The black bag stands on a dark slate surface with one brass key lying beside it, a low raking side light that makes the gold zips glow, deep shadows, calm empty dark slate across the bottom third of the frame, bag fully visible and large, moody luxury campaign photograph. Nobody is in the picture, not even blurred in the background. Portrait 4:5 composition, the handbag clearly visible and large in the frame.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS03",
+   "use": "static",
+   "scene": "p01_s07",
+   "kind": "object",
+   "colour": "Grey",
+   "layout": "concept",
+   "ref": "/tmp/run/bf-winners/site/hobo_bag_colour_grey.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS03.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 6,
+   "prompt": "Photorealistic candid lifestyle photograph, natural light, shot on a 35mm lens, shallow depth of field, true-to-life colours, fine film grain, no text, no logos, no watermark. The exact handbag from the reference image, unchanged: same colour (grey), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The bag sits on a pale oak entryway bench by a white front door, a ceramic dish of keys and a folded cream scarf next to it, soft morning daylight, calm empty white wall across the top third of the frame, bag fully visible and large, realistic interior photograph. Nobody is in the picture, not even blurred in the background. Portrait 4:5 composition, the handbag clearly visible and large in the frame.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS04",
+   "use": "static",
+   "scene": "p01_s09",
+   "kind": "object",
+   "colour": "Blue",
+   "layout": "concept",
+   "ref": "/tmp/run/bf-winners/site/hobo_bag_colour_blue.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS04.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 8,
+   "prompt": "Photorealistic candid lifestyle photograph, natural light, shot on a 35mm lens, shallow depth of field, true-to-life colours, fine film grain, no text, no logos, no watermark. The exact handbag from the reference image, unchanged: same colour (blue), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. Top-down flat lay on natural linen: the closed bag in the centre, a phone, a set of keys, a closed passport, a small notebook and a lipstick arranged neatly around it, soft even daylight, calm empty linen across the bottom third of the frame, bag fully visible, no text anywhere. Nobody is in the picture, not even blurred in the background. Portrait 4:5 composition, the handbag clearly visible and large in the frame.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS05",
+   "use": "static",
+   "scene": "p01_s11",
+   "kind": "object",
+   "colour": "Red",
+   "layout": "concept",
+   "ref": "/tmp/run/bf-winners/site/hobo_bag_colour_red.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS05.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 10,
+   "prompt": "Photorealistic candid lifestyle photograph, natural light, shot on a 35mm lens, shallow depth of field, true-to-life colours, fine film grain, no text, no logos, no watermark. The exact handbag from the reference image, unchanged: same colour (red), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The bag stands beside two wrapped gift boxes tied with red ribbon on a cream wool rug, a small pine branch and warm fairy lights softly blurred behind, warm evening light, calm empty cream wall across the top third of the frame, bag fully visible and large, premium holiday campaign photograph. Nobody is in the picture, not even blurred in the background. Portrait 4:5 composition, the handbag clearly visible and large in the frame.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS06",
+   "use": "static",
+   "scene": "p01_s14",
+   "kind": "object",
+   "colour": "Dark Sienna",
+   "layout": "concept",
+   "ref": "/tmp/run/bf-winners/site/clean/hobo_bag_colour_dark_sienna.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS06.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 13,
+   "prompt": "Photorealistic candid lifestyle photograph, natural light, shot on a 35mm lens, shallow depth of field, true-to-life colours, fine film grain, no text, no logos, no watermark. The exact handbag from the reference image, unchanged: same colour (dark sienna), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The bag rests on a hotel luggage rack beside a folded oatmeal jumper and a closed passport, soft neutral hotel room light, calm empty beige carpet and wall across the bottom third of the frame, bag fully visible and large, realistic travel photograph. Nobody is in the picture, not even blurred in the background. Portrait 4:5 composition, the handbag clearly visible and large in the frame.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS07",
+   "use": "static",
+   "scene": "p01_s16",
+   "kind": "object",
+   "colour": "Dark Sienna",
+   "layout": "concept",
+   "ref": "/tmp/run/bf-winners/site/clean/hobo_bag_colour_dark_sienna.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS07.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 15,
+   "prompt": "Photorealistic candid lifestyle photograph, natural light, shot on a 35mm lens, shallow depth of field, true-to-life colours, fine film grain, no text, no logos, no watermark. The exact handbag from the reference image, unchanged: same colour (dark sienna), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The bag sits on a weathered stone garden wall with a few fallen maple leaves around it, low golden hour sunlight, softly blurred autumn foliage far behind, calm empty pale sky across the top third of the frame, bag fully visible and large, realistic outdoor photograph. Nobody is in the picture, not even blurred in the background. Portrait 4:5 composition, the handbag clearly visible and large in the frame.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS08",
+   "use": "static",
+   "scene": "p01_s18",
+   "kind": "object",
+   "colour": "Burgundy",
+   "layout": "concept",
+   "ref": "/tmp/run/bf-winners/site/hobo_bag_colour_burgundy.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS08.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 17,
+   "prompt": "Photorealistic candid lifestyle photograph, natural light, shot on a 35mm lens, shallow depth of field, true-to-life colours, fine film grain, no text, no logos, no watermark. The exact handbag from the reference image, unchanged: same colour (burgundy), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The burgundy bag stands on deep plum velvet next to a brass candlestick with an unlit candle, warm low light, rich dark tones, calm empty velvet across the bottom third of the frame, bag fully visible and large, luxury campaign photograph. Nobody is in the picture, not even blurred in the background. Portrait 4:5 composition, the handbag clearly visible and large in the frame.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS09",
+   "use": "static",
+   "scene": "p01_s20",
+   "kind": "object",
+   "colour": "Dark Sienna",
+   "layout": "concept",
+   "ref": "/tmp/run/bf-winners/site/clean/hobo_bag_colour_dark_sienna.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS09.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 19,
+   "prompt": "Photorealistic candid lifestyle photograph, natural light, shot on a 35mm lens, shallow depth of field, true-to-life colours, fine film grain, no text, no logos, no watermark. The exact handbag from the reference image, unchanged: same colour (dark sienna), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The bag hangs by its strap from a brass wall hook next to a camel wool coat on a wooden hanger against a warm off-white wall, soft side light, calm empty off-white wall across the top third of the frame, bag fully visible and large, realistic interior photograph, nobody in the picture. Nobody is in the picture, not even blurred in the background. Portrait 4:5 composition, the handbag clearly visible and large in the frame.",
+   "est_credits": 1.0
+  }
+ ],
+ "clips": [],
+ "est_credits": 9.0,
+ "notes": [],
+ "grade_refs": [],
+ "budget": {
+  "cap": 100.0,
+  "tts_est": 0.0,
+  "reserve": 8.0
+ },
+ "steps": [
+  "1. Upload each distinct `ref` once (media_upload, curl PUT, media_confirm); generate every still with generate_image_batch (model/params/prompt as listed, medias [{value: media_id, role: image_references}], max 12 per call); jobs_wait; download each result to $OUT/<file>.",
+  "2. python3 pipeline/ai_gen.py gate --out $OUT ; LOOK at $OUT/qa/ai_stills.jpg (reference | still): reject any still where the bag's shape, colour, handles or hardware differ from the reference, or that looks AI: python3 pipeline/ai_gen.py reject --out $OUT AS03 ...",
+  "3. For every clip whose start still passed: generate_video_batch (start_image = that still's job id, model/params/prompt as listed); jobs_wait; download to $OUT/<file>. Clips of a rejected still are skipped. If a submission comes back with a preset recommendation instead of a job, send it again with `declined_preset_id` = that preset's id (the project never uses presets).",
+  "4. python3 pipeline/ai_gen.py clips --out $OUT ; LOOK at $OUT/qa/ai_clips.jpg; reject morphing / odd-hand clips with `reject`. Then render as usual (it applies the result).",
+  "Report: credits before -> after (balance), how many AI assets passed. Never ship a still or clip you would not believe is real."
+ ]
+}

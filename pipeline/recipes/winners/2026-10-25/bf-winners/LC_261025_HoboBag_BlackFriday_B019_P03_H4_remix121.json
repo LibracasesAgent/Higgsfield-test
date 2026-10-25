@@ -1,0 +1,43 @@
+{
+ "raw": "1mbr41C4_O9UoOMZrwBr7CJLef08Qe4ir",
+ "start": 4.3,
+ "end": null,
+ "cut": [
+  [
+   57.04,
+   61.14
+  ]
+ ],
+ "insert_at": 76.1,
+ "offer_word": null,
+ "offer_after": null,
+ "burned_captions": true,
+ "labels": [],
+ "end_title": "Black Friday Sale",
+ "end_offer": "UP TO 60% OFF + FREE GIFTS",
+ "end_photo": "site/hobo_bag_colour_blue.jpg",
+ "offer_title": "BLACK FRIDAY 50% OFF",
+ "offer_sub": "+ FREE GIFTS WITH 2 BAGS",
+ "keywords": [
+  "50%",
+  "free",
+  "pouch",
+  "wallet",
+  "gift",
+  "gifts",
+  "hidden",
+  "pocket",
+  "leather",
+  "black",
+  "friday"
+ ],
+ "music": {
+  "auto": true,
+  "seed": 3
+ },
+ "cold_open": [
+  14.14,
+  20.36
+ ],
+ "hook_label": "ALWAYS CHECKING YOUR PURSE?"
+}

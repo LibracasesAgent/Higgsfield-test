@@ -1,0 +1,54 @@
+{
+ "raw": "1Y-MO87nS_0iTji0HWmG8yh6BrmHBaGfY",
+ "start": 0.0,
+ "end": null,
+ "cut": [],
+ "insert_at": 66.8,
+ "offer_word": "50",
+ "offer_after": null,
+ "burned_captions": false,
+ "labels": [
+  {
+   "text": "1. NO MARKETPLACES",
+   "word": "first",
+   "after": 30
+  },
+  {
+   "text": "2. THE FAKES",
+   "word": "second",
+   "after": 30
+  },
+  {
+   "text": "3. HANDMADE",
+   "word": "third",
+   "after": 30
+  }
+ ],
+ "end_title": "Black Friday Sale",
+ "end_offer": "UP TO 60% OFF + FREE GIFTS",
+ "end_photo": "site/hobo_bag_colour_burgundy.jpg",
+ "offer_title": "BLACK FRIDAY 50% OFF",
+ "offer_sub": "+ FREE GIFTS WITH 2 BAGS",
+ "keywords": [
+  "50%",
+  "free",
+  "pouch",
+  "wallet",
+  "gift",
+  "gifts",
+  "hidden",
+  "pocket",
+  "leather",
+  "black",
+  "friday"
+ ],
+ "music": {
+  "auto": true,
+  "seed": 5
+ },
+ "cold_open": [
+  80.74,
+  85.48
+ ],
+ "hook_label": "THE ONLY REAL ONE"
+}

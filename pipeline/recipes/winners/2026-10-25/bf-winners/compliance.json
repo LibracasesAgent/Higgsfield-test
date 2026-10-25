@@ -1,0 +1,171 @@
+{
+ "ok": true,
+ "product": "Hobo Bag",
+ "offer": "50% off + free matching pouch wallet",
+ "checked": 456,
+ "problems": [],
+ "allowed": [
+  {
+   "where": "S15_quotes.stars",
+   "text": "Love this bag. Best bag I have ever bought. Don't ever think of discontinuing amazing bag. Will definitely be purchasing more. Already bought for friends.",
+   "category": "claims",
+   "term": "Best bag",
+   "why": "a customer review (verbatim, or attributed to the customer by name)"
+  },
+  {
+   "where": "P01H1 label",
+   "text": "10 YEARS LATER",
+   "category": "numbers",
+   "term": "10",
+   "why": "the RAW's own words"
+  },
+  {
+   "where": "P01H1 label, P01H2 label, P01H3 label, P01H4 label",
+   "text": "REASON 4",
+   "category": "numbers",
+   "term": "4",
+   "why": "the RAW's own words"
+  },
+  {
+   "where": "P01H1 label, P01H2 label, P01H3 label, P01H4 label",
+   "text": "REASON 5",
+   "category": "numbers",
+   "term": "5",
+   "why": "the RAW's own words"
+  },
+  {
+   "where": "P02H1 label",
+   "text": "LOWEST PRICE EVER",
+   "category": "claims",
+   "term": "LOWEST PRICE",
+   "why": "the RAW's own words"
+  },
+  {
+   "where": "P02H3 label",
+   "text": "ALMOST GONE",
+   "category": "claims",
+   "term": "ALMOST GONE",
+   "why": "the RAW's own words"
+  },
+  {
+   "where": "P05H1 label, P05H2 label, P05H3 label, P05H4 label",
+   "text": "3. HANDMADE",
+   "category": "claims",
+   "term": "HANDMADE",
+   "why": "the RAW's own words"
+  },
+  {
+   "where": "ad copy LC_261025_HoboBag_BlackFriday_B019_S15_quotes primary_text_2",
+   "text": "\"Best bag I have ever bought.\" - Carol R.\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nTwo gold side zips, one on each side, for your keys and phone.\nBlack Friday: 50% off + a free matching pouch wallet. 🎁\nTap Get Offer before it's gone.",
+   "category": "claims",
+   "term": "Best bag",
+   "why": "a customer review (verbatim, or attributed to the customer by name)"
+  },
+  {
+   "where": "ad copy LC_261025_HoboBag_BlackFriday_B019_S15_quotes headline_1",
+   "text": "\"Best bag I have ever bought\"",
+   "category": "claims",
+   "term": "Best bag",
+   "why": "a customer review (verbatim, or attributed to the customer by name)"
+  },
+  {
+   "where": "ad copy LC_261025_HoboBag_BlackFriday_B019_P01_H1_remix94 hook_first_line",
+   "text": "\"Most bags look terrible after a year. Mine looks better after a decade.\"",
+   "category": "testimonial",
+   "term": "Mine",
+   "why": "the RAW's own words"
+  },
+  {
+   "where": "ad copy LC_261025_HoboBag_BlackFriday_B019_P01_H1_remix94 hook_first_line",
+   "text": "\"Most bags look terrible after a year. Mine looks better after a decade.\"",
+   "category": "numbers",
+   "term": "decade",
+   "why": "the RAW's own words"
+  },
+  {
+   "where": "ad copy LC_261025_HoboBag_BlackFriday_B019_P02_H1_remix148 hook_first_line",
+   "text": "\"Let me show you how to get this bag for the lowest price it'll ever be.\"",
+   "category": "claims",
+   "term": "lowest price",
+   "why": "the RAW's own words"
+  },
+  {
+   "where": "ad copy LC_261025_HoboBag_BlackFriday_B019_P02_H3_remix148 hook_first_line",
+   "text": "\"You do need to hurry because Susan's closing her workshop for good, and these are almost gone.\"",
+   "category": "claims",
+   "term": "almost gone",
+   "why": "the RAW's own words"
+  },
+  {
+   "where": "ad copy LC_261025_HoboBag_BlackFriday_B019_P03_H2_remix121 hook_first_line",
+   "text": "\"I don't worry about someone bumping into me in a crowd or reaching into my bag without me noticing.\"",
+   "category": "testimonial",
+   "term": "my bag",
+   "why": "the RAW's own words"
+  },
+  {
+   "where": "ad copy LC_261025_HoboBag_BlackFriday_B019_P05_H1_remix158 hook_first_line",
+   "text": "\"And then the poor woman thinks my bag fell apart on her. It breaks my heart because that was never my bag.\"",
+   "category": "testimonial",
+   "term": "my bag",
+   "why": "the RAW's own words"
+  },
+  {
+   "where": "ad copy LC_261025_HoboBag_BlackFriday_B019_P05_H1_remix158 hook_first_line",
+   "text": "\"And then the poor woman thinks my bag fell apart on her. It breaks my heart because that was never my bag.\"",
+   "category": "testimonial",
+   "term": "my bag",
+   "why": "the RAW's own words"
+  }
+ ],
+ "raw_story": [
+  {
+   "where": "P01H1 RAW raw94_H4 20.8-23.0 s, P01H2, P01H3, P01H4",
+   "text": "I designed this after being robbed twice in Europe.",
+   "category": "crime",
+   "term": "robbed",
+   "why": "the client's approved RAW story (PLAYBOOK section 1), heard as is: a human may want to check it against Julian's health rule"
+  },
+  {
+   "where": "P01H1 RAW raw94_H4 46.0-47.1 s, P01H2, P01H3, P01H4",
+   "text": "The arthritis has won.",
+   "category": "health",
+   "term": "arthritis",
+   "why": "the client's approved RAW story (PLAYBOOK section 1), heard as is: a human may want to check it against Julian's health rule"
+  },
+  {
+   "where": "P03H1 RAW raw121_H2 14.3-16.9 s, P03H2, P03H3, P03H4",
+   "text": "I used to be so anxious going out alone.",
+   "category": "health",
+   "term": "anxious",
+   "why": "the client's approved RAW story (PLAYBOOK section 1), heard as is: a human may want to check it against Julian's health rule"
+  },
+  {
+   "where": "P03H1 RAW raw121_H2 34.2-39.1 s, P03H2, P03H3, P03H4",
+   "text": "My glasses, my wallet, my makeup, even some medicine in case I need it.",
+   "category": "health",
+   "term": "medicine",
+   "why": "the client's approved RAW story (PLAYBOOK section 1), heard as is: a human may want to check it against Julian's health rule"
+  },
+  {
+   "where": "P03H1 RAW raw121_H2 77.1-86.4 s, P03H2, P03H3, P03H4",
+   "text": "I actually heard that Susan, the woman who makes these, is closing her workshop for good, since her arthritis won't let her keep making them by hand, so they're almost gone.",
+   "category": "health",
+   "term": "arthritis",
+   "why": "the client's approved RAW story (PLAYBOOK section 1), heard as is: a human may want to check it against Julian's health rule"
+  }
+ ],
+ "raw_cuts": [
+  {
+   "where": "P01H1, P01H2, P01H3, P01H4",
+   "key": "raw94_H4",
+   "range": [
+    31.88,
+    33.3
+   ],
+   "said": "that prevents shoulder pain.",
+   "why": "cut out of the proven body (Julian's health rule): listen once to the line around it"
+  }
+ ],
+ "report": "/tmp/run/bf-winners/compliance.json"
+}
