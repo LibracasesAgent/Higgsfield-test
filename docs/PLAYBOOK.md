@@ -673,7 +673,8 @@ The owner on B017: "the bag is not in the correct dimensions. It's not the corre
 (one row per batch: date, product, theme, pipeline, what was asked, folder link, notes, status, results added up), Ads (one row per
 image / video file with its link; yellow columns the team fills in: launched, spend, impressions, 3-sec plays, clicks, purchases,
 revenue, verdict, notes; grey formulas: hook rate, CTR, CPA, ROAS), Summary (by product and type), Data Sources.
-- **Updated by itself:** `make_batch.py upload` calls `tracker.sync` after the ledger; a sync also adds every B-numbered folder in
+- **Updated by itself:** `make_batch.py upload` calls `tracker.sync` after the ledger (and re-lists the last 3 days' batches, so a
+  re-render lands too); a sync also adds every B-numbered folder in
   Outputs (Winners/ and New Products/ too) the sheet lacks, so a Slack run on an unmerged branch still lands there.
 - **Drive scope only** (the Sheets API is off in the login's Cloud project 883081366864): a sync exports the sheet, keeps every row,
   every typed value, people's own columns (where they put them) and their own tabs, refreshes the file details of the synced

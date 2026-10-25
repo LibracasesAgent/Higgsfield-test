@@ -4,7 +4,7 @@ and every ad file, links to the files, and columns the team fills in (launched, 
 
 `make_batch.py upload` calls sync() at the end of every upload, so each Slack / Claude DM run adds its batch and ads by itself.
 A sync also adds every B-numbered batch folder in Drive Outputs (Winners/ and New Products/ too) the sheet does not list yet, so a
-run on a branch nobody merged still lands in the sheet.
+run on a branch nobody merged still lands in the sheet, and re-lists the batches of the last 3 days (re-rendered videos, late uploads).
 
 The pipeline's Google login has the Drive scope only (the Sheets API is off in its Cloud project), so a sync rewrites the whole
 file: it exports the sheet, keeps every row and every value people typed (the yellow columns, their own columns, their own tabs,
@@ -44,6 +44,7 @@ AD_COLS = [("Batch", "d"), ("Ad name", "d"), ("Type", "d"), ("Delivered", "d"), 
            ("ROAS", "f"), ("Verdict", "in"), ("What worked", "in"), ("What didn't", "in"), ("Next action", "in")]
 OURS = ("Read me", "Batches", "Ads", "Summary", "Data Sources")
 EXTRA_ROWS = 400        # formula rows filled down below the data, so rows typed by hand get them too
+RECENT_DAYS = 3         # batches delivered this recently are re-listed at every sync (a re-render or a late upload lands too)
 TOKEN_PRODUCT = {"HoboBag3PieceSet": "3-Piece Set", "HoboBag": "Hobo Bag", "Hobo20": "Hobo 2.0", "VintageBag": "Vintage Bag",
                  "SilhouetteBag": "Silhouette Bag", "SlouchySoft3PieceSet": "Slouchy Set"}
 KEYWORDS = [("hobo2", "Hobo 2.0"), ("set3", "3-Piece Set"), ("3piece", "3-Piece Set"), ("slouchy", "Slouchy Set"),
@@ -440,7 +441,9 @@ def sync(batches=(), refresh_all=False, notes=None, dry=False, quiet=False):
     labels = {a["name"]: a.get("label") or "" for b in led.values() for a in b.get("ads") or []}
     dfold = drive_batches(du, tok, outputs)
     have = {str(r.get("Batch")) for r in brows}
-    todo = {b for b in batches if b} | {b for b in dfold if b not in have}
+    today = datetime.date.today()
+    recent = {b for b, f in dfold.items() if 0 <= (today - datetime.date.fromisoformat(f["date"])).days <= RECENT_DAYS}
+    todo = {b for b in batches if b} | {b for b in dfold if b not in have} | recent    # (recent: re-renders and late uploads)
     if refresh_all:
         todo |= have | set(dfold)
     say(f"tracker: syncing {', '.join(sorted(todo)) or 'nothing new'}")
