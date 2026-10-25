@@ -1,0 +1,866 @@
+{
+ "prefix": "LC_261025_HoboBag_BlackFriday_B020",
+ "rev": 1,
+ "batch_id": {
+  "id": "B020",
+  "n": 20,
+  "rev": 1
+ },
+ "created": "2026-10-25",
+ "request": "versions of 147-H1, 139-H4, 123-H4 and 86(2), Black Friday",
+ "product": "Hobo Bag",
+ "product_key": "hobo bag",
+ "product_source": "built-in",
+ "theme": "black friday",
+ "theme_name": "BlackFriday",
+ "offer": "50% off + free matching pouch wallet",
+ "campaign": {
+  "id": "bf2026",
+  "name": "Black Friday Sale 2026",
+  "theme": "black friday",
+  "banner": "Black Friday Sale – up to 60% off + free gifts",
+  "until": "2026-11-30",
+  "from": "2026-10-23",
+  "end_title": "Black Friday Sale",
+  "end_pill": "UP TO 60% OFF + FREE GIFTS",
+  "card_sub": "+ FREE GIFTS WITH 2 BAGS",
+  "close": "Buy two bags and you also get a free jewellery box, while stocks last.",
+  "hooks": [
+   "Black Friday prices are live now. No need to wait.",
+   "Black Friday: up to sixty percent off, plus free gifts.",
+   "Buy two bags this Black Friday and get a free jewellery box."
+  ],
+  "facts": [
+   "Black Friday Sale: live now (from 23 October), it runs until 30 November (Cyber Monday). Black Friday is 27 November.",
+   "Up to 50% off sitewide (each bag's own % is on its offer card: the Hobo Bag is 50% off).",
+   "60% off bundles: buy 2 or 3 bags together and get 60% off the regular price (say it of buying 2 or 3 bags, never of one bag).",
+   "Free gifts while stocks last: buy 2 bags, get a free mirrored jewellery box (worth $19.95).",
+   "Buy 3 or more bags, get the jewellery box and a free cosmetic bag (together worth $44.90).",
+   "Only bags count for the gifts, not accessories.",
+   "Black Friday prices are live now: no need to wait."
+  ],
+  "bundle_pct": 60,
+  "gifts": [
+   {
+    "name": "mirrored jewellery box",
+    "short": "jewellery box",
+    "worth": 19.95,
+    "with": 2,
+    "photo": "/home/user/higgsfield-test/pipeline/assets/gifts/jewellery_box.jpg"
+   },
+   {
+    "name": "cosmetic bag",
+    "short": "cosmetic bag",
+    "worth": 24.95,
+    "with": 3,
+    "photo": "/home/user/higgsfield-test/pipeline/assets/gifts/cosmetic_bag.jpg"
+   }
+  ],
+  "gifts_worth": 44.9,
+  "dates": {
+   "black friday": "27 November",
+   "cyber monday": "30 November",
+   "ends": "30 November"
+  },
+  "copy": {
+   "primary": [
+    "Black Friday Sale: up to 60% off + free gifts. 🎁 Buy 2 bags, get a free mirrored jewellery box (worth $19.95). Buy 3, add a free cosmetic bag (together worth $44.90). While stocks last.",
+    "60% off when you buy 2 or 3 bags together: one for you, one for her. Plus free gifts while stocks last."
+   ],
+   "headline": [
+    "Up to 60% off + free gifts",
+    "Buy 2 bags, get a free gift",
+    "Black Friday prices are live"
+   ],
+   "description": "Up to 60% off + free gifts"
+  },
+  "approved_phrases": [
+   "up to (?:60|sixty) ?(?:%|percent) off",
+   "(?:60|sixty) ?(?:%|percent) off\\b[^.!?]{0,60}\\b(?:bundles?|together|(?:2|two) (?:or (?:3|three) )?bags|(?:3|three) bags|(?:2|two) or (?:3|three)|second bag)",
+   "\\bbundles?\\b[^.!?]{0,30}(?:60|sixty) ?(?:%|percent) off",
+   "(?:\\d|two|three|2|3) free gifts?",
+   "free gifts?",
+   "(?:a |the )?free (?:mirrored )?jewell?e?ry box(?:es)?",
+   "(?:a |the )?free (?:travel )?cosmetic bags?"
+  ],
+  "approved": "Wouter (owner), 2026-10-23: the Black Friday Sale went live on 23 October and runs until 30 November (Cyber Monday). Up to 50% off sitewide; 60% off bundles (2 or 3 bags bought together at 60% off the regular price); free gifts while stocks last: buy 2 bags, get a free mirrored jewellery box (worth $19.95); buy 3+ bags, get the jewellery box + a free cosmetic bag (together worth $44.90); only bags count, not accessories. The site banner (2026-10-23): 'EARLY BLACK FRIDAY: 50% OFF EVERYTHING | BUY 2 BAGS = 1 FREE GIFT | BUY 3 = 2 FREE GIFTS | ORDER TODAY WHILE STOCKS LAST!'"
+ },
+ "statics": [],
+ "videos": [
+  {
+   "name": "LC_261025_HoboBag_BlackFriday_B020_P01_H1_remix147",
+   "id": "P01H1",
+   "format": "remix",
+   "engine": "remix",
+   "hook": "H1",
+   "hook_label": "CARRIED FOR 20 YEARS",
+   "winner": {
+    "key": "raw147_H1",
+    "ad": "MAX-147-H1",
+    "brief_name": "MAX-147-H1",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag",
+    "cold_open": [
+     44.66,
+     49.96
+    ],
+    "reviews": [],
+    "intro": null
+   },
+   "est_seconds": 71.4,
+   "project": "P01",
+   "hook_text": "Leather that only gets more beautiful with age. Women have carried these for 15-20 years.",
+   "hook_type": "curiosity",
+   "cold_open": [
+    44.66,
+    49.96
+   ]
+  },
+  {
+   "name": "LC_261025_HoboBag_BlackFriday_B020_P01_H2_remix147",
+   "id": "P01H2",
+   "format": "remix",
+   "engine": "remix",
+   "hook": "H2",
+   "hook_label": "DESIGNED AFTER A ROBBERY",
+   "winner": {
+    "key": "raw147_H1",
+    "ad": "MAX-147-H1",
+    "brief_name": "MAX-147-H1",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag",
+    "cold_open": [
+     38.28,
+     44.52
+    ],
+    "reviews": [],
+    "intro": null
+   },
+   "est_seconds": 72.3,
+   "project": "P01",
+   "hook_text": "There's a hidden back pocket she designed after her sister was robbed. Divided compartments so you're never digging for your keys.",
+   "hook_type": "story",
+   "cold_open": [
+    38.28,
+    44.52
+   ]
+  },
+  {
+   "name": "LC_261025_HoboBag_BlackFriday_B020_P01_H3_remix147",
+   "id": "P01H3",
+   "format": "remix",
+   "engine": "remix",
+   "hook": "H3",
+   "hook_label": "NO NEXT BATCH",
+   "winner": {
+    "key": "raw147_H1",
+    "ad": "MAX-147-H1",
+    "brief_name": "MAX-147-H1",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag",
+    "cold_open": [
+     56.98,
+     60.34
+    ],
+    "reviews": [],
+    "intro": null
+   },
+   "est_seconds": 69.5,
+   "project": "P01",
+   "hook_text": "There's no next batch. When the workshop closes, it closes.",
+   "hook_type": "offer",
+   "cold_open": [
+    56.98,
+    60.34
+   ]
+  },
+  {
+   "name": "LC_261025_HoboBag_BlackFriday_B020_P01_H4_remix147",
+   "id": "P01H4",
+   "format": "remix",
+   "engine": "remix",
+   "hook": "H4",
+   "hook_label": "LOWER THE PRICE?",
+   "winner": {
+    "key": "raw147_H1",
+    "ad": "MAX-147-H1",
+    "brief_name": "MAX-147-H1",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag",
+    "cold_open": null,
+    "reviews": [],
+    "intro": null
+   },
+   "est_seconds": 66.1,
+   "project": "P01",
+   "hook_text": "I love your mom's bags, but can you ask her to lower the price?",
+   "hook_type": "question",
+   "cold_open": null
+  },
+  {
+   "name": "LC_261025_HoboBag_BlackFriday_B020_P02_H1_remix139",
+   "id": "P02H1",
+   "format": "remix",
+   "engine": "remix",
+   "hook": "H1",
+   "hook_label": "SOUND FAMILIAR?",
+   "winner": {
+    "key": "raw139_H4",
+    "ad": "MAX-139-H4",
+    "brief_name": "MAX-139-H4",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag",
+    "cold_open": [
+     6.19,
+     11.95
+    ],
+    "reviews": [],
+    "intro": null
+   },
+   "est_seconds": 60.2,
+   "project": "P02",
+   "hook_text": "My old bag was one big black hole. This one has divided compartments, so I'm never digging for my keys again.",
+   "hook_type": "problem",
+   "cold_open": [
+    6.19,
+    11.95
+   ]
+  },
+  {
+   "name": "LC_261025_HoboBag_BlackFriday_B020_P02_H2_remix139",
+   "id": "P02H2",
+   "format": "remix",
+   "engine": "remix",
+   "hook": "H2",
+   "hook_label": "ROBBED OVERSEAS",
+   "winner": {
+    "key": "raw139_H4",
+    "ad": "MAX-139-H4",
+    "brief_name": "MAX-139-H4",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag",
+    "cold_open": [
+     33.18,
+     36.04
+    ],
+    "reviews": [],
+    "intro": null
+   },
+   "est_seconds": 57.3,
+   "project": "P02",
+   "hook_text": "Susan designed it after her sister was robbed overseas.",
+   "hook_type": "story",
+   "cold_open": [
+    33.18,
+    36.04
+   ]
+  },
+  {
+   "name": "LC_261025_HoboBag_BlackFriday_B020_P02_H3_remix139",
+   "id": "P02H3",
+   "format": "remix",
+   "engine": "remix",
+   "hook": "H3",
+   "hook_label": "EVERYONE'S TALKING ABOUT IT",
+   "winner": {
+    "key": "raw139_H4",
+    "ad": "MAX-139-H4",
+    "brief_name": "MAX-139-H4",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag",
+    "cold_open": null,
+    "reviews": [],
+    "intro": null
+   },
+   "est_seconds": 54.4,
+   "project": "P02",
+   "hook_text": "I caved and bought the bag everyone won't stop talking about.",
+   "hook_type": "curiosity",
+   "cold_open": null
+  },
+  {
+   "name": "LC_261025_HoboBag_BlackFriday_B020_P02_H4_remix139",
+   "id": "P02H4",
+   "format": "remix",
+   "engine": "remix",
+   "hook": "H4",
+   "hook_label": "BETTER WITH AGE",
+   "winner": {
+    "key": "raw139_H4",
+    "ad": "MAX-139-H4",
+    "brief_name": "MAX-139-H4",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag",
+    "cold_open": [
+     22.04,
+     24.53
+    ],
+    "reviews": [],
+    "intro": null
+   },
+   "est_seconds": 56.9,
+   "project": "P02",
+   "hook_text": "This is quality leather that gets more beautiful with age.",
+   "hook_type": "feature",
+   "cold_open": [
+    22.04,
+    24.53
+   ]
+  },
+  {
+   "name": "LC_261025_HoboBag_BlackFriday_B020_P03_H1_remix123",
+   "id": "P03H1",
+   "format": "remix",
+   "engine": "remix",
+   "hook": "H1",
+   "hook_label": "HER SISTER WAS ROBBED",
+   "winner": {
+    "key": "raw123_H4",
+    "ad": "123-H4",
+    "brief_name": "123-H4",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag",
+    "cold_open": [
+     36.96,
+     41.44
+    ],
+    "reviews": [],
+    "intro": null
+   },
+   "est_seconds": 85.8,
+   "project": "P03",
+   "hook_text": "A hidden back pocket I designed after my own sister was robbed. Divided compartments.",
+   "hook_type": "story",
+   "cold_open": [
+    36.96,
+    41.44
+   ]
+  },
+  {
+   "name": "LC_261025_HoboBag_BlackFriday_B020_P03_H2_remix123",
+   "id": "P03H2",
+   "format": "remix",
+   "engine": "remix",
+   "hook": "H2",
+   "hook_label": "BIGGEST DISCOUNT IN 31 YEARS",
+   "winner": {
+    "key": "raw123_H4",
+    "ad": "123-H4",
+    "brief_name": "123-H4",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag",
+    "cold_open": null,
+    "reviews": [],
+    "intro": null
+   },
+   "est_seconds": 81.3,
+   "project": "P03",
+   "hook_text": "Hi, I'm Susan, and this is the biggest discount I've ever offered in 31 years.",
+   "hook_type": "offer",
+   "cold_open": null
+  },
+  {
+   "name": "LC_261025_HoboBag_BlackFriday_B020_P03_H3_remix123",
+   "id": "P03H3",
+   "format": "remix",
+   "engine": "remix",
+   "hook": "H3",
+   "hook_label": "3.5 MM STITCHING",
+   "winner": {
+    "key": "raw123_H4",
+    "ad": "123-H4",
+    "brief_name": "123-H4",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag",
+    "cold_open": [
+     32.3,
+     35.5
+    ],
+    "reviews": [],
+    "intro": null
+   },
+   "est_seconds": 84.5,
+   "project": "P03",
+   "hook_text": "Hand-stitched seams with 3.5 millimeter spacing.",
+   "hook_type": "feature",
+   "cold_open": [
+    32.3,
+    35.5
+   ]
+  },
+  {
+   "name": "LC_261025_HoboBag_BlackFriday_B020_P03_H4_remix123",
+   "id": "P03H4",
+   "format": "remix",
+   "engine": "remix",
+   "hook": "H4",
+   "hook_label": "NO NEXT BATCH",
+   "winner": {
+    "key": "raw123_H4",
+    "ad": "123-H4",
+    "brief_name": "123-H4",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag",
+    "cold_open": [
+     55.34,
+     61.46
+    ],
+    "reviews": [],
+    "intro": null
+   },
+   "est_seconds": 87.4,
+   "project": "P03",
+   "hook_text": "There's no next batch, and no one is taking over my workshop. As sad as it may sound, this really is the end.",
+   "hook_type": "offer",
+   "cold_open": [
+    55.34,
+    61.46
+   ]
+  },
+  {
+   "name": "LC_261025_HoboBag_BlackFriday_B020_P04_H1_remix86",
+   "id": "P04H1",
+   "format": "remix",
+   "engine": "remix",
+   "hook": "H1",
+   "hook_label": "16 YEARS, SAME BAG",
+   "winner": {
+    "key": "raw86_2",
+    "ad": "ACH-YRK-86(2)",
+    "brief_name": "ACH-YRK-86(2)",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag",
+    "cold_open": [
+     24.26,
+     31.74
+    ],
+    "reviews": [],
+    "intro": null
+   },
+   "est_seconds": 85.3,
+   "project": "P04",
+   "hook_text": "When I was 20, she made me my first luxury hobo bag. I'm 36 now. Still carrying the same bag. Still looks perfect.",
+   "hook_type": "curiosity",
+   "cold_open": [
+    24.26,
+    31.74
+   ]
+  },
+  {
+   "name": "LC_261025_HoboBag_BlackFriday_B020_P04_H2_remix86",
+   "id": "P04H2",
+   "format": "remix",
+   "engine": "remix",
+   "hook": "H2",
+   "hook_label": "HER LAST BAGS EVER",
+   "winner": {
+    "key": "raw86_2",
+    "ad": "ACH-YRK-86(2)",
+    "brief_name": "ACH-YRK-86(2)",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag",
+    "cold_open": [
+     75.76,
+     79.63
+    ],
+    "reviews": [],
+    "intro": null
+   },
+   "est_seconds": 81.7,
+   "project": "P04",
+   "hook_text": "These are the last bags she'll ever make with her own hands.",
+   "hook_type": "offer",
+   "cold_open": [
+    75.76,
+    79.63
+   ]
+  },
+  {
+   "name": "LC_261025_HoboBag_BlackFriday_B020_P04_H3_remix86",
+   "id": "P04H3",
+   "format": "remix",
+   "engine": "remix",
+   "hook": "H3",
+   "hook_label": "31 YEARS BY HAND",
+   "winner": {
+    "key": "raw86_2",
+    "ad": "ACH-YRK-86(2)",
+    "brief_name": "ACH-YRK-86(2)",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag",
+    "cold_open": null,
+    "reviews": [],
+    "intro": null
+   },
+   "est_seconds": 77.8,
+   "project": "P04",
+   "hook_text": "My mom has made luxury bags by hand for 31 years.",
+   "hook_type": "story",
+   "cold_open": null
+  },
+  {
+   "name": "LC_261025_HoboBag_BlackFriday_B020_P04_H4_remix86",
+   "id": "P04H4",
+   "format": "remix",
+   "engine": "remix",
+   "hook": "H4",
+   "hook_label": "BETTER WITH AGE",
+   "winner": {
+    "key": "raw86_2",
+    "ad": "ACH-YRK-86(2)",
+    "brief_name": "ACH-YRK-86(2)",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag",
+    "cold_open": [
+     80.16,
+     82.66
+    ],
+    "reviews": [],
+    "intro": null
+   },
+   "est_seconds": 80.3,
+   "project": "P04",
+   "hook_text": "Quality leather that gets better with age.",
+   "hook_type": "feature",
+   "cold_open": [
+    80.16,
+    82.66
+   ]
+  }
+ ],
+ "tts_lines": 0,
+ "tts_dupes": {},
+ "est_credits": 0.0,
+ "budget": 100.0,
+ "colour_images": {},
+ "packshots": [],
+ "brief": null,
+ "winners_source": "codes",
+ "winners_note": null,
+ "winners_used": [
+  {
+   "key": "raw147_H1",
+   "name": "MAX-147-H1",
+   "roas": null,
+   "action": null
+  },
+  {
+   "key": "raw139_H4",
+   "name": "MAX-139-H4",
+   "roas": null,
+   "action": null
+  },
+  {
+   "key": "raw123_H4",
+   "name": "123-H4",
+   "roas": null,
+   "action": null
+  },
+  {
+   "key": "raw86_2",
+   "name": "ACH-YRK-86(2)",
+   "roas": null,
+   "action": null
+  }
+ ],
+ "unmatched_winners": [],
+ "warnings": [
+  "campaign: Black Friday Sale 2026 (2026-10-23 to 2026-11-30, client-approved): end cards say 'Black Friday Sale' + 'UP TO 60% OFF + FREE GIFTS', offer cards '+ FREE GIFTS WITH 2 BAGS', the statics include the free-gifts and bundle layouts, the close and the ad copy name the gifts; each bag's own % stays its offer",
+  "Hobo Bag has 7 earlier batch(es) in the novelty log: the statics start 7 step(s) further in their photo / headline cycle (other photos and captions than before)",
+  "raw147_H1 (MAX-147-H1): needs a human (Julian's health rule): its approved RAW story (PLAYBOOK section 1) plays as is: \"Her arthritis has finally gotten bad enough that her doctor told her to stop.\"",
+  "raw139_H4 (MAX-139-H4): needs a human (Julian's health rule): its approved RAW story (PLAYBOOK section 1) plays as is: \"Susan's arthritis is forcing her to close her workshop after 30 years.\"",
+  "raw123_H4 (123-H4): needs a human (Julian's health rule): its approved RAW story (PLAYBOOK section 1) plays as is: \"As you may already know, my arthritis has forced me to close my workshop after three decades of making these bags by hand.\"",
+  "raw86_2 (ACH-YRK-86(2)): Julian's health rule: \"that prevents pain.\" is cut out of its proven body (RAW 88.7-90.1 s), so it says \"...Organized compartments that make sense, adjustable strap.\": needs a human to listen to that line once",
+  "raw86_2 (ACH-YRK-86(2)): needs a human (Julian's health rule): its approved RAW story (PLAYBOOK section 1) plays as is: \"The arthritis in her hands has gotten so severe that every stitch causes her pain.\"; \"Her doctor told her she has to stop immediately or she'll lose function permanently.\"",
+  "winner projects whose versions repeat a hook type (the versions differ in the opening line and label): P03 123-H4 story+offerx2+feature",
+  "winner versions that open like ads already delivered (pipeline/recipes): P02 MAX-139-H4 H1 (2026-10-02); P03 123-H4 H1 (2026-10-02): they differ from those ads only in the offer card and end card (and the review section those had); new openings need new cold opens (python3 pipeline/winner_prep.py)"
+ ],
+ "winner_reviews": false,
+ "seed": 1,
+ "hooks": 4,
+ "pipeline": "winners",
+ "video_format": "classic",
+ "projects": [
+  {
+   "id": "P01",
+   "from_id": "V01",
+   "angle": "remix147",
+   "engine": "remix",
+   "format": "remix",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P01H1",
+     "name": "LC_261025_HoboBag_BlackFriday_B020_P01_H1_remix147",
+     "hook_text": "Leather that only gets more beautiful with age. Women have carried these for 15-20 years.",
+     "label": "CARRIED FOR 20 YEARS",
+     "type": "curiosity",
+     "cold_open": [
+      44.66,
+      49.96
+     ],
+     "est_seconds": 71.4
+    },
+    {
+     "hook": "H2",
+     "id": "P01H2",
+     "name": "LC_261025_HoboBag_BlackFriday_B020_P01_H2_remix147",
+     "hook_text": "There's a hidden back pocket she designed after her sister was robbed. Divided compartments so you're never digging for your keys.",
+     "label": "DESIGNED AFTER A ROBBERY",
+     "type": "story",
+     "cold_open": [
+      38.28,
+      44.52
+     ],
+     "est_seconds": 72.3
+    },
+    {
+     "hook": "H3",
+     "id": "P01H3",
+     "name": "LC_261025_HoboBag_BlackFriday_B020_P01_H3_remix147",
+     "hook_text": "There's no next batch. When the workshop closes, it closes.",
+     "label": "NO NEXT BATCH",
+     "type": "offer",
+     "cold_open": [
+      56.98,
+      60.34
+     ],
+     "est_seconds": 69.5
+    },
+    {
+     "hook": "H4",
+     "id": "P01H4",
+     "name": "LC_261025_HoboBag_BlackFriday_B020_P01_H4_remix147",
+     "hook_text": "I love your mom's bags, but can you ask her to lower the price?",
+     "label": "LOWER THE PRICE?",
+     "type": "question",
+     "cold_open": null,
+     "est_seconds": 66.1
+    }
+   ],
+   "winner": {
+    "key": "raw147_H1",
+    "ad": "MAX-147-H1",
+    "brief_name": "MAX-147-H1",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag"
+   }
+  },
+  {
+   "id": "P02",
+   "from_id": "V02",
+   "angle": "remix139",
+   "engine": "remix",
+   "format": "remix",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P02H1",
+     "name": "LC_261025_HoboBag_BlackFriday_B020_P02_H1_remix139",
+     "hook_text": "My old bag was one big black hole. This one has divided compartments, so I'm never digging for my keys again.",
+     "label": "SOUND FAMILIAR?",
+     "type": "problem",
+     "cold_open": [
+      6.19,
+      11.95
+     ],
+     "est_seconds": 60.2
+    },
+    {
+     "hook": "H2",
+     "id": "P02H2",
+     "name": "LC_261025_HoboBag_BlackFriday_B020_P02_H2_remix139",
+     "hook_text": "Susan designed it after her sister was robbed overseas.",
+     "label": "ROBBED OVERSEAS",
+     "type": "story",
+     "cold_open": [
+      33.18,
+      36.04
+     ],
+     "est_seconds": 57.3
+    },
+    {
+     "hook": "H3",
+     "id": "P02H3",
+     "name": "LC_261025_HoboBag_BlackFriday_B020_P02_H3_remix139",
+     "hook_text": "I caved and bought the bag everyone won't stop talking about.",
+     "label": "EVERYONE'S TALKING ABOUT IT",
+     "type": "curiosity",
+     "cold_open": null,
+     "est_seconds": 54.4
+    },
+    {
+     "hook": "H4",
+     "id": "P02H4",
+     "name": "LC_261025_HoboBag_BlackFriday_B020_P02_H4_remix139",
+     "hook_text": "This is quality leather that gets more beautiful with age.",
+     "label": "BETTER WITH AGE",
+     "type": "feature",
+     "cold_open": [
+      22.04,
+      24.53
+     ],
+     "est_seconds": 56.9
+    }
+   ],
+   "winner": {
+    "key": "raw139_H4",
+    "ad": "MAX-139-H4",
+    "brief_name": "MAX-139-H4",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag"
+   }
+  },
+  {
+   "id": "P03",
+   "from_id": "V03",
+   "angle": "remix123",
+   "engine": "remix",
+   "format": "remix",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P03H1",
+     "name": "LC_261025_HoboBag_BlackFriday_B020_P03_H1_remix123",
+     "hook_text": "A hidden back pocket I designed after my own sister was robbed. Divided compartments.",
+     "label": "HER SISTER WAS ROBBED",
+     "type": "story",
+     "cold_open": [
+      36.96,
+      41.44
+     ],
+     "est_seconds": 85.8
+    },
+    {
+     "hook": "H2",
+     "id": "P03H2",
+     "name": "LC_261025_HoboBag_BlackFriday_B020_P03_H2_remix123",
+     "hook_text": "Hi, I'm Susan, and this is the biggest discount I've ever offered in 31 years.",
+     "label": "BIGGEST DISCOUNT IN 31 YEARS",
+     "type": "offer",
+     "cold_open": null,
+     "est_seconds": 81.3
+    },
+    {
+     "hook": "H3",
+     "id": "P03H3",
+     "name": "LC_261025_HoboBag_BlackFriday_B020_P03_H3_remix123",
+     "hook_text": "Hand-stitched seams with 3.5 millimeter spacing.",
+     "label": "3.5 MM STITCHING",
+     "type": "feature",
+     "cold_open": [
+      32.3,
+      35.5
+     ],
+     "est_seconds": 84.5
+    },
+    {
+     "hook": "H4",
+     "id": "P03H4",
+     "name": "LC_261025_HoboBag_BlackFriday_B020_P03_H4_remix123",
+     "hook_text": "There's no next batch, and no one is taking over my workshop. As sad as it may sound, this really is the end.",
+     "label": "NO NEXT BATCH",
+     "type": "offer",
+     "cold_open": [
+      55.34,
+      61.46
+     ],
+     "est_seconds": 87.4
+    }
+   ],
+   "winner": {
+    "key": "raw123_H4",
+    "ad": "123-H4",
+    "brief_name": "123-H4",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag"
+   }
+  },
+  {
+   "id": "P04",
+   "from_id": "V04",
+   "angle": "remix86",
+   "engine": "remix",
+   "format": "remix",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P04H1",
+     "name": "LC_261025_HoboBag_BlackFriday_B020_P04_H1_remix86",
+     "hook_text": "When I was 20, she made me my first luxury hobo bag. I'm 36 now. Still carrying the same bag. Still looks perfect.",
+     "label": "16 YEARS, SAME BAG",
+     "type": "curiosity",
+     "cold_open": [
+      24.26,
+      31.74
+     ],
+     "est_seconds": 85.3
+    },
+    {
+     "hook": "H2",
+     "id": "P04H2",
+     "name": "LC_261025_HoboBag_BlackFriday_B020_P04_H2_remix86",
+     "hook_text": "These are the last bags she'll ever make with her own hands.",
+     "label": "HER LAST BAGS EVER",
+     "type": "offer",
+     "cold_open": [
+      75.76,
+      79.63
+     ],
+     "est_seconds": 81.7
+    },
+    {
+     "hook": "H3",
+     "id": "P04H3",
+     "name": "LC_261025_HoboBag_BlackFriday_B020_P04_H3_remix86",
+     "hook_text": "My mom has made luxury bags by hand for 31 years.",
+     "label": "31 YEARS BY HAND",
+     "type": "story",
+     "cold_open": null,
+     "est_seconds": 77.8
+    },
+    {
+     "hook": "H4",
+     "id": "P04H4",
+     "name": "LC_261025_HoboBag_BlackFriday_B020_P04_H4_remix86",
+     "hook_text": "Quality leather that gets better with age.",
+     "label": "BETTER WITH AGE",
+     "type": "feature",
+     "cold_open": [
+      80.16,
+      82.66
+     ],
+     "est_seconds": 80.3
+    }
+   ],
+   "winner": {
+    "key": "raw86_2",
+    "ad": "ACH-YRK-86(2)",
+    "brief_name": "ACH-YRK-86(2)",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag"
+   }
+  }
+ ],
+ "hooks_seed": 1
+}

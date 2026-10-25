@@ -1397,7 +1397,122 @@
      "label": "Everything's 50% off with a free matching wallet. The only real one is in the link below."
     }
    ]
+  },
+  {
+   "id": "B020",
+   "n": 20,
+   "rev": 1,
+   "date": "2026-10-25",
+   "product": "Hobo Bag",
+   "theme": "BlackFriday",
+   "pipeline": "winners",
+   "request": "versions of 147-H1, 139-H4, 123-H4 and 86(2), Black Friday",
+   "statics": 0,
+   "projects": 4,
+   "hooks": 4,
+   "seed": 1,
+   "status": "uploaded",
+   "folder": "B020 – 2026-10-25 – Hobo Bag BlackFriday – 4 projects",
+   "link": "https://drive.google.com/drive/folders/1W7R-SItBaACm5W0pUe9UzD7TCjVKzuKp",
+   "ads": [
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B020_P01_H1_remix147",
+     "kind": "video",
+     "fp": "v|leather that only gets more beautiful with age. women have carried these for 15-20 years.|",
+     "label": "Leather that only gets more beautiful with age. Women have carried these for 15-20 years."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B020_P01_H2_remix147",
+     "kind": "video",
+     "fp": "v|there's a hidden back pocket she designed after her sister was robbed. divided compartments so you're never digging for your keys.|",
+     "label": "There's a hidden back pocket she designed after her sister was robbed. Divided compartments so you're never digging for your keys."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B020_P01_H3_remix147",
+     "kind": "video",
+     "fp": "v|there's no next batch. when the workshop closes, it closes.|",
+     "label": "There's no next batch. When the workshop closes, it closes."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B020_P01_H4_remix147",
+     "kind": "video",
+     "fp": "v|i love your mom's bags, but can you ask her to lower the price?|",
+     "label": "I love your mom's bags, but can you ask her to lower the price?"
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B020_P02_H1_remix139",
+     "kind": "video",
+     "fp": "v|my old bag was one big black hole. this one has divided compartments, so i'm never digging for my keys again.|",
+     "label": "My old bag was one big black hole. This one has divided compartments, so I'm never digging for my keys again."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B020_P02_H2_remix139",
+     "kind": "video",
+     "fp": "v|susan designed it after her sister was robbed overseas.|",
+     "label": "Susan designed it after her sister was robbed overseas."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B020_P02_H3_remix139",
+     "kind": "video",
+     "fp": "v|i caved and bought the bag everyone won't stop talking about.|",
+     "label": "I caved and bought the bag everyone won't stop talking about."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B020_P02_H4_remix139",
+     "kind": "video",
+     "fp": "v|this is quality leather that gets more beautiful with age.|",
+     "label": "This is quality leather that gets more beautiful with age."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B020_P03_H1_remix123",
+     "kind": "video",
+     "fp": "v|a hidden back pocket i designed after my own sister was robbed. divided compartments.|",
+     "label": "A hidden back pocket I designed after my own sister was robbed. Divided compartments."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B020_P03_H2_remix123",
+     "kind": "video",
+     "fp": "v|hi, i'm susan, and this is the biggest discount i've ever offered in 31 years.|",
+     "label": "Hi, I'm Susan, and this is the biggest discount I've ever offered in 31 years."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B020_P03_H3_remix123",
+     "kind": "video",
+     "fp": "v|hand-stitched seams with 3.5 millimeter spacing.|",
+     "label": "Hand-stitched seams with 3.5 millimeter spacing."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B020_P03_H4_remix123",
+     "kind": "video",
+     "fp": "v|there's no next batch, and no one is taking over my workshop. as sad as it may sound, this really is the end.|",
+     "label": "There's no next batch, and no one is taking over my workshop. As sad as it may sound, this really is the end."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B020_P04_H1_remix86",
+     "kind": "video",
+     "fp": "v|when i was 20, she made me my first luxury hobo bag. i'm 36 now. still carrying the same bag. still looks perfect.|",
+     "label": "When I was 20, she made me my first luxury hobo bag. I'm 36 now. Still carrying the same bag. Still looks perfect."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B020_P04_H2_remix86",
+     "kind": "video",
+     "fp": "v|these are the last bags she'll ever make with her own hands.|",
+     "label": "These are the last bags she'll ever make with her own hands."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B020_P04_H3_remix86",
+     "kind": "video",
+     "fp": "v|my mom has made luxury bags by hand for 31 years.|",
+     "label": "My mom has made luxury bags by hand for 31 years."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B020_P04_H4_remix86",
+     "kind": "video",
+     "fp": "v|quality leather that gets better with age.|",
+     "label": "Quality leather that gets better with age."
+    }
+   ]
   }
  ],
- "next": 20
+ "next": 21
 }

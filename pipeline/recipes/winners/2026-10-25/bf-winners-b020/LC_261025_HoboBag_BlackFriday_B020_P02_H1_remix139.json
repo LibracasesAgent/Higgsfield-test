@@ -1,0 +1,58 @@
+{
+ "raw": "1SUjoSGlQgAm40fxDJkZeHVqDIYSTmYBm",
+ "start": 0.0,
+ "end": null,
+ "cut": [],
+ "insert_at": 36.1,
+ "offer_word": "50",
+ "offer_after": null,
+ "burned_captions": false,
+ "labels": [
+  {
+   "text": "REASON 1",
+   "word": "first",
+   "after": 4
+  },
+  {
+   "text": "REASON 2",
+   "word": "second",
+   "after": 4
+  },
+  {
+   "text": "REASON 3",
+   "word": "third",
+   "after": 4
+  },
+  {
+   "text": "REASON 4",
+   "word": "fourth",
+   "after": 4
+  }
+ ],
+ "end_title": "Black Friday Sale",
+ "end_offer": "UP TO 60% OFF + FREE GIFTS",
+ "offer_title": "BLACK FRIDAY 50% OFF",
+ "offer_sub": "+ FREE GIFTS WITH 2 BAGS",
+ "keywords": [
+  "50%",
+  "free",
+  "pouch",
+  "wallet",
+  "gift",
+  "gifts",
+  "hidden",
+  "pocket",
+  "leather",
+  "black",
+  "friday"
+ ],
+ "music": {
+  "auto": true,
+  "seed": 2
+ },
+ "cold_open": [
+  6.19,
+  11.95
+ ],
+ "hook_label": "SOUND FAMILIAR?"
+}

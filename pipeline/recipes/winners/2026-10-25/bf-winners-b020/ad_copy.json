@@ -1,0 +1,241 @@
+{
+ "ok": true,
+ "created": "2026-10-25",
+ "product": "Hobo Bag",
+ "theme": "black friday",
+ "theme_name": "BlackFriday",
+ "offer": "50% off + free matching pouch wallet",
+ "seed": 1,
+ "cta": "Get Offer",
+ "rows": 16,
+ "csv": "/tmp/claude-0/-home-user/a4d20674-2e8b-5e41-9883-cf80590958d2/scratchpad/bf-winners-4/ad_copy.csv",
+ "statics": [],
+ "projects": [
+  {
+   "id": "P01",
+   "angle": "remix147",
+   "engine": "remix",
+   "product": "Hobo Bag",
+   "winner": {
+    "key": "raw147_H1",
+    "ad": "MAX-147-H1",
+    "brief_name": "MAX-147-H1",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag"
+   },
+   "primary_text_1": "This is the Black Friday deal you've been waiting for.\nThe Hobo Bag: 50% off + free wallet.",
+   "primary_text_2": "Black Friday came early. 🖤\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nSoft, water-resistant leather that looks expensive and only gets better with time.\nBuy 2 bags, get a free mirrored jewellery box (worth $19.95). 🎁\nTap Get Offer to claim the deal.",
+   "headline_1": "Up to 60% off + free gifts",
+   "headline_2": "Buy 2 bags, get a free gift",
+   "description": "Black Friday: 50% off",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER",
+   "versions": [
+    {
+     "hook": "H1",
+     "id": "P01H1",
+     "ad_name": "LC_261025_HoboBag_BlackFriday_B020_P01_H1_remix147",
+     "hook_text": "Leather that only gets more beautiful with age. Women have carried these for 15-20 years.",
+     "hook_first_line": "\"Leather that only gets more beautiful with age. Women have carried these for 15-20 years.\"",
+     "primary_text_2_hook": "\"Leather that only gets more beautiful with age. Women have carried these for 15-20 years.\"\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nSoft, water-resistant leather that looks expensive and only gets better with time.\nBuy 2 bags, get a free mirrored jewellery box (worth $19.95). 🎁\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H2",
+     "id": "P01H2",
+     "ad_name": "LC_261025_HoboBag_BlackFriday_B020_P01_H2_remix147",
+     "hook_text": "There's a hidden back pocket she designed after her sister was robbed. Divided compartments so you're never digging for your keys.",
+     "hook_first_line": "",
+     "primary_text_2_hook": ""
+    },
+    {
+     "hook": "H3",
+     "id": "P01H3",
+     "ad_name": "LC_261025_HoboBag_BlackFriday_B020_P01_H3_remix147",
+     "hook_text": "There's no next batch. When the workshop closes, it closes.",
+     "hook_first_line": "\"There's no next batch. When the workshop closes, it closes.\"",
+     "primary_text_2_hook": "\"There's no next batch. When the workshop closes, it closes.\"\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nSoft, water-resistant leather that looks expensive and only gets better with time.\nBuy 2 bags, get a free mirrored jewellery box (worth $19.95). 🎁\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H4",
+     "id": "P01H4",
+     "ad_name": "LC_261025_HoboBag_BlackFriday_B020_P01_H4_remix147",
+     "hook_text": "I love your mom's bags, but can you ask her to lower the price?",
+     "hook_first_line": "\"I love your mom's bags, but can you ask her to lower the price?\"",
+     "primary_text_2_hook": "\"I love your mom's bags, but can you ask her to lower the price?\"\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nSoft, water-resistant leather that looks expensive and only gets better with time.\nBuy 2 bags, get a free mirrored jewellery box (worth $19.95). 🎁\nTap Get Offer to claim the deal."
+    }
+   ]
+  },
+  {
+   "id": "P02",
+   "angle": "remix139",
+   "engine": "remix",
+   "product": "Hobo Bag",
+   "winner": {
+    "key": "raw139_H4",
+    "ad": "MAX-139-H4",
+    "brief_name": "MAX-139-H4",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag"
+   },
+   "primary_text_1": "Stop digging for your keys at the bottom of your bag.\nBlack Friday deal: the Hobo Bag is 50% off + free wallet.",
+   "primary_text_2": "Black Friday: the bag everyone asks about is half price. 🖤\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nDivided compartments, so nothing sinks to the bottom.\nBuy 2 bags, get a free mirrored jewellery box (worth $19.95). 🎁\nTap Get Offer to claim the deal.",
+   "headline_1": "Black Friday prices are live",
+   "headline_2": "Hobo Bag: 50% Off + Free Wallet",
+   "description": "Up to 60% off + free gifts",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER",
+   "versions": [
+    {
+     "hook": "H1",
+     "id": "P02H1",
+     "ad_name": "LC_261025_HoboBag_BlackFriday_B020_P02_H1_remix139",
+     "hook_text": "My old bag was one big black hole. This one has divided compartments, so I'm never digging for my keys again.",
+     "hook_first_line": "\"My old bag was one big black hole. This one has divided compartments, so I'm never digging for my keys again.\"",
+     "primary_text_2_hook": "\"My old bag was one big black hole. This one has divided compartments, so I'm never digging for my keys again.\"\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nDivided compartments, so nothing sinks to the bottom.\nBuy 2 bags, get a free mirrored jewellery box (worth $19.95). 🎁\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H2",
+     "id": "P02H2",
+     "ad_name": "LC_261025_HoboBag_BlackFriday_B020_P02_H2_remix139",
+     "hook_text": "Susan designed it after her sister was robbed overseas.",
+     "hook_first_line": "",
+     "primary_text_2_hook": ""
+    },
+    {
+     "hook": "H3",
+     "id": "P02H3",
+     "ad_name": "LC_261025_HoboBag_BlackFriday_B020_P02_H3_remix139",
+     "hook_text": "I caved and bought the bag everyone won't stop talking about.",
+     "hook_first_line": "\"I caved and bought the bag everyone won't stop talking about.\"",
+     "primary_text_2_hook": "\"I caved and bought the bag everyone won't stop talking about.\"\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nDivided compartments, so nothing sinks to the bottom.\nBuy 2 bags, get a free mirrored jewellery box (worth $19.95). 🎁\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H4",
+     "id": "P02H4",
+     "ad_name": "LC_261025_HoboBag_BlackFriday_B020_P02_H4_remix139",
+     "hook_text": "This is quality leather that gets more beautiful with age.",
+     "hook_first_line": "\"This is quality leather that gets more beautiful with age.\"",
+     "primary_text_2_hook": "\"This is quality leather that gets more beautiful with age.\"\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nDivided compartments, so nothing sinks to the bottom.\nBuy 2 bags, get a free mirrored jewellery box (worth $19.95). 🎁\nTap Get Offer to claim the deal."
+    }
+   ]
+  },
+  {
+   "id": "P03",
+   "angle": "remix123",
+   "engine": "remix",
+   "product": "Hobo Bag",
+   "winner": {
+    "key": "raw123_H4",
+    "ad": "123-H4",
+    "brief_name": "123-H4",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag"
+   },
+   "primary_text_1": "Most bags look the same from the front. Turn this one around.\nThe Hobo Bag, now 50% off with a free matching pouch wallet.",
+   "primary_text_2": "If your bag is one big black hole, this is for you. 🖤\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nTwo straps, so you can wear it on the shoulder, as a handbag, or crossbody.\nBlack Friday: 50% off + a free matching pouch wallet. 🎁\nTap Get Offer to claim the deal.",
+   "headline_1": "Black Friday Deal: 50% Off + Free Wallet",
+   "headline_2": "50% Off the Hobo Bag + Free Wallet",
+   "description": "50% off + free US shipping",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER",
+   "versions": [
+    {
+     "hook": "H1",
+     "id": "P03H1",
+     "ad_name": "LC_261025_HoboBag_BlackFriday_B020_P03_H1_remix123",
+     "hook_text": "A hidden back pocket I designed after my own sister was robbed. Divided compartments.",
+     "hook_first_line": "",
+     "primary_text_2_hook": ""
+    },
+    {
+     "hook": "H2",
+     "id": "P03H2",
+     "ad_name": "LC_261025_HoboBag_BlackFriday_B020_P03_H2_remix123",
+     "hook_text": "Hi, I'm Susan, and this is the biggest discount I've ever offered in 31 years.",
+     "hook_first_line": "\"Hi, I'm Susan, and this is the biggest discount I've ever offered in 31 years.\"",
+     "primary_text_2_hook": "\"Hi, I'm Susan, and this is the biggest discount I've ever offered in 31 years.\"\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nTwo straps, so you can wear it on the shoulder, as a handbag, or crossbody.\nBlack Friday: 50% off + a free matching pouch wallet. 🎁\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H3",
+     "id": "P03H3",
+     "ad_name": "LC_261025_HoboBag_BlackFriday_B020_P03_H3_remix123",
+     "hook_text": "Hand-stitched seams with 3.5 millimeter spacing.",
+     "hook_first_line": "\"Hand-stitched seams with 3.5 millimeter spacing.\"",
+     "primary_text_2_hook": "\"Hand-stitched seams with 3.5 millimeter spacing.\"\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nTwo straps, so you can wear it on the shoulder, as a handbag, or crossbody.\nBlack Friday: 50% off + a free matching pouch wallet. 🎁\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H4",
+     "id": "P03H4",
+     "ad_name": "LC_261025_HoboBag_BlackFriday_B020_P03_H4_remix123",
+     "hook_text": "There's no next batch, and no one is taking over my workshop. As sad as it may sound, this really is the end.",
+     "hook_first_line": "\"There's no next batch, and no one is taking over my workshop. As sad as it may sound, this really is the end.\"",
+     "primary_text_2_hook": "\"There's no next batch, and no one is taking over my workshop. As sad as it may sound, this really is the end.\"\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nTwo straps, so you can wear it on the shoulder, as a handbag, or crossbody.\nBlack Friday: 50% off + a free matching pouch wallet. 🎁\nTap Get Offer to claim the deal."
+    }
+   ]
+  },
+  {
+   "id": "P04",
+   "angle": "remix86",
+   "engine": "remix",
+   "product": "Hobo Bag",
+   "winner": {
+    "key": "raw86_2",
+    "ad": "ACH-YRK-86(2)",
+    "brief_name": "ACH-YRK-86(2)",
+    "roas": null,
+    "action": null,
+    "product": "Hobo Bag"
+   },
+   "primary_text_1": "Soft leather that's water-resistant and scratch-proof.\nThe Hobo Bag, now 50% off with a free matching pouch wallet.",
+   "primary_text_2": "This bag has a pocket you can't see from the front. 🖤\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nSoft, water-resistant leather that looks expensive and only gets better with time.\nBlack Friday: 50% off + a free matching pouch wallet. 🎁\nTap Get Offer to claim the deal.",
+   "headline_1": "Black Friday: 50% Off the Hobo Bag",
+   "headline_2": "Free Matching Pouch Wallet Included",
+   "description": "6 colours + free US shipping",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER",
+   "versions": [
+    {
+     "hook": "H1",
+     "id": "P04H1",
+     "ad_name": "LC_261025_HoboBag_BlackFriday_B020_P04_H1_remix86",
+     "hook_text": "When I was 20, she made me my first luxury hobo bag. I'm 36 now. Still carrying the same bag. Still looks perfect.",
+     "hook_first_line": "\"When I was 20, she made me my first luxury hobo bag. I'm 36 now. Still carrying the same bag. Still looks perfect.\"",
+     "primary_text_2_hook": "\"When I was 20, she made me my first luxury hobo bag. I'm 36 now. Still carrying the same bag. Still looks perfect.\"\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nSoft, water-resistant leather that looks expensive and only gets better with time.\nBlack Friday: 50% off + a free matching pouch wallet. 🎁\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H2",
+     "id": "P04H2",
+     "ad_name": "LC_261025_HoboBag_BlackFriday_B020_P04_H2_remix86",
+     "hook_text": "These are the last bags she'll ever make with her own hands.",
+     "hook_first_line": "\"These are the last bags she'll ever make with her own hands.\"",
+     "primary_text_2_hook": "\"These are the last bags she'll ever make with her own hands.\"\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nSoft, water-resistant leather that looks expensive and only gets better with time.\nBlack Friday: 50% off + a free matching pouch wallet. 🎁\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H3",
+     "id": "P04H3",
+     "ad_name": "LC_261025_HoboBag_BlackFriday_B020_P04_H3_remix86",
+     "hook_text": "My mom has made luxury bags by hand for 31 years.",
+     "hook_first_line": "\"My mom has made luxury bags by hand for 31 years.\"",
+     "primary_text_2_hook": "\"My mom has made luxury bags by hand for 31 years.\"\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nSoft, water-resistant leather that looks expensive and only gets better with time.\nBlack Friday: 50% off + a free matching pouch wallet. 🎁\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H4",
+     "id": "P04H4",
+     "ad_name": "LC_261025_HoboBag_BlackFriday_B020_P04_H4_remix86",
+     "hook_text": "Quality leather that gets better with age.",
+     "hook_first_line": "\"Quality leather that gets better with age.\"",
+     "primary_text_2_hook": "\"Quality leather that gets better with age.\"\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nSoft, water-resistant leather that looks expensive and only gets better with time.\nBlack Friday: 50% off + a free matching pouch wallet. 🎁\nTap Get Offer to claim the deal."
+    }
+   ]
+  }
+ ],
+ "notes": [
+  "P01H2: no hook_first_line (crime: robbed; 132 characters (max 125)): use the shared primary texts",
+  "P02H2: no hook_first_line (crime: robbed): use the shared primary texts",
+  "P03H1: no hook_first_line (crime: robbed): use the shared primary texts"
+ ],
+ "problems": []
+}

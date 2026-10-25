@@ -1,0 +1,37 @@
+{
+ "raw": "1kLqrrgE55dACVzNgmvW35_US3Vb7KlEc",
+ "start": 0.0,
+ "end": null,
+ "cut": [],
+ "insert_at": 44.24,
+ "offer_word": "50",
+ "offer_after": 19,
+ "burned_captions": false,
+ "labels": [],
+ "end_title": "Black Friday Sale",
+ "end_offer": "UP TO 60% OFF + FREE GIFTS",
+ "offer_title": "BLACK FRIDAY 50% OFF",
+ "offer_sub": "+ FREE GIFTS WITH 2 BAGS",
+ "keywords": [
+  "50%",
+  "free",
+  "pouch",
+  "wallet",
+  "gift",
+  "gifts",
+  "hidden",
+  "pocket",
+  "leather",
+  "black",
+  "friday"
+ ],
+ "music": {
+  "auto": true,
+  "seed": 3
+ },
+ "cold_open": [
+  32.3,
+  35.5
+ ],
+ "hook_label": "3.5 MM STITCHING"
+}
