@@ -419,7 +419,7 @@ def replace(du, tok, sid, wb):
 
 
 # ---------------------------------------------------------------- sync
-def sync(batches=(), refresh_all=False, notes=None, dry=False, quiet=False):
+def sync(batches=(), refresh_all=False, notes=None, dry=False, quiet=False, replace_notes=False):
     """Add / refresh the given batch ids (and every batch folder in Drive the sheet lacks) -> summary dict."""
     say = (lambda *x: None) if quiet else (lambda *x: print(*x, file=sys.stderr))
     cfg = load_cfg()
@@ -474,7 +474,7 @@ def sync(batches=(), refresh_all=False, notes=None, dry=False, quiet=False):
             added_b.append(bid)
         else:
             for h, v in meta.items():          # file details refreshed; Notes only filled when empty (people edit them)
-                if dkind.get(h) == "d" and v not in (None, "") and not (h == "Notes" and old.get(h)):
+                if dkind.get(h) == "d" and v not in (None, "") and not (h == "Notes" and old.get(h) and not replace_notes):
                     old[h] = v
         files = crawl(du, tok, folder, skip=tuple(cfg.get("skip_paths", {}).get(bid, [])))
         for x in ad_rows(bid, meta, files, labels):
