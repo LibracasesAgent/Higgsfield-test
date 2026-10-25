@@ -178,7 +178,7 @@ def context(pr):
     ship = "US" if store else ("US" if m.group(1) else "-") if m and not neg else ""     # "-": shipping, no region
     src = (" | ".join(C.playbook_row(pr["name"], C.playbook()[0])) if store else "") + " " + notes
     mw = re.search(r"(\d+|\w+)[- ]years? warranty", src, re.I)
-    mr = re.search(r"\b(easy|free) returns?\b", src, re.I)
+    mr = None if (C._CAMPAIGN[0] or {}).get("final_sale") else re.search(r"\b(easy|free) returns?\b", src, re.I)   # (final sale: none)
     short = pr["short"]
     V = dict(short=short, noun=noun_of(short), pct=pct, gift=gift or "", P=ov["P"], off_sp=ov["off_sp"], price_sp=ov["price_sp"],
              gift_sp=ov["gift_sp"], price=price_str(price) if priced else "", was=price_str(was) if priced else "",

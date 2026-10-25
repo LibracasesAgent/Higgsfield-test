@@ -52,7 +52,7 @@ def for_plan(c, theme_key):
                 close=pick(c.get("close")) or "", hooks=pick(c.get("hooks")) or [], facts=list(c.get("facts") or []),
                 bundle_pct=c.get("bundle_pct"), gifts=gifts, gifts_worth=c.get("gifts_worth"), dates=dict(c.get("dates") or {}),
                 copy=dict(c.get("copy") or {}), approved_phrases=list(c.get("approved_phrases") or []),
-                approved=c.get("approved") or "")
+                approved=c.get("approved") or "", final_sale=bool(c.get("final_sale")), terms=c.get("terms") or "")
 
 
 def corpus(c):

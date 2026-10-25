@@ -77,6 +77,15 @@ def test_the_sale_layouts_render():
         assert im is not None and im.size == (1080, 1350), spec["layout"]
 
 
+def test_no_returns_promise_while_the_sale_is_final_sale():
+    assert BF["final_sale"] and "final sale" in " ".join(BF["facts"])
+    for t in ["One-year warranty, easy returns. Tap the link below.", "Not sure it will suit? There is a one-year warranty and easy returns.",
+              "Free returns on every order.", "Don't love it? Send it back."]:
+        assert any(c == "claims" for c, _ in probs(t)), (t, probs(t))
+    assert probs("It comes with a one-year warranty.") == []
+    assert probs("Not sure it will suit? There is a one-year warranty and easy returns.", camp=None) == []    # outside the sale
+
+
 def test_one_look_per_batch_for_a_two_look_product():
     import make_batch as mb
     dz = mb.design_of("Hobo 2.0")

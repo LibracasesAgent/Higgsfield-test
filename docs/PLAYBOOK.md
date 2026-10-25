@@ -644,6 +644,11 @@ Christmas gifting, BF prices are live now; lots of variations". `pipeline/campai
 - **The rule that matters:** each bag keeps its own % from the site (the Hobo Bag is "50% off"); "60% off" is said only of 2 or 3 bags
   together or as "up to 60% off". Compliance takes the campaign's facts as evidence and strips only its `approved_phrases` before the
   offer check, so "The Hobo Bag is 60% off." is still flagged, and so is any gift value other than $19.95 / $44.90.
+- **Final sale (the site's sale terms, read 2026-10-25):** every item bought in the sale is final sale, no returns (faulty items
+  and the 1-year warranty still covered). `campaign.json` `final_sale`: compliance stops 'easy / free returns', 'N-day returns',
+  'send it back', 'money-back' while the sale runs, the scripts get no returns fact and ad copy says '1-year warranty included'.
+  B014 and B016 (made 21 Oct, before the terms were read) say 'one-year warranty and easy returns' in all 32 videos and B014,
+  B016, B019's ad copy has '1-year warranty + easy returns': not to run during the sale unless Wouter allows returns.
 - **Gift photos:** `assets/gifts/jewellery_box.jpg`, `cosmetic_bag.jpg` (the site's product photos, no other brand in them).
 - **A new sale:** add a campaign to `campaign.json` with the client's words in `approved`, its dates, themes, gifts and phrases; nothing
   else changes. `tests/test_campaign.py` covers the window, the compliance cases and the two layouts.

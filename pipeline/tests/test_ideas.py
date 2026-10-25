@@ -35,14 +35,28 @@ def without_own_batch():
 
 
 def test_the_committed_sheet_passes_its_own_check():
+    """B014's sheet (2026-10-21), checked by the rules of its day: the Black Friday Sale campaign (final sale: no 'easy returns')
+    began on 23 October, so today's check would stop its warranty-and-returns lines."""
     import novelty
-    real = without_own_batch()
+    real, real_camp = without_own_batch(), ideas.sale_campaign
+    ideas.sale_campaign = lambda theme, day=None: real_camp(theme, "2026-10-21")
     try:
         pr = ideas.product_of("Hobo Bag")
         P, W = ideas.check(sheet(), pr, 4, 20)
     finally:
-        novelty.load = real
+        novelty.load, ideas.sale_campaign = real, real_camp
     assert not P, P
+
+
+def test_the_same_sheet_fails_while_the_sale_is_final_sale():
+    import novelty
+    real, real_camp = without_own_batch(), ideas.sale_campaign
+    ideas.sale_campaign = lambda theme, day=None: real_camp(theme, "2026-10-25")
+    try:
+        P, W = ideas.check(sheet(), ideas.product_of("Hobo Bag"), 4, 20)
+    finally:
+        novelty.load, ideas.sale_campaign = real, real_camp
+    assert P and all("easy returns" in x for x in P), P
 
 
 def test_check_stops_a_first_person_script_a_missing_picture_and_a_face():
