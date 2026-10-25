@@ -683,6 +683,18 @@ revenue, verdict, notes; grey formulas: hook rate, CTR, CPA, ROAS), Summary (by 
 - **Fix by hand:** `python3 pipeline/tracker.py sync --batch B045` (or `--all` to refresh every batch's file details); `show` counts.
 - B001's files sit in the Outputs folder "oct 3 test" (`folder_overrides`), whose subfolder of B012 statics is skipped.
 
+### 4i. Batch branches merge themselves (owner 2026-10-25: "instead of me typing merge every time, add it to the pipeline")
+
+A Slack / Claude DM run can only push to its own `claude/<name>` branch, so its ledger entry, novelty log and specs never reached the
+default branch: the next run took the same batch number and repeated hooks (B019, B020, B025 had to be merged by hand). The GitHub
+Action `.github/workflows/merge-batches.yml` runs `pipeline/merge_batch.py <branch> --push` at every push of a `claude/*` branch:
+- **Batch output only:** specs (`pipeline/recipes/`), the ledger, `docs/BATCHES.md`, the novelty log, product files, `clip_index.json` /
+  `clip_bank.json`. A branch that changes anything else is left for a person (a warning on the Action run); merge it by hand.
+- **Clashes:** the ledger is merged batch by batch and the novelty log product by product against the merge base (where both sides
+  changed one entry, the branch's version wins); `docs/BATCHES.md` is rebuilt from the merged ledger. Any other clash stops it.
+- **By hand:** `python3 pipeline/merge_batch.py claude/<branch> [--dry-run] [--push]`; `tests/test_merge_batch.py`.
+- One batch at a time still matters: two runs started together read the same ledger and take the same number before either merges.
+
 ### 4e00. Batch numbers (owner 2026-10-20: "make the batches less confusing with a proper naming convention, so we avoid relaunching the same ads")
 Drive had folders named by whatever the request said (`2026-10-16 – Hobo Bag 5 projects 10 statics`, `... hook test 3 videos + 4 statics`)
 and every batch of a bag reused S01 / P01_H1 under a date, with a same-day second batch called `_v2` (which reads like a redo). Now:

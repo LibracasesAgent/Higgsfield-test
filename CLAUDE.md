@@ -399,7 +399,9 @@ python3 pipeline/make_batch.py plan <flags> --ideas $OUT/ideas.json --request "<
    `python3 pipeline/make_batch.py specs --out $OUT --to pipeline/recipes/<winners|new_products|daily>/<plan YYYY-MM-DD>/<short-name>`,
    plus any new or changed product file (a new product's always changes: its `tests`), `pipeline/data/novelty_log.json` (upload
    adds the batch: the next batch avoids its scenes, photos, captions and hooks) and `pipeline/data/batch_ledger.json` +
-   `docs/BATCHES.md` (the batch number and its ads: the next plan takes the next number and flags repeats); commit, push.
+   `docs/BATCHES.md` (the batch number and its ads: the next plan takes the next number and flags repeats); commit, push. The GitHub
+   Action `merge-batches` then merges the batch branch into the default branch by itself (`pipeline/merge_batch.py`: batch output
+   only; a branch that also changes code or docs is left for a person, so keep a batch's commit to its specs and data files).
 
 **Music:** storyboard videos get a bed under the voice automatically: the client's licensed tracks from
 `pipeline/assets/music/` when there are any, otherwise a generated bed (made by `pipeline/music.py`, nothing to

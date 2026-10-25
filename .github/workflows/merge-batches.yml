@@ -1,0 +1,34 @@
+# A Slack / Claude DM run pushes its batch (specs, ledger, novelty log) to its own claude/* branch. This merges it into the
+# default branch right away, so the next run takes the next batch number and avoids the hooks and statics already made.
+# Batch output only: a branch that changes code or docs is left for a person (a warning on the run). pipeline/merge_batch.py.
+name: Merge batch branches
+
+on:
+  push:
+    branches: ["claude/**"]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: merge-batches
+  cancel-in-progress: false
+
+jobs:
+  merge:
+    if: github.ref_name != 'claude/loving-meitner-4amjii'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: claude/loving-meitner-4amjii
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Merge the batch branch into the default branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          python3 pipeline/merge_batch.py "$GITHUB_REF_NAME" --push
