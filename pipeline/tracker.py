@@ -113,7 +113,8 @@ def drive_batches(du, tok, outputs):
 
 
 def crawl(du, tok, folder, skip=()):
-    """Image and video files under a batch folder (recursive), newest copy per file name -> [{name, path, kind, link}]."""
+    """Image and video files under a batch folder (recursive), newest copy per ad name (re-uploads named ..._upd0922 count as
+    the same ad) -> [{name, path, kind, link}]."""
     def walk(fid, path):
         out = []
         for f in du.list_children(tok, fid):
@@ -126,7 +127,7 @@ def crawl(du, tok, folder, skip=()):
         return out
     newest = {}
     for f in walk(folder, ""):
-        n = os.path.splitext(f["name"])[0]
+        n = re.sub(r"_upd\d{4,6}$", "", os.path.splitext(f["name"])[0])     # a re-upload ('..._upd0922') is the same ad
         if n not in newest or (f.get("createdTime") or "") > (newest[n].get("createdTime") or ""):
             newest[n] = f
     return [dict(name=n, path=f["path"], kind="Video" if f["mimeType"].startswith("video") else "Static",

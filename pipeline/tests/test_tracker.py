@@ -23,7 +23,8 @@ class FakeDrive:
             "S30": [dict(id="a", name="LC_261102_VintageBag_BlackFriday_B030_S01_studio.png", mimeType="image/png", createdTime="1")],
             "V30": [dict(id="P30", name="P01 – giftlist", mimeType=FOLDER)],
             "P30": [dict(id="b", name="LC_261102_VintageBag_BlackFriday_B030_P01_H1_giftlist.mp4", mimeType="video/mp4", createdTime="1"),
-                    dict(id="c", name="LC_261102_VintageBag_BlackFriday_B030_P01_H1_giftlist.mp4", mimeType="video/mp4", createdTime="2")],
+                    dict(id="c", name="LC_261102_VintageBag_BlackFriday_B030_P01_H1_giftlist_upd0922.mp4", mimeType="video/mp4",
+                         createdTime="2")],
             "F31": [dict(id="d", name="LC_261103_HoboBag_BlackFriday_B031_P01_H1_remix94.mp4", mimeType="video/mp4", createdTime="1")],
         }
 
