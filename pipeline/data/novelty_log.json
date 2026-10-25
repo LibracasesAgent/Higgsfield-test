@@ -2174,6 +2174,143 @@
     }
    ]
   },
+  "hobo-bag-3-piece-set": {
+   "batches": [
+    {
+     "clips": [
+      {
+       "clip_id": "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx"
+      },
+      {
+       "clip_id": "1Mtx32enLMlOkpIfl_Cr1EYezTdody3E1"
+      },
+      {
+       "clip_id": "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X"
+      },
+      {
+       "clip_id": "1StPro8S4b5_LUICHyivAkrFna1M1k3ao"
+      },
+      {
+       "clip_id": "1MtOonVbf-pqmrcU5DUgY6995LObDfwn7"
+      },
+      {
+       "clip_id": "1BidTuA7vhnKJ0W923VLBYlXX0LIIueg5"
+      },
+      {
+       "clip_id": "1CcakagPN5oiWEneKORpvJblnPYnQvWHI"
+      },
+      {
+       "clip_id": "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06"
+      },
+      {
+       "clip_id": "1nnsvEIfgqziYdrmeUrrtgL3Qo3YHV7Sw"
+      },
+      {
+       "clip_id": "18all7GUEBLsxxS0JCAl8t-yEOsC6r52T"
+      }
+     ],
+     "date": "2026-10-25",
+     "name": "B025 – 2026-10-25 – Hobo Bag 3-Piece Set BlackFriday – 10 statics + 4 projects",
+     "statics": [
+      {
+       "caption": "One for you. One for her.",
+       "layout": "bundle"
+      },
+      {
+       "caption": "A set for her.",
+       "colour": "Purple Red",
+       "layout": "concept",
+       "scene": "p01_s02"
+      },
+      {
+       "caption": "Three pieces. One price.",
+       "colour": "Black",
+       "layout": "concept",
+       "scene": "p02_s03"
+      },
+      {
+       "caption": "The 3-Piece Set",
+       "layout": "value",
+       "photo": "3_piece_set_colour_grey.jpg"
+      },
+      {
+       "caption": "Gift sorted.",
+       "colour": "Blue",
+       "layout": "concept",
+       "scene": "p03_s05"
+      },
+      {
+       "layout": "studio",
+       "photo": "3_piece_set_colour_black.jpg"
+      },
+      {
+       "caption": "Buy two bags, get a gift.",
+       "layout": "gifts",
+       "photo": "3_piece_set_colour_brown.jpg"
+      },
+      {
+       "caption": "Everything in the set.",
+       "colour": "Grey",
+       "layout": "concept",
+       "scene": "p04_s08"
+      },
+      {
+       "caption": "Why the 3-Piece Set?",
+       "layout": "checklist",
+       "photo": "3_piece_set_colour_blue.jpg"
+      },
+      {
+       "caption": "Pick your colour.",
+       "layout": "colours"
+      }
+     ],
+     "videos": [
+      {
+       "angle": "youandher",
+       "chapters": [
+        "Every set comes with three pieces: the hobo bag, a crossbody, and a matching pouch. That is already enough to share between two people.",
+        "Keep the hobo for you. It is the everyday bag, and smart compartments with an anti-theft design keep everything secure. Phone, keys, cards, each in its own place.",
+        "Give her the crossbody. It is for the days she wants to go light, one strap across the body and nothing else to carry.",
+        "The matching pouch keeps cards and cash in one place, so it can ride along in either bag. Nothing gets lost at the bottom.",
+        "Pick her colour. Brown, black, blue, grey, purple red or red, six to choose from. And yours can match hers, or not.",
+        "Or go bigger. Buy two bags together and you get sixty percent off the regular price: one for you and one for her.",
+        "The Black Friday prices are live now, so the set is sixty percent off, with free US shipping. Buy two bags and you also get a free mirrored jewellery box, while stocks last. Tap the link below."
+       ],
+       "hook": "One for you, one for her. Black Friday prices are live.",
+       "hook_type": "promise",
+       "script": "U01"
+      },
+      {
+       "angle": "youandher",
+       "hook": "Shopping for her, and a little for yourself too?",
+       "hook_type": "promise",
+       "script": "U01"
+      },
+      {
+       "angle": "livenow",
+       "chapters": [
+        "The Black Friday Sale is on, and the prices are live now. There is nothing left to wait for, and nothing to refresh.",
+        "Here are three reasons to stop waiting. One: three pieces in one set, which is a lot of bag for one price. The hobo bag, a crossbody, and a matching pouch.",
+        "Two: the leather. It is soft, water-resistant and scratch-proof, and it looks beautiful season after season. That is leather made to keep up.",
+        "Three: smart compartments and an anti-theft design that keep everything secure. You carry your day, and the bag does the worrying.",
+        "All of that comes at sixty percent off the whole set, plus free US shipping. The hobo, the crossbody and the pouch, together.",
+        "So you can stop refreshing and just choose your colour: brown, black, blue, grey, purple red or red.",
+        "Black Friday prices are live now. The set is sixty percent off, and when you buy two bags you also get a free mirrored jewellery box, while stocks last. Tap the link below."
+       ],
+       "hook": "Black Friday prices are live now. No need to wait.",
+       "hook_type": "promise",
+       "script": "U02"
+      },
+      {
+       "angle": "livenow",
+       "hook": "Three pieces, one price, and sixty percent off.",
+       "hook_type": "promise",
+       "script": "U02"
+      }
+     ]
+    }
+   ]
+  },
   "silhouette-bag": {
    "batches": [
     {

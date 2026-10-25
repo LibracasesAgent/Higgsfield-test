@@ -1,0 +1,2165 @@
+{
+ "prefix": "LC_261025_HoboBag3PieceSet_BlackFriday_B025",
+ "rev": 1,
+ "batch_id": {
+  "id": "B025",
+  "n": 25,
+  "rev": 1
+ },
+ "created": "2026-10-25",
+ "request": "4 videos and 10 statics for the Hobo Bag 3-Piece Set, Black Friday. Ideas: one for you, one for her; Black Friday prices are live now; Christmas gifting; everything you get in the set",
+ "product": "Hobo Bag 3-Piece Set",
+ "product_key": "3-piece set",
+ "product_source": "built-in",
+ "theme": "black friday",
+ "theme_name": "BlackFriday",
+ "offer": "60% off",
+ "campaign": {
+  "id": "bf2026",
+  "name": "Black Friday Sale 2026",
+  "theme": "black friday",
+  "banner": "Black Friday Sale – up to 60% off + free gifts",
+  "until": "2026-11-30",
+  "from": "2026-10-23",
+  "end_title": "Black Friday Sale",
+  "end_pill": "UP TO 60% OFF + FREE GIFTS",
+  "card_sub": "+ FREE GIFTS WITH 2 BAGS",
+  "close": "Buy two bags and you also get a free jewellery box, while stocks last.",
+  "hooks": [
+   "Black Friday prices are live now. No need to wait.",
+   "Black Friday: up to sixty percent off, plus free gifts.",
+   "Buy two bags this Black Friday and get a free jewellery box."
+  ],
+  "facts": [
+   "Black Friday Sale: live now (from 23 October), it runs until 30 November (Cyber Monday). Black Friday is 27 November.",
+   "Up to 50% off sitewide (each bag's own % is on its offer card: the Hobo Bag is 50% off).",
+   "60% off bundles: buy 2 or 3 bags together and get 60% off the regular price (say it of buying 2 or 3 bags, never of one bag).",
+   "Free gifts while stocks last: buy 2 bags, get a free mirrored jewellery box (worth $19.95).",
+   "Buy 3 or more bags, get the jewellery box and a free cosmetic bag (together worth $44.90).",
+   "Only bags count for the gifts, not accessories.",
+   "Black Friday prices are live now: no need to wait."
+  ],
+  "bundle_pct": 60,
+  "gifts": [
+   {
+    "name": "mirrored jewellery box",
+    "short": "jewellery box",
+    "worth": 19.95,
+    "with": 2,
+    "photo": "/home/user/higgsfield-test/pipeline/assets/gifts/jewellery_box.jpg"
+   },
+   {
+    "name": "cosmetic bag",
+    "short": "cosmetic bag",
+    "worth": 24.95,
+    "with": 3,
+    "photo": "/home/user/higgsfield-test/pipeline/assets/gifts/cosmetic_bag.jpg"
+   }
+  ],
+  "gifts_worth": 44.9,
+  "dates": {
+   "black friday": "27 November",
+   "cyber monday": "30 November",
+   "ends": "30 November"
+  },
+  "copy": {
+   "primary": [
+    "Black Friday Sale: up to 60% off + free gifts. 🎁 Buy 2 bags, get a free mirrored jewellery box (worth $19.95). Buy 3, add a free cosmetic bag (together worth $44.90). While stocks last.",
+    "60% off when you buy 2 or 3 bags together: one for you, one for her. Plus free gifts while stocks last."
+   ],
+   "headline": [
+    "Up to 60% off + free gifts",
+    "Buy 2 bags, get a free gift",
+    "Black Friday prices are live"
+   ],
+   "description": "Up to 60% off + free gifts"
+  },
+  "approved_phrases": [
+   "up to (?:60|sixty) ?(?:%|percent) off",
+   "(?:60|sixty) ?(?:%|percent) off\\b[^.!?]{0,60}\\b(?:bundles?|together|(?:2|two) (?:or (?:3|three) )?bags|(?:3|three) bags|(?:2|two) or (?:3|three)|second bag)",
+   "\\bbundles?\\b[^.!?]{0,30}(?:60|sixty) ?(?:%|percent) off",
+   "(?:\\d|two|three|2|3) free gifts?",
+   "free gifts?",
+   "(?:a |the )?free (?:mirrored )?jewell?e?ry box(?:es)?",
+   "(?:a |the )?free (?:travel )?cosmetic bags?"
+  ],
+  "approved": "Wouter (owner), 2026-10-23: the Black Friday Sale went live on 23 October and runs until 30 November (Cyber Monday). Up to 50% off sitewide; 60% off bundles (2 or 3 bags bought together at 60% off the regular price); free gifts while stocks last: buy 2 bags, get a free mirrored jewellery box (worth $19.95); buy 3+ bags, get the jewellery box + a free cosmetic bag (together worth $44.90); only bags count, not accessories. The site banner (2026-10-23): 'EARLY BLACK FRIDAY: 50% OFF EVERYTHING | BUY 2 BAGS = 1 FREE GIFT | BUY 3 = 2 FREE GIFTS | ORDER TODAY WHILE STOCKS LAST!'"
+ },
+ "statics": [
+  "LC_261025_HoboBag3PieceSet_BlackFriday_B025_S01_bundle",
+  "LC_261025_HoboBag3PieceSet_BlackFriday_B025_S02_concept",
+  "LC_261025_HoboBag3PieceSet_BlackFriday_B025_S03_concept",
+  "LC_261025_HoboBag3PieceSet_BlackFriday_B025_S04_value",
+  "LC_261025_HoboBag3PieceSet_BlackFriday_B025_S05_concept",
+  "LC_261025_HoboBag3PieceSet_BlackFriday_B025_S06_studio",
+  "LC_261025_HoboBag3PieceSet_BlackFriday_B025_S07_gifts",
+  "LC_261025_HoboBag3PieceSet_BlackFriday_B025_S08_concept",
+  "LC_261025_HoboBag3PieceSet_BlackFriday_B025_S09_checklist",
+  "LC_261025_HoboBag3PieceSet_BlackFriday_B025_S10_colours"
+ ],
+ "videos": [
+  {
+   "name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_P01_H1_youandher",
+   "id": "P01H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "ugc": {
+    "script": "U01",
+    "angle": "youandher",
+    "words": 193,
+    "hook": {
+     "type": "promise",
+     "label": "YOU AND HER",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Shopping for her, and a little for yourself too?",
+      "type": "question",
+      "label": "TREAT BOTH",
+      "feature": null,
+      "show": [
+       "hero",
+       "placed"
+      ]
+     },
+     {
+      "text": "Stop choosing between treating her and treating yourself.",
+      "type": "problem",
+      "label": "DO BOTH",
+      "feature": null,
+      "show": [
+       "hero",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Two bags, sixty percent off, and a free jewellery box.",
+      "type": "price",
+      "label": "60% OFF BUNDLE",
+      "feature": null,
+      "show": [
+       "hero",
+       "colours"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Shopping for her, and a little for yourself too?": [
+      [
+       "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+       1.0,
+       1.0
+      ],
+      [
+       "1BidTuA7vhnKJ0W923VLBYlXX0LIIueg5",
+       0.0,
+       1.0
+      ]
+     ],
+     "Stop choosing between treating her and treating yourself.": [
+      [
+       "1StPro8S4b5_LUICHyivAkrFna1M1k3ao",
+       0.3,
+       1.0
+      ]
+     ],
+     "Two bags, sixty percent off, and a free jewellery box.": [
+      [
+       "1wE0AQvyBkxmh0-_ftpXmjG4v-pHMMPfG",
+       38.8,
+       1.0
+      ],
+      [
+       "1wE0AQvyBkxmh0-_ftpXmjG4v-pHMMPfG",
+       115.3,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 64.5,
+   "project": "P01",
+   "hook_text": "One for you, one for her. Black Friday prices are live.",
+   "hook_label": "YOU AND HER",
+   "hook_type": "promise",
+   "opening_shot": [
+    "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+    9.5
+   ]
+  },
+  {
+   "name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_P01_H2_youandher",
+   "id": "P01H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "ugc": {
+    "script": "U01",
+    "angle": "youandher",
+    "words": 193,
+    "hook": {
+     "type": "promise",
+     "label": "YOU AND HER",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Shopping for her, and a little for yourself too?",
+      "type": "question",
+      "label": "TREAT BOTH",
+      "feature": null,
+      "show": [
+       "hero",
+       "placed"
+      ]
+     },
+     {
+      "text": "Stop choosing between treating her and treating yourself.",
+      "type": "problem",
+      "label": "DO BOTH",
+      "feature": null,
+      "show": [
+       "hero",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Two bags, sixty percent off, and a free jewellery box.",
+      "type": "price",
+      "label": "60% OFF BUNDLE",
+      "feature": null,
+      "show": [
+       "hero",
+       "colours"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Shopping for her, and a little for yourself too?": [
+      [
+       "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+       1.0,
+       1.0
+      ],
+      [
+       "1BidTuA7vhnKJ0W923VLBYlXX0LIIueg5",
+       0.0,
+       1.0
+      ]
+     ],
+     "Stop choosing between treating her and treating yourself.": [
+      [
+       "1StPro8S4b5_LUICHyivAkrFna1M1k3ao",
+       0.3,
+       1.0
+      ]
+     ],
+     "Two bags, sixty percent off, and a free jewellery box.": [
+      [
+       "1wE0AQvyBkxmh0-_ftpXmjG4v-pHMMPfG",
+       38.8,
+       1.0
+      ],
+      [
+       "1wE0AQvyBkxmh0-_ftpXmjG4v-pHMMPfG",
+       115.3,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 63.9,
+   "project": "P01",
+   "hook_text": "Shopping for her, and a little for yourself too?",
+   "hook_label": "TREAT BOTH",
+   "hook_type": "question",
+   "opening_shot": [
+    "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+    1.0
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_P01_H3_youandher",
+   "id": "P01H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "ugc": {
+    "script": "U01",
+    "angle": "youandher",
+    "words": 193,
+    "hook": {
+     "type": "promise",
+     "label": "YOU AND HER",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Shopping for her, and a little for yourself too?",
+      "type": "question",
+      "label": "TREAT BOTH",
+      "feature": null,
+      "show": [
+       "hero",
+       "placed"
+      ]
+     },
+     {
+      "text": "Stop choosing between treating her and treating yourself.",
+      "type": "problem",
+      "label": "DO BOTH",
+      "feature": null,
+      "show": [
+       "hero",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Two bags, sixty percent off, and a free jewellery box.",
+      "type": "price",
+      "label": "60% OFF BUNDLE",
+      "feature": null,
+      "show": [
+       "hero",
+       "colours"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Shopping for her, and a little for yourself too?": [
+      [
+       "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+       1.0,
+       1.0
+      ],
+      [
+       "1BidTuA7vhnKJ0W923VLBYlXX0LIIueg5",
+       0.0,
+       1.0
+      ]
+     ],
+     "Stop choosing between treating her and treating yourself.": [
+      [
+       "1StPro8S4b5_LUICHyivAkrFna1M1k3ao",
+       0.3,
+       1.0
+      ]
+     ],
+     "Two bags, sixty percent off, and a free jewellery box.": [
+      [
+       "1wE0AQvyBkxmh0-_ftpXmjG4v-pHMMPfG",
+       38.8,
+       1.0
+      ],
+      [
+       "1wE0AQvyBkxmh0-_ftpXmjG4v-pHMMPfG",
+       115.3,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 63.5,
+   "project": "P01",
+   "hook_text": "Stop choosing between treating her and treating yourself.",
+   "hook_label": "DO BOTH",
+   "hook_type": "problem",
+   "opening_shot": [
+    "1StPro8S4b5_LUICHyivAkrFna1M1k3ao",
+    0.3
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_P01_H4_youandher",
+   "id": "P01H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "ugc": {
+    "script": "U01",
+    "angle": "youandher",
+    "words": 193,
+    "hook": {
+     "type": "promise",
+     "label": "YOU AND HER",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Shopping for her, and a little for yourself too?",
+      "type": "question",
+      "label": "TREAT BOTH",
+      "feature": null,
+      "show": [
+       "hero",
+       "placed"
+      ]
+     },
+     {
+      "text": "Stop choosing between treating her and treating yourself.",
+      "type": "problem",
+      "label": "DO BOTH",
+      "feature": null,
+      "show": [
+       "hero",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Two bags, sixty percent off, and a free jewellery box.",
+      "type": "price",
+      "label": "60% OFF BUNDLE",
+      "feature": null,
+      "show": [
+       "hero",
+       "colours"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Shopping for her, and a little for yourself too?": [
+      [
+       "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+       1.0,
+       1.0
+      ],
+      [
+       "1BidTuA7vhnKJ0W923VLBYlXX0LIIueg5",
+       0.0,
+       1.0
+      ]
+     ],
+     "Stop choosing between treating her and treating yourself.": [
+      [
+       "1StPro8S4b5_LUICHyivAkrFna1M1k3ao",
+       0.3,
+       1.0
+      ]
+     ],
+     "Two bags, sixty percent off, and a free jewellery box.": [
+      [
+       "1wE0AQvyBkxmh0-_ftpXmjG4v-pHMMPfG",
+       38.8,
+       1.0
+      ],
+      [
+       "1wE0AQvyBkxmh0-_ftpXmjG4v-pHMMPfG",
+       115.3,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 64.2,
+   "project": "P01",
+   "hook_text": "Two bags, sixty percent off, and a free jewellery box.",
+   "hook_label": "60% OFF BUNDLE",
+   "hook_type": "price",
+   "opening_shot": [
+    "1wE0AQvyBkxmh0-_ftpXmjG4v-pHMMPfG",
+    38.8
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_P02_H1_livenow",
+   "id": "P02H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "ugc": {
+    "script": "U02",
+    "angle": "livenow",
+    "words": 182,
+    "hook": {
+     "type": "promise",
+     "label": "LIVE NOW",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Waiting for a Black Friday deal? It is already live.",
+      "type": "problem",
+      "label": "ALREADY LIVE",
+      "feature": null,
+      "show": [
+       "hero",
+       "placed"
+      ]
+     },
+     {
+      "text": "Why wait when the Black Friday sale is already on?",
+      "type": "question",
+      "label": "NO WAITING",
+      "feature": null,
+      "show": [
+       "hero",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Three pieces, one price, and sixty percent off.",
+      "type": "price",
+      "label": "60% OFF",
+      "feature": null,
+      "show": [
+       "hero",
+       "placed"
+      ]
+     }
+    ],
+    "numbers": [
+     3
+    ],
+    "alt_shots": {
+     "Waiting for a Black Friday deal? It is already live.": [
+      [
+       "1MtOonVbf-pqmrcU5DUgY6995LObDfwn7",
+       3.0,
+       1.0
+      ],
+      [
+       "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+       12.0,
+       1.0,
+       {
+        "zoom": [
+         1.3,
+         1.36
+        ],
+        "focus": [
+         0.5,
+         0.55
+        ]
+       }
+      ]
+     ],
+     "Why wait when the Black Friday sale is already on?": [
+      [
+       "18all7GUEBLsxxS0JCAl8t-yEOsC6r52T",
+       19.0,
+       1.0,
+       {
+        "zoom": [
+         1.3,
+         1.36
+        ],
+        "focus": [
+         0.5,
+         0.55
+        ]
+       }
+      ],
+      [
+       "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+       9.5,
+       1.0,
+       {
+        "zoom": [
+         1.3,
+         1.36
+        ],
+        "focus": [
+         0.5,
+         0.55
+        ]
+       }
+      ]
+     ],
+     "Three pieces, one price, and sixty percent off.": [
+      [
+       "1StPro8S4b5_LUICHyivAkrFna1M1k3ao",
+       8.5,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 61.0,
+   "project": "P02",
+   "hook_text": "Black Friday prices are live now. No need to wait.",
+   "hook_label": "LIVE NOW",
+   "hook_type": "promise",
+   "opening_shot": [
+    "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+    12.0
+   ]
+  },
+  {
+   "name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_P02_H2_livenow",
+   "id": "P02H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "ugc": {
+    "script": "U02",
+    "angle": "livenow",
+    "words": 182,
+    "hook": {
+     "type": "promise",
+     "label": "LIVE NOW",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Waiting for a Black Friday deal? It is already live.",
+      "type": "problem",
+      "label": "ALREADY LIVE",
+      "feature": null,
+      "show": [
+       "hero",
+       "placed"
+      ]
+     },
+     {
+      "text": "Why wait when the Black Friday sale is already on?",
+      "type": "question",
+      "label": "NO WAITING",
+      "feature": null,
+      "show": [
+       "hero",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Three pieces, one price, and sixty percent off.",
+      "type": "price",
+      "label": "60% OFF",
+      "feature": null,
+      "show": [
+       "hero",
+       "placed"
+      ]
+     }
+    ],
+    "numbers": [
+     3
+    ],
+    "alt_shots": {
+     "Waiting for a Black Friday deal? It is already live.": [
+      [
+       "1MtOonVbf-pqmrcU5DUgY6995LObDfwn7",
+       3.0,
+       1.0
+      ],
+      [
+       "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+       12.0,
+       1.0,
+       {
+        "zoom": [
+         1.3,
+         1.36
+        ],
+        "focus": [
+         0.5,
+         0.55
+        ]
+       }
+      ]
+     ],
+     "Why wait when the Black Friday sale is already on?": [
+      [
+       "18all7GUEBLsxxS0JCAl8t-yEOsC6r52T",
+       19.0,
+       1.0,
+       {
+        "zoom": [
+         1.3,
+         1.36
+        ],
+        "focus": [
+         0.5,
+         0.55
+        ]
+       }
+      ],
+      [
+       "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+       9.5,
+       1.0,
+       {
+        "zoom": [
+         1.3,
+         1.36
+        ],
+        "focus": [
+         0.5,
+         0.55
+        ]
+       }
+      ]
+     ],
+     "Three pieces, one price, and sixty percent off.": [
+      [
+       "1StPro8S4b5_LUICHyivAkrFna1M1k3ao",
+       8.5,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 61.0,
+   "project": "P02",
+   "hook_text": "Waiting for a Black Friday deal? It is already live.",
+   "hook_label": "ALREADY LIVE",
+   "hook_type": "problem",
+   "opening_shot": [
+    "1MtOonVbf-pqmrcU5DUgY6995LObDfwn7",
+    3.0
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_P02_H3_livenow",
+   "id": "P02H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "ugc": {
+    "script": "U02",
+    "angle": "livenow",
+    "words": 182,
+    "hook": {
+     "type": "promise",
+     "label": "LIVE NOW",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Waiting for a Black Friday deal? It is already live.",
+      "type": "problem",
+      "label": "ALREADY LIVE",
+      "feature": null,
+      "show": [
+       "hero",
+       "placed"
+      ]
+     },
+     {
+      "text": "Why wait when the Black Friday sale is already on?",
+      "type": "question",
+      "label": "NO WAITING",
+      "feature": null,
+      "show": [
+       "hero",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Three pieces, one price, and sixty percent off.",
+      "type": "price",
+      "label": "60% OFF",
+      "feature": null,
+      "show": [
+       "hero",
+       "placed"
+      ]
+     }
+    ],
+    "numbers": [
+     3
+    ],
+    "alt_shots": {
+     "Waiting for a Black Friday deal? It is already live.": [
+      [
+       "1MtOonVbf-pqmrcU5DUgY6995LObDfwn7",
+       3.0,
+       1.0
+      ],
+      [
+       "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+       12.0,
+       1.0,
+       {
+        "zoom": [
+         1.3,
+         1.36
+        ],
+        "focus": [
+         0.5,
+         0.55
+        ]
+       }
+      ]
+     ],
+     "Why wait when the Black Friday sale is already on?": [
+      [
+       "18all7GUEBLsxxS0JCAl8t-yEOsC6r52T",
+       19.0,
+       1.0,
+       {
+        "zoom": [
+         1.3,
+         1.36
+        ],
+        "focus": [
+         0.5,
+         0.55
+        ]
+       }
+      ],
+      [
+       "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+       9.5,
+       1.0,
+       {
+        "zoom": [
+         1.3,
+         1.36
+        ],
+        "focus": [
+         0.5,
+         0.55
+        ]
+       }
+      ]
+     ],
+     "Three pieces, one price, and sixty percent off.": [
+      [
+       "1StPro8S4b5_LUICHyivAkrFna1M1k3ao",
+       8.5,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 61.0,
+   "project": "P02",
+   "hook_text": "Why wait when the Black Friday sale is already on?",
+   "hook_label": "NO WAITING",
+   "hook_type": "question",
+   "opening_shot": [
+    "18all7GUEBLsxxS0JCAl8t-yEOsC6r52T",
+    19.0
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_P02_H4_livenow",
+   "id": "P02H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "ugc": {
+    "script": "U02",
+    "angle": "livenow",
+    "words": 182,
+    "hook": {
+     "type": "promise",
+     "label": "LIVE NOW",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Waiting for a Black Friday deal? It is already live.",
+      "type": "problem",
+      "label": "ALREADY LIVE",
+      "feature": null,
+      "show": [
+       "hero",
+       "placed"
+      ]
+     },
+     {
+      "text": "Why wait when the Black Friday sale is already on?",
+      "type": "question",
+      "label": "NO WAITING",
+      "feature": null,
+      "show": [
+       "hero",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Three pieces, one price, and sixty percent off.",
+      "type": "price",
+      "label": "60% OFF",
+      "feature": null,
+      "show": [
+       "hero",
+       "placed"
+      ]
+     }
+    ],
+    "numbers": [
+     3
+    ],
+    "alt_shots": {
+     "Waiting for a Black Friday deal? It is already live.": [
+      [
+       "1MtOonVbf-pqmrcU5DUgY6995LObDfwn7",
+       3.0,
+       1.0
+      ],
+      [
+       "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+       12.0,
+       1.0,
+       {
+        "zoom": [
+         1.3,
+         1.36
+        ],
+        "focus": [
+         0.5,
+         0.55
+        ]
+       }
+      ]
+     ],
+     "Why wait when the Black Friday sale is already on?": [
+      [
+       "18all7GUEBLsxxS0JCAl8t-yEOsC6r52T",
+       19.0,
+       1.0,
+       {
+        "zoom": [
+         1.3,
+         1.36
+        ],
+        "focus": [
+         0.5,
+         0.55
+        ]
+       }
+      ],
+      [
+       "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+       9.5,
+       1.0,
+       {
+        "zoom": [
+         1.3,
+         1.36
+        ],
+        "focus": [
+         0.5,
+         0.55
+        ]
+       }
+      ]
+     ],
+     "Three pieces, one price, and sixty percent off.": [
+      [
+       "1StPro8S4b5_LUICHyivAkrFna1M1k3ao",
+       8.5,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 60.4,
+   "project": "P02",
+   "hook_text": "Three pieces, one price, and sixty percent off.",
+   "hook_label": "60% OFF",
+   "hook_type": "price",
+   "opening_shot": [
+    "1StPro8S4b5_LUICHyivAkrFna1M1k3ao",
+    8.5
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_P03_H1_giftlist",
+   "id": "P03H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "ugc": {
+    "script": "U03",
+    "angle": "giftlist",
+    "words": 191,
+    "hook": {
+     "type": "question",
+     "label": "GIFT FOR MUM?",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "One Christmas gift. Three matching pieces.",
+      "type": "promise",
+      "label": "GIFT IDEA",
+      "feature": null,
+      "show": [
+       "hero",
+       "pouch",
+       "placed"
+      ]
+     },
+     {
+      "text": "Hard to buy for? Three matching pieces make it easier.",
+      "type": "problem",
+      "label": "HARD TO BUY?",
+      "feature": null,
+      "show": [
+       "hero",
+       "placed"
+      ]
+     },
+     {
+      "text": "Christmas gifting at sixty percent off. Prices are live now.",
+      "type": "price",
+      "label": "60% OFF",
+      "feature": null,
+      "show": [
+       "hero",
+       "colours"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "One Christmas gift. Three matching pieces.": [
+      [
+       "1rRkDw8UM4ZlQpO3c6Bv3_gT1_1-n8qYH",
+       2.0,
+       1.0
+      ]
+     ],
+     "Hard to buy for? Three matching pieces make it easier.": [
+      [
+       "1nnsvEIfgqziYdrmeUrrtgL3Qo3YHV7Sw",
+       9.0,
+       1.0
+      ],
+      [
+       "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+       6.0,
+       1.0
+      ]
+     ],
+     "Christmas gifting at sixty percent off. Prices are live now.": [
+      [
+       "1BidTuA7vhnKJ0W923VLBYlXX0LIIueg5",
+       0.0,
+       1.0,
+       {
+        "zoom": [
+         1.3,
+         1.36
+        ],
+        "focus": [
+         0.5,
+         0.55
+        ]
+       }
+      ],
+      [
+       "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+       5.0,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 64.0,
+   "project": "P03",
+   "hook_text": "Still looking for a Christmas gift for mum?",
+   "hook_label": "GIFT FOR MUM?",
+   "hook_type": "question",
+   "opening_shot": [
+    "1U5e0VpcAFm07iWXfWFMPe8jiYRd5LmhZ",
+    5.2
+   ]
+  },
+  {
+   "name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_P03_H2_giftlist",
+   "id": "P03H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "ugc": {
+    "script": "U03",
+    "angle": "giftlist",
+    "words": 191,
+    "hook": {
+     "type": "question",
+     "label": "GIFT FOR MUM?",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "One Christmas gift. Three matching pieces.",
+      "type": "promise",
+      "label": "GIFT IDEA",
+      "feature": null,
+      "show": [
+       "hero",
+       "pouch",
+       "placed"
+      ]
+     },
+     {
+      "text": "Hard to buy for? Three matching pieces make it easier.",
+      "type": "problem",
+      "label": "HARD TO BUY?",
+      "feature": null,
+      "show": [
+       "hero",
+       "placed"
+      ]
+     },
+     {
+      "text": "Christmas gifting at sixty percent off. Prices are live now.",
+      "type": "price",
+      "label": "60% OFF",
+      "feature": null,
+      "show": [
+       "hero",
+       "colours"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "One Christmas gift. Three matching pieces.": [
+      [
+       "1rRkDw8UM4ZlQpO3c6Bv3_gT1_1-n8qYH",
+       2.0,
+       1.0
+      ]
+     ],
+     "Hard to buy for? Three matching pieces make it easier.": [
+      [
+       "1nnsvEIfgqziYdrmeUrrtgL3Qo3YHV7Sw",
+       9.0,
+       1.0
+      ],
+      [
+       "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+       6.0,
+       1.0
+      ]
+     ],
+     "Christmas gifting at sixty percent off. Prices are live now.": [
+      [
+       "1BidTuA7vhnKJ0W923VLBYlXX0LIIueg5",
+       0.0,
+       1.0,
+       {
+        "zoom": [
+         1.3,
+         1.36
+        ],
+        "focus": [
+         0.5,
+         0.55
+        ]
+       }
+      ],
+      [
+       "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+       5.0,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 63.4,
+   "project": "P03",
+   "hook_text": "One Christmas gift. Three matching pieces.",
+   "hook_label": "GIFT IDEA",
+   "hook_type": "promise",
+   "opening_shot": [
+    "1rRkDw8UM4ZlQpO3c6Bv3_gT1_1-n8qYH",
+    2.0
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_P03_H3_giftlist",
+   "id": "P03H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "ugc": {
+    "script": "U03",
+    "angle": "giftlist",
+    "words": 191,
+    "hook": {
+     "type": "question",
+     "label": "GIFT FOR MUM?",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "One Christmas gift. Three matching pieces.",
+      "type": "promise",
+      "label": "GIFT IDEA",
+      "feature": null,
+      "show": [
+       "hero",
+       "pouch",
+       "placed"
+      ]
+     },
+     {
+      "text": "Hard to buy for? Three matching pieces make it easier.",
+      "type": "problem",
+      "label": "HARD TO BUY?",
+      "feature": null,
+      "show": [
+       "hero",
+       "placed"
+      ]
+     },
+     {
+      "text": "Christmas gifting at sixty percent off. Prices are live now.",
+      "type": "price",
+      "label": "60% OFF",
+      "feature": null,
+      "show": [
+       "hero",
+       "colours"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "One Christmas gift. Three matching pieces.": [
+      [
+       "1rRkDw8UM4ZlQpO3c6Bv3_gT1_1-n8qYH",
+       2.0,
+       1.0
+      ]
+     ],
+     "Hard to buy for? Three matching pieces make it easier.": [
+      [
+       "1nnsvEIfgqziYdrmeUrrtgL3Qo3YHV7Sw",
+       9.0,
+       1.0
+      ],
+      [
+       "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+       6.0,
+       1.0
+      ]
+     ],
+     "Christmas gifting at sixty percent off. Prices are live now.": [
+      [
+       "1BidTuA7vhnKJ0W923VLBYlXX0LIIueg5",
+       0.0,
+       1.0,
+       {
+        "zoom": [
+         1.3,
+         1.36
+        ],
+        "focus": [
+         0.5,
+         0.55
+        ]
+       }
+      ],
+      [
+       "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+       5.0,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 64.6,
+   "project": "P03",
+   "hook_text": "Hard to buy for? Three matching pieces make it easier.",
+   "hook_label": "HARD TO BUY?",
+   "hook_type": "problem",
+   "opening_shot": [
+    "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+    6.0
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_P03_H4_giftlist",
+   "id": "P03H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "ugc": {
+    "script": "U03",
+    "angle": "giftlist",
+    "words": 191,
+    "hook": {
+     "type": "question",
+     "label": "GIFT FOR MUM?",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "One Christmas gift. Three matching pieces.",
+      "type": "promise",
+      "label": "GIFT IDEA",
+      "feature": null,
+      "show": [
+       "hero",
+       "pouch",
+       "placed"
+      ]
+     },
+     {
+      "text": "Hard to buy for? Three matching pieces make it easier.",
+      "type": "problem",
+      "label": "HARD TO BUY?",
+      "feature": null,
+      "show": [
+       "hero",
+       "placed"
+      ]
+     },
+     {
+      "text": "Christmas gifting at sixty percent off. Prices are live now.",
+      "type": "price",
+      "label": "60% OFF",
+      "feature": null,
+      "show": [
+       "hero",
+       "colours"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "One Christmas gift. Three matching pieces.": [
+      [
+       "1rRkDw8UM4ZlQpO3c6Bv3_gT1_1-n8qYH",
+       2.0,
+       1.0
+      ]
+     ],
+     "Hard to buy for? Three matching pieces make it easier.": [
+      [
+       "1nnsvEIfgqziYdrmeUrrtgL3Qo3YHV7Sw",
+       9.0,
+       1.0
+      ],
+      [
+       "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+       6.0,
+       1.0
+      ]
+     ],
+     "Christmas gifting at sixty percent off. Prices are live now.": [
+      [
+       "1BidTuA7vhnKJ0W923VLBYlXX0LIIueg5",
+       0.0,
+       1.0,
+       {
+        "zoom": [
+         1.3,
+         1.36
+        ],
+        "focus": [
+         0.5,
+         0.55
+        ]
+       }
+      ],
+      [
+       "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+       5.0,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 64.6,
+   "project": "P03",
+   "hook_text": "Christmas gifting at sixty percent off. Prices are live now.",
+   "hook_label": "60% OFF",
+   "hook_type": "price",
+   "opening_shot": [
+    "1BidTuA7vhnKJ0W923VLBYlXX0LIIueg5",
+    0.0
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_P04_H1_inthebox",
+   "id": "P04H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "ugc": {
+    "script": "U04",
+    "angle": "inthebox",
+    "words": 191,
+    "hook": {
+     "type": "promise",
+     "label": "WHAT YOU GET",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "What do you actually get in a three-piece bag set?",
+      "type": "question",
+      "label": "WHAT'S INSIDE?",
+      "feature": null,
+      "show": [
+       "placed",
+       "hero"
+      ]
+     },
+     {
+      "text": "One bag cannot do everything. Three matching pieces can.",
+      "type": "problem",
+      "label": "3 PIECES",
+      "feature": null,
+      "show": [
+       "hero",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Three pieces for sixty percent off on Black Friday.",
+      "type": "price",
+      "label": "60% OFF",
+      "feature": null,
+      "show": [
+       "hero",
+       "colours"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "What do you actually get in a three-piece bag set?": [
+      [
+       "1XnGy8b5SEh634ZaranWYRHLwOQQrtgXd",
+       0.0,
+       1.0
+      ],
+      [
+       "1MtOonVbf-pqmrcU5DUgY6995LObDfwn7",
+       12.0,
+       1.0
+      ]
+     ],
+     "One bag cannot do everything. Three matching pieces can.": [
+      [
+       "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+       1.0,
+       1.0
+      ],
+      [
+       "1StPro8S4b5_LUICHyivAkrFna1M1k3ao",
+       5.0,
+       1.0
+      ]
+     ],
+     "Three pieces for sixty percent off on Black Friday.": [
+      [
+       "site/3_piece_set_colour_blue.jpg",
+       0,
+       1.0,
+       {
+        "zoom": [
+         1.2,
+         1.3
+        ],
+        "focus": [
+         0.5,
+         0.45
+        ]
+       }
+      ],
+      [
+       "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+       9.5,
+       1.0,
+       {
+        "zoom": [
+         1.3,
+         1.36
+        ],
+        "focus": [
+         0.5,
+         0.55
+        ]
+       }
+      ]
+     ]
+    }
+   },
+   "est_seconds": 64.0,
+   "project": "P04",
+   "hook_text": "Here is everything you get in the Hobo 3-Piece Set.",
+   "hook_label": "WHAT YOU GET",
+   "hook_type": "promise",
+   "opening_shot": [
+    "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+    9.0
+   ]
+  },
+  {
+   "name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_P04_H2_inthebox",
+   "id": "P04H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "ugc": {
+    "script": "U04",
+    "angle": "inthebox",
+    "words": 191,
+    "hook": {
+     "type": "promise",
+     "label": "WHAT YOU GET",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "What do you actually get in a three-piece bag set?",
+      "type": "question",
+      "label": "WHAT'S INSIDE?",
+      "feature": null,
+      "show": [
+       "placed",
+       "hero"
+      ]
+     },
+     {
+      "text": "One bag cannot do everything. Three matching pieces can.",
+      "type": "problem",
+      "label": "3 PIECES",
+      "feature": null,
+      "show": [
+       "hero",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Three pieces for sixty percent off on Black Friday.",
+      "type": "price",
+      "label": "60% OFF",
+      "feature": null,
+      "show": [
+       "hero",
+       "colours"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "What do you actually get in a three-piece bag set?": [
+      [
+       "1XnGy8b5SEh634ZaranWYRHLwOQQrtgXd",
+       0.0,
+       1.0
+      ],
+      [
+       "1MtOonVbf-pqmrcU5DUgY6995LObDfwn7",
+       12.0,
+       1.0
+      ]
+     ],
+     "One bag cannot do everything. Three matching pieces can.": [
+      [
+       "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+       1.0,
+       1.0
+      ],
+      [
+       "1StPro8S4b5_LUICHyivAkrFna1M1k3ao",
+       5.0,
+       1.0
+      ]
+     ],
+     "Three pieces for sixty percent off on Black Friday.": [
+      [
+       "site/3_piece_set_colour_blue.jpg",
+       0,
+       1.0,
+       {
+        "zoom": [
+         1.2,
+         1.3
+        ],
+        "focus": [
+         0.5,
+         0.45
+        ]
+       }
+      ],
+      [
+       "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+       9.5,
+       1.0,
+       {
+        "zoom": [
+         1.3,
+         1.36
+        ],
+        "focus": [
+         0.5,
+         0.55
+        ]
+       }
+      ]
+     ]
+    }
+   },
+   "est_seconds": 64.0,
+   "project": "P04",
+   "hook_text": "What do you actually get in a three-piece bag set?",
+   "hook_label": "WHAT'S INSIDE?",
+   "hook_type": "question",
+   "opening_shot": [
+    "1XnGy8b5SEh634ZaranWYRHLwOQQrtgXd",
+    0.0
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_P04_H3_inthebox",
+   "id": "P04H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "ugc": {
+    "script": "U04",
+    "angle": "inthebox",
+    "words": 191,
+    "hook": {
+     "type": "promise",
+     "label": "WHAT YOU GET",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "What do you actually get in a three-piece bag set?",
+      "type": "question",
+      "label": "WHAT'S INSIDE?",
+      "feature": null,
+      "show": [
+       "placed",
+       "hero"
+      ]
+     },
+     {
+      "text": "One bag cannot do everything. Three matching pieces can.",
+      "type": "problem",
+      "label": "3 PIECES",
+      "feature": null,
+      "show": [
+       "hero",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Three pieces for sixty percent off on Black Friday.",
+      "type": "price",
+      "label": "60% OFF",
+      "feature": null,
+      "show": [
+       "hero",
+       "colours"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "What do you actually get in a three-piece bag set?": [
+      [
+       "1XnGy8b5SEh634ZaranWYRHLwOQQrtgXd",
+       0.0,
+       1.0
+      ],
+      [
+       "1MtOonVbf-pqmrcU5DUgY6995LObDfwn7",
+       12.0,
+       1.0
+      ]
+     ],
+     "One bag cannot do everything. Three matching pieces can.": [
+      [
+       "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+       1.0,
+       1.0
+      ],
+      [
+       "1StPro8S4b5_LUICHyivAkrFna1M1k3ao",
+       5.0,
+       1.0
+      ]
+     ],
+     "Three pieces for sixty percent off on Black Friday.": [
+      [
+       "site/3_piece_set_colour_blue.jpg",
+       0,
+       1.0,
+       {
+        "zoom": [
+         1.2,
+         1.3
+        ],
+        "focus": [
+         0.5,
+         0.45
+        ]
+       }
+      ],
+      [
+       "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+       9.5,
+       1.0,
+       {
+        "zoom": [
+         1.3,
+         1.36
+        ],
+        "focus": [
+         0.5,
+         0.55
+        ]
+       }
+      ]
+     ]
+    }
+   },
+   "est_seconds": 63.7,
+   "project": "P04",
+   "hook_text": "One bag cannot do everything. Three matching pieces can.",
+   "hook_label": "3 PIECES",
+   "hook_type": "problem",
+   "opening_shot": [
+    "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+    1.0
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_P04_H4_inthebox",
+   "id": "P04H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "ugc": {
+    "script": "U04",
+    "angle": "inthebox",
+    "words": 191,
+    "hook": {
+     "type": "promise",
+     "label": "WHAT YOU GET",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "What do you actually get in a three-piece bag set?",
+      "type": "question",
+      "label": "WHAT'S INSIDE?",
+      "feature": null,
+      "show": [
+       "placed",
+       "hero"
+      ]
+     },
+     {
+      "text": "One bag cannot do everything. Three matching pieces can.",
+      "type": "problem",
+      "label": "3 PIECES",
+      "feature": null,
+      "show": [
+       "hero",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Three pieces for sixty percent off on Black Friday.",
+      "type": "price",
+      "label": "60% OFF",
+      "feature": null,
+      "show": [
+       "hero",
+       "colours"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "What do you actually get in a three-piece bag set?": [
+      [
+       "1XnGy8b5SEh634ZaranWYRHLwOQQrtgXd",
+       0.0,
+       1.0
+      ],
+      [
+       "1MtOonVbf-pqmrcU5DUgY6995LObDfwn7",
+       12.0,
+       1.0
+      ]
+     ],
+     "One bag cannot do everything. Three matching pieces can.": [
+      [
+       "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+       1.0,
+       1.0
+      ],
+      [
+       "1StPro8S4b5_LUICHyivAkrFna1M1k3ao",
+       5.0,
+       1.0
+      ]
+     ],
+     "Three pieces for sixty percent off on Black Friday.": [
+      [
+       "site/3_piece_set_colour_blue.jpg",
+       0,
+       1.0,
+       {
+        "zoom": [
+         1.2,
+         1.3
+        ],
+        "focus": [
+         0.5,
+         0.45
+        ]
+       }
+      ],
+      [
+       "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+       9.5,
+       1.0,
+       {
+        "zoom": [
+         1.3,
+         1.36
+        ],
+        "focus": [
+         0.5,
+         0.55
+        ]
+       }
+      ]
+     ]
+    }
+   },
+   "est_seconds": 63.7,
+   "project": "P04",
+   "hook_text": "Three pieces for sixty percent off on Black Friday.",
+   "hook_label": "60% OFF",
+   "hook_type": "price",
+   "opening_shot": [
+    "site/3_piece_set_colour_blue.jpg",
+    0
+   ],
+   "hook_source": "script"
+  }
+ ],
+ "tts_lines": 46,
+ "tts_dupes": {},
+ "est_credits": 16.1,
+ "budget": 100.0,
+ "colour_images": {
+  "Brown": "/home/user/run/bf3p/site/clean/3_piece_set_colour_brown.jpg",
+  "Black": "/home/user/run/bf3p/site/3_piece_set_colour_black.jpg",
+  "Blue": "/home/user/run/bf3p/site/3_piece_set_colour_blue.jpg",
+  "Grey": "/home/user/run/bf3p/site/3_piece_set_colour_grey.jpg",
+  "Purple Red": "/home/user/run/bf3p/site/3_piece_set_colour_purple_red.jpg",
+  "Red": "/home/user/run/bf3p/site/3_piece_set_colour_red.jpg"
+ },
+ "packshots": [
+  "/home/user/run/bf3p/site/clean/3_piece_set_colour_brown.jpg",
+  "/home/user/run/bf3p/site/3_piece_set_colour_black.jpg",
+  "/home/user/run/bf3p/site/3_piece_set_colour_blue.jpg",
+  "/home/user/run/bf3p/site/3_piece_set_colour_grey.jpg",
+  "/home/user/run/bf3p/site/3_piece_set_colour_purple_red.jpg",
+  "/home/user/run/bf3p/site/3_piece_set_colour_red.jpg"
+ ],
+ "brief": null,
+ "ai": {
+  "stills": 5,
+  "clips": 0,
+  "est_credits": 5.0,
+  "budget": {
+   "cap": 100.0,
+   "tts_est": 18.0,
+   "reserve": 8.0
+  },
+  "scenes": [
+   "p01_s02",
+   "p02_s03",
+   "p03_s05",
+   "p03_s06",
+   "p04_s08"
+  ],
+  "next": "python3 pipeline/ai_gen.py show --out /home/user/run/bf3p"
+ },
+ "winners_source": null,
+ "winners_note": null,
+ "winners_used": [],
+ "unmatched_winners": [],
+ "warnings": [
+  "campaign: Black Friday Sale 2026 (2026-10-23 to 2026-11-30, client-approved): end cards say 'Black Friday Sale' + 'UP TO 60% OFF + FREE GIFTS', offer cards '+ FREE GIFTS WITH 2 BAGS', the statics include the free-gifts and bundle layouts, the close and the ad copy name the gifts; each bag's own % stays its offer",
+  "ideas: 5 AI studio scenes of 10 statics (about 5 credits plus retries)"
+ ],
+ "winner_reviews": false,
+ "seed": 1,
+ "hooks": 4,
+ "pipeline": "catalog",
+ "video_format": "ugc",
+ "ugc_numbers": [
+  3
+ ],
+ "voice": {
+  "voice_type": "element",
+  "voice_id": "241459b6-b4e8-4a2a-9868-da8bcdcd0558",
+  "speed": 1.12
+ },
+ "projects": [
+  {
+   "id": "P01",
+   "from_id": "V01",
+   "angle": "youandher",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P01H1",
+     "name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_P01_H1_youandher",
+     "hook_text": "One for you, one for her. Black Friday prices are live.",
+     "label": "YOU AND HER",
+     "type": "promise",
+     "shot": [
+      "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+      9.5
+     ],
+     "est_seconds": 64.5
+    },
+    {
+     "hook": "H2",
+     "id": "P01H2",
+     "name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_P01_H2_youandher",
+     "hook_text": "Shopping for her, and a little for yourself too?",
+     "label": "TREAT BOTH",
+     "type": "question",
+     "shot": [
+      "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+      1.0
+     ],
+     "est_seconds": 63.9
+    },
+    {
+     "hook": "H3",
+     "id": "P01H3",
+     "name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_P01_H3_youandher",
+     "hook_text": "Stop choosing between treating her and treating yourself.",
+     "label": "DO BOTH",
+     "type": "problem",
+     "shot": [
+      "1StPro8S4b5_LUICHyivAkrFna1M1k3ao",
+      0.3
+     ],
+     "est_seconds": 63.5
+    },
+    {
+     "hook": "H4",
+     "id": "P01H4",
+     "name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_P01_H4_youandher",
+     "hook_text": "Two bags, sixty percent off, and a free jewellery box.",
+     "label": "60% OFF BUNDLE",
+     "type": "price",
+     "shot": [
+      "1wE0AQvyBkxmh0-_ftpXmjG4v-pHMMPfG",
+      38.8
+     ],
+     "est_seconds": 64.2
+    }
+   ]
+  },
+  {
+   "id": "P02",
+   "from_id": "V02",
+   "angle": "livenow",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P02H1",
+     "name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_P02_H1_livenow",
+     "hook_text": "Black Friday prices are live now. No need to wait.",
+     "label": "LIVE NOW",
+     "type": "promise",
+     "shot": [
+      "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+      12.0
+     ],
+     "est_seconds": 61.0
+    },
+    {
+     "hook": "H2",
+     "id": "P02H2",
+     "name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_P02_H2_livenow",
+     "hook_text": "Waiting for a Black Friday deal? It is already live.",
+     "label": "ALREADY LIVE",
+     "type": "problem",
+     "shot": [
+      "1MtOonVbf-pqmrcU5DUgY6995LObDfwn7",
+      3.0
+     ],
+     "est_seconds": 61.0
+    },
+    {
+     "hook": "H3",
+     "id": "P02H3",
+     "name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_P02_H3_livenow",
+     "hook_text": "Why wait when the Black Friday sale is already on?",
+     "label": "NO WAITING",
+     "type": "question",
+     "shot": [
+      "18all7GUEBLsxxS0JCAl8t-yEOsC6r52T",
+      19.0
+     ],
+     "est_seconds": 61.0
+    },
+    {
+     "hook": "H4",
+     "id": "P02H4",
+     "name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_P02_H4_livenow",
+     "hook_text": "Three pieces, one price, and sixty percent off.",
+     "label": "60% OFF",
+     "type": "price",
+     "shot": [
+      "1StPro8S4b5_LUICHyivAkrFna1M1k3ao",
+      8.5
+     ],
+     "est_seconds": 60.4
+    }
+   ]
+  },
+  {
+   "id": "P03",
+   "from_id": "V03",
+   "angle": "giftlist",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P03H1",
+     "name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_P03_H1_giftlist",
+     "hook_text": "Still looking for a Christmas gift for mum?",
+     "label": "GIFT FOR MUM?",
+     "type": "question",
+     "shot": [
+      "1U5e0VpcAFm07iWXfWFMPe8jiYRd5LmhZ",
+      5.2
+     ],
+     "est_seconds": 64.0
+    },
+    {
+     "hook": "H2",
+     "id": "P03H2",
+     "name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_P03_H2_giftlist",
+     "hook_text": "One Christmas gift. Three matching pieces.",
+     "label": "GIFT IDEA",
+     "type": "promise",
+     "shot": [
+      "1rRkDw8UM4ZlQpO3c6Bv3_gT1_1-n8qYH",
+      2.0
+     ],
+     "est_seconds": 63.4
+    },
+    {
+     "hook": "H3",
+     "id": "P03H3",
+     "name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_P03_H3_giftlist",
+     "hook_text": "Hard to buy for? Three matching pieces make it easier.",
+     "label": "HARD TO BUY?",
+     "type": "problem",
+     "shot": [
+      "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+      6.0
+     ],
+     "est_seconds": 64.6
+    },
+    {
+     "hook": "H4",
+     "id": "P03H4",
+     "name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_P03_H4_giftlist",
+     "hook_text": "Christmas gifting at sixty percent off. Prices are live now.",
+     "label": "60% OFF",
+     "type": "price",
+     "shot": [
+      "1BidTuA7vhnKJ0W923VLBYlXX0LIIueg5",
+      0.0
+     ],
+     "est_seconds": 64.6
+    }
+   ]
+  },
+  {
+   "id": "P04",
+   "from_id": "V04",
+   "angle": "inthebox",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P04H1",
+     "name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_P04_H1_inthebox",
+     "hook_text": "Here is everything you get in the Hobo 3-Piece Set.",
+     "label": "WHAT YOU GET",
+     "type": "promise",
+     "shot": [
+      "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+      9.0
+     ],
+     "est_seconds": 64.0
+    },
+    {
+     "hook": "H2",
+     "id": "P04H2",
+     "name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_P04_H2_inthebox",
+     "hook_text": "What do you actually get in a three-piece bag set?",
+     "label": "WHAT'S INSIDE?",
+     "type": "question",
+     "shot": [
+      "1XnGy8b5SEh634ZaranWYRHLwOQQrtgXd",
+      0.0
+     ],
+     "est_seconds": 64.0
+    },
+    {
+     "hook": "H3",
+     "id": "P04H3",
+     "name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_P04_H3_inthebox",
+     "hook_text": "One bag cannot do everything. Three matching pieces can.",
+     "label": "3 PIECES",
+     "type": "problem",
+     "shot": [
+      "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+      1.0
+     ],
+     "est_seconds": 63.7
+    },
+    {
+     "hook": "H4",
+     "id": "P04H4",
+     "name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_P04_H4_inthebox",
+     "hook_text": "Three pieces for sixty percent off on Black Friday.",
+     "label": "60% OFF",
+     "type": "price",
+     "shot": [
+      "site/3_piece_set_colour_blue.jpg",
+      0
+     ],
+     "est_seconds": 63.7
+    }
+   ]
+  }
+ ],
+ "hooks_seed": 1
+}

@@ -1,0 +1,730 @@
+{
+ "product": "Hobo Bag 3-Piece Set",
+ "theme": "black friday",
+ "date": "2026-10-25",
+ "research": [
+  "Read the strategy packet (true facts, campaign facts, nothing earlier for this product) and docs/research/2026-10-black-friday-and-bag-ads.md: BFCM statics win with one big visual and one offer line; gifting and 'what is in the box' formats; hooks that state the offer in the first line.",
+  "The client's four ideas for this batch map to one project each: one for you, one for her (P01); Black Friday prices are live now (P02); Christmas gifting (P03); everything you get in the set (P04).",
+  "Live libracases.com product page (2026-10-25): $69.95 vs $174.88 (SAVE 60%), banner 'EARLY BLACK FRIDAY CLEARANCE 50% OFF + FREE SHIPPING | LIMITED STOCK', six colours; the product page lists no gift or bundle line, so those come from the campaign's client-approved facts only (Wouter 2026-10-23).",
+  "Compliance: only packet facts (60% off the set, three pieces, anti-theft design, scratch-proof leather, free US shipping, the campaign's bundle and gift facts), no first person, no countdown, no 'ends tonight', no sale end date."
+ ],
+ "projects": [
+  {
+   "id": "P01",
+   "slug": "youandher",
+   "title": "One for you, one for her",
+   "big_idea": "Split the three pieces between two women: the hobo is yours, the crossbody is hers, the matching pouch goes in either bag, then go bigger with two bags for the Black Friday bundle price.",
+   "why_new": "First 3-Piece Set batch with a share-the-set structure and the client's bundle idea (two bags together, free jewellery box); the earlier set material was a 'which would you choose' video and three statics.",
+   "hooks": [
+    {
+     "text": "One for you, one for her. Black Friday prices are live.",
+     "type": "promise",
+     "label": "YOU AND HER",
+     "show": [
+      "hero",
+      "colours"
+     ]
+    },
+    {
+     "text": "Shopping for her, and a little for yourself too?",
+     "type": "question",
+     "label": "TREAT BOTH",
+     "show": [
+      "hero",
+      "placed"
+     ]
+    },
+    {
+     "text": "Stop choosing between treating her and treating yourself.",
+     "type": "problem",
+     "label": "DO BOTH",
+     "show": [
+      "hero",
+      "handheld"
+     ]
+    },
+    {
+     "text": "Two bags, sixty percent off, and a free jewellery box.",
+     "type": "price",
+     "label": "60% OFF BUNDLE",
+     "show": [
+      "hero",
+      "colours"
+     ]
+    }
+   ],
+   "chapters": [
+    {
+     "kind": "point",
+     "text": "Every set comes with three pieces: the hobo bag, a crossbody, and a matching pouch. That is already enough to share between two people.",
+     "tag": "3 BAGS, 1 PRICE",
+     "number": null,
+     "show": [
+      "hero",
+      "placed"
+     ],
+     "highlight": [
+      "three",
+      "share"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Keep the hobo for you. It is the everyday bag, and smart compartments with an anti-theft design keep everything secure. Phone, keys, cards, each in its own place.",
+     "tag": "ANTI-THEFT DESIGN",
+     "number": null,
+     "show": [
+      "hero",
+      "handheld",
+      "pocket"
+     ],
+     "highlight": [
+      "hobo",
+      "secure"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Give her the crossbody. It is for the days she wants to go light, one strap across the body and nothing else to carry.",
+     "tag": "HOBO + CROSSBODY",
+     "number": null,
+     "show": [
+      "strap",
+      "worn",
+      "hero"
+     ],
+     "highlight": [
+      "crossbody",
+      "light"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "The matching pouch keeps cards and cash in one place, so it can ride along in either bag. Nothing gets lost at the bottom.",
+     "tag": "MATCHING POUCH",
+     "number": null,
+     "show": [
+      "pouch",
+      "placed"
+     ],
+     "highlight": [
+      "pouch",
+      "matching"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Pick her colour. Brown, black, blue, grey, purple red or red, six to choose from. And yours can match hers, or not.",
+     "tag": "6 COLOURS",
+     "number": null,
+     "show": [
+      "colours"
+     ],
+     "highlight": [
+      "six",
+      "colour"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Or go bigger. Buy two bags together and you get sixty percent off the regular price: one for you and one for her.",
+     "tag": "60% OFF 2 BAGS",
+     "number": null,
+     "show": [
+      "hero",
+      "colours"
+     ],
+     "highlight": [
+      "sixty",
+      "two"
+     ]
+    },
+    {
+     "kind": "offer",
+     "text": "The Black Friday prices are live now, so the set is sixty percent off, with free US shipping. Buy two bags and you also get a free mirrored jewellery box, while stocks last. Tap the link below.",
+     "tag": null,
+     "number": null,
+     "show": [
+      "hero",
+      "placed"
+     ],
+     "highlight": [
+      "sixty",
+      "free"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "P02",
+   "slug": "livenow",
+   "title": "Prices are live, stop waiting",
+   "big_idea": "A calm 'no need to wait' argument in three numbered reasons: what the set is, what it is made of and how it protects what you carry, ending on the live Black Friday price.",
+   "why_new": "Opens on the client's own line (Black Friday prices are live now) and makes the sale the story: a numbered three-reason structure, no first person, no countdown.",
+   "hooks": [
+    {
+     "text": "Black Friday prices are live now. No need to wait.",
+     "type": "promise",
+     "label": "LIVE NOW",
+     "show": [
+      "hero",
+      "colours"
+     ]
+    },
+    {
+     "text": "Waiting for a Black Friday deal? It is already live.",
+     "type": "problem",
+     "label": "ALREADY LIVE",
+     "show": [
+      "hero",
+      "placed"
+     ]
+    },
+    {
+     "text": "Why wait when the Black Friday sale is already on?",
+     "type": "question",
+     "label": "NO WAITING",
+     "show": [
+      "hero",
+      "handheld"
+     ]
+    },
+    {
+     "text": "Three pieces, one price, and sixty percent off.",
+     "type": "price",
+     "label": "60% OFF",
+     "show": [
+      "hero",
+      "placed"
+     ]
+    }
+   ],
+   "chapters": [
+    {
+     "kind": "point",
+     "text": "The Black Friday Sale is on, and the prices are live now. There is nothing left to wait for, and nothing to refresh.",
+     "tag": "LIVE NOW",
+     "number": null,
+     "show": [
+      "hero",
+      "placed"
+     ],
+     "highlight": [
+      "live",
+      "wait"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Here are three reasons to stop waiting. One: three pieces in one set, which is a lot of bag for one price. The hobo bag, a crossbody, and a matching pouch.",
+     "tag": "3 BAGS, 1 PRICE",
+     "number": 1,
+     "show": [
+      "hero",
+      "placed",
+      "pouch"
+     ],
+     "highlight": [
+      "three"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Two: the leather. It is soft, water-resistant and scratch-proof, and it looks beautiful season after season. That is leather made to keep up.",
+     "tag": "SCRATCH-PROOF LEATHER",
+     "number": 2,
+     "show": [
+      "leather",
+      "hero"
+     ],
+     "highlight": [
+      "soft",
+      "scratch-proof"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Three: smart compartments and an anti-theft design that keep everything secure. You carry your day, and the bag does the worrying.",
+     "tag": "ANTI-THEFT DESIGN",
+     "number": 3,
+     "show": [
+      "pocket",
+      "inside",
+      "hero"
+     ],
+     "highlight": [
+      "secure"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "All of that comes at sixty percent off the whole set, plus free US shipping. The hobo, the crossbody and the pouch, together.",
+     "tag": "60% OFF",
+     "number": null,
+     "show": [
+      "hero",
+      "placed"
+     ],
+     "highlight": [
+      "sixty",
+      "free"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "So you can stop refreshing and just choose your colour: brown, black, blue, grey, purple red or red.",
+     "tag": "6 COLOURS",
+     "number": null,
+     "show": [
+      "colours"
+     ],
+     "highlight": [
+      "colour"
+     ]
+    },
+    {
+     "kind": "offer",
+     "text": "Black Friday prices are live now. The set is sixty percent off, and when you buy two bags you also get a free mirrored jewellery box, while stocks last. Tap the link below.",
+     "tag": null,
+     "number": null,
+     "show": [
+      "hero",
+      "placed"
+     ],
+     "highlight": [
+      "live",
+      "free"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "P03",
+   "slug": "giftlist",
+   "title": "One set for the women on your list",
+   "big_idea": "A Christmas gift list told to the shopper: mum, your sister, your best friend, one matching set, each piece with a reason it suits a gift.",
+   "why_new": "First Christmas gifting video for the 3-Piece Set, built as a short gift list with a 'she' voice and the idea that three matching pieces make the gift feel finished.",
+   "hooks": [
+    {
+     "text": "Still looking for a Christmas gift for mum?",
+     "type": "question",
+     "label": "GIFT FOR MUM?",
+     "show": [
+      "hero",
+      "worn"
+     ]
+    },
+    {
+     "text": "One Christmas gift. Three matching pieces.",
+     "type": "promise",
+     "label": "GIFT IDEA",
+     "show": [
+      "hero",
+      "pouch",
+      "placed"
+     ]
+    },
+    {
+     "text": "Hard to buy for? Three matching pieces make it easier.",
+     "type": "problem",
+     "label": "HARD TO BUY?",
+     "show": [
+      "hero",
+      "placed"
+     ]
+    },
+    {
+     "text": "Christmas gifting at sixty percent off. Prices are live now.",
+     "type": "price",
+     "label": "60% OFF",
+     "show": [
+      "hero",
+      "colours"
+     ]
+    }
+   ],
+   "chapters": [
+    {
+     "kind": "point",
+     "text": "Mum. Your sister. Your best friend. Christmas shopping for the women on your list gets easier with one set. One gift, and it covers a whole wardrobe of days.",
+     "tag": null,
+     "number": null,
+     "show": [
+      "hero",
+      "placed"
+     ],
+     "highlight": [
+      "mum",
+      "sister",
+      "friend"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Inside the set: a hobo bag, a crossbody, and a matching pouch. Three pieces that match, so the gift looks finished the moment it is opened.",
+     "tag": "3 BAGS, 1 PRICE",
+     "number": null,
+     "show": [
+      "placed",
+      "hero",
+      "pouch"
+     ],
+     "highlight": [
+      "three",
+      "matching"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "The hobo is for every day, and smart compartments with an anti-theft design keep everything secure. A gift she can trust with her phone, keys and cards.",
+     "tag": "ANTI-THEFT DESIGN",
+     "number": null,
+     "show": [
+      "hero",
+      "handheld",
+      "pocket"
+     ],
+     "highlight": [
+      "hobo",
+      "secure"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "The crossbody is for when she wants to go light. One strap across the body, and she is out the door.",
+     "tag": "HOBO + CROSSBODY",
+     "number": null,
+     "show": [
+      "strap",
+      "worn",
+      "hero"
+     ],
+     "highlight": [
+      "crossbody"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "And the pouch keeps her cards and cash in one place, ready to drop into any bag.",
+     "tag": "MATCHING POUCH",
+     "number": null,
+     "show": [
+      "pouch",
+      "placed"
+     ],
+     "highlight": [
+      "pouch"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "The leather is soft, water-resistant and scratch-proof, so it looks beautiful season after season.",
+     "tag": "SCRATCH-PROOF LEATHER",
+     "number": null,
+     "show": [
+      "leather",
+      "hero"
+     ],
+     "highlight": [
+      "leather"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Pick her colour from six: brown, black, blue, grey, purple red or red.",
+     "tag": "6 COLOURS",
+     "number": null,
+     "show": [
+      "colours"
+     ],
+     "highlight": [
+      "six",
+      "colour"
+     ]
+    },
+    {
+     "kind": "offer",
+     "text": "Black Friday prices are live now, so the set is sixty percent off, with free US shipping. Buy two bags and you also get a free mirrored jewellery box, while stocks last. Tap the link below.",
+     "tag": null,
+     "number": null,
+     "show": [
+      "hero",
+      "placed"
+     ],
+     "highlight": [
+      "sixty",
+      "free"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "P04",
+   "slug": "inthebox",
+   "title": "Everything you get in the set",
+   "big_idea": "An unboxing-style inventory without a person: count the three pieces one by one, what each does, what they share and what it costs today.",
+   "why_new": "A pure 'what is in the set' count-up with the pieces numbered one to three on screen: no earlier batch of this product showed the pieces one at a time.",
+   "hooks": [
+    {
+     "text": "Here is everything you get in the Hobo 3-Piece Set.",
+     "type": "promise",
+     "label": "WHAT YOU GET",
+     "show": [
+      "hero",
+      "placed"
+     ]
+    },
+    {
+     "text": "What do you actually get in a three-piece bag set?",
+     "type": "question",
+     "label": "WHAT'S INSIDE?",
+     "show": [
+      "placed",
+      "hero"
+     ]
+    },
+    {
+     "text": "One bag cannot do everything. Three matching pieces can.",
+     "type": "problem",
+     "label": "3 PIECES",
+     "show": [
+      "hero",
+      "handheld"
+     ]
+    },
+    {
+     "text": "Three pieces for sixty percent off on Black Friday.",
+     "type": "price",
+     "label": "60% OFF",
+     "show": [
+      "hero",
+      "colours"
+     ]
+    }
+   ],
+   "chapters": [
+    {
+     "kind": "point",
+     "text": "Open the set and you count three pieces: the hobo bag, the crossbody, and the matching pouch. Here is each one, one by one.",
+     "tag": "3 BAGS, 1 PRICE",
+     "number": null,
+     "show": [
+      "hero",
+      "placed"
+     ],
+     "highlight": [
+      "three"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "One: the hobo bag. It is the everyday piece, with smart compartments and an anti-theft design that keep everything secure.",
+     "tag": "SMART COMPARTMENTS",
+     "number": 1,
+     "show": [
+      "hero",
+      "handheld",
+      "pocket"
+     ],
+     "highlight": [
+      "hobo",
+      "secure"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Two: the crossbody. It is for when you want to go light: one strap across the body, and you are off.",
+     "tag": "HOBO + CROSSBODY",
+     "number": 2,
+     "show": [
+      "strap",
+      "worn",
+      "hero"
+     ],
+     "highlight": [
+      "crossbody",
+      "light"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Three: the matching pouch. Cards and cash stay in one place, and it matches the other two.",
+     "tag": "MATCHING POUCH",
+     "number": 3,
+     "show": [
+      "pouch",
+      "placed"
+     ],
+     "highlight": [
+      "pouch",
+      "matching"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "All three share the same soft, water-resistant, scratch-proof leather, so they look beautiful season after season. Three pieces, one finish, one look.",
+     "tag": "SCRATCH-PROOF LEATHER",
+     "number": null,
+     "show": [
+      "leather",
+      "hero"
+     ],
+     "highlight": [
+      "scratch-proof"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "The set comes in six colours: brown, black, blue, grey, purple red and red. Pick the one that fits your wardrobe.",
+     "tag": "6 COLOURS",
+     "number": null,
+     "show": [
+      "colours"
+     ],
+     "highlight": [
+      "six"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Three pieces, one price, and with Black Friday prices that is sixty percent off the set, plus free US shipping.",
+     "tag": "60% OFF",
+     "number": null,
+     "show": [
+      "hero",
+      "placed"
+     ],
+     "highlight": [
+      "sixty",
+      "free"
+     ]
+    },
+    {
+     "kind": "offer",
+     "text": "Black Friday prices are live now. Buy two bags and you also get a free mirrored jewellery box, while stocks last. That is the set, the sale and the gift in one. Tap the link below.",
+     "tag": null,
+     "number": null,
+     "show": [
+      "hero",
+      "placed"
+     ],
+     "highlight": [
+      "live",
+      "free"
+     ]
+    }
+   ]
+  }
+ ],
+ "statics": [
+  {
+   "id": "S01",
+   "project": "P01",
+   "layout": "bundle",
+   "idea": "Two or three colours side by side: one for you, one for her (the campaign's bundle layout).",
+   "headline": "One for you. One for her."
+  },
+  {
+   "id": "S02",
+   "project": "P01",
+   "layout": "concept",
+   "idea": "For her: the crossbody worn from behind on an autumn street, no face.",
+   "headline": "A set for her.",
+   "kicker": "BLACK FRIDAY",
+   "pill": true,
+   "where": "bottom",
+   "scene": {
+    "kind": "worn",
+    "colour": "Red",
+    "prompt": "A woman in a camel coat and blue jeans walks away from the camera along an empty autumn city street, seen from behind and slightly from the side, cropped by the top edge of the frame at shoulder height so no head or face is visible. The crossbody bag from the set hangs across her body, large and clearly visible in the middle of the frame. Golden afternoon light, softly blurred empty street with fallen leaves; nobody else in the picture. The bottom fifth of the frame is plain pavement."
+   }
+  },
+  {
+   "id": "S03",
+   "project": "P02",
+   "layout": "concept",
+   "idea": "The Black Friday hero: the set lit like a luxury product on dark charcoal with golden bokeh.",
+   "headline": "Three pieces. One price.",
+   "kicker": "BLACK FRIDAY",
+   "sub": "Prices are live now.",
+   "pill": true,
+   "where": "bottom",
+   "scene": {
+    "kind": "object",
+    "colour": "Black",
+    "prompt": "Luxury studio product photograph for a Black Friday campaign. The three matching pieces of the set, the hobo bag standing upright in front with the crossbody and the small pouch beside it, on a dark charcoal seamless surface with a soft low reflection; behind them, out of focus, warm golden bokeh lights; a single soft key light from the upper left with gentle rim light on the leather. Rich, elegant, premium. The pieces fill the upper two thirds of the frame; the bottom quarter is empty dark surface."
+   }
+  },
+  {
+   "id": "S04",
+   "project": "P02",
+   "layout": "value",
+   "idea": "The real price struck through (the plan checks it against the site)."
+  },
+  {
+   "id": "S05",
+   "project": "P03",
+   "layout": "concept",
+   "idea": "A gift styling: the set beside a wrapped gift on cream linen.",
+   "headline": "Gift sorted.",
+   "kicker": "CHRISTMAS GIFT",
+   "sub": "Three matching pieces.",
+   "pill": true,
+   "where": "bottom",
+   "scene": {
+    "kind": "object",
+    "colour": "Brown",
+    "prompt": "The three matching pieces of the set, the hobo bag with the crossbody and the small pouch beside it, on a cream linen surface; next to them a gift box wrapped in plain kraft paper with a thin gold ribbon and a sprig of dried eucalyptus. Soft warm window light, calm cream wall behind. The pieces fill the upper two thirds of the frame; the bottom quarter is plain empty linen."
+   }
+  },
+  {
+   "id": "S06",
+   "project": "P03",
+   "layout": "concept",
+   "idea": "A warm Christmas mantel: the set under fairy-light bokeh next to wrapped boxes.",
+   "headline": "Her Christmas gift.",
+   "kicker": "BLACK FRIDAY",
+   "pill": true,
+   "where": "bottom",
+   "scene": {
+    "kind": "object",
+    "colour": "Blue",
+    "prompt": "The hobo bag stands upright on a dark wooden mantel shelf with the crossbody bag and the small matching pouch leaning beside it; behind them, out of focus, warm fairy lights and a few softly blurred wrapped gift boxes with thin gold ribbon, a sprig of pine at one side. Warm low evening light, calm dark wall. The pieces fill the upper two thirds of the frame; the bottom quarter is plain empty shelf and wall."
+   }
+  },
+  {
+   "id": "S07",
+   "project": "P03",
+   "layout": "gifts",
+   "idea": "The set with the free jewellery box and cosmetic bag (the campaign's gifts layout).",
+   "headline": "Buy two bags, get a gift."
+  },
+  {
+   "id": "S08",
+   "project": "P04",
+   "layout": "concept",
+   "idea": "A flat-lay of the three pieces laid out one by one on pale marble.",
+   "headline": "Everything in the set.",
+   "kicker": "HOBO + CROSSBODY + POUCH",
+   "pill": true,
+   "where": "bottom",
+   "scene": {
+    "kind": "object",
+    "colour": "Grey",
+    "prompt": "Editorial top-down flat-lay on pale warm-grey marble. The three matching pieces of the set lie neatly spaced in the upper two thirds of the frame: the hobo bag in the centre, the crossbody bag to one side, the small pouch to the other. Soft diffused daylight, gentle shadows, calm premium styling. The bottom quarter of the frame is plain empty marble with nothing on it."
+   }
+  },
+  {
+   "id": "S09",
+   "project": "P04",
+   "layout": "checklist",
+   "idea": "The feature tags as ticks with the offer pill."
+  },
+  {
+   "id": "S10",
+   "project": "P01",
+   "layout": "colours",
+   "idea": "The six real colours: pick her colour."
+  }
+ ]
+}

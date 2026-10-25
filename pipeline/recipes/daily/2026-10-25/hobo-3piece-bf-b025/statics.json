@@ -1,0 +1,162 @@
+{
+ "ads": [
+  {
+   "layout": "bundle",
+   "photos": [
+    "site/3_piece_set_colour_black.jpg",
+    "site/3_piece_set_colour_blue.jpg"
+   ],
+   "kicker": "BLACK FRIDAY SALE",
+   "headline": "One for you. One for her.",
+   "pill": "60% OFF 2 OR 3 BAGS",
+   "sub": "+ free gifts while stocks last",
+   "cta": "Get the Black Friday deal",
+   "name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_S01_bundle"
+  },
+  {
+   "layout": "concept",
+   "photo": "ai/AS01.png",
+   "kicker": "BLACK FRIDAY",
+   "headline": "A set for her.",
+   "where": "bottom",
+   "pct": 60,
+   "name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_S02_concept",
+   "ai": {
+    "id": "AS01",
+    "scene": "p01_s02",
+    "colour": "Purple Red"
+   }
+  },
+  {
+   "layout": "concept",
+   "photo": "ai/AS02.png",
+   "kicker": "BLACK FRIDAY",
+   "headline": "Three pieces. One price.",
+   "sub": "Prices are live now.",
+   "where": "bottom",
+   "pct": 60,
+   "name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_S03_concept",
+   "ai": {
+    "id": "AS02",
+    "scene": "p02_s03",
+    "colour": "Black"
+   }
+  },
+  {
+   "layout": "value",
+   "photo": "site/3_piece_set_colour_grey.jpg",
+   "price": "$69.95",
+   "was": "$174.88",
+   "pct": 60,
+   "headline": "The 3-Piece Set",
+   "cta": "Get the Black Friday deal",
+   "name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_S04_value"
+  },
+  {
+   "layout": "concept",
+   "photo": "ai/AS03.png",
+   "kicker": "CHRISTMAS GIFT",
+   "headline": "Gift sorted.",
+   "sub": "Three matching pieces.",
+   "where": "bottom",
+   "pct": 60,
+   "name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_S05_concept",
+   "ai": {
+    "id": "AS03",
+    "scene": "p03_s05",
+    "colour": "Blue"
+   }
+  },
+  {
+   "layout": "studio",
+   "photo": "site/3_piece_set_colour_black.jpg",
+   "pct": 60,
+   "name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_S06_studio"
+  },
+  {
+   "layout": "gifts",
+   "photo": "site/clean/3_piece_set_colour_brown.jpg",
+   "kicker": "BLACK FRIDAY SALE",
+   "headline": "Buy two bags, get a gift.",
+   "gifts": [
+    {
+     "src": "site/gift_jewellery_box.jpg",
+     "label": "FREE JEWELLERY BOX"
+    },
+    {
+     "src": "site/gift_cosmetic_bag.jpg",
+     "label": "+ FREE COSMETIC BAG"
+    }
+   ],
+   "rows": [
+    "2 bags: a free mirrored jewellery box (worth $19.95)",
+    "3+ bags: + a free cosmetic bag (together worth $44.90)"
+   ],
+   "note": "Only bags count \u00b7 while stocks last",
+   "cta": "Get the Black Friday deal",
+   "name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_S07_gifts"
+  },
+  {
+   "layout": "concept",
+   "photo": "ai/AS05.png",
+   "kicker": "HOBO + CROSSBODY + POUCH",
+   "headline": "Everything in the set.",
+   "where": "bottom",
+   "pct": 60,
+   "name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_S08_concept",
+   "ai": {
+    "id": "AS05",
+    "scene": "p04_s08",
+    "colour": "Grey"
+   }
+  },
+  {
+   "layout": "checklist",
+   "photo": "site/3_piece_set_colour_blue.jpg",
+   "headline": "Why the 3-Piece Set?",
+   "ticks": [
+    "3 bags, 1 price",
+    "Hobo + crossbody",
+    "Matching pouch",
+    "Anti-theft design"
+   ],
+   "offer": "BLACK FRIDAY 60% OFF",
+   "cta": "Get the Black Friday deal",
+   "name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_S09_checklist"
+  },
+  {
+   "layout": "colours",
+   "photos": [
+    {
+     "src": "site/clean/3_piece_set_colour_brown.jpg",
+     "name": "Brown"
+    },
+    {
+     "src": "site/3_piece_set_colour_black.jpg",
+     "name": "Black"
+    },
+    {
+     "src": "site/3_piece_set_colour_blue.jpg",
+     "name": "Blue"
+    },
+    {
+     "src": "site/3_piece_set_colour_grey.jpg",
+     "name": "Grey"
+    },
+    {
+     "src": "site/3_piece_set_colour_purple_red.jpg",
+     "name": "Purple Red"
+    },
+    {
+     "src": "site/3_piece_set_colour_red.jpg",
+     "name": "Red"
+    }
+   ],
+   "headline": "Pick your colour.",
+   "sub": "Bag, crossbody and pouch in one set.",
+   "cta": "Get the Black Friday deal",
+   "name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_S10_colours"
+  }
+ ],
+ "card_photos": []
+}

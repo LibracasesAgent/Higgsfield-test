@@ -1,0 +1,330 @@
+{
+ "ok": true,
+ "created": "2026-10-25",
+ "product": "Hobo Bag 3-Piece Set",
+ "theme": "black friday",
+ "theme_name": "BlackFriday",
+ "offer": "60% off",
+ "seed": 1,
+ "cta": "Get Offer",
+ "rows": 26,
+ "csv": "/home/user/run/bf3p/ad_copy.csv",
+ "statics": [
+  {
+   "id": "S01",
+   "ad_name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_S01_bundle",
+   "angle": "bundle",
+   "primary_text_1": "This is the Black Friday deal you've been waiting for.\nThe 3-Piece Set: 60% off.",
+   "primary_text_2": "Black Friday came early.\nThe pouch keeps your cards and cash in one place.\nSmart compartments and an anti-theft design keep everything secure.\nBuy 2 bags, get a free mirrored jewellery box (worth $19.95). 🖤\nTap Get Offer before it's gone.",
+   "headline_1": "Up to 60% off + free gifts",
+   "headline_2": "Buy 2 bags, get a free gift",
+   "description": "Black Friday: 60% off",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER"
+  },
+  {
+   "id": "S02",
+   "ad_name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_S02_concept",
+   "angle": "concept",
+   "primary_text_1": "You don't get one bag here. You get three.\n60% off the 3-Piece Set.",
+   "primary_text_2": "Black Friday: the bag everyone asks about is sixty percent off.\nSmart compartments and an anti-theft design keep everything secure.\nSoft, water-resistant, scratch-proof leather that looks beautiful season after season.\nBuy 2 bags, get a free mirrored jewellery box (worth $19.95). 🖤\nTap Get Offer to claim the deal.",
+   "headline_1": "Black Friday prices are live",
+   "headline_2": "Now 60% Off: The 3-Piece Set",
+   "description": "Up to 60% off + free gifts",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER"
+  },
+  {
+   "id": "S03",
+   "ad_name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_S03_concept",
+   "angle": "concept",
+   "primary_text_1": "A hobo for every day, a crossbody for going light, and a matching pouch.\nBlack Friday deal: the 3-Piece Set is 60% off.",
+   "primary_text_2": "This is what a matching three-piece set looks like.\nThe hobo for every day. The crossbody for when you want to go light.\nThe pouch keeps your cards and cash in one place.\nThis Black Friday: 60% off. 🖤\nTap Get Offer to claim the deal.",
+   "headline_1": "Black Friday: 60% Off",
+   "headline_2": "3-Piece Set: 60% Off",
+   "description": "60% off + free US shipping",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER"
+  },
+  {
+   "id": "S04",
+   "ad_name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_S04_value",
+   "angle": "value",
+   "primary_text_1": "Switching bags shouldn't mean emptying everything out.\nBlack Friday: 60% off the 3-Piece Set.",
+   "primary_text_2": "The 3-piece set is sixty percent off right now.\nSmart compartments and an anti-theft design keep everything secure.\nSoft, water-resistant, scratch-proof leather that looks beautiful season after season.\nBuy 2 bags, get a free mirrored jewellery box (worth $19.95). 🖤\nTap Get Offer to claim the deal.",
+   "headline_1": "Black Friday: 60% Off the 3-Piece Set",
+   "headline_2": "The 3-Piece Set: Anti-Theft Design",
+   "description": "Free US shipping",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER"
+  },
+  {
+   "id": "S05",
+   "ad_name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_S05_concept",
+   "angle": "concept",
+   "primary_text_1": "Soft, scratch-proof leather, in a set of three.\nThe 3-Piece Set: 60% off.",
+   "primary_text_2": "Take a closer look at the 3-Piece Set.\nEvery set comes with three pieces: the hobo bag, a crossbody, and a matching pouch.\nThe hobo for every day. The crossbody for when you want to go light.\nBlack Friday Sale: up to 60% off + free gifts. 🖤\nTap Get Offer before it's gone.",
+   "headline_1": "Black Friday Deal: 60% Off",
+   "headline_2": "60% Off the 3-Piece Set",
+   "description": "6 colours + free US shipping",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER"
+  },
+  {
+   "id": "S06",
+   "ad_name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_S06_studio",
+   "angle": "studio",
+   "primary_text_1": "Which would you carry first: the hobo, the crossbody or the pouch?\nThe 3-Piece Set: 60% off.",
+   "primary_text_2": "The 3-Piece Set is sixty percent off.\nThe pouch keeps your cards and cash in one place.\nSmart compartments and an anti-theft design keep everything secure.\nBuy 2 bags, get a free mirrored jewellery box (worth $19.95). 🖤\nTap Get Offer to claim the deal.",
+   "headline_1": "Up to 60% off + free gifts",
+   "headline_2": "Matching Pouch + Anti-Theft Design",
+   "description": "Black Friday deal: 60% off",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER"
+  },
+  {
+   "id": "S07",
+   "ad_name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_S07_gifts",
+   "angle": "gifts",
+   "primary_text_1": "One gift, three matching pieces.\nThe 3-Piece Set, now 60% off.",
+   "primary_text_2": "Have you seen the 3-Piece Set yet?\nSoft, water-resistant, scratch-proof leather that looks beautiful season after season.\nEvery set comes with three pieces: the hobo bag, a crossbody, and a matching pouch.\nBlack Friday Sale: up to 60% off + free gifts. 🖤\nTap Get Offer to claim the deal.",
+   "headline_1": "The 3-Piece Set: Scratch-Proof Leather",
+   "headline_2": "Scratch-Proof Leather + Matching Pouch",
+   "description": "Now 60% off",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER"
+  },
+  {
+   "id": "S08",
+   "ad_name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_S08_concept",
+   "angle": "concept",
+   "primary_text_1": "Travel tip: take the crossbody out, leave the big bag behind.\n60% off the 3-Piece Set.",
+   "primary_text_2": "Looking for a gift? Meet the 3-Piece Set.\nEvery set comes with three pieces: the hobo bag, a crossbody, and a matching pouch.\nThe hobo for every day. The crossbody for when you want to go light.\nBuy 2 bags, get a free mirrored jewellery box (worth $19.95). 🖤\nTap Get Offer before it's gone.",
+   "headline_1": "Meet the 3-Piece Set: Matching Pouch",
+   "headline_2": "Buy 2 bags, get a free gift",
+   "description": "6 colours to choose from",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER"
+  },
+  {
+   "id": "S09",
+   "ad_name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_S09_checklist",
+   "angle": "checklist",
+   "primary_text_1": "Switching bags shouldn't mean emptying everything out.\nThe 3-Piece Set: 60% off.",
+   "primary_text_2": "Your hobo, your crossbody and your pouch, all matching.\nEvery set comes with three pieces: the hobo bag, a crossbody, and a matching pouch.\nThe hobo for every day. The crossbody for when you want to go light.\nBlack Friday: 60% off. 🖤\nTap Get Offer to claim the deal.",
+   "headline_1": "The 3-Piece Set: Matching Pouch",
+   "headline_2": "Black Friday prices are live",
+   "description": "Up to 60% off + free gifts",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER"
+  },
+  {
+   "id": "S10",
+   "ad_name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_S10_colours",
+   "angle": "colours",
+   "primary_text_1": "Which colour would you pick?\n60% off the 3-Piece Set.",
+   "primary_text_2": "Be honest. Which colour are you?\nChoose from Brown, Black, Blue, Grey, Purple Red or Red.\nThe pouch keeps your cards and cash in one place.\nBlack Friday: 60% off. 🖤\nTap Get Offer to claim the deal.",
+   "headline_1": "Which Colour Are You?",
+   "headline_2": "60% Off the 3-Piece Set",
+   "description": "Black Friday: 60% off",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER"
+  }
+ ],
+ "projects": [
+  {
+   "id": "P01",
+   "angle": "youandher",
+   "engine": "storyboard",
+   "product": "Hobo Bag 3-Piece Set",
+   "winner": null,
+   "primary_text_1": "This is the Black Friday deal you've been waiting for.\nThe 3-Piece Set, now 60% off.",
+   "primary_text_2": "Black Friday came early.\nEvery set comes with three pieces: the hobo bag, a crossbody, and a matching pouch.\nSmart compartments and an anti-theft design keep everything secure.\nBuy 2 bags, get a free mirrored jewellery box (worth $19.95). 🖤\nTap Get Offer to claim the deal.",
+   "headline_1": "Anti-Theft Design + Matching Pouch",
+   "headline_2": "Meet the 3-Piece Set: Anti-Theft Design",
+   "description": "Black Friday deal: 60% off",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER",
+   "versions": [
+    {
+     "hook": "H1",
+     "id": "P01H1",
+     "ad_name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_P01_H1_youandher",
+     "hook_text": "One for you, one for her. Black Friday prices are live.",
+     "hook_first_line": "One for you, one for her. Black Friday prices are live.",
+     "primary_text_2_hook": "One for you, one for her. Black Friday prices are live.\nEvery set comes with three pieces: the hobo bag, a crossbody, and a matching pouch.\nSmart compartments and an anti-theft design keep everything secure.\nBuy 2 bags, get a free mirrored jewellery box (worth $19.95). 🖤\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H2",
+     "id": "P01H2",
+     "ad_name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_P01_H2_youandher",
+     "hook_text": "Shopping for her, and a little for yourself too?",
+     "hook_first_line": "Shopping for her, and a little for yourself too?",
+     "primary_text_2_hook": "Shopping for her, and a little for yourself too?\nEvery set comes with three pieces: the hobo bag, a crossbody, and a matching pouch.\nSmart compartments and an anti-theft design keep everything secure.\nBuy 2 bags, get a free mirrored jewellery box (worth $19.95). 🖤\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H3",
+     "id": "P01H3",
+     "ad_name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_P01_H3_youandher",
+     "hook_text": "Stop choosing between treating her and treating yourself.",
+     "hook_first_line": "Stop choosing between treating her and treating yourself.",
+     "primary_text_2_hook": "Stop choosing between treating her and treating yourself.\nEvery set comes with three pieces: the hobo bag, a crossbody, and a matching pouch.\nSmart compartments and an anti-theft design keep everything secure.\nBuy 2 bags, get a free mirrored jewellery box (worth $19.95). 🖤\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H4",
+     "id": "P01H4",
+     "ad_name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_P01_H4_youandher",
+     "hook_text": "Two bags, sixty percent off, and a free jewellery box.",
+     "hook_first_line": "Two bags, sixty percent off, and a free jewellery box.",
+     "primary_text_2_hook": "Two bags, sixty percent off, and a free jewellery box.\nEvery set comes with three pieces: the hobo bag, a crossbody, and a matching pouch.\nSmart compartments and an anti-theft design keep everything secure.\nBuy 2 bags, get a free mirrored jewellery box (worth $19.95). 🖤\nTap Get Offer to claim the deal."
+    }
+   ]
+  },
+  {
+   "id": "P02",
+   "angle": "livenow",
+   "engine": "storyboard",
+   "product": "Hobo Bag 3-Piece Set",
+   "winner": null,
+   "primary_text_1": "You don't get one bag here. You get three.\nBlack Friday deal: the 3-Piece Set is 60% off.",
+   "primary_text_2": "Black Friday: the bag everyone asks about is sixty percent off.\nEvery set comes with three pieces: the hobo bag, a crossbody, and a matching pouch.\nSoft, water-resistant, scratch-proof leather that looks beautiful season after season.\nBuy 2 bags, get a free mirrored jewellery box (worth $19.95). 🖤\nTap Get Offer to claim the deal.",
+   "headline_1": "Black Friday: 60% Off",
+   "headline_2": "3-Piece Set: 60% Off",
+   "description": "60% off + free US shipping",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER",
+   "versions": [
+    {
+     "hook": "H1",
+     "id": "P02H1",
+     "ad_name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_P02_H1_livenow",
+     "hook_text": "Black Friday prices are live now. No need to wait.",
+     "hook_first_line": "Black Friday prices are live now. No need to wait.",
+     "primary_text_2_hook": "Black Friday prices are live now. No need to wait.\nEvery set comes with three pieces: the hobo bag, a crossbody, and a matching pouch.\nSoft, water-resistant, scratch-proof leather that looks beautiful season after season.\nBuy 2 bags, get a free mirrored jewellery box (worth $19.95). 🖤\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H2",
+     "id": "P02H2",
+     "ad_name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_P02_H2_livenow",
+     "hook_text": "Waiting for a Black Friday deal? It is already live.",
+     "hook_first_line": "Waiting for a Black Friday deal? It is already live.",
+     "primary_text_2_hook": "Waiting for a Black Friday deal? It is already live.\nEvery set comes with three pieces: the hobo bag, a crossbody, and a matching pouch.\nSoft, water-resistant, scratch-proof leather that looks beautiful season after season.\nBuy 2 bags, get a free mirrored jewellery box (worth $19.95). 🖤\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H3",
+     "id": "P02H3",
+     "ad_name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_P02_H3_livenow",
+     "hook_text": "Why wait when the Black Friday sale is already on?",
+     "hook_first_line": "Why wait when the Black Friday sale is already on?",
+     "primary_text_2_hook": "Why wait when the Black Friday sale is already on?\nEvery set comes with three pieces: the hobo bag, a crossbody, and a matching pouch.\nSoft, water-resistant, scratch-proof leather that looks beautiful season after season.\nBuy 2 bags, get a free mirrored jewellery box (worth $19.95). 🖤\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H4",
+     "id": "P02H4",
+     "ad_name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_P02_H4_livenow",
+     "hook_text": "Three pieces, one price, and sixty percent off.",
+     "hook_first_line": "Three pieces, one price, and sixty percent off.",
+     "primary_text_2_hook": "Three pieces, one price, and sixty percent off.\nEvery set comes with three pieces: the hobo bag, a crossbody, and a matching pouch.\nSoft, water-resistant, scratch-proof leather that looks beautiful season after season.\nBuy 2 bags, get a free mirrored jewellery box (worth $19.95). 🖤\nTap Get Offer to claim the deal."
+    }
+   ]
+  },
+  {
+   "id": "P03",
+   "angle": "giftlist",
+   "engine": "storyboard",
+   "product": "Hobo Bag 3-Piece Set",
+   "winner": null,
+   "primary_text_1": "A hobo for every day, a crossbody for going light, and a matching pouch.\nThe 3-Piece Set, now 60% off.",
+   "primary_text_2": "Take a closer look at the 3-Piece Set.\nEvery set comes with three pieces: the hobo bag, a crossbody, and a matching pouch.\nSmart compartments and an anti-theft design keep everything secure.\nBlack Friday: 60% off. 🖤\nTap Get Offer to claim the deal.",
+   "headline_1": "Black Friday Deal: 60% Off",
+   "headline_2": "Now 60% Off: The 3-Piece Set",
+   "description": "6 colours + free US shipping",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER",
+   "versions": [
+    {
+     "hook": "H1",
+     "id": "P03H1",
+     "ad_name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_P03_H1_giftlist",
+     "hook_text": "Still looking for a Christmas gift for mum?",
+     "hook_first_line": "Still looking for a Christmas gift for mum?",
+     "primary_text_2_hook": "Still looking for a Christmas gift for mum?\nEvery set comes with three pieces: the hobo bag, a crossbody, and a matching pouch.\nSmart compartments and an anti-theft design keep everything secure.\nBlack Friday: 60% off. 🖤\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H2",
+     "id": "P03H2",
+     "ad_name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_P03_H2_giftlist",
+     "hook_text": "One Christmas gift. Three matching pieces.",
+     "hook_first_line": "One Christmas gift. Three matching pieces.",
+     "primary_text_2_hook": "One Christmas gift. Three matching pieces.\nEvery set comes with three pieces: the hobo bag, a crossbody, and a matching pouch.\nSmart compartments and an anti-theft design keep everything secure.\nBlack Friday: 60% off. 🖤\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H3",
+     "id": "P03H3",
+     "ad_name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_P03_H3_giftlist",
+     "hook_text": "Hard to buy for? Three matching pieces make it easier.",
+     "hook_first_line": "Hard to buy for? Three matching pieces make it easier.",
+     "primary_text_2_hook": "Hard to buy for? Three matching pieces make it easier.\nEvery set comes with three pieces: the hobo bag, a crossbody, and a matching pouch.\nSmart compartments and an anti-theft design keep everything secure.\nBlack Friday: 60% off. 🖤\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H4",
+     "id": "P03H4",
+     "ad_name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_P03_H4_giftlist",
+     "hook_text": "Christmas gifting at sixty percent off. Prices are live now.",
+     "hook_first_line": "Christmas gifting at sixty percent off. Prices are live now.",
+     "primary_text_2_hook": "Christmas gifting at sixty percent off. Prices are live now.\nEvery set comes with three pieces: the hobo bag, a crossbody, and a matching pouch.\nSmart compartments and an anti-theft design keep everything secure.\nBlack Friday: 60% off. 🖤\nTap Get Offer to claim the deal."
+    }
+   ]
+  },
+  {
+   "id": "P04",
+   "angle": "inthebox",
+   "engine": "storyboard",
+   "product": "Hobo Bag 3-Piece Set",
+   "winner": null,
+   "primary_text_1": "Soft, scratch-proof leather, in a set of three.\nThe 3-Piece Set, now 60% off.",
+   "primary_text_2": "This is what a matching three-piece set looks like.\nEvery set comes with three pieces: the hobo bag, a crossbody, and a matching pouch.\nThe hobo for every day. The crossbody for when you want to go light.\nBlack Friday: 60% off. 🖤\nTap Get Offer to claim the deal.",
+   "headline_1": "Matching Pouch + Scratch-Proof Leather",
+   "headline_2": "Meet the 3-Piece Set: Matching Pouch",
+   "description": "Now 60% off",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER",
+   "versions": [
+    {
+     "hook": "H1",
+     "id": "P04H1",
+     "ad_name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_P04_H1_inthebox",
+     "hook_text": "Here is everything you get in the Hobo 3-Piece Set.",
+     "hook_first_line": "Here is everything you get in the Hobo 3-Piece Set.",
+     "primary_text_2_hook": "Here is everything you get in the Hobo 3-Piece Set.\nEvery set comes with three pieces: the hobo bag, a crossbody, and a matching pouch.\nThe hobo for every day. The crossbody for when you want to go light.\nBlack Friday: 60% off. 🖤\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H2",
+     "id": "P04H2",
+     "ad_name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_P04_H2_inthebox",
+     "hook_text": "What do you actually get in a three-piece bag set?",
+     "hook_first_line": "What do you actually get in a three-piece bag set?",
+     "primary_text_2_hook": "What do you actually get in a three-piece bag set?\nEvery set comes with three pieces: the hobo bag, a crossbody, and a matching pouch.\nThe hobo for every day. The crossbody for when you want to go light.\nBlack Friday: 60% off. 🖤\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H3",
+     "id": "P04H3",
+     "ad_name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_P04_H3_inthebox",
+     "hook_text": "One bag cannot do everything. Three matching pieces can.",
+     "hook_first_line": "One bag cannot do everything. Three matching pieces can.",
+     "primary_text_2_hook": "One bag cannot do everything. Three matching pieces can.\nEvery set comes with three pieces: the hobo bag, a crossbody, and a matching pouch.\nThe hobo for every day. The crossbody for when you want to go light.\nBlack Friday: 60% off. 🖤\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H4",
+     "id": "P04H4",
+     "ad_name": "LC_261025_HoboBag3PieceSet_BlackFriday_B025_P04_H4_inthebox",
+     "hook_text": "Three pieces for sixty percent off on Black Friday.",
+     "hook_first_line": "Three pieces for sixty percent off on Black Friday.",
+     "primary_text_2_hook": "Three pieces for sixty percent off on Black Friday.\nEvery set comes with three pieces: the hobo bag, a crossbody, and a matching pouch.\nThe hobo for every day. The crossbody for when you want to go light.\nBlack Friday: 60% off. 🖤\nTap Get Offer to claim the deal."
+    }
+   ]
+  }
+ ],
+ "notes": [],
+ "problems": []
+}
