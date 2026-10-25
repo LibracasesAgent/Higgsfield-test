@@ -108,6 +108,12 @@ A presenter project costs about 225 credits (she is generated: about 2.5 credits
 
 Don't want one of the ads? Just don't upload it to Meta: Claude never deletes or moves files in Drive.
 
+## Sending several requests at once
+
+You can start several requests at the same time (one per Slack message): each batch claims its own number (B026, B027 ...) the
+moment it starts, and each one is merged into the pipeline's memory when it is done. For the same bag, one at a time is still
+better: two batches of one bag made at the same time can't see each other's hooks, so they may share one (the reply says so).
+
 ## The ad tracker
 
 Every batch and every ad is listed in the Google Sheet [Libra Cases – Ad Tracker](https://docs.google.com/spreadsheets/d/1jznf-Vq_AFWulDGjHFhVZUFuK6iF8qLHsvD6g-WGX7c/edit)

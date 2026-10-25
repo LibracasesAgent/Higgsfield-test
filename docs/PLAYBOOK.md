@@ -693,7 +693,13 @@ Action `.github/workflows/merge-batches.yml` runs `pipeline/merge_batch.py <bran
 - **Clashes:** the ledger is merged batch by batch and the novelty log product by product against the merge base (where both sides
   changed one entry, the branch's version wins); `docs/BATCHES.md` is rebuilt from the merged ledger. Any other clash stops it.
 - **By hand:** `python3 pipeline/merge_batch.py claude/<branch> [--dry-run] [--push]`; `tests/test_merge_batch.py`.
-- One batch at a time still matters: two runs started together read the same ledger and take the same number before either merges.
+- **Runs at the same time** (owner 2026-10-25: "a blocker if someone starts 2 runs at the same time"): `plan` claims its number in
+  Drive (`pipeline/batch_lock.py`, folder "_Batch numbers (pipeline, do not edit)", `data/batch_lock.json`): the next number after
+  the ledger, the Outputs batch folders and every claim file; it writes "B026 – <product> – <date> – <id>", waits 2.5 s and lists
+  again; the earliest file of a number owns it, a run that lost renames its file "LOST ..." and takes the next number. A redo
+  (`--batch-id`) claims nothing. Plan warns when another batch of the same bag is being made (claimed in the last 8 h, no folder
+  yet): those two can share a hook or a static. No Drive: the ledger's number with a warning. The merge also refuses two NEW
+  batches with one number (a second net). `python3 pipeline/batch_lock.py` lists the claims; `tests/test_batch_lock.py`.
 
 ### 4e00. Batch numbers (owner 2026-10-20: "make the batches less confusing with a proper naming convention, so we avoid relaunching the same ads")
 Drive had folders named by whatever the request said (`2026-10-16 – Hobo Bag 5 projects 10 statics`, `... hook test 3 videos + 4 statics`)

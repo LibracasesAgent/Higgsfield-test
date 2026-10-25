@@ -330,6 +330,9 @@ python3 pipeline/make_batch.py plan <flags> --ideas $OUT/ideas.json --request "<
    headlines, description, CTA per static / per project) and `$OUT/compliance.json`. If plan exits 2 with
    `compliance: N problem(s)`, reword the line it names (`--lines`, the version JSON or the product file) and plan
    again (a line fixed by hand: `python3 pipeline/make_batch.py check --out $OUT`). Higgsfield `balance` → note it.
+   The batch number is claimed in Drive (`pipeline/batch_lock.py`), so runs started at the same time never share one; the warnings
+   `batch number: another run took ...` and `another batch of <product> is being made right now` go into the reply (two batches of
+   one bag made at once can share a hook or a static).
 2. **Voiceovers:** for every item in `$OUT/tts_needed.json` call `generate_audio_batch` (model
    `text2speech_v2`, variant `elevenlabs`, `use_unlim: false`, `voice_type` + `voice_id` from the item,
    prompt = item `text`; max 12 per call; resubmit any that fail with 429), `jobs_wait`, then download each

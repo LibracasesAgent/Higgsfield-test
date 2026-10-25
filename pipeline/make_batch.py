@@ -1427,8 +1427,26 @@ def plan(a):
     if not getattr(a, "no_ledger", False):
         try:
             asked, _r = ledger.parse(getattr(a, "batch_id", None))
+            import batch_lock
+
+            def claim_(nxt):          # the number this run owns across runs (Drive): two runs started together never share one
+                try:
+                    n_ = batch_lock.claim(nxt, pr["name"], a.request or "", tname, pipe)
+                except Exception as e:  # noqa: BLE001 - no Drive: the ledger's number, with a warning
+                    warnings.append(f"batch number not claimed in Drive ({type(e).__name__}: {e}): if another run started at the "
+                                    f"same time, the two may share a number")
+                    return nxt
+                if batch_lock.LAST.get("lost"):
+                    warnings.append(f"batch number: another run took B{batch_lock.LAST['lost'][0]:03d} a moment earlier: this batch "
+                                    f"is B{n_:03d}")
+                same_ = [r_ for r_ in batch_lock.LAST.get("running") or [] if pr["name"].lower() in r_["name"].lower()]
+                if same_:
+                    warnings.append(f"another batch of {pr['name']} is being made right now ({', '.join(r_['name'].split(' – ')[0] for r_ in same_)}"
+                                    f", not in Drive yet): its hooks and statics are not in the novelty log yet, so the two batches may "
+                                    f"share some; say so in the reply")
+                return n_
             b_ = ledger.reserve(pr["name"], tname, pipe, a.request, a.statics, a.videos + a.winner_videos, a.hooks, a.seed,
-                                datetime.date.today().isoformat(), number=asked)
+                                datetime.date.today().isoformat(), number=asked, claim=None if asked else claim_)
             lb = dict(id=ledger.bid(b_["n"], b_.get("rev")), n=b_["n"], rev=int(b_.get("rev") or 1))
             if a.only and not asked:
                 warnings.append(f"--only without --batch-id made a NEW batch number ({lb['id']}): to redo ads of an earlier batch "
