@@ -1,0 +1,8 @@
+{
+ "_help": "The ad tracker Google Sheet (tracker.py): every batch and ad, with links, and the columns the team fills in. make_batch.py upload syncs it after every upload. folder_overrides: batches whose files sit in another folder than their ledger link; skip_paths: subfolders of that folder that belong to another batch.",
+ "sheet_id": "1jznf-Vq_AFWulDGjHFhVZUFuK6iF8qLHsvD6g-WGX7c",
+ "link": "https://docs.google.com/spreadsheets/d/1jznf-Vq_AFWulDGjHFhVZUFuK6iF8qLHsvD6g-WGX7c/edit",
+ "folder": "1jpQQQnePlAWB5ZGuUVDtISqF1I4dl36d",
+ "folder_overrides": {"B001": "1Kc79MYcFyMD5gxBT07D1zuP-BJHgCzW_"},
+ "skip_paths": {"B001": ["B012 – 2026-10-20 – Vintage Bag – 2 statics + 0 videos"]}
+}
