@@ -1,0 +1,145 @@
+{
+ "ads": [
+  {
+   "layout": "gifts",
+   "photo": "site/hobo_bag_colour_blue.jpg",
+   "kicker": "BLACK FRIDAY SALE",
+   "headline": "Buy two bags. Get a free jewellery box.",
+   "gifts": [
+    {
+     "src": "site/gift_jewellery_box.jpg",
+     "label": "FREE JEWELLERY BOX"
+    },
+    {
+     "src": "site/gift_cosmetic_bag.jpg",
+     "label": "+ FREE COSMETIC BAG"
+    }
+   ],
+   "rows": [
+    "2 bags: a free mirrored jewellery box (worth $19.95)",
+    "3+ bags: + a free cosmetic bag (together worth $44.90)"
+   ],
+   "note": "Only bags count \u00b7 while stocks last",
+   "cta": "Get the Black Friday deal",
+   "name": "LC_261025_HoboBag_BlackFriday_B027_S01_gifts"
+  },
+  {
+   "layout": "concept",
+   "photo": "ai/AS01.png",
+   "kicker": "BLACK FRIDAY",
+   "headline": "Up to 60% off, plus free gifts.",
+   "where": "bottom",
+   "tone": "dark",
+   "name": "LC_261025_HoboBag_BlackFriday_B027_S02_concept",
+   "ai": {
+    "id": "AS01",
+    "scene": "p01_s02",
+    "colour": "Galaxy Black"
+   }
+  },
+  {
+   "layout": "bundle",
+   "photos": [
+    "site/hobo_bag_colour_blue.jpg",
+    "site/hobo_bag_colour_grey.jpg"
+   ],
+   "kicker": "BLACK FRIDAY SALE",
+   "headline": "One for you. One for her.",
+   "pill": "60% OFF 2 OR 3 BAGS",
+   "sub": "+ free gifts while stocks last",
+   "cta": "Get the Black Friday deal",
+   "name": "LC_261025_HoboBag_BlackFriday_B027_S03_bundle"
+  },
+  {
+   "layout": "concept",
+   "photo": "ai/AS02.png",
+   "kicker": "BLACK FRIDAY",
+   "headline": "A gift for every day.",
+   "where": "bottom",
+   "tone": "light",
+   "pct": 50,
+   "name": "LC_261025_HoboBag_BlackFriday_B027_S04_concept",
+   "ai": {
+    "id": "AS02",
+    "scene": "p02_s04",
+    "colour": "Burgundy"
+   }
+  },
+  {
+   "layout": "studio",
+   "photo": "site/hobo_bag_colour_grey.jpg",
+   "pct": 50,
+   "name": "LC_261025_HoboBag_BlackFriday_B027_S05_studio",
+   "caption": "Black Friday prices are live."
+  },
+  {
+   "layout": "concept",
+   "photo": "ai/AS03.png",
+   "kicker": "BLACK FRIDAY",
+   "headline": "No need to wait.",
+   "where": "bottom",
+   "tone": "light",
+   "pct": 50,
+   "name": "LC_261025_HoboBag_BlackFriday_B027_S06_concept",
+   "ai": {
+    "id": "AS03",
+    "scene": "p03_s06",
+    "colour": "Blue"
+   }
+  },
+  {
+   "layout": "offer",
+   "photo": "site/hobo_bag_colour_blue.jpg",
+   "pct": 50,
+   "kicker": "BLACK FRIDAY",
+   "headline": "Your new everyday bag",
+   "gift": "free matching pouch wallet",
+   "cta": "Get the Black Friday deal",
+   "price": "$52.50",
+   "was": "$105.00",
+   "name": "LC_261025_HoboBag_BlackFriday_B027_S07_offer"
+  },
+  {
+   "layout": "native",
+   "photo": "photos/frames/F_1hskk8rPdp_0017.jpg",
+   "caption": "Shoulder, handbag or crossbody.",
+   "pct": 50,
+   "name": "LC_261025_HoboBag_BlackFriday_B027_S08_native",
+   "frame": {
+    "clip": "1hskk8rPdp8G_F6ZSmzanMuDVG5NxdTkA",
+    "t": 1.7
+   }
+  },
+  {
+   "layout": "concept",
+   "photo": "ai/AS04.png",
+   "kicker": "CHRISTMAS GIFTS",
+   "headline": "Mum. Sister. Best friend.",
+   "where": "bottom",
+   "tone": "light",
+   "pct": 50,
+   "name": "LC_261025_HoboBag_BlackFriday_B027_S09_concept",
+   "ai": {
+    "id": "AS04",
+    "scene": "p04_s09",
+    "colour": "Red"
+   }
+  },
+  {
+   "layout": "concept",
+   "photo": "ai/AS05.png",
+   "kicker": "BLACK FRIDAY",
+   "headline": "Room for a second one?",
+   "sub": "Free jewellery box with 2 bags.",
+   "where": "top",
+   "tone": "light",
+   "name": "LC_261025_HoboBag_BlackFriday_B027_S10_concept",
+   "ai": {
+    "id": "AS05",
+    "scene": "p01_s10",
+    "colour": "Dark Sienna"
+   }
+  }
+ ],
+ "card_photos": []
+}

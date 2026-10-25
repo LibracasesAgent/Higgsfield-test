@@ -1,0 +1,113 @@
+{
+ "ok": true,
+ "created": "2026-10-25",
+ "product": "Hobo Bag",
+ "theme": "black friday",
+ "theme_name": "BlackFriday",
+ "offer": "50% off + free matching pouch wallet",
+ "seed": 1,
+ "cta": "Get Offer",
+ "rows": 8,
+ "csv": "/tmp/run/hobo-bf-4v10s-d/ad_copy.csv",
+ "statics": [],
+ "projects": [
+  {
+   "id": "P01",
+   "angle": "secondbag",
+   "engine": "storyboard",
+   "product": "Hobo Bag",
+   "winner": null,
+   "primary_text_1": "This is the Black Friday deal you've been waiting for.\nThe Hobo Bag: 50% off + free wallet.",
+   "primary_text_2": "Black Friday came early. 🖤\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nDivided compartments, so nothing sinks to the bottom.\nBuy 2 bags, get a free mirrored jewellery box (worth $19.95). 🎁\nTap Get Offer to claim the deal.",
+   "headline_1": "Up to 60% off + free gifts",
+   "headline_2": "Buy 2 bags, get a free gift",
+   "description": "Black Friday: 50% off",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER",
+   "versions": [
+    {
+     "hook": "H1",
+     "id": "P01H1",
+     "ad_name": "LC_261025_HoboBag_BlackFriday_B027r3_P01_H1_secondbag",
+     "hook_text": "Buy two bags together this Black Friday: up to sixty percent off.",
+     "hook_first_line": "Buy two bags together this Black Friday: up to sixty percent off.",
+     "primary_text_2_hook": "Buy two bags together this Black Friday: up to sixty percent off.\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nDivided compartments, so nothing sinks to the bottom.\nBuy 2 bags, get a free mirrored jewellery box (worth $19.95). 🎁\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H2",
+     "id": "P01H2",
+     "ad_name": "LC_261025_HoboBag_BlackFriday_B027r3_P01_H2_secondbag",
+     "hook_text": "What does a second bag add to your Black Friday order?",
+     "hook_first_line": "What does a second bag add to your Black Friday order?",
+     "primary_text_2_hook": "What does a second bag add to your Black Friday order?\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nDivided compartments, so nothing sinks to the bottom.\nBuy 2 bags, get a free mirrored jewellery box (worth $19.95). 🎁\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H3",
+     "id": "P01H3",
+     "ad_name": "LC_261025_HoboBag_BlackFriday_B027r3_P01_H3_secondbag",
+     "hook_text": "Stop checking out with one bag when two get a bigger discount.",
+     "hook_first_line": "Stop checking out with one bag when two get a bigger discount.",
+     "primary_text_2_hook": "Stop checking out with one bag when two get a bigger discount.\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nDivided compartments, so nothing sinks to the bottom.\nBuy 2 bags, get a free mirrored jewellery box (worth $19.95). 🎁\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H4",
+     "id": "P01H4",
+     "ad_name": "LC_261025_HoboBag_BlackFriday_B027r3_P01_H4_secondbag",
+     "hook_text": "The Hobo Bag in your cart gets better with a second one.",
+     "hook_first_line": "The Hobo Bag in your cart gets better with a second one.",
+     "primary_text_2_hook": "The Hobo Bag in your cart gets better with a second one.\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nDivided compartments, so nothing sinks to the bottom.\nBuy 2 bags, get a free mirrored jewellery box (worth $19.95). 🎁\nTap Get Offer to claim the deal."
+    }
+   ]
+  },
+  {
+   "id": "P03",
+   "angle": "nowait",
+   "engine": "storyboard",
+   "product": "Hobo Bag",
+   "winner": null,
+   "primary_text_1": "Most bags look the same from the front. Turn this one around.\nBlack Friday deal: the Hobo Bag is 50% off + free wallet.",
+   "primary_text_2": "Black Friday: the bag everyone asks about is half price. 🖤\nSoft, water-resistant leather that looks expensive and only gets better with time.\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nBuy 2 bags, get a free mirrored jewellery box (worth $19.95). 🎁\nTap Get Offer to claim the deal.",
+   "headline_1": "Black Friday prices are live",
+   "headline_2": "Hobo Bag: 50% Off + Free Wallet",
+   "description": "Up to 60% off + free gifts",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER",
+   "versions": [
+    {
+     "hook": "H1",
+     "id": "P03H1",
+     "ad_name": "LC_261025_HoboBag_BlackFriday_B027r3_P03_H1_nowait",
+     "hook_text": "Black Friday prices are live now. No need to wait.",
+     "hook_first_line": "Black Friday prices are live now. No need to wait.",
+     "primary_text_2_hook": "Black Friday prices are live now. No need to wait.\nSoft, water-resistant leather that looks expensive and only gets better with time.\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nBuy 2 bags, get a free mirrored jewellery box (worth $19.95). 🎁\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H2",
+     "id": "P03H2",
+     "ad_name": "LC_261025_HoboBag_BlackFriday_B027r3_P03_H2_nowait",
+     "hook_text": "Still waiting for Black Friday to buy your next bag?",
+     "hook_first_line": "Still waiting for Black Friday to buy your next bag?",
+     "primary_text_2_hook": "Still waiting for Black Friday to buy your next bag?\nSoft, water-resistant leather that looks expensive and only gets better with time.\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nBuy 2 bags, get a free mirrored jewellery box (worth $19.95). 🎁\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H3",
+     "id": "P03H3",
+     "ad_name": "LC_261025_HoboBag_BlackFriday_B027r3_P03_H3_nowait",
+     "hook_text": "Waiting for a better price? The Black Friday price is already here.",
+     "hook_first_line": "Waiting for a better price? The Black Friday price is already here.",
+     "primary_text_2_hook": "Waiting for a better price? The Black Friday price is already here.\nSoft, water-resistant leather that looks expensive and only gets better with time.\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nBuy 2 bags, get a free mirrored jewellery box (worth $19.95). 🎁\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H4",
+     "id": "P03H4",
+     "ad_name": "LC_261025_HoboBag_BlackFriday_B027r3_P03_H4_nowait",
+     "hook_text": "The Hobo Bag at fifty percent off, with a free pouch wallet.",
+     "hook_first_line": "The Hobo Bag at fifty percent off, with a free pouch wallet.",
+     "primary_text_2_hook": "The Hobo Bag at fifty percent off, with a free pouch wallet.\nSoft, water-resistant leather that looks expensive and only gets better with time.\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nBuy 2 bags, get a free mirrored jewellery box (worth $19.95). 🎁\nTap Get Offer to claim the deal."
+    }
+   ]
+  }
+ ],
+ "notes": [],
+ "problems": []
+}

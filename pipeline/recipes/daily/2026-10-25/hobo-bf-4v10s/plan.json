@@ -1,0 +1,1028 @@
+{
+ "prefix": "LC_261025_HoboBag_BlackFriday_B027",
+ "rev": 1,
+ "batch_id": {
+  "id": "B027",
+  "n": 27,
+  "rev": 1
+ },
+ "created": "2026-10-25",
+ "request": "4 videos and 10 statics for the Hobo Bag, Black Friday. Ideas: buy 2 bags and get a free jewellery box; one for you, one for her; Black Friday prices are live now; Christmas gifts for mum, sister and best friend",
+ "product": "Hobo Bag",
+ "product_key": "hobo bag",
+ "product_source": "built-in",
+ "theme": "black friday",
+ "theme_name": "BlackFriday",
+ "offer": "50% off + free matching pouch wallet",
+ "campaign": {
+  "id": "bf2026",
+  "name": "Black Friday Sale 2026",
+  "theme": "black friday",
+  "banner": "Black Friday Sale – up to 60% off + free gifts",
+  "until": "2026-11-30",
+  "from": "2026-10-23",
+  "end_title": "Black Friday Sale",
+  "end_pill": "UP TO 60% OFF + FREE GIFTS",
+  "card_sub": "+ FREE GIFTS WITH 2 BAGS",
+  "close": "Buy two bags and you also get a free jewellery box, while stocks last.",
+  "hooks": [
+   "Black Friday prices are live now. No need to wait.",
+   "Black Friday: up to sixty percent off, plus free gifts.",
+   "Buy two bags this Black Friday and get a free jewellery box."
+  ],
+  "facts": [
+   "Black Friday Sale: live now (from 23 October), it runs until 30 November (Cyber Monday). Black Friday is 27 November.",
+   "Up to 50% off sitewide (each bag's own % is on its offer card: the Hobo Bag is 50% off).",
+   "60% off bundles: buy 2 or 3 bags together and get 60% off the regular price (say it of buying 2 or 3 bags, never of one bag).",
+   "Free gifts while stocks last: buy 2 bags, get a free mirrored jewellery box (worth $19.95).",
+   "Buy 3 or more bags, get the jewellery box and a free cosmetic bag (together worth $44.90).",
+   "Only bags count for the gifts, not accessories.",
+   "Black Friday prices are live now: no need to wait."
+  ],
+  "bundle_pct": 60,
+  "gifts": [
+   {
+    "name": "mirrored jewellery box",
+    "short": "jewellery box",
+    "worth": 19.95,
+    "with": 2,
+    "photo": "/home/user/higgsfield-test/pipeline/assets/gifts/jewellery_box.jpg"
+   },
+   {
+    "name": "cosmetic bag",
+    "short": "cosmetic bag",
+    "worth": 24.95,
+    "with": 3,
+    "photo": "/home/user/higgsfield-test/pipeline/assets/gifts/cosmetic_bag.jpg"
+   }
+  ],
+  "gifts_worth": 44.9,
+  "dates": {
+   "black friday": "27 November",
+   "cyber monday": "30 November",
+   "ends": "30 November"
+  },
+  "copy": {
+   "primary": [
+    "Black Friday Sale: up to 60% off + free gifts. 🎁 Buy 2 bags, get a free mirrored jewellery box (worth $19.95). Buy 3, add a free cosmetic bag (together worth $44.90). While stocks last.",
+    "60% off when you buy 2 or 3 bags together: one for you, one for her. Plus free gifts while stocks last."
+   ],
+   "headline": [
+    "Up to 60% off + free gifts",
+    "Buy 2 bags, get a free gift",
+    "Black Friday prices are live"
+   ],
+   "description": "Up to 60% off + free gifts"
+  },
+  "approved_phrases": [
+   "up to (?:60|sixty) ?(?:%|percent) off",
+   "(?:60|sixty) ?(?:%|percent) off\\b[^.!?]{0,60}\\b(?:bundles?|together|(?:2|two) (?:or (?:3|three) )?bags|(?:3|three) bags|(?:2|two) or (?:3|three)|second bag)",
+   "\\bbundles?\\b[^.!?]{0,30}(?:60|sixty) ?(?:%|percent) off",
+   "(?:\\d|two|three|2|3) free gifts?",
+   "free gifts?",
+   "(?:a |the )?free (?:mirrored )?jewell?e?ry box(?:es)?",
+   "(?:a |the )?free (?:travel )?cosmetic bags?"
+  ],
+  "approved": "Wouter (owner), 2026-10-23: the Black Friday Sale went live on 23 October and runs until 30 November (Cyber Monday). Up to 50% off sitewide; 60% off bundles (2 or 3 bags bought together at 60% off the regular price); free gifts while stocks last: buy 2 bags, get a free mirrored jewellery box (worth $19.95); buy 3+ bags, get the jewellery box + a free cosmetic bag (together worth $44.90); only bags count, not accessories. The site banner (2026-10-23): 'EARLY BLACK FRIDAY: 50% OFF EVERYTHING | BUY 2 BAGS = 1 FREE GIFT | BUY 3 = 2 FREE GIFTS | ORDER TODAY WHILE STOCKS LAST!'"
+ },
+ "statics": [
+  "LC_261025_HoboBag_BlackFriday_B027_S01_gifts",
+  "LC_261025_HoboBag_BlackFriday_B027_S02_concept",
+  "LC_261025_HoboBag_BlackFriday_B027_S03_bundle",
+  "LC_261025_HoboBag_BlackFriday_B027_S04_concept",
+  "LC_261025_HoboBag_BlackFriday_B027_S05_studio",
+  "LC_261025_HoboBag_BlackFriday_B027_S06_concept",
+  "LC_261025_HoboBag_BlackFriday_B027_S07_offer",
+  "LC_261025_HoboBag_BlackFriday_B027_S08_native",
+  "LC_261025_HoboBag_BlackFriday_B027_S09_concept",
+  "LC_261025_HoboBag_BlackFriday_B027_S10_concept"
+ ],
+ "videos": [
+  {
+   "name": "LC_261025_HoboBag_BlackFriday_B027_P02_H1_yourshers",
+   "id": "P02H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "ugc": {
+    "script": "U02",
+    "angle": "yourshers",
+    "words": 190,
+    "hook": {
+     "type": "promise",
+     "label": "YOU AND HER",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Treating her this Christmas? Why not treat yourself too?",
+      "type": "question",
+      "label": "TREAT BOTH",
+      "feature": null,
+      "show": [
+       "handheld",
+       "placed"
+      ]
+     },
+     {
+      "text": "Gift shopping only for her, and nothing for you? Fix that.",
+      "type": "problem",
+      "label": "DO BOTH",
+      "feature": null,
+      "show": [
+       "worn",
+       "strap"
+      ]
+     },
+     {
+      "text": "Two bags together, up to sixty percent off.",
+      "type": "price",
+      "label": "2 BAGS TOGETHER",
+      "feature": null,
+      "show": [
+       "colours",
+       "hero"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Treating her this Christmas? Why not treat yourself too?": [
+      [
+       "1zg2CRMvlkQjNlfLzjdEzt-hJG5uwdh6s",
+       2.99,
+       1.0
+      ],
+      [
+       "1UcPs3RM-Iwrzd5rgOIA6Wxii0i3R3xqL",
+       0.3,
+       1.0
+      ]
+     ],
+     "Gift shopping only for her, and nothing for you? Fix that.": [
+      [
+       "1AriDjPfyIVhLoq87oLqWzhn5iIpwsAQR",
+       9.11,
+       1.0
+      ],
+      [
+       "1TQniUwb0moRuqoiip6okFOIW33_UUXYy",
+       10.21,
+       1.0
+      ]
+     ],
+     "Two bags together, up to sixty percent off.": [
+      [
+       "1CJzEYOTuCr-sZYjkvP7e7F-fHcOTx9GS",
+       5.91,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 63.7,
+   "project": "P02",
+   "hook_text": "One for you, one for her, and up to sixty percent off.",
+   "hook_label": "YOU AND HER",
+   "hook_type": "promise",
+   "opening_shot": [
+    "1G6B5yfeTUCh6NAy_fq7kc37qoSOgVmKE",
+    24.57
+   ]
+  },
+  {
+   "name": "LC_261025_HoboBag_BlackFriday_B027_P02_H2_yourshers",
+   "id": "P02H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "ugc": {
+    "script": "U02",
+    "angle": "yourshers",
+    "words": 190,
+    "hook": {
+     "type": "promise",
+     "label": "YOU AND HER",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Treating her this Christmas? Why not treat yourself too?",
+      "type": "question",
+      "label": "TREAT BOTH",
+      "feature": null,
+      "show": [
+       "handheld",
+       "placed"
+      ]
+     },
+     {
+      "text": "Gift shopping only for her, and nothing for you? Fix that.",
+      "type": "problem",
+      "label": "DO BOTH",
+      "feature": null,
+      "show": [
+       "worn",
+       "strap"
+      ]
+     },
+     {
+      "text": "Two bags together, up to sixty percent off.",
+      "type": "price",
+      "label": "2 BAGS TOGETHER",
+      "feature": null,
+      "show": [
+       "colours",
+       "hero"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Treating her this Christmas? Why not treat yourself too?": [
+      [
+       "1zg2CRMvlkQjNlfLzjdEzt-hJG5uwdh6s",
+       2.99,
+       1.0
+      ],
+      [
+       "1UcPs3RM-Iwrzd5rgOIA6Wxii0i3R3xqL",
+       0.3,
+       1.0
+      ]
+     ],
+     "Gift shopping only for her, and nothing for you? Fix that.": [
+      [
+       "1AriDjPfyIVhLoq87oLqWzhn5iIpwsAQR",
+       9.11,
+       1.0
+      ],
+      [
+       "1TQniUwb0moRuqoiip6okFOIW33_UUXYy",
+       10.21,
+       1.0
+      ]
+     ],
+     "Two bags together, up to sixty percent off.": [
+      [
+       "1CJzEYOTuCr-sZYjkvP7e7F-fHcOTx9GS",
+       5.91,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 62.7,
+   "project": "P02",
+   "hook_text": "Treating her this Christmas? Why not treat yourself too?",
+   "hook_label": "TREAT BOTH",
+   "hook_type": "question",
+   "opening_shot": [
+    "1zg2CRMvlkQjNlfLzjdEzt-hJG5uwdh6s",
+    2.99
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261025_HoboBag_BlackFriday_B027_P02_H3_yourshers",
+   "id": "P02H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "ugc": {
+    "script": "U02",
+    "angle": "yourshers",
+    "words": 190,
+    "hook": {
+     "type": "promise",
+     "label": "YOU AND HER",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Treating her this Christmas? Why not treat yourself too?",
+      "type": "question",
+      "label": "TREAT BOTH",
+      "feature": null,
+      "show": [
+       "handheld",
+       "placed"
+      ]
+     },
+     {
+      "text": "Gift shopping only for her, and nothing for you? Fix that.",
+      "type": "problem",
+      "label": "DO BOTH",
+      "feature": null,
+      "show": [
+       "worn",
+       "strap"
+      ]
+     },
+     {
+      "text": "Two bags together, up to sixty percent off.",
+      "type": "price",
+      "label": "2 BAGS TOGETHER",
+      "feature": null,
+      "show": [
+       "colours",
+       "hero"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Treating her this Christmas? Why not treat yourself too?": [
+      [
+       "1zg2CRMvlkQjNlfLzjdEzt-hJG5uwdh6s",
+       2.99,
+       1.0
+      ],
+      [
+       "1UcPs3RM-Iwrzd5rgOIA6Wxii0i3R3xqL",
+       0.3,
+       1.0
+      ]
+     ],
+     "Gift shopping only for her, and nothing for you? Fix that.": [
+      [
+       "1AriDjPfyIVhLoq87oLqWzhn5iIpwsAQR",
+       9.11,
+       1.0
+      ],
+      [
+       "1TQniUwb0moRuqoiip6okFOIW33_UUXYy",
+       10.21,
+       1.0
+      ]
+     ],
+     "Two bags together, up to sixty percent off.": [
+      [
+       "1CJzEYOTuCr-sZYjkvP7e7F-fHcOTx9GS",
+       5.91,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 63.4,
+   "project": "P02",
+   "hook_text": "Gift shopping only for her, and nothing for you? Fix that.",
+   "hook_label": "DO BOTH",
+   "hook_type": "problem",
+   "opening_shot": [
+    "1AriDjPfyIVhLoq87oLqWzhn5iIpwsAQR",
+    9.11
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261025_HoboBag_BlackFriday_B027_P02_H4_yourshers",
+   "id": "P02H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "ugc": {
+    "script": "U02",
+    "angle": "yourshers",
+    "words": 190,
+    "hook": {
+     "type": "promise",
+     "label": "YOU AND HER",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Treating her this Christmas? Why not treat yourself too?",
+      "type": "question",
+      "label": "TREAT BOTH",
+      "feature": null,
+      "show": [
+       "handheld",
+       "placed"
+      ]
+     },
+     {
+      "text": "Gift shopping only for her, and nothing for you? Fix that.",
+      "type": "problem",
+      "label": "DO BOTH",
+      "feature": null,
+      "show": [
+       "worn",
+       "strap"
+      ]
+     },
+     {
+      "text": "Two bags together, up to sixty percent off.",
+      "type": "price",
+      "label": "2 BAGS TOGETHER",
+      "feature": null,
+      "show": [
+       "colours",
+       "hero"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Treating her this Christmas? Why not treat yourself too?": [
+      [
+       "1zg2CRMvlkQjNlfLzjdEzt-hJG5uwdh6s",
+       2.99,
+       1.0
+      ],
+      [
+       "1UcPs3RM-Iwrzd5rgOIA6Wxii0i3R3xqL",
+       0.3,
+       1.0
+      ]
+     ],
+     "Gift shopping only for her, and nothing for you? Fix that.": [
+      [
+       "1AriDjPfyIVhLoq87oLqWzhn5iIpwsAQR",
+       9.11,
+       1.0
+      ],
+      [
+       "1TQniUwb0moRuqoiip6okFOIW33_UUXYy",
+       10.21,
+       1.0
+      ]
+     ],
+     "Two bags together, up to sixty percent off.": [
+      [
+       "1CJzEYOTuCr-sZYjkvP7e7F-fHcOTx9GS",
+       5.91,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 62.4,
+   "project": "P02",
+   "hook_text": "Two bags together, up to sixty percent off.",
+   "hook_label": "2 BAGS TOGETHER",
+   "hook_type": "price",
+   "opening_shot": [
+    "1CJzEYOTuCr-sZYjkvP7e7F-fHcOTx9GS",
+    5.91
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261025_HoboBag_BlackFriday_B027_P04_H1_threenames",
+   "id": "P04H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "ugc": {
+    "script": "U04",
+    "angle": "threenames",
+    "words": 182,
+    "hook": {
+     "type": "promise",
+     "label": "THREE GIFTS",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Who is on your Christmas list this year?",
+      "type": "question",
+      "label": "CHRISTMAS LIST",
+      "feature": null,
+      "show": [
+       "handheld",
+       "placed"
+      ]
+     },
+     {
+      "text": "Three Christmas gifts to buy and no idea where to start?",
+      "type": "problem",
+      "label": "START HERE",
+      "feature": null,
+      "show": [
+       "hero",
+       "worn"
+      ]
+     },
+     {
+      "text": "Sixty percent off when you buy three bags together, plus two free gifts.",
+      "type": "price",
+      "label": "THREE BAGS",
+      "feature": null,
+      "show": [
+       "colours",
+       "handheld"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Who is on your Christmas list this year?": [
+      [
+       "1n_n64uSzJxegasRwW_1cRTo1dYNuzy3G",
+       0.94,
+       1.0
+      ]
+     ],
+     "Three Christmas gifts to buy and no idea where to start?": [
+      [
+       "14wUeiCVzT-0GnaUPOqy3L3AMjzRa32Zb",
+       2.91,
+       1.0
+      ],
+      [
+       "1zg2CRMvlkQjNlfLzjdEzt-hJG5uwdh6s",
+       2.99,
+       1.0
+      ]
+     ],
+     "Sixty percent off when you buy three bags together, plus two free gifts.": [
+      [
+       "1M8Wa96GbYXrc25pTXwLCudGwYneQTrFJ",
+       27.85,
+       1.0
+      ],
+      [
+       "1n_n64uSzJxegasRwW_1cRTo1dYNuzy3G",
+       8.71,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 61.1,
+   "project": "P04",
+   "hook_text": "Christmas gifts for mum, sister and best friend, all in one order.",
+   "hook_label": "THREE GIFTS",
+   "hook_type": "promise",
+   "opening_shot": [
+    "1f_9Fjvv6B2cnF8Z0lFf__xn_RJEvpLQ0",
+    4.25
+   ]
+  },
+  {
+   "name": "LC_261025_HoboBag_BlackFriday_B027_P04_H2_threenames",
+   "id": "P04H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "ugc": {
+    "script": "U04",
+    "angle": "threenames",
+    "words": 182,
+    "hook": {
+     "type": "promise",
+     "label": "THREE GIFTS",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Who is on your Christmas list this year?",
+      "type": "question",
+      "label": "CHRISTMAS LIST",
+      "feature": null,
+      "show": [
+       "handheld",
+       "placed"
+      ]
+     },
+     {
+      "text": "Three Christmas gifts to buy and no idea where to start?",
+      "type": "problem",
+      "label": "START HERE",
+      "feature": null,
+      "show": [
+       "hero",
+       "worn"
+      ]
+     },
+     {
+      "text": "Sixty percent off when you buy three bags together, plus two free gifts.",
+      "type": "price",
+      "label": "THREE BAGS",
+      "feature": null,
+      "show": [
+       "colours",
+       "handheld"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Who is on your Christmas list this year?": [
+      [
+       "1n_n64uSzJxegasRwW_1cRTo1dYNuzy3G",
+       0.94,
+       1.0
+      ]
+     ],
+     "Three Christmas gifts to buy and no idea where to start?": [
+      [
+       "14wUeiCVzT-0GnaUPOqy3L3AMjzRa32Zb",
+       2.91,
+       1.0
+      ],
+      [
+       "1zg2CRMvlkQjNlfLzjdEzt-hJG5uwdh6s",
+       2.99,
+       1.0
+      ]
+     ],
+     "Sixty percent off when you buy three bags together, plus two free gifts.": [
+      [
+       "1M8Wa96GbYXrc25pTXwLCudGwYneQTrFJ",
+       27.85,
+       1.0
+      ],
+      [
+       "1n_n64uSzJxegasRwW_1cRTo1dYNuzy3G",
+       8.71,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 59.8,
+   "project": "P04",
+   "hook_text": "Who is on your Christmas list this year?",
+   "hook_label": "CHRISTMAS LIST",
+   "hook_type": "question",
+   "opening_shot": [
+    "1n_n64uSzJxegasRwW_1cRTo1dYNuzy3G",
+    0.94
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261025_HoboBag_BlackFriday_B027_P04_H3_threenames",
+   "id": "P04H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "ugc": {
+    "script": "U04",
+    "angle": "threenames",
+    "words": 182,
+    "hook": {
+     "type": "promise",
+     "label": "THREE GIFTS",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Who is on your Christmas list this year?",
+      "type": "question",
+      "label": "CHRISTMAS LIST",
+      "feature": null,
+      "show": [
+       "handheld",
+       "placed"
+      ]
+     },
+     {
+      "text": "Three Christmas gifts to buy and no idea where to start?",
+      "type": "problem",
+      "label": "START HERE",
+      "feature": null,
+      "show": [
+       "hero",
+       "worn"
+      ]
+     },
+     {
+      "text": "Sixty percent off when you buy three bags together, plus two free gifts.",
+      "type": "price",
+      "label": "THREE BAGS",
+      "feature": null,
+      "show": [
+       "colours",
+       "handheld"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Who is on your Christmas list this year?": [
+      [
+       "1n_n64uSzJxegasRwW_1cRTo1dYNuzy3G",
+       0.94,
+       1.0
+      ]
+     ],
+     "Three Christmas gifts to buy and no idea where to start?": [
+      [
+       "14wUeiCVzT-0GnaUPOqy3L3AMjzRa32Zb",
+       2.91,
+       1.0
+      ],
+      [
+       "1zg2CRMvlkQjNlfLzjdEzt-hJG5uwdh6s",
+       2.99,
+       1.0
+      ]
+     ],
+     "Sixty percent off when you buy three bags together, plus two free gifts.": [
+      [
+       "1M8Wa96GbYXrc25pTXwLCudGwYneQTrFJ",
+       27.85,
+       1.0
+      ],
+      [
+       "1n_n64uSzJxegasRwW_1cRTo1dYNuzy3G",
+       8.71,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 60.8,
+   "project": "P04",
+   "hook_text": "Three Christmas gifts to buy and no idea where to start?",
+   "hook_label": "START HERE",
+   "hook_type": "problem",
+   "opening_shot": [
+    "14wUeiCVzT-0GnaUPOqy3L3AMjzRa32Zb",
+    2.91
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261025_HoboBag_BlackFriday_B027_P04_H4_threenames",
+   "id": "P04H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "ugc": {
+    "script": "U04",
+    "angle": "threenames",
+    "words": 182,
+    "hook": {
+     "type": "promise",
+     "label": "THREE GIFTS",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Who is on your Christmas list this year?",
+      "type": "question",
+      "label": "CHRISTMAS LIST",
+      "feature": null,
+      "show": [
+       "handheld",
+       "placed"
+      ]
+     },
+     {
+      "text": "Three Christmas gifts to buy and no idea where to start?",
+      "type": "problem",
+      "label": "START HERE",
+      "feature": null,
+      "show": [
+       "hero",
+       "worn"
+      ]
+     },
+     {
+      "text": "Sixty percent off when you buy three bags together, plus two free gifts.",
+      "type": "price",
+      "label": "THREE BAGS",
+      "feature": null,
+      "show": [
+       "colours",
+       "handheld"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Who is on your Christmas list this year?": [
+      [
+       "1n_n64uSzJxegasRwW_1cRTo1dYNuzy3G",
+       0.94,
+       1.0
+      ]
+     ],
+     "Three Christmas gifts to buy and no idea where to start?": [
+      [
+       "14wUeiCVzT-0GnaUPOqy3L3AMjzRa32Zb",
+       2.91,
+       1.0
+      ],
+      [
+       "1zg2CRMvlkQjNlfLzjdEzt-hJG5uwdh6s",
+       2.99,
+       1.0
+      ]
+     ],
+     "Sixty percent off when you buy three bags together, plus two free gifts.": [
+      [
+       "1M8Wa96GbYXrc25pTXwLCudGwYneQTrFJ",
+       27.85,
+       1.0
+      ],
+      [
+       "1n_n64uSzJxegasRwW_1cRTo1dYNuzy3G",
+       8.71,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 61.4,
+   "project": "P04",
+   "hook_text": "Sixty percent off when you buy three bags together, plus two free gifts.",
+   "hook_label": "THREE BAGS",
+   "hook_type": "price",
+   "opening_shot": [
+    "1M8Wa96GbYXrc25pTXwLCudGwYneQTrFJ",
+    27.85
+   ],
+   "hook_source": "script"
+  }
+ ],
+ "tts_lines": 48,
+ "tts_dupes": {},
+ "est_credits": 16.8,
+ "budget": 100.0,
+ "colour_images": {
+  "Dark Sienna": "/tmp/run/hobo-bf-4v10s-b/site/clean/hobo_bag_colour_dark_sienna.jpg",
+  "Galaxy Black": "/tmp/run/hobo-bf-4v10s-b/site/hobo_bag_colour_galaxy_black.jpg",
+  "Blue": "/tmp/run/hobo-bf-4v10s-b/site/hobo_bag_colour_blue.jpg",
+  "Grey": "/tmp/run/hobo-bf-4v10s-b/site/hobo_bag_colour_grey.jpg",
+  "Burgundy": "/tmp/run/hobo-bf-4v10s-b/site/hobo_bag_colour_burgundy.jpg",
+  "Red": "/tmp/run/hobo-bf-4v10s-b/site/hobo_bag_colour_red.jpg"
+ },
+ "packshots": [
+  "/tmp/run/hobo-bf-4v10s-b/site/clean/hobo_bag_colour_dark_sienna.jpg",
+  "/tmp/run/hobo-bf-4v10s-b/site/hobo_bag_colour_galaxy_black.jpg",
+  "/tmp/run/hobo-bf-4v10s-b/site/hobo_bag_colour_blue.jpg",
+  "/tmp/run/hobo-bf-4v10s-b/site/hobo_bag_colour_grey.jpg",
+  "/tmp/run/hobo-bf-4v10s-b/site/hobo_bag_colour_burgundy.jpg",
+  "/tmp/run/hobo-bf-4v10s-b/site/hobo_bag_colour_red.jpg"
+ ],
+ "brief": null,
+ "ai": {
+  "stills": 5,
+  "clips": 0,
+  "est_credits": 5.0,
+  "budget": {
+   "cap": 100.0,
+   "tts_est": 18.0,
+   "reserve": 8.0
+  },
+  "scenes": [
+   "p01_s02",
+   "p01_s10",
+   "p02_s04",
+   "p03_s06",
+   "p04_s09"
+  ],
+  "next": "python3 pipeline/ai_gen.py show --out /tmp/run/hobo-bf-4v10s-b"
+ },
+ "winners_source": null,
+ "winners_note": null,
+ "winners_used": [],
+ "unmatched_winners": [],
+ "warnings": [
+  "campaign: Black Friday Sale 2026 (2026-10-23 to 2026-11-30, client-approved): end cards say 'Black Friday Sale' + 'UP TO 60% OFF + FREE GIFTS', offer cards '+ FREE GIFTS WITH 2 BAGS', the statics include the free-gifts and bundle layouts, the close and the ad copy name the gifts; each bag's own % stays its offer",
+  "ideas: 5 AI studio scenes of 10 statics (about 5 credits plus retries)",
+  "Hobo Bag has 8 earlier batch(es) in the novelty log: the statics start 8 step(s) further in their photo / headline cycle (other photos and captions than before)"
+ ],
+ "winner_reviews": false,
+ "seed": 1,
+ "hooks": 4,
+ "pipeline": "catalog",
+ "video_format": "ugc",
+ "ugc_numbers": [],
+ "voice": {
+  "voice_type": "element",
+  "voice_id": "241459b6-b4e8-4a2a-9868-da8bcdcd0558",
+  "speed": 1.12
+ },
+ "projects": [
+  {
+   "id": "P02",
+   "from_id": "V02",
+   "angle": "yourshers",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P02H1",
+     "name": "LC_261025_HoboBag_BlackFriday_B027_P02_H1_yourshers",
+     "hook_text": "One for you, one for her, and up to sixty percent off.",
+     "label": "YOU AND HER",
+     "type": "promise",
+     "shot": [
+      "1G6B5yfeTUCh6NAy_fq7kc37qoSOgVmKE",
+      24.57
+     ],
+     "est_seconds": 63.7
+    },
+    {
+     "hook": "H2",
+     "id": "P02H2",
+     "name": "LC_261025_HoboBag_BlackFriday_B027_P02_H2_yourshers",
+     "hook_text": "Treating her this Christmas? Why not treat yourself too?",
+     "label": "TREAT BOTH",
+     "type": "question",
+     "shot": [
+      "1zg2CRMvlkQjNlfLzjdEzt-hJG5uwdh6s",
+      2.99
+     ],
+     "est_seconds": 62.7
+    },
+    {
+     "hook": "H3",
+     "id": "P02H3",
+     "name": "LC_261025_HoboBag_BlackFriday_B027_P02_H3_yourshers",
+     "hook_text": "Gift shopping only for her, and nothing for you? Fix that.",
+     "label": "DO BOTH",
+     "type": "problem",
+     "shot": [
+      "1AriDjPfyIVhLoq87oLqWzhn5iIpwsAQR",
+      9.11
+     ],
+     "est_seconds": 63.4
+    },
+    {
+     "hook": "H4",
+     "id": "P02H4",
+     "name": "LC_261025_HoboBag_BlackFriday_B027_P02_H4_yourshers",
+     "hook_text": "Two bags together, up to sixty percent off.",
+     "label": "2 BAGS TOGETHER",
+     "type": "price",
+     "shot": [
+      "1CJzEYOTuCr-sZYjkvP7e7F-fHcOTx9GS",
+      5.91
+     ],
+     "est_seconds": 62.4
+    }
+   ]
+  },
+  {
+   "id": "P04",
+   "from_id": "V04",
+   "angle": "threenames",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P04H1",
+     "name": "LC_261025_HoboBag_BlackFriday_B027_P04_H1_threenames",
+     "hook_text": "Christmas gifts for mum, sister and best friend, all in one order.",
+     "label": "THREE GIFTS",
+     "type": "promise",
+     "shot": [
+      "1f_9Fjvv6B2cnF8Z0lFf__xn_RJEvpLQ0",
+      4.25
+     ],
+     "est_seconds": 61.1
+    },
+    {
+     "hook": "H2",
+     "id": "P04H2",
+     "name": "LC_261025_HoboBag_BlackFriday_B027_P04_H2_threenames",
+     "hook_text": "Who is on your Christmas list this year?",
+     "label": "CHRISTMAS LIST",
+     "type": "question",
+     "shot": [
+      "1n_n64uSzJxegasRwW_1cRTo1dYNuzy3G",
+      0.94
+     ],
+     "est_seconds": 59.8
+    },
+    {
+     "hook": "H3",
+     "id": "P04H3",
+     "name": "LC_261025_HoboBag_BlackFriday_B027_P04_H3_threenames",
+     "hook_text": "Three Christmas gifts to buy and no idea where to start?",
+     "label": "START HERE",
+     "type": "problem",
+     "shot": [
+      "14wUeiCVzT-0GnaUPOqy3L3AMjzRa32Zb",
+      2.91
+     ],
+     "est_seconds": 60.8
+    },
+    {
+     "hook": "H4",
+     "id": "P04H4",
+     "name": "LC_261025_HoboBag_BlackFriday_B027_P04_H4_threenames",
+     "hook_text": "Sixty percent off when you buy three bags together, plus two free gifts.",
+     "label": "THREE BAGS",
+     "type": "price",
+     "shot": [
+      "1M8Wa96GbYXrc25pTXwLCudGwYneQTrFJ",
+      27.85
+     ],
+     "est_seconds": 61.4
+    }
+   ]
+  }
+ ],
+ "hooks_seed": 1
+}

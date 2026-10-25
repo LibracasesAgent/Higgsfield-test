@@ -1,0 +1,120 @@
+{
+ "stills": [
+  {
+   "id": "AS01",
+   "use": "static",
+   "scene": "p01_s02",
+   "kind": "object",
+   "colour": "Galaxy Black",
+   "layout": "concept",
+   "ref": "/tmp/run/hobo-bf-4v10s-b/site/hobo_bag_colour_galaxy_black.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS01.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 1,
+   "prompt": "Photorealistic candid lifestyle photograph, natural light, shot on a 35mm lens, shallow depth of field, true-to-life colours, fine film grain, no text, no logos, no watermark. The exact handbag from the reference image, unchanged: same colour (galaxy black), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. Luxury studio product photograph for a Black Friday campaign. The black Hobo Bag stands upright on a dark charcoal seamless surface with a soft low reflection, its two straps draped neatly, the gold zips catching the light; behind it, out of focus, warm golden bokeh lights; a single soft key light from the upper left with a gentle rim light on the leather. Rich, elegant, premium. The bag fills the upper two thirds of the frame; the bottom quarter is empty dark surface. Nobody is in the picture, not even blurred in the background. Portrait 4:5 composition, the handbag clearly visible and large in the frame.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS02",
+   "use": "static",
+   "scene": "p02_s04",
+   "kind": "object",
+   "colour": "Burgundy",
+   "layout": "concept",
+   "ref": "/tmp/run/hobo-bf-4v10s-b/site/hobo_bag_colour_burgundy.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS02.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 3,
+   "prompt": "Photorealistic candid lifestyle photograph, natural light, shot on a 35mm lens, shallow depth of field, true-to-life colours, fine film grain, no text, no logos, no watermark. The exact handbag from the reference image, unchanged: same colour (burgundy), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. A burgundy Hobo Bag stands upright on a pale oak table beside a small kraft-paper wrapped gift box tied with a red ribbon; soft pine branches and warm fairy-light bokeh blurred in the background; soft daylight from the left. The bag is large and fully visible in the centre of the frame, shot like a campaign photograph. The bottom fifth of the frame is clear, plain tabletop. Nobody is in the picture, not even blurred in the background. Portrait 4:5 composition, the handbag clearly visible and large in the frame.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS03",
+   "use": "static",
+   "scene": "p03_s06",
+   "kind": "object",
+   "colour": "Blue",
+   "layout": "concept",
+   "ref": "/tmp/run/hobo-bf-4v10s-b/site/hobo_bag_colour_blue.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS03.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 5,
+   "prompt": "Photorealistic candid lifestyle photograph, natural light, shot on a 35mm lens, shallow depth of field, true-to-life colours, fine film grain, no text, no logos, no watermark. The exact handbag from the reference image, unchanged: same colour (blue), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. A narrow hallway console table in warm morning daylight: the blue Hobo Bag stands upright on the table, large and fully visible, with a set of keys in a small ceramic dish beside it and a coat hanging softly out of focus on the wall above; calm cream wall. No person anywhere in the picture. The bottom fifth of the frame is clear, plain tabletop. Nobody is in the picture, not even blurred in the background. Portrait 4:5 composition, the handbag clearly visible and large in the frame.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS04",
+   "use": "static",
+   "scene": "p04_s09",
+   "kind": "object",
+   "colour": "Red",
+   "layout": "concept",
+   "ref": "/tmp/run/hobo-bf-4v10s-b/site/hobo_bag_colour_red.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS04.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 8,
+   "prompt": "Photorealistic candid lifestyle photograph, natural light, shot on a 35mm lens, shallow depth of field, true-to-life colours, fine film grain, no text, no logos, no watermark. The exact handbag from the reference image, unchanged: same colour (red), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. A red Hobo Bag rests on a cream knitted blanket in front of a softly blurred decorated Christmas tree with warm white lights; beside it three small kraft gift tags on short ribbons with nothing written on them, and a sprig of pine. Soft warm light. The bag is large and fully visible in the centre of the frame. The bottom fifth of the frame is calm, empty blanket. Nobody is in the picture, not even blurred in the background. Portrait 4:5 composition, the handbag clearly visible and large in the frame.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS05",
+   "use": "static",
+   "scene": "p01_s10",
+   "kind": "object",
+   "colour": "Dark Sienna",
+   "layout": "concept",
+   "ref": "/tmp/run/hobo-bf-4v10s-b/site/clean/hobo_bag_colour_dark_sienna.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS05.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 9,
+   "prompt": "Photorealistic candid lifestyle photograph, natural light, shot on a 35mm lens, shallow depth of field, true-to-life colours, fine film grain, no text, no logos, no watermark. The exact handbag from the reference image, unchanged: same colour (dark sienna), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. Two matching armchairs in a calm, warm cream living room, seen straight on. The brown Hobo Bag rests upright on the seat of the left armchair, large and fully visible; the right armchair beside it is empty, with a folded wool throw over its arm. Soft window light from the left, muted beige walls. No people. The top fifth of the frame is plain, empty wall. Nobody is in the picture, not even blurred in the background. Portrait 4:5 composition, the handbag clearly visible and large in the frame.",
+   "est_credits": 1.0
+  }
+ ],
+ "clips": [],
+ "est_credits": 5.0,
+ "notes": [],
+ "grade_refs": [],
+ "budget": {
+  "cap": 100.0,
+  "tts_est": 18.0,
+  "reserve": 8.0
+ },
+ "steps": [
+  "1. Upload each distinct `ref` once (media_upload, curl PUT, media_confirm); generate every still with generate_image_batch (model/params/prompt as listed, medias [{value: media_id, role: image_references}], max 12 per call); jobs_wait; download each result to $OUT/<file>.",
+  "2. python3 pipeline/ai_gen.py gate --out $OUT ; LOOK at $OUT/qa/ai_stills.jpg (reference | still): reject any still where the bag's shape, colour, handles or hardware differ from the reference, or that looks AI: python3 pipeline/ai_gen.py reject --out $OUT AS03 ...",
+  "3. For every clip whose start still passed: generate_video_batch (start_image = that still's job id, model/params/prompt as listed); jobs_wait; download to $OUT/<file>. Clips of a rejected still are skipped. If a submission comes back with a preset recommendation instead of a job, send it again with `declined_preset_id` = that preset's id (the project never uses presets).",
+  "4. python3 pipeline/ai_gen.py clips --out $OUT ; LOOK at $OUT/qa/ai_clips.jpg; reject morphing / odd-hand clips with `reject`. Then render as usual (it applies the result).",
+  "Report: credits before -> after (balance), how many AI assets passed. Never ship a still or clip you would not believe is real."
+ ]
+}
