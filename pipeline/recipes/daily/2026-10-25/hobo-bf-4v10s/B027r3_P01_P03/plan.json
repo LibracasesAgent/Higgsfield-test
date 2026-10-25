@@ -1,0 +1,1038 @@
+{
+ "prefix": "LC_261025_HoboBag_BlackFriday_B027r3",
+ "rev": 3,
+ "batch_id": {
+  "id": "B027r3",
+  "n": 27,
+  "rev": 3
+ },
+ "created": "2026-10-25",
+ "request": "4 videos and 10 statics for the Hobo Bag, Black Friday. Ideas: buy 2 bags and get a free jewellery box; one for you, one for her; Black Friday prices are live now; Christmas gifts for mum, sister and best friend",
+ "product": "Hobo Bag",
+ "product_key": "hobo bag",
+ "product_source": "built-in",
+ "theme": "black friday",
+ "theme_name": "BlackFriday",
+ "offer": "50% off + free matching pouch wallet",
+ "campaign": {
+  "id": "bf2026",
+  "name": "Black Friday Sale 2026",
+  "theme": "black friday",
+  "banner": "Black Friday Sale – up to 60% off + free gifts",
+  "until": "2026-11-30",
+  "from": "2026-10-23",
+  "end_title": "Black Friday Sale",
+  "end_pill": "UP TO 60% OFF + FREE GIFTS",
+  "card_sub": "+ FREE GIFTS WITH 2 BAGS",
+  "close": "Buy two bags and you also get a free jewellery box, while stocks last.",
+  "hooks": [
+   "Black Friday prices are live now. No need to wait.",
+   "Black Friday: up to sixty percent off, plus free gifts.",
+   "Buy two bags this Black Friday and get a free jewellery box."
+  ],
+  "facts": [
+   "Black Friday Sale: live now (from 23 October), it runs until 30 November (Cyber Monday). Black Friday is 27 November.",
+   "Up to 50% off sitewide (each bag's own % is on its offer card: the Hobo Bag is 50% off).",
+   "60% off bundles: buy 2 or 3 bags together and get 60% off the regular price (say it of buying 2 or 3 bags, never of one bag).",
+   "Free gifts while stocks last: buy 2 bags, get a free mirrored jewellery box (worth $19.95).",
+   "Buy 3 or more bags, get the jewellery box and a free cosmetic bag (together worth $44.90).",
+   "Only bags count for the gifts, not accessories.",
+   "Black Friday prices are live now: no need to wait."
+  ],
+  "bundle_pct": 60,
+  "gifts": [
+   {
+    "name": "mirrored jewellery box",
+    "short": "jewellery box",
+    "worth": 19.95,
+    "with": 2,
+    "photo": "/home/user/higgsfield-test/pipeline/assets/gifts/jewellery_box.jpg"
+   },
+   {
+    "name": "cosmetic bag",
+    "short": "cosmetic bag",
+    "worth": 24.95,
+    "with": 3,
+    "photo": "/home/user/higgsfield-test/pipeline/assets/gifts/cosmetic_bag.jpg"
+   }
+  ],
+  "gifts_worth": 44.9,
+  "dates": {
+   "black friday": "27 November",
+   "cyber monday": "30 November",
+   "ends": "30 November"
+  },
+  "copy": {
+   "primary": [
+    "Black Friday Sale: up to 60% off + free gifts. 🎁 Buy 2 bags, get a free mirrored jewellery box (worth $19.95). Buy 3, add a free cosmetic bag (together worth $44.90). While stocks last.",
+    "60% off when you buy 2 or 3 bags together: one for you, one for her. Plus free gifts while stocks last."
+   ],
+   "headline": [
+    "Up to 60% off + free gifts",
+    "Buy 2 bags, get a free gift",
+    "Black Friday prices are live"
+   ],
+   "description": "Up to 60% off + free gifts"
+  },
+  "approved_phrases": [
+   "up to (?:60|sixty) ?(?:%|percent) off",
+   "(?:60|sixty) ?(?:%|percent) off\\b[^.!?]{0,60}\\b(?:bundles?|together|(?:2|two) (?:or (?:3|three) )?bags|(?:3|three) bags|(?:2|two) or (?:3|three)|second bag)",
+   "\\bbundles?\\b[^.!?]{0,30}(?:60|sixty) ?(?:%|percent) off",
+   "(?:\\d|two|three|2|3) free gifts?",
+   "free gifts?",
+   "(?:a |the )?free (?:mirrored )?jewell?e?ry box(?:es)?",
+   "(?:a |the )?free (?:travel )?cosmetic bags?"
+  ],
+  "approved": "Wouter (owner), 2026-10-23: the Black Friday Sale went live on 23 October and runs until 30 November (Cyber Monday). Up to 50% off sitewide; 60% off bundles (2 or 3 bags bought together at 60% off the regular price); free gifts while stocks last: buy 2 bags, get a free mirrored jewellery box (worth $19.95); buy 3+ bags, get the jewellery box + a free cosmetic bag (together worth $44.90); only bags count, not accessories. The site banner (2026-10-23): 'EARLY BLACK FRIDAY: 50% OFF EVERYTHING | BUY 2 BAGS = 1 FREE GIFT | BUY 3 = 2 FREE GIFTS | ORDER TODAY WHILE STOCKS LAST!'"
+ },
+ "statics": [],
+ "videos": [
+  {
+   "name": "LC_261025_HoboBag_BlackFriday_B027r3_P01_H1_secondbag",
+   "id": "P01H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "ugc": {
+    "script": "U01",
+    "angle": "secondbag",
+    "words": 201,
+    "hook": {
+     "type": "price",
+     "label": "BUY TWO TOGETHER",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "What does a second bag add to your Black Friday order?",
+      "type": "question",
+      "label": "ADD A SECOND",
+      "feature": null,
+      "show": [
+       "handheld",
+       "colours"
+      ]
+     },
+     {
+      "text": "Stop checking out with one bag when two get a bigger discount.",
+      "type": "problem",
+      "label": "TWO BAGS",
+      "feature": null,
+      "show": [
+       "hero",
+       "placed"
+      ]
+     },
+     {
+      "text": "The Hobo Bag in your cart gets better with a second one.",
+      "type": "promise",
+      "label": "SECOND BAG",
+      "feature": null,
+      "show": [
+       "strap",
+       "hero"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "What does a second bag add to your Black Friday order?": [
+      [
+       "1CJzEYOTuCr-sZYjkvP7e7F-fHcOTx9GS",
+       8.46,
+       1.0
+      ],
+      [
+       "1LjnCWc5SyUtUqAnV-9nnxMILweyDJdL5",
+       1.68,
+       1.0
+      ]
+     ],
+     "Stop checking out with one bag when two get a bigger discount.": [
+      [
+       "1UcPs3RM-Iwrzd5rgOIA6Wxii0i3R3xqL",
+       0.3,
+       1.0
+      ],
+      [
+       "1f_uobOObpjWFcDK1U8yedlh19SJbAzZB",
+       1.49,
+       1.0
+      ]
+     ],
+     "The Hobo Bag in your cart gets better with a second one.": [
+      [
+       "117P6aO1ank_vR6tSzwyFXsBI_ZpDAHtq",
+       1.5,
+       1.0
+      ],
+      [
+       "1UcPs3RM-Iwrzd5rgOIA6Wxii0i3R3xqL",
+       5.23,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 67.3,
+   "project": "P01",
+   "hook_text": "Buy two bags together this Black Friday: up to sixty percent off.",
+   "hook_label": "BUY TWO TOGETHER",
+   "hook_type": "price",
+   "opening_shot": [
+    "1sqN76Sbj7sjx9lm4gh9zOK0eLM-n7l4w",
+    7.4
+   ]
+  },
+  {
+   "name": "LC_261025_HoboBag_BlackFriday_B027r3_P01_H2_secondbag",
+   "id": "P01H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "ugc": {
+    "script": "U01",
+    "angle": "secondbag",
+    "words": 201,
+    "hook": {
+     "type": "price",
+     "label": "BUY TWO TOGETHER",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "What does a second bag add to your Black Friday order?",
+      "type": "question",
+      "label": "ADD A SECOND",
+      "feature": null,
+      "show": [
+       "handheld",
+       "colours"
+      ]
+     },
+     {
+      "text": "Stop checking out with one bag when two get a bigger discount.",
+      "type": "problem",
+      "label": "TWO BAGS",
+      "feature": null,
+      "show": [
+       "hero",
+       "placed"
+      ]
+     },
+     {
+      "text": "The Hobo Bag in your cart gets better with a second one.",
+      "type": "promise",
+      "label": "SECOND BAG",
+      "feature": null,
+      "show": [
+       "strap",
+       "hero"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "What does a second bag add to your Black Friday order?": [
+      [
+       "1CJzEYOTuCr-sZYjkvP7e7F-fHcOTx9GS",
+       8.46,
+       1.0
+      ],
+      [
+       "1LjnCWc5SyUtUqAnV-9nnxMILweyDJdL5",
+       1.68,
+       1.0
+      ]
+     ],
+     "Stop checking out with one bag when two get a bigger discount.": [
+      [
+       "1UcPs3RM-Iwrzd5rgOIA6Wxii0i3R3xqL",
+       0.3,
+       1.0
+      ],
+      [
+       "1f_uobOObpjWFcDK1U8yedlh19SJbAzZB",
+       1.49,
+       1.0
+      ]
+     ],
+     "The Hobo Bag in your cart gets better with a second one.": [
+      [
+       "117P6aO1ank_vR6tSzwyFXsBI_ZpDAHtq",
+       1.5,
+       1.0
+      ],
+      [
+       "1UcPs3RM-Iwrzd5rgOIA6Wxii0i3R3xqL",
+       5.23,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 67.0,
+   "project": "P01",
+   "hook_text": "What does a second bag add to your Black Friday order?",
+   "hook_label": "ADD A SECOND",
+   "hook_type": "question",
+   "opening_shot": [
+    "1CJzEYOTuCr-sZYjkvP7e7F-fHcOTx9GS",
+    8.46
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261025_HoboBag_BlackFriday_B027r3_P01_H3_secondbag",
+   "id": "P01H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "ugc": {
+    "script": "U01",
+    "angle": "secondbag",
+    "words": 201,
+    "hook": {
+     "type": "price",
+     "label": "BUY TWO TOGETHER",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "What does a second bag add to your Black Friday order?",
+      "type": "question",
+      "label": "ADD A SECOND",
+      "feature": null,
+      "show": [
+       "handheld",
+       "colours"
+      ]
+     },
+     {
+      "text": "Stop checking out with one bag when two get a bigger discount.",
+      "type": "problem",
+      "label": "TWO BAGS",
+      "feature": null,
+      "show": [
+       "hero",
+       "placed"
+      ]
+     },
+     {
+      "text": "The Hobo Bag in your cart gets better with a second one.",
+      "type": "promise",
+      "label": "SECOND BAG",
+      "feature": null,
+      "show": [
+       "strap",
+       "hero"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "What does a second bag add to your Black Friday order?": [
+      [
+       "1CJzEYOTuCr-sZYjkvP7e7F-fHcOTx9GS",
+       8.46,
+       1.0
+      ],
+      [
+       "1LjnCWc5SyUtUqAnV-9nnxMILweyDJdL5",
+       1.68,
+       1.0
+      ]
+     ],
+     "Stop checking out with one bag when two get a bigger discount.": [
+      [
+       "1UcPs3RM-Iwrzd5rgOIA6Wxii0i3R3xqL",
+       0.3,
+       1.0
+      ],
+      [
+       "1f_uobOObpjWFcDK1U8yedlh19SJbAzZB",
+       1.49,
+       1.0
+      ]
+     ],
+     "The Hobo Bag in your cart gets better with a second one.": [
+      [
+       "117P6aO1ank_vR6tSzwyFXsBI_ZpDAHtq",
+       1.5,
+       1.0
+      ],
+      [
+       "1UcPs3RM-Iwrzd5rgOIA6Wxii0i3R3xqL",
+       5.23,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 67.3,
+   "project": "P01",
+   "hook_text": "Stop checking out with one bag when two get a bigger discount.",
+   "hook_label": "TWO BAGS",
+   "hook_type": "problem",
+   "opening_shot": [
+    "1UcPs3RM-Iwrzd5rgOIA6Wxii0i3R3xqL",
+    0.3
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261025_HoboBag_BlackFriday_B027r3_P01_H4_secondbag",
+   "id": "P01H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "ugc": {
+    "script": "U01",
+    "angle": "secondbag",
+    "words": 201,
+    "hook": {
+     "type": "price",
+     "label": "BUY TWO TOGETHER",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "What does a second bag add to your Black Friday order?",
+      "type": "question",
+      "label": "ADD A SECOND",
+      "feature": null,
+      "show": [
+       "handheld",
+       "colours"
+      ]
+     },
+     {
+      "text": "Stop checking out with one bag when two get a bigger discount.",
+      "type": "problem",
+      "label": "TWO BAGS",
+      "feature": null,
+      "show": [
+       "hero",
+       "placed"
+      ]
+     },
+     {
+      "text": "The Hobo Bag in your cart gets better with a second one.",
+      "type": "promise",
+      "label": "SECOND BAG",
+      "feature": null,
+      "show": [
+       "strap",
+       "hero"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "What does a second bag add to your Black Friday order?": [
+      [
+       "1CJzEYOTuCr-sZYjkvP7e7F-fHcOTx9GS",
+       8.46,
+       1.0
+      ],
+      [
+       "1LjnCWc5SyUtUqAnV-9nnxMILweyDJdL5",
+       1.68,
+       1.0
+      ]
+     ],
+     "Stop checking out with one bag when two get a bigger discount.": [
+      [
+       "1UcPs3RM-Iwrzd5rgOIA6Wxii0i3R3xqL",
+       0.3,
+       1.0
+      ],
+      [
+       "1f_uobOObpjWFcDK1U8yedlh19SJbAzZB",
+       1.49,
+       1.0
+      ]
+     ],
+     "The Hobo Bag in your cart gets better with a second one.": [
+      [
+       "117P6aO1ank_vR6tSzwyFXsBI_ZpDAHtq",
+       1.5,
+       1.0
+      ],
+      [
+       "1UcPs3RM-Iwrzd5rgOIA6Wxii0i3R3xqL",
+       5.23,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 67.3,
+   "project": "P01",
+   "hook_text": "The Hobo Bag in your cart gets better with a second one.",
+   "hook_label": "SECOND BAG",
+   "hook_type": "promise",
+   "opening_shot": [
+    "117P6aO1ank_vR6tSzwyFXsBI_ZpDAHtq",
+    1.5
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261025_HoboBag_BlackFriday_B027r3_P03_H1_nowait",
+   "id": "P03H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "ugc": {
+    "script": "U03",
+    "angle": "nowait",
+    "words": 175,
+    "hook": {
+     "type": "promise",
+     "label": "LIVE NOW",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Still waiting for Black Friday to buy your next bag?",
+      "type": "question",
+      "label": "NO WAITING",
+      "feature": null,
+      "show": [
+       "placed",
+       "hero"
+      ]
+     },
+     {
+      "text": "Waiting for a better price? The Black Friday price is already here.",
+      "type": "problem",
+      "label": "ALREADY HERE",
+      "feature": null,
+      "show": [
+       "strap",
+       "worn"
+      ]
+     },
+     {
+      "text": "The Hobo Bag at fifty percent off, with a free pouch wallet.",
+      "type": "price",
+      "label": "50% PLUS POUCH",
+      "feature": null,
+      "show": [
+       "pouch",
+       "hero"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Still waiting for Black Friday to buy your next bag?": [
+      [
+       "16bugUA13UINTh8mGcl237pNZ8KnnVjjA",
+       2.17,
+       1.0
+      ],
+      [
+       "1sqN76Sbj7sjx9lm4gh9zOK0eLM-n7l4w",
+       0.68,
+       1.0
+      ]
+     ],
+     "Waiting for a better price? The Black Friday price is already here.": [
+      [
+       "13WPNZDUpQdyDm4VKoJezn1StKDv4ixu4",
+       4.41,
+       1.0
+      ],
+      [
+       "1yFMCtT9SSE0_GMq6orEHoHL1JEKAJ1x9",
+       2.93,
+       1.0
+      ]
+     ],
+     "The Hobo Bag at fifty percent off, with a free pouch wallet.": [
+      [
+       "10AwB1uAdRXbIY2gjhJl1q1pbuip29YJN",
+       4.78,
+       1.0
+      ],
+      [
+       "1NuCVbKCrAGKgLyGpaVgNohAbss7I4zMS",
+       10.1,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 58.9,
+   "project": "P03",
+   "hook_text": "Black Friday prices are live now. No need to wait.",
+   "hook_label": "LIVE NOW",
+   "hook_type": "promise",
+   "opening_shot": [
+    "1JYQVa4J7nip-TLeL3ztP17SyQ4NJUi6u",
+    3.54
+   ]
+  },
+  {
+   "name": "LC_261025_HoboBag_BlackFriday_B027r3_P03_H2_nowait",
+   "id": "P03H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "ugc": {
+    "script": "U03",
+    "angle": "nowait",
+    "words": 175,
+    "hook": {
+     "type": "promise",
+     "label": "LIVE NOW",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Still waiting for Black Friday to buy your next bag?",
+      "type": "question",
+      "label": "NO WAITING",
+      "feature": null,
+      "show": [
+       "placed",
+       "hero"
+      ]
+     },
+     {
+      "text": "Waiting for a better price? The Black Friday price is already here.",
+      "type": "problem",
+      "label": "ALREADY HERE",
+      "feature": null,
+      "show": [
+       "strap",
+       "worn"
+      ]
+     },
+     {
+      "text": "The Hobo Bag at fifty percent off, with a free pouch wallet.",
+      "type": "price",
+      "label": "50% PLUS POUCH",
+      "feature": null,
+      "show": [
+       "pouch",
+       "hero"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Still waiting for Black Friday to buy your next bag?": [
+      [
+       "16bugUA13UINTh8mGcl237pNZ8KnnVjjA",
+       2.17,
+       1.0
+      ],
+      [
+       "1sqN76Sbj7sjx9lm4gh9zOK0eLM-n7l4w",
+       0.68,
+       1.0
+      ]
+     ],
+     "Waiting for a better price? The Black Friday price is already here.": [
+      [
+       "13WPNZDUpQdyDm4VKoJezn1StKDv4ixu4",
+       4.41,
+       1.0
+      ],
+      [
+       "1yFMCtT9SSE0_GMq6orEHoHL1JEKAJ1x9",
+       2.93,
+       1.0
+      ]
+     ],
+     "The Hobo Bag at fifty percent off, with a free pouch wallet.": [
+      [
+       "10AwB1uAdRXbIY2gjhJl1q1pbuip29YJN",
+       4.78,
+       1.0
+      ],
+      [
+       "1NuCVbKCrAGKgLyGpaVgNohAbss7I4zMS",
+       10.1,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 58.9,
+   "project": "P03",
+   "hook_text": "Still waiting for Black Friday to buy your next bag?",
+   "hook_label": "NO WAITING",
+   "hook_type": "question",
+   "opening_shot": [
+    "16bugUA13UINTh8mGcl237pNZ8KnnVjjA",
+    2.17
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261025_HoboBag_BlackFriday_B027r3_P03_H3_nowait",
+   "id": "P03H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "ugc": {
+    "script": "U03",
+    "angle": "nowait",
+    "words": 175,
+    "hook": {
+     "type": "promise",
+     "label": "LIVE NOW",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Still waiting for Black Friday to buy your next bag?",
+      "type": "question",
+      "label": "NO WAITING",
+      "feature": null,
+      "show": [
+       "placed",
+       "hero"
+      ]
+     },
+     {
+      "text": "Waiting for a better price? The Black Friday price is already here.",
+      "type": "problem",
+      "label": "ALREADY HERE",
+      "feature": null,
+      "show": [
+       "strap",
+       "worn"
+      ]
+     },
+     {
+      "text": "The Hobo Bag at fifty percent off, with a free pouch wallet.",
+      "type": "price",
+      "label": "50% PLUS POUCH",
+      "feature": null,
+      "show": [
+       "pouch",
+       "hero"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Still waiting for Black Friday to buy your next bag?": [
+      [
+       "16bugUA13UINTh8mGcl237pNZ8KnnVjjA",
+       2.17,
+       1.0
+      ],
+      [
+       "1sqN76Sbj7sjx9lm4gh9zOK0eLM-n7l4w",
+       0.68,
+       1.0
+      ]
+     ],
+     "Waiting for a better price? The Black Friday price is already here.": [
+      [
+       "13WPNZDUpQdyDm4VKoJezn1StKDv4ixu4",
+       4.41,
+       1.0
+      ],
+      [
+       "1yFMCtT9SSE0_GMq6orEHoHL1JEKAJ1x9",
+       2.93,
+       1.0
+      ]
+     ],
+     "The Hobo Bag at fifty percent off, with a free pouch wallet.": [
+      [
+       "10AwB1uAdRXbIY2gjhJl1q1pbuip29YJN",
+       4.78,
+       1.0
+      ],
+      [
+       "1NuCVbKCrAGKgLyGpaVgNohAbss7I4zMS",
+       10.1,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 59.5,
+   "project": "P03",
+   "hook_text": "Waiting for a better price? The Black Friday price is already here.",
+   "hook_label": "ALREADY HERE",
+   "hook_type": "problem",
+   "opening_shot": [
+    "13WPNZDUpQdyDm4VKoJezn1StKDv4ixu4",
+    4.41
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261025_HoboBag_BlackFriday_B027r3_P03_H4_nowait",
+   "id": "P03H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "ugc": {
+    "script": "U03",
+    "angle": "nowait",
+    "words": 175,
+    "hook": {
+     "type": "promise",
+     "label": "LIVE NOW",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Still waiting for Black Friday to buy your next bag?",
+      "type": "question",
+      "label": "NO WAITING",
+      "feature": null,
+      "show": [
+       "placed",
+       "hero"
+      ]
+     },
+     {
+      "text": "Waiting for a better price? The Black Friday price is already here.",
+      "type": "problem",
+      "label": "ALREADY HERE",
+      "feature": null,
+      "show": [
+       "strap",
+       "worn"
+      ]
+     },
+     {
+      "text": "The Hobo Bag at fifty percent off, with a free pouch wallet.",
+      "type": "price",
+      "label": "50% PLUS POUCH",
+      "feature": null,
+      "show": [
+       "pouch",
+       "hero"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Still waiting for Black Friday to buy your next bag?": [
+      [
+       "16bugUA13UINTh8mGcl237pNZ8KnnVjjA",
+       2.17,
+       1.0
+      ],
+      [
+       "1sqN76Sbj7sjx9lm4gh9zOK0eLM-n7l4w",
+       0.68,
+       1.0
+      ]
+     ],
+     "Waiting for a better price? The Black Friday price is already here.": [
+      [
+       "13WPNZDUpQdyDm4VKoJezn1StKDv4ixu4",
+       4.41,
+       1.0
+      ],
+      [
+       "1yFMCtT9SSE0_GMq6orEHoHL1JEKAJ1x9",
+       2.93,
+       1.0
+      ]
+     ],
+     "The Hobo Bag at fifty percent off, with a free pouch wallet.": [
+      [
+       "10AwB1uAdRXbIY2gjhJl1q1pbuip29YJN",
+       4.78,
+       1.0
+      ],
+      [
+       "1NuCVbKCrAGKgLyGpaVgNohAbss7I4zMS",
+       10.1,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 59.5,
+   "project": "P03",
+   "hook_text": "The Hobo Bag at fifty percent off, with a free pouch wallet.",
+   "hook_label": "50% PLUS POUCH",
+   "hook_type": "price",
+   "opening_shot": [
+    "10AwB1uAdRXbIY2gjhJl1q1pbuip29YJN",
+    4.78
+   ],
+   "hook_source": "script"
+  }
+ ],
+ "tts_lines": 24,
+ "tts_dupes": {},
+ "est_credits": 8.4,
+ "budget": 100.0,
+ "colour_images": {
+  "Dark Sienna": "/tmp/run/hobo-bf-4v10s-d/site/clean/hobo_bag_colour_dark_sienna.jpg",
+  "Galaxy Black": "/tmp/run/hobo-bf-4v10s-d/site/hobo_bag_colour_galaxy_black.jpg",
+  "Blue": "/tmp/run/hobo-bf-4v10s-d/site/hobo_bag_colour_blue.jpg",
+  "Grey": "/tmp/run/hobo-bf-4v10s-d/site/hobo_bag_colour_grey.jpg",
+  "Burgundy": "/tmp/run/hobo-bf-4v10s-d/site/hobo_bag_colour_burgundy.jpg",
+  "Red": "/tmp/run/hobo-bf-4v10s-d/site/hobo_bag_colour_red.jpg"
+ },
+ "packshots": [
+  "/tmp/run/hobo-bf-4v10s-d/site/clean/hobo_bag_colour_dark_sienna.jpg",
+  "/tmp/run/hobo-bf-4v10s-d/site/hobo_bag_colour_galaxy_black.jpg",
+  "/tmp/run/hobo-bf-4v10s-d/site/hobo_bag_colour_blue.jpg",
+  "/tmp/run/hobo-bf-4v10s-d/site/hobo_bag_colour_grey.jpg",
+  "/tmp/run/hobo-bf-4v10s-d/site/hobo_bag_colour_burgundy.jpg",
+  "/tmp/run/hobo-bf-4v10s-d/site/hobo_bag_colour_red.jpg"
+ ],
+ "brief": null,
+ "winners_source": null,
+ "winners_note": null,
+ "winners_used": [],
+ "unmatched_winners": [],
+ "warnings": [
+  "campaign: Black Friday Sale 2026 (2026-10-23 to 2026-11-30, client-approved): end cards say 'Black Friday Sale' + 'UP TO 60% OFF + FREE GIFTS', offer cards '+ FREE GIFTS WITH 2 BAGS', the statics include the free-gifts and bundle layouts, the close and the ad copy name the gifts; each bag's own % stays its offer",
+  "ideas: 5 AI studio scenes of 10 statics (about 5 credits plus retries)"
+ ],
+ "winner_reviews": false,
+ "seed": 1,
+ "hooks": 4,
+ "pipeline": "catalog",
+ "video_format": "ugc",
+ "ugc_numbers": [],
+ "voice": {
+  "voice_type": "element",
+  "voice_id": "241459b6-b4e8-4a2a-9868-da8bcdcd0558",
+  "speed": 1.12
+ },
+ "projects": [
+  {
+   "id": "P01",
+   "from_id": "V01",
+   "angle": "secondbag",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P01H1",
+     "name": "LC_261025_HoboBag_BlackFriday_B027r3_P01_H1_secondbag",
+     "hook_text": "Buy two bags together this Black Friday: up to sixty percent off.",
+     "label": "BUY TWO TOGETHER",
+     "type": "price",
+     "shot": [
+      "1sqN76Sbj7sjx9lm4gh9zOK0eLM-n7l4w",
+      7.4
+     ],
+     "est_seconds": 67.3
+    },
+    {
+     "hook": "H2",
+     "id": "P01H2",
+     "name": "LC_261025_HoboBag_BlackFriday_B027r3_P01_H2_secondbag",
+     "hook_text": "What does a second bag add to your Black Friday order?",
+     "label": "ADD A SECOND",
+     "type": "question",
+     "shot": [
+      "1CJzEYOTuCr-sZYjkvP7e7F-fHcOTx9GS",
+      8.46
+     ],
+     "est_seconds": 67.0
+    },
+    {
+     "hook": "H3",
+     "id": "P01H3",
+     "name": "LC_261025_HoboBag_BlackFriday_B027r3_P01_H3_secondbag",
+     "hook_text": "Stop checking out with one bag when two get a bigger discount.",
+     "label": "TWO BAGS",
+     "type": "problem",
+     "shot": [
+      "1UcPs3RM-Iwrzd5rgOIA6Wxii0i3R3xqL",
+      0.3
+     ],
+     "est_seconds": 67.3
+    },
+    {
+     "hook": "H4",
+     "id": "P01H4",
+     "name": "LC_261025_HoboBag_BlackFriday_B027r3_P01_H4_secondbag",
+     "hook_text": "The Hobo Bag in your cart gets better with a second one.",
+     "label": "SECOND BAG",
+     "type": "promise",
+     "shot": [
+      "117P6aO1ank_vR6tSzwyFXsBI_ZpDAHtq",
+      1.5
+     ],
+     "est_seconds": 67.3
+    }
+   ]
+  },
+  {
+   "id": "P03",
+   "from_id": "V03",
+   "angle": "nowait",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P03H1",
+     "name": "LC_261025_HoboBag_BlackFriday_B027r3_P03_H1_nowait",
+     "hook_text": "Black Friday prices are live now. No need to wait.",
+     "label": "LIVE NOW",
+     "type": "promise",
+     "shot": [
+      "1JYQVa4J7nip-TLeL3ztP17SyQ4NJUi6u",
+      3.54
+     ],
+     "est_seconds": 58.9
+    },
+    {
+     "hook": "H2",
+     "id": "P03H2",
+     "name": "LC_261025_HoboBag_BlackFriday_B027r3_P03_H2_nowait",
+     "hook_text": "Still waiting for Black Friday to buy your next bag?",
+     "label": "NO WAITING",
+     "type": "question",
+     "shot": [
+      "16bugUA13UINTh8mGcl237pNZ8KnnVjjA",
+      2.17
+     ],
+     "est_seconds": 58.9
+    },
+    {
+     "hook": "H3",
+     "id": "P03H3",
+     "name": "LC_261025_HoboBag_BlackFriday_B027r3_P03_H3_nowait",
+     "hook_text": "Waiting for a better price? The Black Friday price is already here.",
+     "label": "ALREADY HERE",
+     "type": "problem",
+     "shot": [
+      "13WPNZDUpQdyDm4VKoJezn1StKDv4ixu4",
+      4.41
+     ],
+     "est_seconds": 59.5
+    },
+    {
+     "hook": "H4",
+     "id": "P03H4",
+     "name": "LC_261025_HoboBag_BlackFriday_B027r3_P03_H4_nowait",
+     "hook_text": "The Hobo Bag at fifty percent off, with a free pouch wallet.",
+     "label": "50% PLUS POUCH",
+     "type": "price",
+     "shot": [
+      "10AwB1uAdRXbIY2gjhJl1q1pbuip29YJN",
+      4.78
+     ],
+     "est_seconds": 59.5
+    }
+   ]
+  }
+ ],
+ "hooks_seed": 1
+}

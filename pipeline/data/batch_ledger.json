@@ -1687,7 +1687,197 @@
      "label": "Three pieces for sixty percent off on Black Friday."
     }
    ]
+  },
+  {
+   "id": "B026",
+   "n": 26,
+   "rev": 1,
+   "date": "2026-10-25",
+   "product": "Hobo Bag",
+   "theme": "BlackFriday",
+   "pipeline": "catalog",
+   "request": "4 videos and 10 statics for the Hobo Bag, Black Friday. Ideas: buy 2 bags and get a free jewellery box; one for you, one for her; Black Friday prices are live now; Christmas gifts for mum, sister and best friend",
+   "statics": 10,
+   "projects": 4,
+   "hooks": 4,
+   "seed": 1,
+   "status": "planned"
+  },
+  {
+   "id": "B027",
+   "n": 27,
+   "rev": 3,
+   "date": "2026-10-25",
+   "product": "Hobo Bag",
+   "theme": "BlackFriday",
+   "pipeline": "catalog",
+   "request": "4 videos and 10 statics for the Hobo Bag, Black Friday. Ideas: buy 2 bags and get a free jewellery box; one for you, one for her; Black Friday prices are live now; Christmas gifts for mum, sister and best friend",
+   "statics": 10,
+   "projects": 4,
+   "hooks": 4,
+   "seed": 1,
+   "status": "uploaded",
+   "folder": "B027r3 – 2026-10-25 – Hobo Bag BlackFriday – 2 projects",
+   "link": "https://drive.google.com/drive/folders/1o13su4hCovKPvuO5h_ZI4-qwML6YvLBz",
+   "ads": [
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B027_S01_gifts",
+     "kind": "static",
+     "fp": "s|gifts|hobo_bag_colour_blue.jpg|buy two bags. get a free jewellery box.",
+     "label": "Buy two bags. Get a free jewellery box."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B027_S02_concept",
+     "kind": "static",
+     "fp": "s|concept|AS01.png|up to 60% off, plus free gifts.",
+     "label": "Up to 60% off, plus free gifts."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B027_S03_bundle",
+     "kind": "static",
+     "fp": "s|bundle||one for you. one for her.",
+     "label": "One for you. One for her."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B027_S04_concept",
+     "kind": "static",
+     "fp": "s|concept|AS02.png|a gift for every day.",
+     "label": "A gift for every day."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B027_S05_studio",
+     "kind": "static",
+     "fp": "s|studio|hobo_bag_colour_grey.jpg|black friday prices are live.",
+     "label": "Black Friday prices are live."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B027_S06_concept",
+     "kind": "static",
+     "fp": "s|concept|AS03.png|no need to wait.",
+     "label": "No need to wait."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B027_S07_offer",
+     "kind": "static",
+     "fp": "s|offer|hobo_bag_colour_blue.jpg|your new everyday bag",
+     "label": "Your new everyday bag"
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B027_S08_native",
+     "kind": "static",
+     "fp": "s|native|F_1hskk8rPdp_0017.jpg|shoulder, handbag or crossbody.",
+     "label": "Shoulder, handbag or crossbody."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B027_S09_concept",
+     "kind": "static",
+     "fp": "s|concept|AS04.png|mum. sister. best friend.",
+     "label": "Mum. Sister. Best friend."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B027_S10_concept",
+     "kind": "static",
+     "fp": "s|concept|AS05.png|room for a second one?",
+     "label": "Room for a second one?"
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B027_P02_H1_yourshers",
+     "kind": "video",
+     "fp": "v|one for you, one for her, and up to sixty percent off.|",
+     "label": "One for you, one for her, and up to sixty percent off."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B027_P02_H2_yourshers",
+     "kind": "video",
+     "fp": "v|treating her this christmas? why not treat yourself too?|",
+     "label": "Treating her this Christmas? Why not treat yourself too?"
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B027_P02_H3_yourshers",
+     "kind": "video",
+     "fp": "v|gift shopping only for her, and nothing for you? fix that.|",
+     "label": "Gift shopping only for her, and nothing for you? Fix that."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B027_P02_H4_yourshers",
+     "kind": "video",
+     "fp": "v|two bags together, up to sixty percent off.|",
+     "label": "Two bags together, up to sixty percent off."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B027_P04_H1_threenames",
+     "kind": "video",
+     "fp": "v|christmas gifts for mum, sister and best friend, all in one order.|",
+     "label": "Christmas gifts for mum, sister and best friend, all in one order."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B027_P04_H2_threenames",
+     "kind": "video",
+     "fp": "v|who is on your christmas list this year?|",
+     "label": "Who is on your Christmas list this year?"
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B027_P04_H3_threenames",
+     "kind": "video",
+     "fp": "v|three christmas gifts to buy and no idea where to start?|",
+     "label": "Three Christmas gifts to buy and no idea where to start?"
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B027_P04_H4_threenames",
+     "kind": "video",
+     "fp": "v|sixty percent off when you buy three bags together, plus two free gifts.|",
+     "label": "Sixty percent off when you buy three bags together, plus two free gifts."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B027r3_P01_H1_secondbag",
+     "kind": "video",
+     "fp": "v|buy two bags together this black friday: up to sixty percent off.|",
+     "label": "Buy two bags together this Black Friday: up to sixty percent off."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B027r3_P01_H2_secondbag",
+     "kind": "video",
+     "fp": "v|what does a second bag add to your black friday order?|",
+     "label": "What does a second bag add to your Black Friday order?"
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B027r3_P01_H3_secondbag",
+     "kind": "video",
+     "fp": "v|stop checking out with one bag when two get a bigger discount.|",
+     "label": "Stop checking out with one bag when two get a bigger discount."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B027r3_P01_H4_secondbag",
+     "kind": "video",
+     "fp": "v|the hobo bag in your cart gets better with a second one.|",
+     "label": "The Hobo Bag in your cart gets better with a second one."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B027r3_P03_H1_nowait",
+     "kind": "video",
+     "fp": "v|black friday prices are live now. no need to wait.|",
+     "label": "Black Friday prices are live now. No need to wait."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B027r3_P03_H2_nowait",
+     "kind": "video",
+     "fp": "v|still waiting for black friday to buy your next bag?|",
+     "label": "Still waiting for Black Friday to buy your next bag?"
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B027r3_P03_H3_nowait",
+     "kind": "video",
+     "fp": "v|waiting for a better price? the black friday price is already here.|",
+     "label": "Waiting for a better price? The Black Friday price is already here."
+    },
+    {
+     "name": "LC_261025_HoboBag_BlackFriday_B027r3_P03_H4_nowait",
+     "kind": "video",
+     "fp": "v|the hobo bag at fifty percent off, with a free pouch wallet.|",
+     "label": "The Hobo Bag at fifty percent off, with a free pouch wallet."
+    }
+   ]
   }
  ],
- "next": 26
+ "next": 28
 }

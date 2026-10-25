@@ -1,0 +1,776 @@
+{
+ "product": "Hobo Bag",
+ "theme": "black friday",
+ "date": "2026-10-25",
+ "research": [
+  "Read the strategy packet (true facts, the Black Friday Sale 2026 campaign facts, the footage tags, B004-B020 for the Hobo Bag) and docs/research/2026-10-black-friday-and-bag-ads.md: BFCM statics win with one big visual and one offer line; gifting formats; hooks that state the offer in the first line; no countdown graphics.",
+  "The client's four ideas are the four projects, one each: the second bag at the 60% two-bag price (P01), one for you / one for her (P02), Black Friday prices are live now (P03), Christmas gifts for mum, sister and best friend (P04). The gift terms are only the campaign's (Wouter 2026-10-23, data/campaign.json): 2 bags = free mirrored jewellery box, 3+ bags = jewellery box + free cosmetic bag, 60% off only of 2 or 3 bags together, only bags count, while stocks last.",
+  "Earlier Hobo Bag batches did a pack-out, a behind-you demo, a gift checklist (three boxes), five checks, three people on a list, a Black Friday walk, myths and a retirement for the old bag (B014/B016), and the winners remixes (B019/B020): none built the order around the second bag, a you/her pairing, three buyer questions, or the three-bag tier, so those are the four structures here.",
+  "Compliance choices: no sale end date, no countdown, no first person, nothing about what a mum, sister or friend said or felt; recipients appear only as names on a list ('for mum'), the voice is a host in 'you' form; jewellery box and cosmetic bag appear only as the campaign states them; no price numbers (they change)."
+ ],
+ "projects": [
+  {
+   "id": "P01",
+   "slug": "secondbag",
+   "title": "Add a second bag",
+   "big_idea": "Build the order step by step: one Hobo Bag at its own Black Friday price with the free matching pouch wallet, then add a second and the 60% bundle price applies.",
+   "why_new": "First Hobo Bag video built as an order ladder around the second bag and the 60% two-bag bundle price; earlier Black Friday videos sold one bag at 50% and never the 2-bag bundle.",
+   "hooks": [
+    {
+     "text": "Buy two bags together this Black Friday: up to sixty percent off.",
+     "type": "price",
+     "label": "BUY TWO TOGETHER",
+     "show": [
+      "hero",
+      "colours"
+     ]
+    },
+    {
+     "text": "What does a second bag add to your Black Friday order?",
+     "type": "question",
+     "label": "ADD A SECOND",
+     "show": [
+      "handheld",
+      "colours"
+     ]
+    },
+    {
+     "text": "Stop checking out with one bag when two get a bigger discount.",
+     "type": "problem",
+     "label": "TWO BAGS",
+     "show": [
+      "hero",
+      "placed"
+     ]
+    },
+    {
+     "text": "The Hobo Bag in your cart gets better with a second one.",
+     "type": "promise",
+     "label": "SECOND BAG",
+     "show": [
+      "strap",
+      "hero"
+     ]
+    }
+   ],
+   "chapters": [
+    {
+     "kind": "point",
+     "text": "Start with one Hobo Bag. It is fifty percent off right now, and a matching pouch wallet comes free.",
+     "tag": "HOBO BAG",
+     "number": 1,
+     "show": [
+      "hero",
+      "pouch"
+     ],
+     "highlight": [
+      "fifty",
+      "free"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Here is what that one bag does. A hidden pocket on the back sits flat against you, for your passport and cards. Two gold side zips are there for your keys and phone.",
+     "tag": "HIDDEN BACK POCKET",
+     "number": null,
+     "show": [
+      "pocket",
+      "side_zip",
+      "zip"
+     ],
+     "highlight": [
+      "hidden",
+      "gold"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Inside, divided compartments mean nothing sinks to the bottom. Two straps let you wear it on the shoulder, as a handbag, or crossbody.",
+     "tag": "SMART COMPARTMENTS",
+     "number": null,
+     "show": [
+      "inside",
+      "packing",
+      "strap"
+     ],
+     "highlight": [
+      "divided",
+      "straps"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Now add a second one. You get sixty percent off the regular price when you buy two bags together.",
+     "tag": "60% OFF 2 BAGS",
+     "number": 2,
+     "show": [
+      "colours",
+      "handheld"
+     ],
+     "highlight": [
+      "second",
+      "sixty"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Pick the same colour twice, or two different ones. There are six colours to choose from, from Galaxy Black to Burgundy.",
+     "tag": "6 COLOURS",
+     "number": null,
+     "show": [
+      "colours",
+      "hero"
+     ],
+     "highlight": [
+      "six",
+      "colours"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "The Hobo Bag comes with a matching pouch wallet, free, so your bag and its little partner always match.",
+     "tag": "FREE POUCH WALLET",
+     "number": null,
+     "show": [
+      "pouch",
+      "hero"
+     ],
+     "highlight": [
+      "free",
+      "pouch"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Soft, water-resistant leather that looks expensive and only gets better with time. Free US shipping and a one-year warranty come with it.",
+     "tag": "SOFT LEATHER",
+     "number": null,
+     "show": [
+      "leather",
+      "hero"
+     ],
+     "highlight": [
+      "leather",
+      "free"
+     ]
+    },
+    {
+     "kind": "offer",
+     "text": "Black Friday prices are live now. One Hobo Bag is fifty percent off with a free matching pouch wallet, and two or three bags together get sixty percent off. Tap the link below.",
+     "tag": null,
+     "number": null,
+     "show": [
+      "hero",
+      "colours"
+     ],
+     "highlight": [
+      "fifty",
+      "sixty"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "P02",
+   "slug": "yourshers",
+   "title": "One for you, one for her",
+   "big_idea": "A pairing: the same bag, carried her way and your way, and two together at the bundle price so the gift and the treat arrive in one order.",
+   "why_new": "First Hobo Bag video that pairs a gift and a treat in one order ('one for you, one for her') and shows the three carries as two people's choices, with the bundle price; earlier gift videos were about a single gift.",
+   "hooks": [
+    {
+     "text": "One for you, one for her, and up to sixty percent off.",
+     "type": "promise",
+     "label": "YOU AND HER",
+     "show": [
+      "hero",
+      "colours"
+     ]
+    },
+    {
+     "text": "Treating her this Christmas? Why not treat yourself too?",
+     "type": "question",
+     "label": "TREAT BOTH",
+     "show": [
+      "handheld",
+      "placed"
+     ]
+    },
+    {
+     "text": "Gift shopping only for her, and nothing for you? Fix that.",
+     "type": "problem",
+     "label": "DO BOTH",
+     "show": [
+      "worn",
+      "strap"
+     ]
+    },
+    {
+     "text": "Two bags together, up to sixty percent off.",
+     "type": "price",
+     "label": "2 BAGS TOGETHER",
+     "show": [
+      "colours",
+      "hero"
+     ]
+    }
+   ],
+   "chapters": [
+    {
+     "kind": "point",
+     "text": "Here is a gift idea that works for her and for you. Two Hobo Bags: one to give, one to keep.",
+     "tag": "ONE EACH",
+     "number": null,
+     "show": [
+      "hero",
+      "handheld",
+      "colours"
+     ],
+     "highlight": [
+      "give",
+      "keep"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Two straps give the bag three ways to wear. She can carry it on the shoulder, as a handbag, or crossbody. So can you.",
+     "tag": "3 WAYS TO WEAR",
+     "number": null,
+     "show": [
+      "strap",
+      "worn",
+      "walking"
+     ],
+     "highlight": [
+      "shoulder",
+      "crossbody"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "It works hard for both of you. A hidden pocket on the back sits flat against you, and keeps your passport and cards right there.",
+     "tag": "HIDDEN BACK POCKET",
+     "number": null,
+     "show": [
+      "pocket",
+      "placed",
+      "street"
+     ],
+     "highlight": [
+      "hidden",
+      "flat"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "A gold zip on each side takes keys and a phone, so they are always one hand away.",
+     "tag": "GOLD SIDE ZIPS",
+     "number": null,
+     "show": [
+      "side_zip",
+      "zip_hand",
+      "outdoor"
+     ],
+     "highlight": [
+      "gold",
+      "keys"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "And divided compartments inside keep the rest in order, so nothing sinks to the bottom of either bag.",
+     "tag": "SMART COMPARTMENTS",
+     "number": null,
+     "show": [
+      "inside",
+      "packing"
+     ],
+     "highlight": [
+      "divided",
+      "order"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "The soft, water-resistant leather looks expensive and only gets better with time. It is a gift that looks the part, and a treat that does too.",
+     "tag": "SOFT LEATHER",
+     "number": null,
+     "show": [
+      "leather",
+      "hero"
+     ],
+     "highlight": [
+      "soft",
+      "expensive"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "You get sixty percent off the regular price when you buy the two together. One bag for you, one bag for her.",
+     "tag": "60% OFF 2 BAGS",
+     "number": null,
+     "show": [
+      "colours",
+      "handheld"
+     ],
+     "highlight": [
+      "sixty",
+      "two"
+     ]
+    },
+    {
+     "kind": "offer",
+     "text": "Buy two bags and you also get a free jewellery box, while stocks last. One for you, one for her. Tap the link below.",
+     "tag": null,
+     "number": null,
+     "show": [
+      "hero",
+      "colours"
+     ],
+     "highlight": [
+      "jewellery"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "P03",
+   "slug": "nowait",
+   "title": "Three questions before you wait",
+   "big_idea": "Answer the three questions of a shopper who is holding out for Black Friday: is it on, what does one bag get me, what do two get me, with the bag's own features as the proof.",
+   "why_new": "First Hobo Bag video built as a question-and-answer for the shopper who is waiting; earlier Black Friday videos were a crowd walk and myths, never a direct 'it is live, no need to wait' answer with the 1-bag and 2-bag deals side by side.",
+   "hooks": [
+    {
+     "text": "Black Friday prices are live now. No need to wait.",
+     "type": "promise",
+     "label": "LIVE NOW",
+     "show": [
+      "hero",
+      "handheld"
+     ]
+    },
+    {
+     "text": "Still waiting for Black Friday to buy your next bag?",
+     "type": "question",
+     "label": "NO WAITING",
+     "show": [
+      "placed",
+      "hero"
+     ]
+    },
+    {
+     "text": "Waiting for a better price? The Black Friday price is already here.",
+     "type": "problem",
+     "label": "ALREADY HERE",
+     "show": [
+      "strap",
+      "worn"
+     ]
+    },
+    {
+     "text": "The Hobo Bag at fifty percent off, with a free pouch wallet.",
+     "type": "price",
+     "label": "50% PLUS POUCH",
+     "show": [
+      "pouch",
+      "hero"
+     ]
+    }
+   ],
+   "chapters": [
+    {
+     "kind": "objection",
+     "text": "Is the Black Friday sale already on? Yes. The Black Friday prices are live now, so there is no need to wait.",
+     "tag": "LIVE NOW",
+     "number": 1,
+     "show": [
+      "hero",
+      "handheld"
+     ],
+     "highlight": [
+      "live",
+      "wait"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "What does one bag get you? The Hobo Bag is fifty percent off, and a matching pouch wallet comes free.",
+     "tag": "50% OFF + FREE POUCH",
+     "number": 2,
+     "show": [
+      "pouch",
+      "packing"
+     ],
+     "highlight": [
+      "fifty",
+      "free"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "What do two bags get you? It is sixty percent off the regular price when you buy two bags together, plus a free jewellery box while stocks last.",
+     "tag": "60% OFF 2 BAGS",
+     "number": 3,
+     "show": [
+      "colours",
+      "hero"
+     ],
+     "highlight": [
+      "sixty",
+      "free"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "And what is the bag? Soft, water-resistant leather with gold zips and two straps, and divided compartments inside.",
+     "tag": "SOFT LEATHER",
+     "number": null,
+     "show": [
+      "leather",
+      "strap",
+      "inside"
+     ],
+     "highlight": [
+      "leather",
+      "divided"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "A hidden pocket on the back sits flat against you, for your passport and cards. A gold zip on each side takes your keys and phone.",
+     "tag": "HIDDEN BACK POCKET",
+     "number": null,
+     "show": [
+      "pocket",
+      "side_zip",
+      "placed"
+     ],
+     "highlight": [
+      "hidden",
+      "gold"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Shopping for Christmas too? Two bags means one to give and one to keep.",
+     "tag": "GIVE AND KEEP",
+     "number": null,
+     "show": [
+      "handheld",
+      "worn"
+     ],
+     "highlight": [
+      "give",
+      "keep"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Shipping is free in the US, and there is a one-year warranty.",
+     "tag": "FREE US SHIPPING",
+     "number": null,
+     "show": [
+      "handheld",
+      "hero"
+     ],
+     "highlight": [
+      "free",
+      "warranty"
+     ]
+    },
+    {
+     "kind": "offer",
+     "text": "So there is no need to wait. Buy two bags and you also get a free jewellery box, while stocks last. Tap the link below.",
+     "tag": null,
+     "number": null,
+     "show": [
+      "hero",
+      "colours"
+     ],
+     "highlight": [
+      "jewellery"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "P04",
+   "slug": "threenames",
+   "title": "Mum, sister, best friend",
+   "big_idea": "Walk down the Christmas list name by name, give each name one feature of the bag as its reason, then add the three-bag tier: sixty percent off and two free gifts.",
+   "why_new": "First Hobo Bag video that goes name by name down a Christmas list and ends on the three-bag tier (60% off, jewellery box and cosmetic bag); the earlier gift videos used a three-box checklist and three kinds of people, never the campaign's 3-bag gifts.",
+   "hooks": [
+    {
+     "text": "Christmas gifts for mum, sister and best friend, all in one order.",
+     "type": "promise",
+     "label": "THREE GIFTS",
+     "show": [
+      "hero",
+      "colours"
+     ]
+    },
+    {
+     "text": "Who is on your Christmas list this year?",
+     "type": "question",
+     "label": "CHRISTMAS LIST",
+     "show": [
+      "handheld",
+      "placed"
+     ]
+    },
+    {
+     "type": "problem",
+     "text": "Three Christmas gifts to buy and no idea where to start?",
+     "label": "START HERE",
+     "show": [
+      "hero",
+      "worn"
+     ]
+    },
+    {
+     "text": "Sixty percent off when you buy three bags together, plus two free gifts.",
+     "type": "price",
+     "label": "THREE BAGS",
+     "show": [
+      "colours",
+      "handheld"
+     ]
+    }
+   ],
+   "chapters": [
+    {
+     "kind": "point",
+     "text": "For mum: soft, water-resistant leather that looks expensive and only gets better with time. A bag that looks right under the tree.",
+     "tag": "FOR MUM",
+     "number": 1,
+     "show": [
+      "leather",
+      "hero"
+     ],
+     "highlight": [
+      "soft",
+      "expensive"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "For a sister: two straps, so the bag goes on the shoulder, as a handbag, or crossbody. One bag, three ways to carry it.",
+     "tag": "FOR A SISTER",
+     "number": 2,
+     "show": [
+      "strap",
+      "worn",
+      "walking"
+     ],
+     "highlight": [
+      "straps",
+      "crossbody"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "For a best friend: a gold zip on each side for keys and phone, and divided compartments inside so nothing sinks to the bottom.",
+     "tag": "FOR A BEST FRIEND",
+     "number": 3,
+     "show": [
+      "side_zip",
+      "inside",
+      "packing"
+     ],
+     "highlight": [
+      "gold",
+      "divided"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "All three get the same hidden pocket on the back. It sits flat against the body, for a passport and cards.",
+     "tag": "HIDDEN BACK POCKET",
+     "number": null,
+     "show": [
+      "pocket",
+      "placed"
+     ],
+     "highlight": [
+      "hidden",
+      "flat"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Pick a colour for each name, or one colour for all three.",
+     "tag": "PICK YOUR COLOURS",
+     "number": null,
+     "show": [
+      "colours",
+      "handheld"
+     ],
+     "highlight": [
+      "colour",
+      "three"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "Buying all three at once? You get sixty percent off the regular price when you buy three bags together.",
+     "tag": "60% OFF 3 BAGS",
+     "number": null,
+     "show": [
+      "colours",
+      "handheld"
+     ],
+     "highlight": [
+      "three",
+      "sixty"
+     ]
+    },
+    {
+     "kind": "point",
+     "text": "With three bags you also get two free gifts: a mirrored jewellery box and a cosmetic bag. Only bags count, not accessories.",
+     "tag": "2 FREE GIFTS",
+     "number": null,
+     "show": [
+      "hero",
+      "placed"
+     ],
+     "highlight": [
+      "two",
+      "free"
+     ]
+    },
+    {
+     "kind": "offer",
+     "text": "Buy two bags and you also get a free jewellery box, while stocks last. Buy three and the cosmetic bag comes too. Tap the link below.",
+     "tag": null,
+     "number": null,
+     "show": [
+      "hero",
+      "colours"
+     ],
+     "highlight": [
+      "jewellery",
+      "cosmetic"
+     ]
+    }
+   ]
+  }
+ ],
+ "statics": [
+  {
+   "id": "S01",
+   "project": "P01",
+   "layout": "gifts",
+   "idea": "The campaign's gifts layout: the bag with the free jewellery box (its real photo) and one line per tier.",
+   "headline": "Buy two bags. Get a free jewellery box."
+  },
+  {
+   "id": "S02",
+   "project": "P01",
+   "layout": "concept",
+   "idea": "The Black Friday hero: the black bag lit like a luxury product on dark charcoal with golden bokeh.",
+   "headline": "Up to 60% off, plus free gifts.",
+   "kicker": "BLACK FRIDAY",
+   "pill": false,
+   "where": "bottom",
+   "tone": "dark",
+   "scene": {
+    "kind": "object",
+    "colour": "Black",
+    "prompt": "Luxury studio product photograph for a Black Friday campaign. The black Hobo Bag stands upright on a dark charcoal seamless surface with a soft low reflection, its two straps draped neatly, the gold zips catching the light; behind it, out of focus, warm golden bokeh lights; a single soft key light from the upper left with a gentle rim light on the leather. Rich, elegant, premium. The bag fills the upper two thirds of the frame; the bottom quarter is empty dark surface."
+   }
+  },
+  {
+   "id": "S03",
+   "project": "P02",
+   "layout": "bundle",
+   "idea": "Two colours side by side with the 60% two-bags pill: one for you, one for her.",
+   "headline": "One for you. One for her."
+  },
+  {
+   "id": "S04",
+   "project": "P02",
+   "layout": "concept",
+   "idea": "A gift for her: the burgundy bag on a pale oak table beside a wrapped box, pine and fairy lights behind.",
+   "headline": "A gift for every day.",
+   "kicker": "BLACK FRIDAY",
+   "pill": true,
+   "where": "bottom",
+   "tone": "light",
+   "scene": {
+    "kind": "object",
+    "colour": "Burgundy",
+    "prompt": "A burgundy Hobo Bag stands upright on a pale oak table beside a small kraft-paper wrapped gift box tied with a red ribbon; soft pine branches and warm fairy-light bokeh blurred in the background; soft daylight from the left. The bag is large and fully visible in the centre of the frame, shot like a campaign photograph. The bottom fifth of the frame is clear, plain tabletop."
+   }
+  },
+  {
+   "id": "S05",
+   "project": "P03",
+   "layout": "studio",
+   "idea": "The real packshot large on a tinted backdrop with one line: the prices are live.",
+   "headline": "Black Friday prices are live."
+  },
+  {
+   "id": "S06",
+   "project": "P03",
+   "layout": "concept",
+   "idea": "No need to wait: the blue bag on a hallway console table by the door, keys in a dish.",
+   "headline": "No need to wait.",
+   "kicker": "BLACK FRIDAY",
+   "pill": true,
+   "where": "bottom",
+   "tone": "light",
+   "scene": {
+    "kind": "object",
+    "colour": "Blue",
+    "prompt": "A narrow hallway console table in warm morning daylight: the blue Hobo Bag stands upright on the table, large and fully visible, with a set of keys in a small ceramic dish beside it and a coat hanging softly out of focus on the wall above; calm cream wall. No person anywhere in the picture. The bottom fifth of the frame is clear, plain tabletop."
+   }
+  },
+  {
+   "id": "S07",
+   "project": "P03",
+   "layout": "offer",
+   "idea": "The Hobo Bag offer card: the Black Friday Sale is live now, no need to wait.",
+   "headline": "The Black Friday Sale is live.",
+   "kicker": "BLACK FRIDAY"
+  },
+  {
+   "id": "S08",
+   "project": "P04",
+   "layout": "native",
+   "idea": "A real footage frame of the strap on the shoulder: for a sister, three ways to carry it.",
+   "headline": "Shoulder, handbag or crossbody."
+  },
+  {
+   "id": "S09",
+   "project": "P04",
+   "layout": "concept",
+   "idea": "Mum, sister, best friend: the red bag on a cream knit blanket before a Christmas tree, three blank gift tags beside it.",
+   "headline": "Mum. Sister. Best friend.",
+   "kicker": "CHRISTMAS GIFTS",
+   "pill": true,
+   "where": "bottom",
+   "tone": "light",
+   "scene": {
+    "kind": "object",
+    "colour": "Red",
+    "prompt": "A red Hobo Bag rests on a cream knitted blanket in front of a softly blurred decorated Christmas tree with warm white lights; beside it three small kraft gift tags on short ribbons with nothing written on them, and a sprig of pine. Soft warm light. The bag is large and fully visible in the centre of the frame. The bottom fifth of the frame is calm, empty blanket."
+   }
+  },
+  {
+   "id": "S10",
+   "project": "P01",
+   "layout": "concept",
+   "idea": "Room for a second one: the brown bag on one of two matching armchairs, the other armchair empty.",
+   "headline": "Room for a second one?",
+   "kicker": "BLACK FRIDAY",
+   "sub": "Free jewellery box with 2 bags.",
+   "pill": false,
+   "where": "top",
+   "tone": "light",
+   "scene": {
+    "kind": "object",
+    "colour": "Brown",
+    "prompt": "Two matching armchairs in a calm, warm cream living room, seen straight on. The brown Hobo Bag rests upright on the seat of the left armchair, large and fully visible; the right armchair beside it is empty, with a folded wool throw over its arm. Soft window light from the left, muted beige walls. No people. The top fifth of the frame is plain, empty wall."
+   }
+  }
+ ]
+}

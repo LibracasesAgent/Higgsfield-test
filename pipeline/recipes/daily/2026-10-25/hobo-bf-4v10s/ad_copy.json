@@ -1,0 +1,235 @@
+{
+ "ok": true,
+ "created": "2026-10-25",
+ "product": "Hobo Bag",
+ "theme": "black friday",
+ "theme_name": "BlackFriday",
+ "offer": "50% off + free matching pouch wallet",
+ "seed": 1,
+ "cta": "Get Offer",
+ "rows": 12,
+ "csv": "/tmp/run/hobo-bf-4v10s-b/ad_copy.csv",
+ "statics": [
+  {
+   "id": "S01",
+   "ad_name": "LC_261025_HoboBag_BlackFriday_B027_S01_gifts",
+   "angle": "gifts",
+   "primary_text_1": "This is the Black Friday deal you've been waiting for.\nThe Hobo Bag: 50% off + free wallet.",
+   "primary_text_2": "Black Friday came early. 🖤\nDivided compartments, so nothing sinks to the bottom.\nTwo straps, so you can wear it on the shoulder, as a handbag, or crossbody.\nBuy 2 bags, get a free mirrored jewellery box (worth $19.95). 🎁\nTap Get Offer before it's gone.",
+   "headline_1": "Up to 60% off + free gifts",
+   "headline_2": "Buy 2 bags, get a free gift",
+   "description": "Black Friday: 50% off",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER"
+  },
+  {
+   "id": "S02",
+   "ad_name": "LC_261025_HoboBag_BlackFriday_B027_S02_concept",
+   "angle": "concept",
+   "primary_text_1": "This bag has a pocket you can't see from the front.\n50% off the Hobo Bag + free wallet.",
+   "primary_text_2": "Black Friday: the bag everyone asks about is half price. 🖤\nTwo straps, so you can wear it on the shoulder, as a handbag, or crossbody.\nSoft, water-resistant leather that looks expensive and only gets better with time.\nBuy 2 bags, get a free mirrored jewellery box (worth $19.95). 🎁\nTap Get Offer to claim the deal.",
+   "headline_1": "Black Friday prices are live",
+   "headline_2": "Now 50% Off: The Hobo Bag",
+   "description": "Up to 60% off + free gifts",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER"
+  },
+  {
+   "id": "S03",
+   "ad_name": "LC_261025_HoboBag_BlackFriday_B027_S03_bundle",
+   "angle": "bundle",
+   "primary_text_1": "One bag, three ways to wear it.\nBlack Friday deal: the Hobo Bag is 50% off + free wallet.",
+   "primary_text_2": "Most bags look the same from the front. Turn this one around. 🖤\nTwo gold side zips, one on each side, for your keys and phone.\nDivided compartments, so nothing sinks to the bottom.\nThis Black Friday: 50% off + a free matching pouch wallet. 🎁\nTap Get Offer to claim the deal.",
+   "headline_1": "Black Friday: 50% Off",
+   "headline_2": "Hobo Bag: 50% Off + Free Wallet",
+   "description": "50% off + free US shipping",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER"
+  },
+  {
+   "id": "S04",
+   "ad_name": "LC_261025_HoboBag_BlackFriday_B027_S04_concept",
+   "angle": "concept",
+   "primary_text_1": "Soft leather that's water-resistant and scratch-proof.\nBlack Friday: 50% off the Hobo Bag + free wallet.",
+   "primary_text_2": "Take a closer look at the Hobo Bag. 🖤\nTwo straps, so you can wear it on the shoulder, as a handbag, or crossbody.\nSoft, water-resistant leather that looks expensive and only gets better with time.\nBlack Friday Sale: up to 60% off + free gifts. 🎁\nTap Get Offer to claim the deal.",
+   "headline_1": "Black Friday: 50% Off the Hobo Bag",
+   "headline_2": "Free Matching Pouch Wallet Included",
+   "description": "1-year warranty",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER"
+  },
+  {
+   "id": "S05",
+   "ad_name": "LC_261025_HoboBag_BlackFriday_B027_S05_studio",
+   "angle": "studio",
+   "primary_text_1": "Stop digging for your keys at the bottom of your bag.\nThe Hobo Bag: 50% off + free wallet.",
+   "primary_text_2": "The Hobo Bag is half price, with a free matching pouch wallet. 🖤\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nTwo gold side zips, one on each side, for your keys and phone.\nBuy 2 bags, get a free mirrored jewellery box (worth $19.95). 🎁\nTap Get Offer before it's gone.",
+   "headline_1": "Black Friday Deal: 50% Off + Free Wallet",
+   "headline_2": "Meet the Hobo Bag: Hidden Back Pocket",
+   "description": "Free matching pouch wallet",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER"
+  },
+  {
+   "id": "S06",
+   "ad_name": "LC_261025_HoboBag_BlackFriday_B027_S06_concept",
+   "angle": "concept",
+   "primary_text_1": "Be honest: how long does it take you to find your keys?\nThe Hobo Bag: 50% off + free wallet.",
+   "primary_text_2": "If your bag is one big black hole, this is for you. 🖤\nDivided compartments, so nothing sinks to the bottom.\nTwo straps, so you can wear it on the shoulder, as a handbag, or crossbody.\nThis Black Friday: 50% off + a free matching pouch wallet. 🎁\nTap Get Offer to claim the deal.",
+   "headline_1": "Smart Compartments + 3 Ways to Wear",
+   "headline_2": "50% Off the Hobo Bag + Free Wallet",
+   "description": "Black Friday deal: 50% off",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER"
+  },
+  {
+   "id": "S07",
+   "ad_name": "LC_261025_HoboBag_BlackFriday_B027_S07_offer",
+   "angle": "offer",
+   "primary_text_1": "Where do you keep your cards when you're out?\nThe Hobo Bag, now 50% off with a free matching pouch wallet.",
+   "primary_text_2": "Have you seen the Hobo Bag yet? 🖤\nSoft, water-resistant leather that looks expensive and only gets better with time.\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nBlack Friday Sale: up to 60% off + free gifts. 🎁\nTap Get Offer to claim the deal.",
+   "headline_1": "Up to 60% off + free gifts",
+   "headline_2": "Meet the Hobo Bag: Soft Leather",
+   "description": "Now 50% off",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER"
+  },
+  {
+   "id": "S08",
+   "ad_name": "LC_261025_HoboBag_BlackFriday_B027_S08_native",
+   "angle": "native",
+   "primary_text_1": "Need a gift for someone who carries everything?\n50% off the Hobo Bag + free wallet.",
+   "primary_text_2": "Looking for a gift? Meet the Hobo Bag. 🖤\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nTwo gold side zips, one on each side, for your keys and phone.\nBuy 2 bags, get a free mirrored jewellery box (worth $19.95). 🎁\nTap Get Offer before it's gone.",
+   "headline_1": "The Hobo Bag: Hidden Back Pocket",
+   "headline_2": "Hidden Back Pocket + Gold Side Zips",
+   "description": "Free US shipping",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER"
+  },
+  {
+   "id": "S09",
+   "ad_name": "LC_261025_HoboBag_BlackFriday_B027_S09_concept",
+   "angle": "concept",
+   "primary_text_1": "You reach for your keys and they're right where you left them.\nThe Hobo Bag: 50% off + free wallet.",
+   "primary_text_2": "Travelling soon? Your passport goes in a pocket that sits flat against you. 🖤\nDivided compartments, so nothing sinks to the bottom.\nTwo straps, so you can wear it on the shoulder, as a handbag, or crossbody.\nBlack Friday: 50% off + a free matching pouch wallet. 🎁\nTap Get Offer to claim the deal.",
+   "headline_1": "The Hobo Bag: Smart Compartments",
+   "headline_2": "Buy 2 bags, get a free gift",
+   "description": "6 colours + free US shipping",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER"
+  },
+  {
+   "id": "S10",
+   "ad_name": "LC_261025_HoboBag_BlackFriday_B027_S10_concept",
+   "angle": "concept",
+   "primary_text_1": "This is the Black Friday deal you've been waiting for.\n50% off the Hobo Bag + free wallet.",
+   "primary_text_2": "Black Friday came early. 🖤\nDivided compartments, so nothing sinks to the bottom.\nTwo straps, so you can wear it on the shoulder, as a handbag, or crossbody.\nBuy 2 bags, get a free mirrored jewellery box (worth $19.95). 🎁\nTap Get Offer to claim the deal.",
+   "headline_1": "Meet the Hobo Bag: Smart Compartments",
+   "headline_2": "Black Friday prices are live",
+   "description": "6 colours to choose from",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER"
+  }
+ ],
+ "projects": [
+  {
+   "id": "P02",
+   "angle": "yourshers",
+   "engine": "storyboard",
+   "product": "Hobo Bag",
+   "winner": null,
+   "primary_text_1": "One bag, three ways to wear it.\nThe Hobo Bag: 50% off + free wallet.",
+   "primary_text_2": "This bag has a pocket you can't see from the front. 🖤\nTwo straps, so you can wear it on the shoulder, as a handbag, or crossbody.\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nThis Black Friday: 50% off + a free matching pouch wallet. 🎁\nTap Get Offer to claim the deal.",
+   "headline_1": "Meet the Hobo Bag: 3 Ways to Wear",
+   "headline_2": "3 Ways to Wear + Hidden Back Pocket",
+   "description": "Black Friday: 50% off",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER",
+   "versions": [
+    {
+     "hook": "H1",
+     "id": "P02H1",
+     "ad_name": "LC_261025_HoboBag_BlackFriday_B027_P02_H1_yourshers",
+     "hook_text": "One for you, one for her, and up to sixty percent off.",
+     "hook_first_line": "One for you, one for her, and up to sixty percent off.",
+     "primary_text_2_hook": "One for you, one for her, and up to sixty percent off.\nTwo straps, so you can wear it on the shoulder, as a handbag, or crossbody.\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nThis Black Friday: 50% off + a free matching pouch wallet. 🎁\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H2",
+     "id": "P02H2",
+     "ad_name": "LC_261025_HoboBag_BlackFriday_B027_P02_H2_yourshers",
+     "hook_text": "Treating her this Christmas? Why not treat yourself too?",
+     "hook_first_line": "Treating her this Christmas? Why not treat yourself too?",
+     "primary_text_2_hook": "Treating her this Christmas? Why not treat yourself too?\nTwo straps, so you can wear it on the shoulder, as a handbag, or crossbody.\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nThis Black Friday: 50% off + a free matching pouch wallet. 🎁\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H3",
+     "id": "P02H3",
+     "ad_name": "LC_261025_HoboBag_BlackFriday_B027_P02_H3_yourshers",
+     "hook_text": "Gift shopping only for her, and nothing for you? Fix that.",
+     "hook_first_line": "Gift shopping only for her, and nothing for you? Fix that.",
+     "primary_text_2_hook": "Gift shopping only for her, and nothing for you? Fix that.\nTwo straps, so you can wear it on the shoulder, as a handbag, or crossbody.\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nThis Black Friday: 50% off + a free matching pouch wallet. 🎁\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H4",
+     "id": "P02H4",
+     "ad_name": "LC_261025_HoboBag_BlackFriday_B027_P02_H4_yourshers",
+     "hook_text": "Two bags together, up to sixty percent off.",
+     "hook_first_line": "Two bags together, up to sixty percent off.",
+     "primary_text_2_hook": "Two bags together, up to sixty percent off.\nTwo straps, so you can wear it on the shoulder, as a handbag, or crossbody.\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nThis Black Friday: 50% off + a free matching pouch wallet. 🎁\nTap Get Offer to claim the deal."
+    }
+   ]
+  },
+  {
+   "id": "P04",
+   "angle": "threenames",
+   "engine": "storyboard",
+   "product": "Hobo Bag",
+   "winner": null,
+   "primary_text_1": "Stop digging for your keys at the bottom of your bag.\nThe Hobo Bag, now 50% off with a free matching pouch wallet.",
+   "primary_text_2": "If your bag is one big black hole, this is for you. 🖤\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nTwo gold side zips, one on each side, for your keys and phone.\nBlack Friday: 50% off + a free matching pouch wallet. 🎁\nTap Get Offer to claim the deal.",
+   "headline_1": "Black Friday: 50% Off the Hobo Bag",
+   "headline_2": "Free Matching Pouch Wallet Included",
+   "description": "50% off + free US shipping",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER",
+   "versions": [
+    {
+     "hook": "H1",
+     "id": "P04H1",
+     "ad_name": "LC_261025_HoboBag_BlackFriday_B027_P04_H1_threenames",
+     "hook_text": "Christmas gifts for mum, sister and best friend, all in one order.",
+     "hook_first_line": "Christmas gifts for mum, sister and best friend, all in one order.",
+     "primary_text_2_hook": "Christmas gifts for mum, sister and best friend, all in one order.\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nTwo gold side zips, one on each side, for your keys and phone.\nBlack Friday: 50% off + a free matching pouch wallet. 🎁\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H2",
+     "id": "P04H2",
+     "ad_name": "LC_261025_HoboBag_BlackFriday_B027_P04_H2_threenames",
+     "hook_text": "Who is on your Christmas list this year?",
+     "hook_first_line": "Who is on your Christmas list this year?",
+     "primary_text_2_hook": "Who is on your Christmas list this year?\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nTwo gold side zips, one on each side, for your keys and phone.\nBlack Friday: 50% off + a free matching pouch wallet. 🎁\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H3",
+     "id": "P04H3",
+     "ad_name": "LC_261025_HoboBag_BlackFriday_B027_P04_H3_threenames",
+     "hook_text": "Three Christmas gifts to buy and no idea where to start?",
+     "hook_first_line": "Three Christmas gifts to buy and no idea where to start?",
+     "primary_text_2_hook": "Three Christmas gifts to buy and no idea where to start?\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nTwo gold side zips, one on each side, for your keys and phone.\nBlack Friday: 50% off + a free matching pouch wallet. 🎁\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H4",
+     "id": "P04H4",
+     "ad_name": "LC_261025_HoboBag_BlackFriday_B027_P04_H4_threenames",
+     "hook_text": "Sixty percent off when you buy three bags together, plus two free gifts.",
+     "hook_first_line": "Sixty percent off when you buy three bags together, plus two free gifts.",
+     "primary_text_2_hook": "Sixty percent off when you buy three bags together, plus two free gifts.\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nTwo gold side zips, one on each side, for your keys and phone.\nBlack Friday: 50% off + a free matching pouch wallet. 🎁\nTap Get Offer to claim the deal."
+    }
+   ]
+  }
+ ],
+ "notes": [],
+ "problems": [],
+ "note": "P01/P03 superseded: see B027r3_P01_P03/"
+}
