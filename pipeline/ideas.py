@@ -401,6 +401,19 @@ def packet(pr, theme, n_projects, n_statics, request=""):
         L += [f"- {x}" for x in camp["facts"]]
         L += [f"- Gift: {g['name']} (worth ${g['worth']:.2f}) with {g['with']}{'+' if g['with'] > 2 else ''} bags" for g in camp["gifts"]]
         L += [f"- What the client wants now: {camp.get('client_ideas') or '-'}"]
+    L += ["\n### What converts for Libra (owner + data, 2026-10-26: read before you write)\n",
+          "- The account's money comes from people telling a true story to camera (the ACH creator winners: 123-H4 205 orders, 147-H1 183, "
+          "CTR 5-10%); faceless voice-over-b-roll videos mostly lose. Prefer the presenter (a host, never a customer) or a person in the "
+          "footage doing something, and a story-like structure (a situation, the problem, what the bag does about it, the sale).",
+          "- Every project a DIFFERENT concept (person, setting, opening, format, emotion): Meta groups look-alike ads and they share "
+          "delivery, so four similar videos count as one. Never the same structure twice in a batch.",
+          "- Open with a reason to buy this bag in the first 2 seconds, shown not told (a hand that can't reach the back pocket, the zip "
+          "closing, what fits, two ways to carry); the sale is the close. Every brand opens with '50% off' in November: we don't.",
+          "- Sell the 3-Piece Set where it fits (the Hobo Bag page offers it as the 'Best Value' upgrade; its ads ran at ROAS ~3 with a "
+          "bigger basket): three pieces for one price.",
+          "- No exact prices in new lines or statics while the owner tests a price change: say the % ('50% off', 'up to 60% off').",
+          "- Statics: one idea each, under 8 words on the picture, the bag big; most should be `concept` AI scenes (the AI ads 'seem to be "
+          "starting to work': owner) of a real-life moment (cafe, airport, Christmas morning, evening out), each a different scene."]
     L += ["\n## 2. What the footage library can SHOW (good, face-free moments per tag; the picture of each line is chosen from these)\n"]
     for tag, (n, ex) in sorted(cov.items(), key=lambda kv: -kv[1][0]):
         L.append(f"- `{tag}`: {n}" + (f"  (e.g. {'; '.join(ex)})" if ex else ""))
