@@ -343,7 +343,8 @@ def offer_lines(prod):
         key = th if th in mb.SALE_THEMES else "default"
         own = [x for x in (fill(t, v) for t in prod.tpls(OFFER_LINE[key])) if x]
         gift2 = __import__("campaign").gift_line(CAMP[0], 2)
-        return list(dict.fromkeys([f"{SALE_NAME.get(th, 'Black Friday')} Sale: up to {CAMP[0]['bundle_pct']}% off + free gifts."] +
+        upto = CAMP[0].get("upto_pct") or CAMP[0].get("bundle_pct")
+        return list(dict.fromkeys([f"{SALE_NAME.get(th, 'Black Friday')} Sale: up to {upto}% off" + (" + free gifts." if CAMP[0].get("gifts") else ".")] +
                                   ([f"Buy 2 bags, get {gift2}."] if gift2 else []) + own))
     if prod.pct:
         key = th if th in mb.SALE_THEMES else "gifting" if th in ("christmas", "gift", "mothers day") else "default"

@@ -2,15 +2,17 @@
  "_help": "Products whose material shows two different bags (make_batch.design_of). A batch shows only the look in 'show': with show != 'site' plan uses none of libracases.com's photos of the product (no packshot: the end card is the plain card, statics come from footage frames and the text layouts, no AI scenes, no presenter); with show != 'library' it uses none of the footage whose look differs (clip_bank sections in 'bank_sections' and the product's clip_index.json rows; a clip's own 'design' field wins over 'library'). Flip 'show' when the owner says which bag ships; tag new clips of the other look with \"design\": \"<look>\" in clip_index.json.",
  "products": {
   "Hobo 2.0": {
-   "show": "eyelet",
    "site": "slim",
    "library": "eyelet",
-   "bank_sections": ["hobo_2_0"],
+   "bank_sections": [
+    "hobo_2_0"
+   ],
    "designs": {
     "eyelet": "the bag in every library clip (Raw files/HOBO 2.0, 120 usable clips uploaded 7 July - 12 October 2026, all looked at 2026-10-23) and the one library photo: a wide flat strap with metal eyelets and rivets, a large slouchy body, a front zip pocket, a 15-inch laptop fits",
     "slim": "the bag in libracases.com's 14 photos (uploaded 4-5 June 2026, several named 'BananaProAI': possibly AI-made; the 'NEW' packshots, the Black Friday banner photo of 2026-10-23): a thin rolled top handle on loops, a neater, flatter body"
    },
-   "decided": "2026-10-23, the assistant (the owner gave full permission; not yet confirmed by Wouter): the footage's eyelet bag, because real footage filmed July - October shows what customers get, the videos are built from it, and the site's photos may be AI renders. B015 and B017 mixed both bags in one ad (the owner saw the size jump). If Wouter says the slim bag ships: set show to 'slim' (then the videos use only the site's photos until footage of the slim bag is added and tagged)."
+   "decided": "2026-10-23, the assistant (the owner gave full permission; not yet confirmed by Wouter): the footage's eyelet bag, because real footage filmed July - October shows what customers get, the videos are built from it, and the site's photos may be AI renders. B015 and B017 mixed both bags in one ad (the owner saw the size jump). If Wouter says the slim bag ships: set show to 'slim' (then the videos use only the site's photos until footage of the slim bag is added and tagged).",
+   "resolved": "2026-10-26, Wouter (owner): 'it comes with 2 straps - one for crossbody and one for handbag': the site's thin top handle and the footage's wide eyelet strap are the two straps of the same bag. No 'show': both the site photos and the footage are used; scripts and statics may say it comes with two straps."
   }
  }
 }

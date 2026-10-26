@@ -121,19 +121,17 @@ Every batch and every ad is listed in the Google Sheet [Libra Cases – Ad Track
 (launched, spend, purchases, revenue, verdict, what worked) from Ads Manager; hook rate, CTR, CPA and ROAS work themselves out, and
 the Batches and Summary tabs add them up. You can add your own columns and tabs; the updates keep them (not hand-made cell colours).
 
-## The Hobo 2.0: one bag per ad
+## The Hobo 2.0: one bag, two straps
 
-The Hobo 2.0 photos on libracases.com show a bag with a thin top handle; all the Hobo 2.0 footage in the Drive library shows a bigger
-bag with a wide eyelet strap. Since 23 October every Hobo 2.0 ad shows only the bag in the footage (no site photos, no presenter for
-the Hobo 2.0). If the thin-handle bag is the one you ship, tell us: the ads switch to it (and we need footage of it for the videos).
+The Hobo 2.0 comes with two straps: the thin handbag strap in the site's photos and the wide crossbody strap in the footage (Wouter,
+26 October). Its ads use both, and "comes with two straps" is one of its features.
 
 ## The Black Friday Sale (23 October - 30 November 2026)
 
-Any request with `Black Friday` (or `Cyber Monday` / `Cyber Week`) while the sale runs gets the sale you confirmed: the end card says
-"Black Friday Sale" over the bag with "UP TO 60% OFF + FREE GIFTS", the offer card adds "+ FREE GIFTS WITH 2 BAGS", the voice's close
-says "Buy two bags and you also get a free jewellery box, while stocks last", and every batch has a free-gifts static (the jewellery box
-and the cosmetic bag) and a bundle static ("One for you, one for her", 60% off 2 or 3 bags). Each bag keeps its own % (the Hobo Bag
-is still "50% off"); "60% off" is only ever said of buying 2 or 3 bags together.
+Any request with `Black Friday` (or `Cyber Monday` / `Cyber Week`) while the sale runs gets the sale as it is now (updated 26 October):
+the end card says "Black Friday Sale" over the bag with "UP TO 60% OFF", and the voice's close names the Early Black Friday sale. Each bag
+keeps its own % (the Hobo Bag is "50% off"); "60% off" is only said of the 3-Piece Set and other real bundles. There are no free gifts
+any more, and no ad promises returns (sale items are final sale); the 1-year warranty is still mentioned.
 
 | You want | Copy into the DM |
 |---|---|

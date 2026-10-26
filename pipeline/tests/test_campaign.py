@@ -22,7 +22,7 @@ def probs(text, product="Hobo Bag", camp=BF):
 
 
 def test_the_campaign_runs_for_sale_themes_inside_its_dates_only():
-    assert BF and BF["id"] == "bf2026" and BF["end_pill"] == "UP TO 60% OFF + FREE GIFTS"
+    assert BF and BF["id"] == "bf2026" and BF["end_pill"] == "UP TO 60% OFF" and not BF["gifts"] and not BF["bundle_any"]
     assert campaign.active("cyber monday", "2026-11-30")
     assert campaign.active("black friday", "2026-10-22") is None
     assert campaign.active("black friday", "2026-12-01") is None
@@ -31,32 +31,28 @@ def test_the_campaign_runs_for_sale_themes_inside_its_dates_only():
 
 
 def test_compliance_accepts_the_sale_words():
-    for t in ["Black Friday Sale: up to 60% off + free gifts.",
-              "Black Friday: up to sixty percent off, plus free gifts.",
-              "Buy two bags and you also get a free jewellery box, while stocks last.",
-              "Get 60% off when you buy 2 or 3 bags together.",
-              "60% OFF 2 OR 3 BAGS",
-              "3+ bags: + a free cosmetic bag (together worth $44.90)",
-              "2 bags: a free mirrored jewellery box (worth $19.95)"]:
+    for t in ["Early Black Friday: up to 60% off.", "Black Friday: up to sixty percent off.", "Up to 60% off bundles.",
+              "Get 60% off the 3-Piece Set.", "Early Black Friday: 50% off everything."]:
         assert probs(t) == [], (t, probs(t))
 
 
-def test_compliance_still_catches_what_the_sale_does_not_say():
+def test_compliance_catches_what_the_sale_no_longer_says():
+    """Owner 2026-10-26: no free gifts, 60% only on bundles like the 3-Piece Set."""
     assert ("offer", "60% off") in probs("The Hobo Bag is 60% off.")             # one bag: its own 50%
-    assert any(c == "numbers" for c, _ in probs("Free gifts worth $99."))
-    assert probs("Black Friday Sale: up to 60% off + free gifts.", camp=None)   # no campaign: not backed
-    assert any(c == "offer" for c, _ in probs("Up to 60% off + free gifts.", product="Vintage Bag", camp=None))
+    for t in ["Get 60% off when you buy 2 or 3 bags together.", "Buy two bags and get a free jewellery box.",
+              "Black Friday Sale: up to 60% off + free gifts."]:
+        assert any(c == "offer" for c, _ in probs(t)), (t, probs(t))
+    assert any(c == "offer" for c, _ in probs("Up to 60% off.", product="Vintage Bag", camp=None))   # no campaign: not backed
 
 
 def test_strip_keeps_what_is_not_the_sale():
     assert "60% off the Hobo Bag" in campaign.strip("60% off the Hobo Bag.", BF)
-    assert "60%" not in campaign.strip("Up to 60% off + free gifts.", BF)
+    assert "60%" not in campaign.strip("Early Black Friday: up to 60% off.", BF)
+    assert "2 or 3 bags" in campaign.strip("60% off 2 or 3 bags", BF)
 
 
-def test_gift_lines():
-    assert campaign.gift_line(BF, 2) == "a free mirrored jewellery box (worth $19.95)"
-    assert "together worth $44.90" in campaign.gift_line(BF, 3)
-    assert campaign.gift_line(BF, 1) == ""
+def test_no_gift_lines_any_more():
+    assert campaign.gift_line(BF, 2) == "" and campaign.gift_line(BF, 3) == ""
 
 
 def test_the_sale_layouts_render():
@@ -68,7 +64,8 @@ def test_the_sale_layouts_render():
     ImageDraw.Draw(bag).rounded_rectangle([200, 300, 700, 1000], radius=60, fill=(90, 50, 30))
     for n in ("a", "b"):
         bag.save(os.path.join(d, f"bag_{n}.jpg"))
-    gifts = [dict(src=os.path.relpath(g["photo"], d), label="FREE " + g["short"].upper()) for g in BF["gifts"]]
+    gifts = [dict(src=os.path.relpath(os.path.join(os.path.dirname(HERE), "assets", "gifts", f), d), label=lb)       # (the layouts stay
+             for f, lb in (("jewellery_box.jpg", "FREE JEWELLERY BOX"), ("cosmetic_bag.jpg", "+ FREE COSMETIC BAG"))]   # for a later sale)
     for spec in (dict(name="g", layout="gifts", photo="bag_a.jpg", kicker="BLACK FRIDAY SALE", headline="Buy 2 bags, get a free gift.",
                       gifts=gifts, rows=["2 bags: a free mirrored jewellery box (worth $19.95)"], note="Only bags count", cta="Shop now"),
                  dict(name="b", layout="bundle", photos=["bag_a.jpg", "bag_b.jpg"], kicker="BLACK FRIDAY SALE",
@@ -87,17 +84,17 @@ def test_no_returns_promise_while_the_sale_is_final_sale():
 
 
 def test_one_look_per_batch_for_a_two_look_product():
+    """The guard (designs.json 'show'); the Hobo 2.0 was resolved on 2026-10-26 (one bag, two straps), so it has none now."""
     import make_batch as mb
-    dz = mb.design_of("Hobo 2.0")
-    assert dz and dz["show"] in dz["designs"] and dz["site"] in dz["designs"] and dz["library"] in dz["designs"]
-    assert mb.design_of("Hobo Bag") is None
+    assert mb.design_of("Hobo 2.0") is None and mb.design_of("Hobo Bag") is None
+    dz = dict(product="Hobo 2.0", site="slim", library="eyelet", bank_sections=["hobo_2_0"], designs={"slim": "", "eyelet": ""})
     keep = mb.DESIGN[0]
     try:
-        mb.DESIGN[0] = dict(dz, show="eyelet", library="eyelet")
+        mb.DESIGN[0] = dict(dz, show="eyelet")
         assert mb.clip_ok({"product": "Hobo 2.0"})                                   # untagged: the library's look
         assert not mb.clip_ok({"product": "Hobo 2.0", "design": "slim"})
         assert mb.clip_ok({"id": "x"}, "hobo_2_0") and mb.clip_ok({"product": "Hobo Bag", "design": "slim"})
-        mb.DESIGN[0] = dict(dz, show="slim", library="eyelet")
+        mb.DESIGN[0] = dict(dz, show="slim")
         assert not mb.clip_ok({"id": "x"}, "hobo_2_0") and not mb.clip_ok({"product": "Hobo 2.0"})
         assert mb.clip_ok({"product": "Hobo 2.0", "design": "slim"}) and mb.clip_ok({"id": "x"}, "hobo_bag")
         mb.DESIGN[0] = None

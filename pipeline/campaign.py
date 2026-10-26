@@ -50,9 +50,11 @@ def for_plan(c, theme_key):
     return dict(id=c["id"], name=c["name"], theme=theme_key, banner=c.get("banner"), until=c["until"], **{"from": c["from"]},
                 end_title=pick(c.get("end_title")) or c["name"], end_pill=c.get("end_pill") or "", card_sub=c.get("card_sub") or "",
                 close=pick(c.get("close")) or "", hooks=pick(c.get("hooks")) or [], facts=list(c.get("facts") or []),
-                bundle_pct=c.get("bundle_pct"), gifts=gifts, gifts_worth=c.get("gifts_worth"), dates=dict(c.get("dates") or {}),
+                bundle_pct=c.get("bundle_pct"), upto_pct=c.get("upto_pct") or c.get("bundle_pct"), bundle_any=bool(c.get("bundle_any")),
+                client_ideas=c.get("client_ideas") or "", gifts=gifts, gifts_worth=c.get("gifts_worth"), dates=dict(c.get("dates") or {}),
                 copy=dict(c.get("copy") or {}), approved_phrases=list(c.get("approved_phrases") or []),
-                approved=c.get("approved") or "", final_sale=bool(c.get("final_sale")), terms=c.get("terms") or "")
+                approved=c.get("approved") or "", final_sale=bool(c.get("final_sale")), terms=c.get("terms") or "",
+                banned=list(c.get("banned") or []))
 
 
 def corpus(c):
@@ -68,7 +70,7 @@ def numbers(c):
     if not c:
         return set()
     nums = {float(x) for x in re.findall(r"\d+(?:\.\d+)?", corpus(c))}
-    nums |= {float(c["bundle_pct"])} if c.get("bundle_pct") else set()
+    nums |= {float(c[k]) for k in ("bundle_pct", "upto_pct") if c.get(k)}
     nums |= {round(float(g["worth"]), 2) for g in c.get("gifts") or []}
     nums |= {round(float(c["gifts_worth"]), 2)} if c.get("gifts_worth") else set()
     nums |= {float(g["with"]) for g in c.get("gifts") or [] if g.get("with")}

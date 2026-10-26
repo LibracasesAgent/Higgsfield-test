@@ -20,7 +20,7 @@ forces `pipeline/make_batch.py` (templates, real photos and footage; AI only as 
   | Product | Price (was) | Colours | Key claims |
   |---|---|---|---|
   | Luxury Leather Hobo Anti-Theft Handbag ("Hobo Bag") | $52.50 ($105) | Brown, Black, Blue, Grey, Burgundy, Red | hidden anti-theft back pocket, smart compartments, soft water-resistant scratch-proof leather, 2 adjustable straps (handbag / shoulder / crossbody), free matching pouch wallet, free US shipping, 1-year warranty, easy returns |
-  | Hobo 2.0 "6-Layer Security Edition" | $79.95 ($159.90) | Black, Brown, Beige (Beige was sold out in early Oct, back on the site by 10-09; `plan` reads the colours from the site) | RFID protection, lockable zippers, cut-resistant strap, hidden pockets, smart compartments, table security strap |
+  | Hobo 2.0 "6-Layer Security Edition" | $79.95 ($159.90) | Black, Brown, Beige (Beige was sold out in early Oct, back on the site by 10-09; `plan` reads the colours from the site) | RFID protection, lockable zippers, cut-resistant strap, hidden pockets, smart compartments, table security strap, 2 straps: a handbag strap and a crossbody strap (owner 2026-10-26) |
   | Hobo Bag 3-Piece Set | $69.95 | Brown, Black, Blue, Grey, Purple Red, Red | hobo + crossbody + matching pouch |
   | Slouchy Soft 3-Piece Set | $69.95 | | |
   | Vintage Bag | $44.95 | Ginger Brown, Black, Chocolate, Red | one-hand clasp, compartments, adjustable/removable strap |
@@ -626,7 +626,18 @@ allowed avatars when a story needs them. `pipeline/presenter.py`, `data/presente
   `presenters.json` with `look`, `voice`, `soul_job` (the job id used as the first image reference) -> a character sheet and an
   expression sheet with `gpt_image_2_5` from the master for the owner.
 
-### 4f. Store-wide sale campaigns: the Black Friday Sale 2026 (owner 2026-10-23)
+### 4f. Store-wide sale campaigns: the Black Friday Sale 2026 (owner 2026-10-23, revised 2026-10-26)
+
+**Revised 2026-10-26 (Wouter, after a drop in performance):** the free gifts and the extra cart discount are gone ("not coming back");
+"It's 50% OFF or you can say up to 60% OFF"; 60% only on bundles like the 3-Piece Set (not any 2 bags); the site added Early Black
+Friday messaging, a countdown, "Ships by" dates and the 3-Piece Set as a "Best Value" upgrade on the Hobo Bag page. `campaign.json`
+now has no gifts, `bundle_any: false` (no bundle static), `upto_pct: 60`, end pill "UP TO 60% OFF", no offer-card sub line, and
+compliance stops 'free gifts', 'a free jewellery box' and '60% off 2 or 3 bags'. He also wrote "you can still say easy returns but
+during black friday we don't accept returns": we keep the final-sale block (an 'easy returns' promise on an order that can't be
+returned is a false claim, hard rule 3 and Meta's misleading-claims policy); the 1-year warranty and faulty-item cover are true and
+fine to say. Everything made before (B019, B020, B025, B027: end cards "+ FREE GIFTS", gift / bundle statics, gift lines) must be
+re-made before it runs. The text below is the first version (23 Oct) for the record.
+
 
 Wouter: "BF versions of the winners first, then new BF concepts: bundles / one for you, one for her, free gifts, the 3-Piece Set,
 Christmas gifting, BF prices are live now; lots of variations". `pipeline/campaign.py`, `data/campaign.json`, `assets/gifts/`.
@@ -653,7 +664,12 @@ Christmas gifting, BF prices are live now; lots of variations". `pipeline/campai
 - **A new sale:** add a campaign to `campaign.json` with the client's words in `approved`, its dates, themes, gifts and phrases; nothing
   else changes. `tests/test_campaign.py` covers the window, the compliance cases and the two layouts.
 
-### 4g. One bag per ad: the Hobo 2.0's two looks (owner 2026-10-23, after B017)
+### 4g. One bag per ad: the Hobo 2.0's two looks (owner 2026-10-23, after B017; RESOLVED 2026-10-26)
+
+**Resolved:** Wouter: "it comes with 2 straps - one for crossbody and one for handbag". The thin top handle (site) and the wide eyelet
+strap (footage) are the two straps of the same bag, so the guard is off (`designs.json` has no `show`): site photos and footage are
+used together, presenter projects work again, and "comes with two straps" is a feature. The text below is the record.
+
 
 The owner on B017: "the bag is not in the correct dimensions. It's not the correct size." Two different bags were mixed in one ad.
 - **The two looks:** every library clip of the Hobo 2.0 (`Raw files/HOBO 2.0`: 120 usable clips uploaded 7 July - 12 October 2026, all

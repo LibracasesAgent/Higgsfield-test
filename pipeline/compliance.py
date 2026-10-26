@@ -669,6 +669,9 @@ def check(texts, product=None, offer=None, facts=None, ctx=None, source="ours", 
         for cat, rx, why in CATEGORIES:
             for m in rx.finditer(t):
                 hit(cat, m.group(0), why, m.start(), m.end(), rx)
+        for b_ in (ctx.get("campaign") or {}).get("banned") or []:     # what the sale no longer offers (campaign.json 'banned')
+            for m in re.finditer(b_["rx"], t, re.I):
+                hit("offer", m.group(0), b_["why"], m.start(), m.end())
         final = bool((ctx.get("campaign") or {}).get("final_sale"))
         if final:
             for m in FINAL_SALE.finditer(t):

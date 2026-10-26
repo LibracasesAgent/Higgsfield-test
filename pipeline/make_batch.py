@@ -1184,8 +1184,10 @@ def plan(a):
     compliance_mod.use_campaign(CAMP[0])
     if CAMP[0]:
         early.append(f"campaign: {CAMP[0]['name']} ({CAMP[0]['from']} to {CAMP[0]['until']}, client-approved): end cards say "
-                     f"'{CAMP[0]['end_title']}' + '{CAMP[0]['end_pill']}', offer cards '{CAMP[0]['card_sub']}', the statics include the "
-                     f"free-gifts and bundle layouts, the close and the ad copy name the gifts; each bag's own % stays its offer")
+                     f"'{CAMP[0]['end_title']}' + '{CAMP[0]['end_pill']}'" + (f", offer cards '{CAMP[0]['card_sub']}'" if CAMP[0].get('card_sub') else "")
+                     + (", the statics include the free-gifts layout" if CAMP[0].get("gifts") else "")
+                     + (" and the bundle layout" if CAMP[0].get("bundle_any") else "")
+                     + "; the close and the ad copy name the sale; each bag's own % stays its offer")
     if getattr(a, "new_product", None) and (getattr(a, "pipeline", None) or "catalog") != "new-product":
         if (getattr(a, "pipeline", None) or "catalog") == "catalog":   # a Drive folder never reads the site / built-in ads
             early.append(f"--new-product {a.new_product!r} without --pipeline new-product: planned as --pipeline new-product")
@@ -1673,9 +1675,12 @@ def plan(a):
                 dst_ = os.path.join(out, "site", "gift_" + os.path.basename(g_["photo"]))
                 shutil.copyfile(g_["photo"], dst_)
                 gift_files.append((g_, dst_))
-        if not getattr(a, "classic", False):     # the sale's own statics early in the cycle: the gifts 3rd, the bundle 5th
+        if not getattr(a, "classic", False):     # the sale's own statics early in the cycle: the gifts 3rd, the bundle 5th (when it has them)
             seq = list(seq)
-            seq[2:3], seq[4:5] = ["gifts"], ["bundle"]
+            if gift_files:
+                seq[2:3] = ["gifts"]
+            if camp.get("bundle_any"):
+                seq[4:5] = ["bundle"]
     if sheet is not None and sheet.get("statics"):      # the sheet's own order; an AI studio scene's stand-in is a real footage frame
         seq = [("native" if x["layout"] == "concept" else x["layout"]) for x in sheet["statics"]]
     if not clean_mode and a.statics and lifestyle():
@@ -1827,7 +1832,7 @@ def plan(a):
             k_ = 3 if len(ph_) >= 3 and hv % 2 else 2
             return dict(layout="bundle", photos=rot(ph_, hv)[:k_], kicker=(camp.get("end_title") or "").upper(),
                         headline=V(ov("One for you, one for her.", "bundle"), "Better together.", "One for you, one to gift."),
-                        pill=f"{camp['bundle_pct']}% OFF 2 OR 3 BAGS",
+                        pill=f"{camp.get('bundle_pct') or camp.get('upto_pct')}% OFF 2 OR 3 BAGS",
                         sub="+ free gifts while stocks last" if gift_files else None, cta=tx["cta"])
         if lay == "checklist":
             pill_ = " + ".join(x for x in ((tx["offer_title"] or (f"{s_v['P']} OFF" if s_pct else "")),
@@ -1850,7 +1855,7 @@ def plan(a):
                 #                                                                        studio statics than there are such packshots
                 "quotes": lambda: clean_mode and bool(quote_revs),            # a real review with a verbatim snippet
                 "gifts": lambda: bool(camp and gift_files and s_packs),      # a sale with gifts (campaign.py) and a packshot
-                "bundle": lambda: bool(camp and camp.get("bundle_pct") and
+                "bundle": lambda: bool(camp and camp.get("bundle_any") and
                                        len([f_ for _, f_ in s_colours if studio_pack(f_)] or [f_ for f_ in s_packs if studio_pack(f_)]) >= 2),
                 "value": lambda: clean_mode and value_ok}.get(lay, lambda: True)()   # the real price, % within 2 points
     instead = {"offer": "studio", "checklist": "studio", "stars": "quotes", "review": "studio", "colours": "studio", "native": "lifestyle",

@@ -264,9 +264,9 @@ def check(sheet, pr, n_projects=None, n_statics=None):
         sid = f"{s.get('id') or '?'}"
         if s.get("layout") not in LAYOUTS:
             P.append(f"{sid}: layout {s.get('layout')!r} (one of {', '.join(LAYOUTS)})")
-        elif s.get("layout") in SALE_LAYOUTS and not camp:
-            P.append(f"{sid}: layout {s['layout']!r} needs a sale campaign running for the theme (campaign.py: none for "
-                     f"{sheet.get('theme')!r} today)")
+        elif s.get("layout") in SALE_LAYOUTS and not (camp and camp.get({"gifts": "gifts", "bundle": "bundle_any"}[s["layout"]])):
+            P.append(f"{sid}: layout {s['layout']!r} needs a sale campaign with {'free gifts' if s['layout'] == 'gifts' else 'a 2-3 bag bundle'} "
+                     f"running for the theme (campaign.py: none for {sheet.get('theme')!r} today)")
         if s.get("project") not in seen_ids:
             P.append(f"{sid}: project {s.get('project')!r} is not in the sheet")
         if len(str(s.get("idea") or "")) < 10:
@@ -394,15 +394,13 @@ def packet(pr, theme, n_projects, n_statics, request=""):
           "the offer last, ending 'Tap the link below.'; no review chapters or review cards in the videos (owner 2026-10-21)."]
     if camp:
         L += [f"\n### The sale running now: {camp['name']} ({camp['from']} to {camp['until']}; client-approved: {camp['approved'][:160]} ...)\n",
-              "These are true and may be said (they are the client's own words); the bag's own % above stays its offer: say '60% off' only "
-              "of buying 2 or 3 bags together ('up to 60% off'), never '60% off the " + pr["name"] + "'. The end cards already say "
-              f"'{camp['end_title']}' + '{camp['end_pill']}'; let each script's offer chapter name the gift too (e.g. '{camp['close']}'); "
+              "These are true and may be said (they are the client's own words); the bag's own % above stays its offer: 'up to 60% off' "
+              "is fine, '60% off' only as the facts below allow, never '60% off the " + pr["name"] + "' unless it is that bundle. The end "
+              f"cards already say '{camp['end_title']}' + '{camp['end_pill']}'; the offer chapter may add the sale (e.g. '{camp['close']}'); "
               "the end date (30 November) is confirmed, so 'the sale ends on the thirtieth of November' is true.\n"]
         L += [f"- {x}" for x in camp["facts"]]
         L += [f"- Gift: {g['name']} (worth ${g['worth']:.2f}) with {g['with']}{'+' if g['with'] > 2 else ''} bags" for g in camp["gifts"]]
-        L += ["- Ideas the client asked for (2026-10-23): 60% off bundles and 'one for you, one for her'; the free gifts (unboxing, "
-              "'worth $44.90'); the 3-Piece Hobo Set; Christmas gifting (gifts for mum, sister, best friend); 'Black Friday prices are "
-              "live now, no need to wait'; in the last week: Black Friday 27 November, Cyber Monday 30 November, 'last chance'."]
+        L += [f"- What the client wants now: {camp.get('client_ideas') or '-'}"]
     L += ["\n## 2. What the footage library can SHOW (good, face-free moments per tag; the picture of each line is chosen from these)\n"]
     for tag, (n, ex) in sorted(cov.items(), key=lambda kv: -kv[1][0]):
         L.append(f"- `{tag}`: {n}" + (f"  (e.g. {'; '.join(ex)})" if ex else ""))
@@ -418,8 +416,8 @@ def packet(pr, theme, n_projects, n_statics, request=""):
           "Layouts: `concept` = an AI studio scene of the REAL bag (made in Higgsfield from the real packshot, gated against it) with at most a "
           "kicker, a serif headline, a sub-line and the % pill; `studio` = the real packshot large on a tinted backdrop; `native` = a real "
           "face-free footage frame; `quotes` / `stars` = verbatim reviews; `value` = the real price struck through; `offer`; `colours`; `checklist`" +
-          ("; while the sale runs: `gifts` = the bag with the free jewellery box and cosmetic bag (their real photos) and one line per tier, "
-           "`bundle` = 2-3 colours side by side with the '60% OFF 2 OR 3 BAGS' pill (a `headline` of your own on both)." if camp else "."),
+          (("; while the sale runs: `gifts` = the bag with the free gifts (their real photos) and one line per tier" if camp.get("gifts") else "")
+           + ("; `bundle` = 2-3 colours side by side with the bundle % pill" if camp.get("bundle_any") else "") + "." if camp else "."),
           "Concept scenes: premium, realistic, shot like a campaign: the bag is the hero, large, with props that belong to the idea "
           "(a latte, keys, a notebook, gift boxes, a chair), the bag fully visible; leave the end where the words go EMPTY (calm surface, nothing "
           "on it); never a face, eyes, sunglasses, a mannequin or a person even blurred in the background (a person is cropped at the shoulders "
