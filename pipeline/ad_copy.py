@@ -118,6 +118,8 @@ ANGLES = {"hero": "offer", "promo": "offer", "bold": "offer", "review": "review"
           "offer": "offer", "stars": "review", "checklist": "features",
           "native": "lifestyle", "quotes": "review", "value": "offer", "studio": "offer",                  # the Ad Library static layouts
           "scene": "lifestyle", "scene_quote": "review", "scene_price": "offer", "concept": "lifestyle",       # AI scene statics (ai_gen.py)
+          "ad": "lifestyle", "feature_diagram": "features", "bold_poster": "offer", "split_compare": "compare",   # AI-designed ads (by
+          "window_display": "offer", "macro_detail": "features",                                                # their format)
           "things": "features", "demo": "features", "stop": "features", "travel": "lifestyle", "day": "lifestyle"}   # ugc video angles (value: offer)
 
 
@@ -550,6 +552,8 @@ def write(out, seed=1):
         s = statics.get(name, {})
         sid = mb.static_id(name)
         angle = s.get("layout") or name.rsplit("_", 1)[-1]
+        if angle == "ad" and s.get("format") in ANGLES:
+            angle = s["format"]
         order = [f.upper() for f in s.get("features") or s.get("ticks") or []] or None     # the static's own tags first
         rn = s.get("review_n") or next((r if isinstance(r, int) else r.get("n") for r in s.get("reviews") or []
                                         if isinstance(r, int) or (isinstance(r, dict) and r.get("n"))), None)   # stars

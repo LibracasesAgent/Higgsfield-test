@@ -1336,7 +1336,7 @@ def plan(a):
     honest(pr, warnings)
     if sheet is not None:
         import ideas
-        P_, W_ = ideas.check(sheet, pr, a.videos or None, a.statics or None)
+        P_, W_ = ideas.check(sheet, pr, a.videos or None, a.statics or None, exclude=getattr(a, "batch_id", None))
         warnings += [f"ideas: {x}" for x in W_]
         if P_:
             print("the strategy sheet has problems (fix them, `python3 pipeline/ideas.py check` shows them again):\n  - " + "\n  - ".join(P_),
@@ -1682,7 +1682,7 @@ def plan(a):
             if camp.get("bundle_any"):
                 seq[4:5] = ["bundle"]
     if sheet is not None and sheet.get("statics"):      # the sheet's own order; an AI studio scene's stand-in is a real footage frame
-        seq = [("native" if x["layout"] == "concept" else x["layout"]) for x in sheet["statics"]]
+        seq = [("native" if x["layout"] in ("concept", "ad") else x["layout"]) for x in sheet["statics"]]
     if not clean_mode and a.statics and lifestyle():
         warnings.append(f"only {len(s_packs)} clean packshot(s): statics use the client's lifestyle photos and framed photo "
                         f"cards")
@@ -2459,6 +2459,7 @@ def plan(a):
             warnings.append("ideas: --no-ai: the studio scenes are real footage frames instead")
             ideas_scenes = []
         lib_ = ai_gen.library()
+        flib_ = ideas.formats()["formats"]
         stills_ = []
         for k_, (i_, x_) in enumerate(ideas_scenes):
             sc_ = x_["scene"]
@@ -2466,6 +2467,15 @@ def plan(a):
             ref_ = next((r_ for r_ in ai_refs_ if want_ and r_.get("colour") and want_ in r_["colour"].lower()), None) or ai_refs_[k_ % len(ai_refs_)]
             if sc_.get("ref") and os.path.exists(os.path.join(site, os.path.basename(sc_["ref"]))):    # a named site photo (the back view of the bag)
                 ref_ = dict(file=os.path.join(site, os.path.basename(sc_["ref"])), colour=sc_.get("colour"))
+            if x_["layout"] == "ad":          # an AI-designed ad: the format's art direction + the picture + the exact words (ai_gen)
+                fmt_ = ideas.ad_format(x_, flib_)
+                stills_.append(dict(id=f"AS{k_ + 1:02d}", use="static", scene=f"{x_.get('project', 'P00')}_{x_['id']}_{fmt_['id']}".lower(),
+                                    kind=ai_gen.ad_kind(fmt_), colour=ref_.get("colour"), layout="ad", format=fmt_["id"], tag=fmt_["tag"],
+                                    words=list(x_.get("words") or []), ref=ref_["file"], aspect="4:5", file=f"ai/AS{k_ + 1:02d}.png",
+                                    model=ai_gen.IMG["model"], params=dict(ai_gen.IMG["params"], aspect_ratio="4:5"), slot=i_,
+                                    prompt=ai_gen.build_ad_prompt(lib_, fmt_, x_, ai_gen.noun_of(pr["name"]), ref_.get("colour")),
+                                    est_credits=ai_gen.IMG["cost"]))
+                continue
             prompt_ = sc_["prompt"].replace("{", "(").replace("}", ")").strip()
             stills_.append(dict(id=f"AS{k_ + 1:02d}", use="static", scene=f"{x_.get('project', 'P00')}_{x_['id']}".lower(), kind=sc_["kind"],
                                 colour=ref_.get("colour"), layout="concept", ref=ref_["file"], aspect="4:5", file=f"ai/AS{k_ + 1:02d}.png",
@@ -2517,6 +2527,11 @@ def plan(a):
             ai_dropped.append(s_["id"])
             continue
         orig_ = statics[i_]
+        if s_["layout"] == "ad":          # the AI-designed ad is shown as it is (brand_statics.l_ad); its words are the sheet's
+            statics[i_] = dict(layout="ad", photo=s_["file"], format=s_["format"], words=s_["words"], headline=ideas.ad_headline(x_),
+                               name=re.sub(r"(_S\d+_).*$", lambda m_: m_.group(1) + s_["tag"], orig_["name"]),
+                               ai=dict(id=s_["id"], scene=s_["scene"], colour=s_.get("colour"), format=s_["format"]), fallback=orig_)
+            continue
         d_ = dict(layout="concept", photo=s_["file"], **{k_: x_[k_] for k_ in ("kicker", "headline", "sub", "where", "tone") if x_.get(k_)})
         if x_.get("pill") and s_pct:
             d_["pct"] = s_pct
@@ -3850,7 +3865,7 @@ def log_novelty(out, p, name, uploaded):
         x = ads.get(n)
         if x and n in got:
             e = dict(layout=x.get("layout"), photo=None if x.get("ai") else os.path.basename(str(x.get("photo") or "")) or None,
-                     caption=x.get("caption") or x.get("headline"), frame_clip=(x.get("frame") or {}).get("clip"),
+                     caption=x.get("caption") or x.get("headline"), frame_clip=(x.get("frame") or {}).get("clip"), format=x.get("format"),
                      **{k: (x.get("ai") or {}).get(k) for k in ("scene", "colour")})
             st.append({k: v for k, v in e.items() if v})
     spec_txt = "".join(open(os.path.join(out, f"{v['name']}.json")).read() for v in p.get("videos") or []

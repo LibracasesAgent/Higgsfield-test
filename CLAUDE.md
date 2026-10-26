@@ -17,7 +17,10 @@ was a mistake, see rule 6). Statics come only from `make_batch.py` (its own layo
 backgrounds). `plan` avoids openings used before (with `pipeline/data/novelty_log.json`: the scenes, photos, captions and hooks of the
 product's last batches) and the packet lists them, so don't read Drive folders to "avoid repeats". Real footage comes first; AI
 images are the studio scenes of the sheet's `concept` statics and what `plan` writes to `ai_needed.json` (section 5, step 2b): never
-make AI images or video of your own. Winner remixes (section 1) have no strategist step: they keep the proven RAW; only their fill
+make AI images or video of your own. **Statics are mostly AI-designed ads** (owner 2026-10-26, section S): about two thirds of a
+batch's statics are `ad`, a whole ad (picture + words) Higgsfield designs from the real packshot in a format from
+`pipeline/data/static_formats.json` or one the strategist invents, every format once a batch, never the product's last batch's, at least
+one new format each batch; the rest real. Winner remixes (section 1) have no strategist step: they keep the proven RAW; only their fill
 projects and statics do. `plan` without `--ideas` (the engine's templates) is for a request that fixes the words (`--lines`).
 
 The repo's default branch is `claude/loving-meitner-4amjii`. Read `docs/PLAYBOOK.md` once per session
@@ -34,8 +37,9 @@ The repo's default branch is `claude/loving-meitner-4amjii`. Read `docs/PLAYBOOK
    says so (`--ai`): then the real bag in a new scene (cafe, street from behind, hallway ...), still 4:5 / clip 3 s. You make
    exactly what `ai_needed.json` lists (models, prompts, ids): images with `gpt_image_2_5` (medium, 2k), clips with `kling3_0` /
    `minimax_hailuo`. Never: other generators or models, presets, Ads Studio, `execute_preset`, upscalers, voice cloning, a face in any
-   picture except the PRESENTER's (below), a prompt of your own (the one exception: the SCENE of a `concept` static
-   in the strategist's sheet, section S: surface, props, light, composition; `ai_gen` adds the keep-the-real-bag text, the style and the no-face rule). An AI asset ships only when it passed
+   picture except the PRESENTER's (below), a prompt of your own (the exceptions: the SCENE of a `concept` static
+   in the strategist's sheet, section S: surface, props, light, composition; `ai_gen` adds the keep-the-real-bag text, the style and the no-face rule;
+   and an `ad` static's picture, exact words and, for a format of your own, its art direction: `ai_gen.build_ad_prompt` adds the rest). An AI asset ships only when it passed
    `ai_gen.py gate` / `clips` AND you looked at its contact sheet and the bag is the real bag (shape, colour, handles, hardware)
    in a believable real photo / clip: otherwise `ai_gen.py reject <id>` (render puts the real photo / footage back). `plan
    --no-ai` = real photos and footage only; `--no-frames` = no statics from footage frames.
@@ -109,7 +113,13 @@ static cycle. **Studio-level concept statics** (owner 2026-10-21: "the bag, with
 sheet makes about half of a batch's statics `concept`: an AI scene of the REAL bag (Higgsfield `gpt_image_2_5` from the real packshot,
 gated against it like every AI still) with props that belong to the idea (a latte, keys, a gift, a chair), the words set in a calm footer
 under the photo (a small kicker, a serif headline, the % pill) so nothing is printed on the bag; a person is only ever cropped at the
-shoulders or seen from behind. The other statics are real (studio packshot, a footage frame, quotes, value ...). Videos carry **no
+shoulders or seen from behind. The other statics are real (studio packshot, a footage frame, quotes, value ...). **AI-designed ads** (owner 2026-10-26, after the test
+sheet: "i like 2, 3, 4, 6 (make it realistic), 7, 8 (make more realistic). make them unique each time we run a batch ... new ideas and new
+formats that follow meta guidelines"): layout `ad`, about two thirds of the statics, supersedes the half-`concept` mix: Higgsfield makes the
+WHOLE ad from the real packshot, the words included (the magazine cover, the feature diagram, the HALF PRICE poster, the POV street photo
+from behind, the flat lay, the gift tag, and the formats the strategist invents: `data/static_formats.json`, `ideas.py --help`), realistic
+(real light and textures, a candid angle, never glossy CGI), the bag closed, no face, no fake buttons or app screens, no price figures;
+`ai_gen gate` reads the words back (tesseract: a % the words don't have fails it) and you read every word on the contact sheet. Videos carry **no
 review chapters or review cards** (media buyer 2026-10-21: "not good as objection handling before the CTA"); statics keep one verbatim review.
 The end card is a full studio card (the real bag on a tinted backdrop, the name, the offer pill, the button) inside Meta's safe zone.
 
@@ -144,6 +154,7 @@ those, and a count not named is 0 ("6 statics" = 6 statics and no videos). "N vi
 cd <repo>
 command -v ffmpeg || bash .claude/hooks/session-start.sh        # Slack sessions don't run hooks
 command -v pdftotext || (apt-get update -qq && apt-get install -y -qq poppler-utils)   # PDF notes in a New Products folder (pypdf: fallback)
+command -v tesseract || (apt-get update -qq && apt-get install -y -qq tesseract-ocr)    # ai_gen gate reads the words of the AI ads back
 python3 -c "import faster_whisper, PIL, numpy, cv2, pillow_heif, pypdf, openpyxl" 2>/dev/null || \
     python3 -m pip install -q faster-whisper pillow numpy pillow-heif opencv-python-headless pypdf openpyxl
 python3 pipeline/drive_upload.py check                          # Drive login ok?
@@ -307,10 +318,13 @@ python3 pipeline/ideas.py packet --product "<name>" [--theme "<words>"] --projec
    earlier batch did), `why_new` that says what no earlier batch did, 4 hooks of at least 3 types, a complete script of 5-11 chapters
    (170-285 words in all, one voice take each, 'you' form, the offer last ending "Tap the link below."), every chapter with `show` tags
    (what the picture must show while it is said: prefer tags with many footage moments in the packet) and the feature `tag` that shows on
-   screen; **N statics**, about half `concept` scenes (each different: flat-lay, cafe chair, back pocket, gift styling, dark luxe, hallway,
-   street from behind ...; the scene prompt leaves the end where the words go EMPTY; no face, eyes, sunglasses, mannequin, interior of
-   the bag you have no photo of; the packshot shown is the reference, `scene.colour` / `scene.ref` pick it) and the rest studio / native /
-   quotes / value / offer / stars where they fit. Only the packet's facts; no first person, no invented customer experience, no countdown
+   screen; **N statics**, about two thirds `ad` (AI-designed ads, owner 2026-10-26: each a different format from the packet's library
+   (★ = the owner's favourites) or one you invent (`format` id of your own + `format_name`, `art`, `people`; at least one a batch, two with
+   6+ ads), never a format the product's last batch used; `words` = the exact 1-4 lines the picture carries, few and short, no price
+   figures, no quotation marks; `scene.prompt` = what the picture shows; realistic, the bag closed, no face, no fake buttons / app screens /
+   notifications, no real magazine or brand name; `scene.colour` / `scene.ref` pick the reference packshot), optionally a `concept` scene or
+   two (no face, eyes, sunglasses, mannequin, interior of the bag; the end where the words go EMPTY), and the rest real: studio / native /
+   quotes / value / offer / stars where they fit. Look at every AI ad's contact sheet: read each word, check the bag, `reject` what is off. Only the packet's facts; no first person, no invented customer experience, no countdown
    or sale end date nobody confirmed, no "theft-proof"; counts like "five things" only when the video delivers them.
 3. `python3 pipeline/ideas.py check $OUT/ideas.json --product "<name>" --projects M --statics N`: fix every PROBLEM (warnings: read them),
    check again. Then `plan --ideas $OUT/ideas.json ...` (section 5); `plan` copies the sheet and makes `strategy_sheet.md/.csv`, which

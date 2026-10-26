@@ -96,6 +96,78 @@ def build_prompt(lib, scene, noun, colour, vertical):
     return " ".join(x for x in (lib["style"], keep, scene["prompt"].format(noun=noun), face, comp) if x)
 
 
+AD_PEOPLE = {
+    "none": "Nobody is in the picture, not even blurred in the background.",
+    "behind": "No face is visible anywhere: nobody looks at the camera, every other person is far away, blurred and facing away.",
+    "cropped": "Only hands and forearms are in the frame: no head, no face."}
+AD_REAL = ("Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small "
+           "natural imperfections, nothing glossy, plastic or computer-generated.")
+
+
+def ad_kind(fmt):
+    """The gate's kind of an AI ad: its format's people rule (none -> object, cropped -> hand, behind -> behind)."""
+    return {"none": "object", "cropped": "hand", "behind": "behind"}.get(fmt.get("people") or "none", "object")
+
+
+def build_ad_prompt(lib, fmt, ad, noun, colour):
+    """The prompt of an AI-designed ad (layout 'ad', ideas.py): the format's art direction, the strategist's picture, the keep-the-real-bag
+    text, the exact words (each once, nothing else), the people rule and the realism line. The strategist writes only the picture and the
+    words; a format of their own brings its art direction."""
+    keep = lib["keep"].format(noun=noun, colour_note=f" ({colour.lower()})" if colour else "")
+    words = [w.strip() for w in ad.get("words") or [] if w.strip()]
+    text = ("The only words in the image, each exactly once and spelled exactly as written: " + " / ".join(f'"{w}"' for w in words) +
+            f". Set them as {fmt.get('type') or 'clean, legible type'}, big, sharp and easy to read on a small phone screen (the main line "
+            f"spans most of the picture's width), never over the {noun}. No other text anywhere: "
+            f"no logos, no brand names, no labels or writing on the {noun}, no watermark.") if words else \
+        f"No text, no logos and no writing anywhere in the image."
+    people = AD_PEOPLE[fmt.get("people") or "none"]
+    if fmt.get("people") == "behind":
+        people = (fmt.get("people_note") or "The one person in the picture is seen only from behind, turned away from the camera.") + " " + people
+    return " ".join(x for x in (
+        fmt.get("art") or "", ((ad.get("scene") or {}).get("prompt") or "").replace("{", "(").replace("}", ")").strip(), keep,
+        f"The {noun} is closed and zipped; its inside is never shown.", fmt.get("bag") or "", text, people, AD_REAL,
+        f"Portrait 4:5 composition, the {noun} large and clearly visible.") if x)
+
+
+def read_words(path):
+    """The words tesseract reads in a picture (upper case), or None when tesseract is not installed (section 0 installs it)."""
+    import tempfile
+    from PIL import Image
+    exe = shutil.which("tesseract")
+    if not exe:
+        return None
+    got, im = [], Image.open(path).convert("L")
+    with tempfile.TemporaryDirectory() as td:
+        for sc in (1.0, 0.5, 0.25):      # sparse text at three sizes: small labels read at full size, a poster's huge words when small
+            f = os.path.join(td, f"{sc}.png")
+            im.resize((max(int(im.width * sc), 1), max(int(im.height * sc), 1)), Image.LANCZOS).save(f)
+            try:
+                r = subprocess.run([exe, f, "stdout", "--psm", "11"], capture_output=True, text=True, timeout=90)
+                got += re.findall(r"[A-Za-z0-9%$£€']+", r.stdout)
+            except (OSError, subprocess.TimeoutExpired):
+                pass
+    return [w.upper().strip("'") for w in got]
+
+
+def text_check(path, words):
+    """{"read", "missing", "extra_pct", "problems"}: the ad's words read back. A % in the picture that the words do not have is a hard
+    fail (a wrong offer); words not read back only say 'look' (stylised type fools the OCR: the agent reads the contact sheet)."""
+    import difflib
+    got = read_words(path)
+    if got is None:
+        return dict(read=None, problems=["look: no tesseract to read the words: read them on the contact sheet"])
+    want = [w.upper().strip("'") for w in re.findall(r"[A-Za-z0-9%$£€']+", " ".join(words))]
+    missing = [w for w in dict.fromkeys(want) if len(w) > 2 and w not in got and not difflib.get_close_matches(w, got, 1, 0.75)]
+    pct = lambda t: set(re.findall(r"\d+\s?%", t.replace(" %", "%")))  # noqa: E731
+    extra = sorted(pct(" ".join(got)) - pct(" ".join(want)))
+    r = dict(read=" ".join(got)[:300], missing=missing, extra_pct=extra, problems=[])
+    if extra:
+        r["problems"].append(f"a % the words do not have: {', '.join(extra)}")
+    if missing:
+        r["problems"].append(f"look: words not read back: {' '.join(missing[:8])}")
+    return r
+
+
 def motion_prompt(lib, scene, noun):
     return lib["motion"][scene["kind"]].format(noun=noun)
 
@@ -333,7 +405,7 @@ def sharpness(path):
     return float(cv2.Laplacian(img, cv2.CV_64F).var())
 
 
-def gate_still(path, ref_path, kind):
+def gate_still(path, ref_path, kind, crop=True, words=None):
     """{"ok", "problems", "faces", "colour", "inliers", "sharp", "cropped"} of one still. Hard fails: a face (after the crop a
     worn / hand still gets), the bag's colour missing from the picture, a soft picture. A low feature score only says
     "look at it" (the agent's eyes are the real fidelity check)."""
@@ -342,7 +414,7 @@ def gate_still(path, ref_path, kind):
         return dict(ok=False, problems=["file missing"], cropped=False)
     try:
         n = faces(path, kind != "object")
-        if n and kind != "object" and autocrop_face(path):
+        if n and kind not in ("object", "behind") and crop and autocrop_face(path):    # (an AI ad is never cropped: it holds its words)
             r["cropped"], n = True, 0
         r["faces"] = n
         if n:
@@ -364,6 +436,12 @@ def gate_still(path, ref_path, kind):
         if r["sharp"] < 25:
             r["ok"] = False
             r["problems"].append("too soft")
+        if words:
+            t = text_check(path, words)
+            r["text"] = {k: v for k, v in t.items() if k != "problems"}
+            r["problems"] += t["problems"]
+            if any(not x.startswith("look") for x in t["problems"]):
+                r["ok"] = False
     except Exception as e:  # noqa: BLE001 - a broken file is a failed still, never a crash of the batch
         return dict(ok=False, problems=[f"check failed: {type(e).__name__}: {e}"], cropped=False)
     return r
@@ -408,7 +486,7 @@ def cmd_gate(out):
             missing.append(s["id"])
             continue
         prev = g["stills"].get(s["id"]) or {}
-        r = gate_still(f, s["ref"], s["kind"])
+        r = gate_still(f, s["ref"], s["kind"], crop=s.get("layout") != "ad", words=s.get("words"))
         if prev.get("rejected"):
             r.update(ok=False, rejected=True, problems=r["problems"] + ["rejected by eye"])
         g["stills"][s["id"]] = r

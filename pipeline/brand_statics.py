@@ -1956,6 +1956,15 @@ def l_concept(a, sd):
     return c
 
 
+def l_ad(a, sd):
+    """An AI-designed ad (owner 2026-10-26; ideas.py layout 'ad', ai_gen.build_ad_prompt): Higgsfield made the whole picture, its words
+    included, from the real packshot; ai_gen's gate read the words back and the agent looked at it. Shown as it is, fitted to 4:5:
+    nothing is printed on it (its words are the sheet's own)."""
+    W, H = a.get("size", [1080, 1350])
+    im = scene_photo(a, sd, "ad")
+    return ImageOps.fit(im, (W, H), Image.LANCZOS, centering=(0.5, 0.5)).convert("RGBA")
+
+
 LAYOUTS = {k[2:]: v for k, v in globals().items() if k.startswith("l_")}
 
 

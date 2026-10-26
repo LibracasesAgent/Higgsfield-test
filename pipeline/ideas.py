@@ -35,9 +35,20 @@ experience, no health / medical claims):
     "headline": "<= 8 words, optional", "kicker": "BLACK FRIDAY (optional)", "sub": "optional", "pill": true (the offer's % pill) | "badge": "text",
     "where": "top|bottom (concept: where the words go; the scene leaves that end empty)", "tone": "dark|light (optional)",
     "scene": {"kind": "object|worn|hand", "colour": "Black", "prompt": "the scene: surface, props, light, composition (no people / faces)"}
+ }, {
+    "id": "S02", "project": "P02", "layout": "ad", "idea": "...",
+    "format": "magazine_cover"  (data/static_formats.json) | "<a new id>" with "format_name": "...", "art": "the art direction (>= 60 chars)",
+              "people": "none|behind|cropped"  (a format of your own: invent one every batch),
+    "words": ["LIBRA", "THE BAG THAT ZIPS SHUT", "EARLY BLACK FRIDAY: 50% OFF"]  (the exact words the AI sets in the picture, 1-4 lines),
+    "headline": "the line the ad copy and the tracker name (default: the first line that is not LIBRA)",
+    "scene": {"colour": "Burgundy", "ref": "optional site photo (a back view)", "prompt": "what the picture shows: setting, props, light"}
  }]
 }
 The words of the scene prompt are only the scene: the keep-the-real-bag text, the style and the no-face rule are added by ai_gen.
+An `ad` static is designed whole by the AI (owner 2026-10-26: the magazine cover, the feature diagram, the HALF PRICE poster, the POV
+street photo, the flat lay, the gift tag): ai_gen adds the format's art direction, the keep-the-real-bag text, the exact words and the
+people rule; the gate reads the words back. Every batch new formats: each format once a batch, none the product's last batch used, and
+at least one format of your own (two when the batch has 6+ ad statics).
 
 PRESENTER PROJECTS (owner 2026-10-21: "avatars accepted if there is an actual story that requires actors"; Julian wants a woman sitting
 there and talking, the footage cut in between): a project may carry a presenter: a generated adult host who says the whole script to camera
@@ -61,7 +72,7 @@ import sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 
-LAYOUTS = ("concept", "studio", "native", "quotes", "value", "offer", "stars", "colours", "checklist", "gifts", "bundle")
+LAYOUTS = ("ad", "concept", "studio", "native", "quotes", "value", "offer", "stars", "colours", "checklist", "gifts", "bundle")
 SALE_LAYOUTS = ("gifts", "bundle")                   # only while a sale campaign runs (campaign.py): its free gifts / 2-3 bags together
 
 
@@ -80,6 +91,39 @@ PRES_WORDS, PRES_CHAPTER_WORDS = (135, 205), 36      # a presenter's script: 55-
 CAMS = ("open", "both", "close", "full", "none")
 FACE_WORDS = re.compile(r"\b(face|faces|smil\w+|looking at (?:the )?camera|portrait|selfie|eyes|mouth|lips|mannequin|sunglasses)\b", re.I)
 NO_PEOPLE = "Nobody is in the picture, not even blurred in the background."
+FAKE_UI = re.compile(r"play button|notification|chat bubble|speech bubble|text message|slider|cursor|check ?box|tick ?box|"
+                     r"(?:phone|app|iphone) screen|\b(?:shop|buy|tap|order)[- ]now button|\bswipe\b", re.I)      # Meta: no fake interface
+MAGAZINES = re.compile(r"\b(vogue|elle|harper'?s|bazaar|cosmopolitan|marie claire|instyle|vanity fair|time magazine|forbes|"
+                       r"people magazine|tatler|grazia|glamour magazine)\b", re.I)
+INSIDE = re.compile(r"\b(inside (?:of )?the bag|open bag|unzipped|bag (?:is )?open|interior of the bag|bag'?s interior|lining|spilling out|"
+                    r"peeking out)\b", re.I)
+AD_PEOPLE = ("none", "behind", "cropped")
+NEW_FORMATS = ((3, 1), (6, 2))                       # (ad statics in the batch, formats of your own it needs at least)
+
+
+def formats():
+    """data/static_formats.json: {"meta": [rules], "formats": {id: format}} (the AI-designed ad formats, ideas.py / ai_gen.py)."""
+    try:
+        d = json.load(open(os.path.join(HERE, "data", "static_formats.json")))
+    except (OSError, ValueError):
+        d = {}
+    return dict(meta=d.get("meta") or [], formats={f["id"]: f for f in d.get("formats") or []})
+
+
+def ad_format(s, lib=None):
+    """The format dict of an `ad` static: the library's, or the sheet's own (format_name / art / people)."""
+    f = (lib or formats()["formats"]).get(s.get("format") or "")
+    if f:
+        return f
+    return dict(id=s.get("format"), tag=re.sub(r"[^a-z0-9]", "", str(s.get("format") or "").lower())[:12] or "ad",
+                name=s.get("format_name") or s.get("format"), art=s.get("art") or "", people=s.get("people") or "none", words=14, new=True)
+
+
+def ad_headline(s):
+    """The line of an `ad` static that names it (ad copy, tracker, novelty): `headline`, else the first line that is not the masthead."""
+    if s.get("headline"):
+        return s["headline"]
+    return next((w for w in s.get("words") or [] if w.strip().upper() != "LIBRA"), (s.get("words") or [""])[0])
 MIN_MOMENTS = 4                                      # good footage moments a tag should have for the product before a chapter leans on it
 STOPWORDS = set("the a an and or of to in on for with your you it its this that is are be at by as from up out so no not more all".split())
 
@@ -137,8 +181,54 @@ def coverage(pr):
 
 
 # ------------------------------------------------------------------ the check
-def check(sheet, pr, n_projects=None, n_statics=None):
-    """(problems, warnings) of a sheet. A problem stops `plan`; a warning is said in its output."""
+def ad_problems(s, sid, lib, P, W, items):
+    """The checks of one `ad` static (the AI designs the whole ad): its format, the exact words, the picture, Meta's rules."""
+    import ugc_script as U
+    f = lib.get(s.get("format") or "")
+    if not f:
+        if not re.fullmatch(r"[a-z][a-z0-9_]{2,23}", str(s.get("format") or "")):
+            P.append(f"{sid}: format: one of {', '.join(lib)} or an id of your own (lower case, 3-24 letters) with format_name, art, people")
+        if len(str(s.get("format_name") or "")) < 4 or len(str(s.get("art") or "")) < 60:
+            P.append(f"{sid}: a format of your own needs format_name and art (the art direction, at least 60 characters)")
+        if (s.get("people") or "none") not in AD_PEOPLE:
+            P.append(f"{sid}: people {s.get('people')!r} (one of {', '.join(AD_PEOPLE)})")
+    fmt = ad_format(s, lib)
+    words = s.get("words")
+    if not isinstance(words, list) or not 1 <= len(words) <= 4 or not all(isinstance(w, str) and w.strip() for w in words):
+        P.append(f"{sid}: words: the exact lines the picture carries, 1-4 strings")
+        words = []
+    n = sum(nwords(w) for w in words)
+    if n > fmt.get("words", 14):
+        P.append(f"{sid}: {n} words on the picture, the {fmt.get('name') or fmt.get('id')} format takes at most {fmt.get('words', 14)}")
+    for w in words:
+        if re.search(r"[$€£]\s?\d|\d+(?:\.\d\d)\b", w):
+            P.append(f"{sid}: {w!r}: no prices in an AI ad (the price test; the model may draw a wrong number): say the %")
+        if re.search(r'["“”]', w):
+            P.append(f"{sid}: {w!r}: no quotation marks in the words (the prompt quotes them)")
+        if U.FIRST.search(w):
+            P.append(f"{sid}: {w!r}: first person")
+        items.append(dict(where=f"{sid} words", text=w, source="ours"))
+    sc = s.get("scene") or {}
+    pt = str(sc.get("prompt") or "")
+    if len(pt) < 40:
+        P.append(f"{sid}: scene.prompt: what the picture shows (setting, props, light), at least 40 characters")
+    every = " ".join([pt, s.get("art") or "", *words])
+    if FACE_WORDS.search(re.sub(r"\b(?:no|nobody|not|without|never|neither)\b[^.;]{0,50}?\b(?:face|faces|eyes|mouth|portrait)\b", "", pt, flags=re.I)):
+        P.append(f"{sid}: the scene asks for a face / eyes / sunglasses / a mannequin: an ad never shows a face (from behind, or cut at the shoulders)")
+    if FAKE_UI.search(every):
+        P.append(f"{sid}: {FAKE_UI.search(every).group(0)!r}: no fake interface in an ad (buttons, notifications, sliders: Meta rejects them)")
+    if MAGAZINES.search(every):
+        P.append(f"{sid}: {MAGAZINES.search(every).group(0)!r}: no real publication or brand name (the masthead is LIBRA)")
+    if INSIDE.search(pt):
+        P.append(f"{sid}: {INSIDE.search(pt).group(0)!r}: keep the bag closed: there is no photo of its inside, the AI would invent one")
+    if fmt.get("people") == "none" and re.search(r"\b(woman|man|girl|person|people|she|her|hands?)\b", pt, re.I) \
+            and not re.search(r"\b(no|nobody|without)\b[^.]{0,30}\b(person|people|one)\b", pt, re.I):
+        W.append(f"{sid}: the {fmt.get('id')} format has nobody in the picture, but the scene names a person: ai_gen tells the model nobody is there")
+
+
+def check(sheet, pr, n_projects=None, n_statics=None, exclude=None):
+    """(problems, warnings) of a sheet. A problem stops `plan`; a warning is said in its output. exclude: a batch id (B045) whose own
+    entries in the novelty log do not count (a redo of that batch re-checks its own sheet)."""
     import compliance
     import footage_index
     import novelty
@@ -157,10 +247,15 @@ def check(sheet, pr, n_projects=None, n_statics=None):
     if not sheet.get("research"):
         P.append("research: say what you looked at (past batches, the research notes) and what it changed")
     nl = novelty.load()
+    if exclude:
+        nl = dict(nl, products={k: dict(v, batches=[b for b in v.get("batches") or []
+                                                     if not re.match(rf"{re.escape(str(exclude))}(?:r\d+)?\b", str(b.get("name") or ""))])
+                                for k, v in nl["products"].items()})
     old_hooks = {re.sub(r"\W+", " ", h.lower()).strip() for h in novelty.recent(pr["name"], "hook", last=12, log=nl)}
     old_sents = {re.sub(r"\W+", " ", t.lower()).strip() for b in novelty.batches(pr["name"], log=nl)[-6:] for v in b.get("videos") or []
                  for c in v.get("chapters") or [] for t in sents(c)}
     seen_ids, seen_slugs, seen_ideas = set(), set(), []
+    lib = formats()["formats"]
     items = []                                           # every text for the compliance check
     for p in projs:
         pid = p.get("id") or "?"
@@ -288,12 +383,35 @@ def check(sheet, pr, n_projects=None, n_statics=None):
                 W.append(f"{sid}: the prompt does not leave the {s.get('where') or 'bottom'} of the frame empty: the words would land on the bag")
             for key in ("headline", "kicker", "sub", "pill", "badge"):
                 pass
+        if s.get("layout") == "ad":
+            ad_problems(s, sid, lib, P, W, items)
         if s.get("pill") not in (None, True, False):
             P.append(f"{sid}: pill is true or false (the offer's % pill); a custom text goes in badge")
+    ads = [s for s in stats if s.get("layout") == "ad"]
+    if ads:                 # every batch new formats (owner 2026-10-26): once a batch, not the last batch's, some of the strategist's own
+        fm = [s.get("format") for s in ads]
+        for f in sorted({x for x in fm if x and fm.count(x) > 1}):
+            P.append(f"statics: the format {f!r} is used {fm.count(f)} times: each ad static a different format")
+        last = set(novelty.recent(pr["name"], "format", last=1, log=nl))
+        for s in ads:
+            if s.get("format") in last:
+                P.append(f"{s.get('id')}: the format {s['format']!r} was in {pr['name']}'s last batch: pick another or invent one")
+        ever = set(novelty.recent(pr["name"], "format", last=novelty.KEEP, log=nl))
+        own = [s for s in ads if s.get("format") not in lib and s.get("format") not in ever]
+        need_ = max([k for n_, k in NEW_FORMATS if len(ads) >= n_] or [0])
+        if len(own) < need_:
+            P.append(f"statics: {len(own)} format(s) of your own among {len(ads)} ad statics, at least {need_} needed: invent a new format "
+                     f"(an id not in data/static_formats.json, format_name, art, people) that no earlier batch used")
+        old_caps = {re.sub(r"\W+", " ", c.lower()).strip() for c in novelty.recent(pr["name"], "caption", last=novelty.KEEP, log=nl)}
+        for s in ads:
+            h = re.sub(r"\W+", " ", ad_headline(s).lower()).strip()
+            if h and h in old_caps and h.removeprefix("the ") != re.sub(r"\W+", " ", pr["name"].lower()).strip():   # (the name alone may repeat)
+                P.append(f"{s.get('id')}: the line {ad_headline(s)!r} was on a static of an earlier batch: new words")
     if stats:
-        n_ai = sum(s.get("layout") == "concept" for s in stats)
-        W.append(f"{n_ai} AI studio scenes of {len(stats)} statics (about {n_ai} credits plus retries)")
-        heads = [re.sub(r"\W+", " ", (s.get("headline") or "").lower()).strip() for s in stats if s.get("headline")]
+        n_ai = sum(s.get("layout") in ("concept", "ad") for s in stats)
+        W.append(f"{n_ai} AI statics of {len(stats)} ({len(ads)} designed ads, {n_ai - len(ads)} studio scenes; about {n_ai} credits plus retries)")
+        heads = [re.sub(r"\W+", " ", ((ad_headline(s) if s.get("layout") == "ad" else s.get("headline")) or "").lower()).strip()
+                 for s in stats if s.get("headline") or s.get("layout") == "ad"]
         for h in {x for x in heads if heads.count(x) > 1}:
             P.append(f"statics: the headline {h!r} is used twice")
     C = compliance
@@ -339,8 +457,8 @@ def scripts(sheet, pr, hooks=4):
 
 
 def concept_scenes(sheet):
-    """The sheet's AI studio scenes in order: [(index in statics, static dict)]."""
-    return [(i, s) for i, s in enumerate(sheet.get("statics") or []) if s.get("layout") == "concept"]
+    """The sheet's AI statics in order (the studio scenes and the designed ads): [(index in statics, static dict)]."""
+    return [(i, s) for i, s in enumerate(sheet.get("statics") or []) if s.get("layout") in ("concept", "ad")]
 
 
 # ------------------------------------------------------------------ the packet the strategist reads
@@ -368,6 +486,9 @@ def past(pr):
         sc = sorted({s.get("scene") for s in b.get("statics") or [] if s.get("scene")})
         if sc:
             out.append("    AI scenes used: " + ", ".join(sc))
+        fm = sorted({s.get("format") for s in b.get("statics") or [] if s.get("format")})
+        if fm:
+            out.append("    AI ad formats used: " + ", ".join(fm))
     return "\n".join(out) or "(nothing yet)"
 
 
@@ -412,8 +533,8 @@ def packet(pr, theme, n_projects, n_statics, request=""):
           "- Sell the 3-Piece Set where it fits (the Hobo Bag page offers it as the 'Best Value' upgrade; its ads ran at ROAS ~3 with a "
           "bigger basket): three pieces for one price.",
           "- No exact prices in new lines or statics while the owner tests a price change: say the % ('50% off', 'up to 60% off').",
-          "- Statics: one idea each, under 8 words on the picture, the bag big; most should be `concept` AI scenes (the AI ads 'seem to be "
-          "starting to work': owner) of a real-life moment (cafe, airport, Christmas morning, evening out), each a different scene."]
+          "- Statics: one idea each, few words, the bag big; most should be AI ads (the AI ads 'seem to be starting to work': owner): "
+          "the `ad` formats of section 5, each batch new ones, realistic, never the same look twice."]
     L += ["\n## 2. What the footage library can SHOW (good, face-free moments per tag; the picture of each line is chosen from these)\n"]
     for tag, (n, ex) in sorted(cov.items(), key=lambda kv: -kv[1][0]):
         L.append(f"- `{tag}`: {n}" + (f"  (e.g. {'; '.join(ex)})" if ex else ""))
@@ -425,8 +546,28 @@ def packet(pr, theme, n_projects, n_statics, request=""):
     rd = os.path.join(os.path.dirname(HERE), "docs", "research")
     for f in sorted(os.listdir(rd)) if os.path.isdir(rd) else []:
         L.append(f"- docs/research/{f}")
+    fl = formats()
+    import novelty
+    last_f = novelty.recent(pr["name"], "format", last=1)
+    ever_f = novelty.recent(pr["name"], "format", last=novelty.KEEP)
     L += ["\n## 5. The statics (4:5, 1080x1350)\n",
-          "Layouts: `concept` = an AI studio scene of the REAL bag (made in Higgsfield from the real packshot, gated against it) with at most a "
+          "**AI-designed ads first** (owner 2026-10-26, after the test sheet: 'i like 2, 3, 4, 6 (make it realistic), 7, 8 (make it more "
+          "realistic) ... make them unique each time we run a batch ... new ideas and new formats that follow Meta guidelines'): layout `ad` = "
+          "Higgsfield designs the WHOLE ad from the real packshot, picture and words (gpt_image_2_5 sets short text correctly; the gate reads "
+          "it back). About two thirds of the statics are `ad`, each a DIFFERENT format and idea; the rest real (studio / native / quotes / "
+          "value / stars) or `concept`. Each batch at least one format of your own (two with 6+ ad statics): a new id with format_name, "
+          "art (the art direction: what kind of picture, the layout, the type) and people. Realistic beats glossy: a format that is a "
+          "photo must look like a real photo (real light, real textures, a candid angle), never CGI.",
+          f"Formats the product's last batch used (not this batch): {', '.join(last_f) or 'none'}; used before: {', '.join(ever_f) or 'none'}.",
+          "\nThe format library (data/static_formats.json; ★ = the owner liked it on the test sheet):\n"]
+    for f in fl["formats"].values():
+        L.append(f"- `{f['id']}`{' ★' if f.get('liked') else ''} {f['name']} (people: {f['people']}, at most {f['words']} words): "
+                 f"{f.get('words_hint') or ''}" + (f"; e.g. {' / '.join(f['example'])}" if f.get("example") else "") +
+                 (f"; {f['bag']}" if f.get("bag") else ""))
+    L += ["\nMeta's rules for the ads (the check refuses what breaks them):\n"] + [f"- {x}" for x in fl["meta"]]
+    L += ["- Keep the bag closed (no photo of its inside: the AI would invent one); a feature label only for what the reference shows "
+          "(the back pocket needs the back view: scene.ref).\n",
+          "Other layouts: `concept` = an AI studio scene of the REAL bag (made in Higgsfield from the real packshot, gated against it) with at most a "
           "kicker, a serif headline, a sub-line and the % pill; `studio` = the real packshot large on a tinted backdrop; `native` = a real "
           "face-free footage frame; `quotes` / `stars` = verbatim reviews; `value` = the real price struck through; `offer`; `colours`; `checklist`" +
           (("; while the sale runs: `gifts` = the bag with the free gifts (their real photos) and one line per tier" if camp.get("gifts") else "")
@@ -435,7 +576,7 @@ def packet(pr, theme, n_projects, n_statics, request=""):
           "(a latte, keys, a notebook, gift boxes, a chair), the bag fully visible; leave the end where the words go EMPTY (calm surface, nothing "
           "on it); never a face, eyes, sunglasses, a mannequin or a person even blurred in the background (a person is cropped at the shoulders "
           "or seen from behind); no text or logos in the picture (the words are set on it). One idea per static, a different scene each time.",
-          "Mix: about half concept scenes, the rest studio / native / value / offer / quotes where they fit the project's idea."]
+          "Mix: about two thirds `ad` (each a different format), the rest real photos (studio / native / value / quotes) or `concept`."]
     L += ["\n## 6. Output\n", "Write `ideas.json` (format in `ideas.py --help`): per project a big idea, why it is new, 4 hooks of different types, "
           "5-11 chapters each with `show` tags, the offer last; per static its concept. Then run `ideas.py check`."]
     return "\n".join(L) + "\n"
@@ -465,7 +606,11 @@ def sheet_md(sheet, scripts_=None):
             L += ["**Statics:**\n", "| # | Look | Idea | Words |", "|---|---|---|---|"]
             for s in sts:
                 words = " · ".join(x for x in (s.get("kicker"), s.get("headline"), s.get("sub"), "50% pill" if s.get("pill") else "", s.get("badge")) if x)
-                L.append(f"| {s['id']} | {s['layout']}{' (AI scene: ' + s['scene']['kind'] + ')' if s['layout'] == 'concept' else ''} | {s['idea']} | {words or '-'} |")
+                look = s["layout"] + (" (AI scene: " + s["scene"]["kind"] + ")" if s["layout"] == "concept" else "")
+                if s["layout"] == "ad":
+                    fmt = ad_format(s)
+                    look, words = f"AI ad: {fmt.get('name')}{' (new format)' if fmt.get('new') else ''}", " / ".join(s.get("words") or [])
+                L.append(f"| {s['id']} | {look} | {s['idea']} | {words or '-'} |")
             L.append("")
     return "\n".join(L) + "\n"
 
@@ -481,7 +626,8 @@ def sheet_csv(sheet, path):
                 w.writerow([p["id"], p["title"], f"script {c['kind']}", f"{p['id']}c{j}", c["text"], ",".join(c.get("show") or []),
                             ((str(c["number"]) + ". ") if c.get("number") else "") + (c.get("tag") or ""), ""])
         for s in sheet.get("statics") or []:
-            w.writerow([s.get("project"), "", f"static {s['layout']}", s["id"], s["idea"], "",
+            w.writerow([s.get("project"), "", f"static {s['layout']}" + (f" {s.get('format')}" if s["layout"] == "ad" else ""), s["id"], s["idea"], "",
+                        " / ".join(s.get("words") or []) if s["layout"] == "ad" else
                         " · ".join(x for x in (s.get("kicker"), s.get("headline"), s.get("sub")) if x), (s.get("scene") or {}).get("prompt", "")])
 
 

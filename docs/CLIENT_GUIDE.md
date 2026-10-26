@@ -26,6 +26,13 @@ each batch is something new. The sheet is checked, then used for everything, and
 Black Friday, 50% off") and you get it. The videos' pictures match the words (a line about the side zips shows the side zips), there is
 no "a customer said" review chapter any more, the end card is a clean studio card, and a batch renders in roughly a third of the time.
 
+**Statics are mostly AI-designed ads (since 2026-10-26).** About two thirds of a batch's statics are whole ads that Higgsfield designs
+from the real bag's photo: a magazine cover, a feature diagram, a bold HALF PRICE poster, a street photo from behind, a flat lay, a gift
+tag, and new formats the agent invents for each batch. No batch repeats the formats of the one before, and every batch brings at least
+one format nobody has used yet. They follow Meta's rules: true words only, no faces, no fake buttons or app screens, no prices drawn by the
+AI (the % is fine). The rest are real photos (studio packshot, a footage frame, a review). Name a format if you want it ("a magazine
+cover and a POV street ad"), or let the agent choose.
+
 ## 1. Winners: new versions of this week's winning videos
 
 | You want | Copy into the DM |

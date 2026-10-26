@@ -704,6 +704,31 @@ revenue, verdict, notes; grey formulas: hook rate, CTR, CPA, ROAS), Summary (by 
 - **Fix by hand:** `python3 pipeline/tracker.py sync --batch B045` (or `--all` to refresh every batch's file details); `show` counts.
 - B001's files sit in the Outputs folder "oct 3 test" (`folder_overrides`), whose subfolder of B012 statics is skipped.
 
+### 4j. AI-designed statics: a format library, new formats every batch (owner 2026-10-26)
+
+The owner: "the main issue is every batch looks the same, we need unique, scroll-stopping ideas"; "it's fine if you use Higgsfield for
+statics". A test sheet of 8 whole ads made by `gpt_image_2_5` from the real packshot (the words set by the model, all spelled right)
+got: "i like 2, 3, 4, 6 (make it realistic), 7, 8 (make more realistic). make them unique each time we run a batch ... new ideas and
+new formats that follow meta guidelines". Liked: #2 magazine cover, #3 feature diagram, #4 HALF PRICE poster, #6 POV street from behind,
+#7 "Everything fits." flat lay, #8 "For Mum" gift tag. Not liked: #1 sticky note, #5 phone notes app.
+- **Layout `ad`** (ideas.py): `format` (data/static_formats.json, ★ = liked; or an id of the strategist's own + `format_name`, `art`,
+  `people`), `words` (the exact 1-4 lines), `scene.prompt` (what the picture shows), `scene.colour` / `scene.ref` (the reference
+  packshot). `ai_gen.build_ad_prompt` adds the format's art direction, keep-the-real-bag, the closed bag, the exact words ("each
+  exactly once ... big enough to read on a phone"), the people rule (none / from behind / hands only) and the realism line. `l_ad`
+  shows the picture as it is (1080x1350); a rejected or missing still falls back to the real static of its slot.
+- **Unique every batch** (ideas.check): each format once a batch; none the product's last batch used (novelty log `format`); at
+  least one format of the strategist's own (two with 6+ ads) that no earlier batch used; no line an earlier static carried (the
+  product name alone may repeat). The packet lists the library, the formats used before and Meta's rules.
+- **Meta / truth** (the check refuses): fake interface (play buttons, notifications, chat bubbles, sliders, app or phone screens,
+  "shop now" buttons), real publications or brands (the masthead is LIBRA), price figures (the price test; the model may draw a
+  wrong number: say the %), the bag open or its inside (no photo of it: the model invents one), a face (people only from behind or
+  hands); compliance runs on every word.
+- **Realism** (#6, #8 "make it realistic"): the photo formats ask for a candid phone photo / a lived-in room, real light and
+  textures, small imperfections, nothing glossy or CGI. The 2026-10-26 retest (B000, 9 credits): the POV street and the gift tag
+  read as real photos; captions came out too small until the prompt asked for "big, easy to read on a small phone screen".
+- **Gate:** `ai_gen gate` also reads the words back (tesseract, three sizes): a % the words do not have fails the still; words not
+  read back are a "look" (stylised type fools OCR). The agent reads every word on the contact sheet. About 1 credit an ad.
+
 ### 4i. Batch branches merge themselves (owner 2026-10-25: "instead of me typing merge every time, add it to the pipeline")
 
 A Slack / Claude DM run can only push to its own `claude/<name>` branch, so its ledger entry, novelty log and specs never reached the
