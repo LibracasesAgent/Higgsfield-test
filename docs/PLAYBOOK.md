@@ -704,6 +704,28 @@ revenue, verdict, notes; grey formulas: hook rate, CTR, CPA, ROAS), Summary (by 
 - **Fix by hand:** `python3 pipeline/tracker.py sync --batch B045` (or `--all` to refresh every batch's file details); `show` counts.
 - B001's files sit in the Outputs folder "oct 3 test" (`folder_overrides`), whose subfolder of B012 statics is skipped.
 
+### 4k. Videos are stories, not feature lists (owner 2026-10-27)
+
+Diagnosis (B025 / B027, 25 Oct): every project walked through the same five features (back pocket, side zips, compartments, three
+ways to wear, leather) in 7-8 chapters under a different frame ("for mum / for sister", "three questions"), two or three chapters
+were price and bundle lines, hooks opened on the discount, the most used shot tags were "hero" and "placed" (the bag sitting there).
+Meta reads such ads as one. The owner approved: story structures, hooks that show, people, proof moments (1, 2, 3, 6 of the plan);
+not approved: a slower story voice and 15-25 s cut-downs (the 185-215 wpm and 55-80 s rules of 2026-10-14 stay); presenter: one per batch.
+- **Structures** (`data/story_structures.json`): one moment, a test live, myth vs fact, gift reveal, advice to a friend, four places,
+  what you carry now, POV, the night before; or the strategist's own. Each project names one, each chapter its `beat`.
+- **The check** (`ideas.check`, sheets from 2026-10-27): the structure once a batch and not the last batch's (novelty log
+  `structure`); beats of the structure, in order, the required ones there; at most 3 features (`features_in` on the feature tags'
+  words) and a different lead feature per project; price words (%, percent, half price, sale, Black Friday, prices, bundle, free
+  gift / shipping) only in the offer chapter and in at most one hook; hooks open on four different first `show` tags, none of hero /
+  placed / colours; 1-2 `proof_shot` chapters showing a movement; two chapters worn / walking without the presenter; one presenter
+  project per batch of 2+ (or `no_presenter`). Older sheets keep their day's rules (`check(..., day=)`).
+- **The render** (`storyboard.py`): a `proof` block's shots are held ~2.8 s (up to 3.8), 0.5 s of air follow its line, and its first
+  clip shot plays the clip's own sound under the voice (`natural_sounds`: levelled to -24 LUFS, skipped when the clip has no sound, is
+  silent or someone talks in it); a beat's `pace` (slow 2.4 s / fast 1.6 s shots) follows the story. A sheet's videos never switch to
+  the long story format by a word in the request (only `--story`).
+- **Cost:** the presenter project ~225 credits a batch; the rest is unchanged (~4-5 a voiceover project).
+- Tests: `tests/test_story.py` (fixture `tests/story_sheet.json`), `tests/test_storyboard.py` (proof block).
+
 ### 4j. AI-designed statics: a format library, new formats every batch (owner 2026-10-26)
 
 The owner: "the main issue is every batch looks the same, we need unique, scroll-stopping ideas"; "it's fine if you use Higgsfield for

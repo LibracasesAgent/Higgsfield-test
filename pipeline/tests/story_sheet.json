@@ -1,0 +1,134 @@
+{
+ "product": "Hobo Bag",
+ "theme": "black friday",
+ "date": "2026-10-27",
+ "research": [
+  "Owner 2026-10-27: stories instead of feature lists; B025 / B027 walked through all five features in every project",
+  "The account's winners are people in one true situation; this one is a single commute, three features, the sale last"
+ ],
+ "projects": [
+  {
+   "id": "P01",
+   "slug": "platform",
+   "title": "The 6:15 platform",
+   "structure": "one_moment",
+   "big_idea": "One packed evening platform, start to finish: where the card, the phone and the keys go, told as the moment happens.",
+   "why_new": "No earlier batch told a single moment in the present tense; three features instead of five, the sale only at the end.",
+   "hooks": [
+    {
+     "text": "Your card lives in the one pocket nobody else sees.",
+     "type": "promise",
+     "label": "BACK POCKET",
+     "show": [
+      "pocket",
+      "worn"
+     ]
+    },
+    {
+     "text": "Where is your card when the platform is this packed?",
+     "type": "question",
+     "label": "PACKED PLATFORM",
+     "show": [
+      "worn",
+      "street"
+     ]
+    },
+    {
+     "text": "Digging for your phone in a crowd is the worst part of the commute.",
+     "type": "problem",
+     "label": "NO DIGGING",
+     "show": [
+      "side_zip",
+      "zip_hand"
+     ]
+    },
+    {
+     "text": "Half price this Black Friday: the bag made for packed platforms.",
+     "type": "price",
+     "label": "HALF PRICE",
+     "show": [
+      "strap",
+      "worn"
+     ]
+    }
+   ],
+   "chapters": [
+    {
+     "kind": "point",
+     "beat": "scene",
+     "text": "Six-fifteen. The platform is packed, everyone shoulder to shoulder, and your train is still two minutes out.",
+     "tag": null,
+     "show": [
+      "walking",
+      "street"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "friction",
+     "text": "This is the moment an open tote turns into a worry. Phone, card, keys, everything sits right on top, one bump away from the floor.",
+     "tag": null,
+     "show": [
+      "worn",
+      "walking"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "move",
+     "proof_shot": true,
+     "text": "So your card goes in the hidden pocket on the back. It sits flat against you, out of sight, and you never have to open the bag to reach it.",
+     "tag": "HIDDEN BACK POCKET",
+     "show": [
+      "pocket",
+      "worn"
+     ],
+     "highlight": [
+      "pocket"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "second_move",
+     "text": "Your phone rides in a gold side zip. One pull, and it is in your hand. One more pull, and it is away again.",
+     "tag": "GOLD SIDE ZIPS",
+     "show": [
+      "side_zip",
+      "zip_hand"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "second_move",
+     "text": "The doors open. You swing the strap across your body, and you step on with both hands free for the rail.",
+     "tag": "3 WAYS TO WEAR",
+     "show": [
+      "strap",
+      "worn",
+      "walking"
+     ]
+    },
+    {
+     "kind": "proof",
+     "beat": "payoff",
+     "text": "Back home. Your keys are right where you left them, in the other side zip, and the bag still looks as good as it did this morning.",
+     "tag": null,
+     "show": [
+      "home",
+      "worn"
+     ]
+    },
+    {
+     "kind": "offer",
+     "beat": "offer",
+     "text": "The Hobo Bag is half price in the Early Black Friday sale, with a one-year warranty. Black Friday prices are live now, so there is no need to wait. Tap the link below.",
+     "show": [
+      "worn",
+      "strap"
+     ]
+    }
+   ]
+  }
+ ],
+ "statics": []
+}

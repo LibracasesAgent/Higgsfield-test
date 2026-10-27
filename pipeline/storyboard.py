@@ -43,6 +43,9 @@ whose range starts or ends mid-sentence prints a 'cadence:' line (make_batch ren
 "mode": "ugc" (the default storyboard format; no mode = the classic format above, unchanged): a voiceover that talks nearly
 all the time over a new shot about every 2 s, mastered to one steady loudness. Blocks and overlays as above, plus
   "number": 1                    # chapter number: the block's first caption starts "1. ..." (longform: a word's "pre")
+  "proof": true                  # the proof block (owner 2026-10-27): shots held ~PROOF_IDEAL s, PROOF_BEAT s of air after the line,
+                                 # its first clip shot plays its own sound under the voice (natural_sounds: levelled, never speech)
+  "pace": "slow" | "fast"        # a story beat's shot length (PACE_IDEAL; default SHOT_IDEAL)
   "voice_speed": 1.12, "pad": 0.08, "hook_pad": 0.2     # the voice prep and the pads between the takes (below)
 (a) every voiceover file is voice-prepared (voice_prep: silence trimmed at both ends and the long pauses inside shortened,
     sped up voice_speed x with the pitch kept, levelled to one loudness, cached as _vp_<hash>.wav next to the board); the
@@ -118,6 +121,11 @@ FIN = (".", "?", "!")
 TALK = "TALK"                          # a pick that is the presenter on camera (presenter.py: her take is the block's picture and voice)
 TALK_HEAD, TALK_TAIL = 0.10, 0.22      # a take is cut this long before her first word and after her last (s)
 TALK_FRAME = {"zoom": [1.12, 1.18], "focus": [0.5, 0.42]}   # every second shot of her is this closer framing (a jump cut, as creators edit)
+PACE_IDEAL = {"slow": 2.4, "fast": 1.6}                     # a story beat's shot length (a block's "pace", the sheet's beat); else SHOT_IDEAL
+PROOF_IDEAL, PROOF_LONG, PROOF_BEAT = 2.8, 3.8, 0.5         # a "proof" block (owner 2026-10-27): its shots held ~2.8 s (up to 3.8), then
+#                                                             PROOF_BEAT s of air after the line: the picture holds, its own sound plays
+NATURAL_LUFS, NATURAL_WORDS = -24.0, 1                      # the proof shot's own sound, levelled this far under the -14 LUFS voice; a slice
+#                                                             in which whisper hears more words than NATURAL_WORDS is someone talking: kept silent
 
 
 def voice_prep(d, name, speed=VOICE_SPEED):
@@ -201,25 +209,25 @@ def phrase_cuts(ws, lead=0.0, n=CLAUSE_WORDS):
     return cuts
 
 
-def seg_cost(n):
-    """Cost of one shot of n s made of whole phrases (shot_groups): near SHOT_IDEAL is cheap, under SHOT_MIN dear, over
-    SHOT_LONG it must be split mid-phrase (each split costs)."""
+def seg_cost(n, ideal=SHOT_IDEAL, long=SHOT_LONG):
+    """Cost of one shot of n s made of whole phrases (shot_groups): near `ideal` (SHOT_IDEAL; a story beat's pace or a proof
+    block its own) is cheap, under SHOT_MIN dear, over `long` it must be split mid-phrase (each split costs)."""
     if n < SHOT_MIN:
         return 6 + (SHOT_MIN - n) * 10
-    if n <= SHOT_LONG:
-        return 0.4 * abs(n - SHOT_IDEAL)
-    k = math.ceil(n / SHOT_LONG)
-    return 1.2 * (k - 1) + 0.4 * abs(n / k - SHOT_IDEAL)
+    if n <= long:
+        return 0.4 * abs(n - ideal)
+    k = math.ceil(n / long)
+    return 1.2 * (k - 1) + 0.4 * abs(n / k - ideal)
 
 
-def shot_groups(cuts, L):
+def shot_groups(cuts, L, ideal=SHOT_IDEAL, long=SHOT_LONG):
     """The cheapest grouping of the phrases (their start seconds `cuts`, the block ending at L) into shots: [(a, b)]
     where a and b are phrase starts (b = L for the last): short phrases merge, long ones are left for ugc_pieces."""
     pts = list(cuts) + [L]
     best, back = [0.0] + [float("inf")] * (len(pts) - 1), [0] * len(pts)
     for j in range(1, len(pts)):
         for i in range(j):
-            c = best[i] + seg_cost(pts[j] - pts[i])
+            c = best[i] + seg_cost(pts[j] - pts[i], ideal, long)
             if c < best[j]:
                 best[j], back[j] = c, i
     out, j = [], len(pts) - 1
@@ -229,11 +237,11 @@ def shot_groups(cuts, L):
     return out[::-1]
 
 
-def ugc_pieces(a, b, ws, lead=0.0):
-    """The cut seconds of one shot group [a, b]: [a, b] itself, or when it is longer than SHOT_LONG equal parts, each cut
+def ugc_pieces(a, b, ws, lead=0.0, long=SHOT_LONG):
+    """The cut seconds of one shot group [a, b]: [a, b] itself, or when it is longer than `long` (SHOT_LONG) equal parts, each cut
     moved to a word start (CUT_LEAD s before it) within 0.5 s of the even split, parts staying over SHOT_MIN; a word that
     opens a clause or sentence (clause_start) wins over one 0.25 s nearer."""
-    k = math.ceil((b - a) / SHOT_LONG - 1e-9)
+    k = math.ceil((b - a) / long - 1e-9)
     pts = [a]
     for i in range(1, k):
         x = a + (b - a) * i / k
@@ -339,21 +347,21 @@ def talk_seg(talk, x, y, n):
     return s
 
 
-def plan_block(sh, t0, L, lead, ws, picks, pools, drop=None, talk=None):
+def plan_block(sh, t0, L, lead, ws, picks, pools, drop=None, talk=None, ideal=SHOT_IDEAL, long=SHOT_LONG):
     """The shots of one ugc voice block (ad second t0, L s long, the voice starting `lead` s in; words ws on the voice's
     seconds): shot_groups of its phrases; the picks fill the groups in order, further groups and the parts of a long
     group take spares (Shots.place). Picks left over go to `drop` (the later blocks' spares). A presenter's block (talk:
     {src, a}): a pick [TALK, 0, 1.0] is her on camera for that group (all its shots, in sync with her words); a last pick
     that is TALK is the block's last group however many groups the timings make."""
     cuts = phrase_cuts(ws, lead)
-    groups = shot_groups(cuts, L)
+    groups = shot_groups(cuts, L, ideal, long)
     is_t = lambda p: bool(p) and p[0] == TALK                       # noqa: E731
     named = bool(picks) and all(len(p) > 3 and (p[3] or {}).get("say") for p in picks)     # {"say": "beige"}: a colour swatch
     tail_talk = bool(talk) and len(picks) > 1 and is_t(picks[-1])
     body = picks[:-1] if tail_talk else picks
     left, out, gi, nt = list(body), [], 0, 0
     for a, b in groups:
-        pts = ugc_pieces(a, b, ws, lead)
+        pts = ugc_pieces(a, b, ws, lead, long)
         gp = [TALK, 0, 1.0] if tail_talk and (a, b) == groups[-1] else (body[gi] if gi < len(body) else None)
         for j, (x, y) in enumerate(zip(pts, pts[1:])):
             if talk and is_t(gp):
@@ -493,7 +501,15 @@ def ugc_shots(d, jobs, segs, spare_all, top):
             ws = script_words(blk["text"], ws) if blk.get("text") else ws
         drop = None if k == 0 else []             # the hook's spare shots are its own; picks the body does not need
         pools = [jb["own"]] if k == 0 else [jb["own"], spare_all]
-        got = plan_block(sh, jb["t"], jb["L"], jb["lead"], ws, [list(x) for x in blk["broll"]], pools, drop, jb.get("talk"))
+        proof = bool(blk.get("proof")) and k > 0  # (owner 2026-10-27) the proof shot held longer; a story beat's own pace
+        ideal = PROOF_IDEAL if proof else PACE_IDEAL.get(blk.get("pace"), SHOT_IDEAL)
+        got = plan_block(sh, jb["t"], jb["L"], jb["lead"], ws, [list(x) for x in blk["broll"]], pools, drop, jb.get("talk"),
+                         ideal=ideal, long=PROOF_LONG if proof else SHOT_LONG)
+        if proof:                                 # its first real clip plays its own sound (natural_sounds)
+            tsrc = (jb.get("talk") or {}).get("src")
+            first = next((x for x in got if not str(x["src"]).lower().endswith(STILL) and x["src"] != tsrc), None)
+            if first:
+                first["natural"] = True
         spare_all += drop or []
         if k in top:
             for s in got:
@@ -502,6 +518,44 @@ def ugc_shots(d, jobs, segs, spare_all, top):
     n_hook = len(segs[0]) if jobs and jobs[0]["k"] == 0 and isinstance(segs[0], list) else 0
     segs[:] = [y for x in segs for y in (x if isinstance(x, list) else [x])]
     snap_frames(segs, n_hook)
+
+
+def natural_sounds(d, segs, say=None):
+    """sfx entries (recut: {src, at, gain}) for the segments marked "natural" (a proof block's first clip shot): the clip's own
+    sound over the segment's seconds, levelled to NATURAL_LUFS with short fades; skipped when the clip has no sound, is near
+    silent, or someone talks in it (whisper hears more than NATURAL_WORDS words). say(text): a note per shot (stderr)."""
+    say = say or (lambda m: print(m, file=sys.stderr))
+    out, t = [], 0.0
+    for s in segs:
+        L = float(s["dur"])
+        if s.get("natural"):
+            sp = min(max(float(s.get("speed", 1.0) or 1.0), 0.5), 2.0)
+            src = loc(d, s["src"])
+            key = hashlib.md5(f"{s['src']}|{s['start']}|{L}|{sp}|{NATURAL_LUFS}".encode()).hexdigest()[:12]
+            wav = os.path.join(d, f"_nat_{key}.wav")
+            a0, a1 = float(s["start"]), float(s["start"]) + L * sp
+            if not os.path.exists(wav):
+                r = subprocess.run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-ss", f"{a0:.3f}", "-t", f"{L * sp:.3f}", "-i", src,
+                                    "-vn", "-af", f"atempo={sp},aresample=48000,aformat=channel_layouts=stereo,loudnorm=I={NATURAL_LUFS}:TP=-6,"
+                                    f"afade=t=in:d=0.08,afade=t=out:st={max(L - 0.12, 0):.3f}:d=0.12", "-y", wav],
+                                   capture_output=True, text=True)
+                if r.returncode or not os.path.exists(wav):
+                    say(f"natural sound: {s['src']} {a0:.1f} s has no sound track: silent")
+                    t += L
+                    continue
+            vol = subprocess.run(["ffmpeg", "-hide_banner", "-nostats", "-i", wav, "-af", "volumedetect", "-f", "null", "-"],
+                                 capture_output=True, text=True).stderr
+            mv = re.search(r"max_volume: (-?[\d.]+) dB", vol)
+            heard = words(wav)
+            if mv and float(mv.group(1)) < -45:
+                say(f"natural sound: {s['src']} {a0:.1f} s is near silent: left out")
+            elif len(heard) > NATURAL_WORDS:
+                say(f"natural sound: {s['src']} {a0:.1f} s has someone talking ({' '.join(w['w'] for w in heard[:6])}): left out")
+            else:
+                out.append(dict(src=os.path.abspath(wav), at=round(t, 3), gain=1.0))
+                say(f"natural sound: {s['src']} {a0:.1f}-{a1:.1f} s under the voice at {t:.1f} s")
+        t += L
+    return out
 
 
 def build(b, d, info=None):
@@ -524,6 +578,8 @@ def build(b, d, info=None):
         bp = blk.get("pad", pad) + (blk.get("hold", 0.0) if 0 < k < last else 0.0)   # hold: the picture stays after the line
         if ugc:
             bp = blk.get("pad", b.get("hook_pad", UGC_HOOK_PAD)) if k == 0 and last > 0 else max(bp, END_PAD) if k == last else bp
+            if blk.get("proof") and 0 < k < last:     # the proof shot's air: the picture holds and its own sound plays
+                bp += PROOF_BEAT
         else:
             bp = max(bp, HOOK_PAD) if k == 0 and last > 0 else max(bp, END_PAD) if k == last else bp
         # the hook's extra shots come only from its own spares (its versions differ; the body must stay identical)
@@ -611,6 +667,8 @@ def build(b, d, info=None):
     if info is not None:
         info["words"] = said_words(b, d, spans)
         info["leads"] = leads
+        if ugc and any(x.get("natural") for x in segs):
+            info["sfx"] = natural_sounds(d, segs)
 
     def word_time(k, w, nth=0):
         t0, L, src, off = spans[k]
@@ -686,6 +744,8 @@ def main():
                breaks=breaks, transcript=info.get("words") or [], **caption_opts(b))   # breaks: a caption never runs
     if nocap:                                                                            # across two blocks
         edl["no_captions"] = nocap
+    if info.get("sfx"):                           # the proof shots' own sound (natural_sounds), under the voice
+        edl["sfx"] = info["sfx"]
     lj = os.path.join(d, f"_{name}_longform.json")
     json.dump(edl, open(lj, "w"), indent=1)
     subprocess.run([sys.executable, os.path.join(HERE, "longform.py"), lj, "--out", a.out], check=True)

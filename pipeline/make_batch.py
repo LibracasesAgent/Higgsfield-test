@@ -2045,7 +2045,8 @@ def plan(a):
                    {"colours": len(colour_imgs) >= 3, "lifestyle": "worn" in pkind.values(),
                     "offer": any(deal_of(pr["offer"]))}.get(f, True)]
     LEAD = {"showcase": "detail", "lifestyle": "worn", "offer": "packshot"} if pkind else {}   # photo kind each angle leads with
-    story = bool(getattr(a, "story", False) or (a.videos and STORY_WORDS.search(a.request or "")))
+    story = bool(getattr(a, "story", False) or (a.videos and sheet is None and STORY_WORDS.search(a.request or "")))   # (a sheet's videos
+    #                                                                   are stories by their structures, owner 2026-10-27: only --story makes the long format)
     if story and not getattr(a, "story", False):
         warnings.append("the request asks for a story / long video: storyboard videos use the story format (1.5-2 min: "
                         "every feature, the real customer in full, reviews, colours, the offer)")
@@ -2862,6 +2863,10 @@ def plan(a):
                 blk = dict(vo=line(vid, k_, t_, ugc_voice), broll=main[k_], **({"spare": spares[k_]} if spares.get(k_) else {}))
             if ch is not None and ch["number"]:
                 blk["number"] = ch["number"]
+            if ch is not None and ch.get("proof"):     # the proof shot: held 2-3 s with the clip's own sound (storyboard, owner 2026-10-27)
+                blk["proof"] = True
+            if ch is not None and ch.get("pace"):      # the story beat's shot length (slow / fast)
+                blk["pace"] = ch["pace"]
             blocks.append(blk)
             bi = len(blocks) - 1
             if ch is not None and ch["tag"]:
@@ -2881,7 +2886,8 @@ def plan(a):
                     music=False if getattr(a, "no_music", False) else dict(seed=(a.seed - 1) * 11 + v + 1))
         name = f"{prefix}_{vid}_{UGC_ANGLE.get(sc['angle']) or re.sub(r'[^A-Za-z0-9]', '', sc['angle'])[:14]}"
         return name, spec, dict(name=name, id=vid, format="ugc", engine="storyboard", hook=hook,
-                                ugc=dict(script=sc["id"], angle=sc["angle"], words=sc["words"], hook=dict(type=hk["type"], label=hk["label"],
+                                ugc=dict(script=sc["id"], angle=sc["angle"], words=sc["words"], **({"structure": sc["structure"]} if sc.get("structure") else {}),
+                                         hook=dict(type=hk["type"], label=hk["label"],
                                          feature=hk.get("feature")), alt_hooks=alts, numbers=sc["numbers"],
                                          **({"alt_shots": alt_shots} if alt_shots else {}),
                                          **({"presenter": pres} if pres else {})))
@@ -3893,7 +3899,7 @@ def log_novelty(out, p, name, uploaded):
             except (OSError, ValueError, KeyError):
                 ch_ = []
             first_ = u["script"] not in {z.get("script") for z in vids}      # (a project's versions share their chapters: once)
-            vids.append({k: x for k, x in dict(script=u.get("script"), angle=u.get("angle"), hook=hk_,
+            vids.append({k: x for k, x in dict(script=u.get("script"), angle=u.get("angle"), structure=u.get("structure"), hook=hk_,
                                                hook_type=(u.get("hook") or {}).get("type"),
                                                chapters=ch_ if first_ else None).items() if x})
     novelty.record(p.get("product") or "product", dict(date=p.get("created") or datetime.date.today().isoformat(), name=name,

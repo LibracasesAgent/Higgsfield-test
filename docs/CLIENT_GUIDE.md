@@ -26,6 +26,12 @@ each batch is something new. The sheet is checked, then used for everything, and
 Black Friday, 50% off") and you get it. The videos' pictures match the words (a line about the side zips shows the side zips), there is
 no "a customer said" review chapter any more, the end card is a clean studio card, and a batch renders in roughly a third of the time.
 
+**Videos are stories (since 2026-10-27).** Every video follows its own story shape: one moment (a packed platform), a test done live,
+myth vs fact, a gift reveal, advice to a friend, four places in one day, what you carry now, a POV, the night before. A video talks
+about at most three features, opens on the bag doing something, keeps the price for the end, shows the bag on a person, and has one
+proof moment where the shot holds and you hear the zip. Every batch of 2+ videos has one with the presenter talking to camera (about
+225 credits); write "no presenter" to leave her out.
+
 **Statics are mostly AI-designed ads (since 2026-10-26).** About two thirds of a batch's statics are whole ads that Higgsfield designs
 from the real bag's photo: a magazine cover, a feature diagram, a bold HALF PRICE poster, a street photo from behind, a flat lay, a gift
 tag, and new formats the agent invents for each batch. No batch repeats the formats of the one before, and every batch brings at least

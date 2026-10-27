@@ -23,11 +23,14 @@ experience, no health / medical claims):
  "projects": [{
     "id": "P01", "slug": "whatfits", "title": "Pack it for the whole day", "big_idea": "one sentence",
     "why_new": "what no earlier batch did (angle / hook / picture / structure)",
+    "structure": "one_moment" (data/story_structures.json) | "<an id of your own>" with "structure_name": "...", "shape": ">= 60 chars",
     "hooks": [{"text": "<= 14 words", "type": "promise|superlative|question|problem|price", "label": "ON-SCREEN LABEL (<= 3 words)",
                "show": ["packing", "inside"]}, ... 4 in all (H1 is the main one, they differ in type and words)],
     "chapters": [{"kind": "point|proof|objection|offer", "text": "1-5 short sentences, one voice take", "tag": "SMART COMPARTMENTS" | null,
                   "number": null | 1, "show": ["inside", "packing"]  (what the picture must SHOW while this is said: footage_index.TAGS),
-                  "highlight": ["compartments"]  (caption words on a red pill, optional)}, ... the last one kind offer, ends 'Tap the link below.']
+                  "highlight": ["compartments"]  (caption words on a red pill, optional),
+                  "beat": "move"  (the structure's beat this chapter is), "proof_shot": true  (one or two chapters: the picture proves the
+                  line, held 2-3 s with the clip's own sound; show tags a movement)}, ... the last one kind offer, ends 'Tap the link below.']
  }],
  "statics": [{
     "id": "S01", "project": "P01", "layout": "concept | studio | native | quotes | value | offer | stars | colours | checklist",
@@ -45,6 +48,11 @@ experience, no health / medical claims):
  }]
 }
 The words of the scene prompt are only the scene: the keep-the-real-bag text, the style and the no-face rule are added by ai_gen.
+STORIES (owner 2026-10-27; sheets from that day on): every project a story structure (one a batch, not the last batch's), at most 3 features
+and a different lead feature per project, the price only in the last chapter and in at most one hook, hooks that open on four different
+pictures of the bag doing something (first `show` tag a movement or a person), one or two proof shots, the bag on a person (worn /
+walking) in two chapters of a project without the presenter, and one presenter project per batch of 2+ ("no_presenter": "<the request's
+words>" when the request says none).
 An `ad` static is designed whole by the AI (owner 2026-10-26: the magazine cover, the feature diagram, the HALF PRICE poster, the POV
 street photo, the flat lay, the gift tag): ai_gen adds the format's art direction, the keep-the-real-bag text, the exact words and the
 people rule; the gate reads the words back. Every batch new formats: each format once a batch, none the product's last batch used, and
@@ -99,6 +107,13 @@ INSIDE = re.compile(r"\b(inside (?:of )?the bag|open bag|unzipped|bag (?:is )?op
                     r"peeking out)\b", re.I)
 AD_PEOPLE = ("none", "behind", "cropped")
 NEW_FORMATS = ((3, 1), (6, 2))                       # (ad statics in the batch, formats of your own it needs at least)
+STORY_FROM = "2026-10-27"                            # the story rules (owner 2026-10-27) check sheets from this day on
+STORY_MAX_FEATURES = 3                               # features one video may talk about
+PROOF_TAGS = {"zip", "zip_hand", "side_zip", "snap", "lock", "pocket", "packing", "strap", "tie", "inside"}   # a movement the shot proves
+PEOPLE_TAGS = {"worn", "walking"}                    # the bag on a person
+STILL_TAGS = {"hero", "placed", "colours"}           # the bag just sitting there: never a hook's opening picture
+PRICE_WORDS = re.compile(r"\d+\s?%|\bpercent\b|\bhalf[- ]price\b|\bsale\b|\bblack friday\b|\bcyber monday\b|\bdiscount\w*|\$\s?\d|"
+                         r"\bbundles?\b|\bprices?\b|\bfree (?:gifts?|shipping|pouch|wallet|jewell?e?ry)", re.I)
 
 
 def formats():
@@ -108,6 +123,108 @@ def formats():
     except (OSError, ValueError):
         d = {}
     return dict(meta=d.get("meta") or [], formats={f["id"]: f for f in d.get("formats") or []})
+
+
+def structures():
+    """data/story_structures.json: {"rules": [...], "structures": {id: structure}} (the videos' story shapes, owner 2026-10-27)."""
+    try:
+        d = json.load(open(os.path.join(HERE, "data", "story_structures.json")))
+    except (OSError, ValueError):
+        d = {}
+    return dict(rules=d.get("rules") or [], structures={x["id"]: x for x in d.get("structures") or []})
+
+
+def _stem(w):
+    return re.sub(r"(?:es|s)$", "", w) if len(w) > 3 and not w.endswith("ss") else w
+
+
+def feature_keys(pr):
+    """[(TAG, head stem, [stems])] of the product's features (their on-screen tags: 'GOLD SIDE ZIPS' -> zip, [gold, side, zip])."""
+    out = []
+    for f in pr.get("features") or []:
+        tag = f[1] if len(f) > 1 and f[1] else ""
+        ws = [_stem(w) for w in re.findall(r"[a-z]+", tag.lower()) if w not in STOPWORDS and w not in ("one", "two", "three")]
+        if ws:
+            out.append((tag, ws[-1], ws))
+    return out
+
+
+def features_in(text, keys):
+    """The features a line talks about, in the order it says them: its words hold the tag's head word and half of its words."""
+    toks = [_stem(w) for w in re.findall(r"[a-z]+", (text or "").lower())]
+    got = []
+    for tag, head, ws in keys:
+        if head in toks and sum(w in toks for w in set(ws)) >= -(-len(set(ws)) // 2):
+            got.append((toks.index(head), tag))
+    return [t for _, t in sorted(got)]
+
+
+def story_problems(p, pid, pr, cov, keys, slib, P, W):
+    """The story rules of one project (owner 2026-10-27): its structure and beats, at most 3 features, the price only at the end,
+    hooks that open on four different pictures of the bag doing something, one or two proof shots, people in the footage.
+    Returns the project's lead feature (the first one it talks about) or None."""
+    chs, hooks, pres = p.get("chapters") or [], p.get("hooks") or [], p.get("presenter")
+    body = [c for c in chs if c.get("kind") != "offer"]
+    st = slib.get(p.get("structure") or "")
+    if not st:
+        if not re.fullmatch(r"[a-z][a-z0-9_]{2,23}", str(p.get("structure") or "")) or len(str(p.get("structure_name") or "")) < 4 \
+                or len(str(p.get("shape") or "")) < 60:
+            P.append(f"{pid}: structure: one of {', '.join(slib)} or one of your own (an id, structure_name and shape of at least 60 characters)")
+        elif any(not c.get("beat") for c in body):
+            W.append(f"{pid}: name each chapter's beat (the part of your structure it is)")
+    else:
+        ids = [b["id"] for b in st["beats"]]
+        bad = [c.get("beat") for c in body if c.get("beat") not in ids]
+        if bad:
+            P.append(f"{pid}: beat {bad[0]!r} is not one of {st['name']}'s beats ({', '.join(ids)})")
+        else:
+            order = [ids.index(c["beat"]) for c in body]
+            if order != sorted(order):
+                P.append(f"{pid}: the beats are out of {st['name']}'s order ({' -> '.join(ids)})")
+            miss = [b["id"] for b in st["beats"] if b.get("required") and b["id"] != "offer" and b["id"] not in {c["beat"] for c in body}]
+            if miss:
+                P.append(f"{pid}: {st['name']} needs the beat(s) {', '.join(miss)}")
+    feats = []
+    for c in body:
+        for t in features_in(c.get("text"), keys) + ([c["tag"]] if c.get("tag") in {k[0] for k in keys} else []):
+            if t not in feats:
+                feats.append(t)
+    if len(feats) > STORY_MAX_FEATURES:
+        P.append(f"{pid}: {len(feats)} features ({', '.join(feats)}): a story talks about at most {STORY_MAX_FEATURES}; one promise, "
+                 f"not a feature list")
+    for j, c in enumerate(chs, 1):
+        m = PRICE_WORDS.search(c.get("text") or "") or PRICE_WORDS.search(c.get("tag") or "")
+        if m and c.get("kind") != "offer":
+            P.append(f"{pid} c{j}: {m.group(0)!r}: the price, the sale and the bundle are said only in the last chapter")
+    priced = [k for k, h in enumerate(hooks[:4], 1) if PRICE_WORDS.search(h.get("text") or "") or h.get("type") == "price"]
+    if len(priced) > 1:
+        P.append(f"{pid}: hooks {', '.join(f'H{k}' for k in priced)} open on the price: one price hook at most, the others a moment or a question")
+    if not pres:
+        firsts = []
+        for k, h in enumerate(hooks[:4], 1):
+            sh = h.get("show") or []
+            if not sh or sh[0] in STILL_TAGS:
+                P.append(f"{pid} H{k}: the hook opens on {sh[0] if sh else 'nothing'!r}: show the bag doing something (a movement or a person: "
+                         f"{', '.join(sorted(PROOF_TAGS | PEOPLE_TAGS))})")
+            elif cov and cov.get(sh[0], [0])[0] < MIN_MOMENTS:
+                W.append(f"{pid} H{k}: only {cov.get(sh[0], [0])[0]} good footage moments show '{sh[0]}': the opening may not match")
+            firsts.append(sh[0] if sh else None)
+        if len([f for f in firsts if f]) != len({f for f in firsts if f}):
+            P.append(f"{pid}: the hooks open on the same picture ({', '.join(str(f) for f in firsts)}): four hooks, four different first `show` tags")
+        if sum(1 for c in body if set(c.get("show") or []) & PEOPLE_TAGS) < 2 and cov and \
+                max(cov.get(t, [0])[0] for t in PEOPLE_TAGS) >= MIN_MOMENTS:
+            P.append(f"{pid}: show the bag on a person (worn / walking) in at least two chapters: the footage has them, people sell")
+    proofs = [c for c in body if c.get("proof_shot")]
+    if not 1 <= len(proofs) <= 2:
+        P.append(f"{pid}: {len(proofs)} proof shots: one chapter (two at most) with \"proof_shot\": true, where the picture proves the line "
+                 f"(held 2-3 s with the clip's own sound)")
+    for c in proofs:
+        if not set(c.get("show") or []) & PROOF_TAGS:
+            P.append(f"{pid}: the proof shot ({(c.get('text') or '')[:30]!r}...) shows {c.get('show')}: it needs a movement "
+                     f"({', '.join(sorted(PROOF_TAGS))})")
+        if pres and c.get("cam") == "full":
+            P.append(f"{pid}: a proof shot is footage: its chapter's cam cannot be 'full'")
+    return feats[0] if feats else None
 
 
 def ad_format(s, lib=None):
@@ -226,9 +343,11 @@ def ad_problems(s, sid, lib, P, W, items):
         W.append(f"{sid}: the {fmt.get('id')} format has nobody in the picture, but the scene names a person: ai_gen tells the model nobody is there")
 
 
-def check(sheet, pr, n_projects=None, n_statics=None, exclude=None):
+def check(sheet, pr, n_projects=None, n_statics=None, exclude=None, day=None):
     """(problems, warnings) of a sheet. A problem stops `plan`; a warning is said in its output. exclude: a batch id (B045) whose own
-    entries in the novelty log do not count (a redo of that batch re-checks its own sheet)."""
+    entries in the novelty log do not count (a redo of that batch re-checks its own sheet). day: the rules of that day (default today;
+    a committed sheet is checked by the rules of its own date)."""
+    import datetime
     import compliance
     import footage_index
     import novelty
@@ -256,10 +375,16 @@ def check(sheet, pr, n_projects=None, n_statics=None, exclude=None):
                  for c in v.get("chapters") or [] for t in sents(c)}
     seen_ids, seen_slugs, seen_ideas = set(), set(), []
     lib = formats()["formats"]
+    story = (day or datetime.date.today().isoformat()) >= STORY_FROM
+    slib, keys, leads = structures()["structures"], feature_keys(pr), {}
     items = []                                           # every text for the compliance check
     for p in projs:
         pid = p.get("id") or "?"
         where = f"{pid}"
+        if story:
+            lead = story_problems(p, pid, pr, cov, keys, slib, P, W)
+            if lead:
+                leads.setdefault(lead, []).append(pid)
         pres = p.get("presenter")
         scene_ids = []
         if pres:
@@ -353,6 +478,23 @@ def check(sheet, pr, n_projects=None, n_statics=None, exclude=None):
         wr = PRES_WORDS if pres else WORDS
         if chs and not wr[0] <= words + nwords(hooks[0]["text"] if hooks else "") <= wr[1]:
             P.append(f"{where}: {words} words in all: a 55-80 s video needs {wr[0]}-{wr[1]} (about {'2.5' if pres else '3.1'} words a second)")
+    if story and projs:          # the batch (owner 2026-10-27): other stories, other lead features, one presenter
+        for f, ps in leads.items():
+            if len(ps) > 1:
+                P.append(f"videos: {', '.join(ps)} all lead with {f}: each video leads with a different feature")
+        stl = [p.get("structure") for p in projs]
+        for x in sorted({x for x in stl if x and stl.count(x) > 1}):
+            P.append(f"videos: the structure {x!r} is used {stl.count(x)} times: each video a different story shape")
+        last = set(novelty.recent(pr["name"], "structure", last=1, log=nl))
+        for p in projs:
+            if p.get("structure") in last:
+                P.append(f"{p.get('id')}: the structure {p['structure']!r} was in {pr['name']}'s last batch: pick another or invent one")
+        n_pres = sum(1 for p in projs if p.get("presenter"))
+        if len(projs) >= 2 and not n_pres and not sheet.get("no_presenter"):
+            P.append("videos: one project of a batch of 2+ carries the presenter (owner 2026-10-27, about 225 credits); when the request says "
+                     "no presenter, set \"no_presenter\": \"<its words>\"")
+        elif n_pres > 1:
+            W.append(f"videos: {n_pres} presenter projects (about 225 credits each): only when the request names that many")
     allowed = sorted({(int(m.group(1)) if m.group(1).isdigit() else compliance.ONES[m.group(1).lower()])
                       for i_ in items for m in compliance.COUNT_WORD.finditer(i_["text"])})      # ('Five things ...': a count the video shows, not a stat)
     for k, s in enumerate(stats, 1):
@@ -430,8 +572,11 @@ def scripts(sheet, pr, hooks=4):
     import shotmatch
     import ugc_script as U
     ctx = U.context(pr)
+    slib = structures()["structures"]
     out = []
     for i, p in enumerate(sheet["projects"]):
+        beats = {b["id"]: b for b in (slib.get(p.get("structure") or "") or {}).get("beats") or []}
+
         def hook(h):
             return dict(U.H(h["text"].strip(), h["type"], h["label"].strip().upper(), None), show=list(h.get("show") or []),
                         **({"scene": h.get("scene")} if p.get("presenter") and h.get("scene") else {}))
@@ -444,12 +589,19 @@ def scripts(sheet, pr, hooks=4):
             ch = U.chapter(c["text"].strip(), c["kind"], None, c.get("number"), None, kw=kw,
                            keywords=[w.lower() for w in c.get("highlight") or [] if w.lower() in c["text"].lower()][:3])
             ch.update(id=f"c{j}", tag=(c.get("tag") or None), feature=(c.get("tag") or None), show=show)
+            if c.get("proof_shot"):           # the shot that proves the line: held 2-3 s, the clip's own sound (storyboard)
+                ch["proof"] = True
+            if c.get("beat"):
+                ch["beat"] = c["beat"]
+            pace = c.get("pace") or (beats.get(c.get("beat") or "") or {}).get("pace")
+            if pace in ("slow", "fast"):      # the beat's shot length (storyboard: slow ~2.4 s, fast ~1.6 s)
+                ch["pace"] = pace
             if p.get("presenter"):
                 ch.update(cam=c.get("cam") or "open", **({"scene": c["scene"]} if c.get("scene") else {}))
             chs.append(ch)
         sc = U.finish(ctx, dict(id=f"U{i + 1:02d}", index=i, angle=p["slug"], voice="you", product=pr.get("key"), hook=hs[0],
                                 alt_hooks=hs[1:], chapters=chs))
-        sc.update(title=p["title"], idea=p["big_idea"], from_sheet=True)
+        sc.update(title=p["title"], idea=p["big_idea"], from_sheet=True, **({"structure": p["structure"]} if p.get("structure") else {}))
         if p.get("presenter"):
             sc["presenter"] = p["presenter"]
         out.append(sc)
@@ -476,7 +628,8 @@ def past(pr):
         out.append(f"\n  Batch '{b.get('name')}' ({b.get('date')}):")
         for v in b.get("videos") or []:
             if v.get("chapters"):
-                out.append(f"    video angle {v.get('angle')}: hook {v.get('hook')!r}; lines: " +
+                out.append(f"    video angle {v.get('angle')}{' (structure ' + v['structure'] + ')' if v.get('structure') else ''}: "
+                           f"hook {v.get('hook')!r}; lines: " +
                            " / ".join(c[:70] for c in v["chapters"][:3]) + " ...")
             elif v.get("hook"):
                 out.append(f"    hook version: {v['hook']!r} ({v.get('hook_type')})")
@@ -535,6 +688,21 @@ def packet(pr, theme, n_projects, n_statics, request=""):
           "- No exact prices in new lines or statics while the owner tests a price change: say the % ('50% off', 'up to 60% off').",
           "- Statics: one idea each, few words, the bag big; most should be AI ads (the AI ads 'seem to be starting to work': owner): "
           "the `ad` formats of section 5, each batch new ones, realistic, never the same look twice."]
+    sl = structures()
+    import novelty as NV
+    last_s = NV.recent(pr["name"], "structure", last=1)
+    L += ["\n### The videos are stories (owner 2026-10-27: 'go ahead'; B025 / B027 were feature lists in costumes: every project walked "
+          "through the same five features)\n"] + [f"- {x}" for x in sl["rules"]] + [
+          f"- One project of a batch of 2+ carries the presenter (owner 2026-10-27: one a batch, about 225 credits); the request saying "
+          f"no presenter: \"no_presenter\": \"<its words>\" in the sheet.",
+          f"- Structures the product's last batch used (not this batch): {', '.join(last_s) or 'none'}. Invent one when none fits "
+          f"(structure id of your own, structure_name, shape).",
+          "\nThe story structures (data/story_structures.json; each chapter names its `beat`, the beats in this order):\n"]
+    for x in sl["structures"].values():
+        L.append(f"- `{x['id']}` {x['name']}: {x['shape']} Beats: " + " -> ".join(
+            b["id"] + ("*" if b.get("required") else "") + (" (proof)" if b.get("proof") else "") for b in x["beats"]) +
+            f". E.g. {x.get('example', '')}")
+    L += ["(* = required; (proof) = the beat that usually carries the proof shot)"]
     L += ["\n## 2. What the footage library can SHOW (good, face-free moments per tag; the picture of each line is chosen from these)\n"]
     for tag, (n, ex) in sorted(cov.items(), key=lambda kv: -kv[1][0]):
         L.append(f"- `{tag}`: {n}" + (f"  (e.g. {'; '.join(ex)})" if ex else ""))

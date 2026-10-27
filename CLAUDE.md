@@ -58,7 +58,7 @@ The repo's default branch is `claude/loving-meitner-4amjii`. Read `docs/PLAYBOOK
    for the AI assets `media_upload` + `media_confirm`, `generate_image_batch`, `generate_video_batch`; and `jobs_wait`,
    `balance`, `transactions`; for a NEW presenter (not a batch): `generate_image_batch` with `soul_2`, `show_characters`
    (train a Soul ID) and `show_reference_elements`. One ugc project (one voice take per chapter + 4 hook lines) costs about 4-5 credits, a full
-   batch (5 projects) about 22; a scene still ~1, a clip 4.5-6. **A batch is capped at 100 credits, voiceover + AI together** (a batch with a presenter adds her stills and takes on top:
+   batch (5 projects) about 22; a scene still ~1, a clip 4.5-6; the one presenter project of a batch of 2+ about 225 (section 4). **A batch is capped at 100 credits, voiceover + AI together** (a batch with a presenter adds her stills and takes on top:
    ~2.5 credits per second of her talking, a 4-project batch ~900; `plan` caps that part at 1000 (`--presenter-cap X` when the request names
    more) and prints it as `presenter`)
    (`plan` plans the AI part inside it: 100 - voiceover - a reserve of 8 for one re-make of a failed asset; `plan` refuses more
@@ -287,7 +287,7 @@ then `--product "<key>"`. No folder, no photos, not on the site: make nothing an
 | a theme | `--theme "<words>"`: black friday, cyber monday, christmas, gift, mother's day, travel are built in; any other theme: `--theme "<words>"` plus your own short lines with `--lines` (keys `hero`, `bold`, `colours`, `P01_hook` / `V01_hook`, `P01_close` …) |
 | "Black Friday" / "Cyber Monday" / "Cyber Week" while the sale runs (23 Oct - 30 Nov 2026) | `--theme "black friday"` (or `cyber monday`): plan adds the campaign by itself (`data/campaign.json`, warning `campaign: ...`): end card "Black Friday Sale" + "UP TO 60% OFF", a sale sentence in the close. No free gifts (removed 2026-10-26), "60% off" only of the 3-Piece Set / named bundles, no returns promise (final sale); each bag keeps its own %; PLAYBOOK 4f |
 | "story" / "long video" / "storytelling" | add `--story` (the classic story format, 1.5-2 min where the product has the footage; plan warns when it runs shorter: say so) |
-| "presenter" / "a woman talking" / "someone talking to camera" / "like the mom videos" / "with a model" | no flag: in the strategist's `ideas.json` the named number of projects carry `"presenter": {"id": "maya", ...}` (all of them when no number is named; "mix" = about half, the rest normal ugc voiceover projects, each with a different idea). `plan` prints the `presenter` credits (~2.5 per second of her talking: a presenter project ~225, four ~900; cap 1000). Say the cost in the reply. No presenter words in the message = normal ugc videos only |
+| "presenter" / "a woman talking" / "someone talking to camera" / "like the mom videos" / "with a model" | no flag: in the strategist's `ideas.json` the named number of projects carry `"presenter": {"id": "maya", ...}` (all of them when no number is named; "mix" = about half, the rest normal ugc voiceover projects, each with a different idea). `plan` prints the `presenter` credits (~2.5 per second of her talking: a presenter project ~225, four ~900; cap 1000). Say the cost in the reply. **No presenter words = one presenter project in every batch of 2+ projects** (owner 2026-10-27), the rest ugc voiceover; "no presenter" / "no model" in the message: none, and the sheet says `"no_presenter": "<the request's words>"` |
 | "the old format" / "classic videos" | add `--classic` (the pre-2026-10-14 output: classic video formats showcase / features / reviews / colours, 40-60 s, and the old static cycle). Only when the request asks for it |
 | "winners with reviews" | add `--winner-reviews` (only when asked: by default winner videos keep their proven body untouched) |
 | "no music" | add `--no-music` |
@@ -318,7 +318,14 @@ python3 pipeline/ideas.py packet --product "<name>" [--theme "<words>"] --projec
    earlier batch did), `why_new` that says what no earlier batch did, 4 hooks of at least 3 types, a complete script of 5-11 chapters
    (170-285 words in all, one voice take each, 'you' form, the offer last ending "Tap the link below."), every chapter with `show` tags
    (what the picture must show while it is said: prefer tags with many footage moments in the packet) and the feature `tag` that shows on
-   screen; **N statics**, about two thirds `ad` (AI-designed ads, owner 2026-10-26: each a different format from the packet's library
+   screen. **Every video is a story, not a feature list** (owner 2026-10-27; B025 / B027 walked through all five features in every
+   project): a `structure` from `pipeline/data/story_structures.json` (one moment, a test live, myth vs fact, gift reveal, advice to a
+   friend, four places, what you carry now, POV, the night before) or one you invent (`structure_name`, `shape`), each once a batch and
+   not the product's last batch's; every chapter names its `beat`; at most 3 features and a different lead feature per project; the
+   price, the %, the sale and the bundle only in the last chapter and in at most one hook; the 4 hooks open on 4 different pictures of
+   the bag doing something (first `show` tag a movement or a person, never hero / placed / colours); one or two `"proof_shot": true`
+   chapters (a movement the picture proves: the shot is held 2-3 s and plays the clip's own sound, e.g. the zip); the bag on a person
+   (worn / walking) in two chapters of every non-presenter project; one presenter project per batch of 2+ (section 4). **N statics**, about two thirds `ad` (AI-designed ads, owner 2026-10-26: each a different format from the packet's library
    (★ = the owner's favourites) or one you invent (`format` id of your own + `format_name`, `art`, `people`; at least one a batch, two with
    6+ ads), never a format the product's last batch used; `words` = the exact 1-4 lines the picture carries, few and short, no price
    figures, no quotation marks; `scene.prompt` = what the picture shows; realistic, the bag closed, no face, no fake buttons / app screens /

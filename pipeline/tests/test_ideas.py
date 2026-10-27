@@ -42,7 +42,7 @@ def test_the_committed_sheet_passes_its_own_check():
     ideas.sale_campaign = lambda theme, day=None: real_camp(theme, "2026-10-21")
     try:
         pr = ideas.product_of("Hobo Bag")
-        P, W = ideas.check(sheet(), pr, 4, 20)
+        P, W = ideas.check(sheet(), pr, 4, 20, day="2026-10-21")
     finally:
         novelty.load, ideas.sale_campaign = real, real_camp
     assert not P, P
@@ -53,7 +53,7 @@ def test_the_same_sheet_fails_while_the_sale_is_final_sale():
     real, real_camp = without_own_batch(), ideas.sale_campaign
     ideas.sale_campaign = lambda theme, day=None: real_camp(theme, "2026-10-25")
     try:
-        P, W = ideas.check(sheet(), ideas.product_of("Hobo Bag"), 4, 20)
+        P, W = ideas.check(sheet(), ideas.product_of("Hobo Bag"), 4, 20, day="2026-10-25")
     finally:
         novelty.load, ideas.sale_campaign = real, real_camp
     assert P and all("easy returns" in x for x in P), P

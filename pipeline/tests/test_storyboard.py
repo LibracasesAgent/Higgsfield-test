@@ -63,9 +63,12 @@ def install_words(sb, d):
             return fake_words(texts[path], sb.dur(path))
         if os.path.basename(path).startswith("_vp_"):
             return fake_words(sb.VP_TEXT[os.path.basename(path)], sb.dur(path))
+        if os.path.basename(path).startswith("_nat_"):         # a proof shot's own sound: nobody talks in it (TALKING: someone does)
+            return [dict(w=w, s=0.1 * i, e=0.1 * i + 0.08) for i, w in enumerate(sb.TALKING)]
         return real(path)
     sb.words = words
     sb.VP_TEXT = {}
+    sb.TALKING = []
 
 
 def classic_board():
@@ -293,6 +296,49 @@ def test_chapter_number_caption(sb, d):
     assert any(p["lines"][0][0] == "1." for p in ph)
 
 
+def test_proof_block_holds_and_plays_its_own_sound(sb, d):
+    """Owner 2026-10-27: the proof block's shots are held longer, PROOF_BEAT s of air follow its line, and its first clip shot plays
+    the clip's own sound (an sfx entry at that shot's second); a slice in which someone talks stays silent; a slow beat cuts slower."""
+    base_segs, _, _, base_total, base_breaks, base_info = ugc_build(sb, d)
+    b = ugc_board()
+    b["blocks"][1]["proof"] = True
+    segs, _, _, total, breaks, info = ugc_build(sb, d, b)
+    assert abs(total - base_total - sb.PROOF_BEAT) < 0.06, (total, base_total)
+
+    def block_shots(sg, br, k):
+        t, out = 0.0, []
+        lo, hi = ([0.0] + br)[k], (br + [99])[k]
+        for x in sg:
+            if lo - 0.01 <= t < hi - 0.01:
+                out.append(x)
+            t += x["dur"]
+        return out
+    mine, theirs = block_shots(segs, breaks, 1), block_shots(base_segs, base_breaks, 1)
+    assert abs(sum(x["dur"] for x in mine) - sum(x["dur"] for x in theirs) - sb.PROOF_BEAT) < 0.06, ([x["dur"] for x in mine], [x["dur"] for x in theirs])
+    assert max(x["dur"] for x in mine) <= sb.PROOF_LONG + 0.04
+    assert len(sb.shot_groups([0.0, 1.7], 3.4)) == 2                                     # two 1.7 s phrases: two shots ...
+    assert sb.shot_groups([0.0, 1.7], 3.4, sb.PROOF_IDEAL, sb.PROOF_LONG) == [(0.0, 3.4)]   # ... in a proof block one held shot
+    nat = [x for x in segs if x.get("natural")]
+    assert len(nat) == 1 and nat[0]["src"] == "c.wav", nat
+    at = sum(x["dur"] for x in segs[:segs.index(nat[0])])
+    assert len(info.get("sfx") or []) == 1 and abs(info["sfx"][0]["at"] - at) < 0.01 and os.path.exists(info["sfx"][0]["src"]), info.get("sfx")
+    assert not base_info.get("sfx")
+    sb.TALKING = ["and", "then", "she", "said"]
+    try:
+        for f in os.listdir(d):
+            if f.startswith("_nat_") and f.endswith("_words.json"):
+                os.remove(os.path.join(d, f))
+        _, _, _, _, _, info2 = ugc_build(sb, d, b)
+        assert not info2.get("sfx"), info2.get("sfx")
+    finally:
+        sb.TALKING = []
+    slow = ugc_board()
+    slow["blocks"][1]["pace"] = "slow"
+    s_segs, _, _, _, s_breaks, _ = ugc_build(sb, d, slow)
+    assert len(block_shots(s_segs, s_breaks, 1)) <= len(theirs)
+    assert len(sb.shot_groups([0.0, 1.1, 2.2, 3.3], 4.4, sb.PACE_IDEAL["slow"])) <= len(sb.shot_groups([0.0, 1.1, 2.2, 3.3], 4.4))
+
+
 def test_master(sb, d):
     """Three voice-prepared takes (pink noise at very different levels, 4 Hz tremolo) mixed with a bed: -14 LUFS, LRA <= 4,
     true peak <= -1.8 (the video lands at -1.5 after recut's loudnorm and the AAC encode)."""
@@ -314,7 +360,7 @@ def test_master(sb, d):
 
 
 TESTS = [test_classic_build_unchanged, test_voice_prep, test_phrases, test_shot_groups, test_ugc_build, test_no_repeat_within_10s,
-         test_repeat_gets_another_shot, test_one_clip_cuts_are_visible, test_named_picks, test_hook_does_not_change_body, test_chapter_number_caption, test_master]
+         test_repeat_gets_another_shot, test_one_clip_cuts_are_visible, test_named_picks, test_hook_does_not_change_body, test_chapter_number_caption, test_proof_block_holds_and_plays_its_own_sound, test_master]
 
 
 def main():
