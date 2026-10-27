@@ -34,7 +34,8 @@
     "No free gifts and no extra cart discount: both were removed by the owner on 26 October.",
     "The Hobo Bag's product page offers the 3-Piece Set as the 'Best Value' upgrade.",
     "Black Friday prices are live now: no need to wait.",
-    "Sale items are final sale: they cannot be returned (the site's Black Friday terms); faulty items are still covered and the 1-year warranty still applies. Never say 'easy returns', 'free returns' or 'send it back' in a Black Friday ad."
+    "Sale items are final sale: they cannot be returned (the site's Black Friday terms); faulty items are still covered and the 1-year warranty still applies. Never say 'easy returns', 'free returns' or 'send it back' in a Black Friday ad.",
+    "Christmas delivery (the site's Black Friday terms, filled in by 27 October): order by 14 December 2026 for the best chance of delivery before Christmas; delivery before Christmas is not guaranteed, so say 'the best chance', never 'guaranteed by Christmas'."
    ],
    "close": {
     "black friday": "The Early Black Friday sale is on now, with up to sixty percent off.",
@@ -97,6 +98,10 @@
      "rx": "\\blast (?:chance|days?|call)\\b|\\bfinal (?:days?|hours?|chance)\\b",
      "why": "'last chance' is the last week's message (owner's timeline: last-week content by 20 November, for Black Friday 27 Nov - Cyber Monday 30 Nov): before 20 November it is false urgency",
      "except_from": "2026-11-20"
+    },
+    {
+     "rx": "\\bguarantee\\w*\\b[^.!?]{0,40}\\bchristmas\\b|\\bchristmas\\b[^.!?]{0,40}\\bguarantee\\w*\\b|\\b(?:arrives?|delivered|get it|gets there|be there|in time for)\\b[^.!?]{0,20}\\b(?:in time for|by|before) christmas\\b|\\bin time for christmas\\b",
+     "why": "the site's terms: delivery before Christmas is not guaranteed; say 'order by 14 December for the best chance of delivery before Christmas'"
     }
    ]
   }

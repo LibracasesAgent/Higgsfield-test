@@ -669,6 +669,8 @@ Christmas gifting, BF prices are live now; lots of variations". `pipeline/campai
   days" until 20 November (the last-week content); campaign.json `banned` with `except_on` / `except_from`. The Hobo Bag's price is
   $54.95 ($109.90) since 27 October (site: `luxury-hobo-handbag-special-gift-1`, still "+ FREE Pouch Wallet"); six delivered statics
   print the old price (B014 S05 / S14, B016 S14, B019 S10 / S17, B027 S07). Hobo 2.0: "two straps" is an `also` fact in the packet.
+  The terms page is filled in: "order by 14 December 2026 for the best chance of delivery before Christmas" is a campaign fact
+  (true urgency for gift ads); "guaranteed / in time for Christmas" is banned (the terms: not guaranteed).
 
 ### 4g. One bag per ad: the Hobo 2.0's two looks (owner 2026-10-23, after B017; RESOLVED 2026-10-26)
 

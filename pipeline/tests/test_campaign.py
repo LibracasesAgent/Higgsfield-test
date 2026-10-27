@@ -93,6 +93,12 @@ def test_no_false_deadline_before_the_last_days():
         assert probs("Black Friday prices are live now. The sale ends on the thirtieth of November.", camp=c) == [], day
 
 
+def test_christmas_delivery_as_the_terms_say_it():
+    assert probs("Order by 14 December for the best chance of delivery before Christmas.") == []
+    for t in ("Guaranteed delivery by Christmas.", "It arrives in time for Christmas.", "Order by 20 December."):
+        assert probs(t), t
+
+
 def test_the_hobo_bag_price_is_the_new_one():
     assert any(k == "numbers" for k, _ in probs("The Hobo Bag is now $52.50."))           # the price before 27 October
     assert probs("The Hobo Bag is $54.95, down from $109.90.") == []
