@@ -1,0 +1,1437 @@
+{
+ "prefix": "LC_261027_VintageBag_BlackFriday_B028",
+ "rev": 1,
+ "batch_id": {
+  "id": "B028",
+  "n": 28,
+  "rev": 1
+ },
+ "created": "2026-10-27",
+ "request": "3 projects for the Vintage Bag, Black Friday",
+ "product": "Vintage Bag",
+ "product_key": "vintage",
+ "product_source": "built-in",
+ "theme": "black friday",
+ "theme_name": "BlackFriday",
+ "offer": "50% off",
+ "campaign": {
+  "id": "bf2026",
+  "name": "Black Friday Sale 2026",
+  "theme": "black friday",
+  "banner": "Early Black Friday – 50% off everything, up to 60% off",
+  "until": "2026-11-30",
+  "from": "2026-10-23",
+  "end_title": "Black Friday Sale",
+  "end_pill": "UP TO 60% OFF",
+  "card_sub": "",
+  "close": "The Early Black Friday sale is on now, with up to sixty percent off.",
+  "hooks": [
+   "Black Friday prices are live now. No need to wait.",
+   "Early Black Friday: up to sixty percent off.",
+   "Why wait for Black Friday? The prices are already live."
+  ],
+  "facts": [
+   "Early Black Friday Sale: live now (from 23 October), it runs until 30 November (Cyber Monday). Black Friday is 27 November.",
+   "50% off everything sitewide (each bag's own % is on its offer card: the Hobo Bag is 50% off).",
+   "Up to 60% off: some bundles are 60% off, like the Hobo Bag 3-Piece Set. Say '60% off' only of the 3-Piece Set (or another named bundle), never of a single bag or of 'any 2 bags'.",
+   "No free gifts and no extra cart discount: both were removed by the owner on 26 October.",
+   "The Hobo Bag's product page offers the 3-Piece Set as the 'Best Value' upgrade.",
+   "Black Friday prices are live now: no need to wait.",
+   "Sale items are final sale: they cannot be returned (the site's Black Friday terms); faulty items are still covered and the 1-year warranty still applies. Never say 'easy returns', 'free returns' or 'send it back' in a Black Friday ad.",
+   "Christmas delivery (the site's Black Friday terms, filled in by 27 October): order by 14 December 2026 for the best chance of delivery before Christmas; delivery before Christmas is not guaranteed, so say 'the best chance', never 'guaranteed by Christmas'."
+  ],
+  "bundle_pct": null,
+  "upto_pct": 60,
+  "bundle_any": false,
+  "client_ideas": "Owner 2026-10-26: everything is on sale everywhere, so stand out; the Hobo Bag page upsells the 3-Piece Set ('Best Value'): ads that sell the set raise the order value; 'Black Friday prices are live now, no need to wait'; Christmas gifting (mum, sister, best friend); 2 straps on the Hobo 2.0 (handbag + crossbody); in the last week: Black Friday 27 November, Cyber Monday 30 November, 'last chance'. The AI ads 'seem to be starting to work: keep testing'.",
+  "gifts": [],
+  "gifts_worth": null,
+  "dates": {
+   "black friday": "27 November",
+   "cyber monday": "30 November",
+   "ends": "30 November"
+  },
+  "copy": {
+   "primary": [
+    "Early Black Friday is live: 50% off everything, and up to 60% off bundles like the 3-Piece Set.",
+    "Black Friday prices are live now, no need to wait. 50% off everything, up to 60% off bundles."
+   ],
+   "headline": [
+    "Early Black Friday: 50% Off",
+    "Up to 60% Off Bundles",
+    "Black Friday Prices Are Live"
+   ],
+   "description": "Up to 60% off"
+  },
+  "approved_phrases": [
+   "up to (?:60|sixty) ?(?:%|percent) off(?: bundles?)?",
+   "(?:60|sixty) ?(?:%|percent) off (?:the |our )?(?:hobo (?:bag )?)?3-piece set",
+   "(?:50|fifty) ?(?:%|percent) off everything"
+  ],
+  "approved": "Wouter (owner), 2026-10-23: the Black Friday Sale went live on 23 October and runs until 30 November (Cyber Monday). Up to 50% off sitewide; 60% off bundles (2 or 3 bags bought together at 60% off the regular price); free gifts while stocks last: buy 2 bags, get a free mirrored jewellery box (worth $19.95); buy 3+ bags, get the jewellery box + a free cosmetic bag (together worth $44.90); only bags count, not accessories. The site banner (2026-10-23): 'EARLY BLACK FRIDAY: 50% OFF EVERYTHING | BUY 2 BAGS = 1 FREE GIFT | BUY 3 = 2 FREE GIFTS | ORDER TODAY WHILE STOCKS LAST!' | UPDATE Wouter (owner), 2026-10-26: the free gifts and the extra cart discount on bags are removed ('they're not coming back'); 'It's 50% OFF or you can say up to 60% OFF'; 60% is only on bundles 'like the 3 piece set', not any 2 bags; the site now has Early Black Friday messaging, a countdown in the announcement bar, 'Ships by' and delivery dates, and the 3-Piece Set as a 'Best Value' upgrade on the Hobo Bag page; during Black Friday no returns are accepted (final sale).",
+  "final_sale": true,
+  "terms": "https://libracases.com/pages/terms-and-conditions-black-friday-sale",
+  "banned": [
+   {
+    "rx": "\\bfree gifts?\\b|\\bgifts? with (?:2|two|3|three|every)\\b|\\bfree (?:mirrored )?jewell?e?ry box(?:es)?\\b|\\bfree (?:travel )?cosmetic bags?\\b|\\bjewell?e?ry box\\b|\\bcosmetic bag\\b",
+    "why": "the free gifts were removed by the owner on 26 October (not coming back): say the bag's own free pouch wallet, if it has one"
+   },
+   {
+    "rx": "(?:60|sixty) ?(?:%|percent) off\\b[^.!?]{0,60}\\b(?:(?:2|two) (?:or (?:3|three) )?bags|(?:3|three) bags|(?:2|two) or (?:3|three)|second bag|together)|\\b(?:2|two) or (?:3|three) bags\\b[^.!?]{0,30}(?:60|sixty) ?(?:%|percent)",
+    "why": "60% is only on bundles like the 3-Piece Set, not on any 2 or 3 bags (owner, 26 October): say 'up to 60% off' or '60% off the 3-Piece Set'"
+   },
+   {
+    "rx": "\\b(?:ends?|ending) (?:tonight|today)\\b|\\btoday only\\b|\\bonly today\\b|\\b(?:sale|deal|offer)s? ends? (?:soon|in \\d+ (?:hours?|minutes?|days?))\\b|\\bhours? left\\b",
+    "why": "the sale runs until 30 November (owner 2026-10-23; the site banner's 'ends tonight' is the owner's choice for the site only): before the last day 'ends tonight / today only' is false and Meta flags ads whose deadline differs from the landing page; say 'Black Friday prices are live now' or 'the sale ends on the thirtieth of November'",
+    "except_on": [
+     "2026-11-30"
+    ]
+   },
+   {
+    "rx": "\\blast (?:chance|days?|call)\\b|\\bfinal (?:days?|hours?|chance)\\b",
+    "why": "'last chance' is the last week's message (owner's timeline: last-week content by 20 November, for Black Friday 27 Nov - Cyber Monday 30 Nov): before 20 November it is false urgency",
+    "except_from": "2026-11-20"
+   },
+   {
+    "rx": "\\bguarantee\\w*\\b[^.!?]{0,40}\\bchristmas\\b|\\bchristmas\\b[^.!?]{0,40}\\bguarantee\\w*\\b|\\b(?:arrives?|delivered|get it|gets there|be there|in time for)\\b[^.!?]{0,20}\\b(?:in time for|by|before) christmas\\b|\\bin time for christmas\\b",
+    "why": "the site's terms: delivery before Christmas is not guaranteed; say 'order by 14 December for the best chance of delivery before Christmas'"
+   }
+  ]
+ },
+ "statics": [],
+ "videos": [
+  {
+   "name": "LC_261027_VintageBag_BlackFriday_B028_P01_H1_onehandtest",
+   "id": "P01H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "ugc": {
+    "script": "U01",
+    "angle": "onehandtest",
+    "words": 199,
+    "structure": "live_test",
+    "hook": {
+     "type": "question",
+     "label": "ONE-HAND TEST",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Both hands full, and your bag is hanging open.",
+      "type": "problem",
+      "label": "HANDS FULL",
+      "feature": null,
+      "show": [
+       "walking",
+       "handheld"
+      ]
+     },
+     {
+      "text": "One hand, one snap, and the bag is shut. Watch.",
+      "type": "promise",
+      "label": "ONE SNAP",
+      "feature": null,
+      "show": [
+       "worn",
+       "snap"
+      ]
+     },
+     {
+      "text": "Black Friday prices are live now, and this bag shuts with one hand.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "strap",
+       "worn"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Both hands full, and your bag is hanging open.": [
+      [
+       "1jOeA-YhiSvgn7lf8YhKR87RNvSOGrTWT",
+       18.77,
+       1.0
+      ],
+      [
+       "1LvvnZKxAdkdxoYbD7CWAttjNbFgG_SRF",
+       1.93,
+       1.0
+      ]
+     ],
+     "One hand, one snap, and the bag is shut. Watch.": [
+      [
+       "1D4E7XWSZLSRqsrzK9KkWxSXmzg7s2xcm",
+       0.3,
+       1.0
+      ],
+      [
+       "1jgkCse4uMTSToBBDAFFpF0gx_6qI4Zo6",
+       6.48,
+       1.0
+      ]
+     ],
+     "Black Friday prices are live now, and this bag shuts with one hand.": [
+      [
+       "1HNUEQK0mMmDiVbvsG41nEmwlON-IFoU9",
+       5.92,
+       1.0
+      ],
+      [
+       "1xWaBIVn543CxSr0WmqHEuasUJJGPcb55",
+       16.84,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 66.5,
+   "project": "P01",
+   "hook_text": "Can you close your bag with one hand while holding a coffee?",
+   "hook_label": "ONE-HAND TEST",
+   "hook_type": "question",
+   "opening_shot": [
+    "1QjuuSmdJghJjax9FAFoC7_FOql87OB0A",
+    0.3
+   ]
+  },
+  {
+   "name": "LC_261027_VintageBag_BlackFriday_B028_P01_H2_onehandtest",
+   "id": "P01H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "ugc": {
+    "script": "U01",
+    "angle": "onehandtest",
+    "words": 199,
+    "structure": "live_test",
+    "hook": {
+     "type": "question",
+     "label": "ONE-HAND TEST",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Both hands full, and your bag is hanging open.",
+      "type": "problem",
+      "label": "HANDS FULL",
+      "feature": null,
+      "show": [
+       "walking",
+       "handheld"
+      ]
+     },
+     {
+      "text": "One hand, one snap, and the bag is shut. Watch.",
+      "type": "promise",
+      "label": "ONE SNAP",
+      "feature": null,
+      "show": [
+       "worn",
+       "snap"
+      ]
+     },
+     {
+      "text": "Black Friday prices are live now, and this bag shuts with one hand.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "strap",
+       "worn"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Both hands full, and your bag is hanging open.": [
+      [
+       "1jOeA-YhiSvgn7lf8YhKR87RNvSOGrTWT",
+       18.77,
+       1.0
+      ],
+      [
+       "1LvvnZKxAdkdxoYbD7CWAttjNbFgG_SRF",
+       1.93,
+       1.0
+      ]
+     ],
+     "One hand, one snap, and the bag is shut. Watch.": [
+      [
+       "1D4E7XWSZLSRqsrzK9KkWxSXmzg7s2xcm",
+       0.3,
+       1.0
+      ],
+      [
+       "1jgkCse4uMTSToBBDAFFpF0gx_6qI4Zo6",
+       6.48,
+       1.0
+      ]
+     ],
+     "Black Friday prices are live now, and this bag shuts with one hand.": [
+      [
+       "1HNUEQK0mMmDiVbvsG41nEmwlON-IFoU9",
+       5.92,
+       1.0
+      ],
+      [
+       "1xWaBIVn543CxSr0WmqHEuasUJJGPcb55",
+       16.84,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 65.5,
+   "project": "P01",
+   "hook_text": "Both hands full, and your bag is hanging open.",
+   "hook_label": "HANDS FULL",
+   "hook_type": "problem",
+   "opening_shot": [
+    "1jOeA-YhiSvgn7lf8YhKR87RNvSOGrTWT",
+    18.77
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261027_VintageBag_BlackFriday_B028_P01_H3_onehandtest",
+   "id": "P01H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "ugc": {
+    "script": "U01",
+    "angle": "onehandtest",
+    "words": 199,
+    "structure": "live_test",
+    "hook": {
+     "type": "question",
+     "label": "ONE-HAND TEST",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Both hands full, and your bag is hanging open.",
+      "type": "problem",
+      "label": "HANDS FULL",
+      "feature": null,
+      "show": [
+       "walking",
+       "handheld"
+      ]
+     },
+     {
+      "text": "One hand, one snap, and the bag is shut. Watch.",
+      "type": "promise",
+      "label": "ONE SNAP",
+      "feature": null,
+      "show": [
+       "worn",
+       "snap"
+      ]
+     },
+     {
+      "text": "Black Friday prices are live now, and this bag shuts with one hand.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "strap",
+       "worn"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Both hands full, and your bag is hanging open.": [
+      [
+       "1jOeA-YhiSvgn7lf8YhKR87RNvSOGrTWT",
+       18.77,
+       1.0
+      ],
+      [
+       "1LvvnZKxAdkdxoYbD7CWAttjNbFgG_SRF",
+       1.93,
+       1.0
+      ]
+     ],
+     "One hand, one snap, and the bag is shut. Watch.": [
+      [
+       "1D4E7XWSZLSRqsrzK9KkWxSXmzg7s2xcm",
+       0.3,
+       1.0
+      ],
+      [
+       "1jgkCse4uMTSToBBDAFFpF0gx_6qI4Zo6",
+       6.48,
+       1.0
+      ]
+     ],
+     "Black Friday prices are live now, and this bag shuts with one hand.": [
+      [
+       "1HNUEQK0mMmDiVbvsG41nEmwlON-IFoU9",
+       5.92,
+       1.0
+      ],
+      [
+       "1xWaBIVn543CxSr0WmqHEuasUJJGPcb55",
+       16.84,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 65.9,
+   "project": "P01",
+   "hook_text": "One hand, one snap, and the bag is shut. Watch.",
+   "hook_label": "ONE SNAP",
+   "hook_type": "promise",
+   "opening_shot": [
+    "1D4E7XWSZLSRqsrzK9KkWxSXmzg7s2xcm",
+    0.3
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261027_VintageBag_BlackFriday_B028_P01_H4_onehandtest",
+   "id": "P01H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "ugc": {
+    "script": "U01",
+    "angle": "onehandtest",
+    "words": 199,
+    "structure": "live_test",
+    "hook": {
+     "type": "question",
+     "label": "ONE-HAND TEST",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Both hands full, and your bag is hanging open.",
+      "type": "problem",
+      "label": "HANDS FULL",
+      "feature": null,
+      "show": [
+       "walking",
+       "handheld"
+      ]
+     },
+     {
+      "text": "One hand, one snap, and the bag is shut. Watch.",
+      "type": "promise",
+      "label": "ONE SNAP",
+      "feature": null,
+      "show": [
+       "worn",
+       "snap"
+      ]
+     },
+     {
+      "text": "Black Friday prices are live now, and this bag shuts with one hand.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "strap",
+       "worn"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Both hands full, and your bag is hanging open.": [
+      [
+       "1jOeA-YhiSvgn7lf8YhKR87RNvSOGrTWT",
+       18.77,
+       1.0
+      ],
+      [
+       "1LvvnZKxAdkdxoYbD7CWAttjNbFgG_SRF",
+       1.93,
+       1.0
+      ]
+     ],
+     "One hand, one snap, and the bag is shut. Watch.": [
+      [
+       "1D4E7XWSZLSRqsrzK9KkWxSXmzg7s2xcm",
+       0.3,
+       1.0
+      ],
+      [
+       "1jgkCse4uMTSToBBDAFFpF0gx_6qI4Zo6",
+       6.48,
+       1.0
+      ]
+     ],
+     "Black Friday prices are live now, and this bag shuts with one hand.": [
+      [
+       "1HNUEQK0mMmDiVbvsG41nEmwlON-IFoU9",
+       5.92,
+       1.0
+      ],
+      [
+       "1xWaBIVn543CxSr0WmqHEuasUJJGPcb55",
+       16.84,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 66.8,
+   "project": "P01",
+   "hook_text": "Black Friday prices are live now, and this bag shuts with one hand.",
+   "hook_label": "BLACK FRIDAY",
+   "hook_type": "price",
+   "opening_shot": [
+    "1HNUEQK0mMmDiVbvsG41nEmwlON-IFoU9",
+    5.92
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261027_VintageBag_BlackFriday_B028_P02_H1_friendsaturday",
+   "id": "P02H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "ugc": {
+    "script": "U02",
+    "angle": "friendsaturday",
+    "words": 160,
+    "structure": "friend_advice",
+    "hook": {
+     "type": "question",
+     "label": "ALL-DAY BAG",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Switching bags halfway through the day is the real hassle.",
+      "type": "problem",
+      "label": "NO BAG SWITCH",
+      "feature": null,
+      "show": [
+       "strap",
+       "worn"
+      ],
+      "scene": "sofa"
+     },
+     {
+      "text": "A bag you can wear as a handbag or as a crossbody.",
+      "type": "promise",
+      "label": "TWO WAYS",
+      "feature": null,
+      "show": [
+       "strap",
+       "handheld"
+      ],
+      "scene": "cafe"
+     },
+     {
+      "text": "Black Friday prices are live now. Here's what to look for in a bag.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "worn",
+       "walking"
+      ],
+      "scene": "sofa"
+     }
+    ],
+    "numbers": [],
+    "presenter": {
+     "id": "maya",
+     "scenes": [
+      {
+       "id": "cafe",
+       "where": "She sits at a small round table in a sunny cafe, a latte in a white cup in front of her, warm daylight from the window beside her, a softly blurred cafe behind.",
+       "outfit": "She wears a denim shirt.",
+       "bag": "resting on the table beside her cup",
+       "colour": "Ginger Brown",
+       "ambience": "Quiet cafe ambience"
+      },
+      {
+       "id": "sofa",
+       "where": "She sits on a cream sofa in a bright living room, a green plant and a knitted blanket beside her, soft daylight from a window, a softly blurred room behind.",
+       "outfit": "She wears a cream knit jumper.",
+       "bag": "resting on the sofa cushion beside her",
+       "colour": "Ginger Brown",
+       "ambience": "Quiet living room ambience"
+      }
+     ]
+    }
+   },
+   "est_seconds": 66.2,
+   "project": "P02",
+   "hook_text": "Which bag works for brunch, errands and the walk home?",
+   "hook_label": "ALL-DAY BAG",
+   "hook_type": "question",
+   "opening_shot": [
+    "TALK",
+    0
+   ]
+  },
+  {
+   "name": "LC_261027_VintageBag_BlackFriday_B028_P02_H2_friendsaturday",
+   "id": "P02H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "ugc": {
+    "script": "U02",
+    "angle": "friendsaturday",
+    "words": 160,
+    "structure": "friend_advice",
+    "hook": {
+     "type": "question",
+     "label": "ALL-DAY BAG",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Switching bags halfway through the day is the real hassle.",
+      "type": "problem",
+      "label": "NO BAG SWITCH",
+      "feature": null,
+      "show": [
+       "strap",
+       "worn"
+      ],
+      "scene": "sofa"
+     },
+     {
+      "text": "A bag you can wear as a handbag or as a crossbody.",
+      "type": "promise",
+      "label": "TWO WAYS",
+      "feature": null,
+      "show": [
+       "strap",
+       "handheld"
+      ],
+      "scene": "cafe"
+     },
+     {
+      "text": "Black Friday prices are live now. Here's what to look for in a bag.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "worn",
+       "walking"
+      ],
+      "scene": "sofa"
+     }
+    ],
+    "numbers": [],
+    "presenter": {
+     "id": "maya",
+     "scenes": [
+      {
+       "id": "cafe",
+       "where": "She sits at a small round table in a sunny cafe, a latte in a white cup in front of her, warm daylight from the window beside her, a softly blurred cafe behind.",
+       "outfit": "She wears a denim shirt.",
+       "bag": "resting on the table beside her cup",
+       "colour": "Ginger Brown",
+       "ambience": "Quiet cafe ambience"
+      },
+      {
+       "id": "sofa",
+       "where": "She sits on a cream sofa in a bright living room, a green plant and a knitted blanket beside her, soft daylight from a window, a softly blurred room behind.",
+       "outfit": "She wears a cream knit jumper.",
+       "bag": "resting on the sofa cushion beside her",
+       "colour": "Ginger Brown",
+       "ambience": "Quiet living room ambience"
+      }
+     ]
+    }
+   },
+   "est_seconds": 66.2,
+   "project": "P02",
+   "hook_text": "Switching bags halfway through the day is the real hassle.",
+   "hook_label": "NO BAG SWITCH",
+   "hook_type": "problem",
+   "opening_shot": null,
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261027_VintageBag_BlackFriday_B028_P02_H3_friendsaturday",
+   "id": "P02H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "ugc": {
+    "script": "U02",
+    "angle": "friendsaturday",
+    "words": 160,
+    "structure": "friend_advice",
+    "hook": {
+     "type": "question",
+     "label": "ALL-DAY BAG",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Switching bags halfway through the day is the real hassle.",
+      "type": "problem",
+      "label": "NO BAG SWITCH",
+      "feature": null,
+      "show": [
+       "strap",
+       "worn"
+      ],
+      "scene": "sofa"
+     },
+     {
+      "text": "A bag you can wear as a handbag or as a crossbody.",
+      "type": "promise",
+      "label": "TWO WAYS",
+      "feature": null,
+      "show": [
+       "strap",
+       "handheld"
+      ],
+      "scene": "cafe"
+     },
+     {
+      "text": "Black Friday prices are live now. Here's what to look for in a bag.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "worn",
+       "walking"
+      ],
+      "scene": "sofa"
+     }
+    ],
+    "numbers": [],
+    "presenter": {
+     "id": "maya",
+     "scenes": [
+      {
+       "id": "cafe",
+       "where": "She sits at a small round table in a sunny cafe, a latte in a white cup in front of her, warm daylight from the window beside her, a softly blurred cafe behind.",
+       "outfit": "She wears a denim shirt.",
+       "bag": "resting on the table beside her cup",
+       "colour": "Ginger Brown",
+       "ambience": "Quiet cafe ambience"
+      },
+      {
+       "id": "sofa",
+       "where": "She sits on a cream sofa in a bright living room, a green plant and a knitted blanket beside her, soft daylight from a window, a softly blurred room behind.",
+       "outfit": "She wears a cream knit jumper.",
+       "bag": "resting on the sofa cushion beside her",
+       "colour": "Ginger Brown",
+       "ambience": "Quiet living room ambience"
+      }
+     ]
+    }
+   },
+   "est_seconds": 67.0,
+   "project": "P02",
+   "hook_text": "A bag you can wear as a handbag or as a crossbody.",
+   "hook_label": "TWO WAYS",
+   "hook_type": "promise",
+   "opening_shot": null,
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261027_VintageBag_BlackFriday_B028_P02_H4_friendsaturday",
+   "id": "P02H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "ugc": {
+    "script": "U02",
+    "angle": "friendsaturday",
+    "words": 160,
+    "structure": "friend_advice",
+    "hook": {
+     "type": "question",
+     "label": "ALL-DAY BAG",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Switching bags halfway through the day is the real hassle.",
+      "type": "problem",
+      "label": "NO BAG SWITCH",
+      "feature": null,
+      "show": [
+       "strap",
+       "worn"
+      ],
+      "scene": "sofa"
+     },
+     {
+      "text": "A bag you can wear as a handbag or as a crossbody.",
+      "type": "promise",
+      "label": "TWO WAYS",
+      "feature": null,
+      "show": [
+       "strap",
+       "handheld"
+      ],
+      "scene": "cafe"
+     },
+     {
+      "text": "Black Friday prices are live now. Here's what to look for in a bag.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "worn",
+       "walking"
+      ],
+      "scene": "sofa"
+     }
+    ],
+    "numbers": [],
+    "presenter": {
+     "id": "maya",
+     "scenes": [
+      {
+       "id": "cafe",
+       "where": "She sits at a small round table in a sunny cafe, a latte in a white cup in front of her, warm daylight from the window beside her, a softly blurred cafe behind.",
+       "outfit": "She wears a denim shirt.",
+       "bag": "resting on the table beside her cup",
+       "colour": "Ginger Brown",
+       "ambience": "Quiet cafe ambience"
+      },
+      {
+       "id": "sofa",
+       "where": "She sits on a cream sofa in a bright living room, a green plant and a knitted blanket beside her, soft daylight from a window, a softly blurred room behind.",
+       "outfit": "She wears a cream knit jumper.",
+       "bag": "resting on the sofa cushion beside her",
+       "colour": "Ginger Brown",
+       "ambience": "Quiet living room ambience"
+      }
+     ]
+    }
+   },
+   "est_seconds": 67.8,
+   "project": "P02",
+   "hook_text": "Black Friday prices are live now. Here's what to look for in a bag.",
+   "hook_label": "BLACK FRIDAY",
+   "hook_type": "price",
+   "opening_shot": null,
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261027_VintageBag_BlackFriday_B028_P03_H1_nightbefore",
+   "id": "P03H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "ugc": {
+    "script": "U03",
+    "angle": "nightbefore",
+    "words": 182,
+    "structure": "night_before",
+    "hook": {
+     "type": "promise",
+     "label": "OWN SPOT",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "What goes where in your bag the night before a long day?",
+      "type": "question",
+      "label": "NIGHT BEFORE",
+      "feature": null,
+      "show": [
+       "pocket",
+       "packing"
+      ]
+     },
+     {
+      "text": "Grab-and-go mornings are hard when your bag is a black hole.",
+      "type": "problem",
+      "label": "GRAB AND GO",
+      "feature": null,
+      "show": [
+       "walking",
+       "worn"
+      ]
+     },
+     {
+      "text": "Black Friday prices are live now. Pack this bag tonight.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "strap",
+       "worn"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "What goes where in your bag the night before a long day?": [
+      [
+       "1jgkCse4uMTSToBBDAFFpF0gx_6qI4Zo6",
+       3.49,
+       1.0
+      ],
+      [
+       "17iFr-T6Hmi4mhwk5ZAaeEt3rIeZ1G1Rj",
+       0.71,
+       1.0
+      ]
+     ],
+     "Grab-and-go mornings are hard when your bag is a black hole.": [
+      [
+       "156yw4fhlcKn3WYbzwjndnYzsDh9xw5TI",
+       0.3,
+       1.0
+      ],
+      [
+       "1xWaBIVn543CxSr0WmqHEuasUJJGPcb55",
+       16.84,
+       1.0
+      ]
+     ],
+     "Black Friday prices are live now. Pack this bag tonight.": [
+      [
+       "1u_BcAe6ont2BTbyK5uSi7-QFbgZ8sgML",
+       15.05,
+       1.0
+      ],
+      [
+       "1LvvnZKxAdkdxoYbD7CWAttjNbFgG_SRF",
+       7.78,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 61.0,
+   "project": "P03",
+   "hook_text": "Phone, wallet, keys: everything has its own spot.",
+   "hook_label": "OWN SPOT",
+   "hook_type": "promise",
+   "opening_shot": [
+    "10aSieQA3Lb3YEflOG3dXN2sIgckqMv4f",
+    9.3
+   ]
+  },
+  {
+   "name": "LC_261027_VintageBag_BlackFriday_B028_P03_H2_nightbefore",
+   "id": "P03H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "ugc": {
+    "script": "U03",
+    "angle": "nightbefore",
+    "words": 182,
+    "structure": "night_before",
+    "hook": {
+     "type": "promise",
+     "label": "OWN SPOT",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "What goes where in your bag the night before a long day?",
+      "type": "question",
+      "label": "NIGHT BEFORE",
+      "feature": null,
+      "show": [
+       "pocket",
+       "packing"
+      ]
+     },
+     {
+      "text": "Grab-and-go mornings are hard when your bag is a black hole.",
+      "type": "problem",
+      "label": "GRAB AND GO",
+      "feature": null,
+      "show": [
+       "walking",
+       "worn"
+      ]
+     },
+     {
+      "text": "Black Friday prices are live now. Pack this bag tonight.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "strap",
+       "worn"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "What goes where in your bag the night before a long day?": [
+      [
+       "1jgkCse4uMTSToBBDAFFpF0gx_6qI4Zo6",
+       3.49,
+       1.0
+      ],
+      [
+       "17iFr-T6Hmi4mhwk5ZAaeEt3rIeZ1G1Rj",
+       0.71,
+       1.0
+      ]
+     ],
+     "Grab-and-go mornings are hard when your bag is a black hole.": [
+      [
+       "156yw4fhlcKn3WYbzwjndnYzsDh9xw5TI",
+       0.3,
+       1.0
+      ],
+      [
+       "1xWaBIVn543CxSr0WmqHEuasUJJGPcb55",
+       16.84,
+       1.0
+      ]
+     ],
+     "Black Friday prices are live now. Pack this bag tonight.": [
+      [
+       "1u_BcAe6ont2BTbyK5uSi7-QFbgZ8sgML",
+       15.05,
+       1.0
+      ],
+      [
+       "1LvvnZKxAdkdxoYbD7CWAttjNbFgG_SRF",
+       7.78,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 62.3,
+   "project": "P03",
+   "hook_text": "What goes where in your bag the night before a long day?",
+   "hook_label": "NIGHT BEFORE",
+   "hook_type": "question",
+   "opening_shot": [
+    "1jgkCse4uMTSToBBDAFFpF0gx_6qI4Zo6",
+    3.49
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261027_VintageBag_BlackFriday_B028_P03_H3_nightbefore",
+   "id": "P03H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "ugc": {
+    "script": "U03",
+    "angle": "nightbefore",
+    "words": 182,
+    "structure": "night_before",
+    "hook": {
+     "type": "promise",
+     "label": "OWN SPOT",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "What goes where in your bag the night before a long day?",
+      "type": "question",
+      "label": "NIGHT BEFORE",
+      "feature": null,
+      "show": [
+       "pocket",
+       "packing"
+      ]
+     },
+     {
+      "text": "Grab-and-go mornings are hard when your bag is a black hole.",
+      "type": "problem",
+      "label": "GRAB AND GO",
+      "feature": null,
+      "show": [
+       "walking",
+       "worn"
+      ]
+     },
+     {
+      "text": "Black Friday prices are live now. Pack this bag tonight.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "strap",
+       "worn"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "What goes where in your bag the night before a long day?": [
+      [
+       "1jgkCse4uMTSToBBDAFFpF0gx_6qI4Zo6",
+       3.49,
+       1.0
+      ],
+      [
+       "17iFr-T6Hmi4mhwk5ZAaeEt3rIeZ1G1Rj",
+       0.71,
+       1.0
+      ]
+     ],
+     "Grab-and-go mornings are hard when your bag is a black hole.": [
+      [
+       "156yw4fhlcKn3WYbzwjndnYzsDh9xw5TI",
+       0.3,
+       1.0
+      ],
+      [
+       "1xWaBIVn543CxSr0WmqHEuasUJJGPcb55",
+       16.84,
+       1.0
+      ]
+     ],
+     "Black Friday prices are live now. Pack this bag tonight.": [
+      [
+       "1u_BcAe6ont2BTbyK5uSi7-QFbgZ8sgML",
+       15.05,
+       1.0
+      ],
+      [
+       "1LvvnZKxAdkdxoYbD7CWAttjNbFgG_SRF",
+       7.78,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 62.0,
+   "project": "P03",
+   "hook_text": "Grab-and-go mornings are hard when your bag is a black hole.",
+   "hook_label": "GRAB AND GO",
+   "hook_type": "problem",
+   "opening_shot": [
+    "156yw4fhlcKn3WYbzwjndnYzsDh9xw5TI",
+    0.3
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261027_VintageBag_BlackFriday_B028_P03_H4_nightbefore",
+   "id": "P03H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "ugc": {
+    "script": "U03",
+    "angle": "nightbefore",
+    "words": 182,
+    "structure": "night_before",
+    "hook": {
+     "type": "promise",
+     "label": "OWN SPOT",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "What goes where in your bag the night before a long day?",
+      "type": "question",
+      "label": "NIGHT BEFORE",
+      "feature": null,
+      "show": [
+       "pocket",
+       "packing"
+      ]
+     },
+     {
+      "text": "Grab-and-go mornings are hard when your bag is a black hole.",
+      "type": "problem",
+      "label": "GRAB AND GO",
+      "feature": null,
+      "show": [
+       "walking",
+       "worn"
+      ]
+     },
+     {
+      "text": "Black Friday prices are live now. Pack this bag tonight.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "strap",
+       "worn"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "What goes where in your bag the night before a long day?": [
+      [
+       "1jgkCse4uMTSToBBDAFFpF0gx_6qI4Zo6",
+       3.49,
+       1.0
+      ],
+      [
+       "17iFr-T6Hmi4mhwk5ZAaeEt3rIeZ1G1Rj",
+       0.71,
+       1.0
+      ]
+     ],
+     "Grab-and-go mornings are hard when your bag is a black hole.": [
+      [
+       "156yw4fhlcKn3WYbzwjndnYzsDh9xw5TI",
+       0.3,
+       1.0
+      ],
+      [
+       "1xWaBIVn543CxSr0WmqHEuasUJJGPcb55",
+       16.84,
+       1.0
+      ]
+     ],
+     "Black Friday prices are live now. Pack this bag tonight.": [
+      [
+       "1u_BcAe6ont2BTbyK5uSi7-QFbgZ8sgML",
+       15.05,
+       1.0
+      ],
+      [
+       "1LvvnZKxAdkdxoYbD7CWAttjNbFgG_SRF",
+       7.78,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 61.6,
+   "project": "P03",
+   "hook_text": "Black Friday prices are live now. Pack this bag tonight.",
+   "hook_label": "BLACK FRIDAY",
+   "hook_type": "price",
+   "opening_shot": [
+    "1u_BcAe6ont2BTbyK5uSi7-QFbgZ8sgML",
+    15.05
+   ],
+   "hook_source": "script"
+  }
+ ],
+ "tts_lines": 22,
+ "tts_dupes": {},
+ "est_credits": 7.7,
+ "budget": 100.0,
+ "colour_images": {
+  "Ginger Brown": "/tmp/run/vintage-bf-3p/site/clean/vintage_colour_ginger_brown.jpg",
+  "Black": "/tmp/run/vintage-bf-3p/site/vintage_colour_black.jpg",
+  "Chocolate": "/tmp/run/vintage-bf-3p/site/vintage_colour_chocolate.jpg",
+  "Red": "/tmp/run/vintage-bf-3p/site/vintage_colour_red.jpg"
+ },
+ "packshots": [
+  "/tmp/run/vintage-bf-3p/site/clean/vintage_colour_ginger_brown.jpg",
+  "/tmp/run/vintage-bf-3p/site/vintage_colour_black.jpg",
+  "/tmp/run/vintage-bf-3p/site/vintage_colour_chocolate.jpg",
+  "/tmp/run/vintage-bf-3p/site/vintage_colour_red.jpg"
+ ],
+ "brief": null,
+ "winners_source": null,
+ "winners_note": null,
+ "winners_used": [],
+ "unmatched_winners": [],
+ "warnings": [
+  "campaign: Black Friday Sale 2026 (2026-10-23 to 2026-11-30, client-approved): end cards say 'Black Friday Sale' + 'UP TO 60% OFF'; the close and the ad copy name the sale; each bag's own % stays its offer",
+  "Vintage Bag has 1 earlier batch(es) in the novelty log: the statics start 1 step(s) further in their photo / headline cycle (other photos and captions than before)"
+ ],
+ "winner_reviews": false,
+ "seed": 1,
+ "hooks": 4,
+ "pipeline": "catalog",
+ "video_format": "ugc",
+ "ugc_numbers": [],
+ "voice": {
+  "voice_type": "element",
+  "voice_id": "241459b6-b4e8-4a2a-9868-da8bcdcd0558",
+  "speed": 1.12
+ },
+ "projects": [
+  {
+   "id": "P01",
+   "from_id": "V01",
+   "angle": "onehandtest",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P01H1",
+     "name": "LC_261027_VintageBag_BlackFriday_B028_P01_H1_onehandtest",
+     "hook_text": "Can you close your bag with one hand while holding a coffee?",
+     "label": "ONE-HAND TEST",
+     "type": "question",
+     "shot": [
+      "1QjuuSmdJghJjax9FAFoC7_FOql87OB0A",
+      0.3
+     ],
+     "est_seconds": 66.5
+    },
+    {
+     "hook": "H2",
+     "id": "P01H2",
+     "name": "LC_261027_VintageBag_BlackFriday_B028_P01_H2_onehandtest",
+     "hook_text": "Both hands full, and your bag is hanging open.",
+     "label": "HANDS FULL",
+     "type": "problem",
+     "shot": [
+      "1jOeA-YhiSvgn7lf8YhKR87RNvSOGrTWT",
+      18.77
+     ],
+     "est_seconds": 65.5
+    },
+    {
+     "hook": "H3",
+     "id": "P01H3",
+     "name": "LC_261027_VintageBag_BlackFriday_B028_P01_H3_onehandtest",
+     "hook_text": "One hand, one snap, and the bag is shut. Watch.",
+     "label": "ONE SNAP",
+     "type": "promise",
+     "shot": [
+      "1D4E7XWSZLSRqsrzK9KkWxSXmzg7s2xcm",
+      0.3
+     ],
+     "est_seconds": 65.9
+    },
+    {
+     "hook": "H4",
+     "id": "P01H4",
+     "name": "LC_261027_VintageBag_BlackFriday_B028_P01_H4_onehandtest",
+     "hook_text": "Black Friday prices are live now, and this bag shuts with one hand.",
+     "label": "BLACK FRIDAY",
+     "type": "price",
+     "shot": [
+      "1HNUEQK0mMmDiVbvsG41nEmwlON-IFoU9",
+      5.92
+     ],
+     "est_seconds": 66.8
+    }
+   ]
+  },
+  {
+   "id": "P02",
+   "from_id": "V02",
+   "angle": "friendsaturday",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P02H1",
+     "name": "LC_261027_VintageBag_BlackFriday_B028_P02_H1_friendsaturday",
+     "hook_text": "Which bag works for brunch, errands and the walk home?",
+     "label": "ALL-DAY BAG",
+     "type": "question",
+     "shot": [
+      "TALK",
+      0
+     ],
+     "est_seconds": 66.2
+    },
+    {
+     "hook": "H2",
+     "id": "P02H2",
+     "name": "LC_261027_VintageBag_BlackFriday_B028_P02_H2_friendsaturday",
+     "hook_text": "Switching bags halfway through the day is the real hassle.",
+     "label": "NO BAG SWITCH",
+     "type": "problem",
+     "shot": null,
+     "est_seconds": 66.2
+    },
+    {
+     "hook": "H3",
+     "id": "P02H3",
+     "name": "LC_261027_VintageBag_BlackFriday_B028_P02_H3_friendsaturday",
+     "hook_text": "A bag you can wear as a handbag or as a crossbody.",
+     "label": "TWO WAYS",
+     "type": "promise",
+     "shot": null,
+     "est_seconds": 67.0
+    },
+    {
+     "hook": "H4",
+     "id": "P02H4",
+     "name": "LC_261027_VintageBag_BlackFriday_B028_P02_H4_friendsaturday",
+     "hook_text": "Black Friday prices are live now. Here's what to look for in a bag.",
+     "label": "BLACK FRIDAY",
+     "type": "price",
+     "shot": null,
+     "est_seconds": 67.8
+    }
+   ]
+  },
+  {
+   "id": "P03",
+   "from_id": "V03",
+   "angle": "nightbefore",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P03H1",
+     "name": "LC_261027_VintageBag_BlackFriday_B028_P03_H1_nightbefore",
+     "hook_text": "Phone, wallet, keys: everything has its own spot.",
+     "label": "OWN SPOT",
+     "type": "promise",
+     "shot": [
+      "10aSieQA3Lb3YEflOG3dXN2sIgckqMv4f",
+      9.3
+     ],
+     "est_seconds": 61.0
+    },
+    {
+     "hook": "H2",
+     "id": "P03H2",
+     "name": "LC_261027_VintageBag_BlackFriday_B028_P03_H2_nightbefore",
+     "hook_text": "What goes where in your bag the night before a long day?",
+     "label": "NIGHT BEFORE",
+     "type": "question",
+     "shot": [
+      "1jgkCse4uMTSToBBDAFFpF0gx_6qI4Zo6",
+      3.49
+     ],
+     "est_seconds": 62.3
+    },
+    {
+     "hook": "H3",
+     "id": "P03H3",
+     "name": "LC_261027_VintageBag_BlackFriday_B028_P03_H3_nightbefore",
+     "hook_text": "Grab-and-go mornings are hard when your bag is a black hole.",
+     "label": "GRAB AND GO",
+     "type": "problem",
+     "shot": [
+      "156yw4fhlcKn3WYbzwjndnYzsDh9xw5TI",
+      0.3
+     ],
+     "est_seconds": 62.0
+    },
+    {
+     "hook": "H4",
+     "id": "P03H4",
+     "name": "LC_261027_VintageBag_BlackFriday_B028_P03_H4_nightbefore",
+     "hook_text": "Black Friday prices are live now. Pack this bag tonight.",
+     "label": "BLACK FRIDAY",
+     "type": "price",
+     "shot": [
+      "1u_BcAe6ont2BTbyK5uSi7-QFbgZ8sgML",
+      15.05
+     ],
+     "est_seconds": 61.6
+    }
+   ]
+  }
+ ],
+ "hooks_seed": 1
+}

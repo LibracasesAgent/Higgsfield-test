@@ -1,0 +1,90 @@
+{
+ "product": "Vintage Bag",
+ "theme": "black friday",
+ "date": "2026-10-27",
+ "research": [
+  "Packet + docs/research/2026-10-black-friday-and-bag-ads.md: demonstration-first and POV hooks beat a bare '50% off' open; the sale goes last (owner 2026-10-27: stories, not feature lists).",
+  "B012 (the only earlier Vintage batch with videos) ran the engine's n_things / demo / stop_x angles, three features each: this batch uses three story structures (live test, advice to a friend, the night before), one lead feature each (clasp, strap, room), and the sale only in the last chapter.",
+  "Footage coverage for the Vintage Bag: snap 223, strap 209, home 112, worn 54, outdoor 52, inside 30, car 20, packing 19, street 18, cafe 14, pocket 12, walking 8: every picture is built on tags with moments. The Vintage Bag has no zip (a snap clasp), so no line says zip.",
+  "Site check 2026-10-27: Vintage bag $44.95 vs compare-at $89.95 = 50% off, no gift; banner 'UP TO 60% OFF + FREE SHIPPING'. The product page still carries older store badges, which are NOT used: Black Friday items are final sale (campaign.json), so no promise of any kind about sending items back; no warranty line either (the packet does not list one for this bag).",
+  "No sale end date or countdown (the site's 'ends tonight' is blocked until 30 November); the jewellery box gift is gone (owner 2026-10-26); no exact prices (price test): the offer is the bag's fifty percent plus free US shipping."
+ ],
+ "projects": [
+  {
+   "id": "P01",
+   "slug": "onehandtest",
+   "title": "The one-hand test",
+   "structure": "live_test",
+   "big_idea": "A live challenge on a coffee run: can the bag shut, with the coffee still in one hand and the other hand all it gets?",
+   "why_new": "B012 listed features in a row; this is one test done on screen, the clasp proves itself in a held shot with its own sound, and the sale only closes it.",
+   "hooks": [
+    {"text": "Can you close your bag with one hand while holding a coffee?", "type": "question", "label": "ONE-HAND TEST", "show": ["snap", "handheld", "car"]},
+    {"text": "Both hands full, and your bag is hanging open.", "type": "problem", "label": "HANDS FULL", "show": ["walking", "handheld"]},
+    {"text": "One hand, one snap, and the bag is shut. Watch.", "type": "promise", "label": "ONE SNAP", "show": ["worn", "snap"]},
+    {"text": "Black Friday prices are live now, and this bag shuts with one hand.", "type": "price", "label": "BLACK FRIDAY", "show": ["strap", "worn"]}
+   ],
+   "chapters": [
+    {"kind": "point", "beat": "challenge", "text": "Here's a test every bag should pass. One hand holds a coffee. The other has to find your things and shut the bag again, all while you keep walking.", "tag": "ONE-HAND CLASP", "show": ["walking", "worn"]},
+    {"kind": "point", "beat": "challenge", "text": "Most bags want both hands, one to hold the bag and one to fight the catch. This one has a clasp that snaps shut with one hand. So watch it do exactly that.", "tag": null, "show": ["handheld", "snap"]},
+    {"kind": "proof", "beat": "attempt", "proof_shot": true, "text": "Coffee in your left hand. Right hand on the clasp. One press, and it snaps shut. No fumbling, no second hand, and the coffee never moves.", "tag": null, "show": ["snap", "handheld"], "highlight": ["snaps shut"]},
+    {"kind": "point", "beat": "attempt", "text": "Now open it again, still one-handed. Your phone, wallet and keys each have their own spot, so there's no digging through the bottom of the bag.", "tag": null, "show": ["inside", "packing"]},
+    {"kind": "point", "beat": "result", "text": "Result: coffee still full, bag still shut, and one hand left over. That's a pass.", "tag": null, "show": ["walking", "worn"]},
+    {"kind": "point", "beat": "why", "text": "The secret is that one-hand clasp. And when your hands get busier, the adjustable strap goes from handbag to crossbody, so the bag stays out of your way.", "tag": "ADJUSTABLE STRAP", "show": ["strap", "worn"]},
+    {"kind": "offer", "beat": "offer", "text": "The Vintage Bag is fifty percent off right now in the Early Black Friday sale, with free US shipping. Try the test with your own coffee. Tap the link below.", "tag": null, "show": ["hero", "placed"]}
+   ]
+  },
+  {
+   "id": "P02",
+   "slug": "friendsaturday",
+   "title": "Advice for a long Saturday",
+   "structure": "friend_advice",
+   "big_idea": "A host talks you through what to tell a friend who is picking one bag for brunch, errands and a walk: look for a strap that adjusts.",
+   "why_new": "No earlier Vintage video had a person talking to camera or an advice story; it leads with the strap, not the clasp, and the sale is the last line.",
+   "presenter": {
+    "id": "maya",
+    "scenes": [
+     {"id": "cafe", "where": "She sits at a small round table in a sunny cafe, a latte in a white cup in front of her, warm daylight from the window beside her, a softly blurred cafe behind.", "outfit": "She wears a denim shirt.", "bag": "resting on the table beside her cup", "colour": "Ginger Brown", "ambience": "Quiet cafe ambience"},
+     {"id": "sofa", "where": "She sits on a cream sofa in a bright living room, a green plant and a knitted blanket beside her, soft daylight from a window, a softly blurred room behind.", "outfit": "She wears a cream knit jumper.", "bag": "resting on the sofa cushion beside her", "colour": "Ginger Brown", "ambience": "Quiet living room ambience"}
+    ]
+   },
+   "hooks": [
+    {"text": "Which bag works for brunch, errands and the walk home?", "type": "question", "label": "ALL-DAY BAG", "show": ["worn", "street"], "scene": "cafe"},
+    {"text": "Switching bags halfway through the day is the real hassle.", "type": "problem", "label": "NO BAG SWITCH", "show": ["strap", "worn"], "scene": "sofa"},
+    {"text": "A bag you can wear as a handbag or as a crossbody.", "type": "promise", "label": "TWO WAYS", "show": ["strap", "handheld"], "scene": "cafe"},
+    {"text": "Black Friday prices are live now. Here's what to look for in a bag.", "type": "price", "label": "BLACK FRIDAY", "show": ["worn", "walking"], "scene": "sofa"}
+   ],
+   "chapters": [
+    {"kind": "point", "beat": "situation", "cam": "full", "scene": "cafe", "text": "Say your best friend has a long Saturday coming up. Brunch, a few errands, a walk, then dinner. She asks which bag she should carry.", "tag": null, "show": ["walking", "street"]},
+    {"kind": "point", "beat": "advice", "cam": "both", "scene": "cafe", "text": "Tell her to pick one with an adjustable strap. Short, it's a handbag for brunch. Longer, it's a crossbody for the walk.", "tag": "ADJUSTABLE STRAP", "show": ["strap", "worn"]},
+    {"kind": "proof", "beat": "because", "cam": "open", "scene": "cafe", "proof_shot": true, "text": "Because the strap does the work. Nothing else in her day has to change: same bag, same things inside, just worn another way.", "tag": null, "show": ["strap", "handheld"]},
+    {"kind": "point", "beat": "and", "cam": "open", "scene": "sofa", "text": "And tell her to pick a bag that shuts properly. This one has a clasp that snaps shut with one hand, so a coffee in the other is no problem.", "tag": "ONE-HAND CLASP", "show": ["snap", "handheld"]},
+    {"kind": "point", "beat": "and", "cam": "open", "scene": "sofa", "text": "Inside, her phone, wallet and keys each get their own spot, so nothing sinks to the bottom while she's out all day.", "tag": null, "show": ["inside", "packing"]},
+    {"kind": "offer", "beat": "offer", "cam": "both", "scene": "sofa", "text": "The Vintage Bag is fifty percent off in the Early Black Friday sale, with free US shipping. Send her the link, or treat yourself. Tap the link below.", "tag": null, "show": ["hero", "placed"]}
+   ]
+  },
+  {
+   "id": "P03",
+   "slug": "nightbefore",
+   "title": "Packed the night before",
+   "structure": "night_before",
+   "big_idea": "Tomorrow is a long day out with no time to go home, so the bag gets packed tonight: phone, wallet, keys, strap length, one snap, and it is ready by the door.",
+   "why_new": "B012 never told a day from the evening before; it leads with the room inside, shows the packing as the proof, and the morning is the payoff before the sale.",
+   "hooks": [
+    {"text": "Phone, wallet, keys: everything has its own spot.", "type": "promise", "label": "OWN SPOT", "show": ["packing", "inside"]},
+    {"text": "What goes where in your bag the night before a long day?", "type": "question", "label": "NIGHT BEFORE", "show": ["pocket", "packing"]},
+    {"text": "Grab-and-go mornings are hard when your bag is a black hole.", "type": "problem", "label": "GRAB AND GO", "show": ["walking", "worn"]},
+    {"text": "Black Friday prices are live now. Pack this bag tonight.", "type": "price", "label": "BLACK FRIDAY", "show": ["strap", "worn"]}
+   ],
+   "chapters": [
+    {"kind": "point", "beat": "occasion", "text": "Tomorrow is a long day out. Brunch, a few errands, dinner after, and no time to go home in between. So tonight, you pack the bag.", "tag": null, "show": ["home", "handheld"]},
+    {"kind": "point", "beat": "pack", "text": "Phone goes in first. Then your wallet, then your keys. Open it up and each one has its own spot, so there's room for everything and nothing piles up at the bottom.", "tag": "ROOM FOR EVERYTHING", "show": ["packing", "inside"]},
+    {"kind": "point", "beat": "pack", "text": "While you're at it, set the strap. It's adjustable, so you choose the length tonight: handbag or crossbody, ready before you leave.", "tag": null, "show": ["strap", "handheld"]},
+    {"kind": "proof", "beat": "close", "proof_shot": true, "text": "Then the last step. One hand on the clasp, and it snaps shut. That's tomorrow's bag, packed and ready, and it took no time at all.", "tag": "ONE-HAND CLASP", "show": ["snap", "handheld"]},
+    {"kind": "point", "beat": "morning", "text": "Morning. You pick it up, it's already packed, and you head out the door. Over the shoulder, and a hand ready for the coffee.", "tag": null, "show": ["worn", "walking"]},
+    {"kind": "point", "beat": "morning", "text": "Worn crossbody or carried as a handbag, it sits where you set it, and the day goes on around it.", "tag": null, "show": ["worn", "street"]},
+    {"kind": "offer", "beat": "offer", "text": "The Vintage Bag is fifty percent off in the Early Black Friday sale, with free US shipping. Pack it tonight. Tap the link below.", "tag": null, "show": ["hero", "placed"]}
+   ]
+  }
+ ],
+ "statics": []
+}

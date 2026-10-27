@@ -1877,7 +1877,98 @@
      "label": "The Hobo Bag at fifty percent off, with a free pouch wallet."
     }
    ]
+  },
+  {
+   "id": "B028",
+   "n": 28,
+   "rev": 1,
+   "date": "2026-10-27",
+   "product": "Vintage Bag",
+   "theme": "BlackFriday",
+   "pipeline": "catalog",
+   "request": "3 projects for the Vintage Bag, Black Friday",
+   "statics": 0,
+   "projects": 3,
+   "hooks": 4,
+   "seed": 1,
+   "status": "uploaded",
+   "folder": "B028 – 2026-10-27 – Vintage Bag BlackFriday – 3 projects",
+   "link": "https://drive.google.com/drive/folders/1IU4xJaOK4yUYIW_dihOcH7rWnNzb8vsc",
+   "ads": [
+    {
+     "name": "LC_261027_VintageBag_BlackFriday_B028_P01_H1_onehandtest",
+     "kind": "video",
+     "fp": "v|can you close your bag with one hand while holding a coffee?|",
+     "label": "Can you close your bag with one hand while holding a coffee?"
+    },
+    {
+     "name": "LC_261027_VintageBag_BlackFriday_B028_P01_H2_onehandtest",
+     "kind": "video",
+     "fp": "v|both hands full, and your bag is hanging open.|",
+     "label": "Both hands full, and your bag is hanging open."
+    },
+    {
+     "name": "LC_261027_VintageBag_BlackFriday_B028_P01_H3_onehandtest",
+     "kind": "video",
+     "fp": "v|one hand, one snap, and the bag is shut. watch.|",
+     "label": "One hand, one snap, and the bag is shut. Watch."
+    },
+    {
+     "name": "LC_261027_VintageBag_BlackFriday_B028_P01_H4_onehandtest",
+     "kind": "video",
+     "fp": "v|black friday prices are live now, and this bag shuts with one hand.|",
+     "label": "Black Friday prices are live now, and this bag shuts with one hand."
+    },
+    {
+     "name": "LC_261027_VintageBag_BlackFriday_B028_P02_H1_friendsaturday",
+     "kind": "video",
+     "fp": "v|which bag works for brunch, errands and the walk home?|",
+     "label": "Which bag works for brunch, errands and the walk home?"
+    },
+    {
+     "name": "LC_261027_VintageBag_BlackFriday_B028_P02_H2_friendsaturday",
+     "kind": "video",
+     "fp": "v|switching bags halfway through the day is the real hassle.|",
+     "label": "Switching bags halfway through the day is the real hassle."
+    },
+    {
+     "name": "LC_261027_VintageBag_BlackFriday_B028_P02_H3_friendsaturday",
+     "kind": "video",
+     "fp": "v|a bag you can wear as a handbag or as a crossbody.|",
+     "label": "A bag you can wear as a handbag or as a crossbody."
+    },
+    {
+     "name": "LC_261027_VintageBag_BlackFriday_B028_P02_H4_friendsaturday",
+     "kind": "video",
+     "fp": "v|black friday prices are live now. here's what to look for in a bag.|",
+     "label": "Black Friday prices are live now. Here's what to look for in a bag."
+    },
+    {
+     "name": "LC_261027_VintageBag_BlackFriday_B028_P03_H1_nightbefore",
+     "kind": "video",
+     "fp": "v|phone, wallet, keys: everything has its own spot.|",
+     "label": "Phone, wallet, keys: everything has its own spot."
+    },
+    {
+     "name": "LC_261027_VintageBag_BlackFriday_B028_P03_H2_nightbefore",
+     "kind": "video",
+     "fp": "v|what goes where in your bag the night before a long day?|",
+     "label": "What goes where in your bag the night before a long day?"
+    },
+    {
+     "name": "LC_261027_VintageBag_BlackFriday_B028_P03_H3_nightbefore",
+     "kind": "video",
+     "fp": "v|grab-and-go mornings are hard when your bag is a black hole.|",
+     "label": "Grab-and-go mornings are hard when your bag is a black hole."
+    },
+    {
+     "name": "LC_261027_VintageBag_BlackFriday_B028_P03_H4_nightbefore",
+     "kind": "video",
+     "fp": "v|black friday prices are live now. pack this bag tonight.|",
+     "label": "Black Friday prices are live now. Pack this bag tonight."
+    }
+   ]
   }
  ],
- "next": 28
+ "next": 29
 }

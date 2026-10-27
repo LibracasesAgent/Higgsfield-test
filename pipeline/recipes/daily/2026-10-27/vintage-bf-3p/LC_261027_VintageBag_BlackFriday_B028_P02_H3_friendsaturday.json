@@ -1,0 +1,351 @@
+{
+ "mode": "ugc",
+ "voice_speed": 1.12,
+ "blocks": [
+  {
+   "talk": "talk/P02H3_hook.mp4",
+   "text": "A bag you can wear as a handbag or as a crossbody.",
+   "scene": "cafe",
+   "broll": [
+    [
+     "TALK",
+     0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "talk": "talk/P02_c1.mp4",
+   "text": "Say your best friend has a long Saturday coming up. Brunch, a few errands, a walk, then dinner. She asks which bag she should carry.",
+   "scene": "cafe",
+   "broll": [
+    [
+     "TALK",
+     0,
+     1.0
+    ],
+    [
+     "TALK",
+     0,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1jiKMP1UF2l5BJcWaYsZycc3JyU4DKf0V",
+     0.3,
+     1.0
+    ],
+    [
+     "1yjKHIr6LOVpOrPFMQHasYMjttUsFd2uW",
+     0.3,
+     1.0
+    ],
+    [
+     "1n_iVN9Lf1dKnL9Mo1ixhZiHX-MBBv7gp",
+     1.02,
+     1.0
+    ],
+    [
+     "195deHD_NpwLsKGYpFQBlO3Nlqd9nvt4E",
+     0.3,
+     1.0
+    ]
+   ],
+   "pace": "slow"
+  },
+  {
+   "talk": "talk/P02_c2.mp4",
+   "text": "Tell her to pick one with an adjustable strap. Short, it's a handbag for brunch. Longer, it's a crossbody for the walk.",
+   "scene": "cafe",
+   "broll": [
+    [
+     "TALK",
+     0,
+     1.0
+    ],
+    [
+     "1RvlXOQ5hCCqLQm-paz6wpMtJaH_gT5FG",
+     3.5,
+     1.0
+    ],
+    [
+     "TALK",
+     0,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1ViQ_U6AhkuQz8RRi2q8Q0Bg_2X_oifXE",
+     1.81,
+     1.0
+    ],
+    [
+     "17pDJceUeFQwkPdvcEbyheppSWHKA7lrx",
+     9.68,
+     1.0
+    ],
+    [
+     "1m1IT7G__icZ8VzWV8Rb1jQyVs8rwiANk",
+     18.51,
+     1.0
+    ]
+   ]
+  },
+  {
+   "talk": "talk/P02_c3.mp4",
+   "text": "Because the strap does the work. Nothing else in her day has to change: same bag, same things inside, just worn another way.",
+   "scene": "cafe",
+   "broll": [
+    [
+     "TALK",
+     0,
+     1.0
+    ],
+    [
+     "17IANSBGhFFCg5SQhFlzuG63ONmYPJppj",
+     15.05,
+     1.0
+    ],
+    [
+     "1m1IT7G__icZ8VzWV8Rb1jQyVs8rwiANk",
+     12.94,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "17pDJceUeFQwkPdvcEbyheppSWHKA7lrx",
+     6.67,
+     1.0
+    ],
+    [
+     "1HNUEQK0mMmDiVbvsG41nEmwlON-IFoU9",
+     5.92,
+     1.0
+    ],
+    [
+     "1LvvnZKxAdkdxoYbD7CWAttjNbFgG_SRF",
+     7.78,
+     1.0
+    ]
+   ],
+   "proof": true
+  },
+  {
+   "talk": "talk/P02_c4.mp4",
+   "text": "And tell her to pick a bag that shuts properly. This one has a clasp that snaps shut with one hand, so a coffee in the other is no problem.",
+   "scene": "sofa",
+   "broll": [
+    [
+     "TALK",
+     0,
+     1.0
+    ],
+    [
+     "1zWksUIjdI39dANvjXlGZoTaY11CJrBRZ",
+     0.0,
+     1.0
+    ],
+    [
+     "1R252UTrxdvK5bBTBSgBNWv04zCDUs5KK",
+     9.6,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1HNUEQK0mMmDiVbvsG41nEmwlON-IFoU9",
+     10.54,
+     1.0
+    ],
+    [
+     "1sLYQ_kZRbjFPCQ1AvZZ87Bmtpats2Ynf",
+     2.64,
+     1.0
+    ],
+    [
+     "17NS2UkififrDzubGafZAFDCII3K88Y34",
+     0.3,
+     1.0
+    ],
+    [
+     "1xvNFMVbihfFP4c9swMaLYL2avwwmOYy4",
+     0.3,
+     1.0
+    ],
+    [
+     "156yw4fhlcKn3WYbzwjndnYzsDh9xw5TI",
+     0.3,
+     1.0
+    ]
+   ]
+  },
+  {
+   "talk": "talk/P02_c5.mp4",
+   "text": "Inside, her phone, wallet and keys each get their own spot, so nothing sinks to the bottom while she's out all day.",
+   "scene": "sofa",
+   "broll": [
+    [
+     "TALK",
+     0,
+     1.0
+    ],
+    [
+     "10aSieQA3Lb3YEflOG3dXN2sIgckqMv4f",
+     6.6,
+     1.0
+    ],
+    [
+     "1VYOz6vWCsY5iQ6DuiIrqaCkR7HsDLrM6",
+     0.3,
+     1.0
+    ],
+    [
+     "1R252UTrxdvK5bBTBSgBNWv04zCDUs5KK",
+     3.57,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1jOeA-YhiSvgn7lf8YhKR87RNvSOGrTWT",
+     18.77,
+     1.0
+    ],
+    [
+     "1nCg9ulE1ZcwawGVIaGZvkMOcrZi_CrAG",
+     10.81,
+     1.0
+    ]
+   ]
+  },
+  {
+   "talk": "talk/P02_c6.mp4",
+   "text": "The Vintage Bag is fifty percent off in the Early Black Friday sale, with free US shipping. Send her the link, or treat yourself. Tap the link below.",
+   "scene": "sofa",
+   "broll": [
+    [
+     "TALK",
+     0,
+     1.0
+    ],
+    [
+     "1XuDRVtIPPc5XLeXSKsn_ZUIcA30iBKZk",
+     10.62,
+     1.0
+    ],
+    [
+     "10scnHfhEYwRVQs7OZmemUkahLF4dDt8U",
+     3.2,
+     1.0
+    ],
+    [
+     "TALK",
+     0,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1HVsV_GJ9Mm-k2AhLLn4AGW-mzNlzd6AJ",
+     3.22,
+     1.0
+    ],
+    [
+     "1XuDRVtIPPc5XLeXSKsn_ZUIcA30iBKZk",
+     5.98,
+     1.0
+    ],
+    [
+     "10scnHfhEYwRVQs7OZmemUkahLF4dDt8U",
+     0.3,
+     1.0
+    ]
+   ]
+  }
+ ],
+ "overlays": [
+  {
+   "type": "label",
+   "text": "TWO WAYS",
+   "block": 0,
+   "at": 0.1,
+   "dur": 1.8,
+   "y": 960
+  },
+  {
+   "type": "tag",
+   "text": "ADJUSTABLE STRAP",
+   "block": 2,
+   "at": 0.15,
+   "dur": 2.6,
+   "y": 960
+  },
+  {
+   "type": "tag",
+   "text": "ONE-HAND CLASP",
+   "block": 4,
+   "at": 0.15,
+   "dur": 2.6,
+   "y": 960
+  }
+ ],
+ "end_title": "Black Friday Sale",
+ "offer": {
+  "block": 6,
+  "word": "50",
+  "title": "BLACK FRIDAY 50% OFF",
+  "sub": ""
+ },
+ "presenter": "maya",
+ "overlay_y": 960,
+ "end_photo": "site/vintage_colour_chocolate.jpg",
+ "end_offer": "UP TO 60% OFF",
+ "keywords": [
+  "50%",
+  "gift",
+  "gifts",
+  "hidden",
+  "pocket",
+  "leather",
+  "black",
+  "friday"
+ ],
+ "spare_broll": [
+  [
+   "1SBRzm0fRWJXbrCIPZ4sgGku8WfO72vRp",
+   9.12,
+   1.0
+  ],
+  [
+   "1AdAOhcydiFs0YyuazrwDdcwv1kybqPgA",
+   0.3,
+   1.0
+  ],
+  [
+   "1D4E7XWSZLSRqsrzK9KkWxSXmzg7s2xcm",
+   0.3,
+   1.0
+  ],
+  [
+   "1VTuBxxeM0kgk0zBmK93Vn8XJFiMOCLQU",
+   0.3,
+   1.0
+  ],
+  [
+   "1VYOz6vWCsY5iQ6DuiIrqaCkR7HsDLrM6",
+   4.41,
+   1.0
+  ],
+  [
+   "1m1IT7G__icZ8VzWV8Rb1jQyVs8rwiANk",
+   7.36,
+   1.0
+  ]
+ ],
+ "music": {
+  "seed": 2
+ }
+}
