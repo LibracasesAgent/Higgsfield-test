@@ -312,6 +312,8 @@ PRODUCTS = {
         ],
         customer=[], broll=[["hobo_2_0", "beige_360", 0.0], ["hobo_2_0", "table_strap", 28.4],
                             ["hobo_2_0", "lockable_zippers", 35.1]],
+        also=["It comes with two straps: a handbag strap and a wide crossbody strap, so it carries as a handbag, on the shoulder or "
+              "crossbody (owner 2026-10-26: 'it comes with 2 straps - one for crossbody and one for handbag')."],
         reviews=[11, 7, 8, 6], deal=dict(pct=50, gift="free pouch wallet", card="+ FREE POUCH WALLET")),
     "3-piece set": dict(
         name="Hobo Bag 3-Piece Set", short="3-Piece Set", site="3-piece set", end="The Hobo 3-Piece Set",

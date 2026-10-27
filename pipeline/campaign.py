@@ -39,12 +39,14 @@ def active(theme_key, day=None, campaigns=None):
     d = _day(day)
     for c in campaigns if campaigns is not None else load():
         if theme_key in (c.get("themes") or []) and _day(c["from"]) <= d <= _day(c["until"]):
-            return for_plan(c, theme_key)
+            return for_plan(c, theme_key, d)
     return None
 
 
-def for_plan(c, theme_key):
-    """What a batch needs of campaign c for theme theme_key (gift photos as absolute paths)."""
+def for_plan(c, theme_key, day=None):
+    """What a batch needs of campaign c for theme theme_key (gift photos as absolute paths); a banned phrase with "except_on" days
+    is allowed on those days (ends tonight: the last day), one with "except_from" from that day on (last chance: the last week's ads)."""
+    d = _day(day).isoformat()
     pick = lambda v: v.get(theme_key) if isinstance(v, dict) else v      # noqa: E731
     gifts = [dict(g, photo=os.path.join(HERE, g["photo"]) if g.get("photo") else None) for g in c.get("gifts") or []]
     return dict(id=c["id"], name=c["name"], theme=theme_key, banner=c.get("banner"), until=c["until"], **{"from": c["from"]},
@@ -54,7 +56,7 @@ def for_plan(c, theme_key):
                 client_ideas=c.get("client_ideas") or "", gifts=gifts, gifts_worth=c.get("gifts_worth"), dates=dict(c.get("dates") or {}),
                 copy=dict(c.get("copy") or {}), approved_phrases=list(c.get("approved_phrases") or []),
                 approved=c.get("approved") or "", final_sale=bool(c.get("final_sale")), terms=c.get("terms") or "",
-                banned=list(c.get("banned") or []))
+                banned=[b for b in c.get("banned") or [] if d not in (b.get("except_on") or []) and not (b.get("except_from") and d >= b["except_from"])])
 
 
 def corpus(c):

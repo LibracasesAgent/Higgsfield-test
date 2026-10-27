@@ -674,6 +674,7 @@ def packet(pr, theme, n_projects, n_statics, request=""):
     L += [f"- Offer: {V['P'] or '-'} off ({V['off_sp'] or '-'}), gift: {V['gift'] or 'none'}, price {V['price'] or '-'} (was {V['was'] or '-'}); "
           f"shipping: {'free US shipping' if ctx['ship'] else 'not stated: do not mention'}; warranty: {V['warranty'] or '-'}; returns: {V['returns'] or '-'}"]
     L += [f"- Feature: **{f[1]}**: {f[0]}" for f in pr.get("features") or []]
+    L += [f"- Also true: {x}" for x in pr.get("also") or []]          # (owner facts that are not a feature line of the engine)
     L += [f"- Colours: {', '.join(pr.get('colours') or []) or ((pr.get('facts') or {}).get('colours') and ', '.join(pr['facts']['colours'])) or '-'}",
           "- Bag colours in packshots: see the plan's colour list (scene.colour picks the packshot used as the reference).",
           "- Never: invented customer experiences ('I bought', 'my bag'), health / medical claims, prescription drugs, politics, religion, "

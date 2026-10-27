@@ -19,7 +19,7 @@ forces `pipeline/make_batch.py` (templates, real photos and footage; AI only as 
 - **Products and facts (from the site, 2026-10):**
   | Product | Price (was) | Colours | Key claims |
   |---|---|---|---|
-  | Luxury Leather Hobo Anti-Theft Handbag ("Hobo Bag") | $52.50 ($105) | Brown, Black, Blue, Grey, Burgundy, Red | hidden anti-theft back pocket, smart compartments, soft water-resistant scratch-proof leather, 2 adjustable straps (handbag / shoulder / crossbody), free matching pouch wallet, free US shipping, 1-year warranty, easy returns |
+  | Luxury Leather Hobo Anti-Theft Handbag ("Hobo Bag") | $54.95 ($109.90) since 2026-10-27 (the owner's price change: ads made before it that print a price are out of date) | Brown, Black, Blue, Grey, Burgundy, Red | hidden anti-theft back pocket, smart compartments, soft water-resistant scratch-proof leather, 2 adjustable straps (handbag / shoulder / crossbody), free matching pouch wallet, free US shipping, 1-year warranty, easy returns |
   | Hobo 2.0 "6-Layer Security Edition" | $79.95 ($159.90) | Black, Brown, Beige (Beige was sold out in early Oct, back on the site by 10-09; `plan` reads the colours from the site) | RFID protection, lockable zippers, cut-resistant strap, hidden pockets, smart compartments, table security strap, 2 straps: a handbag strap and a crossbody strap (owner 2026-10-26) |
   | Hobo Bag 3-Piece Set | $69.95 | Brown, Black, Blue, Grey, Purple Red, Red | hobo + crossbody + matching pouch |
   | Slouchy Soft 3-Piece Set | $69.95 | | |
@@ -663,6 +663,12 @@ Christmas gifting, BF prices are live now; lots of variations". `pipeline/campai
 - **Gift photos:** `assets/gifts/jewellery_box.jpg`, `cosmetic_bag.jpg` (the site's product photos, no other brand in them).
 - **A new sale:** add a campaign to `campaign.json` with the client's words in `approved`, its dates, themes, gifts and phrases; nothing
   else changes. `tests/test_campaign.py` covers the window, the compliance cases and the two layouts.
+
+- **2026-10-27 check of Wouter's answers:** no deadline the sale does not have: "ends tonight / today only / hours left" is blocked
+  until 30 November (the site banner keeps "ends tonight": the owner's choice for the site, not for the ads) and "last chance / final
+  days" until 20 November (the last-week content); campaign.json `banned` with `except_on` / `except_from`. The Hobo Bag's price is
+  $54.95 ($109.90) since 27 October (site: `luxury-hobo-handbag-special-gift-1`, still "+ FREE Pouch Wallet"); six delivered statics
+  print the old price (B014 S05 / S14, B016 S14, B019 S10 / S17, B027 S07). Hobo 2.0: "two straps" is an `also` fact in the packet.
 
 ### 4g. One bag per ad: the Hobo 2.0's two looks (owner 2026-10-23, after B017; RESOLVED 2026-10-26)
 

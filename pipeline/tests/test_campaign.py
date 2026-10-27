@@ -83,6 +83,21 @@ def test_no_returns_promise_while_the_sale_is_final_sale():
     assert probs("Not sure it will suit? There is a one-year warranty and easy returns.", camp=None) == []    # outside the sale
 
 
+def test_no_false_deadline_before_the_last_days():
+    """The site banner says 'ends tonight' (owner's choice for the site); the sale runs until 30 November: our ads say it only then,
+    'last chance' from 20 November (the owner's last-week content)."""
+    for day, tonight, last in (("2026-10-27", True, True), ("2026-11-20", True, False), ("2026-11-30", False, False)):
+        c = campaign.active("black friday", day)
+        assert any(k == "offer" for k, _ in probs("The sale ends tonight.", camp=c)) == tonight, day
+        assert any(k == "offer" for k, _ in probs("Last chance: 50% off.", camp=c)) == last, day
+        assert probs("Black Friday prices are live now. The sale ends on the thirtieth of November.", camp=c) == [], day
+
+
+def test_the_hobo_bag_price_is_the_new_one():
+    assert any(k == "numbers" for k, _ in probs("The Hobo Bag is now $52.50."))           # the price before 27 October
+    assert probs("The Hobo Bag is $54.95, down from $109.90.") == []
+
+
 def test_one_look_per_batch_for_a_two_look_product():
     """The guard (designs.json 'show'); the Hobo 2.0 was resolved on 2026-10-26 (one bag, two straps), so it has none now."""
     import make_batch as mb
