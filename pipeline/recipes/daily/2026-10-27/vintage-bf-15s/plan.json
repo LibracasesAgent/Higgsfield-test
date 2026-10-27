@@ -1,0 +1,174 @@
+{
+ "prefix": "LC_261027_VintageBag_BlackFriday_B029",
+ "rev": 1,
+ "batch_id": {
+  "id": "B029",
+  "n": 29,
+  "rev": 1
+ },
+ "created": "2026-10-27",
+ "request": "15 statics for the Vintage Bag, Black Friday",
+ "product": "Vintage Bag",
+ "product_key": "vintage",
+ "product_source": "built-in",
+ "theme": "black friday",
+ "theme_name": "BlackFriday",
+ "offer": "50% off",
+ "campaign": {
+  "id": "bf2026",
+  "name": "Black Friday Sale 2026",
+  "theme": "black friday",
+  "banner": "Early Black Friday – 50% off everything, up to 60% off",
+  "until": "2026-11-30",
+  "from": "2026-10-23",
+  "end_title": "Black Friday Sale",
+  "end_pill": "UP TO 60% OFF",
+  "card_sub": "",
+  "close": "The Early Black Friday sale is on now, with up to sixty percent off.",
+  "hooks": [
+   "Black Friday prices are live now. No need to wait.",
+   "Early Black Friday: up to sixty percent off.",
+   "Why wait for Black Friday? The prices are already live."
+  ],
+  "facts": [
+   "Early Black Friday Sale: live now (from 23 October), it runs until 30 November (Cyber Monday). Black Friday is 27 November.",
+   "50% off everything sitewide (each bag's own % is on its offer card: the Hobo Bag is 50% off).",
+   "Up to 60% off: some bundles are 60% off, like the Hobo Bag 3-Piece Set. Say '60% off' only of the 3-Piece Set (or another named bundle), never of a single bag or of 'any 2 bags'.",
+   "No free gifts and no extra cart discount: both were removed by the owner on 26 October.",
+   "The Hobo Bag's product page offers the 3-Piece Set as the 'Best Value' upgrade.",
+   "Black Friday prices are live now: no need to wait.",
+   "Sale items are final sale: they cannot be returned (the site's Black Friday terms); faulty items are still covered and the 1-year warranty still applies. Never say 'easy returns', 'free returns' or 'send it back' in a Black Friday ad.",
+   "Christmas delivery (the site's Black Friday terms, filled in by 27 October): order by 14 December 2026 for the best chance of delivery before Christmas; delivery before Christmas is not guaranteed, so say 'the best chance', never 'guaranteed by Christmas'."
+  ],
+  "bundle_pct": null,
+  "upto_pct": 60,
+  "bundle_any": false,
+  "client_ideas": "Owner 2026-10-26: everything is on sale everywhere, so stand out; the Hobo Bag page upsells the 3-Piece Set ('Best Value'): ads that sell the set raise the order value; 'Black Friday prices are live now, no need to wait'; Christmas gifting (mum, sister, best friend); 2 straps on the Hobo 2.0 (handbag + crossbody); in the last week: Black Friday 27 November, Cyber Monday 30 November, 'last chance'. The AI ads 'seem to be starting to work: keep testing'.",
+  "gifts": [],
+  "gifts_worth": null,
+  "dates": {
+   "black friday": "27 November",
+   "cyber monday": "30 November",
+   "ends": "30 November"
+  },
+  "copy": {
+   "primary": [
+    "Early Black Friday is live: 50% off everything, and up to 60% off bundles like the 3-Piece Set.",
+    "Black Friday prices are live now, no need to wait. 50% off everything, up to 60% off bundles."
+   ],
+   "headline": [
+    "Early Black Friday: 50% Off",
+    "Up to 60% Off Bundles",
+    "Black Friday Prices Are Live"
+   ],
+   "description": "Up to 60% off"
+  },
+  "approved_phrases": [
+   "up to (?:60|sixty) ?(?:%|percent) off(?: bundles?)?",
+   "(?:60|sixty) ?(?:%|percent) off (?:the |our )?(?:hobo (?:bag )?)?3-piece set",
+   "(?:50|fifty) ?(?:%|percent) off everything"
+  ],
+  "approved": "Wouter (owner), 2026-10-23: the Black Friday Sale went live on 23 October and runs until 30 November (Cyber Monday). Up to 50% off sitewide; 60% off bundles (2 or 3 bags bought together at 60% off the regular price); free gifts while stocks last: buy 2 bags, get a free mirrored jewellery box (worth $19.95); buy 3+ bags, get the jewellery box + a free cosmetic bag (together worth $44.90); only bags count, not accessories. The site banner (2026-10-23): 'EARLY BLACK FRIDAY: 50% OFF EVERYTHING | BUY 2 BAGS = 1 FREE GIFT | BUY 3 = 2 FREE GIFTS | ORDER TODAY WHILE STOCKS LAST!' | UPDATE Wouter (owner), 2026-10-26: the free gifts and the extra cart discount on bags are removed ('they're not coming back'); 'It's 50% OFF or you can say up to 60% OFF'; 60% is only on bundles 'like the 3 piece set', not any 2 bags; the site now has Early Black Friday messaging, a countdown in the announcement bar, 'Ships by' and delivery dates, and the 3-Piece Set as a 'Best Value' upgrade on the Hobo Bag page; during Black Friday no returns are accepted (final sale).",
+  "final_sale": true,
+  "terms": "https://libracases.com/pages/terms-and-conditions-black-friday-sale",
+  "banned": [
+   {
+    "rx": "\\bfree gifts?\\b|\\bgifts? with (?:2|two|3|three|every)\\b|\\bfree (?:mirrored )?jewell?e?ry box(?:es)?\\b|\\bfree (?:travel )?cosmetic bags?\\b|\\bjewell?e?ry box\\b|\\bcosmetic bag\\b",
+    "why": "the free gifts were removed by the owner on 26 October (not coming back): say the bag's own free pouch wallet, if it has one"
+   },
+   {
+    "rx": "(?:60|sixty) ?(?:%|percent) off\\b[^.!?]{0,60}\\b(?:(?:2|two) (?:or (?:3|three) )?bags|(?:3|three) bags|(?:2|two) or (?:3|three)|second bag|together)|\\b(?:2|two) or (?:3|three) bags\\b[^.!?]{0,30}(?:60|sixty) ?(?:%|percent)",
+    "why": "60% is only on bundles like the 3-Piece Set, not on any 2 or 3 bags (owner, 26 October): say 'up to 60% off' or '60% off the 3-Piece Set'"
+   },
+   {
+    "rx": "\\b(?:ends?|ending) (?:tonight|today)\\b|\\btoday only\\b|\\bonly today\\b|\\b(?:sale|deal|offer)s? ends? (?:soon|in \\d+ (?:hours?|minutes?|days?))\\b|\\bhours? left\\b",
+    "why": "the sale runs until 30 November (owner 2026-10-23; the site banner's 'ends tonight' is the owner's choice for the site only): before the last day 'ends tonight / today only' is false and Meta flags ads whose deadline differs from the landing page; say 'Black Friday prices are live now' or 'the sale ends on the thirtieth of November'",
+    "except_on": [
+     "2026-11-30"
+    ]
+   },
+   {
+    "rx": "\\blast (?:chance|days?|call)\\b|\\bfinal (?:days?|hours?|chance)\\b",
+    "why": "'last chance' is the last week's message (owner's timeline: last-week content by 20 November, for Black Friday 27 Nov - Cyber Monday 30 Nov): before 20 November it is false urgency",
+    "except_from": "2026-11-20"
+   },
+   {
+    "rx": "\\bguarantee\\w*\\b[^.!?]{0,40}\\bchristmas\\b|\\bchristmas\\b[^.!?]{0,40}\\bguarantee\\w*\\b|\\b(?:arrives?|delivered|get it|gets there|be there|in time for)\\b[^.!?]{0,20}\\b(?:in time for|by|before) christmas\\b|\\bin time for christmas\\b",
+    "why": "the site's terms: delivery before Christmas is not guaranteed; say 'order by 14 December for the best chance of delivery before Christmas'"
+   }
+  ]
+ },
+ "statics": [
+  "LC_261027_VintageBag_BlackFriday_B029_S01_magazine",
+  "LC_261027_VintageBag_BlackFriday_B029_S02_studio",
+  "LC_261027_VintageBag_BlackFriday_B029_S03_pov",
+  "LC_261027_VintageBag_BlackFriday_B029_S04_diagram",
+  "LC_261027_VintageBag_BlackFriday_B029_S05_native",
+  "LC_261027_VintageBag_BlackFriday_B029_S06_poster",
+  "LC_261027_VintageBag_BlackFriday_B029_S07_hangtag",
+  "LC_261027_VintageBag_BlackFriday_B029_S08_native",
+  "LC_261027_VintageBag_BlackFriday_B029_S09_quotes",
+  "LC_261027_VintageBag_BlackFriday_B029_S10_gifttag",
+  "LC_261027_VintageBag_BlackFriday_B029_S11_twoways",
+  "LC_261027_VintageBag_BlackFriday_B029_S12_studio",
+  "LC_261027_VintageBag_BlackFriday_B029_S13_colourblock",
+  "LC_261027_VintageBag_BlackFriday_B029_S14_studio",
+  "LC_261027_VintageBag_BlackFriday_B029_S15_entrywayhook"
+ ],
+ "videos": [],
+ "tts_lines": 0,
+ "tts_dupes": {},
+ "est_credits": 0.0,
+ "budget": 100.0,
+ "colour_images": {
+  "Ginger Brown": "/tmp/run/vintage-bf-15s/site/clean/vintage_colour_ginger_brown.jpg",
+  "Black": "/tmp/run/vintage-bf-15s/site/vintage_colour_black.jpg",
+  "Chocolate": "/tmp/run/vintage-bf-15s/site/vintage_colour_chocolate.jpg",
+  "Red": "/tmp/run/vintage-bf-15s/site/vintage_colour_red.jpg"
+ },
+ "packshots": [
+  "/tmp/run/vintage-bf-15s/site/clean/vintage_colour_ginger_brown.jpg",
+  "/tmp/run/vintage-bf-15s/site/vintage_colour_black.jpg",
+  "/tmp/run/vintage-bf-15s/site/vintage_colour_chocolate.jpg",
+  "/tmp/run/vintage-bf-15s/site/vintage_colour_red.jpg"
+ ],
+ "brief": null,
+ "ai": {
+  "stills": 10,
+  "clips": 0,
+  "est_credits": 10.0,
+  "budget": {
+   "cap": 100.0,
+   "tts_est": 0.0,
+   "reserve": 8.0
+  },
+  "scenes": [
+   "p01_s01_magazine_cover",
+   "p01_s03_pov_behind",
+   "p01_s04_feature_diagram",
+   "p01_s06_bold_poster",
+   "p01_s07_hang_tag",
+   "p01_s08_flat_lay",
+   "p01_s10_gift_moment",
+   "p01_s11_two_ways",
+   "p01_s13_colour_block",
+   "p01_s15_entryway_hook"
+  ],
+  "next": "python3 pipeline/ai_gen.py show --out /tmp/run/vintage-bf-15s"
+ },
+ "winners_source": null,
+ "winners_note": null,
+ "winners_used": [],
+ "unmatched_winners": [],
+ "warnings": [
+  "campaign: Black Friday Sale 2026 (2026-10-23 to 2026-11-30, client-approved): end cards say 'Black Friday Sale' + 'UP TO 60% OFF'; the close and the ad copy name the sale; each bag's own % stays its offer",
+  "ideas: 10 AI statics of 15 (10 designed ads, 0 studio scenes; about 10 credits plus retries)",
+  "re-plan: keeps batch number B029 (planned in this --out, not uploaded yet)"
+ ],
+ "winner_reviews": false,
+ "seed": 2,
+ "hooks": 1,
+ "pipeline": "catalog",
+ "video_format": "classic",
+ "projects": []
+}

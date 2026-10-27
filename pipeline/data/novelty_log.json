@@ -3730,6 +3730,108 @@
        "structure": "night_before"
       }
      ]
+    },
+    {
+     "clips": [],
+     "date": "2026-10-27",
+     "name": "B029 – 2026-10-27 – Vintage Bag BlackFriday – 15 statics",
+     "statics": [
+      {
+       "caption": "The one-hand clasp bag",
+       "colour": "Red",
+       "format": "magazine_cover",
+       "layout": "ad",
+       "scene": "p01_s01_magazine_cover"
+      },
+      {
+       "caption": "Timeless outside. Organized inside.",
+       "layout": "studio",
+       "photo": "vintage_colour_chocolate.jpg"
+      },
+      {
+       "caption": "POV: you close it with one hand",
+       "colour": "Red",
+       "format": "pov_behind",
+       "layout": "ad",
+       "scene": "p01_s03_pov_behind"
+      },
+      {
+       "caption": "Made for everyday",
+       "colour": "Black",
+       "format": "feature_diagram",
+       "layout": "ad",
+       "scene": "p01_s04_feature_diagram"
+      },
+      {
+       "caption": "One snap. Done.",
+       "frame_clip": "18DAFSqkzMMUEnbSdL5eeRhvxDTkAq80k",
+       "layout": "native",
+       "photo": "F_18DAFSqkzM_0069.jpg"
+      },
+      {
+       "caption": "Half price.",
+       "colour": "Chocolate",
+       "format": "bold_poster",
+       "layout": "ad",
+       "scene": "p01_s06_bold_poster"
+      },
+      {
+       "caption": "50% off swing tag",
+       "colour": "Red",
+       "format": "hang_tag",
+       "layout": "ad",
+       "scene": "p01_s07_hang_tag"
+      },
+      {
+       "caption": "Room for phone, wallet and keys.",
+       "frame_clip": "1XuDRVtIPPc5XLeXSKsn_ZUIcA30iBKZk",
+       "layout": "native",
+       "photo": "F_1XuDRVtIPP_0093.jpg"
+      },
+      {
+       "layout": "quotes",
+       "photo": "vintage_colour_black.jpg"
+      },
+      {
+       "caption": "A gift for every day.",
+       "colour": "Red",
+       "format": "gift_moment",
+       "layout": "ad",
+       "scene": "p01_s10_gift_moment"
+      },
+      {
+       "caption": "Handbag. Crossbody.",
+       "colour": "Black",
+       "format": "two_ways",
+       "layout": "ad",
+       "scene": "p01_s11_two_ways"
+      },
+      {
+       "caption": "Handbag or crossbody. Your call.",
+       "layout": "studio",
+       "photo": "vintage_colour_red.jpg"
+      },
+      {
+       "caption": "Chocolate",
+       "colour": "Chocolate",
+       "format": "colour_block",
+       "layout": "ad",
+       "scene": "p01_s13_colour_block"
+      },
+      {
+       "caption": "Black Friday prices are live now.",
+       "layout": "studio",
+       "photo": "vintage_colour_chocolate.jpg"
+      },
+      {
+       "caption": "Grab and go.",
+       "colour": "Black",
+       "format": "entryway_hook",
+       "layout": "ad",
+       "scene": "p01_s15_entryway_hook"
+      }
+     ],
+     "videos": []
     }
    ]
   }
