@@ -87,6 +87,12 @@ def test_a_proof_shot_and_people():
     assert has(problems(s), "needs a movement")
 
 
+def test_the_offer_chapter_says_the_percent_the_card_waits_for():
+    s = sheet()
+    s["projects"][0]["chapters"][-1]["text"] = "The Hobo Bag is half price for Black Friday. Tap the link below."
+    assert has(problems(s), "offer chapter must say the 50%")
+
+
 def test_beats_follow_the_structure():
     s = sheet()
     s["projects"][0]["chapters"][0]["beat"] = "climax"

@@ -995,6 +995,19 @@ def check_out(out):
     return compliance.check_out(out)
 
 
+_SOUND = []
+
+
+def sound_ids():
+    """The library clips (clip_index.json) that have a sound track: a proof shot plays its own sound (storyboard.natural_sounds)."""
+    if not _SOUND:
+        try:
+            _SOUND.append({r["id"] for r in json.load(open(os.path.join(HERE, "data", "clip_index.json"))) if r.get("audio")})
+        except (OSError, ValueError):
+            _SOUND.append(set())
+    return _SOUND[0]
+
+
 INDEX_PRODUCT = {"hobo bag": "Hobo Bag", "hobo 2.0": "Hobo 2.0", "slouchy": "Slouchy", "vintage": "Vintage Bag"}   # built-in -> its
 #                                                                    product in pipeline/data/clip_index.json (the client's library)
 
@@ -2737,9 +2750,9 @@ def plan(a):
             ids_ = sorted(ai_mine)
             ai_mine = {ids_[(v * 3 + j_) % len(ids_)] for j_ in range(4)}
 
-        def choose(terms, cterms, feat, prev, use, kinds=None, hook=False, wants=None, opening=False):
-            best = None
-            for i, e in enumerate(lib):
+        def choose(terms, cterms, feat, prev, use, kinds=None, hook=False, wants=None, opening=False, sound=False):
+            best = best_s = None     # sound: a proof shot (owner 2026-10-27) takes the best clip with a sound track whose labels show what
+            for i, e in enumerate(lib):     # the line wants (it plays its own sound); none: the best shot, silent
                 if e["p"][0] == "ai" and (ai_n[0] >= AI_SHOTS_MAX or e["p"][1] not in ai_mine):   # (mostly the real footage)
                     continue
                 if (e["only"] and not e["only"] & (terms | cterms)) or (kinds and e["kind"] not in kinds) or (e["once"] and use.get(i)):
@@ -2755,8 +2768,11 @@ def plan(a):
                 s -= REUSE * use.get(i, 0)                           # a moment shown again costs REUSE: a good match shown twice (the 2nd
                 if best is None or -s < best[0]:                    # time a closer framing) beats a shot that shows something else
                     best = (-s, i)
+                if sound and sem > 0 and e["kind"] != "photo" and e["src"] in sound_ids() and (best_s is None or -s < best_s[0]):
+                    best_s = (-s, i)
             if best is None:
                 return None
+            best = best_s or best
             use[best[1]] = use.get(best[1], 0) + 1
             batch_srcs.add(lib[best[1]]["src"])
             if opening:
@@ -2803,7 +2819,8 @@ def plan(a):
                 last_slot = ch is not None and ch is chs[-1] and j == len(slots[k_]) - 1
                 c_ = choose({"packshot", "hero"}, {"hero"}, None, prev, uses, {"photo"}) if last_slot and packs else None
                 c_ = c_ or choose(kw_terms(st_), ct, feat, prev, uses, hook=ch is None, opening=ch is None and j == 0,
-                                  wants=shotmatch.wants(st_, (ch or {}).get("tag") or hk.get("feature"), (ch or hk).get("show") or ()))
+                                  wants=shotmatch.wants(st_, (ch or {}).get("tag") or hk.get("feature"), (ch or hk).get("show") or ()),
+                                  sound=bool(ch and ch.get("proof")) and j == 0)
                 x_ = framed(*c_) if c_ else None
                 if x_:
                     if last_slot and len(x_) > 3 and x_[3].get("fit"):

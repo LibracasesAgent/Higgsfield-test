@@ -159,6 +159,16 @@ def features_in(text, keys):
     return [t for _, t in sorted(got)]
 
 
+def offer_word_ok(text, pr):
+    """Does the offer chapter say the product's % the way the offer card waits for it ('50%', '50 percent', 'fifty')? None: no %."""
+    import new_product
+    pct = re.sub(r"\D", "", str((((pr.get("offer") or {}).get("badge") or {}).get("big")) or ""))
+    if not pct:
+        return None
+    sp = new_product.say(int(pct)).split("-")[0]
+    return bool(re.search(rf"\b{pct}\s?%|\b{pct} percent|\b{sp}\b", (text or "").lower()))
+
+
 def story_problems(p, pid, pr, cov, keys, slib, P, W):
     """The story rules of one project (owner 2026-10-27): its structure and beats, at most 3 features, the price only at the end,
     hooks that open on four different pictures of the bag doing something, one or two proof shots, people in the footage.
@@ -214,6 +224,11 @@ def story_problems(p, pid, pr, cov, keys, slib, P, W):
         if sum(1 for c in body if set(c.get("show") or []) & PEOPLE_TAGS) < 2 and cov and \
                 max(cov.get(t, [0])[0] for t in PEOPLE_TAGS) >= MIN_MOMENTS:
             P.append(f"{pid}: show the bag on a person (worn / walking) in at least two chapters: the footage has them, people sell")
+    off = [c for c in chs if c.get("kind") == "offer"]
+    if off and offer_word_ok(off[-1].get("text"), pr) is False:
+        pct = re.sub(r"\D", "", str(pr["offer"]["badge"]["big"]))
+        P.append(f"{pid}: the offer chapter must say the {pct}% ('{pct} percent' or the number in words): the offer card shows when "
+                 f"that word is said ('half price' alone leaves it out)")
     proofs = [c for c in body if c.get("proof_shot")]
     if not 1 <= len(proofs) <= 2:
         P.append(f"{pid}: {len(proofs)} proof shots: one chapter (two at most) with \"proof_shot\": true, where the picture proves the line "
