@@ -1,0 +1,19 @@
+{
+ "ok": true,
+ "product": "Vintage Bag",
+ "offer": "50% off",
+ "checked": 137,
+ "problems": [],
+ "allowed": [
+  {
+   "where": "ad copy LC_261027_VintageBag_BlackFriday_B029_S09_quotes primary_text_2",
+   "text": "\"Got this bag for my daughter for Christmas and she adores it.\" - Felicia S.\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nA clasp that snaps shut with one hand.\nThis Black Friday: 50% off. 🖤\nTap Get Offer to claim the deal.",
+   "category": "testimonial",
+   "term": "my daughter",
+   "why": "a customer review (verbatim, or attributed to the customer by name)"
+  }
+ ],
+ "raw_story": [],
+ "raw_cuts": [],
+ "report": "/tmp/run/vintage-bf-15s/compliance.json"
+}

@@ -1,0 +1,341 @@
+{
+ "product": "Vintage Bag",
+ "theme": "black friday",
+ "date": "2026-10-27",
+ "no_presenter": "15 statics for the Vintage Bag, Black Friday (statics only, no videos, no presenter)",
+ "research": [
+  "Read the strategy packet: the Vintage Bag's true facts (one-hand clasp, room for phone / wallet / keys, adjustable strap handbag or crossbody; 50% off; free US shipping; the packet holds no warranty line, so none is used) and the Black Friday campaign facts (Early Black Friday prices live now, no gifts, no end-date or countdown words).",
+  "Read docs/research/2026-10-black-friday-and-bag-ads.md: one big visual and next to no text works for BFCM statics; flat lays and cosy lifestyle stills beat busy layouts; strikethrough prices and countdowns are risky, so only the % and 'Early Black Friday' are printed; ideas used: hand-reach / feature pointouts (feature diagram), what-fits flat lay, colour-name monochrome (Bellroy), gift static, POV from behind.",
+  "Read B012 (statics: Meet the Vintage Bag. / The Vintage Bag. / offer / One-Hand Clasp. Room For Everything. / quotes) and B028 (videos only: one-hand test, friend advice, night before): no AI ad format has been used for the Vintage Bag before, and none of those lines is reused here.",
+  "The Vintage Bag has a snap-tab clasp and a framed top, NOT a zip: the library's example lines about a bag that 'zips shut' are not used. Prices are not printed (the price test): only '50% off' / 'half price'.",
+  "Statics-only batch: the sheet needs a project to attach the statics to, so P01 is a carrier script that is NOT produced in this batch (plan --projects 0: no voiceover, no render, no video, no presenter)."
+ ],
+ "projects": [
+  {
+   "id": "P01",
+   "slug": "mythsmall",
+   "title": "Myth: a small bag cannot carry a day (not produced in this batch)",
+   "big_idea": "A myth-versus-fact story about a small bag that holds a whole day; kept in the sheet only as the carrier of the statics, no video is made from it here.",
+   "why_new": "No earlier Vintage batch used the myth-versus-fact structure, and none led with the room-for-everything feature over a small-bag myth.",
+   "structure": "myth_fact",
+   "hooks": [
+    {
+     "text": "Think a small bag can't hold your day?",
+     "type": "question",
+     "label": "THE MYTH",
+     "show": [
+      "snap",
+      "handheld"
+     ]
+    },
+    {
+     "text": "Both hands busy, and the bag is hanging open.",
+     "type": "problem",
+     "label": "HANDS FULL",
+     "show": [
+      "worn",
+      "walking"
+     ]
+    },
+    {
+     "text": "One strap, two ways to carry it.",
+     "type": "promise",
+     "label": "TWO WAYS",
+     "show": [
+      "strap",
+      "handheld"
+     ]
+    },
+    {
+     "text": "Phone, wallet and keys, each in its own spot.",
+     "type": "promise",
+     "label": "ITS OWN SPOT",
+     "show": [
+      "packing",
+      "inside"
+     ]
+    }
+   ],
+   "chapters": [
+    {
+     "kind": "point",
+     "beat": "myth",
+     "number": null,
+     "tag": null,
+     "show": [
+      "worn",
+      "walking"
+     ],
+     "text": "Here's a myth: a small bag can't carry a whole day. Most small bags are one tight pocket, so it's an easy myth to believe. You end up carrying a second bag, or leaving things at home."
+    },
+    {
+     "kind": "point",
+     "beat": "fact",
+     "number": 1,
+     "tag": "ROOM FOR EVERYTHING",
+     "show": [
+      "inside",
+      "packing"
+     ],
+     "text": "Here's the fact. Open the Vintage Bag and there's room for your phone, wallet and keys, each one in its own spot. Everything you reach for all day has a place."
+    },
+    {
+     "kind": "proof",
+     "beat": "proof",
+     "number": 2,
+     "tag": "ONE-HAND CLASP",
+     "proof_shot": true,
+     "show": [
+      "snap",
+      "handheld"
+     ],
+     "text": "Now watch the clasp. It snaps shut with one hand. One press, and it's closed, while your other hand keeps holding whatever you're carrying."
+    },
+    {
+     "kind": "point",
+     "beat": "second_fact",
+     "number": 3,
+     "tag": "ADJUSTABLE STRAP",
+     "show": [
+      "strap",
+      "worn"
+     ],
+     "text": "The strap does the rest of the work. It adjusts, so you can wear the bag as a handbag or crossbody. Shorter on the arm, longer across the body."
+    },
+    {
+     "kind": "point",
+     "beat": "second_fact",
+     "number": null,
+     "tag": null,
+     "show": [
+      "walking",
+      "outdoor",
+      "worn"
+     ],
+     "text": "So the myth doesn't hold. A small bag can hold a real day: phone, wallet and keys within reach, a clasp you close with one hand, and a strap you set your own way. And it still looks timeless."
+    },
+    {
+     "kind": "offer",
+     "beat": "offer",
+     "number": null,
+     "tag": null,
+     "show": [
+      "hero",
+      "colours"
+     ],
+     "text": "Black Friday prices are live now, so the Vintage Bag is fifty percent off, with free US shipping. Tap the link below."
+    }
+   ]
+  }
+ ],
+ "statics": [
+  {
+   "id": "S01",
+   "project": "P01",
+   "layout": "ad",
+   "format": "magazine_cover",
+   "idea": "A fashion-magazine cover of the red Vintage Bag whose cover lines say what it does and the sale.",
+   "words": [
+    "LIBRA",
+    "THE ONE-HAND CLASP BAG",
+    "TWO WAYS TO CARRY",
+    "EARLY BLACK FRIDAY: 50% OFF"
+   ],
+   "headline": "The one-hand clasp bag",
+   "scene": {
+    "colour": "Red",
+    "prompt": "The closed red bag stands upright on a seamless warm cream studio sweep, soft window light from the left, a gentle natural shadow, the strap lying in a loose curve beside it. Clean editorial look, plenty of calm space at the top for the masthead."
+   }
+  },
+  {
+   "id": "S02",
+   "project": "P01",
+   "layout": "studio",
+   "idea": "The real black packshot large on a calm tinted backdrop with one line from the product's own description.",
+   "headline": "Timeless outside. Organized inside."
+  },
+  {
+   "id": "S03",
+   "project": "P01",
+   "layout": "ad",
+   "format": "pov_behind",
+   "idea": "A candid street photo from behind: the bag worn crossbody, one hand resting on the clasp.",
+   "words": [
+    "POV: you close it with one hand"
+   ],
+   "headline": "POV: you close it with one hand",
+   "scene": {
+    "colour": "Red",
+    "prompt": "A candid phone photo taken from behind a woman walking down a quiet city street in soft autumn daylight, dark wool coat, the closed red bag worn crossbody at her hip with one hand resting on its snap tab, a folded umbrella in the other hand. Seen only from behind, her hair covering the back of her head, the street slightly out of focus."
+   }
+  },
+  {
+   "id": "S04",
+   "project": "P01",
+   "layout": "ad",
+   "format": "feature_diagram",
+   "idea": "A feature diagram of the black bag from the front: clasp, strap and shape pointed out with thin leader lines.",
+   "words": [
+    "Made for everyday",
+    "One-hand snap clasp",
+    "Adjustable strap",
+    "Structured shape"
+   ],
+   "headline": "Made for everyday",
+   "scene": {
+    "colour": "Black",
+    "prompt": "The closed black bag centred on a light grey seamless studio backdrop in a three-quarter front view, the snap tab and the strap clearly visible, soft even light, a lot of clear space around it for the labels and thin leader lines."
+   }
+  },
+  {
+   "id": "S05",
+   "project": "P01",
+   "layout": "native",
+   "idea": "A real face-free footage frame of the bag with a three-word caption.",
+   "headline": "One snap. Done."
+  },
+  {
+   "id": "S06",
+   "project": "P01",
+   "layout": "ad",
+   "format": "bold_poster",
+   "idea": "A one-colour HALF PRICE poster with the chocolate bag small at the bottom.",
+   "words": [
+    "HALF PRICE.",
+    "Early Black Friday"
+   ],
+   "headline": "Half price.",
+   "scene": {
+    "colour": "Chocolate",
+    "prompt": "A solid warm mustard-yellow background filling the whole frame like a printed poster, the closed chocolate bag at the lower centre at about a third of the frame height with a soft shadow, a huge empty area above it for the big words."
+   }
+  },
+  {
+   "id": "S07",
+   "project": "P01",
+   "layout": "ad",
+   "format": "hang_tag",
+   "format_name": "Boutique swing tag",
+   "art": "A close, candid photo of the bag hanging by its strap from a wooden wall hook, a kraft-paper swing tag tied to the strap ring with string. The tag carries the words in simple black type; the wall around it is calm, soft side window light, a real boutique snapshot and not a graphic.",
+   "people": "none",
+   "words": [
+    "50% OFF",
+    "Early Black Friday"
+   ],
+   "headline": "50% off swing tag",
+   "scene": {
+    "colour": "Red",
+    "prompt": "The closed red bag hangs from a plain wooden hook on a pale plaster wall by its strap, a kraft-paper swing tag tied to the strap ring, soft side light from a window, the tag facing the camera and large enough to read."
+   },
+   "idea": "A boutique-style swing tag on the bag's strap that carries the half-price words, shot as a real snapshot."
+  },
+  {
+   "id": "S08",
+   "project": "P01",
+   "layout": "ad",
+   "format": "flat_lay",
+   "idea": "A top-down flat lay of what fits: phone, wallet and keys laid next to the closed bag.",
+   "words": [
+    "Phone. Wallet. Keys.",
+    "Early Black Friday: 50% off"
+   ],
+   "headline": "Phone. Wallet. Keys.",
+   "scene": {
+    "colour": "Chocolate",
+    "prompt": "A top-down flat lay on a pale oak table: the closed chocolate bag with its strap laid in a neat curve, and beside it, not in it, a phone lying face down, a slim wallet and a small bunch of keys, soft morning light, tidy but lived-in."
+   }
+  },
+  {
+   "id": "S09",
+   "project": "P01",
+   "layout": "quotes",
+   "idea": "One verbatim customer review next to the real packshot."
+  },
+  {
+   "id": "S10",
+   "project": "P01",
+   "layout": "ad",
+   "format": "gift_moment",
+   "idea": "A real-home gift moment: the red bag with a handwritten gift tag on its strap.",
+   "words": [
+    "For Mom",
+    "A gift for every day."
+   ],
+   "headline": "A gift for every day.",
+   "scene": {
+    "colour": "Red",
+    "prompt": "A candid photo in a real home: the closed red bag on a kitchen table beside crumpled kraft wrapping paper and a loose ribbon, a small handwritten paper gift tag tied to the strap, warm lamp light in the evening, a little clutter in the soft background."
+   }
+  },
+  {
+   "id": "S11",
+   "project": "P01",
+   "layout": "ad",
+   "format": "two_ways",
+   "format_name": "Two ways to carry",
+   "art": "A two-panel photo diptych, stacked top and bottom with a thin white gutter. Top panel: the bag carried by its short strap in one hand at hip height, only the hand and wrist cropped in the frame. Bottom panel: the same bag worn crossbody at the hip by a person seen from behind, cropped at the shoulders on a city pavement. One large one-word label in each panel.",
+   "people": "cropped",
+   "words": [
+    "HANDBAG.",
+    "CROSSBODY."
+   ],
+   "headline": "Handbag. Crossbody.",
+   "scene": {
+    "colour": "Black",
+    "prompt": "Top panel: the closed black bag held by its doubled strap in a hand, against a soft grey stone wall. Bottom panel: the same closed black bag worn crossbody at the hip, a person in a cream knit seen from behind and cropped at the shoulders, on a sunlit pavement."
+   },
+   "idea": "A two-panel diptych that shows the strap's two ways to carry: handbag on top, crossbody below."
+  },
+  {
+   "id": "S12",
+   "project": "P01",
+   "layout": "native",
+   "idea": "A real face-free footage frame of the strap with the two ways to wear it.",
+   "headline": "Handbag or crossbody. Your call.",
+   "pill": true
+  },
+  {
+   "id": "S13",
+   "project": "P01",
+   "layout": "ad",
+   "format": "colour_block",
+   "idea": "A monochrome cocoa-brown studio set named after the chocolate colourway.",
+   "words": [
+    "CHOCOLATE",
+    "One of four colours"
+   ],
+   "headline": "Chocolate",
+   "scene": {
+    "colour": "Chocolate",
+    "prompt": "A colour-block studio set in rich cocoa brown: a brown seamless backdrop and a low stepped brown plinth, the closed chocolate bag standing on the plinth, a tonal monochrome palette, soft diffused light, a little empty space at the top for the words."
+   }
+  },
+  {
+   "id": "S14",
+   "project": "P01",
+   "layout": "studio",
+   "idea": "A second real packshot static whose one line is the campaign fact: prices are live now.",
+   "headline": "Black Friday prices are live now.",
+   "pill": true
+  },
+  {
+   "id": "S15",
+   "project": "P01",
+   "layout": "ad",
+   "format": "entryway_hook",
+   "format_name": "Entryway grab and go",
+   "art": "A lived-in entryway snapshot: the bag hanging by its strap from a wooden wall hook beside a small ceramic dish of keys, warm morning light from a window, shallow depth of field, a real home and not a studio. A short caption set large in clean type at the lower third.",
+   "people": "none",
+   "words": [
+    "Grab and go.",
+    "Early Black Friday"
+   ],
+   "headline": "Grab and go.",
+   "scene": {
+    "colour": "Black",
+    "prompt": "The closed black bag hangs from a wooden wall hook in a small home entryway, a ceramic dish with keys on a narrow shelf beside it, soft warm morning light from a window, a plain painted wall with a lower area calm enough for a caption."
+   },
+   "idea": "A real-looking entryway snapshot with the bag on a wall hook next to the keys: grab and go."
+  }
+ ]
+}

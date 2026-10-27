@@ -1,0 +1,212 @@
+{
+ "ads": [
+  {
+   "layout": "ad",
+   "photo": "ai/AS01.png",
+   "format": "magazine_cover",
+   "words": [
+    "LIBRA",
+    "THE ONE-HAND CLASP BAG",
+    "TWO WAYS TO CARRY",
+    "EARLY BLACK FRIDAY: 50% OFF"
+   ],
+   "headline": "The one-hand clasp bag",
+   "name": "LC_261027_VintageBag_BlackFriday_B029_S01_magazine",
+   "ai": {
+    "id": "AS01",
+    "scene": "p01_s01_magazine_cover",
+    "colour": "Red",
+    "format": "magazine_cover"
+   }
+  },
+  {
+   "layout": "studio",
+   "photo": "site/vintage_colour_chocolate.jpg",
+   "name": "LC_261027_VintageBag_BlackFriday_B029_S02_studio",
+   "caption": "Timeless outside. Organized inside."
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS02.png",
+   "format": "pov_behind",
+   "words": [
+    "POV: you close it with one hand"
+   ],
+   "headline": "POV: you close it with one hand",
+   "name": "LC_261027_VintageBag_BlackFriday_B029_S03_pov",
+   "ai": {
+    "id": "AS02",
+    "scene": "p01_s03_pov_behind",
+    "colour": "Red",
+    "format": "pov_behind"
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS03.png",
+   "format": "feature_diagram",
+   "words": [
+    "Made for everyday",
+    "One-hand snap clasp",
+    "Adjustable strap",
+    "Structured shape"
+   ],
+   "headline": "Made for everyday",
+   "name": "LC_261027_VintageBag_BlackFriday_B029_S04_diagram",
+   "ai": {
+    "id": "AS03",
+    "scene": "p01_s04_feature_diagram",
+    "colour": "Black",
+    "format": "feature_diagram"
+   }
+  },
+  {
+   "layout": "native",
+   "photo": "photos/frames/F_18DAFSqkzM_0069.jpg",
+   "caption": "One snap. Done.",
+   "pct": 50,
+   "name": "LC_261027_VintageBag_BlackFriday_B029_S05_native",
+   "frame": {
+    "clip": "18DAFSqkzMMUEnbSdL5eeRhvxDTkAq80k",
+    "t": 6.9
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS04.png",
+   "format": "bold_poster",
+   "words": [
+    "HALF PRICE.",
+    "Early Black Friday"
+   ],
+   "headline": "Half price.",
+   "name": "LC_261027_VintageBag_BlackFriday_B029_S06_poster",
+   "ai": {
+    "id": "AS04",
+    "scene": "p01_s06_bold_poster",
+    "colour": "Chocolate",
+    "format": "bold_poster"
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS05.png",
+   "format": "hang_tag",
+   "words": [
+    "50% OFF",
+    "Early Black Friday"
+   ],
+   "headline": "50% off swing tag",
+   "name": "LC_261027_VintageBag_BlackFriday_B029_S07_hangtag",
+   "ai": {
+    "id": "AS05",
+    "scene": "p01_s07_hang_tag",
+    "colour": "Red",
+    "format": "hang_tag"
+   }
+  },
+  {
+   "layout": "native",
+   "photo": "photos/frames/F_1XuDRVtIPP_0093.jpg",
+   "caption": "Room for phone, wallet and keys.",
+   "pct": 50,
+   "name": "LC_261027_VintageBag_BlackFriday_B029_S08_native",
+   "frame": {
+    "clip": "1XuDRVtIPPc5XLeXSKsn_ZUIcA30iBKZk",
+    "t": 9.3
+   }
+  },
+  {
+   "layout": "quotes",
+   "photo": "site/vintage_colour_black.jpg",
+   "reviews": [
+    9
+   ],
+   "pct": 50,
+   "cta": "Get the Black Friday deal",
+   "name": "LC_261027_VintageBag_BlackFriday_B029_S09_quotes"
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS07.png",
+   "format": "gift_moment",
+   "words": [
+    "For Mom",
+    "A gift for every day."
+   ],
+   "headline": "A gift for every day.",
+   "name": "LC_261027_VintageBag_BlackFriday_B029_S10_gifttag",
+   "ai": {
+    "id": "AS07",
+    "scene": "p01_s10_gift_moment",
+    "colour": "Red",
+    "format": "gift_moment"
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS08.png",
+   "format": "two_ways",
+   "words": [
+    "HANDBAG.",
+    "CROSSBODY."
+   ],
+   "headline": "Handbag. Crossbody.",
+   "name": "LC_261027_VintageBag_BlackFriday_B029_S11_twoways",
+   "ai": {
+    "id": "AS08",
+    "scene": "p01_s11_two_ways",
+    "colour": "Black",
+    "format": "two_ways"
+   }
+  },
+  {
+   "layout": "studio",
+   "photo": "site/vintage_colour_red.jpg",
+   "pct": 50,
+   "name": "LC_261027_VintageBag_BlackFriday_B029_S12_studio",
+   "caption": "Handbag or crossbody. Your call."
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS09.png",
+   "format": "colour_block",
+   "words": [
+    "CHOCOLATE",
+    "One of four colours"
+   ],
+   "headline": "Chocolate",
+   "name": "LC_261027_VintageBag_BlackFriday_B029_S13_colourblock",
+   "ai": {
+    "id": "AS09",
+    "scene": "p01_s13_colour_block",
+    "colour": "Chocolate",
+    "format": "colour_block"
+   }
+  },
+  {
+   "layout": "studio",
+   "photo": "site/vintage_colour_chocolate.jpg",
+   "name": "LC_261027_VintageBag_BlackFriday_B029_S14_studio",
+   "caption": "Black Friday prices are live now."
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS10.png",
+   "format": "entryway_hook",
+   "words": [
+    "Grab and go.",
+    "Early Black Friday"
+   ],
+   "headline": "Grab and go.",
+   "name": "LC_261027_VintageBag_BlackFriday_B029_S15_entrywayhook",
+   "ai": {
+    "id": "AS10",
+    "scene": "p01_s15_entryway_hook",
+    "colour": "Black",
+    "format": "entryway_hook"
+   }
+  }
+ ],
+ "card_photos": []
+}

@@ -1968,7 +1968,116 @@
      "label": "Black Friday prices are live now. Pack this bag tonight."
     }
    ]
+  },
+  {
+   "id": "B029",
+   "n": 29,
+   "rev": 1,
+   "date": "2026-10-27",
+   "product": "Vintage Bag",
+   "theme": "BlackFriday",
+   "pipeline": "catalog",
+   "request": "15 statics for the Vintage Bag, Black Friday",
+   "statics": 15,
+   "projects": 0,
+   "hooks": 4,
+   "seed": 2,
+   "status": "uploaded",
+   "folder": "B029 – 2026-10-27 – Vintage Bag BlackFriday – 15 statics",
+   "link": "https://drive.google.com/drive/folders/1UGcQ5b-V1sLiq8kQUCcgqKP-fEdlJEkS",
+   "ads": [
+    {
+     "name": "LC_261027_VintageBag_BlackFriday_B029_S01_magazine",
+     "kind": "static",
+     "fp": "s|ad|AS01.png|the one-hand clasp bag",
+     "label": "The one-hand clasp bag"
+    },
+    {
+     "name": "LC_261027_VintageBag_BlackFriday_B029_S02_studio",
+     "kind": "static",
+     "fp": "s|studio|vintage_colour_chocolate.jpg|timeless outside. organized inside.",
+     "label": "Timeless outside. Organized inside."
+    },
+    {
+     "name": "LC_261027_VintageBag_BlackFriday_B029_S03_pov",
+     "kind": "static",
+     "fp": "s|ad|AS02.png|pov: you close it with one hand",
+     "label": "POV: you close it with one hand"
+    },
+    {
+     "name": "LC_261027_VintageBag_BlackFriday_B029_S04_diagram",
+     "kind": "static",
+     "fp": "s|ad|AS03.png|made for everyday",
+     "label": "Made for everyday"
+    },
+    {
+     "name": "LC_261027_VintageBag_BlackFriday_B029_S05_native",
+     "kind": "static",
+     "fp": "s|native|F_18DAFSqkzM_0069.jpg|one snap. done.",
+     "label": "One snap. Done."
+    },
+    {
+     "name": "LC_261027_VintageBag_BlackFriday_B029_S06_poster",
+     "kind": "static",
+     "fp": "s|ad|AS04.png|half price.",
+     "label": "Half price."
+    },
+    {
+     "name": "LC_261027_VintageBag_BlackFriday_B029_S07_hangtag",
+     "kind": "static",
+     "fp": "s|ad|AS05.png|50% off swing tag",
+     "label": "50% off swing tag"
+    },
+    {
+     "name": "LC_261027_VintageBag_BlackFriday_B029_S08_native",
+     "kind": "static",
+     "fp": "s|native|F_1XuDRVtIPP_0093.jpg|room for phone, wallet and keys.",
+     "label": "Room for phone, wallet and keys."
+    },
+    {
+     "name": "LC_261027_VintageBag_BlackFriday_B029_S09_quotes",
+     "kind": "static",
+     "fp": "s|quotes|vintage_colour_black.jpg|",
+     "label": ""
+    },
+    {
+     "name": "LC_261027_VintageBag_BlackFriday_B029_S10_gifttag",
+     "kind": "static",
+     "fp": "s|ad|AS07.png|a gift for every day.",
+     "label": "A gift for every day."
+    },
+    {
+     "name": "LC_261027_VintageBag_BlackFriday_B029_S11_twoways",
+     "kind": "static",
+     "fp": "s|ad|AS08.png|handbag. crossbody.",
+     "label": "Handbag. Crossbody."
+    },
+    {
+     "name": "LC_261027_VintageBag_BlackFriday_B029_S12_studio",
+     "kind": "static",
+     "fp": "s|studio|vintage_colour_red.jpg|handbag or crossbody. your call.",
+     "label": "Handbag or crossbody. Your call."
+    },
+    {
+     "name": "LC_261027_VintageBag_BlackFriday_B029_S13_colourblock",
+     "kind": "static",
+     "fp": "s|ad|AS09.png|chocolate",
+     "label": "Chocolate"
+    },
+    {
+     "name": "LC_261027_VintageBag_BlackFriday_B029_S14_studio",
+     "kind": "static",
+     "fp": "s|studio|vintage_colour_chocolate.jpg|black friday prices are live now.",
+     "label": "Black Friday prices are live now."
+    },
+    {
+     "name": "LC_261027_VintageBag_BlackFriday_B029_S15_entrywayhook",
+     "kind": "static",
+     "fp": "s|ad|AS10.png|grab and go.",
+     "label": "Grab and go."
+    }
+   ]
   }
  ],
- "next": 29
+ "next": 30
 }

@@ -1,0 +1,283 @@
+{
+ "stills": [
+  {
+   "id": "AS01",
+   "use": "static",
+   "scene": "p01_s01_magazine_cover",
+   "kind": "object",
+   "colour": "Red",
+   "layout": "ad",
+   "format": "magazine_cover",
+   "tag": "magazine",
+   "words": [
+    "LIBRA",
+    "THE ONE-HAND CLASP BAG",
+    "TWO WAYS TO CARRY",
+    "EARLY BLACK FRIDAY: 50% OFF"
+   ],
+   "ref": "/tmp/run/vintage-bf-15s/site/vintage_colour_red.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS01.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 0,
+   "prompt": "A premium fashion-magazine cover, shot and laid out like a real printed issue: the bag photographed large as the cover star on a seamless studio backdrop in one rich colour, soft directional studio light with a gentle shadow, a tall elegant serif masthead across the top behind the top of the bag, a few short cover lines in a clean sans-serif down the left side, generous margins, the look of glossy paper. The closed red bag stands upright on a seamless warm cream studio sweep, soft window light from the left, a gentle natural shadow, the strap lying in a loose curve beside it. Clean editorial look, plenty of calm space at the top for the masthead. The exact handbag from the reference image, unchanged: same colour (red), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"LIBRA\" / \"THE ONE-HAND CLASP BAG\" / \"TWO WAYS TO CARRY\" / \"EARLY BLACK FRIDAY: 50% OFF\". Set them as the masthead in a tall high-contrast serif, the cover lines in a clean condensed sans-serif, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS02",
+   "use": "static",
+   "scene": "p01_s03_pov_behind",
+   "kind": "behind",
+   "colour": "Red",
+   "layout": "ad",
+   "format": "pov_behind",
+   "tag": "pov",
+   "words": [
+    "POV: you close it with one hand"
+   ],
+   "ref": "/tmp/run/vintage-bf-15s/site/vintage_colour_red.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS02.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 2,
+   "prompt": "A candid phone photo taken by a friend walking a few steps behind her: real street life, slightly off-centre framing, natural mixed light (shop windows, dusk sky or daylight), a little motion blur in the passers-by, real clothes with creases and texture, ordinary city details, nothing glossy, staged or computer-made. One short caption in bold white sans-serif with a soft shadow sits large across the empty sky or wall area, the way people caption a photo. A candid phone photo taken from behind a woman walking down a quiet city street in soft autumn daylight, dark wool coat, the closed red bag worn crossbody at her hip with one hand resting on its snap tab, a folded umbrella in the other hand. Seen only from behind, her hair covering the back of her head, the street slightly out of focus. The exact handbag from the reference image, unchanged: same colour (red), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"POV: you close it with one hand\". Set them as a bold white sans-serif caption with a soft dark shadow, sentence case, set large on two or three lines, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. She is seen only from behind, walking away from the camera, her head turned forward, the bag on her shoulder towards the camera; nobody else faces the camera. No face is visible anywhere: nobody looks at the camera, every other person is far away, blurred and facing away. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS03",
+   "use": "static",
+   "scene": "p01_s04_feature_diagram",
+   "kind": "object",
+   "colour": "Black",
+   "layout": "ad",
+   "format": "feature_diagram",
+   "tag": "diagram",
+   "words": [
+    "Made for everyday",
+    "One-hand snap clasp",
+    "Adjustable strap",
+    "Structured shape"
+   ],
+   "ref": "/tmp/run/vintage-bf-15s/site/vintage_colour_black.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS03.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 3,
+   "prompt": "A clean product infographic: the bag photographed straight-on on a plain light backdrop, centred and large, with thin straight leader lines from each feature to a short label set neatly at the left and right edges, a headline at the top, lots of white space, like a premium catalogue page. The closed black bag centred on a light grey seamless studio backdrop in a three-quarter front view, the snap tab and the strap clearly visible, soft even light, a lot of clear space around it for the labels and thin leader lines. The exact handbag from the reference image, unchanged: same colour (black), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. Only label what is visible from this angle; each leader line points exactly at the part it names. The only words in the image, each exactly once and spelled exactly as written: \"Made for everyday\" / \"One-hand snap clasp\" / \"Adjustable strap\" / \"Structured shape\". Set them as the headline in a refined serif, the labels in a clear medium-weight sans-serif, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS04",
+   "use": "static",
+   "scene": "p01_s06_bold_poster",
+   "kind": "object",
+   "colour": "Chocolate",
+   "layout": "ad",
+   "format": "bold_poster",
+   "tag": "poster",
+   "words": [
+    "HALF PRICE.",
+    "Early Black Friday"
+   ],
+   "ref": "/tmp/run/vintage-bf-15s/site/vintage_colour_chocolate.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS04.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 5,
+   "prompt": "A bold graphic poster: one saturated flat colour fills the frame, the bag photographed as a clean cut-out with a soft natural drop shadow, very large heavy type that fills the width above it, one small line below, nothing else, confident Swiss-style layout. A solid warm mustard-yellow background filling the whole frame like a printed poster, the closed chocolate bag at the lower centre at about a third of the frame height with a soft shadow, a huge empty area above it for the big words. The exact handbag from the reference image, unchanged: same colour (chocolate), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"HALF PRICE.\" / \"Early Black Friday\". Set them as the big words in a heavy bold grotesque sans-serif, the small line in the same family, light weight, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS05",
+   "use": "static",
+   "scene": "p01_s07_hang_tag",
+   "kind": "object",
+   "colour": "Red",
+   "layout": "ad",
+   "format": "hang_tag",
+   "tag": "hangtag",
+   "words": [
+    "50% OFF",
+    "Early Black Friday"
+   ],
+   "ref": "/tmp/run/vintage-bf-15s/site/vintage_colour_red.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS05.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 6,
+   "prompt": "A close, candid photo of the bag hanging by its strap from a wooden wall hook, a kraft-paper swing tag tied to the strap ring with string. The tag carries the words in simple black type; the wall around it is calm, soft side window light, a real boutique snapshot and not a graphic. The closed red bag hangs from a plain wooden hook on a pale plaster wall by its strap, a kraft-paper swing tag tied to the strap ring, soft side light from a window, the tag facing the camera and large enough to read. The exact handbag from the reference image, unchanged: same colour (red), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"50% OFF\" / \"Early Black Friday\". Set them as clean, legible type, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS06",
+   "use": "static",
+   "scene": "p01_s08_flat_lay",
+   "kind": "object",
+   "colour": "Chocolate",
+   "layout": "ad",
+   "format": "flat_lay",
+   "tag": "flatlay",
+   "words": [
+    "Phone. Wallet. Keys.",
+    "Early Black Friday: 50% off"
+   ],
+   "ref": "/tmp/run/vintage-bf-15s/site/vintage_colour_chocolate.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS06.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 7,
+   "prompt": "A top-down flat lay photographed from directly above on a real surface (oak table, linen, marble), soft window light from one side with natural shadows, the bag zipped shut in the middle and the everyday things it holds laid neatly around it, a calm empty area at the top for a short serif headline and one small line. A top-down flat lay on a pale oak table: the closed chocolate bag with its strap laid in a neat curve, and beside it, not in it, a phone lying face down, a slim wallet and a small bunch of keys, soft morning light, tidy but lived-in. The exact handbag from the reference image, unchanged: same colour (chocolate), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. The bag is closed (zipped): never show its inside; the items lie next to it, not in it. The only words in the image, each exactly once and spelled exactly as written: \"Phone. Wallet. Keys.\" / \"Early Black Friday: 50% off\". Set them as the headline in an elegant serif, the line in a small sans-serif, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS07",
+   "use": "static",
+   "scene": "p01_s10_gift_moment",
+   "kind": "object",
+   "colour": "Red",
+   "layout": "ad",
+   "format": "gift_moment",
+   "tag": "gifttag",
+   "words": [
+    "For Mom",
+    "A gift for every day."
+   ],
+   "ref": "/tmp/run/vintage-bf-15s/site/vintage_colour_red.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS07.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 9,
+   "prompt": "A candid photo of a real, lived-in home in soft daylight from a window (a sofa or armchair with a throw, a book, a cup of tea), the bag sitting there with a slightly uneven satin ribbon around its handle and a small brown kraft-paper tag tied to it with string, the tag written by hand in pen with real ink. Natural colours, not glossy, no studio look. One short headline set in a clean serif in a calm empty part of the room. A candid photo in a real home: the closed red bag on a kitchen table beside crumpled kraft wrapping paper and a loose ribbon, a small handwritten paper gift tag tied to the strap, warm lamp light in the evening, a little clutter in the soft background. The exact handbag from the reference image, unchanged: same colour (red), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"For Mom\" / \"A gift for every day.\". Set them as the tag in natural handwriting in dark ink, the headline in a clean serif, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS08",
+   "use": "static",
+   "scene": "p01_s11_two_ways",
+   "kind": "hand",
+   "colour": "Black",
+   "layout": "ad",
+   "format": "two_ways",
+   "tag": "twoways",
+   "words": [
+    "HANDBAG.",
+    "CROSSBODY."
+   ],
+   "ref": "/tmp/run/vintage-bf-15s/site/vintage_colour_black.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS08.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 10,
+   "prompt": "A two-panel photo diptych, stacked top and bottom with a thin white gutter. Top panel: the bag carried by its short strap in one hand at hip height, only the hand and wrist cropped in the frame. Bottom panel: the same bag worn crossbody at the hip by a person seen from behind, cropped at the shoulders on a city pavement. One large one-word label in each panel. Top panel: the closed black bag held by its doubled strap in a hand, against a soft grey stone wall. Bottom panel: the same closed black bag worn crossbody at the hip, a person in a cream knit seen from behind and cropped at the shoulders, on a sunlit pavement. The exact handbag from the reference image, unchanged: same colour (black), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"HANDBAG.\" / \"CROSSBODY.\". Set them as clean, legible type, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. Only hands and forearms are in the frame: no head, no face. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS09",
+   "use": "static",
+   "scene": "p01_s13_colour_block",
+   "kind": "object",
+   "colour": "Chocolate",
+   "layout": "ad",
+   "format": "colour_block",
+   "tag": "colourblock",
+   "words": [
+    "CHOCOLATE",
+    "One of four colours"
+   ],
+   "ref": "/tmp/run/vintage-bf-15s/site/vintage_colour_chocolate.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS09.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 12,
+   "prompt": "A playful studio set built from two or three solid colour blocks (a pastel cube, a curved step, a backdrop) that pick up the bag's colour, the bag resting on a block, soft even studio light, crisp clean shadows, one short line in bold sans-serif on the plain backdrop. A colour-block studio set in rich cocoa brown: a brown seamless backdrop and a low stepped brown plinth, the closed chocolate bag standing on the plinth, a tonal monochrome palette, soft diffused light, a little empty space at the top for the words. The exact handbag from the reference image, unchanged: same colour (chocolate), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"CHOCOLATE\" / \"One of four colours\". Set them as a bold rounded sans-serif, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS10",
+   "use": "static",
+   "scene": "p01_s15_entryway_hook",
+   "kind": "object",
+   "colour": "Black",
+   "layout": "ad",
+   "format": "entryway_hook",
+   "tag": "entrywayhook",
+   "words": [
+    "Grab and go.",
+    "Early Black Friday"
+   ],
+   "ref": "/tmp/run/vintage-bf-15s/site/vintage_colour_black.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS10.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 14,
+   "prompt": "A lived-in entryway snapshot: the bag hanging by its strap from a wooden wall hook beside a small ceramic dish of keys, warm morning light from a window, shallow depth of field, a real home and not a studio. A short caption set large in clean type at the lower third. The closed black bag hangs from a wooden wall hook in a small home entryway, a ceramic dish with keys on a narrow shelf beside it, soft warm morning light from a window, a plain painted wall with a lower area calm enough for a caption. The exact handbag from the reference image, unchanged: same colour (black), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"Grab and go.\" / \"Early Black Friday\". Set them as clean, legible type, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  }
+ ],
+ "clips": [],
+ "est_credits": 10.0,
+ "notes": [],
+ "grade_refs": [],
+ "budget": {
+  "cap": 100.0,
+  "tts_est": 0.0,
+  "reserve": 8.0
+ },
+ "steps": [
+  "1. Upload each distinct `ref` once (media_upload, curl PUT, media_confirm); generate every still with generate_image_batch (model/params/prompt as listed, medias [{value: media_id, role: image_references}], max 12 per call); jobs_wait; download each result to $OUT/<file>.",
+  "2. python3 pipeline/ai_gen.py gate --out $OUT ; LOOK at $OUT/qa/ai_stills.jpg (reference | still): reject any still where the bag's shape, colour, handles or hardware differ from the reference, or that looks AI: python3 pipeline/ai_gen.py reject --out $OUT AS03 ...",
+  "3. For every clip whose start still passed: generate_video_batch (start_image = that still's job id, model/params/prompt as listed); jobs_wait; download to $OUT/<file>. Clips of a rejected still are skipped. If a submission comes back with a preset recommendation instead of a job, send it again with `declined_preset_id` = that preset's id (the project never uses presets).",
+  "4. python3 pipeline/ai_gen.py clips --out $OUT ; LOOK at $OUT/qa/ai_clips.jpg; reject morphing / odd-hand clips with `reject`. Then render as usual (it applies the result).",
+  "Report: credits before -> after (balance), how many AI assets passed. Never ship a still or clip you would not believe is real."
+ ]
+}
