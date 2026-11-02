@@ -1,0 +1,33 @@
+{
+ "ads": [
+  {
+   "layout": "ad",
+   "photo": "ai/AS01.png",
+   "format": "cafe_chalkboard",
+   "words": [
+    "BLACK FRIDAY PRICES",
+    "ARE LIVE NOW"
+   ],
+   "headline": "Black Friday prices are live now",
+   "name": "LC_261102_HoboBag_BlackFriday_B030_S01_cafechalkboa",
+   "ai": {
+    "id": "AS01",
+    "scene": "p01_s01_cafe_chalkboard",
+    "colour": "Galaxy Black",
+    "format": "cafe_chalkboard"
+   }
+  },
+  {
+   "layout": "native",
+   "photo": "photos/frames/F_1TeEFWPEZ__0162.jpg",
+   "caption": "Zips shut. Fits the day.",
+   "pct": 50,
+   "name": "LC_261102_HoboBag_BlackFriday_B030_S02_native",
+   "frame": {
+    "clip": "1TeEFWPEZ_jATN9so2DZNeyg-mOPQe8jL",
+    "t": 16.28
+   }
+  }
+ ],
+ "card_photos": []
+}

@@ -1,0 +1,416 @@
+{
+ "product": "Hobo Bag",
+ "theme": "black friday",
+ "date": "2026-11-02",
+ "no_presenter": "3 videos and 2 statics for the Hobo Bag, Black Friday, no presenter",
+ "research": [
+  "Strategy packet + docs/research/2026-10-black-friday-and-bag-ads.md: demonstrations and a packing-a-scenario opening (Dagne Dover, Bellroy) beat a bare '50% off' open; one big visual and next to no text for statics; real-looking candid photos (cafe table concept) beat glossy.",
+  "Earlier Hobo batches (B014, B016, B019, B027r3) were feature walks in costumes (pack-out, behind, giftcheck, five checks, the list, friday, myths, retire, your-and-hers, three names, second bag, no-wait); none used a night-before, a myth-and-fact turn or advice to a friend as a real story, and none led with the compartments, the back pocket and the strap in that way.",
+  "Sale facts used: Early Black Friday sale live now, the Hobo Bag 50% off (its own %), free matching pouch wallet and free US shipping from the product offer, the 3-Piece Set 60% off named as the set; no price figures, no end date, no returns line (final sale)."
+ ],
+ "projects": [
+  {
+   "id": "P01",
+   "slug": "packtonight",
+   "title": "Pack it tonight",
+   "structure": "night_before",
+   "big_idea": "The night before a long day out: what goes where, the zip closing, and the morning when nothing needs digging for.",
+   "why_new": "No earlier Hobo batch told the night before: this one is one evening and one morning, led by the divided compartments, with the zip closing as the held proof shot and the sale only as the last line.",
+   "hooks": [
+    {
+     "text": "Watch what goes in the bag the night before a long day.",
+     "type": "promise",
+     "label": "THE NIGHT BEFORE",
+     "show": [
+      "packing",
+      "inside"
+     ]
+    },
+    {
+     "text": "Where do your keys go when you pack tonight?",
+     "type": "question",
+     "label": "KEYS GO HERE",
+     "show": [
+      "side_zip",
+      "zip_hand"
+     ]
+    },
+    {
+     "text": "Tomorrow, no digging for your phone at the front door.",
+     "type": "problem",
+     "label": "NO DIGGING",
+     "show": [
+      "walking",
+      "worn"
+     ]
+    },
+    {
+     "text": "Black Friday prices are live now, and tomorrow's bag is half packed.",
+     "type": "price",
+     "label": "BLACK FRIDAY",
+     "show": [
+      "strap",
+      "worn"
+     ]
+    }
+   ],
+   "chapters": [
+    {
+     "kind": "point",
+     "beat": "occasion",
+     "text": "Tomorrow is a long day out. Errands, a coffee, a gift to pick up on the way. So tonight, you pack the bag.",
+     "tag": null,
+     "show": [
+      "home",
+      "packing"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "pack",
+     "text": "Start inside. Divided compartments, so your notebook sits in one, your glasses in another, and nothing sinks to the bottom.",
+     "tag": "SMART COMPARTMENTS",
+     "show": [
+      "inside",
+      "packing"
+     ],
+     "highlight": [
+      "compartments"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "pack",
+     "text": "Now the sides. Your phone goes in the gold zip on one side, your keys in the gold zip on the other. Each one has its own spot.",
+     "tag": "GOLD SIDE ZIPS",
+     "show": [
+      "side_zip",
+      "zip_hand"
+     ],
+     "highlight": [
+      "gold zip"
+     ]
+    },
+    {
+     "kind": "proof",
+     "beat": "close",
+     "proof_shot": true,
+     "text": "Last step. Pull the zip across and listen. That is the sound of a bag that is ready.",
+     "tag": null,
+     "show": [
+      "zip",
+      "zip_hand"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "morning",
+     "text": "Morning. You pick it up, the strap goes over your shoulder, and you are out of the door. The leather is soft and water-resistant, and it looks expensive.",
+     "tag": "SOFT LEATHER",
+     "show": [
+      "worn",
+      "walking"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "morning",
+     "text": "Three stops later, everything is exactly where you put it. Phone out, keys out, no digging, and your hands stay free for the coffee.",
+     "tag": null,
+     "show": [
+      "walking",
+      "street"
+     ]
+    },
+    {
+     "kind": "offer",
+     "beat": "offer",
+     "text": "The Hobo Bag is fifty percent off in the Early Black Friday sale, with a free matching pouch wallet and free US shipping. Pack yours tonight. Tap the link below.",
+     "tag": null,
+     "show": [
+      "worn",
+      "outdoor"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "P02",
+   "slug": "bigbagmyths",
+   "title": "Big bag, two myths",
+   "structure": "myth_fact",
+   "big_idea": "Two things people believe about big bags, turned around one by one with what the bag shows.",
+   "why_new": "Earlier myth lines (B016) were a list of three generic myths read over product shots; here two myths each get a proof picture, the hidden back pocket leads, and the fact comes before any word of the sale.",
+   "hooks": [
+    {
+     "text": "Where do your cards ride when your bag is big?",
+     "type": "question",
+     "label": "BIG BAG MYTH",
+     "show": [
+      "pocket",
+      "zip_hand"
+     ]
+    },
+    {
+     "text": "A big bag does not have to swallow your phone.",
+     "type": "problem",
+     "label": "PHONE, EASY",
+     "show": [
+      "side_zip",
+      "worn"
+     ]
+    },
+    {
+     "text": "Myth: the back of a bag is wasted space. Watch this.",
+     "type": "promise",
+     "label": "THE BACK POCKET",
+     "show": [
+      "walking",
+      "worn"
+     ]
+    },
+    {
+     "text": "Black Friday prices are live now, and this bag has a hidden pocket.",
+     "type": "price",
+     "label": "BLACK FRIDAY",
+     "show": [
+      "strap",
+      "worn"
+     ]
+    }
+   ],
+   "chapters": [
+    {
+     "kind": "point",
+     "beat": "myth",
+     "text": "Myth: if your bag is big, your passport and cards just have to live at the bottom, under everything. You will dig for them every single time.",
+     "tag": null,
+     "show": [
+      "walking",
+      "worn"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "fact",
+     "text": "Fact: there is a hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.",
+     "tag": "HIDDEN BACK POCKET",
+     "show": [
+      "pocket",
+      "worn"
+     ],
+     "highlight": [
+      "hidden pocket"
+     ]
+    },
+    {
+     "kind": "proof",
+     "beat": "proof",
+     "proof_shot": true,
+     "text": "Watch. Slide your cards in, close the zip, and the pocket lies flat against you, out of sight on the back of the bag.",
+     "tag": null,
+     "show": [
+      "pocket",
+      "zip_hand"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "second_fact",
+     "text": "Another myth: a bag that zips shut means digging for your phone. Not with a gold zip on each side, made for your keys and phone. One hand, one pull, and it is out.",
+     "tag": "GOLD SIDE ZIPS",
+     "show": [
+      "side_zip",
+      "worn"
+     ],
+     "highlight": [
+      "gold zip"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "second_fact",
+     "text": "And one more fact. The leather is soft and water-resistant, and it looks expensive.",
+     "tag": "SOFT LEATHER",
+     "show": [
+      "leather",
+      "worn"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "second_fact",
+     "text": "So the big bag stays big, the cards stay close, and the phone stays easy to reach, wherever you walk.",
+     "tag": null,
+     "show": [
+      "walking",
+      "street"
+     ]
+    },
+    {
+     "kind": "offer",
+     "beat": "offer",
+     "text": "The Hobo Bag is fifty percent off in the Early Black Friday sale, with a free matching pouch wallet and free US shipping. Tap the link below.",
+     "tag": null,
+     "show": [
+      "worn",
+      "outdoor"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "P03",
+   "slug": "tellyourfriend",
+   "title": "Tell her which bag",
+   "structure": "friend_advice",
+   "big_idea": "Your best friend has a full Saturday and asks which bag to take: the advice is the one that changes with her day.",
+   "why_new": "Earlier Hobo batches never led with the two straps: this is advice to a friend, three ways to carry as the story (market, lunch, dinner), the strap switch as the proof shot, and the 3-Piece Set as the 'treat yourself too' line at the end.",
+   "hooks": [
+    {
+     "text": "Your friend asks which bag to take all day. What do you say?",
+     "type": "question",
+     "label": "WHICH BAG?",
+     "show": [
+      "walking",
+      "street"
+     ]
+    },
+    {
+     "text": "One bag, three ways to carry it. Watch the strap switch.",
+     "type": "promise",
+     "label": "THREE WAYS",
+     "show": [
+      "strap",
+      "handheld"
+     ]
+    },
+    {
+     "text": "Her hands are full of market bags. Where is her phone?",
+     "type": "problem",
+     "label": "HANDS FULL",
+     "show": [
+      "handheld",
+      "side_zip"
+     ]
+    },
+    {
+     "text": "Black Friday prices are live now, so tell her before she picks.",
+     "type": "price",
+     "label": "BLACK FRIDAY",
+     "show": [
+      "worn",
+      "outdoor"
+     ]
+    }
+   ],
+   "chapters": [
+    {
+     "kind": "point",
+     "beat": "situation",
+     "text": "Your best friend has a full Saturday. A morning market, lunch in town, then dinner across the city. And she asks which bag to take.",
+     "tag": null,
+     "show": [
+      "walking",
+      "street"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "advice",
+     "text": "Tell her to take one that changes with her day. Two straps come with this bag, so it goes on the shoulder, in her hand as a handbag, or across her body.",
+     "tag": "3 WAYS TO WEAR",
+     "show": [
+      "strap",
+      "worn"
+     ],
+     "highlight": [
+      "two straps"
+     ]
+    },
+    {
+     "kind": "proof",
+     "beat": "because",
+     "proof_shot": true,
+     "text": "Because it switches in a minute. Change the strap, and the handbag becomes a crossbody.",
+     "tag": null,
+     "show": [
+      "strap",
+      "handheld"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "because",
+     "text": "At the market that means both hands free. On the way, her phone rides in a gold side zip, so she can grab it with one hand.",
+     "tag": "GOLD SIDE ZIPS",
+     "show": [
+      "side_zip",
+      "zip_hand"
+     ],
+     "highlight": [
+      "gold side zip"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "and",
+     "text": "And at dinner, she carries it by hand. Soft, water-resistant leather that looks expensive, so it fits right in.",
+     "tag": "SOFT LEATHER",
+     "show": [
+      "leather",
+      "worn"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "and",
+     "text": "One bag for the market, the lunch and the dinner. That is the advice.",
+     "tag": null,
+     "show": [
+      "worn",
+      "walking"
+     ]
+    },
+    {
+     "kind": "offer",
+     "beat": "offer",
+     "text": "Tell her the Hobo Bag is fifty percent off in the Early Black Friday sale, with a free matching pouch wallet. Want one for yourself too? The 3-Piece Hobo Bag Set is sixty percent off. Tap the link below.",
+     "tag": null,
+     "show": [
+      "worn",
+      "outdoor"
+     ]
+    }
+   ]
+  }
+ ],
+ "statics": [
+  {
+   "id": "S01",
+   "project": "P01",
+   "layout": "ad",
+   "format": "cafe_chalkboard",
+   "format_name": "Cafe table chalkboard",
+   "art": "A candid, realistic phone photo of a cafe table by a window: the closed bag hangs by its strap from the back of a wooden chair, a small slate chalkboard sign leans against a white cup on the table, the words hand-lettered in white chalk in big simple capitals. Warm daylight, shallow depth of field, a real cafe snapshot and not a graphic.",
+   "people": "none",
+   "idea": "A cafe-table snapshot of the black bag on a chair, a chalkboard sign saying the Black Friday prices are live.",
+   "words": [
+    "BLACK FRIDAY PRICES",
+    "ARE LIVE NOW"
+   ],
+   "headline": "Black Friday prices are live now",
+   "scene": {
+    "colour": "Black",
+    "prompt": "A small wooden cafe table beside a bright window, a white coffee cup and a small slate chalkboard sign leaning against it, the closed black bag hanging by its strap from the back of the chair next to the table, soft warm daylight, the background softly blurred, nobody in the frame."
+   }
+  },
+  {
+   "id": "S02",
+   "project": "P02",
+   "layout": "native",
+   "idea": "A real face-free footage frame of the bag with a short caption about the zips.",
+   "headline": "Zips shut. Fits the day."
+  }
+ ]
+}
