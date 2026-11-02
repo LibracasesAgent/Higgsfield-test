@@ -2079,6 +2079,109 @@
    ]
   },
   {
+   "id": "B030",
+   "n": 30,
+   "rev": 1,
+   "date": "2026-11-02",
+   "product": "Hobo Bag",
+   "theme": "BlackFriday",
+   "pipeline": "catalog",
+   "request": "3 videos and 2 statics for the Hobo Bag, Black Friday, no presenter",
+   "statics": 2,
+   "projects": 3,
+   "hooks": 4,
+   "seed": 1,
+   "status": "uploaded",
+   "folder": "B030 – 2026-11-02 – Hobo Bag BlackFriday – 2 statics + 3 projects",
+   "link": "https://drive.google.com/drive/folders/1vh5mecbQO6idlKgg36I72qYuz_n-cth7",
+   "ads": [
+    {
+     "name": "LC_261102_HoboBag_BlackFriday_B030_S01_cafechalkboa",
+     "kind": "static",
+     "fp": "s|ad|AS01.png|black friday prices are live now",
+     "label": "Black Friday prices are live now"
+    },
+    {
+     "name": "LC_261102_HoboBag_BlackFriday_B030_S02_native",
+     "kind": "static",
+     "fp": "s|native|F_1TeEFWPEZ__0162.jpg|zips shut. fits the day.",
+     "label": "Zips shut. Fits the day."
+    },
+    {
+     "name": "LC_261102_HoboBag_BlackFriday_B030_P01_H1_packtonight",
+     "kind": "video",
+     "fp": "v|watch what goes in the bag the night before a long day.|",
+     "label": "Watch what goes in the bag the night before a long day."
+    },
+    {
+     "name": "LC_261102_HoboBag_BlackFriday_B030_P01_H2_packtonight",
+     "kind": "video",
+     "fp": "v|where do your keys go when you pack tonight?|",
+     "label": "Where do your keys go when you pack tonight?"
+    },
+    {
+     "name": "LC_261102_HoboBag_BlackFriday_B030_P01_H3_packtonight",
+     "kind": "video",
+     "fp": "v|tomorrow, no digging for your phone at the front door.|",
+     "label": "Tomorrow, no digging for your phone at the front door."
+    },
+    {
+     "name": "LC_261102_HoboBag_BlackFriday_B030_P01_H4_packtonight",
+     "kind": "video",
+     "fp": "v|black friday prices are live now, and tomorrow's bag is half packed.|",
+     "label": "Black Friday prices are live now, and tomorrow's bag is half packed."
+    },
+    {
+     "name": "LC_261102_HoboBag_BlackFriday_B030_P02_H1_bigbagmyths",
+     "kind": "video",
+     "fp": "v|where do your cards ride when your bag is big?|",
+     "label": "Where do your cards ride when your bag is big?"
+    },
+    {
+     "name": "LC_261102_HoboBag_BlackFriday_B030_P02_H2_bigbagmyths",
+     "kind": "video",
+     "fp": "v|a big bag does not have to swallow your phone.|",
+     "label": "A big bag does not have to swallow your phone."
+    },
+    {
+     "name": "LC_261102_HoboBag_BlackFriday_B030_P02_H3_bigbagmyths",
+     "kind": "video",
+     "fp": "v|myth: the back of a bag is wasted space. watch this.|",
+     "label": "Myth: the back of a bag is wasted space. Watch this."
+    },
+    {
+     "name": "LC_261102_HoboBag_BlackFriday_B030_P02_H4_bigbagmyths",
+     "kind": "video",
+     "fp": "v|black friday prices are live now, and this bag has a hidden pocket.|",
+     "label": "Black Friday prices are live now, and this bag has a hidden pocket."
+    },
+    {
+     "name": "LC_261102_HoboBag_BlackFriday_B030_P03_H1_tellyourfriend",
+     "kind": "video",
+     "fp": "v|your friend asks which bag to take all day. what do you say?|",
+     "label": "Your friend asks which bag to take all day. What do you say?"
+    },
+    {
+     "name": "LC_261102_HoboBag_BlackFriday_B030_P03_H2_tellyourfriend",
+     "kind": "video",
+     "fp": "v|one bag, three ways to carry it. watch the strap switch.|",
+     "label": "One bag, three ways to carry it. Watch the strap switch."
+    },
+    {
+     "name": "LC_261102_HoboBag_BlackFriday_B030_P03_H3_tellyourfriend",
+     "kind": "video",
+     "fp": "v|her hands are full of market bags. where is her phone?|",
+     "label": "Her hands are full of market bags. Where is her phone?"
+    },
+    {
+     "name": "LC_261102_HoboBag_BlackFriday_B030_P03_H4_tellyourfriend",
+     "kind": "video",
+     "fp": "v|black friday prices are live now, so tell her before she picks.|",
+     "label": "Black Friday prices are live now, so tell her before she picks."
+    }
+   ]
+  },
+  {
    "id": "B031",
    "n": 31,
    "rev": 1,

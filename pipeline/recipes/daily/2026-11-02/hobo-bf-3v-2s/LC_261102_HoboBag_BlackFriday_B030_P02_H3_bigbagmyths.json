@@ -1,0 +1,374 @@
+{
+ "mode": "ugc",
+ "voice_speed": 1.12,
+ "blocks": [
+  {
+   "vo": "P02H3_hook.mp3",
+   "broll": [
+    [
+     "1vxD2_uEmihawSUj2aj3TZHmdJLEM2xCg",
+     67.56,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1xLH44ogCItKnvQZPnEeZieVOk9Zlgbs-",
+     15.77,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V02_c1.mp3",
+   "broll": [
+    [
+     "18wOkQ9ToI66y133XanUgEZT0I4Q25Ea1",
+     4.87,
+     1.0
+    ],
+    [
+     "1gRdQChxJOyp5_CFVQk2w3fF4M9SHYxOD",
+     4.73,
+     1.0
+    ],
+    [
+     "1PVkO22H9kksbsI49gtx_m9_qbdmB8S5W",
+     11.8,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "15AFGw3XpH8pQ7HL4epI2uzoFrT-8c69s",
+     12.01,
+     1.0
+    ],
+    [
+     "1J6TLYwW_SOJEzXCD09Doaw7w5n_WDVnx",
+     11.16,
+     1.0
+    ],
+    [
+     "1Rj3QE3QSg73kbPB1qCg7qo7az2SvQEPb",
+     4.6,
+     1.0
+    ]
+   ],
+   "pace": "slow"
+  },
+  {
+   "vo": "V02_c2.mp3",
+   "broll": [
+    [
+     "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+     3.6,
+     1.0
+    ],
+    [
+     "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+     1.0,
+     1.0
+    ],
+    [
+     "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+     9.0,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1lJsFt50wgto7Fv61KsjqKZsPVp-Q80UZ",
+     0.3,
+     1.0
+    ],
+    [
+     "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+     3.6,
+     1.0,
+     {
+      "zoom": [
+       1.3,
+       1.36
+      ],
+      "focus": [
+       0.5,
+       0.55
+      ]
+     }
+    ]
+   ]
+  },
+  {
+   "vo": "V02_c3.mp3",
+   "broll": [
+    [
+     "10P7VEuWg8XrzZjwgFEFYSX8AAAX9Khdj",
+     14.01,
+     1.0
+    ],
+    [
+     "1Z8iNqLT_lv441Ow6mTbJ7kMkCFizByxm",
+     37.11,
+     1.0
+    ],
+    [
+     "1vxD2_uEmihawSUj2aj3TZHmdJLEM2xCg",
+     113.27,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1Z8iNqLT_lv441Ow6mTbJ7kMkCFizByxm",
+     4.44,
+     1.0
+    ],
+    [
+     "1CH-2GlDKvJElGrkwRXxkmOe0emoOmHep",
+     2.86,
+     1.0
+    ]
+   ],
+   "proof": true
+  },
+  {
+   "vo": "V02_c4.mp3",
+   "broll": [
+    [
+     "1Rj3QE3QSg73kbPB1qCg7qo7az2SvQEPb",
+     0.3,
+     1.0
+    ],
+    [
+     "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+     2.0,
+     1.0
+    ],
+    [
+     "1JlS7-GlKLkqklk0xTO2jwXZ2VezE4us4",
+     3.15,
+     1.0
+    ],
+    [
+     "1mnZ266w4JTvXOnLeuzhOhtTBQM-8dYiF",
+     14.54,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1PVkO22H9kksbsI49gtx_m9_qbdmB8S5W",
+     0.83,
+     1.0
+    ],
+    [
+     "1AuvG1Ga1Hz5XcmaXldPexxQusjZhpj6b",
+     0.3,
+     1.0
+    ],
+    [
+     "17ZMWNTpSHUFgoFAy80lrXRhNHnNjhZ-a",
+     0.64,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V02_c5.mp3",
+   "broll": [
+    [
+     "1nnsvEIfgqziYdrmeUrrtgL3Qo3YHV7Sw",
+     9.0,
+     1.0
+    ],
+    [
+     "1CcakagPN5oiWEneKORpvJblnPYnQvWHI",
+     4.0,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1nnsvEIfgqziYdrmeUrrtgL3Qo3YHV7Sw",
+     15.0,
+     1.0
+    ],
+    [
+     "17sZzNvas8SySLaS3BpNjXmKn38qRY8Y1",
+     5.34,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V02_c6.mp3",
+   "broll": [
+    [
+     "1MtOonVbf-pqmrcU5DUgY6995LObDfwn7",
+     8.0,
+     1.0
+    ],
+    [
+     "1AUluz7URPC6lpawt-o44jCxvTwO2K03Y",
+     4.73,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1ZgpbxwiYGvvWCBBIFZBfgzD7DIlOnPeD",
+     0.3,
+     1.0
+    ],
+    [
+     "1cDI6dnwlwz-ARmQQ3PfOahefAEy2JYbx",
+     0.3,
+     1.0
+    ],
+    [
+     "1MtOonVbf-pqmrcU5DUgY6995LObDfwn7",
+     3.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V02_c7.mp3",
+   "broll": [
+    [
+     "10c2_gZUqck6flJfON5zOlmQDhXXWBqNT",
+     0.3,
+     1.0
+    ],
+    [
+     "1VtaFz7jQyakUR_5wqqodMvkI-Nu5GbiW",
+     8.98,
+     1.0
+    ],
+    [
+     "15AFGw3XpH8pQ7HL4epI2uzoFrT-8c69s",
+     0.86,
+     1.0
+    ],
+    [
+     "site/hobo_bag_colour_burgundy.jpg",
+     0,
+     1.0,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ]
+     }
+    ]
+   ],
+   "spare": [
+    [
+     "18wOkQ9ToI66y133XanUgEZT0I4Q25Ea1",
+     0.3,
+     1.0
+    ],
+    [
+     "1JlS7-GlKLkqklk0xTO2jwXZ2VezE4us4",
+     0.3,
+     1.0
+    ],
+    [
+     "17ZMWNTpSHUFgoFAy80lrXRhNHnNjhZ-a",
+     7.19,
+     1.0
+    ]
+   ]
+  }
+ ],
+ "overlays": [
+  {
+   "type": "label",
+   "text": "THE BACK POCKET",
+   "block": 0,
+   "at": 0.1,
+   "dur": 1.8
+  },
+  {
+   "type": "tag",
+   "text": "HIDDEN BACK POCKET",
+   "block": 2,
+   "at": 0.15,
+   "dur": 2.6
+  },
+  {
+   "type": "tag",
+   "text": "GOLD SIDE ZIPS",
+   "block": 4,
+   "at": 0.15,
+   "dur": 2.6
+  },
+  {
+   "type": "tag",
+   "text": "SOFT LEATHER",
+   "block": 5,
+   "at": 0.15,
+   "dur": 2.6
+  }
+ ],
+ "end_title": "Black Friday Sale",
+ "offer": {
+  "block": 7,
+  "word": "50",
+  "title": "BLACK FRIDAY 50% OFF",
+  "sub": "+ FREE MATCHING WALLET"
+ },
+ "end_photo": "site/hobo_bag_colour_grey.jpg",
+ "end_offer": "UP TO 60% OFF",
+ "keywords": [
+  "50%",
+  "free",
+  "pouch",
+  "wallet",
+  "gift",
+  "gifts",
+  "hidden",
+  "pocket",
+  "leather",
+  "black",
+  "friday",
+  "hidden pocket",
+  "gold zip"
+ ],
+ "spare_broll": [
+  [
+   "1viEJyIzgtQXsEU3C2n3cpY7NUNr6Hrqy",
+   0.59,
+   1.0
+  ],
+  [
+   "1G6B5yfeTUCh6NAy_fq7kc37qoSOgVmKE",
+   24.57,
+   1.0
+  ],
+  [
+   "1f_9Fjvv6B2cnF8Z0lFf__xn_RJEvpLQ0",
+   4.25,
+   1.0
+  ],
+  [
+   "1Ud2dhrP5f_E0z2WRMS7yxXJmhTda91-t",
+   2.61,
+   1.0
+  ],
+  [
+   "1YhwNw7JcsdFLXmpOvCeTDELVraU3Uicm",
+   0.3,
+   1.0
+  ],
+  [
+   "1ew4LpLFUTvH1qO52xwOpzLblWLFdr9y4",
+   1.49,
+   1.0
+  ]
+ ],
+ "music": {
+  "seed": 2
+ }
+}
