@@ -1,0 +1,523 @@
+{
+ "mode": "ugc",
+ "voice_speed": 1.12,
+ "blocks": [
+  {
+   "vo": "V03_hook.mp3",
+   "broll": [
+    [
+     "1TeEFWPEZ_jATN9so2DZNeyg-mOPQe8jL",
+     2.31,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "site/3_piece_set_colour_blue.jpg",
+     0,
+     1.0,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ]
+     }
+    ]
+   ]
+  },
+  {
+   "vo": "V03_c1.mp3",
+   "broll": [
+    [
+     "1Mtx32enLMlOkpIfl_Cr1EYezTdody3E1",
+     1.0,
+     1.0
+    ],
+    [
+     "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+     9.5,
+     1.0
+    ],
+    [
+     "1nnsvEIfgqziYdrmeUrrtgL3Qo3YHV7Sw",
+     15.0,
+     1.0
+    ],
+    [
+     "1bjlxkeRtv0nGVDDFjMAEw4xGTe3Up-D6",
+     6.41,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1Mtx32enLMlOkpIfl_Cr1EYezTdody3E1",
+     3.5,
+     1.0
+    ],
+    [
+     "1nnsvEIfgqziYdrmeUrrtgL3Qo3YHV7Sw",
+     12.0,
+     1.0
+    ],
+    [
+     "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+     1.0,
+     1.0
+    ]
+   ],
+   "pace": "slow"
+  },
+  {
+   "vo": "V03_c2.mp3",
+   "broll": [
+    [
+     "1TeEFWPEZ_jATN9so2DZNeyg-mOPQe8jL",
+     6.94,
+     1.0
+    ],
+    [
+     "1StPro8S4b5_LUICHyivAkrFna1M1k3ao",
+     8.5,
+     1.0
+    ],
+    [
+     "1TeEFWPEZ_jATN9so2DZNeyg-mOPQe8jL",
+     11.56,
+     1.0,
+     {
+      "zoom": [
+       1.3,
+       1.36
+      ],
+      "focus": [
+       0.5,
+       0.55
+      ]
+     }
+    ]
+   ],
+   "spare": [
+    [
+     "1TeEFWPEZ_jATN9so2DZNeyg-mOPQe8jL",
+     2.31,
+     1.0,
+     {
+      "zoom": [
+       1.3,
+       1.36
+      ],
+      "focus": [
+       0.5,
+       0.55
+      ]
+     }
+    ],
+    [
+     "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+     3.6,
+     1.0
+    ]
+   ],
+   "number": 1,
+   "pace": "fast"
+  },
+  {
+   "vo": "V03_c3.mp3",
+   "broll": [
+    [
+     "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+     9.0,
+     1.0
+    ],
+    [
+     "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+     16.0,
+     1.0
+    ],
+    [
+     "1StPro8S4b5_LUICHyivAkrFna1M1k3ao",
+     14.0,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+     1.0,
+     1.0,
+     {
+      "zoom": [
+       1.3,
+       1.36
+      ],
+      "focus": [
+       0.5,
+       0.55
+      ]
+     }
+    ],
+    [
+     "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+     12.0,
+     1.0
+    ],
+    [
+     "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+     3.6,
+     1.0,
+     {
+      "zoom": [
+       1.3,
+       1.36
+      ],
+      "focus": [
+       0.5,
+       0.55
+      ]
+     }
+    ]
+   ],
+   "number": 2,
+   "pace": "fast"
+  },
+  {
+   "vo": "V03_c4.mp3",
+   "broll": [
+    [
+     "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+     1.0,
+     1.0
+    ],
+    [
+     "15AFGw3XpH8pQ7HL4epI2uzoFrT-8c69s",
+     9.29,
+     1.0
+    ],
+    [
+     "1StPro8S4b5_LUICHyivAkrFna1M1k3ao",
+     11.5,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+     6.0,
+     1.0
+    ],
+    [
+     "1BidTuA7vhnKJ0W923VLBYlXX0LIIueg5",
+     0.0,
+     1.0
+    ]
+   ],
+   "proof": true
+  },
+  {
+   "vo": "V03_c5.mp3",
+   "broll": [
+    [
+     "1KrT_V2zVfWbAJ_QciTDEhWMundQHepPY",
+     1.0,
+     1.0
+    ],
+    [
+     "1MtOonVbf-pqmrcU5DUgY6995LObDfwn7",
+     12.0,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1MtOonVbf-pqmrcU5DUgY6995LObDfwn7",
+     8.0,
+     1.0
+    ],
+    [
+     "site/3_piece_set_colour_purple_red.jpg",
+     0,
+     1.0,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ]
+     }
+    ],
+    [
+     "site/3_piece_set_09.jpg",
+     0,
+     1.0,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ]
+     }
+    ]
+   ],
+   "number": 3,
+   "pace": "slow"
+  },
+  {
+   "vo": "V03_c6.mp3",
+   "broll": [
+    [
+     "1nnsvEIfgqziYdrmeUrrtgL3Qo3YHV7Sw",
+     4.0,
+     1.0
+    ],
+    [
+     "1MtOonVbf-pqmrcU5DUgY6995LObDfwn7",
+     3.0,
+     1.0
+    ],
+    [
+     "1StPro8S4b5_LUICHyivAkrFna1M1k3ao",
+     0.3,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "15AFGw3XpH8pQ7HL4epI2uzoFrT-8c69s",
+     9.29,
+     1.0,
+     {
+      "zoom": [
+       1.3,
+       1.36
+      ],
+      "focus": [
+       0.5,
+       0.55
+      ]
+     }
+    ],
+    [
+     "site/3_piece_set_11.jpg",
+     0,
+     1.0,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ]
+     }
+    ]
+   ],
+   "pace": "slow"
+  },
+  {
+   "vo": "V03_c7.mp3",
+   "broll": [
+    [
+     "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+     5.0,
+     1.0
+    ],
+    [
+     "1KrT_V2zVfWbAJ_QciTDEhWMundQHepPY",
+     1.0,
+     1.0,
+     {
+      "zoom": [
+       1.3,
+       1.36
+      ],
+      "focus": [
+       0.5,
+       0.55
+      ]
+     }
+    ],
+    [
+     "1v8gKfP9ZYsuh7w5yBwlInmv_-U-pY2x_",
+     7.92,
+     1.0
+    ],
+    [
+     "site/3_piece_set_12.jpg",
+     0,
+     1.0,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ]
+     }
+    ],
+    [
+     "site/3_piece_set_13.jpg",
+     0,
+     1.0,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ]
+     }
+    ]
+   ],
+   "spare": [
+    [
+     "site/3_piece_set_15.jpg",
+     0,
+     1.0,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ]
+     }
+    ],
+    [
+     "site/3_piece_set_08.jpg",
+     0,
+     1.0,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ]
+     }
+    ],
+    [
+     "site/3_piece_set_colour_black.jpg",
+     0,
+     1.0,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ]
+     }
+    ]
+   ]
+  }
+ ],
+ "overlays": [
+  {
+   "type": "label",
+   "text": "START HERE",
+   "block": 0,
+   "at": 0.1,
+   "dur": 1.8
+  },
+  {
+   "type": "tag",
+   "text": "MATCHING POUCH",
+   "block": 2,
+   "at": 0.15,
+   "dur": 2.6
+  },
+  {
+   "type": "tag",
+   "text": "SMART COMPARTMENTS",
+   "block": 3,
+   "at": 0.15,
+   "dur": 2.6
+  },
+  {
+   "type": "tag",
+   "text": "HOBO + CROSSBODY",
+   "block": 5,
+   "at": 0.15,
+   "dur": 2.6
+  }
+ ],
+ "end_title": "Black Friday Sale",
+ "offer": {
+  "block": 7,
+  "word": "60",
+  "title": "BLACK FRIDAY 60% OFF",
+  "sub": ""
+ },
+ "end_photo": "site/3_piece_set_colour_purple_red.jpg",
+ "end_offer": "UP TO 60% OFF",
+ "keywords": [
+  "60%",
+  "gift",
+  "gifts",
+  "hidden",
+  "pocket",
+  "leather",
+  "black",
+  "friday",
+  "done"
+ ],
+ "spare_broll": [
+  [
+   "site/3_piece_set_colour_grey.jpg",
+   0,
+   1.0,
+   {
+    "zoom": [
+     1.0,
+     1.06
+    ]
+   }
+  ],
+  [
+   "site/3_piece_set_colour_red.jpg",
+   0,
+   1.0,
+   {
+    "zoom": [
+     1.0,
+     1.06
+    ]
+   }
+  ],
+  [
+   "site/3_piece_set_14.jpg",
+   0,
+   1.0,
+   {
+    "zoom": [
+     1.0,
+     1.06
+    ]
+   }
+  ],
+  [
+   "1nnsvEIfgqziYdrmeUrrtgL3Qo3YHV7Sw",
+   9.0,
+   1.0
+  ],
+  [
+   "site/3_piece_set_12.jpg",
+   0,
+   1.0,
+   {
+    "zoom": [
+     1.2,
+     1.3
+    ],
+    "focus": [
+     0.5,
+     0.45
+    ]
+   }
+  ],
+  [
+   "site/3_piece_set_13.jpg",
+   0,
+   1.0,
+   {
+    "zoom": [
+     1.2,
+     1.3
+    ],
+    "focus": [
+     0.5,
+     0.45
+    ]
+   }
+  ]
+ ],
+ "music": {
+  "seed": 3
+ }
+}

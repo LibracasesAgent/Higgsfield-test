@@ -1,0 +1,107 @@
+{
+  "product": "Hobo Bag 3-Piece Set",
+  "theme": "black friday",
+  "date": "2026-11-02",
+  "no_presenter": "no presenter",
+  "research": [
+    "Read the strategy packet: B025 (25 Oct) used the angles youandher, livenow, giftlist and inthebox and statics bundle / concept / value / studio / gifts / checklist / colours, so no gift list, no 'one for you, one for her', no 'live now' and no walk through the box this time.",
+    "Read docs/research/2026-10-black-friday-and-bag-ads.md: bare '50% off' hooks get scrolled past, Dagne Dover / Bellroy win on packing and scenario demos, Pacsafe on 'what is different about your bag' comparisons, flat lays beat lifestyle for a handbag store; so the videos open on a moment and the sale is the last chapter.",
+    "Checked the live product page (libracases.com, 2 Nov): three pieces, the Hobo Bag with smart compartments and anti-theft design, the Crossbody for hands-free ease, the Mini Pouch for quick essentials, soft water-resistant scratch-proof leather; this gave each project a different lead feature (crossbody, anti-theft design, pouch) and three story shapes none of the earlier batches used (four places, what you carry now, the night before).",
+    "Statics: the product's last batch used no AI ad formats, so S01 takes the owner's favourite flat lay (the three pieces side by side, closed) and S02 is a format of our own, three shop tags that give each piece its job in the facts' own words (hobo for every day, crossbody to go light, pouch for quick essentials)."
+  ],
+  "projects": [
+    {
+      "id": "P01",
+      "slug": "fourstops",
+      "title": "One set, four stops",
+      "big_idea": "A day in four stops, and each stop uses a different piece of the set: the hobo out the door, the crossbody on the move, the pouch at lunch.",
+      "why_new": "Earlier 3-Piece Set videos were gifts, a sale announcement and a walk through the box; this one is a day told in four places, led by the crossbody, with the sale only in the last line.",
+      "structure": "four_places",
+      "hooks": [
+        {"text": "One day, a few stops. One set has the right bag for each.", "type": "promise", "label": "ONE DAY", "show": ["walking", "street"]},
+        {"text": "Need your hands for the coffee this afternoon? Swap to the crossbody.", "type": "question", "label": "SWAP BAGS", "show": ["strap", "worn"]},
+        {"text": "Cards and cash rattling around the bottom of your bag?", "type": "problem", "label": "CARDS AND CASH", "show": ["pocket", "packing"]},
+        {"text": "Early Black Friday: three matching bags, up to sixty percent off.", "type": "price", "label": "BLACK FRIDAY SET", "show": ["door", "handheld"]}
+      ],
+      "chapters": [
+        {"kind": "point", "beat": "place_1", "text": "First thing in the morning, you are out the door. Coat on, keys in your hand, and the hobo bag goes on your shoulder. It is the everyday piece of the set, with smart compartments for the things you reach for most.", "tag": "THE EVERYDAY HOBO", "number": 1, "show": ["walking", "door", "street"]},
+        {"kind": "proof", "beat": "place_2", "text": "Mid-morning, errands, and a coffee in one hand. This is where the crossbody earns its place. One strap across you, and the other hand is ready for whatever comes next.", "tag": "HANDS-FREE CROSSBODY", "number": 2, "show": ["strap", "worn", "walking"], "proof_shot": true, "highlight": ["strap", "across"]},
+        {"kind": "point", "beat": "place_2", "text": "It is the piece for the days you want to go light, so you only carry what you need.", "tag": null, "number": null, "show": ["worn", "walking", "street"]},
+        {"kind": "point", "beat": "place_3", "text": "Lunchtime, the cafe. The matching pouch is ideal for quick essentials, so your cards and cash stay in one place. Pay, tuck it away, and get back to lunch.", "tag": "MATCHING POUCH", "number": 3, "show": ["cafe", "pouch", "handheld"]},
+        {"kind": "point", "beat": "place_4", "text": "Evening, and you are home. Hobo, crossbody and pouch, all three matched, all three used today. That is the idea of a set: one day, every stop covered.", "tag": "3 MATCHING PIECES", "number": 4, "show": ["home", "placed", "hero"]},
+        {"kind": "offer", "beat": "offer", "text": "The Hobo 3-Piece Set is part of the Early Black Friday sale, and it is sixty percent off. Three pieces, one price, and free US shipping. Tap the link below.", "tag": null, "number": null, "show": ["hero", "placed"]}
+      ]
+    },
+    {
+      "id": "P02",
+      "slug": "theswitch",
+      "title": "Switch what you carry",
+      "big_idea": "Put the bag you carry now next to the hobo from the set and look at two differences you can see: where things go, and how the leather looks.",
+      "why_new": "No earlier 3-Piece Set video compared the set with the bag you already carry; this one is a calm switch story, led by the anti-theft design and the smart compartments, with no name and nothing shown as bad.",
+      "structure": "swap",
+      "hooks": [
+        {"text": "What if everything in your bag had its own place?", "type": "question", "label": "OWN PLACE", "show": ["packing", "inside"]},
+        {"text": "Digging for your phone at the bottom of the bag again?", "type": "problem", "label": "NO MORE DIGGING", "show": ["pocket", "handheld"]},
+        {"text": "The Hobo Bag page calls this set the Best Value.", "type": "superlative", "label": "BEST VALUE", "show": ["worn", "street"]},
+        {"text": "Black Friday is on: this bag set is up to sixty percent off.", "type": "price", "label": "BLACK FRIDAY", "show": ["walking", "door"]}
+      ],
+      "chapters": [
+        {"kind": "point", "beat": "now", "text": "Picture the bag you carry now, the one you grab without thinking. One open space, and your keys, cards and phone all end up in the same spot.", "tag": null, "number": null, "show": ["handheld", "packing", "home"]},
+        {"kind": "point", "beat": "now", "text": "Nothing wrong with that. It just means a quick search every time you need something.", "tag": null, "number": null, "show": ["handheld", "pocket", "street"]},
+        {"kind": "point", "beat": "switch", "text": "Now switch to the hobo from the set. Smart compartments give each thing its own place, and the anti-theft design keeps everything secure.", "tag": "ANTI-THEFT DESIGN", "number": 1, "show": ["worn", "inside", "pocket"]},
+        {"kind": "proof", "beat": "difference", "text": "Phone in one place. Cards in another. Keys where your hand expects them. Open it and everything is easy to see. Nothing is buried, so nothing needs digging for.", "tag": "SMART COMPARTMENTS", "number": 2, "show": ["packing", "inside", "pocket"], "proof_shot": true, "highlight": ["nothing", "buried"]},
+        {"kind": "point", "beat": "second_difference", "text": "And the finish is different too. Soft, water-resistant, scratch-proof leather that looks beautiful season after season.", "tag": "SCRATCH-PROOF LEATHER", "number": 3, "show": ["leather", "worn", "walking"]},
+        {"kind": "point", "beat": "second_difference", "text": "Put it on your shoulder, walk out the door, and that is the whole switch.", "tag": null, "number": null, "show": ["walking", "door", "worn"]},
+        {"kind": "offer", "beat": "offer", "text": "And you get more than the hobo. The set adds a crossbody and a matching pouch, three pieces for one price, and in the Early Black Friday sale it is sixty percent off. Free US shipping, and the sale runs until the thirtieth of November. Tap the link below.", "tag": null, "number": null, "show": ["hero", "placed"]}
+      ]
+    },
+    {
+      "id": "P03",
+      "slug": "nightbefore",
+      "title": "Pack it tonight",
+      "big_idea": "The night before a full day out: pack the pouch first, then the hobo, close it up, and in the morning choose between the hobo and the crossbody.",
+      "why_new": "A packing story that starts from the pouch, the piece no earlier video led with; it is told as the night before, with the crossbody as the morning choice and the sale as the last line.",
+      "structure": "night_before",
+      "hooks": [
+        {"text": "Packing tonight? Start with the pouch.", "type": "promise", "label": "START HERE", "show": ["packing", "pouch"]},
+        {"text": "Which bag goes with you tomorrow, the hobo or the crossbody?", "type": "question", "label": "HOBO OR CROSSBODY", "show": ["strap", "worn"]},
+        {"text": "Out the door and you cannot find your cards?", "type": "problem", "label": "CARDS SORTED", "show": ["pocket", "handheld"]},
+        {"text": "Early Black Friday: the whole set, sixty percent off.", "type": "price", "label": "THE WHOLE SET", "show": ["walking", "street"]}
+      ],
+      "chapters": [
+        {"kind": "point", "beat": "occasion", "text": "Tonight is the night before a full day out. Lunch with a friend, a few errands, and an evening to finish. Time to pack, and nothing needs to be rushed.", "tag": null, "number": null, "show": ["home", "placed", "handheld"]},
+        {"kind": "point", "beat": "pack", "text": "Cards and cash go into the matching pouch first. It is ideal for quick essentials, and it keeps them together in one place.", "tag": "MATCHING POUCH", "number": 1, "show": ["pouch", "packing", "handheld"]},
+        {"kind": "point", "beat": "pack", "text": "Phone, keys and everything else go into the hobo bag, each in its own compartment. The hobo is the piece for every day.", "tag": "SMART COMPARTMENTS", "number": 2, "show": ["packing", "inside", "pocket"]},
+        {"kind": "proof", "beat": "close", "text": "Pouch tucked in, bag closed up, set down by the door. That is the packing done.", "tag": null, "number": null, "show": ["zip_hand", "zip", "packing"], "proof_shot": true, "highlight": ["done"]},
+        {"kind": "point", "beat": "morning", "text": "Morning. Take the hobo, or take the crossbody if the day calls for going light. Either way, everything is already where it belongs.", "tag": "HOBO + CROSSBODY", "number": 3, "show": ["strap", "worn", "walking"]},
+        {"kind": "point", "beat": "morning", "text": "Grab it, close the door, and go. The day is long, and your bag is already sorted.", "tag": null, "number": null, "show": ["walking", "door", "street"]},
+        {"kind": "offer", "beat": "offer", "text": "The Hobo 3-Piece Set is in the Early Black Friday sale, sixty percent off. Hobo bag, crossbody and matching pouch for one price, with free US shipping. Three pieces, one price. The sale runs until the thirtieth of November. Tap the link below.", "tag": null, "number": null, "show": ["hero", "placed"]}
+      ]
+    }
+  ],
+  "statics": [
+    {
+      "id": "S01",
+      "project": "P01",
+      "layout": "ad",
+      "idea": "A top-down flat lay of the three closed pieces side by side on linen, with the sale as one small line.",
+      "format": "flat_lay",
+      "words": ["Hobo. Crossbody. Pouch.", "Early Black Friday: up to 60% off"],
+      "headline": "Hobo. Crossbody. Pouch.",
+      "scene": {"colour": "Brown", "prompt": "Top-down photo on warm oatmeal linen in soft window light: the hobo bag, the crossbody and the matching pouch from the reference laid side by side, all closed, with a small gold hoop earring pair and a folded cream scarf beside them. Calm empty space above and below the bags."}
+    },
+    {
+      "id": "S02",
+      "project": "P02",
+      "layout": "ad",
+      "idea": "Three small shop tags tied to the three pieces, each with the job the product page gives it.",
+      "format": "job_tags",
+      "format_name": "Three shop tags, three jobs",
+      "art": "A realistic candid photo of the three pieces standing on a wooden shelf against a plaster wall, each with a plain kraft-paper shop tag hanging from its strap or handle; the tag text is printed in a simple dark sans-serif, big enough to read on a phone, one tag per piece, nothing else written anywhere.",
+      "people": "none",
+      "words": ["EVERY DAY", "GO LIGHT", "QUICK STOPS"],
+      "headline": "Every day. Go light. Quick stops.",
+      "scene": {"colour": "Black", "prompt": "Real-looking photo of the hobo bag, the crossbody and the matching pouch from the reference standing in a row on an oak shelf against a pale plaster wall, a small green plant at one end, soft daylight from the left, all pieces closed, a small kraft shop tag hanging from each one."}
+    }
+  ]
+}

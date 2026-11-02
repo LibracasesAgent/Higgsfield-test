@@ -2388,6 +2388,109 @@
    ]
   },
   {
+   "id": "B034",
+   "n": 34,
+   "rev": 1,
+   "date": "2026-11-02",
+   "product": "Hobo Bag 3-Piece Set",
+   "theme": "BlackFriday",
+   "pipeline": "catalog",
+   "request": "3 videos and 2 statics for the Hobo Bag 3-Piece Set, Black Friday, no presenter",
+   "statics": 2,
+   "projects": 3,
+   "hooks": 4,
+   "seed": 1,
+   "status": "uploaded",
+   "folder": "B034 – 2026-11-02 – Hobo Bag 3-Piece Set BlackFriday – 2 statics + 3 projects",
+   "link": "https://drive.google.com/drive/folders/1jCi5BFtd5fXmPUrlOHa-rxTP01sJt04z",
+   "ads": [
+    {
+     "name": "LC_261102_HoboBag3PieceSet_BlackFriday_B034_S01_flatlay",
+     "kind": "static",
+     "fp": "s|ad|AS01.png|hobo. crossbody. pouch.",
+     "label": "Hobo. Crossbody. Pouch."
+    },
+    {
+     "name": "LC_261102_HoboBag3PieceSet_BlackFriday_B034_S02_jobtags",
+     "kind": "static",
+     "fp": "s|ad|AS02.png|every day. go light. quick stops.",
+     "label": "Every day. Go light. Quick stops."
+    },
+    {
+     "name": "LC_261102_HoboBag3PieceSet_BlackFriday_B034_P01_H1_fourstops",
+     "kind": "video",
+     "fp": "v|one day, a few stops. one set has the right bag for each.|",
+     "label": "One day, a few stops. One set has the right bag for each."
+    },
+    {
+     "name": "LC_261102_HoboBag3PieceSet_BlackFriday_B034_P01_H2_fourstops",
+     "kind": "video",
+     "fp": "v|need your hands for the coffee this afternoon? swap to the crossbody.|",
+     "label": "Need your hands for the coffee this afternoon? Swap to the crossbody."
+    },
+    {
+     "name": "LC_261102_HoboBag3PieceSet_BlackFriday_B034_P01_H3_fourstops",
+     "kind": "video",
+     "fp": "v|cards and cash rattling around the bottom of your bag?|",
+     "label": "Cards and cash rattling around the bottom of your bag?"
+    },
+    {
+     "name": "LC_261102_HoboBag3PieceSet_BlackFriday_B034_P01_H4_fourstops",
+     "kind": "video",
+     "fp": "v|early black friday: three matching bags, up to sixty percent off.|",
+     "label": "Early Black Friday: three matching bags, up to sixty percent off."
+    },
+    {
+     "name": "LC_261102_HoboBag3PieceSet_BlackFriday_B034_P02_H1_theswitch",
+     "kind": "video",
+     "fp": "v|what if everything in your bag had its own place?|",
+     "label": "What if everything in your bag had its own place?"
+    },
+    {
+     "name": "LC_261102_HoboBag3PieceSet_BlackFriday_B034_P02_H2_theswitch",
+     "kind": "video",
+     "fp": "v|digging for your phone at the bottom of the bag again?|",
+     "label": "Digging for your phone at the bottom of the bag again?"
+    },
+    {
+     "name": "LC_261102_HoboBag3PieceSet_BlackFriday_B034_P02_H3_theswitch",
+     "kind": "video",
+     "fp": "v|the hobo bag page calls this set the best value.|",
+     "label": "The Hobo Bag page calls this set the Best Value."
+    },
+    {
+     "name": "LC_261102_HoboBag3PieceSet_BlackFriday_B034_P02_H4_theswitch",
+     "kind": "video",
+     "fp": "v|black friday is on: this bag set is up to sixty percent off.|",
+     "label": "Black Friday is on: this bag set is up to sixty percent off."
+    },
+    {
+     "name": "LC_261102_HoboBag3PieceSet_BlackFriday_B034_P03_H1_nightbefore",
+     "kind": "video",
+     "fp": "v|packing tonight? start with the pouch.|",
+     "label": "Packing tonight? Start with the pouch."
+    },
+    {
+     "name": "LC_261102_HoboBag3PieceSet_BlackFriday_B034_P03_H2_nightbefore",
+     "kind": "video",
+     "fp": "v|which bag goes with you tomorrow, the hobo or the crossbody?|",
+     "label": "Which bag goes with you tomorrow, the hobo or the crossbody?"
+    },
+    {
+     "name": "LC_261102_HoboBag3PieceSet_BlackFriday_B034_P03_H3_nightbefore",
+     "kind": "video",
+     "fp": "v|out the door and you cannot find your cards?|",
+     "label": "Out the door and you cannot find your cards?"
+    },
+    {
+     "name": "LC_261102_HoboBag3PieceSet_BlackFriday_B034_P03_H4_nightbefore",
+     "kind": "video",
+     "fp": "v|early black friday: the whole set, sixty percent off.|",
+     "label": "Early Black Friday: the whole set, sixty percent off."
+    }
+   ]
+  },
+  {
    "id": "B035",
    "n": 35,
    "rev": 1,
