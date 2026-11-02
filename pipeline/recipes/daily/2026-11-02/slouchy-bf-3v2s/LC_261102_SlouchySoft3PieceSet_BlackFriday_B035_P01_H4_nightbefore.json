@@ -28,8 +28,8 @@
      1.0
     ],
     [
-     "1CrmKAYRQWzm0K3K17WnzAUna0hf5Uco2",
-     0.45,
+     "1fWAPPfoZjlh_nWaiNvMMpX698zWoM3Rh",
+     1.85,
      1.0
     ],
     [
@@ -43,18 +43,7 @@
      1.0
     ]
    ],
-   "spare": [
-    [
-     "1wtmapyBFXntqGYybi5sM-YjiUYV1oPIW",
-     0.3,
-     1.0
-    ],
-    [
-     "1ProTeKMsOhOMXwNzDYpzZWnkqd7iyuQN",
-     1.57,
-     1.0
-    ]
-   ],
+   "spare": [],
    "pace": "slow"
   },
   {
@@ -124,8 +113,8 @@
    "vo": "V01_c3.mp3",
    "broll": [
     [
-     "1AERMmWiNKyEvkgDEHUXcMvoq8cgQZbdg",
-     11.8,
+     "1xM0bqDTlGxgCLraNpI1VuhG9c1T_cU9D",
+     21.0,
      1.0
     ],
     [
@@ -145,7 +134,7 @@
     ],
     [
      "1zmPFd_BU3uXHEWR6is-DtcpvenImA1cX",
-     33.03,
+     31.2,
      1.0
     ]
    ],
@@ -167,8 +156,8 @@
    "vo": "V01_c4.mp3",
    "broll": [
     [
-     "1yYnDQdm1IYGchqELy5bHZ3pB73_A4vCB",
-     8.33,
+     "1lLd7uLIZLSEJexP2Lkb9HMSgew-266rA",
+     2.73,
      1.0
     ],
     [
@@ -178,40 +167,29 @@
     ],
     [
      "1Mx_-AaJF7pawLAOL1SR9SlMW4CdsXlls",
-     4.15,
+     5.7,
      1.0
     ],
     [
      "1_OHUtc0upzg7UQGp4Ay3InpTQ99wJ8F9",
-     0.98,
+     3.9,
      1.0
     ]
    ],
-   "spare": [
-    [
-     "1zmPFd_BU3uXHEWR6is-DtcpvenImA1cX",
-     3.86,
-     1.0
-    ],
-    [
-     "1ProTeKMsOhOMXwNzDYpzZWnkqd7iyuQN",
-     6.7,
-     1.0
-    ]
-   ],
+   "spare": [],
    "proof": true
   },
   {
    "vo": "V01_c5.mp3",
    "broll": [
     [
-     "1xM0bqDTlGxgCLraNpI1VuhG9c1T_cU9D",
-     2.11,
+     "18e-HZo0q_9g_tgL6pvmduMblv1O8Txiv",
+     1.81,
      1.0
     ],
     [
-     "1CrmKAYRQWzm0K3K17WnzAUna0hf5Uco2",
-     6.25,
+     "1JFP_Bq1IuYQ9GA8MmbHbFVE6NSqNUFeS",
+     0,
      1.0
     ],
     [
@@ -221,11 +199,6 @@
     ]
    ],
    "spare": [
-    [
-     "1_ppkOeyeHEdONObhHaAdiIIocxDEM91L",
-     0.3,
-     1.0
-    ],
     [
      "1trCRdHLPN7vfxNhg1gsoHHbnixdxTDsE",
      3.46,
@@ -239,7 +212,7 @@
    "broll": [
     [
      "1ProTeKMsOhOMXwNzDYpzZWnkqd7iyuQN",
-     16.96,
+     13.5,
      1.0
     ],
     [
@@ -248,8 +221,8 @@
      1.0
     ],
     [
-     "1CrmKAYRQWzm0K3K17WnzAUna0hf5Uco2",
-     3.35,
+     "1trCRdHLPN7vfxNhg1gsoHHbnixdxTDsE",
+     0.49,
      1.0
     ]
    ],
@@ -271,8 +244,8 @@
    "vo": "V01_c7.mp3",
    "broll": [
     [
-     "1yYnDQdm1IYGchqELy5bHZ3pB73_A4vCB",
-     5.83,
+     "1JOh-lLs7fJ-C2da1X7HSirdFcpmY770Y",
+     2.05,
      1.0
     ],
     [
@@ -357,11 +330,6 @@
  ],
  "spare_broll": [
   [
-   "18e-HZo0q_9g_tgL6pvmduMblv1O8Txiv",
-   10.04,
-   1.0
-  ],
-  [
    "1k7576QPGPEg71wUk0kS0MuMzY_WXwvWw",
    4.82,
    1.0
@@ -374,16 +342,6 @@
   [
    "1Mx_-AaJF7pawLAOL1SR9SlMW4CdsXlls",
    35.08,
-   1.0
-  ],
-  [
-   "1oIh4uQuqg4_b0qFrbIrlbJKL5QXHoHKc",
-   4.08,
-   1.0
-  ],
-  [
-   "1xM0bqDTlGxgCLraNpI1VuhG9c1T_cU9D",
-   8.33,
    1.0
   ]
  ],
