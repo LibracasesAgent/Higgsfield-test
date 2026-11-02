@@ -4111,7 +4111,92 @@
   "slouchy-soft-3-piece-set": {
    "batches": [
     {
-     "clips": [],
+     "clips": [
+      {
+       "clip_id": "1SMaHciUmc3Qd4xcatqgLVEG48qpFjP73"
+      },
+      {
+       "clip_id": "1Mx_-AaJF7pawLAOL1SR9SlMW4CdsXlls"
+      },
+      {
+       "clip_id": "1xM0bqDTlGxgCLraNpI1VuhG9c1T_cU9D"
+      },
+      {
+       "clip_id": "1BQxRGh_Sqno6MqEBabVBpaCT0bLXQ8pw"
+      },
+      {
+       "clip_id": "1h2OlHfArKnmuzQRP-gdEeIcVg6vDNLEB"
+      },
+      {
+       "clip_id": "1oerYN6szr1-3U7NE5j068VN0RPItvT1_"
+      },
+      {
+       "clip_id": "1lLd7uLIZLSEJexP2Lkb9HMSgew-266rA"
+      },
+      {
+       "clip_id": "1OruwJOZyjWuRJl_HsPdB4PBqEPZJfyfD"
+      },
+      {
+       "clip_id": "1zmPFd_BU3uXHEWR6is-DtcpvenImA1cX"
+      },
+      {
+       "clip_id": "14YU34manPrQrOQckfQBVr4AeHfN9wyB6"
+      },
+      {
+       "clip_id": "1venMNEP7hB0KNIcUsf_HRHGwwedTQ1Ex"
+      },
+      {
+       "clip_id": "1eYyRs68xrA_7iTKkPt1FrN_wkMzcqhoT"
+      },
+      {
+       "clip_id": "1oIh4uQuqg4_b0qFrbIrlbJKL5QXHoHKc"
+      },
+      {
+       "clip_id": "18e-HZo0q_9g_tgL6pvmduMblv1O8Txiv"
+      },
+      {
+       "clip_id": "1JOh-lLs7fJ-C2da1X7HSirdFcpmY770Y"
+      },
+      {
+       "clip_id": "1k7576QPGPEg71wUk0kS0MuMzY_WXwvWw"
+      },
+      {
+       "clip_id": "1trCRdHLPN7vfxNhg1gsoHHbnixdxTDsE"
+      },
+      {
+       "clip_id": "1A04BYc3AcuvLawnHHnMqeuGzbmZn3EYn"
+      },
+      {
+       "clip_id": "1fWAPPfoZjlh_nWaiNvMMpX698zWoM3Rh"
+      },
+      {
+       "clip_id": "1KBDc2ySqkgQwNDaTCiMbyEJXga2-zEGf"
+      },
+      {
+       "clip_id": "1USjkEu7Egp34BVcncGIr8TO_EDle291E"
+      },
+      {
+       "clip_id": "1CrmKAYRQWzm0K3K17WnzAUna0hf5Uco2"
+      },
+      {
+       "clip_id": "1_OHUtc0upzg7UQGp4Ay3InpTQ99wJ8F9"
+      },
+      {
+       "clip_id": "1yYnDQdm1IYGchqELy5bHZ3pB73_A4vCB"
+      },
+      {
+       "clip_id": "1LeDtdHCKYp0JcUqPSDxfbXmT_NqXDSzG"
+      },
+      {
+       "clip_id": "1MauHJ_ObAcw-Rh5uWtW73EuOuv85CtgN"
+      },
+      {
+       "clip_id": "1ProTeKMsOhOMXwNzDYpzZWnkqd7iyuQN"
+      },
+      {
+       "clip_id": "1JFP_Bq1IuYQ9GA8MmbHbFVE6NSqNUFeS"
+      }
+     ],
      "date": "2026-11-02",
      "name": "B035 – 2026-11-02 – Slouchy Soft 3-Piece Set BlackFriday – 2 statics + 3 projects",
      "statics": [
@@ -4127,7 +4212,118 @@
        "photo": "F_1yYnDQdm1I_0096.jpg"
       }
      ],
-     "videos": []
+     "videos": [
+      {
+       "angle": "nightbefore",
+       "chapters": [
+        "Tomorrow is a long day out. A walk, a few errands, somewhere to be, and no time to go back home in between. So tonight, you pack.",
+        "Start with the set. Three pieces in every set: the bag, a crossbody, and a pouch. Lay them out side by side, and each one already has a job.",
+        "The pouch takes the little things. The bag takes the rest. Thoughtful pockets give your phone, your wallet and your keys a spot of their own, so nothing gets lost at the bottom.",
+        "Now the last step. Your phone slips into the side pocket, one pull on the zip, and it's closed. That's tomorrow's bag, packed and ready.",
+        "Morning. You pick it up, and it's already packed. There's nothing left to find, nothing to forget, and you're out the door.",
+        "Over the shoulder for the walk into town, or the crossbody when you want your arms loose. Same set, same easy day.",
+        "The Slouchy Soft 3-Piece Set is sixty percent off in the Early Black Friday sale. Three pieces, one price. Tap the link below."
+       ],
+       "hook": "Bag, crossbody and pouch: here's what goes in each one.",
+       "hook_type": "promise",
+       "script": "U01",
+       "structure": "night_before"
+      },
+      {
+       "angle": "nightbefore",
+       "hook": "What do you pack the night before a long day out?",
+       "hook_type": "promise",
+       "script": "U01",
+       "structure": "night_before"
+      },
+      {
+       "angle": "nightbefore",
+       "hook": "Grabbing your things at the last minute never ends well.",
+       "hook_type": "promise",
+       "script": "U01",
+       "structure": "night_before"
+      },
+      {
+       "angle": "nightbefore",
+       "hook": "Black Friday prices are live now, and this set has three pieces.",
+       "hook_type": "promise",
+       "script": "U01",
+       "structure": "night_before"
+      },
+      {
+       "angle": "softmyth",
+       "chapters": [
+        "Here's a myth. A soft, slouchy bag has to hang open at the top, with everything inside on show for anyone walking behind you.",
+        "Not this one. It's soft and slouchy, and it has anti-theft zips. So your things stay closed up while you walk through the busy street.",
+        "Watch the zip. One pull, and it's shut. Your phone and your valuables are tucked into thoughtful pockets, out of sight, and you never had to hold the top closed.",
+        "And the soft part is real. It keeps that soft, slouchy silhouette, so it hangs relaxed on your shoulder as you move through your day.",
+        "The shape is relaxed and timeless too, so it goes with any outfit. Jeans on a Tuesday, something nicer on a Saturday, and the same bag works for both.",
+        "The Slouchy Soft 3-Piece Set is sixty percent off in the Early Black Friday sale, with the bag, a crossbody and a pouch in one set. Tap the link below."
+       ],
+       "hook": "Soft bags usually hang open at the top. This one zips.",
+       "hook_type": "problem",
+       "script": "U02",
+       "structure": "myth_fact"
+      },
+      {
+       "angle": "softmyth",
+       "hook": "Can a soft, slouchy bag still keep your things secure?",
+       "hook_type": "problem",
+       "script": "U02",
+       "structure": "myth_fact"
+      },
+      {
+       "angle": "softmyth",
+       "hook": "Watch what one pull of this zip does.",
+       "hook_type": "problem",
+       "script": "U02",
+       "structure": "myth_fact"
+      },
+      {
+       "angle": "softmyth",
+       "hook": "Black Friday prices are live now. Meet the soft bag that zips shut.",
+       "hook_type": "problem",
+       "script": "U02",
+       "structure": "myth_fact"
+      },
+      {
+       "angle": "saturdaywalk",
+       "chapters": [
+        "Saturday morning. The sun is out, there's nowhere you have to be, and all that's left to choose is which bag goes with the day.",
+        "You want something that looks put together, but not stiff. Something that moves with you, and is just as easy to wear to the market as to a long lunch.",
+        "So you reach for the soft, slouchy one. Your phone and your keys go into its pockets, a quick zip, and it's ready.",
+        "Thoughtful pockets keep everything organised, so when you need your phone, your hand finds it right away.",
+        "Out on the street, it looks relaxed and timeless, and it goes with any outfit, whatever you pulled on this morning.",
+        "You stroll, you stop for a coffee, you keep walking, and the bag simply goes along with you, soft on your shoulder all the way.",
+        "The Slouchy Soft 3-Piece Set is sixty percent off in the Early Black Friday sale. You get the bag, a crossbody and a pouch. Tap the link below."
+       ],
+       "hook": "Saturday morning, a soft bag on your shoulder, and nowhere to be.",
+       "hook_type": "promise",
+       "script": "U03",
+       "structure": "one_moment"
+      },
+      {
+       "angle": "saturdaywalk",
+       "hook": "Why does a soft, slouchy bag feel so easy to carry?",
+       "hook_type": "promise",
+       "script": "U03",
+       "structure": "one_moment"
+      },
+      {
+       "angle": "saturdaywalk",
+       "hook": "Black Friday prices are live now, and it goes with every outfit.",
+       "hook_type": "promise",
+       "script": "U03",
+       "structure": "one_moment"
+      },
+      {
+       "angle": "saturdaywalk",
+       "hook": "Your phone is right where your hand lands.",
+       "hook_type": "promise",
+       "script": "U03",
+       "structure": "one_moment"
+      }
+     ]
     }
    ]
   },
