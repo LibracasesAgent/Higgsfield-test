@@ -1,0 +1,23 @@
+{
+ "ads": [
+  {
+   "layout": "studio",
+   "photo": "site/slouchy_colour_white.jpg",
+   "pct": 60,
+   "name": "LC_261102_SlouchySoft3PieceSet_BlackFriday_B035_S01_studio",
+   "caption": "Three pieces, one set."
+  },
+  {
+   "layout": "native",
+   "photo": "photos/frames/F_1yYnDQdm1I_0096.jpg",
+   "caption": "Soft. Slouchy. Easy.",
+   "pct": 60,
+   "name": "LC_261102_SlouchySoft3PieceSet_BlackFriday_B035_S02_native",
+   "frame": {
+    "clip": "1yYnDQdm1IYGchqELy5bHZ3pB73_A4vCB",
+    "t": 9.6
+   }
+  }
+ ],
+ "card_photos": []
+}

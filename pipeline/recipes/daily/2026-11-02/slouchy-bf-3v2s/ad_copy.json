@@ -1,0 +1,186 @@
+{
+ "ok": true,
+ "created": "2026-11-02",
+ "product": "Slouchy Soft 3-Piece Set",
+ "theme": "black friday",
+ "theme_name": "BlackFriday",
+ "offer": "60% off",
+ "seed": 1,
+ "cta": "Get Offer",
+ "rows": 14,
+ "csv": "/home/user/out/slouchy-bf-2026-11-02/ad_copy.csv",
+ "statics": [
+  {
+   "id": "S01",
+   "ad_name": "LC_261102_SlouchySoft3PieceSet_BlackFriday_B035_S01_studio",
+   "angle": "studio",
+   "primary_text_1": "Black Friday came early.\nThe Slouchy Set: 60% off.",
+   "primary_text_2": "Anti-theft zips on a bag this relaxed? Look closer.\nThoughtful pockets keep everything beautifully organised.\nA relaxed, timeless shape that goes with any outfit.\nBlack Friday Sale: up to 60% off. 🖤\nTap Get Offer before it's gone.",
+   "headline_1": "Up to 60% Off Bundles",
+   "headline_2": "Black Friday Prices Are Live",
+   "description": "Black Friday: 60% off",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER"
+  },
+  {
+   "id": "S02",
+   "ad_name": "LC_261102_SlouchySoft3PieceSet_BlackFriday_B035_S02_native",
+   "angle": "native",
+   "primary_text_1": "This is the Black Friday deal you've been waiting for.\n60% off the Slouchy Set.",
+   "primary_text_2": "Take a closer look at the Slouchy Set.\nSecure anti-theft zips and thoughtful pockets keep your valuables safe.\nA relaxed, timeless shape that goes with any outfit.\nBlack Friday Sale: up to 60% off. 🖤\nTap Get Offer to claim the deal.",
+   "headline_1": "Black Friday Deal: 60% Off",
+   "headline_2": "Now 60% Off: The Slouchy Set",
+   "description": "Up to 60% off",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER"
+  }
+ ],
+ "projects": [
+  {
+   "id": "P01",
+   "angle": "nightbefore",
+   "engine": "storyboard",
+   "product": "Slouchy Soft 3-Piece Set",
+   "winner": null,
+   "primary_text_1": "A soft, slouchy silhouette with a relaxed, unstructured shape.\nBlack Friday deal: the Slouchy Set is 60% off.",
+   "primary_text_2": "Soft, slouchy, and it comes as a set of three.\nThree pieces in every set: the bag, a crossbody, and a pouch.\nThoughtful pockets keep everything beautifully organised.\nBlack Friday Sale: up to 60% off. 🖤\nTap Get Offer to claim the deal.",
+   "headline_1": "Black Friday: 60% Off",
+   "headline_2": "60% Off the Slouchy Set",
+   "description": "60% off + free US shipping",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER",
+   "versions": [
+    {
+     "hook": "H1",
+     "id": "P01H1",
+     "ad_name": "LC_261102_SlouchySoft3PieceSet_BlackFriday_B035_P01_H1_nightbefore",
+     "hook_text": "Bag, crossbody and pouch: here's what goes in each one.",
+     "hook_first_line": "Bag, crossbody and pouch: here's what goes in each one.",
+     "primary_text_2_hook": "Bag, crossbody and pouch: here's what goes in each one.\nThree pieces in every set: the bag, a crossbody, and a pouch.\nThoughtful pockets keep everything beautifully organised.\nBlack Friday Sale: up to 60% off. 🖤\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H2",
+     "id": "P01H2",
+     "ad_name": "LC_261102_SlouchySoft3PieceSet_BlackFriday_B035_P01_H2_nightbefore",
+     "hook_text": "What do you pack the night before a long day out?",
+     "hook_first_line": "What do you pack the night before a long day out?",
+     "primary_text_2_hook": "What do you pack the night before a long day out?\nThree pieces in every set: the bag, a crossbody, and a pouch.\nThoughtful pockets keep everything beautifully organised.\nBlack Friday Sale: up to 60% off. 🖤\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H3",
+     "id": "P01H3",
+     "ad_name": "LC_261102_SlouchySoft3PieceSet_BlackFriday_B035_P01_H3_nightbefore",
+     "hook_text": "Grabbing your things at the last minute never ends well.",
+     "hook_first_line": "Grabbing your things at the last minute never ends well.",
+     "primary_text_2_hook": "Grabbing your things at the last minute never ends well.\nThree pieces in every set: the bag, a crossbody, and a pouch.\nThoughtful pockets keep everything beautifully organised.\nBlack Friday Sale: up to 60% off. 🖤\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H4",
+     "id": "P01H4",
+     "ad_name": "LC_261102_SlouchySoft3PieceSet_BlackFriday_B035_P01_H4_nightbefore",
+     "hook_text": "Black Friday prices are live now, and this set has three pieces.",
+     "hook_first_line": "Black Friday prices are live now, and this set has three pieces.",
+     "primary_text_2_hook": "Black Friday prices are live now, and this set has three pieces.\nThree pieces in every set: the bag, a crossbody, and a pouch.\nThoughtful pockets keep everything beautifully organised.\nBlack Friday Sale: up to 60% off. 🖤\nTap Get Offer to claim the deal."
+    }
+   ]
+  },
+  {
+   "id": "P02",
+   "angle": "softmyth",
+   "engine": "storyboard",
+   "product": "Slouchy Soft 3-Piece Set",
+   "winner": null,
+   "primary_text_1": "A big, open bag with your valuables on show? Not with these anti-theft zips.\nBlack Friday deal: the Slouchy Set is 60% off.",
+   "primary_text_2": "Everything sinking to the bottom of your bag? Thoughtful pockets fix that.\nEffortlessly stylish, with a soft, slouchy silhouette.\nA relaxed, timeless shape that goes with any outfit.\nBlack Friday: 60% off. 🖤\nTap Get Offer to claim the deal.",
+   "headline_1": "Black Friday: 60% Off the Slouchy Set",
+   "headline_2": "Meet the Slouchy Set: Anti-Theft Zips",
+   "description": "1-year warranty included",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER",
+   "versions": [
+    {
+     "hook": "H1",
+     "id": "P02H1",
+     "ad_name": "LC_261102_SlouchySoft3PieceSet_BlackFriday_B035_P02_H1_softmyth",
+     "hook_text": "Soft bags usually hang open at the top. This one zips.",
+     "hook_first_line": "Soft bags usually hang open at the top. This one zips.",
+     "primary_text_2_hook": "Soft bags usually hang open at the top. This one zips.\nEffortlessly stylish, with a soft, slouchy silhouette.\nA relaxed, timeless shape that goes with any outfit.\nBlack Friday: 60% off. 🖤\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H2",
+     "id": "P02H2",
+     "ad_name": "LC_261102_SlouchySoft3PieceSet_BlackFriday_B035_P02_H2_softmyth",
+     "hook_text": "Can a soft, slouchy bag still keep your things secure?",
+     "hook_first_line": "Can a soft, slouchy bag still keep your things secure?",
+     "primary_text_2_hook": "Can a soft, slouchy bag still keep your things secure?\nEffortlessly stylish, with a soft, slouchy silhouette.\nA relaxed, timeless shape that goes with any outfit.\nBlack Friday: 60% off. 🖤\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H3",
+     "id": "P02H3",
+     "ad_name": "LC_261102_SlouchySoft3PieceSet_BlackFriday_B035_P02_H3_softmyth",
+     "hook_text": "Watch what one pull of this zip does.",
+     "hook_first_line": "Watch what one pull of this zip does.",
+     "primary_text_2_hook": "Watch what one pull of this zip does.\nEffortlessly stylish, with a soft, slouchy silhouette.\nA relaxed, timeless shape that goes with any outfit.\nBlack Friday: 60% off. 🖤\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H4",
+     "id": "P02H4",
+     "ad_name": "LC_261102_SlouchySoft3PieceSet_BlackFriday_B035_P02_H4_softmyth",
+     "hook_text": "Black Friday prices are live now. Meet the soft bag that zips shut.",
+     "hook_first_line": "Black Friday prices are live now. Meet the soft bag that zips shut.",
+     "primary_text_2_hook": "Black Friday prices are live now. Meet the soft bag that zips shut.\nEffortlessly stylish, with a soft, slouchy silhouette.\nA relaxed, timeless shape that goes with any outfit.\nBlack Friday: 60% off. 🖤\nTap Get Offer to claim the deal."
+    }
+   ]
+  },
+  {
+   "id": "P03",
+   "angle": "saturdaywalk",
+   "engine": "storyboard",
+   "product": "Slouchy Soft 3-Piece Set",
+   "winner": null,
+   "primary_text_1": "Be honest: do you like your bag soft and slouchy?\nThe Slouchy Set, now 60% off.",
+   "primary_text_2": "Have you seen the Slouchy Set yet?\nEffortlessly stylish, with a soft, slouchy silhouette.\nThoughtful pockets keep everything beautifully organised.\nBlack Friday Sale: up to 60% off. 🖤\nTap Get Offer to claim the deal.",
+   "headline_1": "The Slouchy Set: Stays Organised",
+   "headline_2": "Slouchy Set: 60% Off",
+   "description": "Black Friday deal: 60% off",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER",
+   "versions": [
+    {
+     "hook": "H1",
+     "id": "P03H1",
+     "ad_name": "LC_261102_SlouchySoft3PieceSet_BlackFriday_B035_P03_H1_saturdaywalk",
+     "hook_text": "Saturday morning, a soft bag on your shoulder, and nowhere to be.",
+     "hook_first_line": "Saturday morning, a soft bag on your shoulder, and nowhere to be.",
+     "primary_text_2_hook": "Saturday morning, a soft bag on your shoulder, and nowhere to be.\nEffortlessly stylish, with a soft, slouchy silhouette.\nThoughtful pockets keep everything beautifully organised.\nBlack Friday Sale: up to 60% off. 🖤\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H2",
+     "id": "P03H2",
+     "ad_name": "LC_261102_SlouchySoft3PieceSet_BlackFriday_B035_P03_H2_saturdaywalk",
+     "hook_text": "Why does a soft, slouchy bag feel so easy to carry?",
+     "hook_first_line": "Why does a soft, slouchy bag feel so easy to carry?",
+     "primary_text_2_hook": "Why does a soft, slouchy bag feel so easy to carry?\nEffortlessly stylish, with a soft, slouchy silhouette.\nThoughtful pockets keep everything beautifully organised.\nBlack Friday Sale: up to 60% off. 🖤\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H3",
+     "id": "P03H3",
+     "ad_name": "LC_261102_SlouchySoft3PieceSet_BlackFriday_B035_P03_H3_saturdaywalk",
+     "hook_text": "Black Friday prices are live now, and it goes with every outfit.",
+     "hook_first_line": "Black Friday prices are live now, and it goes with every outfit.",
+     "primary_text_2_hook": "Black Friday prices are live now, and it goes with every outfit.\nEffortlessly stylish, with a soft, slouchy silhouette.\nThoughtful pockets keep everything beautifully organised.\nBlack Friday Sale: up to 60% off. 🖤\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H4",
+     "id": "P03H4",
+     "ad_name": "LC_261102_SlouchySoft3PieceSet_BlackFriday_B035_P03_H4_saturdaywalk",
+     "hook_text": "Your phone is right where your hand lands.",
+     "hook_first_line": "Your phone is right where your hand lands.",
+     "primary_text_2_hook": "Your phone is right where your hand lands.\nEffortlessly stylish, with a soft, slouchy silhouette.\nThoughtful pockets keep everything beautifully organised.\nBlack Friday Sale: up to 60% off. 🖤\nTap Get Offer to claim the deal."
+    }
+   ]
+  }
+ ],
+ "notes": [],
+ "problems": []
+}

@@ -3290,6 +3290,29 @@
     }
    ]
   },
+  "slouchy-soft-3-piece-set": {
+   "batches": [
+    {
+     "clips": [],
+     "date": "2026-11-02",
+     "name": "B035 – 2026-11-02 – Slouchy Soft 3-Piece Set BlackFriday – 2 statics + 3 projects",
+     "statics": [
+      {
+       "caption": "Three pieces, one set.",
+       "layout": "studio",
+       "photo": "slouchy_colour_white.jpg"
+      },
+      {
+       "caption": "Soft. Slouchy. Easy.",
+       "frame_clip": "1yYnDQdm1IYGchqELy5bHZ3pB73_A4vCB",
+       "layout": "native",
+       "photo": "F_1yYnDQdm1I_0096.jpg"
+      }
+     ],
+     "videos": []
+    }
+   ]
+  },
   "vintage-bag": {
    "batches": [
     {

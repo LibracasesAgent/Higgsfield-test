@@ -1,0 +1,1480 @@
+{
+ "prefix": "LC_261102_SlouchySoft3PieceSet_BlackFriday_B035",
+ "rev": 1,
+ "batch_id": {
+  "id": "B035",
+  "n": 35,
+  "rev": 1
+ },
+ "created": "2026-11-02",
+ "request": "3 videos and 2 statics for the Slouchy Soft 3-Piece Set, Black Friday, no presenter",
+ "product": "Slouchy Soft 3-Piece Set",
+ "product_key": "slouchy",
+ "product_source": "built-in",
+ "theme": "black friday",
+ "theme_name": "BlackFriday",
+ "offer": "60% off",
+ "campaign": {
+  "id": "bf2026",
+  "name": "Black Friday Sale 2026",
+  "theme": "black friday",
+  "banner": "Early Black Friday – 50% off everything, up to 60% off",
+  "until": "2026-11-30",
+  "from": "2026-10-23",
+  "end_title": "Black Friday Sale",
+  "end_pill": "UP TO 60% OFF",
+  "card_sub": "",
+  "close": "The Early Black Friday sale is on now, with up to sixty percent off.",
+  "hooks": [
+   "Black Friday prices are live now. No need to wait.",
+   "Early Black Friday: up to sixty percent off.",
+   "Why wait for Black Friday? The prices are already live."
+  ],
+  "facts": [
+   "Early Black Friday Sale: live now (from 23 October), it runs until 30 November (Cyber Monday). Black Friday is 27 November.",
+   "50% off everything sitewide (each bag's own % is on its offer card: the Hobo Bag is 50% off).",
+   "Up to 60% off: some bundles are 60% off, like the Hobo Bag 3-Piece Set. Say '60% off' only of the 3-Piece Set (or another named bundle), never of a single bag or of 'any 2 bags'.",
+   "No free gifts and no extra cart discount: both were removed by the owner on 26 October.",
+   "The Hobo Bag's product page offers the 3-Piece Set as the 'Best Value' upgrade.",
+   "Black Friday prices are live now: no need to wait.",
+   "Sale items are final sale: they cannot be returned (the site's Black Friday terms); faulty items are still covered and the 1-year warranty still applies. Never say 'easy returns', 'free returns' or 'send it back' in a Black Friday ad.",
+   "Christmas delivery (the site's Black Friday terms, filled in by 27 October): order by 14 December 2026 for the best chance of delivery before Christmas; delivery before Christmas is not guaranteed, so say 'the best chance', never 'guaranteed by Christmas'."
+  ],
+  "bundle_pct": null,
+  "upto_pct": 60,
+  "bundle_any": false,
+  "client_ideas": "Owner 2026-10-26: everything is on sale everywhere, so stand out; the Hobo Bag page upsells the 3-Piece Set ('Best Value'): ads that sell the set raise the order value; 'Black Friday prices are live now, no need to wait'; Christmas gifting (mum, sister, best friend); 2 straps on the Hobo 2.0 (handbag + crossbody); in the last week: Black Friday 27 November, Cyber Monday 30 November, 'last chance'. The AI ads 'seem to be starting to work: keep testing'.",
+  "gifts": [],
+  "gifts_worth": null,
+  "dates": {
+   "black friday": "27 November",
+   "cyber monday": "30 November",
+   "ends": "30 November"
+  },
+  "copy": {
+   "primary": [
+    "Early Black Friday is live: 50% off everything, and up to 60% off bundles like the 3-Piece Set.",
+    "Black Friday prices are live now, no need to wait. 50% off everything, up to 60% off bundles."
+   ],
+   "headline": [
+    "Early Black Friday: 50% Off",
+    "Up to 60% Off Bundles",
+    "Black Friday Prices Are Live"
+   ],
+   "description": "Up to 60% off"
+  },
+  "approved_phrases": [
+   "up to (?:60|sixty) ?(?:%|percent) off(?: bundles?)?",
+   "(?:60|sixty) ?(?:%|percent) off (?:the |our )?(?:hobo (?:bag )?)?3-piece set",
+   "(?:50|fifty) ?(?:%|percent) off everything"
+  ],
+  "approved": "Wouter (owner), 2026-10-23: the Black Friday Sale went live on 23 October and runs until 30 November (Cyber Monday). Up to 50% off sitewide; 60% off bundles (2 or 3 bags bought together at 60% off the regular price); free gifts while stocks last: buy 2 bags, get a free mirrored jewellery box (worth $19.95); buy 3+ bags, get the jewellery box + a free cosmetic bag (together worth $44.90); only bags count, not accessories. The site banner (2026-10-23): 'EARLY BLACK FRIDAY: 50% OFF EVERYTHING | BUY 2 BAGS = 1 FREE GIFT | BUY 3 = 2 FREE GIFTS | ORDER TODAY WHILE STOCKS LAST!' | UPDATE Wouter (owner), 2026-10-26: the free gifts and the extra cart discount on bags are removed ('they're not coming back'); 'It's 50% OFF or you can say up to 60% OFF'; 60% is only on bundles 'like the 3 piece set', not any 2 bags; the site now has Early Black Friday messaging, a countdown in the announcement bar, 'Ships by' and delivery dates, and the 3-Piece Set as a 'Best Value' upgrade on the Hobo Bag page; during Black Friday no returns are accepted (final sale).",
+  "final_sale": true,
+  "terms": "https://libracases.com/pages/terms-and-conditions-black-friday-sale",
+  "banned": [
+   {
+    "rx": "\\bfree gifts?\\b|\\bgifts? with (?:2|two|3|three|every)\\b|\\bfree (?:mirrored )?jewell?e?ry box(?:es)?\\b|\\bfree (?:travel )?cosmetic bags?\\b|\\bjewell?e?ry box\\b|\\bcosmetic bag\\b",
+    "why": "the free gifts were removed by the owner on 26 October (not coming back): say the bag's own free pouch wallet, if it has one"
+   },
+   {
+    "rx": "(?:60|sixty) ?(?:%|percent) off\\b[^.!?]{0,60}\\b(?:(?:2|two) (?:or (?:3|three) )?bags|(?:3|three) bags|(?:2|two) or (?:3|three)|second bag|together)|\\b(?:2|two) or (?:3|three) bags\\b[^.!?]{0,30}(?:60|sixty) ?(?:%|percent)",
+    "why": "60% is only on bundles like the 3-Piece Set, not on any 2 or 3 bags (owner, 26 October): say 'up to 60% off' or '60% off the 3-Piece Set'"
+   },
+   {
+    "rx": "\\b(?:ends?|ending) (?:tonight|today)\\b|\\btoday only\\b|\\bonly today\\b|\\b(?:sale|deal|offer)s? ends? (?:soon|in \\d+ (?:hours?|minutes?|days?))\\b|\\bhours? left\\b",
+    "why": "the sale runs until 30 November (owner 2026-10-23; the site banner's 'ends tonight' is the owner's choice for the site only): before the last day 'ends tonight / today only' is false and Meta flags ads whose deadline differs from the landing page; say 'Black Friday prices are live now' or 'the sale ends on the thirtieth of November'",
+    "except_on": [
+     "2026-11-30"
+    ]
+   },
+   {
+    "rx": "\\blast (?:chance|days?|call)\\b|\\bfinal (?:days?|hours?|chance)\\b",
+    "why": "'last chance' is the last week's message (owner's timeline: last-week content by 20 November, for Black Friday 27 Nov - Cyber Monday 30 Nov): before 20 November it is false urgency",
+    "except_from": "2026-11-20"
+   },
+   {
+    "rx": "\\bguarantee\\w*\\b[^.!?]{0,40}\\bchristmas\\b|\\bchristmas\\b[^.!?]{0,40}\\bguarantee\\w*\\b|\\b(?:arrives?|delivered|get it|gets there|be there|in time for)\\b[^.!?]{0,20}\\b(?:in time for|by|before) christmas\\b|\\bin time for christmas\\b",
+    "why": "the site's terms: delivery before Christmas is not guaranteed; say 'order by 14 December for the best chance of delivery before Christmas'"
+   }
+  ]
+ },
+ "statics": [
+  "LC_261102_SlouchySoft3PieceSet_BlackFriday_B035_S01_studio",
+  "LC_261102_SlouchySoft3PieceSet_BlackFriday_B035_S02_native"
+ ],
+ "videos": [
+  {
+   "name": "LC_261102_SlouchySoft3PieceSet_BlackFriday_B035_P01_H1_nightbefore",
+   "id": "P01H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "ugc": {
+    "script": "U01",
+    "angle": "nightbefore",
+    "words": 191,
+    "structure": "night_before",
+    "hook": {
+     "type": "promise",
+     "label": "THREE PIECES",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "What do you pack the night before a long day out?",
+      "type": "question",
+      "label": "NIGHT BEFORE",
+      "feature": null,
+      "show": [
+       "pocket",
+       "inside"
+      ]
+     },
+     {
+      "text": "Grabbing your things at the last minute never ends well.",
+      "type": "problem",
+      "label": "LAST MINUTE",
+      "feature": null,
+      "show": [
+       "walking",
+       "worn"
+      ]
+     },
+     {
+      "text": "Black Friday prices are live now, and this set has three pieces.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "strap",
+       "worn"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "What do you pack the night before a long day out?": [
+      [
+       "1_OHUtc0upzg7UQGp4Ay3InpTQ99wJ8F9",
+       4.94,
+       1.0
+      ],
+      [
+       "1zmPFd_BU3uXHEWR6is-DtcpvenImA1cX",
+       23.31,
+       1.0
+      ]
+     ],
+     "Grabbing your things at the last minute never ends well.": [
+      [
+       "1k7576QPGPEg71wUk0kS0MuMzY_WXwvWw",
+       0.3,
+       1.0
+      ],
+      [
+       "18e-HZo0q_9g_tgL6pvmduMblv1O8Txiv",
+       5.63,
+       1.0
+      ]
+     ],
+     "Black Friday prices are live now, and this set has three pieces.": [
+      [
+       "1BQxRGh_Sqno6MqEBabVBpaCT0bLXQ8pw",
+       3.5,
+       1.0
+      ],
+      [
+       "1h2OlHfArKnmuzQRP-gdEeIcVg6vDNLEB",
+       0.5,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 63.9,
+   "project": "P01",
+   "hook_text": "Bag, crossbody and pouch: here's what goes in each one.",
+   "hook_label": "THREE PIECES",
+   "hook_type": "promise",
+   "opening_shot": [
+    "1h2OlHfArKnmuzQRP-gdEeIcVg6vDNLEB",
+    4.0
+   ]
+  },
+  {
+   "name": "LC_261102_SlouchySoft3PieceSet_BlackFriday_B035_P01_H2_nightbefore",
+   "id": "P01H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "ugc": {
+    "script": "U01",
+    "angle": "nightbefore",
+    "words": 191,
+    "structure": "night_before",
+    "hook": {
+     "type": "promise",
+     "label": "THREE PIECES",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "What do you pack the night before a long day out?",
+      "type": "question",
+      "label": "NIGHT BEFORE",
+      "feature": null,
+      "show": [
+       "pocket",
+       "inside"
+      ]
+     },
+     {
+      "text": "Grabbing your things at the last minute never ends well.",
+      "type": "problem",
+      "label": "LAST MINUTE",
+      "feature": null,
+      "show": [
+       "walking",
+       "worn"
+      ]
+     },
+     {
+      "text": "Black Friday prices are live now, and this set has three pieces.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "strap",
+       "worn"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "What do you pack the night before a long day out?": [
+      [
+       "1_OHUtc0upzg7UQGp4Ay3InpTQ99wJ8F9",
+       4.94,
+       1.0
+      ],
+      [
+       "1zmPFd_BU3uXHEWR6is-DtcpvenImA1cX",
+       23.31,
+       1.0
+      ]
+     ],
+     "Grabbing your things at the last minute never ends well.": [
+      [
+       "1k7576QPGPEg71wUk0kS0MuMzY_WXwvWw",
+       0.3,
+       1.0
+      ],
+      [
+       "18e-HZo0q_9g_tgL6pvmduMblv1O8Txiv",
+       5.63,
+       1.0
+      ]
+     ],
+     "Black Friday prices are live now, and this set has three pieces.": [
+      [
+       "1BQxRGh_Sqno6MqEBabVBpaCT0bLXQ8pw",
+       3.5,
+       1.0
+      ],
+      [
+       "1h2OlHfArKnmuzQRP-gdEeIcVg6vDNLEB",
+       0.5,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 64.2,
+   "project": "P01",
+   "hook_text": "What do you pack the night before a long day out?",
+   "hook_label": "NIGHT BEFORE",
+   "hook_type": "question",
+   "opening_shot": [
+    "1_OHUtc0upzg7UQGp4Ay3InpTQ99wJ8F9",
+    4.94
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261102_SlouchySoft3PieceSet_BlackFriday_B035_P01_H3_nightbefore",
+   "id": "P01H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "ugc": {
+    "script": "U01",
+    "angle": "nightbefore",
+    "words": 191,
+    "structure": "night_before",
+    "hook": {
+     "type": "promise",
+     "label": "THREE PIECES",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "What do you pack the night before a long day out?",
+      "type": "question",
+      "label": "NIGHT BEFORE",
+      "feature": null,
+      "show": [
+       "pocket",
+       "inside"
+      ]
+     },
+     {
+      "text": "Grabbing your things at the last minute never ends well.",
+      "type": "problem",
+      "label": "LAST MINUTE",
+      "feature": null,
+      "show": [
+       "walking",
+       "worn"
+      ]
+     },
+     {
+      "text": "Black Friday prices are live now, and this set has three pieces.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "strap",
+       "worn"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "What do you pack the night before a long day out?": [
+      [
+       "1_OHUtc0upzg7UQGp4Ay3InpTQ99wJ8F9",
+       4.94,
+       1.0
+      ],
+      [
+       "1zmPFd_BU3uXHEWR6is-DtcpvenImA1cX",
+       23.31,
+       1.0
+      ]
+     ],
+     "Grabbing your things at the last minute never ends well.": [
+      [
+       "1k7576QPGPEg71wUk0kS0MuMzY_WXwvWw",
+       0.3,
+       1.0
+      ],
+      [
+       "18e-HZo0q_9g_tgL6pvmduMblv1O8Txiv",
+       5.63,
+       1.0
+      ]
+     ],
+     "Black Friday prices are live now, and this set has three pieces.": [
+      [
+       "1BQxRGh_Sqno6MqEBabVBpaCT0bLXQ8pw",
+       3.5,
+       1.0
+      ],
+      [
+       "1h2OlHfArKnmuzQRP-gdEeIcVg6vDNLEB",
+       0.5,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 63.9,
+   "project": "P01",
+   "hook_text": "Grabbing your things at the last minute never ends well.",
+   "hook_label": "LAST MINUTE",
+   "hook_type": "problem",
+   "opening_shot": [
+    "1k7576QPGPEg71wUk0kS0MuMzY_WXwvWw",
+    0.3
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261102_SlouchySoft3PieceSet_BlackFriday_B035_P01_H4_nightbefore",
+   "id": "P01H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "ugc": {
+    "script": "U01",
+    "angle": "nightbefore",
+    "words": 191,
+    "structure": "night_before",
+    "hook": {
+     "type": "promise",
+     "label": "THREE PIECES",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "What do you pack the night before a long day out?",
+      "type": "question",
+      "label": "NIGHT BEFORE",
+      "feature": null,
+      "show": [
+       "pocket",
+       "inside"
+      ]
+     },
+     {
+      "text": "Grabbing your things at the last minute never ends well.",
+      "type": "problem",
+      "label": "LAST MINUTE",
+      "feature": null,
+      "show": [
+       "walking",
+       "worn"
+      ]
+     },
+     {
+      "text": "Black Friday prices are live now, and this set has three pieces.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "strap",
+       "worn"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "What do you pack the night before a long day out?": [
+      [
+       "1_OHUtc0upzg7UQGp4Ay3InpTQ99wJ8F9",
+       4.94,
+       1.0
+      ],
+      [
+       "1zmPFd_BU3uXHEWR6is-DtcpvenImA1cX",
+       23.31,
+       1.0
+      ]
+     ],
+     "Grabbing your things at the last minute never ends well.": [
+      [
+       "1k7576QPGPEg71wUk0kS0MuMzY_WXwvWw",
+       0.3,
+       1.0
+      ],
+      [
+       "18e-HZo0q_9g_tgL6pvmduMblv1O8Txiv",
+       5.63,
+       1.0
+      ]
+     ],
+     "Black Friday prices are live now, and this set has three pieces.": [
+      [
+       "1BQxRGh_Sqno6MqEBabVBpaCT0bLXQ8pw",
+       3.5,
+       1.0
+      ],
+      [
+       "1h2OlHfArKnmuzQRP-gdEeIcVg6vDNLEB",
+       0.5,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 64.5,
+   "project": "P01",
+   "hook_text": "Black Friday prices are live now, and this set has three pieces.",
+   "hook_label": "BLACK FRIDAY",
+   "hook_type": "price",
+   "opening_shot": [
+    "1BQxRGh_Sqno6MqEBabVBpaCT0bLXQ8pw",
+    3.5
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261102_SlouchySoft3PieceSet_BlackFriday_B035_P02_H1_softmyth",
+   "id": "P02H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "ugc": {
+    "script": "U02",
+    "angle": "softmyth",
+    "words": 174,
+    "structure": "myth_fact",
+    "hook": {
+     "type": "problem",
+     "label": "SOFT BUT SHUT",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Can a soft, slouchy bag still keep your things secure?",
+      "type": "question",
+      "label": "STILL SECURE?",
+      "feature": null,
+      "show": [
+       "worn",
+       "walking"
+      ]
+     },
+     {
+      "text": "Watch what one pull of this zip does.",
+      "type": "promise",
+      "label": "ONE PULL",
+      "feature": null,
+      "show": [
+       "zip_hand",
+       "zip"
+      ]
+     },
+     {
+      "text": "Black Friday prices are live now. Meet the soft bag that zips shut.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "strap",
+       "worn"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Can a soft, slouchy bag still keep your things secure?": [
+      [
+       "1xM0bqDTlGxgCLraNpI1VuhG9c1T_cU9D",
+       20.78,
+       1.0
+      ],
+      [
+       "1eYyRs68xrA_7iTKkPt1FrN_wkMzcqhoT",
+       0.3,
+       1.0
+      ]
+     ],
+     "Watch what one pull of this zip does.": [
+      [
+       "1lLd7uLIZLSEJexP2Lkb9HMSgew-266rA",
+       20.91,
+       1.0
+      ]
+     ],
+     "Black Friday prices are live now. Meet the soft bag that zips shut.": [
+      [
+       "18e-HZo0q_9g_tgL6pvmduMblv1O8Txiv",
+       14.46,
+       1.0
+      ],
+      [
+       "1lLd7uLIZLSEJexP2Lkb9HMSgew-266rA",
+       8.39,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 58.2,
+   "project": "P02",
+   "hook_text": "Soft bags usually hang open at the top. This one zips.",
+   "hook_label": "SOFT BUT SHUT",
+   "hook_type": "problem",
+   "opening_shot": [
+    "14YU34manPrQrOQckfQBVr4AeHfN9wyB6",
+    12.45
+   ]
+  },
+  {
+   "name": "LC_261102_SlouchySoft3PieceSet_BlackFriday_B035_P02_H2_softmyth",
+   "id": "P02H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "ugc": {
+    "script": "U02",
+    "angle": "softmyth",
+    "words": 174,
+    "structure": "myth_fact",
+    "hook": {
+     "type": "problem",
+     "label": "SOFT BUT SHUT",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Can a soft, slouchy bag still keep your things secure?",
+      "type": "question",
+      "label": "STILL SECURE?",
+      "feature": null,
+      "show": [
+       "worn",
+       "walking"
+      ]
+     },
+     {
+      "text": "Watch what one pull of this zip does.",
+      "type": "promise",
+      "label": "ONE PULL",
+      "feature": null,
+      "show": [
+       "zip_hand",
+       "zip"
+      ]
+     },
+     {
+      "text": "Black Friday prices are live now. Meet the soft bag that zips shut.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "strap",
+       "worn"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Can a soft, slouchy bag still keep your things secure?": [
+      [
+       "1xM0bqDTlGxgCLraNpI1VuhG9c1T_cU9D",
+       20.78,
+       1.0
+      ],
+      [
+       "1eYyRs68xrA_7iTKkPt1FrN_wkMzcqhoT",
+       0.3,
+       1.0
+      ]
+     ],
+     "Watch what one pull of this zip does.": [
+      [
+       "1lLd7uLIZLSEJexP2Lkb9HMSgew-266rA",
+       20.91,
+       1.0
+      ]
+     ],
+     "Black Friday prices are live now. Meet the soft bag that zips shut.": [
+      [
+       "18e-HZo0q_9g_tgL6pvmduMblv1O8Txiv",
+       14.46,
+       1.0
+      ],
+      [
+       "1lLd7uLIZLSEJexP2Lkb9HMSgew-266rA",
+       8.39,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 57.9,
+   "project": "P02",
+   "hook_text": "Can a soft, slouchy bag still keep your things secure?",
+   "hook_label": "STILL SECURE?",
+   "hook_type": "question",
+   "opening_shot": [
+    "1xM0bqDTlGxgCLraNpI1VuhG9c1T_cU9D",
+    20.78
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261102_SlouchySoft3PieceSet_BlackFriday_B035_P02_H3_softmyth",
+   "id": "P02H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "ugc": {
+    "script": "U02",
+    "angle": "softmyth",
+    "words": 174,
+    "structure": "myth_fact",
+    "hook": {
+     "type": "problem",
+     "label": "SOFT BUT SHUT",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Can a soft, slouchy bag still keep your things secure?",
+      "type": "question",
+      "label": "STILL SECURE?",
+      "feature": null,
+      "show": [
+       "worn",
+       "walking"
+      ]
+     },
+     {
+      "text": "Watch what one pull of this zip does.",
+      "type": "promise",
+      "label": "ONE PULL",
+      "feature": null,
+      "show": [
+       "zip_hand",
+       "zip"
+      ]
+     },
+     {
+      "text": "Black Friday prices are live now. Meet the soft bag that zips shut.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "strap",
+       "worn"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Can a soft, slouchy bag still keep your things secure?": [
+      [
+       "1xM0bqDTlGxgCLraNpI1VuhG9c1T_cU9D",
+       20.78,
+       1.0
+      ],
+      [
+       "1eYyRs68xrA_7iTKkPt1FrN_wkMzcqhoT",
+       0.3,
+       1.0
+      ]
+     ],
+     "Watch what one pull of this zip does.": [
+      [
+       "1lLd7uLIZLSEJexP2Lkb9HMSgew-266rA",
+       20.91,
+       1.0
+      ]
+     ],
+     "Black Friday prices are live now. Meet the soft bag that zips shut.": [
+      [
+       "18e-HZo0q_9g_tgL6pvmduMblv1O8Txiv",
+       14.46,
+       1.0
+      ],
+      [
+       "1lLd7uLIZLSEJexP2Lkb9HMSgew-266rA",
+       8.39,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 57.2,
+   "project": "P02",
+   "hook_text": "Watch what one pull of this zip does.",
+   "hook_label": "ONE PULL",
+   "hook_type": "promise",
+   "opening_shot": [
+    "1lLd7uLIZLSEJexP2Lkb9HMSgew-266rA",
+    20.91
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261102_SlouchySoft3PieceSet_BlackFriday_B035_P02_H4_softmyth",
+   "id": "P02H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "ugc": {
+    "script": "U02",
+    "angle": "softmyth",
+    "words": 174,
+    "structure": "myth_fact",
+    "hook": {
+     "type": "problem",
+     "label": "SOFT BUT SHUT",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Can a soft, slouchy bag still keep your things secure?",
+      "type": "question",
+      "label": "STILL SECURE?",
+      "feature": null,
+      "show": [
+       "worn",
+       "walking"
+      ]
+     },
+     {
+      "text": "Watch what one pull of this zip does.",
+      "type": "promise",
+      "label": "ONE PULL",
+      "feature": null,
+      "show": [
+       "zip_hand",
+       "zip"
+      ]
+     },
+     {
+      "text": "Black Friday prices are live now. Meet the soft bag that zips shut.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "strap",
+       "worn"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Can a soft, slouchy bag still keep your things secure?": [
+      [
+       "1xM0bqDTlGxgCLraNpI1VuhG9c1T_cU9D",
+       20.78,
+       1.0
+      ],
+      [
+       "1eYyRs68xrA_7iTKkPt1FrN_wkMzcqhoT",
+       0.3,
+       1.0
+      ]
+     ],
+     "Watch what one pull of this zip does.": [
+      [
+       "1lLd7uLIZLSEJexP2Lkb9HMSgew-266rA",
+       20.91,
+       1.0
+      ]
+     ],
+     "Black Friday prices are live now. Meet the soft bag that zips shut.": [
+      [
+       "18e-HZo0q_9g_tgL6pvmduMblv1O8Txiv",
+       14.46,
+       1.0
+      ],
+      [
+       "1lLd7uLIZLSEJexP2Lkb9HMSgew-266rA",
+       8.39,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 58.8,
+   "project": "P02",
+   "hook_text": "Black Friday prices are live now. Meet the soft bag that zips shut.",
+   "hook_label": "BLACK FRIDAY",
+   "hook_type": "price",
+   "opening_shot": [
+    "18e-HZo0q_9g_tgL6pvmduMblv1O8Txiv",
+    14.46
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261102_SlouchySoft3PieceSet_BlackFriday_B035_P03_H1_saturdaywalk",
+   "id": "P03H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "ugc": {
+    "script": "U03",
+    "angle": "saturdaywalk",
+    "words": 181,
+    "structure": "one_moment",
+    "hook": {
+     "type": "promise",
+     "label": "EASY SATURDAY",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Why does a soft, slouchy bag feel so easy to carry?",
+      "type": "question",
+      "label": "SO EASY",
+      "feature": null,
+      "show": [
+       "strap",
+       "walking"
+      ]
+     },
+     {
+      "text": "Your phone is right where your hand lands.",
+      "type": "promise",
+      "label": "WITHIN REACH",
+      "feature": null,
+      "show": [
+       "pocket",
+       "zip"
+      ]
+     },
+     {
+      "text": "Black Friday prices are live now, and it goes with every outfit.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "packing",
+       "inside"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Why does a soft, slouchy bag feel so easy to carry?": [
+      [
+       "1eYyRs68xrA_7iTKkPt1FrN_wkMzcqhoT",
+       0.3,
+       1.0
+      ],
+      [
+       "1lLd7uLIZLSEJexP2Lkb9HMSgew-266rA",
+       8.39,
+       1.0
+      ]
+     ],
+     "Your phone is right where your hand lands.": [
+      [
+       "1oIh4uQuqg4_b0qFrbIrlbJKL5QXHoHKc",
+       0.69,
+       1.0
+      ]
+     ],
+     "Black Friday prices are live now, and it goes with every outfit.": [
+      [
+       "1zmPFd_BU3uXHEWR6is-DtcpvenImA1cX",
+       33.03,
+       1.0
+      ],
+      [
+       "1xM0bqDTlGxgCLraNpI1VuhG9c1T_cU9D",
+       8.33,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 60.6,
+   "project": "P03",
+   "hook_text": "Saturday morning, a soft bag on your shoulder, and nowhere to be.",
+   "hook_label": "EASY SATURDAY",
+   "hook_type": "promise",
+   "opening_shot": [
+    "1LeDtdHCKYp0JcUqPSDxfbXmT_NqXDSzG",
+    8.96
+   ]
+  },
+  {
+   "name": "LC_261102_SlouchySoft3PieceSet_BlackFriday_B035_P03_H2_saturdaywalk",
+   "id": "P03H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "ugc": {
+    "script": "U03",
+    "angle": "saturdaywalk",
+    "words": 181,
+    "structure": "one_moment",
+    "hook": {
+     "type": "promise",
+     "label": "EASY SATURDAY",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Why does a soft, slouchy bag feel so easy to carry?",
+      "type": "question",
+      "label": "SO EASY",
+      "feature": null,
+      "show": [
+       "strap",
+       "walking"
+      ]
+     },
+     {
+      "text": "Your phone is right where your hand lands.",
+      "type": "promise",
+      "label": "WITHIN REACH",
+      "feature": null,
+      "show": [
+       "pocket",
+       "zip"
+      ]
+     },
+     {
+      "text": "Black Friday prices are live now, and it goes with every outfit.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "packing",
+       "inside"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Why does a soft, slouchy bag feel so easy to carry?": [
+      [
+       "1eYyRs68xrA_7iTKkPt1FrN_wkMzcqhoT",
+       0.3,
+       1.0
+      ],
+      [
+       "1lLd7uLIZLSEJexP2Lkb9HMSgew-266rA",
+       8.39,
+       1.0
+      ]
+     ],
+     "Your phone is right where your hand lands.": [
+      [
+       "1oIh4uQuqg4_b0qFrbIrlbJKL5QXHoHKc",
+       0.69,
+       1.0
+      ]
+     ],
+     "Black Friday prices are live now, and it goes with every outfit.": [
+      [
+       "1zmPFd_BU3uXHEWR6is-DtcpvenImA1cX",
+       33.03,
+       1.0
+      ],
+      [
+       "1xM0bqDTlGxgCLraNpI1VuhG9c1T_cU9D",
+       8.33,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 60.3,
+   "project": "P03",
+   "hook_text": "Why does a soft, slouchy bag feel so easy to carry?",
+   "hook_label": "SO EASY",
+   "hook_type": "question",
+   "opening_shot": [
+    "1eYyRs68xrA_7iTKkPt1FrN_wkMzcqhoT",
+    0.3
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261102_SlouchySoft3PieceSet_BlackFriday_B035_P03_H3_saturdaywalk",
+   "id": "P03H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "ugc": {
+    "script": "U03",
+    "angle": "saturdaywalk",
+    "words": 181,
+    "structure": "one_moment",
+    "hook": {
+     "type": "promise",
+     "label": "EASY SATURDAY",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Why does a soft, slouchy bag feel so easy to carry?",
+      "type": "question",
+      "label": "SO EASY",
+      "feature": null,
+      "show": [
+       "strap",
+       "walking"
+      ]
+     },
+     {
+      "text": "Your phone is right where your hand lands.",
+      "type": "promise",
+      "label": "WITHIN REACH",
+      "feature": null,
+      "show": [
+       "pocket",
+       "zip"
+      ]
+     },
+     {
+      "text": "Black Friday prices are live now, and it goes with every outfit.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "packing",
+       "inside"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Why does a soft, slouchy bag feel so easy to carry?": [
+      [
+       "1eYyRs68xrA_7iTKkPt1FrN_wkMzcqhoT",
+       0.3,
+       1.0
+      ],
+      [
+       "1lLd7uLIZLSEJexP2Lkb9HMSgew-266rA",
+       8.39,
+       1.0
+      ]
+     ],
+     "Your phone is right where your hand lands.": [
+      [
+       "1oIh4uQuqg4_b0qFrbIrlbJKL5QXHoHKc",
+       0.69,
+       1.0
+      ]
+     ],
+     "Black Friday prices are live now, and it goes with every outfit.": [
+      [
+       "1zmPFd_BU3uXHEWR6is-DtcpvenImA1cX",
+       33.03,
+       1.0
+      ],
+      [
+       "1xM0bqDTlGxgCLraNpI1VuhG9c1T_cU9D",
+       8.33,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 60.6,
+   "project": "P03",
+   "hook_text": "Black Friday prices are live now, and it goes with every outfit.",
+   "hook_label": "BLACK FRIDAY",
+   "hook_type": "price",
+   "opening_shot": [
+    "1zmPFd_BU3uXHEWR6is-DtcpvenImA1cX",
+    33.03
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261102_SlouchySoft3PieceSet_BlackFriday_B035_P03_H4_saturdaywalk",
+   "id": "P03H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "ugc": {
+    "script": "U03",
+    "angle": "saturdaywalk",
+    "words": 181,
+    "structure": "one_moment",
+    "hook": {
+     "type": "promise",
+     "label": "EASY SATURDAY",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Why does a soft, slouchy bag feel so easy to carry?",
+      "type": "question",
+      "label": "SO EASY",
+      "feature": null,
+      "show": [
+       "strap",
+       "walking"
+      ]
+     },
+     {
+      "text": "Your phone is right where your hand lands.",
+      "type": "promise",
+      "label": "WITHIN REACH",
+      "feature": null,
+      "show": [
+       "pocket",
+       "zip"
+      ]
+     },
+     {
+      "text": "Black Friday prices are live now, and it goes with every outfit.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "packing",
+       "inside"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Why does a soft, slouchy bag feel so easy to carry?": [
+      [
+       "1eYyRs68xrA_7iTKkPt1FrN_wkMzcqhoT",
+       0.3,
+       1.0
+      ],
+      [
+       "1lLd7uLIZLSEJexP2Lkb9HMSgew-266rA",
+       8.39,
+       1.0
+      ]
+     ],
+     "Your phone is right where your hand lands.": [
+      [
+       "1oIh4uQuqg4_b0qFrbIrlbJKL5QXHoHKc",
+       0.69,
+       1.0
+      ]
+     ],
+     "Black Friday prices are live now, and it goes with every outfit.": [
+      [
+       "1zmPFd_BU3uXHEWR6is-DtcpvenImA1cX",
+       33.03,
+       1.0
+      ],
+      [
+       "1xM0bqDTlGxgCLraNpI1VuhG9c1T_cU9D",
+       8.33,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 59.3,
+   "project": "P03",
+   "hook_text": "Your phone is right where your hand lands.",
+   "hook_label": "WITHIN REACH",
+   "hook_type": "promise",
+   "opening_shot": [
+    "1oIh4uQuqg4_b0qFrbIrlbJKL5QXHoHKc",
+    0.69
+   ],
+   "hook_source": "script"
+  }
+ ],
+ "tts_lines": 32,
+ "tts_dupes": {},
+ "est_credits": 11.2,
+ "budget": 100.0,
+ "colour_images": {
+  "Brown": "/home/user/out/slouchy-bf-2026-11-02/site/clean/slouchy_colour_brown_nobadge.jpg",
+  "Apricot": "/home/user/out/slouchy-bf-2026-11-02/site/slouchy_colour_apricot.jpg",
+  "White": "/home/user/out/slouchy-bf-2026-11-02/site/slouchy_colour_white.jpg",
+  "Pink": "/home/user/out/slouchy-bf-2026-11-02/site/slouchy_colour_pink.jpg",
+  "Black": "/home/user/out/slouchy-bf-2026-11-02/site/slouchy_colour_black.jpg",
+  "Blue": "/home/user/out/slouchy-bf-2026-11-02/site/slouchy_colour_blue.jpg",
+  "Green": "/home/user/out/slouchy-bf-2026-11-02/site/slouchy_colour_green.jpg"
+ },
+ "packshots": [
+  "/home/user/out/slouchy-bf-2026-11-02/site/slouchy_colour_apricot.jpg",
+  "/home/user/out/slouchy-bf-2026-11-02/site/slouchy_colour_white.jpg",
+  "/home/user/out/slouchy-bf-2026-11-02/site/slouchy_colour_pink.jpg",
+  "/home/user/out/slouchy-bf-2026-11-02/site/slouchy_colour_black.jpg",
+  "/home/user/out/slouchy-bf-2026-11-02/site/slouchy_colour_blue.jpg",
+  "/home/user/out/slouchy-bf-2026-11-02/site/slouchy_colour_green.jpg"
+ ],
+ "brief": null,
+ "winners_source": null,
+ "winners_note": null,
+ "winners_used": [],
+ "unmatched_winners": [],
+ "warnings": [
+  "campaign: Black Friday Sale 2026 (2026-10-23 to 2026-11-30, client-approved): end cards say 'Black Friday Sale' + 'UP TO 60% OFF'; the close and the ad copy name the sale; each bag's own % stays its offer",
+  "ideas: 0 AI statics of 2 (0 designed ads, 0 studio scenes; about 0 credits plus retries)",
+  "P03: hook types repeat (promise, question, price, promise)"
+ ],
+ "winner_reviews": false,
+ "seed": 1,
+ "hooks": 4,
+ "pipeline": "catalog",
+ "video_format": "ugc",
+ "ugc_numbers": [],
+ "voice": {
+  "voice_type": "element",
+  "voice_id": "241459b6-b4e8-4a2a-9868-da8bcdcd0558",
+  "speed": 1.12
+ },
+ "projects": [
+  {
+   "id": "P01",
+   "from_id": "V01",
+   "angle": "nightbefore",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P01H1",
+     "name": "LC_261102_SlouchySoft3PieceSet_BlackFriday_B035_P01_H1_nightbefore",
+     "hook_text": "Bag, crossbody and pouch: here's what goes in each one.",
+     "label": "THREE PIECES",
+     "type": "promise",
+     "shot": [
+      "1h2OlHfArKnmuzQRP-gdEeIcVg6vDNLEB",
+      4.0
+     ],
+     "est_seconds": 63.9
+    },
+    {
+     "hook": "H2",
+     "id": "P01H2",
+     "name": "LC_261102_SlouchySoft3PieceSet_BlackFriday_B035_P01_H2_nightbefore",
+     "hook_text": "What do you pack the night before a long day out?",
+     "label": "NIGHT BEFORE",
+     "type": "question",
+     "shot": [
+      "1_OHUtc0upzg7UQGp4Ay3InpTQ99wJ8F9",
+      4.94
+     ],
+     "est_seconds": 64.2
+    },
+    {
+     "hook": "H3",
+     "id": "P01H3",
+     "name": "LC_261102_SlouchySoft3PieceSet_BlackFriday_B035_P01_H3_nightbefore",
+     "hook_text": "Grabbing your things at the last minute never ends well.",
+     "label": "LAST MINUTE",
+     "type": "problem",
+     "shot": [
+      "1k7576QPGPEg71wUk0kS0MuMzY_WXwvWw",
+      0.3
+     ],
+     "est_seconds": 63.9
+    },
+    {
+     "hook": "H4",
+     "id": "P01H4",
+     "name": "LC_261102_SlouchySoft3PieceSet_BlackFriday_B035_P01_H4_nightbefore",
+     "hook_text": "Black Friday prices are live now, and this set has three pieces.",
+     "label": "BLACK FRIDAY",
+     "type": "price",
+     "shot": [
+      "1BQxRGh_Sqno6MqEBabVBpaCT0bLXQ8pw",
+      3.5
+     ],
+     "est_seconds": 64.5
+    }
+   ]
+  },
+  {
+   "id": "P02",
+   "from_id": "V02",
+   "angle": "softmyth",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P02H1",
+     "name": "LC_261102_SlouchySoft3PieceSet_BlackFriday_B035_P02_H1_softmyth",
+     "hook_text": "Soft bags usually hang open at the top. This one zips.",
+     "label": "SOFT BUT SHUT",
+     "type": "problem",
+     "shot": [
+      "14YU34manPrQrOQckfQBVr4AeHfN9wyB6",
+      12.45
+     ],
+     "est_seconds": 58.2
+    },
+    {
+     "hook": "H2",
+     "id": "P02H2",
+     "name": "LC_261102_SlouchySoft3PieceSet_BlackFriday_B035_P02_H2_softmyth",
+     "hook_text": "Can a soft, slouchy bag still keep your things secure?",
+     "label": "STILL SECURE?",
+     "type": "question",
+     "shot": [
+      "1xM0bqDTlGxgCLraNpI1VuhG9c1T_cU9D",
+      20.78
+     ],
+     "est_seconds": 57.9
+    },
+    {
+     "hook": "H3",
+     "id": "P02H3",
+     "name": "LC_261102_SlouchySoft3PieceSet_BlackFriday_B035_P02_H3_softmyth",
+     "hook_text": "Watch what one pull of this zip does.",
+     "label": "ONE PULL",
+     "type": "promise",
+     "shot": [
+      "1lLd7uLIZLSEJexP2Lkb9HMSgew-266rA",
+      20.91
+     ],
+     "est_seconds": 57.2
+    },
+    {
+     "hook": "H4",
+     "id": "P02H4",
+     "name": "LC_261102_SlouchySoft3PieceSet_BlackFriday_B035_P02_H4_softmyth",
+     "hook_text": "Black Friday prices are live now. Meet the soft bag that zips shut.",
+     "label": "BLACK FRIDAY",
+     "type": "price",
+     "shot": [
+      "18e-HZo0q_9g_tgL6pvmduMblv1O8Txiv",
+      14.46
+     ],
+     "est_seconds": 58.8
+    }
+   ]
+  },
+  {
+   "id": "P03",
+   "from_id": "V03",
+   "angle": "saturdaywalk",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P03H1",
+     "name": "LC_261102_SlouchySoft3PieceSet_BlackFriday_B035_P03_H1_saturdaywalk",
+     "hook_text": "Saturday morning, a soft bag on your shoulder, and nowhere to be.",
+     "label": "EASY SATURDAY",
+     "type": "promise",
+     "shot": [
+      "1LeDtdHCKYp0JcUqPSDxfbXmT_NqXDSzG",
+      8.96
+     ],
+     "est_seconds": 60.6
+    },
+    {
+     "hook": "H2",
+     "id": "P03H2",
+     "name": "LC_261102_SlouchySoft3PieceSet_BlackFriday_B035_P03_H2_saturdaywalk",
+     "hook_text": "Why does a soft, slouchy bag feel so easy to carry?",
+     "label": "SO EASY",
+     "type": "question",
+     "shot": [
+      "1eYyRs68xrA_7iTKkPt1FrN_wkMzcqhoT",
+      0.3
+     ],
+     "est_seconds": 60.3
+    },
+    {
+     "hook": "H3",
+     "id": "P03H3",
+     "name": "LC_261102_SlouchySoft3PieceSet_BlackFriday_B035_P03_H3_saturdaywalk",
+     "hook_text": "Black Friday prices are live now, and it goes with every outfit.",
+     "label": "BLACK FRIDAY",
+     "type": "price",
+     "shot": [
+      "1zmPFd_BU3uXHEWR6is-DtcpvenImA1cX",
+      33.03
+     ],
+     "est_seconds": 60.6
+    },
+    {
+     "hook": "H4",
+     "id": "P03H4",
+     "name": "LC_261102_SlouchySoft3PieceSet_BlackFriday_B035_P03_H4_saturdaywalk",
+     "hook_text": "Your phone is right where your hand lands.",
+     "label": "WITHIN REACH",
+     "type": "promise",
+     "shot": [
+      "1oIh4uQuqg4_b0qFrbIrlbJKL5QXHoHKc",
+      0.69
+     ],
+     "est_seconds": 59.3
+    }
+   ]
+  }
+ ],
+ "hooks_seed": 1
+}
