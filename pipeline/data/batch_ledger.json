@@ -2283,7 +2283,38 @@
      "label": "Black Friday prices are live now, and this bag passes the keys test."
     }
    ]
+  },
+  {
+   "id": "B035",
+   "n": 35,
+   "rev": 1,
+   "date": "2026-11-02",
+   "product": "Slouchy Soft 3-Piece Set",
+   "theme": "BlackFriday",
+   "pipeline": "catalog",
+   "request": "3 videos and 2 statics for the Slouchy Soft 3-Piece Set, Black Friday, no presenter",
+   "statics": 2,
+   "projects": 3,
+   "hooks": 4,
+   "seed": 1,
+   "status": "uploaded",
+   "folder": "B035 – 2026-11-02 – Slouchy Soft 3-Piece Set BlackFriday – 2 statics + 3 projects",
+   "link": "https://drive.google.com/drive/folders/1J5JP-3lUTpqDO3fubcpZHzvH-OZtuJm2",
+   "ads": [
+    {
+     "name": "LC_261102_SlouchySoft3PieceSet_BlackFriday_B035_S01_studio",
+     "kind": "static",
+     "fp": "s|studio|slouchy_colour_white.jpg|three pieces, one set.",
+     "label": "Three pieces, one set."
+    },
+    {
+     "name": "LC_261102_SlouchySoft3PieceSet_BlackFriday_B035_S02_native",
+     "kind": "static",
+     "fp": "s|native|F_1yYnDQdm1I_0096.jpg|soft. slouchy. easy.",
+     "label": "Soft. Slouchy. Easy."
+    }
+   ]
   }
  ],
- "next": 32
+ "next": 36
 }

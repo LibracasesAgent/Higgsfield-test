@@ -1,0 +1,378 @@
+{
+ "mode": "ugc",
+ "voice_speed": 1.12,
+ "blocks": [
+  {
+   "vo": "V03_hook.mp3",
+   "broll": [
+    [
+     "1LeDtdHCKYp0JcUqPSDxfbXmT_NqXDSzG",
+     8.96,
+     1.0
+    ],
+    [
+     "1k7576QPGPEg71wUk0kS0MuMzY_WXwvWw",
+     4.82,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "18e-HZo0q_9g_tgL6pvmduMblv1O8Txiv",
+     10.04,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V03_c1.mp3",
+   "broll": [
+    [
+     "18e-HZo0q_9g_tgL6pvmduMblv1O8Txiv",
+     1.21,
+     1.0
+    ],
+    [
+     "1lLd7uLIZLSEJexP2Lkb9HMSgew-266rA",
+     2.13,
+     1.0
+    ],
+    [
+     "1Mx_-AaJF7pawLAOL1SR9SlMW4CdsXlls",
+     24.77,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1lLd7uLIZLSEJexP2Lkb9HMSgew-266rA",
+     14.65,
+     1.0
+    ],
+    [
+     "1JOh-lLs7fJ-C2da1X7HSirdFcpmY770Y",
+     1.45,
+     1.0
+    ],
+    [
+     "1KBDc2ySqkgQwNDaTCiMbyEJXga2-zEGf",
+     4.46,
+     1.0
+    ]
+   ],
+   "pace": "slow"
+  },
+  {
+   "vo": "V03_c2.mp3",
+   "broll": [
+    [
+     "1fWAPPfoZjlh_nWaiNvMMpX698zWoM3Rh",
+     3.41,
+     1.0
+    ],
+    [
+     "1ProTeKMsOhOMXwNzDYpzZWnkqd7iyuQN",
+     1.57,
+     1.0
+    ],
+    [
+     "1JFP_Bq1IuYQ9GA8MmbHbFVE6NSqNUFeS",
+     0.3,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "198Msi0QC5uKeVLS8mfYkXmgWR_iKCyR9",
+     0.3,
+     1.0
+    ],
+    [
+     "1fWAPPfoZjlh_nWaiNvMMpX698zWoM3Rh",
+     0.3,
+     1.0
+    ],
+    [
+     "1ProTeKMsOhOMXwNzDYpzZWnkqd7iyuQN",
+     6.7,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V03_c3.mp3",
+   "broll": [
+    [
+     "1JYB-5m6zU71bzzE8KgBeDvr0eEzimWb0",
+     11.3,
+     1.0
+    ],
+    [
+     "1SMaHciUmc3Qd4xcatqgLVEG48qpFjP73",
+     5.78,
+     1.0
+    ],
+    [
+     "1oIh4uQuqg4_b0qFrbIrlbJKL5QXHoHKc",
+     4.08,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1SMaHciUmc3Qd4xcatqgLVEG48qpFjP73",
+     10.29,
+     1.0
+    ],
+    [
+     "1yYnDQdm1IYGchqELy5bHZ3pB73_A4vCB",
+     0.37,
+     1.0
+    ]
+   ],
+   "proof": true
+  },
+  {
+   "vo": "V03_c4.mp3",
+   "broll": [
+    [
+     "1AERMmWiNKyEvkgDEHUXcMvoq8cgQZbdg",
+     11.8,
+     1.0
+    ],
+    [
+     "1xM0bqDTlGxgCLraNpI1VuhG9c1T_cU9D",
+     20.78,
+     1.0
+    ],
+    [
+     "1oerYN6szr1-3U7NE5j068VN0RPItvT1_",
+     23.54,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1A04BYc3AcuvLawnHHnMqeuGzbmZn3EYn",
+     4.89,
+     1.0
+    ],
+    [
+     "1xM0bqDTlGxgCLraNpI1VuhG9c1T_cU9D",
+     14.56,
+     1.0
+    ]
+   ],
+   "pace": "fast"
+  },
+  {
+   "vo": "V03_c5.mp3",
+   "broll": [
+    [
+     "1JYB-5m6zU71bzzE8KgBeDvr0eEzimWb0",
+     3.0,
+     1.0
+    ],
+    [
+     "1AERMmWiNKyEvkgDEHUXcMvoq8cgQZbdg",
+     0.5,
+     1.0
+    ],
+    [
+     "1CrmKAYRQWzm0K3K17WnzAUna0hf5Uco2",
+     9.0,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1JYB-5m6zU71bzzE8KgBeDvr0eEzimWb0",
+     3.0,
+     1.0,
+     {
+      "zoom": [
+       1.3,
+       1.36
+      ],
+      "focus": [
+       0.5,
+       0.55
+      ]
+     }
+    ],
+    [
+     "1CrmKAYRQWzm0K3K17WnzAUna0hf5Uco2",
+     6.25,
+     1.0
+    ]
+   ],
+   "pace": "slow"
+  },
+  {
+   "vo": "V03_c6.mp3",
+   "broll": [
+    [
+     "1AERMmWiNKyEvkgDEHUXcMvoq8cgQZbdg",
+     6.5,
+     1.0
+    ],
+    [
+     "1_OHUtc0upzg7UQGp4Ay3InpTQ99wJ8F9",
+     12.85,
+     1.0
+    ],
+    [
+     "1MauHJ_ObAcw-Rh5uWtW73EuOuv85CtgN",
+     3.12,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1trCRdHLPN7vfxNhg1gsoHHbnixdxTDsE",
+     3.46,
+     1.0
+    ],
+    [
+     "1_OHUtc0upzg7UQGp4Ay3InpTQ99wJ8F9",
+     8.89,
+     1.0
+    ],
+    [
+     "1MauHJ_ObAcw-Rh5uWtW73EuOuv85CtgN",
+     0.3,
+     1.0
+    ]
+   ],
+   "pace": "slow"
+  },
+  {
+   "vo": "V03_c7.mp3",
+   "broll": [
+    [
+     "14YU34manPrQrOQckfQBVr4AeHfN9wyB6",
+     12.45,
+     1.0
+    ],
+    [
+     "1h2OlHfArKnmuzQRP-gdEeIcVg6vDNLEB",
+     4.0,
+     1.0
+    ],
+    [
+     "site/slouchy_colour_pink.jpg",
+     0,
+     1.0,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ]
+     }
+    ]
+   ],
+   "spare": [
+    [
+     "1yYnDQdm1IYGchqELy5bHZ3pB73_A4vCB",
+     3.1,
+     1.0
+    ],
+    [
+     "1OruwJOZyjWuRJl_HsPdB4PBqEPZJfyfD",
+     3.6,
+     1.0
+    ],
+    [
+     "1venMNEP7hB0KNIcUsf_HRHGwwedTQ1Ex",
+     13.71,
+     1.0
+    ]
+   ]
+  }
+ ],
+ "overlays": [
+  {
+   "type": "label",
+   "text": "EASY SATURDAY",
+   "block": 0,
+   "at": 0.1,
+   "dur": 1.8
+  },
+  {
+   "type": "tag",
+   "text": "SOFT + SLOUCHY",
+   "block": 3,
+   "at": 0.15,
+   "dur": 2.6
+  },
+  {
+   "type": "tag",
+   "text": "STAYS ORGANISED",
+   "block": 4,
+   "at": 0.15,
+   "dur": 2.6
+  },
+  {
+   "type": "tag",
+   "text": "TIMELESS LOOK",
+   "block": 5,
+   "at": 0.15,
+   "dur": 2.6
+  }
+ ],
+ "end_title": "Black Friday Sale",
+ "offer": {
+  "block": 7,
+  "word": "60",
+  "title": "BLACK FRIDAY 60% OFF",
+  "sub": ""
+ },
+ "end_photo": "site/slouchy_colour_pink.jpg",
+ "end_offer": "UP TO 60% OFF",
+ "keywords": [
+  "60%",
+  "gift",
+  "gifts",
+  "hidden",
+  "pocket",
+  "leather",
+  "black",
+  "friday",
+  "soft, slouchy"
+ ],
+ "spare_broll": [
+  [
+   "1k7576QPGPEg71wUk0kS0MuMzY_WXwvWw",
+   0.3,
+   1.0
+  ],
+  [
+   "18e-HZo0q_9g_tgL6pvmduMblv1O8Txiv",
+   5.63,
+   1.0
+  ],
+  [
+   "1zmPFd_BU3uXHEWR6is-DtcpvenImA1cX",
+   3.86,
+   1.0
+  ],
+  [
+   "1KBDc2ySqkgQwNDaTCiMbyEJXga2-zEGf",
+   0.3,
+   1.0
+  ],
+  [
+   "1oIh4uQuqg4_b0qFrbIrlbJKL5QXHoHKc",
+   10.85,
+   1.0
+  ],
+  [
+   "14YU34manPrQrOQckfQBVr4AeHfN9wyB6",
+   4.76,
+   1.0
+  ]
+ ],
+ "music": {
+  "seed": 3
+ }
+}
