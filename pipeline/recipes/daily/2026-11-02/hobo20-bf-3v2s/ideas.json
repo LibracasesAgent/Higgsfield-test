@@ -1,0 +1,484 @@
+{
+ "product": "Hobo 2.0",
+ "theme": "black friday",
+ "date": "2026-11-02",
+ "no_presenter": "3 videos and 2 statics for the Hobo 2.0, Black Friday, no presenter",
+ "research": [
+  "Read the strategy packet (true facts, the Black Friday Sale 2026 campaign facts, footage tags, B013 / B015 / B017) and docs/research/2026-10-black-friday-and-bag-ads.md: demonstration-first and POV hooks beat a bare '50% off' open; the sale goes last; the hand-reach and one-moment concepts; Pacsafe-style anti-theft ads lean on a crowd scenario.",
+  "Earlier Hobo 2.0 batches were a day, a demo, the chair strap, layers, four questions, a gift guide, a weekend pack and a versus; none used a one-moment story, advice to a friend led by the two straps, or a pass/fail test led by the hidden pockets, so those are the three structures; the lead features differ (zips, two straps, hidden pockets).",
+  "Offer: the Hobo 2.0 keeps its own 50% and its own free pouch wallet (the offer card); 'up to sixty percent off' is said only as the campaign's sale line; no free gifts, no bundle claim, no returns wording (final sale), no countdown or 'ends tonight', no exact prices (price test).",
+  "Footage coverage for the Hobo 2.0: strap 171, home 146, zip 122, side_zip 94, pocket 92, packing 81, worn 50, cafe 49, lock 24, tie 20, walking 6 (thin, so 'worn' carries the person shots); the bag on a person is worn / strap shots, never a face.",
+  "Statics: one AI-designed ad in a format of my own (a cafe chalkboard sign) and one real native frame; the ad's words carry the % only, no price figures."
+ ],
+ "projects": [
+  {
+   "id": "P01",
+   "slug": "packedcafe",
+   "title": "The packed cafe",
+   "structure": "one_moment",
+   "big_idea": "One Saturday-morning moment in a packed cafe queue: the bag stays zipped on your shoulder, you never check it, and the sale only closes the story.",
+   "why_new": "Earlier Hobo 2.0 batches walked a day (B013), looped the table strap (B015), answered four questions (B017) or compared with an ordinary bag; this is one moment told start to finish, led by the lockable zips, with the zips' own sound as the proof and no list.",
+   "hooks": [
+    {
+     "text": "How many times do you check your zip in a crowd?",
+     "type": "question",
+     "label": "CROWD CHECK",
+     "show": [
+      "zip_hand",
+      "lock"
+     ]
+    },
+    {
+     "text": "Squeezing through a packed cafe with your bag open behind you.",
+     "type": "problem",
+     "label": "PACKED CAFE",
+     "show": [
+      "worn",
+      "cafe"
+     ]
+    },
+    {
+     "text": "Watch these two zips clip together. Then try to get in.",
+     "type": "promise",
+     "label": "ZIPS CLIP",
+     "show": [
+      "side_zip",
+      "handheld"
+     ]
+    },
+    {
+     "text": "Black Friday prices are live now, and this bag locks.",
+     "type": "price",
+     "label": "BLACK FRIDAY",
+     "show": [
+      "strap",
+      "worn"
+     ]
+    }
+   ],
+   "chapters": [
+    {
+     "kind": "point",
+     "beat": "scene",
+     "text": "It's Saturday morning and the cafe is packed. The queue is out the door, there's a latte in one hand and your phone in the other, and your bag is on your shoulder.",
+     "tag": null,
+     "number": null,
+     "show": [
+      "cafe",
+      "worn",
+      "handheld"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "friction",
+     "text": "Somebody squeezes past with a tray. In a crowd like this you'd normally reach back, check the zip, and then check it again.",
+     "tag": null,
+     "number": null,
+     "show": [
+      "worn",
+      "outdoor",
+      "zip"
+     ]
+    },
+    {
+     "kind": "proof",
+     "beat": "move",
+     "text": "This time you don't. The zippers on the Hobo 2.0 lock, so the bag stays shut while the whole room moves around you. Two gold pulls clip together, and that's it.",
+     "tag": "LOCKABLE ZIPPERS",
+     "number": null,
+     "show": [
+      "lock",
+      "side_zip",
+      "zip_hand"
+     ],
+     "highlight": [
+      "lock",
+      "clip together"
+     ],
+     "proof_shot": true
+    },
+    {
+     "kind": "point",
+     "beat": "second_move",
+     "text": "Cards are the other worry. The lining is RFID, which blocks card scanners, so your wallet can just stay where it is.",
+     "tag": "RFID LINING",
+     "number": null,
+     "show": [
+      "inside",
+      "pocket",
+      "zip_hand"
+     ],
+     "highlight": [
+      "RFID",
+      "blocks"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "second_move",
+     "text": "And if the strap gets tugged on the way through, it's cut-resistant, so it stays right on your shoulder.",
+     "tag": "CUT-RESISTANT STRAP",
+     "number": null,
+     "show": [
+      "strap",
+      "worn",
+      "leather"
+     ],
+     "highlight": [
+      "cut-resistant"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "payoff",
+     "text": "Your name gets called. You carry the latte over to the window seat, and the bag never left your shoulder. You didn't check it once.",
+     "tag": null,
+     "number": null,
+     "show": [
+      "worn",
+      "cafe",
+      "strap"
+     ]
+    },
+    {
+     "kind": "offer",
+     "beat": "offer",
+     "text": "That's the Hobo 2.0. The Early Black Friday sale is on now with up to sixty percent off, and the Hobo 2.0 is fifty percent off, with a free pouch wallet. Tap the link below.",
+     "tag": null,
+     "number": null,
+     "show": [
+      "hero",
+      "worn"
+     ],
+     "highlight": [
+      "fifty percent",
+      "free pouch wallet"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "P02",
+   "slug": "newjobbag",
+   "title": "The new-job bag",
+   "structure": "friend_advice",
+   "big_idea": "The advice you'd give a best friend who starts a new job on Monday: take a bag with two straps, handbag for the desk, crossbody for the walk in.",
+   "why_new": "No earlier Hobo 2.0 video led with the two straps (B013-B017 led with zips, the table strap, layers and questions); the story is advice to a friend about a new job, in 'you' form, and the proof is the strap itself.",
+   "hooks": [
+    {
+     "text": "What bag do you tell your best friend to take to a new job?",
+     "type": "question",
+     "label": "NEW JOB BAG",
+     "show": [
+      "worn",
+      "outdoor"
+     ]
+    },
+    {
+     "text": "One bag, two straps, and she never has to swap bags.",
+     "type": "promise",
+     "label": "TWO STRAPS",
+     "show": [
+      "strap",
+      "handheld"
+     ]
+    },
+    {
+     "text": "Her keys are at the bottom of the bag again.",
+     "type": "problem",
+     "label": "KEYS AGAIN",
+     "show": [
+      "pocket",
+      "packing"
+     ]
+    },
+    {
+     "text": "The one bag for the commute, the coffee run and the desk.",
+     "type": "superlative",
+     "label": "COMMUTE TO DESK",
+     "show": [
+      "zip",
+      "cafe"
+     ]
+    }
+   ],
+   "chapters": [
+    {
+     "kind": "point",
+     "beat": "situation",
+     "text": "Your best friend starts a new job on Monday, and she asks what bag to take. It has to get her through the walk in, a coffee run, and a long day at a desk.",
+     "tag": null,
+     "number": null,
+     "show": [
+      "worn",
+      "outdoor",
+      "cafe"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "advice",
+     "text": "Tell her to take a bag that comes with two straps. A handbag strap for the office, and a wide crossbody strap for the walk in.",
+     "tag": "TWO STRAPS",
+     "number": null,
+     "show": [
+      "strap",
+      "handheld",
+      "worn"
+     ],
+     "highlight": [
+      "two straps"
+     ]
+    },
+    {
+     "kind": "proof",
+     "beat": "because",
+     "text": "Because on the way in, the crossbody strap keeps her hands free. At her desk, the handbag strap makes it look put together. Same bag, two looks, nothing to swap.",
+     "tag": null,
+     "number": null,
+     "show": [
+      "strap",
+      "handheld"
+     ],
+     "highlight": [
+      "hands free"
+     ],
+     "proof_shot": true
+    },
+    {
+     "kind": "point",
+     "beat": "because",
+     "text": "The strap is cut-resistant too, which is good to know on a busy street.",
+     "tag": "CUT-RESISTANT STRAP",
+     "number": null,
+     "show": [
+      "strap",
+      "leather",
+      "worn"
+     ],
+     "highlight": [
+      "cut-resistant"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "and",
+     "text": "And inside, hidden pockets and smart compartments give her cards, keys and lip balm each a home, so nothing sinks to the bottom.",
+     "tag": "HIDDEN POCKETS",
+     "number": null,
+     "show": [
+      "pocket",
+      "inside",
+      "packing"
+     ],
+     "highlight": [
+      "hidden pockets"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "and",
+     "text": "Then at lunch, the lockable zippers keep it shut while she's sitting back with her coffee, and that's one less thing for her to think about.",
+     "tag": null,
+     "number": null,
+     "show": [
+      "zip",
+      "side_zip",
+      "worn"
+     ]
+    },
+    {
+     "kind": "offer",
+     "beat": "offer",
+     "text": "Tell her the Hobo 2.0 is fifty percent off right now, with a free pouch wallet and free US shipping. Black Friday prices are live now, so there's no need to wait. Tap the link below.",
+     "tag": null,
+     "number": null,
+     "show": [
+      "hero",
+      "worn"
+     ],
+     "highlight": [
+      "fifty percent",
+      "free US shipping"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "P03",
+   "slug": "keystest",
+   "title": "The keys test",
+   "structure": "live_test",
+   "big_idea": "A live test any bag can try: find your phone, your cards and your keys one after another without looking inside, then zip it shut and sit down.",
+   "why_new": "B013 and B017 showed the pockets as a list or a packing scene; this is a pass-or-fail test led by the hidden pockets, with the pocket pull as the proof and the table strap as the way it ends.",
+   "hooks": [
+    {
+     "text": "Can you find your keys without looking in your bag?",
+     "type": "question",
+     "label": "KEYS TEST",
+     "show": [
+      "pocket",
+      "zip_hand"
+     ]
+    },
+    {
+     "text": "Digging to the bottom of your bag for a pair of keys. Again.",
+     "type": "problem",
+     "label": "STOP DIGGING",
+     "show": [
+      "packing",
+      "inside"
+     ]
+    },
+    {
+     "text": "Phone, cards, keys. Watch where each one goes.",
+     "type": "promise",
+     "label": "WHERE IT GOES",
+     "show": [
+      "side_zip",
+      "handheld"
+     ]
+    },
+    {
+     "text": "Black Friday prices are live now, and this bag passes the keys test.",
+     "type": "price",
+     "label": "BLACK FRIDAY",
+     "show": [
+      "worn",
+      "strap"
+     ]
+    }
+   ],
+   "chapters": [
+    {
+     "kind": "point",
+     "beat": "challenge",
+     "text": "Here's a test for your bag. Find your phone, your cards and your keys, one after the other, without looking inside and without tipping anything out.",
+     "tag": null,
+     "number": null,
+     "show": [
+      "handheld",
+      "worn",
+      "packing"
+     ]
+    },
+    {
+     "kind": "proof",
+     "beat": "attempt",
+     "text": "Phone: one pull on the side zip. Cards: the hidden pocket on the back, flat and out of sight. Keys: their own compartment inside, not the bottom.",
+     "tag": "HIDDEN POCKETS",
+     "number": null,
+     "show": [
+      "pocket",
+      "side_zip",
+      "zip_hand"
+     ],
+     "highlight": [
+      "hidden pocket"
+     ],
+     "proof_shot": true
+    },
+    {
+     "kind": "point",
+     "beat": "attempt",
+     "text": "Now zip it shut and put it back on your shoulder. Nothing is showing, nothing is hanging open, and your hands are free again.",
+     "tag": null,
+     "number": null,
+     "show": [
+      "zip",
+      "worn",
+      "side_zip"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "result",
+     "text": "Result: three things found, no digging, no tipping anything out, and the bag is still closed on your shoulder. That's a pass.",
+     "tag": null,
+     "number": null,
+     "show": [
+      "worn",
+      "handheld"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "why",
+     "text": "That's what the hidden pockets and smart compartments are for. Everything has a place, so you always know exactly where it is, even on a busy morning.",
+     "tag": "SMART COMPARTMENTS",
+     "number": null,
+     "show": [
+      "inside",
+      "packing",
+      "pocket"
+     ],
+     "highlight": [
+      "smart compartments"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "why",
+     "text": "And when you sit down, a table strap loops around your chair, so the bag stays right where you left it.",
+     "tag": "TABLE SECURITY STRAP",
+     "number": null,
+     "show": [
+      "tie",
+      "placed",
+      "cafe"
+     ],
+     "highlight": [
+      "table strap"
+     ]
+    },
+    {
+     "kind": "offer",
+     "beat": "offer",
+     "text": "Try the test on your own bag, then try it on the Hobo 2.0. Black Friday prices are live now, and the Hobo 2.0 is fifty percent off with a free pouch wallet. Tap the link below.",
+     "tag": null,
+     "number": null,
+     "show": [
+      "hero",
+      "worn"
+     ],
+     "highlight": [
+      "fifty percent",
+      "free pouch wallet"
+     ]
+    }
+   ]
+  }
+ ],
+ "statics": [
+  {
+   "id": "S01",
+   "project": "P01",
+   "layout": "ad",
+   "format": "cafe_chalkboard",
+   "format_name": "Cafe chalkboard sign",
+   "art": "A candid phone photo in a sunny cafe: the closed bag sits on a small wooden table beside a little A-frame chalkboard stand; the chalk lettering is big, hand-drawn white on black slate, 2-3 short lines, easy to read on a phone; warm window light, shallow depth of field, a latte cup at the edge, nobody in the picture; real textures, nothing glossy.",
+   "people": "none",
+   "idea": "A cafe chalkboard on the table next to the bag, written like today's special, carrying the sale line.",
+   "words": [
+    "BLACK FRIDAY SPECIAL",
+    "HOBO 2.0",
+    "50% OFF"
+   ],
+   "headline": "Black Friday special: Hobo 2.0",
+   "scene": {
+    "colour": "Black",
+    "prompt": "The closed black bag stands on a small round wooden cafe table next to a little A-frame chalkboard stand with an empty slate (the words go on it), a latte in a white cup at the table's edge, soft sunny window light from the left, a softly blurred cafe behind."
+   }
+  },
+  {
+   "id": "S02",
+   "project": "P02",
+   "layout": "native",
+   "idea": "A real face-free frame of the bag's gold zip, one caption.",
+   "headline": "Lockable zippers.",
+   "kicker": "BLACK FRIDAY",
+   "pill": true
+  }
+ ]
+}

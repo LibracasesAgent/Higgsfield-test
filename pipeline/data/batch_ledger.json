@@ -2180,7 +2180,110 @@
      "label": "Black Friday prices are live now, so tell her before she picks."
     }
    ]
+  },
+  {
+   "id": "B031",
+   "n": 31,
+   "rev": 1,
+   "date": "2026-11-02",
+   "product": "Hobo 2.0",
+   "theme": "BlackFriday",
+   "pipeline": "catalog",
+   "request": "3 videos and 2 statics for the Hobo 2.0, Black Friday, no presenter",
+   "statics": 2,
+   "projects": 3,
+   "hooks": 4,
+   "seed": 4,
+   "status": "uploaded",
+   "folder": "B031 – 2026-11-02 – Hobo 2.0 BlackFriday – 2 statics + 3 projects",
+   "link": "https://drive.google.com/drive/folders/1wxVjZJUXzlsNSfWLL11S1m7hS7OpvX5n",
+   "ads": [
+    {
+     "name": "LC_261102_Hobo20_BlackFriday_B031_S01_cafechalkboa",
+     "kind": "static",
+     "fp": "s|ad|AS01.png|black friday special: hobo 2.0",
+     "label": "Black Friday special: Hobo 2.0"
+    },
+    {
+     "name": "LC_261102_Hobo20_BlackFriday_B031_S02_native",
+     "kind": "static",
+     "fp": "s|native|F_1DheWHopin_0112.jpg|one bag. two straps.",
+     "label": "One bag. Two straps."
+    },
+    {
+     "name": "LC_261102_Hobo20_BlackFriday_B031_P01_H1_packedcafe",
+     "kind": "video",
+     "fp": "v|how many times do you check your zip in a crowd?|",
+     "label": "How many times do you check your zip in a crowd?"
+    },
+    {
+     "name": "LC_261102_Hobo20_BlackFriday_B031_P01_H2_packedcafe",
+     "kind": "video",
+     "fp": "v|squeezing through a packed cafe with your bag open behind you.|",
+     "label": "Squeezing through a packed cafe with your bag open behind you."
+    },
+    {
+     "name": "LC_261102_Hobo20_BlackFriday_B031_P01_H3_packedcafe",
+     "kind": "video",
+     "fp": "v|watch these two zips clip together. then try to get in.|",
+     "label": "Watch these two zips clip together. Then try to get in."
+    },
+    {
+     "name": "LC_261102_Hobo20_BlackFriday_B031_P01_H4_packedcafe",
+     "kind": "video",
+     "fp": "v|black friday prices are live now, and this bag locks.|",
+     "label": "Black Friday prices are live now, and this bag locks."
+    },
+    {
+     "name": "LC_261102_Hobo20_BlackFriday_B031_P02_H1_newjobbag",
+     "kind": "video",
+     "fp": "v|what bag do you tell your best friend to take to a new job?|",
+     "label": "What bag do you tell your best friend to take to a new job?"
+    },
+    {
+     "name": "LC_261102_Hobo20_BlackFriday_B031_P02_H2_newjobbag",
+     "kind": "video",
+     "fp": "v|one bag, two straps, and she never has to swap bags.|",
+     "label": "One bag, two straps, and she never has to swap bags."
+    },
+    {
+     "name": "LC_261102_Hobo20_BlackFriday_B031_P02_H3_newjobbag",
+     "kind": "video",
+     "fp": "v|her keys are at the bottom of the bag again.|",
+     "label": "Her keys are at the bottom of the bag again."
+    },
+    {
+     "name": "LC_261102_Hobo20_BlackFriday_B031_P02_H4_newjobbag",
+     "kind": "video",
+     "fp": "v|the one bag for the commute, the coffee run and the desk.|",
+     "label": "The one bag for the commute, the coffee run and the desk."
+    },
+    {
+     "name": "LC_261102_Hobo20_BlackFriday_B031_P03_H1_keystest",
+     "kind": "video",
+     "fp": "v|can you find your keys without looking in your bag?|",
+     "label": "Can you find your keys without looking in your bag?"
+    },
+    {
+     "name": "LC_261102_Hobo20_BlackFriday_B031_P03_H2_keystest",
+     "kind": "video",
+     "fp": "v|digging to the bottom of your bag for a pair of keys. again.|",
+     "label": "Digging to the bottom of your bag for a pair of keys. Again."
+    },
+    {
+     "name": "LC_261102_Hobo20_BlackFriday_B031_P03_H3_keystest",
+     "kind": "video",
+     "fp": "v|phone, cards, keys. watch where each one goes.|",
+     "label": "Phone, cards, keys. Watch where each one goes."
+    },
+    {
+     "name": "LC_261102_Hobo20_BlackFriday_B031_P03_H4_keystest",
+     "kind": "video",
+     "fp": "v|black friday prices are live now, and this bag passes the keys test.|",
+     "label": "Black Friday prices are live now, and this bag passes the keys test."
+    }
+   ]
   }
  ],
- "next": 31
+ "next": 32
 }
