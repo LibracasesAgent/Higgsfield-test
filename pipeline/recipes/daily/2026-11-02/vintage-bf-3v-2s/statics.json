@@ -1,0 +1,33 @@
+{
+ "ads": [
+  {
+   "layout": "ad",
+   "photo": "ai/AS01.png",
+   "format": "cafe_chair",
+   "words": [
+    "Snap. Sip. Go.",
+    "Early Black Friday: 50% off"
+   ],
+   "headline": "Snap. Sip. Go.",
+   "name": "LC_261102_VintageBag_BlackFriday_B033_S01_cafechair",
+   "ai": {
+    "id": "AS01",
+    "scene": "p01_s01_cafe_chair",
+    "colour": "Chocolate",
+    "format": "cafe_chair"
+   }
+  },
+  {
+   "layout": "native",
+   "photo": "photos/frames/F_1fB9VSy06W_0040.jpg",
+   "caption": "Small bag. Whole day.",
+   "pct": 50,
+   "name": "LC_261102_VintageBag_BlackFriday_B033_S02_native",
+   "frame": {
+    "clip": "1fB9VSy06WRizmHFdXWLz6Es2apRN7eQI",
+    "t": 4.07
+   }
+  }
+ ],
+ "card_photos": []
+}

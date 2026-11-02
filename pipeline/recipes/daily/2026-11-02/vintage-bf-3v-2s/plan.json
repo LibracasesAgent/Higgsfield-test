@@ -1,0 +1,1468 @@
+{
+ "prefix": "LC_261102_VintageBag_BlackFriday_B033",
+ "rev": 1,
+ "batch_id": {
+  "id": "B033",
+  "n": 33,
+  "rev": 1
+ },
+ "created": "2026-11-02",
+ "request": "3 videos and 2 statics for the Vintage Bag, Black Friday, no presenter",
+ "product": "Vintage Bag",
+ "product_key": "vintage",
+ "product_source": "built-in",
+ "theme": "black friday",
+ "theme_name": "BlackFriday",
+ "offer": "50% off",
+ "campaign": {
+  "id": "bf2026",
+  "name": "Black Friday Sale 2026",
+  "theme": "black friday",
+  "banner": "Early Black Friday – 50% off everything, up to 60% off",
+  "until": "2026-11-30",
+  "from": "2026-10-23",
+  "end_title": "Black Friday Sale",
+  "end_pill": "UP TO 60% OFF",
+  "card_sub": "",
+  "close": "The Early Black Friday sale is on now, with up to sixty percent off.",
+  "hooks": [
+   "Black Friday prices are live now. No need to wait.",
+   "Early Black Friday: up to sixty percent off.",
+   "Why wait for Black Friday? The prices are already live."
+  ],
+  "facts": [
+   "Early Black Friday Sale: live now (from 23 October), it runs until 30 November (Cyber Monday). Black Friday is 27 November.",
+   "50% off everything sitewide (each bag's own % is on its offer card: the Hobo Bag is 50% off).",
+   "Up to 60% off: some bundles are 60% off, like the Hobo Bag 3-Piece Set. Say '60% off' only of the 3-Piece Set (or another named bundle), never of a single bag or of 'any 2 bags'.",
+   "No free gifts and no extra cart discount: both were removed by the owner on 26 October.",
+   "The Hobo Bag's product page offers the 3-Piece Set as the 'Best Value' upgrade.",
+   "Black Friday prices are live now: no need to wait.",
+   "Sale items are final sale: they cannot be returned (the site's Black Friday terms); faulty items are still covered and the 1-year warranty still applies. Never say 'easy returns', 'free returns' or 'send it back' in a Black Friday ad.",
+   "Christmas delivery (the site's Black Friday terms, filled in by 27 October): order by 14 December 2026 for the best chance of delivery before Christmas; delivery before Christmas is not guaranteed, so say 'the best chance', never 'guaranteed by Christmas'."
+  ],
+  "bundle_pct": null,
+  "upto_pct": 60,
+  "bundle_any": false,
+  "client_ideas": "Owner 2026-10-26: everything is on sale everywhere, so stand out; the Hobo Bag page upsells the 3-Piece Set ('Best Value'): ads that sell the set raise the order value; 'Black Friday prices are live now, no need to wait'; Christmas gifting (mum, sister, best friend); 2 straps on the Hobo 2.0 (handbag + crossbody); in the last week: Black Friday 27 November, Cyber Monday 30 November, 'last chance'. The AI ads 'seem to be starting to work: keep testing'.",
+  "gifts": [],
+  "gifts_worth": null,
+  "dates": {
+   "black friday": "27 November",
+   "cyber monday": "30 November",
+   "ends": "30 November"
+  },
+  "copy": {
+   "primary": [
+    "Early Black Friday is live: 50% off everything, and up to 60% off bundles like the 3-Piece Set.",
+    "Black Friday prices are live now, no need to wait. 50% off everything, up to 60% off bundles."
+   ],
+   "headline": [
+    "Early Black Friday: 50% Off",
+    "Up to 60% Off Bundles",
+    "Black Friday Prices Are Live"
+   ],
+   "description": "Up to 60% off"
+  },
+  "approved_phrases": [
+   "up to (?:60|sixty) ?(?:%|percent) off(?: bundles?)?",
+   "(?:60|sixty) ?(?:%|percent) off (?:the |our )?(?:hobo (?:bag )?)?3-piece set",
+   "(?:50|fifty) ?(?:%|percent) off everything"
+  ],
+  "approved": "Wouter (owner), 2026-10-23: the Black Friday Sale went live on 23 October and runs until 30 November (Cyber Monday). Up to 50% off sitewide; 60% off bundles (2 or 3 bags bought together at 60% off the regular price); free gifts while stocks last: buy 2 bags, get a free mirrored jewellery box (worth $19.95); buy 3+ bags, get the jewellery box + a free cosmetic bag (together worth $44.90); only bags count, not accessories. The site banner (2026-10-23): 'EARLY BLACK FRIDAY: 50% OFF EVERYTHING | BUY 2 BAGS = 1 FREE GIFT | BUY 3 = 2 FREE GIFTS | ORDER TODAY WHILE STOCKS LAST!' | UPDATE Wouter (owner), 2026-10-26: the free gifts and the extra cart discount on bags are removed ('they're not coming back'); 'It's 50% OFF or you can say up to 60% OFF'; 60% is only on bundles 'like the 3 piece set', not any 2 bags; the site now has Early Black Friday messaging, a countdown in the announcement bar, 'Ships by' and delivery dates, and the 3-Piece Set as a 'Best Value' upgrade on the Hobo Bag page; during Black Friday no returns are accepted (final sale).",
+  "final_sale": true,
+  "terms": "https://libracases.com/pages/terms-and-conditions-black-friday-sale",
+  "banned": [
+   {
+    "rx": "\\bfree gifts?\\b|\\bgifts? with (?:2|two|3|three|every)\\b|\\bfree (?:mirrored )?jewell?e?ry box(?:es)?\\b|\\bfree (?:travel )?cosmetic bags?\\b|\\bjewell?e?ry box\\b|\\bcosmetic bag\\b",
+    "why": "the free gifts were removed by the owner on 26 October (not coming back): say the bag's own free pouch wallet, if it has one"
+   },
+   {
+    "rx": "(?:60|sixty) ?(?:%|percent) off\\b[^.!?]{0,60}\\b(?:(?:2|two) (?:or (?:3|three) )?bags|(?:3|three) bags|(?:2|two) or (?:3|three)|second bag|together)|\\b(?:2|two) or (?:3|three) bags\\b[^.!?]{0,30}(?:60|sixty) ?(?:%|percent)",
+    "why": "60% is only on bundles like the 3-Piece Set, not on any 2 or 3 bags (owner, 26 October): say 'up to 60% off' or '60% off the 3-Piece Set'"
+   },
+   {
+    "rx": "\\b(?:ends?|ending) (?:tonight|today)\\b|\\btoday only\\b|\\bonly today\\b|\\b(?:sale|deal|offer)s? ends? (?:soon|in \\d+ (?:hours?|minutes?|days?))\\b|\\bhours? left\\b",
+    "why": "the sale runs until 30 November (owner 2026-10-23; the site banner's 'ends tonight' is the owner's choice for the site only): before the last day 'ends tonight / today only' is false and Meta flags ads whose deadline differs from the landing page; say 'Black Friday prices are live now' or 'the sale ends on the thirtieth of November'",
+    "except_on": [
+     "2026-11-30"
+    ]
+   },
+   {
+    "rx": "\\blast (?:chance|days?|call)\\b|\\bfinal (?:days?|hours?|chance)\\b",
+    "why": "'last chance' is the last week's message (owner's timeline: last-week content by 20 November, for Black Friday 27 Nov - Cyber Monday 30 Nov): before 20 November it is false urgency",
+    "except_from": "2026-11-20"
+   },
+   {
+    "rx": "\\bguarantee\\w*\\b[^.!?]{0,40}\\bchristmas\\b|\\bchristmas\\b[^.!?]{0,40}\\bguarantee\\w*\\b|\\b(?:arrives?|delivered|get it|gets there|be there|in time for)\\b[^.!?]{0,20}\\b(?:in time for|by|before) christmas\\b|\\bin time for christmas\\b",
+    "why": "the site's terms: delivery before Christmas is not guaranteed; say 'order by 14 December for the best chance of delivery before Christmas'"
+   }
+  ]
+ },
+ "statics": [
+  "LC_261102_VintageBag_BlackFriday_B033_S01_cafechair",
+  "LC_261102_VintageBag_BlackFriday_B033_S02_native"
+ ],
+ "videos": [
+  {
+   "name": "LC_261102_VintageBag_BlackFriday_B033_P01_H1_smallbagmyth",
+   "id": "P01H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "ugc": {
+    "script": "U01",
+    "angle": "smallbagmyth",
+    "words": 195,
+    "structure": "myth_fact",
+    "hook": {
+     "type": "question",
+     "label": "SMALL BAG MYTH",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Small bag, big day: here's what actually fits.",
+      "type": "promise",
+      "label": "WHAT FITS",
+      "feature": null,
+      "show": [
+       "packing",
+       "inside"
+      ]
+     },
+     {
+      "text": "The smallest bag in your closet might carry the most.",
+      "type": "superlative",
+      "label": "MORE THAN EXPECTED",
+      "feature": null,
+      "show": [
+       "pocket",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Early Black Friday is on, and this small bag holds a whole day.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "strap",
+       "worn"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Small bag, big day: here's what actually fits.": [
+      [
+       "1nCg9ulE1ZcwawGVIaGZvkMOcrZi_CrAG",
+       10.81,
+       1.0
+      ]
+     ],
+     "The smallest bag in your closet might carry the most.": [
+      [
+       "1dKZIPJdzTK5XalUeYccAQqTH-jLEkPt2",
+       11.0,
+       1.0
+      ],
+      [
+       "1sLYQ_kZRbjFPCQ1AvZZ87Bmtpats2Ynf",
+       9.93,
+       1.0
+      ]
+     ],
+     "Early Black Friday is on, and this small bag holds a whole day.": [
+      [
+       "17IANSBGhFFCg5SQhFlzuG63ONmYPJppj",
+       15.05,
+       1.0
+      ],
+      [
+       "1xWaBIVn543CxSr0WmqHEuasUJJGPcb55",
+       16.84,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 65.2,
+   "project": "P01",
+   "hook_text": "Think a small bag can't hold your whole day?",
+   "hook_label": "SMALL BAG MYTH",
+   "hook_type": "question",
+   "opening_shot": [
+    "1RBVau1xzNnxVDMq1vJDP_lojDjV9UgYJ",
+    3.01
+   ]
+  },
+  {
+   "name": "LC_261102_VintageBag_BlackFriday_B033_P01_H2_smallbagmyth",
+   "id": "P01H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "ugc": {
+    "script": "U01",
+    "angle": "smallbagmyth",
+    "words": 195,
+    "structure": "myth_fact",
+    "hook": {
+     "type": "question",
+     "label": "SMALL BAG MYTH",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Small bag, big day: here's what actually fits.",
+      "type": "promise",
+      "label": "WHAT FITS",
+      "feature": null,
+      "show": [
+       "packing",
+       "inside"
+      ]
+     },
+     {
+      "text": "The smallest bag in your closet might carry the most.",
+      "type": "superlative",
+      "label": "MORE THAN EXPECTED",
+      "feature": null,
+      "show": [
+       "pocket",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Early Black Friday is on, and this small bag holds a whole day.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "strap",
+       "worn"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Small bag, big day: here's what actually fits.": [
+      [
+       "1nCg9ulE1ZcwawGVIaGZvkMOcrZi_CrAG",
+       10.81,
+       1.0
+      ]
+     ],
+     "The smallest bag in your closet might carry the most.": [
+      [
+       "1dKZIPJdzTK5XalUeYccAQqTH-jLEkPt2",
+       11.0,
+       1.0
+      ],
+      [
+       "1sLYQ_kZRbjFPCQ1AvZZ87Bmtpats2Ynf",
+       9.93,
+       1.0
+      ]
+     ],
+     "Early Black Friday is on, and this small bag holds a whole day.": [
+      [
+       "17IANSBGhFFCg5SQhFlzuG63ONmYPJppj",
+       15.05,
+       1.0
+      ],
+      [
+       "1xWaBIVn543CxSr0WmqHEuasUJJGPcb55",
+       16.84,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 64.9,
+   "project": "P01",
+   "hook_text": "Small bag, big day: here's what actually fits.",
+   "hook_label": "WHAT FITS",
+   "hook_type": "promise",
+   "opening_shot": [
+    "1nCg9ulE1ZcwawGVIaGZvkMOcrZi_CrAG",
+    10.81
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261102_VintageBag_BlackFriday_B033_P01_H3_smallbagmyth",
+   "id": "P01H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "ugc": {
+    "script": "U01",
+    "angle": "smallbagmyth",
+    "words": 195,
+    "structure": "myth_fact",
+    "hook": {
+     "type": "question",
+     "label": "SMALL BAG MYTH",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Small bag, big day: here's what actually fits.",
+      "type": "promise",
+      "label": "WHAT FITS",
+      "feature": null,
+      "show": [
+       "packing",
+       "inside"
+      ]
+     },
+     {
+      "text": "The smallest bag in your closet might carry the most.",
+      "type": "superlative",
+      "label": "MORE THAN EXPECTED",
+      "feature": null,
+      "show": [
+       "pocket",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Early Black Friday is on, and this small bag holds a whole day.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "strap",
+       "worn"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Small bag, big day: here's what actually fits.": [
+      [
+       "1nCg9ulE1ZcwawGVIaGZvkMOcrZi_CrAG",
+       10.81,
+       1.0
+      ]
+     ],
+     "The smallest bag in your closet might carry the most.": [
+      [
+       "1dKZIPJdzTK5XalUeYccAQqTH-jLEkPt2",
+       11.0,
+       1.0
+      ],
+      [
+       "1sLYQ_kZRbjFPCQ1AvZZ87Bmtpats2Ynf",
+       9.93,
+       1.0
+      ]
+     ],
+     "Early Black Friday is on, and this small bag holds a whole day.": [
+      [
+       "17IANSBGhFFCg5SQhFlzuG63ONmYPJppj",
+       15.05,
+       1.0
+      ],
+      [
+       "1xWaBIVn543CxSr0WmqHEuasUJJGPcb55",
+       16.84,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 65.5,
+   "project": "P01",
+   "hook_text": "The smallest bag in your closet might carry the most.",
+   "hook_label": "MORE THAN EXPECTED",
+   "hook_type": "superlative",
+   "opening_shot": [
+    "1dKZIPJdzTK5XalUeYccAQqTH-jLEkPt2",
+    11.0
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261102_VintageBag_BlackFriday_B033_P01_H4_smallbagmyth",
+   "id": "P01H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "ugc": {
+    "script": "U01",
+    "angle": "smallbagmyth",
+    "words": 195,
+    "structure": "myth_fact",
+    "hook": {
+     "type": "question",
+     "label": "SMALL BAG MYTH",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Small bag, big day: here's what actually fits.",
+      "type": "promise",
+      "label": "WHAT FITS",
+      "feature": null,
+      "show": [
+       "packing",
+       "inside"
+      ]
+     },
+     {
+      "text": "The smallest bag in your closet might carry the most.",
+      "type": "superlative",
+      "label": "MORE THAN EXPECTED",
+      "feature": null,
+      "show": [
+       "pocket",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Early Black Friday is on, and this small bag holds a whole day.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "strap",
+       "worn"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Small bag, big day: here's what actually fits.": [
+      [
+       "1nCg9ulE1ZcwawGVIaGZvkMOcrZi_CrAG",
+       10.81,
+       1.0
+      ]
+     ],
+     "The smallest bag in your closet might carry the most.": [
+      [
+       "1dKZIPJdzTK5XalUeYccAQqTH-jLEkPt2",
+       11.0,
+       1.0
+      ],
+      [
+       "1sLYQ_kZRbjFPCQ1AvZZ87Bmtpats2Ynf",
+       9.93,
+       1.0
+      ]
+     ],
+     "Early Black Friday is on, and this small bag holds a whole day.": [
+      [
+       "17IANSBGhFFCg5SQhFlzuG63ONmYPJppj",
+       15.05,
+       1.0
+      ],
+      [
+       "1xWaBIVn543CxSr0WmqHEuasUJJGPcb55",
+       16.84,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 66.5,
+   "project": "P01",
+   "hook_text": "Early Black Friday is on, and this small bag holds a whole day.",
+   "hook_label": "BLACK FRIDAY",
+   "hook_type": "price",
+   "opening_shot": [
+    "17IANSBGhFFCg5SQhFlzuG63ONmYPJppj",
+    15.05
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261102_VintageBag_BlackFriday_B033_P02_H1_sistergift",
+   "id": "P02H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "ugc": {
+    "script": "U02",
+    "angle": "sistergift",
+    "words": 182,
+    "structure": "gift_reveal",
+    "hook": {
+     "type": "promise",
+     "label": "TWO WAYS",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Know a sister who changes bags before every plan?",
+      "type": "question",
+      "label": "FOR YOUR SISTER",
+      "feature": null,
+      "show": [
+       "worn",
+       "walking"
+      ]
+     },
+     {
+      "text": "Hard to buy for? Start with the bag she can wear two ways.",
+      "type": "problem",
+      "label": "GIFT IDEA",
+      "feature": null,
+      "show": [
+       "snap",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Early Black Friday: a gift she'll carry every day, fifty percent off.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "walking",
+       "strap"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Know a sister who changes bags before every plan?": [
+      [
+       "1lK1opuMdsqZd7C-4QKlUCeiFcP4MS7BB",
+       10.35,
+       1.0
+      ],
+      [
+       "1dKZIPJdzTK5XalUeYccAQqTH-jLEkPt2",
+       11.0,
+       1.0
+      ]
+     ],
+     "Hard to buy for? Start with the bag she can wear two ways.": [
+      [
+       "17pDJceUeFQwkPdvcEbyheppSWHKA7lrx",
+       0.53,
+       1.0
+      ],
+      [
+       "1R252UTrxdvK5bBTBSgBNWv04zCDUs5KK",
+       0.52,
+       1.0
+      ]
+     ],
+     "Early Black Friday: a gift she'll carry every day, fifty percent off.": [
+      [
+       "1kvkyYZCu3c60QKlGQNEDDbrMp_gzaf40",
+       0.85,
+       1.0
+      ],
+      [
+       "17pDJceUeFQwkPdvcEbyheppSWHKA7lrx",
+       3.6,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 60.8,
+   "project": "P02",
+   "hook_text": "A Christmas gift that goes from handbag to crossbody.",
+   "hook_label": "TWO WAYS",
+   "hook_type": "promise",
+   "opening_shot": [
+    "1Vmnc83ejq0iUAhhxmKpOq0gn8OnvM0W6",
+    7.44
+   ]
+  },
+  {
+   "name": "LC_261102_VintageBag_BlackFriday_B033_P02_H2_sistergift",
+   "id": "P02H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "ugc": {
+    "script": "U02",
+    "angle": "sistergift",
+    "words": 182,
+    "structure": "gift_reveal",
+    "hook": {
+     "type": "promise",
+     "label": "TWO WAYS",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Know a sister who changes bags before every plan?",
+      "type": "question",
+      "label": "FOR YOUR SISTER",
+      "feature": null,
+      "show": [
+       "worn",
+       "walking"
+      ]
+     },
+     {
+      "text": "Hard to buy for? Start with the bag she can wear two ways.",
+      "type": "problem",
+      "label": "GIFT IDEA",
+      "feature": null,
+      "show": [
+       "snap",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Early Black Friday: a gift she'll carry every day, fifty percent off.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "walking",
+       "strap"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Know a sister who changes bags before every plan?": [
+      [
+       "1lK1opuMdsqZd7C-4QKlUCeiFcP4MS7BB",
+       10.35,
+       1.0
+      ],
+      [
+       "1dKZIPJdzTK5XalUeYccAQqTH-jLEkPt2",
+       11.0,
+       1.0
+      ]
+     ],
+     "Hard to buy for? Start with the bag she can wear two ways.": [
+      [
+       "17pDJceUeFQwkPdvcEbyheppSWHKA7lrx",
+       0.53,
+       1.0
+      ],
+      [
+       "1R252UTrxdvK5bBTBSgBNWv04zCDUs5KK",
+       0.52,
+       1.0
+      ]
+     ],
+     "Early Black Friday: a gift she'll carry every day, fifty percent off.": [
+      [
+       "1kvkyYZCu3c60QKlGQNEDDbrMp_gzaf40",
+       0.85,
+       1.0
+      ],
+      [
+       "17pDJceUeFQwkPdvcEbyheppSWHKA7lrx",
+       3.6,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 60.8,
+   "project": "P02",
+   "hook_text": "Know a sister who changes bags before every plan?",
+   "hook_label": "FOR YOUR SISTER",
+   "hook_type": "question",
+   "opening_shot": [
+    "1lK1opuMdsqZd7C-4QKlUCeiFcP4MS7BB",
+    10.35
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261102_VintageBag_BlackFriday_B033_P02_H3_sistergift",
+   "id": "P02H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "ugc": {
+    "script": "U02",
+    "angle": "sistergift",
+    "words": 182,
+    "structure": "gift_reveal",
+    "hook": {
+     "type": "promise",
+     "label": "TWO WAYS",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Know a sister who changes bags before every plan?",
+      "type": "question",
+      "label": "FOR YOUR SISTER",
+      "feature": null,
+      "show": [
+       "worn",
+       "walking"
+      ]
+     },
+     {
+      "text": "Hard to buy for? Start with the bag she can wear two ways.",
+      "type": "problem",
+      "label": "GIFT IDEA",
+      "feature": null,
+      "show": [
+       "snap",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Early Black Friday: a gift she'll carry every day, fifty percent off.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "walking",
+       "strap"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Know a sister who changes bags before every plan?": [
+      [
+       "1lK1opuMdsqZd7C-4QKlUCeiFcP4MS7BB",
+       10.35,
+       1.0
+      ],
+      [
+       "1dKZIPJdzTK5XalUeYccAQqTH-jLEkPt2",
+       11.0,
+       1.0
+      ]
+     ],
+     "Hard to buy for? Start with the bag she can wear two ways.": [
+      [
+       "17pDJceUeFQwkPdvcEbyheppSWHKA7lrx",
+       0.53,
+       1.0
+      ],
+      [
+       "1R252UTrxdvK5bBTBSgBNWv04zCDUs5KK",
+       0.52,
+       1.0
+      ]
+     ],
+     "Early Black Friday: a gift she'll carry every day, fifty percent off.": [
+      [
+       "1kvkyYZCu3c60QKlGQNEDDbrMp_gzaf40",
+       0.85,
+       1.0
+      ],
+      [
+       "17pDJceUeFQwkPdvcEbyheppSWHKA7lrx",
+       3.6,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 62.1,
+   "project": "P02",
+   "hook_text": "Hard to buy for? Start with the bag she can wear two ways.",
+   "hook_label": "GIFT IDEA",
+   "hook_type": "problem",
+   "opening_shot": [
+    "17pDJceUeFQwkPdvcEbyheppSWHKA7lrx",
+    0.53
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261102_VintageBag_BlackFriday_B033_P02_H4_sistergift",
+   "id": "P02H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "ugc": {
+    "script": "U02",
+    "angle": "sistergift",
+    "words": 182,
+    "structure": "gift_reveal",
+    "hook": {
+     "type": "promise",
+     "label": "TWO WAYS",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Know a sister who changes bags before every plan?",
+      "type": "question",
+      "label": "FOR YOUR SISTER",
+      "feature": null,
+      "show": [
+       "worn",
+       "walking"
+      ]
+     },
+     {
+      "text": "Hard to buy for? Start with the bag she can wear two ways.",
+      "type": "problem",
+      "label": "GIFT IDEA",
+      "feature": null,
+      "show": [
+       "snap",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Early Black Friday: a gift she'll carry every day, fifty percent off.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "walking",
+       "strap"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Know a sister who changes bags before every plan?": [
+      [
+       "1lK1opuMdsqZd7C-4QKlUCeiFcP4MS7BB",
+       10.35,
+       1.0
+      ],
+      [
+       "1dKZIPJdzTK5XalUeYccAQqTH-jLEkPt2",
+       11.0,
+       1.0
+      ]
+     ],
+     "Hard to buy for? Start with the bag she can wear two ways.": [
+      [
+       "17pDJceUeFQwkPdvcEbyheppSWHKA7lrx",
+       0.53,
+       1.0
+      ],
+      [
+       "1R252UTrxdvK5bBTBSgBNWv04zCDUs5KK",
+       0.52,
+       1.0
+      ]
+     ],
+     "Early Black Friday: a gift she'll carry every day, fifty percent off.": [
+      [
+       "1kvkyYZCu3c60QKlGQNEDDbrMp_gzaf40",
+       0.85,
+       1.0
+      ],
+      [
+       "17pDJceUeFQwkPdvcEbyheppSWHKA7lrx",
+       3.6,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 61.8,
+   "project": "P02",
+   "hook_text": "Early Black Friday: a gift she'll carry every day, fifty percent off.",
+   "hook_label": "BLACK FRIDAY",
+   "hook_type": "price",
+   "opening_shot": [
+    "1kvkyYZCu3c60QKlGQNEDDbrMp_gzaf40",
+    0.85
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261102_VintageBag_BlackFriday_B033_P03_H1_swapthetote",
+   "id": "P03H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "ugc": {
+    "script": "U03",
+    "angle": "swapthetote",
+    "words": 184,
+    "structure": "swap",
+    "hook": {
+     "type": "problem",
+     "label": "SNAPS SHUT",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "What if your bag closed with one press?",
+      "type": "question",
+      "label": "ONE PRESS",
+      "feature": null,
+      "show": [
+       "snap",
+       "handheld"
+      ]
+     },
+     {
+      "text": "The easiest switch you'll make this season.",
+      "type": "superlative",
+      "label": "THE SWITCH",
+      "feature": null,
+      "show": [
+       "worn",
+       "strap"
+      ]
+     },
+     {
+      "text": "Swap the open tote: this snap bag is fifty percent off.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "packing",
+       "snap"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "What if your bag closed with one press?": [
+      [
+       "1jgkCse4uMTSToBBDAFFpF0gx_6qI4Zo6",
+       9.37,
+       1.0
+      ]
+     ],
+     "The easiest switch you'll make this season.": [
+      [
+       "1aJoixN_KNw1NiTQ8YYlPlWFzVv5aKnVn",
+       1.48,
+       1.0
+      ]
+     ],
+     "Swap the open tote: this snap bag is fifty percent off.": [
+      [
+       "12R_5x3r6xr7pbM8CY0xYyLVlY9pOojDJ",
+       24.1,
+       1.0
+      ],
+      [
+       "1sLYQ_kZRbjFPCQ1AvZZ87Bmtpats2Ynf",
+       17.21,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 61.5,
+   "project": "P03",
+   "hook_text": "Open-top bags show everything. Here's one that doesn't.",
+   "hook_label": "SNAPS SHUT",
+   "hook_type": "problem",
+   "opening_shot": [
+    "1jOeA-YhiSvgn7lf8YhKR87RNvSOGrTWT",
+    45.12
+   ]
+  },
+  {
+   "name": "LC_261102_VintageBag_BlackFriday_B033_P03_H2_swapthetote",
+   "id": "P03H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "ugc": {
+    "script": "U03",
+    "angle": "swapthetote",
+    "words": 184,
+    "structure": "swap",
+    "hook": {
+     "type": "problem",
+     "label": "SNAPS SHUT",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "What if your bag closed with one press?",
+      "type": "question",
+      "label": "ONE PRESS",
+      "feature": null,
+      "show": [
+       "snap",
+       "handheld"
+      ]
+     },
+     {
+      "text": "The easiest switch you'll make this season.",
+      "type": "superlative",
+      "label": "THE SWITCH",
+      "feature": null,
+      "show": [
+       "worn",
+       "strap"
+      ]
+     },
+     {
+      "text": "Swap the open tote: this snap bag is fifty percent off.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "packing",
+       "snap"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "What if your bag closed with one press?": [
+      [
+       "1jgkCse4uMTSToBBDAFFpF0gx_6qI4Zo6",
+       9.37,
+       1.0
+      ]
+     ],
+     "The easiest switch you'll make this season.": [
+      [
+       "1aJoixN_KNw1NiTQ8YYlPlWFzVv5aKnVn",
+       1.48,
+       1.0
+      ]
+     ],
+     "Swap the open tote: this snap bag is fifty percent off.": [
+      [
+       "12R_5x3r6xr7pbM8CY0xYyLVlY9pOojDJ",
+       24.1,
+       1.0
+      ],
+      [
+       "1sLYQ_kZRbjFPCQ1AvZZ87Bmtpats2Ynf",
+       17.21,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 61.5,
+   "project": "P03",
+   "hook_text": "What if your bag closed with one press?",
+   "hook_label": "ONE PRESS",
+   "hook_type": "question",
+   "opening_shot": [
+    "1jgkCse4uMTSToBBDAFFpF0gx_6qI4Zo6",
+    9.37
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261102_VintageBag_BlackFriday_B033_P03_H3_swapthetote",
+   "id": "P03H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "ugc": {
+    "script": "U03",
+    "angle": "swapthetote",
+    "words": 184,
+    "structure": "swap",
+    "hook": {
+     "type": "problem",
+     "label": "SNAPS SHUT",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "What if your bag closed with one press?",
+      "type": "question",
+      "label": "ONE PRESS",
+      "feature": null,
+      "show": [
+       "snap",
+       "handheld"
+      ]
+     },
+     {
+      "text": "The easiest switch you'll make this season.",
+      "type": "superlative",
+      "label": "THE SWITCH",
+      "feature": null,
+      "show": [
+       "worn",
+       "strap"
+      ]
+     },
+     {
+      "text": "Swap the open tote: this snap bag is fifty percent off.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "packing",
+       "snap"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "What if your bag closed with one press?": [
+      [
+       "1jgkCse4uMTSToBBDAFFpF0gx_6qI4Zo6",
+       9.37,
+       1.0
+      ]
+     ],
+     "The easiest switch you'll make this season.": [
+      [
+       "1aJoixN_KNw1NiTQ8YYlPlWFzVv5aKnVn",
+       1.48,
+       1.0
+      ]
+     ],
+     "Swap the open tote: this snap bag is fifty percent off.": [
+      [
+       "12R_5x3r6xr7pbM8CY0xYyLVlY9pOojDJ",
+       24.1,
+       1.0
+      ],
+      [
+       "1sLYQ_kZRbjFPCQ1AvZZ87Bmtpats2Ynf",
+       17.21,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 61.2,
+   "project": "P03",
+   "hook_text": "The easiest switch you'll make this season.",
+   "hook_label": "THE SWITCH",
+   "hook_type": "superlative",
+   "opening_shot": [
+    "1aJoixN_KNw1NiTQ8YYlPlWFzVv5aKnVn",
+    1.48
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261102_VintageBag_BlackFriday_B033_P03_H4_swapthetote",
+   "id": "P03H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "ugc": {
+    "script": "U03",
+    "angle": "swapthetote",
+    "words": 184,
+    "structure": "swap",
+    "hook": {
+     "type": "problem",
+     "label": "SNAPS SHUT",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "What if your bag closed with one press?",
+      "type": "question",
+      "label": "ONE PRESS",
+      "feature": null,
+      "show": [
+       "snap",
+       "handheld"
+      ]
+     },
+     {
+      "text": "The easiest switch you'll make this season.",
+      "type": "superlative",
+      "label": "THE SWITCH",
+      "feature": null,
+      "show": [
+       "worn",
+       "strap"
+      ]
+     },
+     {
+      "text": "Swap the open tote: this snap bag is fifty percent off.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "packing",
+       "snap"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "What if your bag closed with one press?": [
+      [
+       "1jgkCse4uMTSToBBDAFFpF0gx_6qI4Zo6",
+       9.37,
+       1.0
+      ]
+     ],
+     "The easiest switch you'll make this season.": [
+      [
+       "1aJoixN_KNw1NiTQ8YYlPlWFzVv5aKnVn",
+       1.48,
+       1.0
+      ]
+     ],
+     "Swap the open tote: this snap bag is fifty percent off.": [
+      [
+       "12R_5x3r6xr7pbM8CY0xYyLVlY9pOojDJ",
+       24.1,
+       1.0
+      ],
+      [
+       "1sLYQ_kZRbjFPCQ1AvZZ87Bmtpats2Ynf",
+       17.21,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 62.5,
+   "project": "P03",
+   "hook_text": "Swap the open tote: this snap bag is fifty percent off.",
+   "hook_label": "BLACK FRIDAY",
+   "hook_type": "price",
+   "opening_shot": [
+    "12R_5x3r6xr7pbM8CY0xYyLVlY9pOojDJ",
+    24.1
+   ],
+   "hook_source": "script"
+  }
+ ],
+ "tts_lines": 31,
+ "tts_dupes": {},
+ "est_credits": 10.8,
+ "budget": 100.0,
+ "colour_images": {
+  "Ginger Brown": "/tmp/claude-0/-home-user/b4015c2c-5a00-513d-af5e-87787b6d9211/scratchpad/vbf_out/site/clean/vintage_colour_ginger_brown_nobadge.jpg",
+  "Black": "/tmp/claude-0/-home-user/b4015c2c-5a00-513d-af5e-87787b6d9211/scratchpad/vbf_out/site/vintage_colour_black.jpg",
+  "Chocolate": "/tmp/claude-0/-home-user/b4015c2c-5a00-513d-af5e-87787b6d9211/scratchpad/vbf_out/site/vintage_colour_chocolate.jpg",
+  "Red": "/tmp/claude-0/-home-user/b4015c2c-5a00-513d-af5e-87787b6d9211/scratchpad/vbf_out/site/vintage_colour_red.jpg"
+ },
+ "packshots": [
+  "/tmp/claude-0/-home-user/b4015c2c-5a00-513d-af5e-87787b6d9211/scratchpad/vbf_out/site/vintage_colour_black.jpg",
+  "/tmp/claude-0/-home-user/b4015c2c-5a00-513d-af5e-87787b6d9211/scratchpad/vbf_out/site/vintage_colour_chocolate.jpg",
+  "/tmp/claude-0/-home-user/b4015c2c-5a00-513d-af5e-87787b6d9211/scratchpad/vbf_out/site/vintage_colour_red.jpg"
+ ],
+ "brief": null,
+ "ai": {
+  "stills": 1,
+  "clips": 0,
+  "est_credits": 1.0,
+  "budget": {
+   "cap": 100.0,
+   "tts_est": 13.5,
+   "reserve": 8.0
+  },
+  "scenes": [
+   "p01_s01_cafe_chair"
+  ],
+  "next": "python3 pipeline/ai_gen.py show --out /tmp/claude-0/-home-user/b4015c2c-5a00-513d-af5e-87787b6d9211/scratchpad/vbf_out"
+ },
+ "winners_source": null,
+ "winners_note": null,
+ "winners_used": [],
+ "unmatched_winners": [],
+ "warnings": [
+  "campaign: Black Friday Sale 2026 (2026-10-23 to 2026-11-30, client-approved): end cards say 'Black Friday Sale' + 'UP TO 60% OFF'; the close and the ad copy name the sale; each bag's own % stays its offer",
+  "ideas: 1 AI statics of 2 (1 designed ads, 0 studio scenes; about 1 credits plus retries)",
+  "another batch of Vintage Bag is being made right now (B032, not in Drive yet): its hooks and statics are not in the novelty log yet, so the two batches may share some; say so in the reply"
+ ],
+ "winner_reviews": false,
+ "seed": 306,
+ "hooks": 4,
+ "pipeline": "catalog",
+ "video_format": "ugc",
+ "ugc_numbers": [],
+ "voice": {
+  "voice_type": "element",
+  "voice_id": "241459b6-b4e8-4a2a-9868-da8bcdcd0558",
+  "speed": 1.12
+ },
+ "projects": [
+  {
+   "id": "P01",
+   "from_id": "V01",
+   "angle": "smallbagmyth",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P01H1",
+     "name": "LC_261102_VintageBag_BlackFriday_B033_P01_H1_smallbagmyth",
+     "hook_text": "Think a small bag can't hold your whole day?",
+     "label": "SMALL BAG MYTH",
+     "type": "question",
+     "shot": [
+      "1RBVau1xzNnxVDMq1vJDP_lojDjV9UgYJ",
+      3.01
+     ],
+     "est_seconds": 65.2
+    },
+    {
+     "hook": "H2",
+     "id": "P01H2",
+     "name": "LC_261102_VintageBag_BlackFriday_B033_P01_H2_smallbagmyth",
+     "hook_text": "Small bag, big day: here's what actually fits.",
+     "label": "WHAT FITS",
+     "type": "promise",
+     "shot": [
+      "1nCg9ulE1ZcwawGVIaGZvkMOcrZi_CrAG",
+      10.81
+     ],
+     "est_seconds": 64.9
+    },
+    {
+     "hook": "H3",
+     "id": "P01H3",
+     "name": "LC_261102_VintageBag_BlackFriday_B033_P01_H3_smallbagmyth",
+     "hook_text": "The smallest bag in your closet might carry the most.",
+     "label": "MORE THAN EXPECTED",
+     "type": "superlative",
+     "shot": [
+      "1dKZIPJdzTK5XalUeYccAQqTH-jLEkPt2",
+      11.0
+     ],
+     "est_seconds": 65.5
+    },
+    {
+     "hook": "H4",
+     "id": "P01H4",
+     "name": "LC_261102_VintageBag_BlackFriday_B033_P01_H4_smallbagmyth",
+     "hook_text": "Early Black Friday is on, and this small bag holds a whole day.",
+     "label": "BLACK FRIDAY",
+     "type": "price",
+     "shot": [
+      "17IANSBGhFFCg5SQhFlzuG63ONmYPJppj",
+      15.05
+     ],
+     "est_seconds": 66.5
+    }
+   ]
+  },
+  {
+   "id": "P02",
+   "from_id": "V02",
+   "angle": "sistergift",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P02H1",
+     "name": "LC_261102_VintageBag_BlackFriday_B033_P02_H1_sistergift",
+     "hook_text": "A Christmas gift that goes from handbag to crossbody.",
+     "label": "TWO WAYS",
+     "type": "promise",
+     "shot": [
+      "1Vmnc83ejq0iUAhhxmKpOq0gn8OnvM0W6",
+      7.44
+     ],
+     "est_seconds": 60.8
+    },
+    {
+     "hook": "H2",
+     "id": "P02H2",
+     "name": "LC_261102_VintageBag_BlackFriday_B033_P02_H2_sistergift",
+     "hook_text": "Know a sister who changes bags before every plan?",
+     "label": "FOR YOUR SISTER",
+     "type": "question",
+     "shot": [
+      "1lK1opuMdsqZd7C-4QKlUCeiFcP4MS7BB",
+      10.35
+     ],
+     "est_seconds": 60.8
+    },
+    {
+     "hook": "H3",
+     "id": "P02H3",
+     "name": "LC_261102_VintageBag_BlackFriday_B033_P02_H3_sistergift",
+     "hook_text": "Hard to buy for? Start with the bag she can wear two ways.",
+     "label": "GIFT IDEA",
+     "type": "problem",
+     "shot": [
+      "17pDJceUeFQwkPdvcEbyheppSWHKA7lrx",
+      0.53
+     ],
+     "est_seconds": 62.1
+    },
+    {
+     "hook": "H4",
+     "id": "P02H4",
+     "name": "LC_261102_VintageBag_BlackFriday_B033_P02_H4_sistergift",
+     "hook_text": "Early Black Friday: a gift she'll carry every day, fifty percent off.",
+     "label": "BLACK FRIDAY",
+     "type": "price",
+     "shot": [
+      "1kvkyYZCu3c60QKlGQNEDDbrMp_gzaf40",
+      0.85
+     ],
+     "est_seconds": 61.8
+    }
+   ]
+  },
+  {
+   "id": "P03",
+   "from_id": "V03",
+   "angle": "swapthetote",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P03H1",
+     "name": "LC_261102_VintageBag_BlackFriday_B033_P03_H1_swapthetote",
+     "hook_text": "Open-top bags show everything. Here's one that doesn't.",
+     "label": "SNAPS SHUT",
+     "type": "problem",
+     "shot": [
+      "1jOeA-YhiSvgn7lf8YhKR87RNvSOGrTWT",
+      45.12
+     ],
+     "est_seconds": 61.5
+    },
+    {
+     "hook": "H2",
+     "id": "P03H2",
+     "name": "LC_261102_VintageBag_BlackFriday_B033_P03_H2_swapthetote",
+     "hook_text": "What if your bag closed with one press?",
+     "label": "ONE PRESS",
+     "type": "question",
+     "shot": [
+      "1jgkCse4uMTSToBBDAFFpF0gx_6qI4Zo6",
+      9.37
+     ],
+     "est_seconds": 61.5
+    },
+    {
+     "hook": "H3",
+     "id": "P03H3",
+     "name": "LC_261102_VintageBag_BlackFriday_B033_P03_H3_swapthetote",
+     "hook_text": "The easiest switch you'll make this season.",
+     "label": "THE SWITCH",
+     "type": "superlative",
+     "shot": [
+      "1aJoixN_KNw1NiTQ8YYlPlWFzVv5aKnVn",
+      1.48
+     ],
+     "est_seconds": 61.2
+    },
+    {
+     "hook": "H4",
+     "id": "P03H4",
+     "name": "LC_261102_VintageBag_BlackFriday_B033_P03_H4_swapthetote",
+     "hook_text": "Swap the open tote: this snap bag is fifty percent off.",
+     "label": "BLACK FRIDAY",
+     "type": "price",
+     "shot": [
+      "12R_5x3r6xr7pbM8CY0xYyLVlY9pOojDJ",
+      24.1
+     ],
+     "est_seconds": 62.5
+    }
+   ]
+  }
+ ],
+ "hooks_seed": 306
+}
