@@ -1,0 +1,186 @@
+{
+ "ok": true,
+ "created": "2026-11-02",
+ "product": "Vintage Bag",
+ "theme": "black friday",
+ "theme_name": "BlackFriday",
+ "offer": "50% off",
+ "seed": 306,
+ "cta": "Get Offer",
+ "rows": 14,
+ "csv": "/tmp/claude-0/-home-user/b4015c2c-5a00-513d-af5e-87787b6d9211/scratchpad/vbf_out/ad_copy.csv",
+ "statics": [
+  {
+   "id": "S01",
+   "ad_name": "LC_261102_VintageBag_BlackFriday_B033_S01_cafechair",
+   "angle": "ad",
+   "primary_text_1": "Black Friday came early.\nThe Vintage Bag: 50% off.",
+   "primary_text_2": "Take a closer look at the Vintage Bag.\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nA clasp that snaps shut with one hand.\nThis Black Friday: 50% off. 🖤\nTap Get Offer to claim the deal.",
+   "headline_1": "Early Black Friday: 50% Off",
+   "headline_2": "Up to 60% Off Bundles",
+   "description": "50% off + free US shipping",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER"
+  },
+  {
+   "id": "S02",
+   "ad_name": "LC_261102_VintageBag_BlackFriday_B033_S02_native",
+   "angle": "native",
+   "primary_text_1": "This is the Black Friday deal you've been waiting for.\nThe Vintage Bag, now 50% off.",
+   "primary_text_2": "Classic on the outside. Organised on the inside.\nA clasp that snaps shut with one hand.\nOpen it up and there's room for your phone, wallet and keys, all in their own spot.\nBlack Friday: 50% off. 🖤\nTap Get Offer to claim the deal.",
+   "headline_1": "Black Friday Prices Are Live",
+   "headline_2": "50% Off the Vintage Bag",
+   "description": "Up to 60% off",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER"
+  }
+ ],
+ "projects": [
+  {
+   "id": "P01",
+   "angle": "smallbagmyth",
+   "engine": "storyboard",
+   "product": "Vintage Bag",
+   "winner": null,
+   "primary_text_1": "Phone, wallet and keys all loose at the bottom of your bag?\nBlack Friday: 50% off the Vintage Bag.",
+   "primary_text_2": "One hand, one snap, and it's shut.\nOpen it up and there's room for your phone, wallet and keys, all in their own spot.\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nThis Black Friday: 50% off. 🖤\nTap Get Offer to claim the deal.",
+   "headline_1": "Black Friday: 50% Off",
+   "headline_2": "Now 50% Off: The Vintage Bag",
+   "description": "4 colours + free US shipping",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER",
+   "versions": [
+    {
+     "hook": "H1",
+     "id": "P01H1",
+     "ad_name": "LC_261102_VintageBag_BlackFriday_B033_P01_H1_smallbagmyth",
+     "hook_text": "Think a small bag can't hold your whole day?",
+     "hook_first_line": "Think a small bag can't hold your whole day?",
+     "primary_text_2_hook": "Think a small bag can't hold your whole day?\nOpen it up and there's room for your phone, wallet and keys, all in their own spot.\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nThis Black Friday: 50% off. 🖤\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H2",
+     "id": "P01H2",
+     "ad_name": "LC_261102_VintageBag_BlackFriday_B033_P01_H2_smallbagmyth",
+     "hook_text": "Small bag, big day: here's what actually fits.",
+     "hook_first_line": "Small bag, big day: here's what actually fits.",
+     "primary_text_2_hook": "Small bag, big day: here's what actually fits.\nOpen it up and there's room for your phone, wallet and keys, all in their own spot.\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nThis Black Friday: 50% off. 🖤\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H3",
+     "id": "P01H3",
+     "ad_name": "LC_261102_VintageBag_BlackFriday_B033_P01_H3_smallbagmyth",
+     "hook_text": "The smallest bag in your closet might carry the most.",
+     "hook_first_line": "The smallest bag in your closet might carry the most.",
+     "primary_text_2_hook": "The smallest bag in your closet might carry the most.\nOpen it up and there's room for your phone, wallet and keys, all in their own spot.\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nThis Black Friday: 50% off. 🖤\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H4",
+     "id": "P01H4",
+     "ad_name": "LC_261102_VintageBag_BlackFriday_B033_P01_H4_smallbagmyth",
+     "hook_text": "Early Black Friday is on, and this small bag holds a whole day.",
+     "hook_first_line": "Early Black Friday is on, and this small bag holds a whole day.",
+     "primary_text_2_hook": "Early Black Friday is on, and this small bag holds a whole day.\nOpen it up and there's room for your phone, wallet and keys, all in their own spot.\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nThis Black Friday: 50% off. 🖤\nTap Get Offer to claim the deal."
+    }
+   ]
+  },
+  {
+   "id": "P02",
+   "angle": "sistergift",
+   "engine": "storyboard",
+   "product": "Vintage Bag",
+   "winner": null,
+   "primary_text_1": "Handbag or crossbody? With this one, you don't have to choose.\nThe Vintage Bag: 50% off.",
+   "primary_text_2": "Does your bag close with one hand?\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nOpen it up and there's room for your phone, wallet and keys, all in their own spot.\nBlack Friday Sale: up to 60% off. 🖤\nTap Get Offer to claim the deal.",
+   "headline_1": "Black Friday Deal: 50% Off",
+   "headline_2": "Vintage Bag: 50% Off",
+   "description": "1-year warranty included",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER",
+   "versions": [
+    {
+     "hook": "H1",
+     "id": "P02H1",
+     "ad_name": "LC_261102_VintageBag_BlackFriday_B033_P02_H1_sistergift",
+     "hook_text": "A Christmas gift that goes from handbag to crossbody.",
+     "hook_first_line": "A Christmas gift that goes from handbag to crossbody.",
+     "primary_text_2_hook": "A Christmas gift that goes from handbag to crossbody.\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nOpen it up and there's room for your phone, wallet and keys, all in their own spot.\nBlack Friday Sale: up to 60% off. 🖤\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H2",
+     "id": "P02H2",
+     "ad_name": "LC_261102_VintageBag_BlackFriday_B033_P02_H2_sistergift",
+     "hook_text": "Know a sister who changes bags before every plan?",
+     "hook_first_line": "Know a sister who changes bags before every plan?",
+     "primary_text_2_hook": "Know a sister who changes bags before every plan?\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nOpen it up and there's room for your phone, wallet and keys, all in their own spot.\nBlack Friday Sale: up to 60% off. 🖤\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H3",
+     "id": "P02H3",
+     "ad_name": "LC_261102_VintageBag_BlackFriday_B033_P02_H3_sistergift",
+     "hook_text": "Hard to buy for? Start with the bag she can wear two ways.",
+     "hook_first_line": "Hard to buy for? Start with the bag she can wear two ways.",
+     "primary_text_2_hook": "Hard to buy for? Start with the bag she can wear two ways.\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nOpen it up and there's room for your phone, wallet and keys, all in their own spot.\nBlack Friday Sale: up to 60% off. 🖤\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H4",
+     "id": "P02H4",
+     "ad_name": "LC_261102_VintageBag_BlackFriday_B033_P02_H4_sistergift",
+     "hook_text": "Early Black Friday: a gift she'll carry every day, fifty percent off.",
+     "hook_first_line": "Early Black Friday: a gift she'll carry every day, fifty percent off.",
+     "primary_text_2_hook": "Early Black Friday: a gift she'll carry every day, fifty percent off.\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nOpen it up and there's room for your phone, wallet and keys, all in their own spot.\nBlack Friday Sale: up to 60% off. 🖤\nTap Get Offer to claim the deal."
+    }
+   ]
+  },
+  {
+   "id": "P03",
+   "angle": "swapthetote",
+   "engine": "storyboard",
+   "product": "Vintage Bag",
+   "winner": null,
+   "primary_text_1": "Looking for a gift with a vintage look?\n50% off the Vintage Bag.",
+   "primary_text_2": "Have you seen the Vintage Bag yet?\nA clasp that snaps shut with one hand.\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nBlack Friday Sale: up to 60% off. 🖤\nTap Get Offer to claim the deal.",
+   "headline_1": "Black Friday: 50% Off the Vintage Bag",
+   "headline_2": "Meet the Vintage Bag: One-Hand Clasp",
+   "description": "4 colours to choose from",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER",
+   "versions": [
+    {
+     "hook": "H1",
+     "id": "P03H1",
+     "ad_name": "LC_261102_VintageBag_BlackFriday_B033_P03_H1_swapthetote",
+     "hook_text": "Open-top bags show everything. Here's one that doesn't.",
+     "hook_first_line": "Open-top bags show everything. Here's one that doesn't.",
+     "primary_text_2_hook": "Open-top bags show everything. Here's one that doesn't.\nA clasp that snaps shut with one hand.\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nBlack Friday Sale: up to 60% off. 🖤\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H2",
+     "id": "P03H2",
+     "ad_name": "LC_261102_VintageBag_BlackFriday_B033_P03_H2_swapthetote",
+     "hook_text": "What if your bag closed with one press?",
+     "hook_first_line": "What if your bag closed with one press?",
+     "primary_text_2_hook": "What if your bag closed with one press?\nA clasp that snaps shut with one hand.\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nBlack Friday Sale: up to 60% off. 🖤\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H3",
+     "id": "P03H3",
+     "ad_name": "LC_261102_VintageBag_BlackFriday_B033_P03_H3_swapthetote",
+     "hook_text": "The easiest switch you'll make this season.",
+     "hook_first_line": "The easiest switch you'll make this season.",
+     "primary_text_2_hook": "The easiest switch you'll make this season.\nA clasp that snaps shut with one hand.\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nBlack Friday Sale: up to 60% off. 🖤\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H4",
+     "id": "P03H4",
+     "ad_name": "LC_261102_VintageBag_BlackFriday_B033_P03_H4_swapthetote",
+     "hook_text": "Swap the open tote: this snap bag is fifty percent off.",
+     "hook_first_line": "Swap the open tote: this snap bag is fifty percent off.",
+     "primary_text_2_hook": "Swap the open tote: this snap bag is fifty percent off.\nA clasp that snaps shut with one hand.\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nBlack Friday Sale: up to 60% off. 🖤\nTap Get Offer to claim the deal."
+    }
+   ]
+  }
+ ],
+ "notes": [],
+ "problems": []
+}

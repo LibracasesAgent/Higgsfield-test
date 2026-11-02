@@ -2077,7 +2077,110 @@
      "label": "Grab and go."
     }
    ]
+  },
+  {
+   "id": "B033",
+   "n": 33,
+   "rev": 1,
+   "date": "2026-11-02",
+   "product": "Vintage Bag",
+   "theme": "BlackFriday",
+   "pipeline": "catalog",
+   "request": "3 videos and 2 statics for the Vintage Bag, Black Friday, no presenter",
+   "statics": 2,
+   "projects": 3,
+   "hooks": 4,
+   "seed": 306,
+   "status": "uploaded",
+   "folder": "B033 – 2026-11-02 – Vintage Bag BlackFriday – 2 statics + 3 projects",
+   "link": "https://drive.google.com/drive/folders/12dfLGP7pw_DksRp1GAs-2GIBy7AZCbQj",
+   "ads": [
+    {
+     "name": "LC_261102_VintageBag_BlackFriday_B033_S01_cafechair",
+     "kind": "static",
+     "fp": "s|ad|AS01.png|snap. sip. go.",
+     "label": "Snap. Sip. Go."
+    },
+    {
+     "name": "LC_261102_VintageBag_BlackFriday_B033_S02_native",
+     "kind": "static",
+     "fp": "s|native|F_1fB9VSy06W_0040.jpg|small bag. whole day.",
+     "label": "Small bag. Whole day."
+    },
+    {
+     "name": "LC_261102_VintageBag_BlackFriday_B033_P01_H1_smallbagmyth",
+     "kind": "video",
+     "fp": "v|think a small bag can't hold your whole day?|",
+     "label": "Think a small bag can't hold your whole day?"
+    },
+    {
+     "name": "LC_261102_VintageBag_BlackFriday_B033_P01_H2_smallbagmyth",
+     "kind": "video",
+     "fp": "v|small bag, big day: here's what actually fits.|",
+     "label": "Small bag, big day: here's what actually fits."
+    },
+    {
+     "name": "LC_261102_VintageBag_BlackFriday_B033_P01_H3_smallbagmyth",
+     "kind": "video",
+     "fp": "v|the smallest bag in your closet might carry the most.|",
+     "label": "The smallest bag in your closet might carry the most."
+    },
+    {
+     "name": "LC_261102_VintageBag_BlackFriday_B033_P01_H4_smallbagmyth",
+     "kind": "video",
+     "fp": "v|early black friday is on, and this small bag holds a whole day.|",
+     "label": "Early Black Friday is on, and this small bag holds a whole day."
+    },
+    {
+     "name": "LC_261102_VintageBag_BlackFriday_B033_P02_H1_sistergift",
+     "kind": "video",
+     "fp": "v|a christmas gift that goes from handbag to crossbody.|",
+     "label": "A Christmas gift that goes from handbag to crossbody."
+    },
+    {
+     "name": "LC_261102_VintageBag_BlackFriday_B033_P02_H2_sistergift",
+     "kind": "video",
+     "fp": "v|know a sister who changes bags before every plan?|",
+     "label": "Know a sister who changes bags before every plan?"
+    },
+    {
+     "name": "LC_261102_VintageBag_BlackFriday_B033_P02_H3_sistergift",
+     "kind": "video",
+     "fp": "v|hard to buy for? start with the bag she can wear two ways.|",
+     "label": "Hard to buy for? Start with the bag she can wear two ways."
+    },
+    {
+     "name": "LC_261102_VintageBag_BlackFriday_B033_P02_H4_sistergift",
+     "kind": "video",
+     "fp": "v|early black friday: a gift she'll carry every day, fifty percent off.|",
+     "label": "Early Black Friday: a gift she'll carry every day, fifty percent off."
+    },
+    {
+     "name": "LC_261102_VintageBag_BlackFriday_B033_P03_H1_swapthetote",
+     "kind": "video",
+     "fp": "v|open-top bags show everything. here's one that doesn't.|",
+     "label": "Open-top bags show everything. Here's one that doesn't."
+    },
+    {
+     "name": "LC_261102_VintageBag_BlackFriday_B033_P03_H2_swapthetote",
+     "kind": "video",
+     "fp": "v|what if your bag closed with one press?|",
+     "label": "What if your bag closed with one press?"
+    },
+    {
+     "name": "LC_261102_VintageBag_BlackFriday_B033_P03_H3_swapthetote",
+     "kind": "video",
+     "fp": "v|the easiest switch you'll make this season.|",
+     "label": "The easiest switch you'll make this season."
+    },
+    {
+     "name": "LC_261102_VintageBag_BlackFriday_B033_P03_H4_swapthetote",
+     "kind": "video",
+     "fp": "v|swap the open tote: this snap bag is fifty percent off.|",
+     "label": "Swap the open tote: this snap bag is fifty percent off."
+    }
+   ]
   }
  ],
- "next": 30
+ "next": 34
 }

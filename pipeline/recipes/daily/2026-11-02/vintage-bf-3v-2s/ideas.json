@@ -1,0 +1,389 @@
+{
+ "product": "Vintage Bag",
+ "theme": "black friday",
+ "date": "2026-11-02",
+ "no_presenter": "3 videos and 2 statics for the Vintage Bag, Black Friday, no presenter",
+ "research": [
+  "Packet + docs/research/2026-10-black-friday-and-bag-ads.md: demonstration first, a bare '50% off' open gets scrolled past, the sale goes last; Christmas gifting (mum, sister, best friend) is on the owner's list.",
+  "Earlier Vintage batches: B012 (n_things / demo / stop_x), B028 (live_test coffee one-hand test, friend_advice Saturday with the presenter, night_before) and B029 (nine AI ad formats). This batch uses three structures none of them used: myth_fact, gift_reveal, swap; lead features room / strap / clasp.",
+  "Live site 2026-11-02: Vintage bag $44.95 vs compare-at $89.95 = 50% off, free U.S. shipping; the banner reads 'EARLY BLACK FRIDAY FLASH SALE ENDS TODAY: 50% OFF + FREE DELIVERY' and the product page says 'FLASH SALE ENDS TODAY', but the terms page and the campaign file say the sale runs to 30 November, so no ad says ends today. The page still shows an 'Easy Returns' badge while the terms say final sale: no returns wording anywhere. No exact prices (price test), no gift (removed 26 October).",
+  "The Vintage Bag has a snap clasp, no zip: no line says zip. Footage: snap 223, strap 209, home 112, worn 54, inside 30, car 20, packing 19, street 18, cafe 14, pocket 12, walking 8: every picture is built on those tags."
+ ],
+ "projects": [
+  {
+   "id": "P01",
+   "slug": "smallbagmyth",
+   "title": "The small-bag myth",
+   "structure": "myth_fact",
+   "big_idea": "A myth that small bags hold only a phone, turned around by packing a phone, wallet and keys into their own spots.",
+   "why_new": "No earlier Vintage batch led with the inside: B028 led with the clasp, the strap and a pack-out at night; this one is a myth, a fact and a held pack-out proof shot.",
+   "hooks": [
+    {
+     "text": "Think a small bag can't hold your whole day?",
+     "type": "question",
+     "label": "SMALL BAG MYTH",
+     "show": [
+      "worn",
+      "walking"
+     ]
+    },
+    {
+     "text": "Small bag, big day: here's what actually fits.",
+     "type": "promise",
+     "label": "WHAT FITS",
+     "show": [
+      "packing",
+      "inside"
+     ]
+    },
+    {
+     "text": "The smallest bag in your closet might carry the most.",
+     "type": "superlative",
+     "label": "MORE THAN EXPECTED",
+     "show": [
+      "pocket",
+      "handheld"
+     ]
+    },
+    {
+     "text": "Early Black Friday is on, and this small bag holds a whole day.",
+     "type": "price",
+     "label": "BLACK FRIDAY",
+     "show": [
+      "strap",
+      "worn"
+     ]
+    }
+   ],
+   "chapters": [
+    {
+     "kind": "point",
+     "beat": "myth",
+     "text": "There's a myth about small bags. They hold a phone and a lipstick, and everything else gets left at home or squeezed into a second bag. So you end up carrying two bags for one day.",
+     "tag": null,
+     "show": [
+      "worn",
+      "walking"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "fact",
+     "text": "Not this one. Open the snap flap and the inside is organized, with room for your phone, wallet and keys, all in their own spot.",
+     "tag": "ROOM FOR EVERYTHING",
+     "show": [
+      "inside",
+      "pocket"
+     ]
+    },
+    {
+     "kind": "proof",
+     "beat": "proof",
+     "proof_shot": true,
+     "text": "Watch them go in. Phone first, then the wallet, then the keys. Each one has its own place, so nothing sinks to the bottom and you never have to dig for anything.",
+     "tag": null,
+     "show": [
+      "packing",
+      "inside"
+     ],
+     "highlight": [
+      "its own place"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "second_fact",
+     "text": "Then one press on the clasp and it snaps shut with one hand. Everything stays in, and you keep walking.",
+     "tag": "ONE-HAND CLASP",
+     "show": [
+      "snap",
+      "walking"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "second_fact",
+     "text": "Outside, it's a structured, vintage-style bag that stays timeless. And the strap is adjustable, so it's a handbag in the morning and a crossbody by the afternoon.",
+     "tag": "ADJUSTABLE STRAP",
+     "show": [
+      "strap",
+      "worn"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "second_fact",
+     "text": "So the next time someone tells you small means less, show them what fits.",
+     "tag": null,
+     "show": [
+      "worn",
+      "handheld"
+     ]
+    },
+    {
+     "kind": "offer",
+     "beat": "offer",
+     "text": "Fifty percent off the Vintage Bag during the Early Black Friday sale, with free US shipping. Black Friday prices are live now, so there's no need to wait. Tap the link below.",
+     "tag": null,
+     "show": [
+      "hero",
+      "placed"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "P02",
+   "slug": "sistergift",
+   "title": "The bag for the sister who switches",
+   "structure": "gift_reveal",
+   "big_idea": "A Christmas gift for the sister with a different bag for every plan: unwrapped, it goes from handbag to crossbody.",
+   "why_new": "The first Vintage gift story and the first to lead with the strap; B029 had one gift static, no earlier video had a gift or a named person.",
+   "hooks": [
+    {
+     "text": "A Christmas gift that goes from handbag to crossbody.",
+     "type": "promise",
+     "label": "TWO WAYS",
+     "show": [
+      "strap",
+      "worn"
+     ]
+    },
+    {
+     "text": "Know a sister who changes bags before every plan?",
+     "type": "question",
+     "label": "FOR YOUR SISTER",
+     "show": [
+      "worn",
+      "walking"
+     ]
+    },
+    {
+     "text": "Hard to buy for? Start with the bag she can wear two ways.",
+     "type": "problem",
+     "label": "GIFT IDEA",
+     "show": [
+      "snap",
+      "handheld"
+     ]
+    },
+    {
+     "text": "Early Black Friday: a gift she'll carry every day, fifty percent off.",
+     "type": "price",
+     "label": "BLACK FRIDAY",
+     "show": [
+      "walking",
+      "strap"
+     ]
+    }
+   ],
+   "chapters": [
+    {
+     "kind": "point",
+     "beat": "who",
+     "text": "Your sister has a plan for every day of the week, and a different bag for every plan. This Christmas, give her one that keeps up.",
+     "tag": null,
+     "show": [
+      "worn",
+      "walking"
+     ]
+    },
+    {
+     "kind": "proof",
+     "beat": "reveal",
+     "proof_shot": true,
+     "text": "Unwrap it, and it's a structured, vintage-style bag with a timeless shape. Then comes the best part. The strap is adjustable, so she can wear it short as a handbag, or let it out and wear it crossbody. One bag, two ways to carry it.",
+     "tag": "ADJUSTABLE STRAP",
+     "show": [
+      "strap",
+      "handheld"
+     ],
+     "highlight": [
+      "adjustable"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "reason",
+     "text": "Handbag for brunch. Crossbody for the walk home. She never has to switch bags in the middle of her day.",
+     "tag": null,
+     "show": [
+      "worn",
+      "walking"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "second_reason",
+     "text": "And inside there's room for her phone, wallet and keys, each in its own spot, so she's never digging around for them.",
+     "tag": "ROOM FOR EVERYTHING",
+     "show": [
+      "inside",
+      "packing"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "second_reason",
+     "text": "Timeless on the outside, practical on the inside. That's a gift she will actually use, long after the wrapping paper is gone.",
+     "tag": null,
+     "show": [
+      "worn",
+      "handheld"
+     ]
+    },
+    {
+     "kind": "offer",
+     "beat": "offer",
+     "text": "You can have the Vintage Bag at fifty percent off in the Early Black Friday sale, with free US shipping. Order by the fourteenth of December for the best chance of delivery before Christmas. Tap the link below.",
+     "tag": null,
+     "show": [
+      "hero",
+      "placed"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "P03",
+   "slug": "swapthetote",
+   "title": "Swap the open tote",
+   "structure": "swap",
+   "big_idea": "Two differences you can see between an open-top tote and a bag that snaps shut: the clasp and the strap.",
+   "why_new": "B028 tested the clasp with a coffee; this one is a side-by-side switch from the bag you carry now, with the strap and the inside as the other two differences.",
+   "hooks": [
+    {
+     "text": "Open-top bags show everything. Here's one that doesn't.",
+     "type": "problem",
+     "label": "SNAPS SHUT",
+     "show": [
+      "walking",
+      "snap"
+     ]
+    },
+    {
+     "text": "What if your bag closed with one press?",
+     "type": "question",
+     "label": "ONE PRESS",
+     "show": [
+      "snap",
+      "handheld"
+     ]
+    },
+    {
+     "text": "The easiest switch you'll make this season.",
+     "type": "superlative",
+     "label": "THE SWITCH",
+     "show": [
+      "worn",
+      "strap"
+     ]
+    },
+    {
+     "text": "Swap the open tote: this snap bag is fifty percent off.",
+     "type": "price",
+     "label": "BLACK FRIDAY",
+     "show": [
+      "packing",
+      "snap"
+     ]
+    }
+   ],
+   "chapters": [
+    {
+     "kind": "point",
+     "beat": "now",
+     "text": "Look at the bag you carry now. If it's an open tote, the top stays open, and your phone, your wallet and your keys are all on show. It works, but it leaves you holding the top closed on a busy street.",
+     "tag": null,
+     "show": [
+      "worn",
+      "walking"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "switch",
+     "text": "Now switch to this one. A structured, vintage-style bag with a snap clasp on top. Same size of day, one very different way of closing it.",
+     "tag": null,
+     "show": [
+      "snap",
+      "handheld"
+     ]
+    },
+    {
+     "kind": "proof",
+     "beat": "difference",
+     "proof_shot": true,
+     "text": "The first difference you can see: one press and it snaps shut, with just one hand. Your things are out of sight, and you never stopped walking.",
+     "tag": "ONE-HAND CLASP",
+     "show": [
+      "snap",
+      "walking"
+     ],
+     "highlight": [
+      "snaps shut"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "second_difference",
+     "text": "The second is how you carry it. It has an adjustable strap, so it's a handbag or a crossbody, whichever suits the day. You choose in the morning, and you can change your mind by lunch.",
+     "tag": "ADJUSTABLE STRAP",
+     "show": [
+      "strap",
+      "worn"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "second_difference",
+     "text": "And you don't lose any room. Phone, wallet and keys each have their own spot inside, so the switch costs you nothing.",
+     "tag": "ROOM FOR EVERYTHING",
+     "show": [
+      "inside",
+      "packing"
+     ]
+    },
+    {
+     "kind": "offer",
+     "beat": "offer",
+     "text": "Fifty percent off the Vintage Bag during the Early Black Friday sale, with free US shipping. Make the switch. Tap the link below.",
+     "tag": null,
+     "show": [
+      "hero",
+      "placed"
+     ]
+    }
+   ]
+  }
+ ],
+ "statics": [
+  {
+   "id": "S01",
+   "project": "P01",
+   "layout": "ad",
+   "format": "cafe_chair",
+   "format_name": "Cafe chair snapshot",
+   "art": "A candid phone snapshot in a real cafe: the closed bag hanging by its strap from the back of a wooden chair, a coffee cup and a small plate on the table beside it, warm window light, shallow depth of field, a real cafe and not a studio. A short caption set large in clean type across the lower third.",
+   "people": "none",
+   "words": [
+    "Snap. Sip. Go.",
+    "Early Black Friday: 50% off"
+   ],
+   "headline": "Snap. Sip. Go.",
+   "scene": {
+    "colour": "Chocolate",
+    "prompt": "The closed brown bag hangs by its strap from the back of a wooden cafe chair, a white coffee cup and a small plate on a round marble table beside it, soft warm window light, a softly blurred cafe behind with nobody in it, the lower third of the frame calm enough for the caption."
+   },
+   "idea": "A real-looking cafe chair snapshot: the bag hangs shut beside a coffee, the caption says what it does."
+  },
+  {
+   "id": "S02",
+   "project": "P02",
+   "layout": "native",
+   "idea": "A real face-free footage frame of the bag with a short caption that ties to the small-bag story.",
+   "headline": "Small bag. Whole day.",
+   "pill": true
+  }
+ ]
+}
