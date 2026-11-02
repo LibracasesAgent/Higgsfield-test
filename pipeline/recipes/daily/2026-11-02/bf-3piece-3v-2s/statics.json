@@ -1,0 +1,40 @@
+{
+ "ads": [
+  {
+   "layout": "ad",
+   "photo": "ai/AS01.png",
+   "format": "flat_lay",
+   "words": [
+    "Hobo. Crossbody. Pouch.",
+    "Early Black Friday: up to 60% off"
+   ],
+   "headline": "Hobo. Crossbody. Pouch.",
+   "name": "LC_261102_HoboBag3PieceSet_BlackFriday_B034_S01_flatlay",
+   "ai": {
+    "id": "AS01",
+    "scene": "p01_s01_flat_lay",
+    "colour": "Black",
+    "format": "flat_lay"
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS02.png",
+   "format": "job_tags",
+   "words": [
+    "EVERY DAY",
+    "GO LIGHT",
+    "QUICK STOPS"
+   ],
+   "headline": "Every day. Go light. Quick stops.",
+   "name": "LC_261102_HoboBag3PieceSet_BlackFriday_B034_S02_jobtags",
+   "ai": {
+    "id": "AS02",
+    "scene": "p02_s02_job_tags",
+    "colour": "Black",
+    "format": "job_tags"
+   }
+  }
+ ],
+ "card_photos": []
+}

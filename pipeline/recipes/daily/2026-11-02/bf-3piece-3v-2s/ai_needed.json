@@ -1,0 +1,73 @@
+{
+ "stills": [
+  {
+   "id": "AS01",
+   "use": "static",
+   "scene": "p01_s01_flat_lay",
+   "kind": "object",
+   "colour": "Black",
+   "layout": "ad",
+   "format": "flat_lay",
+   "tag": "flatlay",
+   "words": [
+    "Hobo. Crossbody. Pouch.",
+    "Early Black Friday: up to 60% off"
+   ],
+   "ref": "/tmp/run/bf3piece-3v2s-1102/site/3_piece_set_colour_black.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS01.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 0,
+   "prompt": "A top-down flat lay photographed from directly above on a real surface (oak table, linen, marble), soft window light from one side with natural shadows, the bag zipped shut in the middle and the everyday things it holds laid neatly around it, a calm empty area at the top for a short serif headline and one small line. Top-down photo on warm oatmeal linen in soft window light: the hobo bag, the crossbody and the matching pouch from the reference laid side by side, all closed, with a small gold hoop earring pair and a folded cream scarf beside them. Calm empty space above and below the bags. The exact handbag from the reference image, unchanged: same colour (black), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. The bag is closed (zipped): never show its inside; the items lie next to it, not in it. The only words in the image, each exactly once and spelled exactly as written: \"Hobo. Crossbody. Pouch.\" / \"Early Black Friday: up to 60% off\". Set them as the headline in an elegant serif, the line in a small sans-serif, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS02",
+   "use": "static",
+   "scene": "p02_s02_job_tags",
+   "kind": "object",
+   "colour": "Black",
+   "layout": "ad",
+   "format": "job_tags",
+   "tag": "jobtags",
+   "words": [
+    "EVERY DAY",
+    "GO LIGHT",
+    "QUICK STOPS"
+   ],
+   "ref": "/tmp/run/bf3piece-3v2s-1102/site/3_piece_set_colour_black.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS02.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 1,
+   "prompt": "A realistic candid photo of the three pieces standing on a wooden shelf against a plaster wall, each with a plain kraft-paper shop tag hanging from its strap or handle; the tag text is printed in a simple dark sans-serif, big enough to read on a phone, one tag per piece, nothing else written anywhere. Real-looking photo of the hobo bag, the crossbody and the matching pouch from the reference standing in a row on an oak shelf against a pale plaster wall, a small green plant at one end, soft daylight from the left, all pieces closed, a small kraft shop tag hanging from each one. The exact handbag from the reference image, unchanged: same colour (black), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"EVERY DAY\" / \"GO LIGHT\" / \"QUICK STOPS\". Set them as clean, legible type, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  }
+ ],
+ "clips": [],
+ "est_credits": 2.0,
+ "notes": [],
+ "grade_refs": [],
+ "budget": {
+  "cap": 100.0,
+  "tts_est": 13.5,
+  "reserve": 8.0
+ },
+ "steps": [
+  "1. Upload each distinct `ref` once (media_upload, curl PUT, media_confirm); generate every still with generate_image_batch (model/params/prompt as listed, medias [{value: media_id, role: image_references}], max 12 per call); jobs_wait; download each result to $OUT/<file>.",
+  "2. python3 pipeline/ai_gen.py gate --out $OUT ; LOOK at $OUT/qa/ai_stills.jpg (reference | still): reject any still where the bag's shape, colour, handles or hardware differ from the reference, or that looks AI: python3 pipeline/ai_gen.py reject --out $OUT AS03 ...",
+  "3. For every clip whose start still passed: generate_video_batch (start_image = that still's job id, model/params/prompt as listed); jobs_wait; download to $OUT/<file>. Clips of a rejected still are skipped. If a submission comes back with a preset recommendation instead of a job, send it again with `declined_preset_id` = that preset's id (the project never uses presets).",
+  "4. python3 pipeline/ai_gen.py clips --out $OUT ; LOOK at $OUT/qa/ai_clips.jpg; reject morphing / odd-hand clips with `reject`. Then render as usual (it applies the result).",
+  "Report: credits before -> after (balance), how many AI assets passed. Never ship a still or clip you would not believe is real."
+ ]
+}

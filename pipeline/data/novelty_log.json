@@ -3791,6 +3791,188 @@
        "script": "U04"
       }
      ]
+    },
+    {
+     "clips": [
+      {
+       "clip_id": "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx"
+      },
+      {
+       "clip_id": "1Mtx32enLMlOkpIfl_Cr1EYezTdody3E1"
+      },
+      {
+       "clip_id": "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X"
+      },
+      {
+       "clip_id": "1StPro8S4b5_LUICHyivAkrFna1M1k3ao"
+      },
+      {
+       "clip_id": "1MtOonVbf-pqmrcU5DUgY6995LObDfwn7"
+      },
+      {
+       "clip_id": "1BidTuA7vhnKJ0W923VLBYlXX0LIIueg5"
+      },
+      {
+       "clip_id": "1CcakagPN5oiWEneKORpvJblnPYnQvWHI"
+      },
+      {
+       "clip_id": "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06"
+      },
+      {
+       "clip_id": "1nnsvEIfgqziYdrmeUrrtgL3Qo3YHV7Sw"
+      },
+      {
+       "clip_id": "1f_uobOObpjWFcDK1U8yedlh19SJbAzZB"
+      },
+      {
+       "clip_id": "1bjlxkeRtv0nGVDDFjMAEw4xGTe3Up-D6"
+      },
+      {
+       "clip_id": "1TeEFWPEZ_jATN9so2DZNeyg-mOPQe8jL"
+      },
+      {
+       "clip_id": "18all7GUEBLsxxS0JCAl8t-yEOsC6r52T"
+      },
+      {
+       "clip_id": "1OAhxGNCBriMQlQ-0Fc-u_OJViU8yCRfC"
+      },
+      {
+       "clip_id": "1v8gKfP9ZYsuh7w5yBwlInmv_-U-pY2x_"
+      },
+      {
+       "clip_id": "15AFGw3XpH8pQ7HL4epI2uzoFrT-8c69s"
+      }
+     ],
+     "date": "2026-11-02",
+     "name": "B034 – 2026-11-02 – Hobo Bag 3-Piece Set BlackFriday – 2 statics + 3 projects",
+     "statics": [
+      {
+       "caption": "Hobo. Crossbody. Pouch.",
+       "colour": "Black",
+       "format": "flat_lay",
+       "layout": "ad",
+       "scene": "p01_s01_flat_lay"
+      },
+      {
+       "caption": "Every day. Go light. Quick stops.",
+       "colour": "Black",
+       "format": "job_tags",
+       "layout": "ad",
+       "scene": "p02_s02_job_tags"
+      }
+     ],
+     "videos": [
+      {
+       "angle": "fourstops",
+       "chapters": [
+        "First thing in the morning, you are out the door. Coat on, keys in your hand, and the hobo bag goes on your shoulder. It is the everyday piece of the set, with smart compartments for the things you reach for most.",
+        "Mid-morning, errands, and a coffee in one hand. This is where the crossbody earns its place. One strap across you, and the other hand is ready for whatever comes next.",
+        "It is the piece for the days you want to go light, so you only carry what you need.",
+        "Lunchtime, the cafe. The matching pouch is ideal for quick essentials, so your cards and cash stay in one place. Pay, tuck it away, and get back to lunch.",
+        "Evening, and you are home. Hobo, crossbody and pouch, all three matched, all three used today. That is the idea of a set: one day, every stop covered.",
+        "The Hobo 3-Piece Set is part of the Early Black Friday sale, and it is sixty percent off. Three pieces, one price, and free US shipping. Tap the link below."
+       ],
+       "hook": "One day, a few stops. One set has the right bag for each.",
+       "hook_type": "promise",
+       "script": "U01",
+       "structure": "four_places"
+      },
+      {
+       "angle": "fourstops",
+       "hook": "Need your hands for the coffee this afternoon? Swap to the crossbody.",
+       "hook_type": "promise",
+       "script": "U01",
+       "structure": "four_places"
+      },
+      {
+       "angle": "fourstops",
+       "hook": "Cards and cash rattling around the bottom of your bag?",
+       "hook_type": "promise",
+       "script": "U01",
+       "structure": "four_places"
+      },
+      {
+       "angle": "fourstops",
+       "hook": "Early Black Friday: three matching bags, up to sixty percent off.",
+       "hook_type": "promise",
+       "script": "U01",
+       "structure": "four_places"
+      },
+      {
+       "angle": "theswitch",
+       "chapters": [
+        "Picture the bag you carry now, the one you grab without thinking. One open space, and your keys, cards and phone all end up in the same spot.",
+        "Nothing wrong with that. It just means a quick search every time you need something.",
+        "Now switch to the hobo from the set. Smart compartments give each thing its own place, and the anti-theft design keeps everything secure.",
+        "Phone in one place. Cards in another. Keys where your hand expects them. Open it and everything is easy to see. Nothing is buried, so nothing needs digging for.",
+        "And the finish is different too. Soft, water-resistant, scratch-proof leather that looks beautiful season after season.",
+        "Put it on your shoulder, walk out the door, and that is the whole switch.",
+        "And you get more than the hobo. The set adds a crossbody and a matching pouch, three pieces for one price, and in the Early Black Friday sale it is sixty percent off. Free US shipping, and the sale runs until the thirtieth of November. Tap the link below."
+       ],
+       "hook": "What if everything in your bag had its own place?",
+       "hook_type": "question",
+       "script": "U02",
+       "structure": "swap"
+      },
+      {
+       "angle": "theswitch",
+       "hook": "Digging for your phone at the bottom of the bag again?",
+       "hook_type": "question",
+       "script": "U02",
+       "structure": "swap"
+      },
+      {
+       "angle": "theswitch",
+       "hook": "The Hobo Bag page calls this set the Best Value.",
+       "hook_type": "question",
+       "script": "U02",
+       "structure": "swap"
+      },
+      {
+       "angle": "theswitch",
+       "hook": "Black Friday is on: this bag set is up to sixty percent off.",
+       "hook_type": "question",
+       "script": "U02",
+       "structure": "swap"
+      },
+      {
+       "angle": "nightbefore",
+       "chapters": [
+        "Tonight is the night before a full day out. Lunch with a friend, a few errands, and an evening to finish. Time to pack, and nothing needs to be rushed.",
+        "Cards and cash go into the matching pouch first. It is ideal for quick essentials, and it keeps them together in one place.",
+        "Phone, keys and everything else go into the hobo bag, each in its own compartment. The hobo is the piece for every day.",
+        "Pouch tucked in, bag closed up, set down by the door. That is the packing done.",
+        "Morning. Take the hobo, or take the crossbody if the day calls for going light. Either way, everything is already where it belongs.",
+        "Grab it, close the door, and go. The day is long, and your bag is already sorted.",
+        "The Hobo 3-Piece Set is in the Early Black Friday sale, sixty percent off. Hobo bag, crossbody and matching pouch for one price, with free US shipping. Three pieces, one price. The sale runs until the thirtieth of November. Tap the link below."
+       ],
+       "hook": "Packing tonight? Start with the pouch.",
+       "hook_type": "promise",
+       "script": "U03",
+       "structure": "night_before"
+      },
+      {
+       "angle": "nightbefore",
+       "hook": "Which bag goes with you tomorrow, the hobo or the crossbody?",
+       "hook_type": "promise",
+       "script": "U03",
+       "structure": "night_before"
+      },
+      {
+       "angle": "nightbefore",
+       "hook": "Out the door and you cannot find your cards?",
+       "hook_type": "promise",
+       "script": "U03",
+       "structure": "night_before"
+      },
+      {
+       "angle": "nightbefore",
+       "hook": "Early Black Friday: the whole set, sixty percent off.",
+       "hook_type": "promise",
+       "script": "U03",
+       "structure": "night_before"
+      }
+     ]
     }
    ]
   },
