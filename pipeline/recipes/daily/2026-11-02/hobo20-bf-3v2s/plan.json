@@ -1,0 +1,1512 @@
+{
+ "prefix": "LC_261102_Hobo20_BlackFriday_B031",
+ "rev": 1,
+ "batch_id": {
+  "id": "B031",
+  "n": 31,
+  "rev": 1
+ },
+ "created": "2026-11-02",
+ "request": "3 videos and 2 statics for the Hobo 2.0, Black Friday, no presenter",
+ "product": "Hobo 2.0",
+ "product_key": "hobo 2.0",
+ "product_source": "built-in",
+ "theme": "black friday",
+ "theme_name": "BlackFriday",
+ "offer": "50% off + free pouch wallet",
+ "campaign": {
+  "id": "bf2026",
+  "name": "Black Friday Sale 2026",
+  "theme": "black friday",
+  "banner": "Early Black Friday – 50% off everything, up to 60% off",
+  "until": "2026-11-30",
+  "from": "2026-10-23",
+  "end_title": "Black Friday Sale",
+  "end_pill": "UP TO 60% OFF",
+  "card_sub": "",
+  "close": "The Early Black Friday sale is on now, with up to sixty percent off.",
+  "hooks": [
+   "Black Friday prices are live now. No need to wait.",
+   "Early Black Friday: up to sixty percent off.",
+   "Why wait for Black Friday? The prices are already live."
+  ],
+  "facts": [
+   "Early Black Friday Sale: live now (from 23 October), it runs until 30 November (Cyber Monday). Black Friday is 27 November.",
+   "50% off everything sitewide (each bag's own % is on its offer card: the Hobo Bag is 50% off).",
+   "Up to 60% off: some bundles are 60% off, like the Hobo Bag 3-Piece Set. Say '60% off' only of the 3-Piece Set (or another named bundle), never of a single bag or of 'any 2 bags'.",
+   "No free gifts and no extra cart discount: both were removed by the owner on 26 October.",
+   "The Hobo Bag's product page offers the 3-Piece Set as the 'Best Value' upgrade.",
+   "Black Friday prices are live now: no need to wait.",
+   "Sale items are final sale: they cannot be returned (the site's Black Friday terms); faulty items are still covered and the 1-year warranty still applies. Never say 'easy returns', 'free returns' or 'send it back' in a Black Friday ad.",
+   "Christmas delivery (the site's Black Friday terms, filled in by 27 October): order by 14 December 2026 for the best chance of delivery before Christmas; delivery before Christmas is not guaranteed, so say 'the best chance', never 'guaranteed by Christmas'."
+  ],
+  "bundle_pct": null,
+  "upto_pct": 60,
+  "bundle_any": false,
+  "client_ideas": "Owner 2026-10-26: everything is on sale everywhere, so stand out; the Hobo Bag page upsells the 3-Piece Set ('Best Value'): ads that sell the set raise the order value; 'Black Friday prices are live now, no need to wait'; Christmas gifting (mum, sister, best friend); 2 straps on the Hobo 2.0 (handbag + crossbody); in the last week: Black Friday 27 November, Cyber Monday 30 November, 'last chance'. The AI ads 'seem to be starting to work: keep testing'.",
+  "gifts": [],
+  "gifts_worth": null,
+  "dates": {
+   "black friday": "27 November",
+   "cyber monday": "30 November",
+   "ends": "30 November"
+  },
+  "copy": {
+   "primary": [
+    "Early Black Friday is live: 50% off everything, and up to 60% off bundles like the 3-Piece Set.",
+    "Black Friday prices are live now, no need to wait. 50% off everything, up to 60% off bundles."
+   ],
+   "headline": [
+    "Early Black Friday: 50% Off",
+    "Up to 60% Off Bundles",
+    "Black Friday Prices Are Live"
+   ],
+   "description": "Up to 60% off"
+  },
+  "approved_phrases": [
+   "up to (?:60|sixty) ?(?:%|percent) off(?: bundles?)?",
+   "(?:60|sixty) ?(?:%|percent) off (?:the |our )?(?:hobo (?:bag )?)?3-piece set",
+   "(?:50|fifty) ?(?:%|percent) off everything"
+  ],
+  "approved": "Wouter (owner), 2026-10-23: the Black Friday Sale went live on 23 October and runs until 30 November (Cyber Monday). Up to 50% off sitewide; 60% off bundles (2 or 3 bags bought together at 60% off the regular price); free gifts while stocks last: buy 2 bags, get a free mirrored jewellery box (worth $19.95); buy 3+ bags, get the jewellery box + a free cosmetic bag (together worth $44.90); only bags count, not accessories. The site banner (2026-10-23): 'EARLY BLACK FRIDAY: 50% OFF EVERYTHING | BUY 2 BAGS = 1 FREE GIFT | BUY 3 = 2 FREE GIFTS | ORDER TODAY WHILE STOCKS LAST!' | UPDATE Wouter (owner), 2026-10-26: the free gifts and the extra cart discount on bags are removed ('they're not coming back'); 'It's 50% OFF or you can say up to 60% OFF'; 60% is only on bundles 'like the 3 piece set', not any 2 bags; the site now has Early Black Friday messaging, a countdown in the announcement bar, 'Ships by' and delivery dates, and the 3-Piece Set as a 'Best Value' upgrade on the Hobo Bag page; during Black Friday no returns are accepted (final sale).",
+  "final_sale": true,
+  "terms": "https://libracases.com/pages/terms-and-conditions-black-friday-sale",
+  "banned": [
+   {
+    "rx": "\\bfree gifts?\\b|\\bgifts? with (?:2|two|3|three|every)\\b|\\bfree (?:mirrored )?jewell?e?ry box(?:es)?\\b|\\bfree (?:travel )?cosmetic bags?\\b|\\bjewell?e?ry box\\b|\\bcosmetic bag\\b",
+    "why": "the free gifts were removed by the owner on 26 October (not coming back): say the bag's own free pouch wallet, if it has one"
+   },
+   {
+    "rx": "(?:60|sixty) ?(?:%|percent) off\\b[^.!?]{0,60}\\b(?:(?:2|two) (?:or (?:3|three) )?bags|(?:3|three) bags|(?:2|two) or (?:3|three)|second bag|together)|\\b(?:2|two) or (?:3|three) bags\\b[^.!?]{0,30}(?:60|sixty) ?(?:%|percent)",
+    "why": "60% is only on bundles like the 3-Piece Set, not on any 2 or 3 bags (owner, 26 October): say 'up to 60% off' or '60% off the 3-Piece Set'"
+   },
+   {
+    "rx": "\\b(?:ends?|ending) (?:tonight|today)\\b|\\btoday only\\b|\\bonly today\\b|\\b(?:sale|deal|offer)s? ends? (?:soon|in \\d+ (?:hours?|minutes?|days?))\\b|\\bhours? left\\b",
+    "why": "the sale runs until 30 November (owner 2026-10-23; the site banner's 'ends tonight' is the owner's choice for the site only): before the last day 'ends tonight / today only' is false and Meta flags ads whose deadline differs from the landing page; say 'Black Friday prices are live now' or 'the sale ends on the thirtieth of November'",
+    "except_on": [
+     "2026-11-30"
+    ]
+   },
+   {
+    "rx": "\\blast (?:chance|days?|call)\\b|\\bfinal (?:days?|hours?|chance)\\b",
+    "why": "'last chance' is the last week's message (owner's timeline: last-week content by 20 November, for Black Friday 27 Nov - Cyber Monday 30 Nov): before 20 November it is false urgency",
+    "except_from": "2026-11-20"
+   },
+   {
+    "rx": "\\bguarantee\\w*\\b[^.!?]{0,40}\\bchristmas\\b|\\bchristmas\\b[^.!?]{0,40}\\bguarantee\\w*\\b|\\b(?:arrives?|delivered|get it|gets there|be there|in time for)\\b[^.!?]{0,20}\\b(?:in time for|by|before) christmas\\b|\\bin time for christmas\\b",
+    "why": "the site's terms: delivery before Christmas is not guaranteed; say 'order by 14 December for the best chance of delivery before Christmas'"
+   }
+  ]
+ },
+ "statics": [
+  "LC_261102_Hobo20_BlackFriday_B031_S01_cafechalkboa",
+  "LC_261102_Hobo20_BlackFriday_B031_S02_native"
+ ],
+ "videos": [
+  {
+   "name": "LC_261102_Hobo20_BlackFriday_B031_P01_H1_packedcafe",
+   "id": "P01H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "ugc": {
+    "script": "U01",
+    "angle": "packedcafe",
+    "words": 199,
+    "structure": "one_moment",
+    "hook": {
+     "type": "question",
+     "label": "CROWD CHECK",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Squeezing through a packed cafe with your bag open behind you.",
+      "type": "problem",
+      "label": "PACKED CAFE",
+      "feature": null,
+      "show": [
+       "worn",
+       "cafe"
+      ]
+     },
+     {
+      "text": "Watch these two zips clip together. Then try to get in.",
+      "type": "promise",
+      "label": "ZIPS CLIP",
+      "feature": null,
+      "show": [
+       "side_zip",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Black Friday prices are live now, and this bag locks.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "strap",
+       "worn"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Squeezing through a packed cafe with your bag open behind you.": [
+      [
+       "1zXDKJTjouSLICR6xe8HaeclF5pqxCQfg",
+       0.65,
+       1.0
+      ],
+      [
+       "1HAyJ9uhHi3LaK_15Ca-heA-R__-k0bwf",
+       0.3,
+       1.0
+      ]
+     ],
+     "Watch these two zips clip together. Then try to get in.": [
+      [
+       "10-LsHkfV3u9PrkOGaRMd05mLG8u6mvMk",
+       10.99,
+       1.0
+      ],
+      [
+       "11-xAyuUty9mQyBaOlq7JhSKxPC3Kt7f_",
+       5.71,
+       1.0
+      ]
+     ],
+     "Black Friday prices are live now, and this bag locks.": [
+      [
+       "1juPX-JUyhBssX6HkWEaTlZSS1WdrwQZz",
+       0.3,
+       1.0
+      ],
+      [
+       "10-LsHkfV3u9PrkOGaRMd05mLG8u6mvMk",
+       0.71,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 66.5,
+   "project": "P01",
+   "hook_text": "How many times do you check your zip in a crowd?",
+   "hook_label": "CROWD CHECK",
+   "hook_type": "question",
+   "opening_shot": [
+    "1d-NfhyXONZdjfr9UBSKd99VUPx9mK7HB",
+    17.5
+   ]
+  },
+  {
+   "name": "LC_261102_Hobo20_BlackFriday_B031_P01_H2_packedcafe",
+   "id": "P01H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "ugc": {
+    "script": "U01",
+    "angle": "packedcafe",
+    "words": 199,
+    "structure": "one_moment",
+    "hook": {
+     "type": "question",
+     "label": "CROWD CHECK",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Squeezing through a packed cafe with your bag open behind you.",
+      "type": "problem",
+      "label": "PACKED CAFE",
+      "feature": null,
+      "show": [
+       "worn",
+       "cafe"
+      ]
+     },
+     {
+      "text": "Watch these two zips clip together. Then try to get in.",
+      "type": "promise",
+      "label": "ZIPS CLIP",
+      "feature": null,
+      "show": [
+       "side_zip",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Black Friday prices are live now, and this bag locks.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "strap",
+       "worn"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Squeezing through a packed cafe with your bag open behind you.": [
+      [
+       "1zXDKJTjouSLICR6xe8HaeclF5pqxCQfg",
+       0.65,
+       1.0
+      ],
+      [
+       "1HAyJ9uhHi3LaK_15Ca-heA-R__-k0bwf",
+       0.3,
+       1.0
+      ]
+     ],
+     "Watch these two zips clip together. Then try to get in.": [
+      [
+       "10-LsHkfV3u9PrkOGaRMd05mLG8u6mvMk",
+       10.99,
+       1.0
+      ],
+      [
+       "11-xAyuUty9mQyBaOlq7JhSKxPC3Kt7f_",
+       5.71,
+       1.0
+      ]
+     ],
+     "Black Friday prices are live now, and this bag locks.": [
+      [
+       "1juPX-JUyhBssX6HkWEaTlZSS1WdrwQZz",
+       0.3,
+       1.0
+      ],
+      [
+       "10-LsHkfV3u9PrkOGaRMd05mLG8u6mvMk",
+       0.71,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 66.5,
+   "project": "P01",
+   "hook_text": "Squeezing through a packed cafe with your bag open behind you.",
+   "hook_label": "PACKED CAFE",
+   "hook_type": "problem",
+   "opening_shot": [
+    "1zXDKJTjouSLICR6xe8HaeclF5pqxCQfg",
+    0.65
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261102_Hobo20_BlackFriday_B031_P01_H3_packedcafe",
+   "id": "P01H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "ugc": {
+    "script": "U01",
+    "angle": "packedcafe",
+    "words": 199,
+    "structure": "one_moment",
+    "hook": {
+     "type": "question",
+     "label": "CROWD CHECK",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Squeezing through a packed cafe with your bag open behind you.",
+      "type": "problem",
+      "label": "PACKED CAFE",
+      "feature": null,
+      "show": [
+       "worn",
+       "cafe"
+      ]
+     },
+     {
+      "text": "Watch these two zips clip together. Then try to get in.",
+      "type": "promise",
+      "label": "ZIPS CLIP",
+      "feature": null,
+      "show": [
+       "side_zip",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Black Friday prices are live now, and this bag locks.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "strap",
+       "worn"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Squeezing through a packed cafe with your bag open behind you.": [
+      [
+       "1zXDKJTjouSLICR6xe8HaeclF5pqxCQfg",
+       0.65,
+       1.0
+      ],
+      [
+       "1HAyJ9uhHi3LaK_15Ca-heA-R__-k0bwf",
+       0.3,
+       1.0
+      ]
+     ],
+     "Watch these two zips clip together. Then try to get in.": [
+      [
+       "10-LsHkfV3u9PrkOGaRMd05mLG8u6mvMk",
+       10.99,
+       1.0
+      ],
+      [
+       "11-xAyuUty9mQyBaOlq7JhSKxPC3Kt7f_",
+       5.71,
+       1.0
+      ]
+     ],
+     "Black Friday prices are live now, and this bag locks.": [
+      [
+       "1juPX-JUyhBssX6HkWEaTlZSS1WdrwQZz",
+       0.3,
+       1.0
+      ],
+      [
+       "10-LsHkfV3u9PrkOGaRMd05mLG8u6mvMk",
+       0.71,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 66.5,
+   "project": "P01",
+   "hook_text": "Watch these two zips clip together. Then try to get in.",
+   "hook_label": "ZIPS CLIP",
+   "hook_type": "promise",
+   "opening_shot": [
+    "10-LsHkfV3u9PrkOGaRMd05mLG8u6mvMk",
+    10.99
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261102_Hobo20_BlackFriday_B031_P01_H4_packedcafe",
+   "id": "P01H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "ugc": {
+    "script": "U01",
+    "angle": "packedcafe",
+    "words": 199,
+    "structure": "one_moment",
+    "hook": {
+     "type": "question",
+     "label": "CROWD CHECK",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Squeezing through a packed cafe with your bag open behind you.",
+      "type": "problem",
+      "label": "PACKED CAFE",
+      "feature": null,
+      "show": [
+       "worn",
+       "cafe"
+      ]
+     },
+     {
+      "text": "Watch these two zips clip together. Then try to get in.",
+      "type": "promise",
+      "label": "ZIPS CLIP",
+      "feature": null,
+      "show": [
+       "side_zip",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Black Friday prices are live now, and this bag locks.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "strap",
+       "worn"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Squeezing through a packed cafe with your bag open behind you.": [
+      [
+       "1zXDKJTjouSLICR6xe8HaeclF5pqxCQfg",
+       0.65,
+       1.0
+      ],
+      [
+       "1HAyJ9uhHi3LaK_15Ca-heA-R__-k0bwf",
+       0.3,
+       1.0
+      ]
+     ],
+     "Watch these two zips clip together. Then try to get in.": [
+      [
+       "10-LsHkfV3u9PrkOGaRMd05mLG8u6mvMk",
+       10.99,
+       1.0
+      ],
+      [
+       "11-xAyuUty9mQyBaOlq7JhSKxPC3Kt7f_",
+       5.71,
+       1.0
+      ]
+     ],
+     "Black Friday prices are live now, and this bag locks.": [
+      [
+       "1juPX-JUyhBssX6HkWEaTlZSS1WdrwQZz",
+       0.3,
+       1.0
+      ],
+      [
+       "10-LsHkfV3u9PrkOGaRMd05mLG8u6mvMk",
+       0.71,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 66.2,
+   "project": "P01",
+   "hook_text": "Black Friday prices are live now, and this bag locks.",
+   "hook_label": "BLACK FRIDAY",
+   "hook_type": "price",
+   "opening_shot": [
+    "1juPX-JUyhBssX6HkWEaTlZSS1WdrwQZz",
+    0.3
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261102_Hobo20_BlackFriday_B031_P02_H1_newjobbag",
+   "id": "P02H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "ugc": {
+    "script": "U02",
+    "angle": "newjobbag",
+    "words": 204,
+    "structure": "friend_advice",
+    "hook": {
+     "type": "question",
+     "label": "NEW JOB BAG",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "One bag, two straps, and she never has to swap bags.",
+      "type": "promise",
+      "label": "TWO STRAPS",
+      "feature": null,
+      "show": [
+       "strap",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Her keys are at the bottom of the bag again.",
+      "type": "problem",
+      "label": "KEYS AGAIN",
+      "feature": null,
+      "show": [
+       "pocket",
+       "packing"
+      ]
+     },
+     {
+      "text": "The one bag for the commute, the coffee run and the desk.",
+      "type": "superlative",
+      "label": "COMMUTE TO DESK",
+      "feature": null,
+      "show": [
+       "zip",
+       "cafe"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "One bag, two straps, and she never has to swap bags.": [
+      [
+       "19b24obdxcefZAUrIgKg5AkoVVzCbduxU",
+       9.05,
+       1.0
+      ],
+      [
+       "10-LsHkfV3u9PrkOGaRMd05mLG8u6mvMk",
+       10.99,
+       1.0
+      ]
+     ],
+     "Her keys are at the bottom of the bag again.": [
+      [
+       "1xckKfgWOCLTomMMu9jksmpS5IW_mI78-",
+       7.48,
+       1.0
+      ],
+      [
+       "1zXDKJTjouSLICR6xe8HaeclF5pqxCQfg",
+       3.95,
+       1.0
+      ]
+     ],
+     "The one bag for the commute, the coffee run and the desk.": [
+      [
+       "1XJbrYzp-jZl33yYkGVRoA8MHqGAKQdkW",
+       0.3,
+       1.0
+      ],
+      [
+       "1TKLbTtGCIdOSyM1eE4YR6Xis6SklYKDT",
+       0.3,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 68.1,
+   "project": "P02",
+   "hook_text": "What bag do you tell your best friend to take to a new job?",
+   "hook_label": "NEW JOB BAG",
+   "hook_type": "question",
+   "opening_shot": [
+    "1BJo9-k08c-2e3Ad1KYteSNOxAKguuktL",
+    29.69
+   ]
+  },
+  {
+   "name": "LC_261102_Hobo20_BlackFriday_B031_P02_H2_newjobbag",
+   "id": "P02H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "ugc": {
+    "script": "U02",
+    "angle": "newjobbag",
+    "words": 204,
+    "structure": "friend_advice",
+    "hook": {
+     "type": "question",
+     "label": "NEW JOB BAG",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "One bag, two straps, and she never has to swap bags.",
+      "type": "promise",
+      "label": "TWO STRAPS",
+      "feature": null,
+      "show": [
+       "strap",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Her keys are at the bottom of the bag again.",
+      "type": "problem",
+      "label": "KEYS AGAIN",
+      "feature": null,
+      "show": [
+       "pocket",
+       "packing"
+      ]
+     },
+     {
+      "text": "The one bag for the commute, the coffee run and the desk.",
+      "type": "superlative",
+      "label": "COMMUTE TO DESK",
+      "feature": null,
+      "show": [
+       "zip",
+       "cafe"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "One bag, two straps, and she never has to swap bags.": [
+      [
+       "19b24obdxcefZAUrIgKg5AkoVVzCbduxU",
+       9.05,
+       1.0
+      ],
+      [
+       "10-LsHkfV3u9PrkOGaRMd05mLG8u6mvMk",
+       10.99,
+       1.0
+      ]
+     ],
+     "Her keys are at the bottom of the bag again.": [
+      [
+       "1xckKfgWOCLTomMMu9jksmpS5IW_mI78-",
+       7.48,
+       1.0
+      ],
+      [
+       "1zXDKJTjouSLICR6xe8HaeclF5pqxCQfg",
+       3.95,
+       1.0
+      ]
+     ],
+     "The one bag for the commute, the coffee run and the desk.": [
+      [
+       "1XJbrYzp-jZl33yYkGVRoA8MHqGAKQdkW",
+       0.3,
+       1.0
+      ],
+      [
+       "1TKLbTtGCIdOSyM1eE4YR6Xis6SklYKDT",
+       0.3,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 67.1,
+   "project": "P02",
+   "hook_text": "One bag, two straps, and she never has to swap bags.",
+   "hook_label": "TWO STRAPS",
+   "hook_type": "promise",
+   "opening_shot": [
+    "19b24obdxcefZAUrIgKg5AkoVVzCbduxU",
+    9.05
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261102_Hobo20_BlackFriday_B031_P02_H3_newjobbag",
+   "id": "P02H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "ugc": {
+    "script": "U02",
+    "angle": "newjobbag",
+    "words": 204,
+    "structure": "friend_advice",
+    "hook": {
+     "type": "question",
+     "label": "NEW JOB BAG",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "One bag, two straps, and she never has to swap bags.",
+      "type": "promise",
+      "label": "TWO STRAPS",
+      "feature": null,
+      "show": [
+       "strap",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Her keys are at the bottom of the bag again.",
+      "type": "problem",
+      "label": "KEYS AGAIN",
+      "feature": null,
+      "show": [
+       "pocket",
+       "packing"
+      ]
+     },
+     {
+      "text": "The one bag for the commute, the coffee run and the desk.",
+      "type": "superlative",
+      "label": "COMMUTE TO DESK",
+      "feature": null,
+      "show": [
+       "zip",
+       "cafe"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "One bag, two straps, and she never has to swap bags.": [
+      [
+       "19b24obdxcefZAUrIgKg5AkoVVzCbduxU",
+       9.05,
+       1.0
+      ],
+      [
+       "10-LsHkfV3u9PrkOGaRMd05mLG8u6mvMk",
+       10.99,
+       1.0
+      ]
+     ],
+     "Her keys are at the bottom of the bag again.": [
+      [
+       "1xckKfgWOCLTomMMu9jksmpS5IW_mI78-",
+       7.48,
+       1.0
+      ],
+      [
+       "1zXDKJTjouSLICR6xe8HaeclF5pqxCQfg",
+       3.95,
+       1.0
+      ]
+     ],
+     "The one bag for the commute, the coffee run and the desk.": [
+      [
+       "1XJbrYzp-jZl33yYkGVRoA8MHqGAKQdkW",
+       0.3,
+       1.0
+      ],
+      [
+       "1TKLbTtGCIdOSyM1eE4YR6Xis6SklYKDT",
+       0.3,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 66.8,
+   "project": "P02",
+   "hook_text": "Her keys are at the bottom of the bag again.",
+   "hook_label": "KEYS AGAIN",
+   "hook_type": "problem",
+   "opening_shot": [
+    "1xckKfgWOCLTomMMu9jksmpS5IW_mI78-",
+    7.48
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261102_Hobo20_BlackFriday_B031_P02_H4_newjobbag",
+   "id": "P02H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "ugc": {
+    "script": "U02",
+    "angle": "newjobbag",
+    "words": 204,
+    "structure": "friend_advice",
+    "hook": {
+     "type": "question",
+     "label": "NEW JOB BAG",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "One bag, two straps, and she never has to swap bags.",
+      "type": "promise",
+      "label": "TWO STRAPS",
+      "feature": null,
+      "show": [
+       "strap",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Her keys are at the bottom of the bag again.",
+      "type": "problem",
+      "label": "KEYS AGAIN",
+      "feature": null,
+      "show": [
+       "pocket",
+       "packing"
+      ]
+     },
+     {
+      "text": "The one bag for the commute, the coffee run and the desk.",
+      "type": "superlative",
+      "label": "COMMUTE TO DESK",
+      "feature": null,
+      "show": [
+       "zip",
+       "cafe"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "One bag, two straps, and she never has to swap bags.": [
+      [
+       "19b24obdxcefZAUrIgKg5AkoVVzCbduxU",
+       9.05,
+       1.0
+      ],
+      [
+       "10-LsHkfV3u9PrkOGaRMd05mLG8u6mvMk",
+       10.99,
+       1.0
+      ]
+     ],
+     "Her keys are at the bottom of the bag again.": [
+      [
+       "1xckKfgWOCLTomMMu9jksmpS5IW_mI78-",
+       7.48,
+       1.0
+      ],
+      [
+       "1zXDKJTjouSLICR6xe8HaeclF5pqxCQfg",
+       3.95,
+       1.0
+      ]
+     ],
+     "The one bag for the commute, the coffee run and the desk.": [
+      [
+       "1XJbrYzp-jZl33yYkGVRoA8MHqGAKQdkW",
+       0.3,
+       1.0
+      ],
+      [
+       "1TKLbTtGCIdOSyM1eE4YR6Xis6SklYKDT",
+       0.3,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 67.5,
+   "project": "P02",
+   "hook_text": "The one bag for the commute, the coffee run and the desk.",
+   "hook_label": "COMMUTE TO DESK",
+   "hook_type": "superlative",
+   "opening_shot": [
+    "1XJbrYzp-jZl33yYkGVRoA8MHqGAKQdkW",
+    0.3
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261102_Hobo20_BlackFriday_B031_P03_H1_keystest",
+   "id": "P03H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "ugc": {
+    "script": "U03",
+    "angle": "keystest",
+    "words": 194,
+    "structure": "live_test",
+    "hook": {
+     "type": "question",
+     "label": "KEYS TEST",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Digging to the bottom of your bag for a pair of keys. Again.",
+      "type": "problem",
+      "label": "STOP DIGGING",
+      "feature": null,
+      "show": [
+       "packing",
+       "inside"
+      ]
+     },
+     {
+      "text": "Phone, cards, keys. Watch where each one goes.",
+      "type": "promise",
+      "label": "WHERE IT GOES",
+      "feature": null,
+      "show": [
+       "side_zip",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Black Friday prices are live now, and this bag passes the keys test.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "worn",
+       "strap"
+      ]
+     }
+    ],
+    "numbers": [
+     3
+    ],
+    "alt_shots": {
+     "Digging to the bottom of your bag for a pair of keys. Again.": [
+      [
+       "1CjZGYrcaE63PlI4z57Yhrsh_RUIa-MI9",
+       17.63,
+       1.0
+      ],
+      [
+       "1zXDKJTjouSLICR6xe8HaeclF5pqxCQfg",
+       0.65,
+       1.0
+      ]
+     ],
+     "Phone, cards, keys. Watch where each one goes.": [
+      [
+       "19MHATytTVepRgB8uaSuF6h6ByeNKLBhU",
+       0.3,
+       1.0
+      ]
+     ],
+     "Black Friday prices are live now, and this bag passes the keys test.": [
+      [
+       "1fKQ6MF6lWMUQnekaOP-KLVdEFaLAHH06",
+       6.61,
+       1.0
+      ],
+      [
+       "1HWu9K7UA1xCpA8KX9rgiKiJiBvevFsC2",
+       86.36,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 64.9,
+   "project": "P03",
+   "hook_text": "Can you find your keys without looking in your bag?",
+   "hook_label": "KEYS TEST",
+   "hook_type": "question",
+   "opening_shot": [
+    "1nxzzSt-G9vABq76AoPtjSqnHNSP2xxBS",
+    5.74
+   ]
+  },
+  {
+   "name": "LC_261102_Hobo20_BlackFriday_B031_P03_H2_keystest",
+   "id": "P03H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "ugc": {
+    "script": "U03",
+    "angle": "keystest",
+    "words": 194,
+    "structure": "live_test",
+    "hook": {
+     "type": "question",
+     "label": "KEYS TEST",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Digging to the bottom of your bag for a pair of keys. Again.",
+      "type": "problem",
+      "label": "STOP DIGGING",
+      "feature": null,
+      "show": [
+       "packing",
+       "inside"
+      ]
+     },
+     {
+      "text": "Phone, cards, keys. Watch where each one goes.",
+      "type": "promise",
+      "label": "WHERE IT GOES",
+      "feature": null,
+      "show": [
+       "side_zip",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Black Friday prices are live now, and this bag passes the keys test.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "worn",
+       "strap"
+      ]
+     }
+    ],
+    "numbers": [
+     3
+    ],
+    "alt_shots": {
+     "Digging to the bottom of your bag for a pair of keys. Again.": [
+      [
+       "1CjZGYrcaE63PlI4z57Yhrsh_RUIa-MI9",
+       17.63,
+       1.0
+      ],
+      [
+       "1zXDKJTjouSLICR6xe8HaeclF5pqxCQfg",
+       0.65,
+       1.0
+      ]
+     ],
+     "Phone, cards, keys. Watch where each one goes.": [
+      [
+       "19MHATytTVepRgB8uaSuF6h6ByeNKLBhU",
+       0.3,
+       1.0
+      ]
+     ],
+     "Black Friday prices are live now, and this bag passes the keys test.": [
+      [
+       "1fKQ6MF6lWMUQnekaOP-KLVdEFaLAHH06",
+       6.61,
+       1.0
+      ],
+      [
+       "1HWu9K7UA1xCpA8KX9rgiKiJiBvevFsC2",
+       86.36,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 65.9,
+   "project": "P03",
+   "hook_text": "Digging to the bottom of your bag for a pair of keys. Again.",
+   "hook_label": "STOP DIGGING",
+   "hook_type": "problem",
+   "opening_shot": [
+    "1CjZGYrcaE63PlI4z57Yhrsh_RUIa-MI9",
+    17.63
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261102_Hobo20_BlackFriday_B031_P03_H3_keystest",
+   "id": "P03H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "ugc": {
+    "script": "U03",
+    "angle": "keystest",
+    "words": 194,
+    "structure": "live_test",
+    "hook": {
+     "type": "question",
+     "label": "KEYS TEST",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Digging to the bottom of your bag for a pair of keys. Again.",
+      "type": "problem",
+      "label": "STOP DIGGING",
+      "feature": null,
+      "show": [
+       "packing",
+       "inside"
+      ]
+     },
+     {
+      "text": "Phone, cards, keys. Watch where each one goes.",
+      "type": "promise",
+      "label": "WHERE IT GOES",
+      "feature": null,
+      "show": [
+       "side_zip",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Black Friday prices are live now, and this bag passes the keys test.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "worn",
+       "strap"
+      ]
+     }
+    ],
+    "numbers": [
+     3
+    ],
+    "alt_shots": {
+     "Digging to the bottom of your bag for a pair of keys. Again.": [
+      [
+       "1CjZGYrcaE63PlI4z57Yhrsh_RUIa-MI9",
+       17.63,
+       1.0
+      ],
+      [
+       "1zXDKJTjouSLICR6xe8HaeclF5pqxCQfg",
+       0.65,
+       1.0
+      ]
+     ],
+     "Phone, cards, keys. Watch where each one goes.": [
+      [
+       "19MHATytTVepRgB8uaSuF6h6ByeNKLBhU",
+       0.3,
+       1.0
+      ]
+     ],
+     "Black Friday prices are live now, and this bag passes the keys test.": [
+      [
+       "1fKQ6MF6lWMUQnekaOP-KLVdEFaLAHH06",
+       6.61,
+       1.0
+      ],
+      [
+       "1HWu9K7UA1xCpA8KX9rgiKiJiBvevFsC2",
+       86.36,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 64.3,
+   "project": "P03",
+   "hook_text": "Phone, cards, keys. Watch where each one goes.",
+   "hook_label": "WHERE IT GOES",
+   "hook_type": "promise",
+   "opening_shot": [
+    "19MHATytTVepRgB8uaSuF6h6ByeNKLBhU",
+    0.3
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261102_Hobo20_BlackFriday_B031_P03_H4_keystest",
+   "id": "P03H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "ugc": {
+    "script": "U03",
+    "angle": "keystest",
+    "words": 194,
+    "structure": "live_test",
+    "hook": {
+     "type": "question",
+     "label": "KEYS TEST",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Digging to the bottom of your bag for a pair of keys. Again.",
+      "type": "problem",
+      "label": "STOP DIGGING",
+      "feature": null,
+      "show": [
+       "packing",
+       "inside"
+      ]
+     },
+     {
+      "text": "Phone, cards, keys. Watch where each one goes.",
+      "type": "promise",
+      "label": "WHERE IT GOES",
+      "feature": null,
+      "show": [
+       "side_zip",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Black Friday prices are live now, and this bag passes the keys test.",
+      "type": "price",
+      "label": "BLACK FRIDAY",
+      "feature": null,
+      "show": [
+       "worn",
+       "strap"
+      ]
+     }
+    ],
+    "numbers": [
+     3
+    ],
+    "alt_shots": {
+     "Digging to the bottom of your bag for a pair of keys. Again.": [
+      [
+       "1CjZGYrcaE63PlI4z57Yhrsh_RUIa-MI9",
+       17.63,
+       1.0
+      ],
+      [
+       "1zXDKJTjouSLICR6xe8HaeclF5pqxCQfg",
+       0.65,
+       1.0
+      ]
+     ],
+     "Phone, cards, keys. Watch where each one goes.": [
+      [
+       "19MHATytTVepRgB8uaSuF6h6ByeNKLBhU",
+       0.3,
+       1.0
+      ]
+     ],
+     "Black Friday prices are live now, and this bag passes the keys test.": [
+      [
+       "1fKQ6MF6lWMUQnekaOP-KLVdEFaLAHH06",
+       6.61,
+       1.0
+      ],
+      [
+       "1HWu9K7UA1xCpA8KX9rgiKiJiBvevFsC2",
+       86.36,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 65.9,
+   "project": "P03",
+   "hook_text": "Black Friday prices are live now, and this bag passes the keys test.",
+   "hook_label": "BLACK FRIDAY",
+   "hook_type": "price",
+   "opening_shot": [
+    "1fKQ6MF6lWMUQnekaOP-KLVdEFaLAHH06",
+    6.61
+   ],
+   "hook_source": "script"
+  }
+ ],
+ "tts_lines": 33,
+ "tts_dupes": {},
+ "est_credits": 11.5,
+ "budget": 100.0,
+ "colour_images": {},
+ "packshots": [
+  "/tmp/run/hobo20-bf-3v2s/site/hobo_2_0_08.jpg",
+  "/tmp/run/hobo20-bf-3v2s/site/hobo_2_0_03.jpg",
+  "/tmp/run/hobo20-bf-3v2s/site/hobo_2_0_07.jpg"
+ ],
+ "brief": null,
+ "ai": {
+  "stills": 1,
+  "clips": 0,
+  "est_credits": 1.0,
+  "budget": {
+   "cap": 100.0,
+   "tts_est": 13.5,
+   "reserve": 8.0
+  },
+  "scenes": [
+   "p01_s01_cafe_chalkboard"
+  ],
+  "next": "python3 pipeline/ai_gen.py show --out /tmp/run/hobo20-bf-3v2s"
+ },
+ "winners_source": null,
+ "winners_note": null,
+ "winners_used": [],
+ "unmatched_winners": [],
+ "warnings": [
+  "campaign: Black Friday Sale 2026 (2026-10-23 to 2026-11-30, client-approved): end cards say 'Black Friday Sale' + 'UP TO 60% OFF'; the close and the ad copy name the sale; each bag's own % stays its offer",
+  "ideas: 1 AI statics of 2 (1 designed ads, 0 studio scenes; about 1 credits plus retries)"
+ ],
+ "winner_reviews": false,
+ "seed": 4,
+ "hooks": 4,
+ "pipeline": "catalog",
+ "video_format": "ugc",
+ "ugc_numbers": [
+  3
+ ],
+ "voice": {
+  "voice_type": "element",
+  "voice_id": "241459b6-b4e8-4a2a-9868-da8bcdcd0558",
+  "speed": 1.12
+ },
+ "projects": [
+  {
+   "id": "P01",
+   "from_id": "V01",
+   "angle": "packedcafe",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P01H1",
+     "name": "LC_261102_Hobo20_BlackFriday_B031_P01_H1_packedcafe",
+     "hook_text": "How many times do you check your zip in a crowd?",
+     "label": "CROWD CHECK",
+     "type": "question",
+     "shot": [
+      "1d-NfhyXONZdjfr9UBSKd99VUPx9mK7HB",
+      17.5
+     ],
+     "est_seconds": 66.5
+    },
+    {
+     "hook": "H2",
+     "id": "P01H2",
+     "name": "LC_261102_Hobo20_BlackFriday_B031_P01_H2_packedcafe",
+     "hook_text": "Squeezing through a packed cafe with your bag open behind you.",
+     "label": "PACKED CAFE",
+     "type": "problem",
+     "shot": [
+      "1zXDKJTjouSLICR6xe8HaeclF5pqxCQfg",
+      0.65
+     ],
+     "est_seconds": 66.5
+    },
+    {
+     "hook": "H3",
+     "id": "P01H3",
+     "name": "LC_261102_Hobo20_BlackFriday_B031_P01_H3_packedcafe",
+     "hook_text": "Watch these two zips clip together. Then try to get in.",
+     "label": "ZIPS CLIP",
+     "type": "promise",
+     "shot": [
+      "10-LsHkfV3u9PrkOGaRMd05mLG8u6mvMk",
+      10.99
+     ],
+     "est_seconds": 66.5
+    },
+    {
+     "hook": "H4",
+     "id": "P01H4",
+     "name": "LC_261102_Hobo20_BlackFriday_B031_P01_H4_packedcafe",
+     "hook_text": "Black Friday prices are live now, and this bag locks.",
+     "label": "BLACK FRIDAY",
+     "type": "price",
+     "shot": [
+      "1juPX-JUyhBssX6HkWEaTlZSS1WdrwQZz",
+      0.3
+     ],
+     "est_seconds": 66.2
+    }
+   ]
+  },
+  {
+   "id": "P02",
+   "from_id": "V02",
+   "angle": "newjobbag",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P02H1",
+     "name": "LC_261102_Hobo20_BlackFriday_B031_P02_H1_newjobbag",
+     "hook_text": "What bag do you tell your best friend to take to a new job?",
+     "label": "NEW JOB BAG",
+     "type": "question",
+     "shot": [
+      "1BJo9-k08c-2e3Ad1KYteSNOxAKguuktL",
+      29.69
+     ],
+     "est_seconds": 68.1
+    },
+    {
+     "hook": "H2",
+     "id": "P02H2",
+     "name": "LC_261102_Hobo20_BlackFriday_B031_P02_H2_newjobbag",
+     "hook_text": "One bag, two straps, and she never has to swap bags.",
+     "label": "TWO STRAPS",
+     "type": "promise",
+     "shot": [
+      "19b24obdxcefZAUrIgKg5AkoVVzCbduxU",
+      9.05
+     ],
+     "est_seconds": 67.1
+    },
+    {
+     "hook": "H3",
+     "id": "P02H3",
+     "name": "LC_261102_Hobo20_BlackFriday_B031_P02_H3_newjobbag",
+     "hook_text": "Her keys are at the bottom of the bag again.",
+     "label": "KEYS AGAIN",
+     "type": "problem",
+     "shot": [
+      "1xckKfgWOCLTomMMu9jksmpS5IW_mI78-",
+      7.48
+     ],
+     "est_seconds": 66.8
+    },
+    {
+     "hook": "H4",
+     "id": "P02H4",
+     "name": "LC_261102_Hobo20_BlackFriday_B031_P02_H4_newjobbag",
+     "hook_text": "The one bag for the commute, the coffee run and the desk.",
+     "label": "COMMUTE TO DESK",
+     "type": "superlative",
+     "shot": [
+      "1XJbrYzp-jZl33yYkGVRoA8MHqGAKQdkW",
+      0.3
+     ],
+     "est_seconds": 67.5
+    }
+   ]
+  },
+  {
+   "id": "P03",
+   "from_id": "V03",
+   "angle": "keystest",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P03H1",
+     "name": "LC_261102_Hobo20_BlackFriday_B031_P03_H1_keystest",
+     "hook_text": "Can you find your keys without looking in your bag?",
+     "label": "KEYS TEST",
+     "type": "question",
+     "shot": [
+      "1nxzzSt-G9vABq76AoPtjSqnHNSP2xxBS",
+      5.74
+     ],
+     "est_seconds": 64.9
+    },
+    {
+     "hook": "H2",
+     "id": "P03H2",
+     "name": "LC_261102_Hobo20_BlackFriday_B031_P03_H2_keystest",
+     "hook_text": "Digging to the bottom of your bag for a pair of keys. Again.",
+     "label": "STOP DIGGING",
+     "type": "problem",
+     "shot": [
+      "1CjZGYrcaE63PlI4z57Yhrsh_RUIa-MI9",
+      17.63
+     ],
+     "est_seconds": 65.9
+    },
+    {
+     "hook": "H3",
+     "id": "P03H3",
+     "name": "LC_261102_Hobo20_BlackFriday_B031_P03_H3_keystest",
+     "hook_text": "Phone, cards, keys. Watch where each one goes.",
+     "label": "WHERE IT GOES",
+     "type": "promise",
+     "shot": [
+      "19MHATytTVepRgB8uaSuF6h6ByeNKLBhU",
+      0.3
+     ],
+     "est_seconds": 64.3
+    },
+    {
+     "hook": "H4",
+     "id": "P03H4",
+     "name": "LC_261102_Hobo20_BlackFriday_B031_P03_H4_keystest",
+     "hook_text": "Black Friday prices are live now, and this bag passes the keys test.",
+     "label": "BLACK FRIDAY",
+     "type": "price",
+     "shot": [
+      "1fKQ6MF6lWMUQnekaOP-KLVdEFaLAHH06",
+      6.61
+     ],
+     "est_seconds": 65.9
+    }
+   ]
+  }
+ ],
+ "hooks_seed": 4
+}

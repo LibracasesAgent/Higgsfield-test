@@ -1,0 +1,47 @@
+{
+ "stills": [
+  {
+   "id": "AS01",
+   "use": "static",
+   "scene": "p01_s01_cafe_chalkboard",
+   "kind": "object",
+   "colour": "Galaxy Black",
+   "layout": "ad",
+   "format": "cafe_chalkboard",
+   "tag": "cafechalkboa",
+   "words": [
+    "BLACK FRIDAY SPECIAL",
+    "HOBO 2.0",
+    "50% OFF"
+   ],
+   "ref": "/tmp/run/hobo20-bf-3v2s/site/hobo_2_0_ref_black_clean.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS01.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 0,
+   "prompt": "A candid phone photo in a sunny cafe: the closed bag sits on a small wooden table beside a little A-frame chalkboard stand; the chalk lettering is big, hand-drawn white on black slate, 2-3 short lines, easy to read on a phone; warm window light, shallow depth of field, a latte cup at the edge, nobody in the picture; real textures, nothing glossy. The closed black bag stands on a small round wooden cafe table next to a little A-frame chalkboard stand with an empty slate (the words go on it), a latte in a white cup at the table's edge, soft sunny window light from the left, a softly blurred cafe behind. The exact handbag from the reference image, unchanged: same colour, same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"BLACK FRIDAY SPECIAL\" / \"HOBO 2.0\" / \"50% OFF\". Set them as clean, legible type, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  }
+ ],
+ "clips": [],
+ "est_credits": 1.0,
+ "notes": [],
+ "grade_refs": [],
+ "budget": {
+  "cap": 100.0,
+  "tts_est": 13.5,
+  "reserve": 8.0
+ },
+ "steps": [
+  "1. Upload each distinct `ref` once (media_upload, curl PUT, media_confirm); generate every still with generate_image_batch (model/params/prompt as listed, medias [{value: media_id, role: image_references}], max 12 per call); jobs_wait; download each result to $OUT/<file>.",
+  "2. python3 pipeline/ai_gen.py gate --out $OUT ; LOOK at $OUT/qa/ai_stills.jpg (reference | still): reject any still where the bag's shape, colour, handles or hardware differ from the reference, or that looks AI: python3 pipeline/ai_gen.py reject --out $OUT AS03 ...",
+  "3. For every clip whose start still passed: generate_video_batch (start_image = that still's job id, model/params/prompt as listed); jobs_wait; download to $OUT/<file>. Clips of a rejected still are skipped. If a submission comes back with a preset recommendation instead of a job, send it again with `declined_preset_id` = that preset's id (the project never uses presets).",
+  "4. python3 pipeline/ai_gen.py clips --out $OUT ; LOOK at $OUT/qa/ai_clips.jpg; reject morphing / odd-hand clips with `reject`. Then render as usual (it applies the result).",
+  "Report: credits before -> after (balance), how many AI assets passed. Never ship a still or clip you would not believe is real."
+ ]
+}

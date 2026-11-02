@@ -1,0 +1,34 @@
+{
+ "ads": [
+  {
+   "layout": "ad",
+   "photo": "ai/AS01.png",
+   "format": "cafe_chalkboard",
+   "words": [
+    "BLACK FRIDAY SPECIAL",
+    "HOBO 2.0",
+    "50% OFF"
+   ],
+   "headline": "Black Friday special: Hobo 2.0",
+   "name": "LC_261102_Hobo20_BlackFriday_B031_S01_cafechalkboa",
+   "ai": {
+    "id": "AS01",
+    "scene": "p01_s01_cafe_chalkboard",
+    "colour": null,
+    "format": "cafe_chalkboard"
+   }
+  },
+  {
+   "layout": "native",
+   "photo": "photos/frames/F_1DheWHopin_0112.jpg",
+   "caption": "One bag. Two straps.",
+   "pct": 50,
+   "name": "LC_261102_Hobo20_BlackFriday_B031_S02_native",
+   "frame": {
+    "clip": "1DheWHopiniQ2Eqj19EnuBdB4BGLYKaP1",
+    "t": 11.25
+   }
+  }
+ ],
+ "card_photos": []
+}

@@ -1,0 +1,186 @@
+{
+ "ok": true,
+ "created": "2026-11-02",
+ "product": "Hobo 2.0",
+ "theme": "black friday",
+ "theme_name": "BlackFriday",
+ "offer": "50% off + free pouch wallet",
+ "seed": 4,
+ "cta": "Get Offer",
+ "rows": 14,
+ "csv": "/tmp/run/hobo20-bf-3v2s/ad_copy.csv",
+ "statics": [
+  {
+   "id": "S01",
+   "ad_name": "LC_261102_Hobo20_BlackFriday_B031_S01_cafechalkboa",
+   "angle": "ad",
+   "primary_text_1": "Black Friday came early.\nThe Hobo 2.0, now 50% off with a free pouch wallet.",
+   "primary_text_2": "It looks like a normal leather bag. Look closer. 🖤\nAn RFID lining that blocks card scanners.\nA cut-resistant strap.\nBlack Friday: 50% off + a free pouch wallet. 🎁\nTap Get Offer before it's gone.",
+   "headline_1": "Early Black Friday: 50% Off",
+   "headline_2": "Up to 60% Off Bundles",
+   "description": "50% off + free US shipping",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER"
+  },
+  {
+   "id": "S02",
+   "ad_name": "LC_261102_Hobo20_BlackFriday_B031_S02_native",
+   "angle": "native",
+   "primary_text_1": "This is the Black Friday deal you've been waiting for.\nThe Hobo 2.0: 50% off + free wallet.",
+   "primary_text_2": "Take a closer look at the Hobo 2.0. 🖤\nA cut-resistant strap.\nA table strap that loops around your chair, so your bag stays right where you left it.\nBlack Friday Sale: up to 60% off. 🎁\nTap Get Offer before it's gone.",
+   "headline_1": "Black Friday Prices Are Live",
+   "headline_2": "50% Off the Hobo 2.0 + Free Wallet",
+   "description": "Up to 60% off",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER"
+  }
+ ],
+ "projects": [
+  {
+   "id": "P01",
+   "angle": "packedcafe",
+   "engine": "storyboard",
+   "product": "Hobo 2.0",
+   "winner": null,
+   "primary_text_1": "This bag straps to your chair.\nThe Hobo 2.0, now 50% off with a free pouch wallet.",
+   "primary_text_2": "Six layers of security, inside a classic leather hobo bag. 🖤\nLockable zippers, so nobody can open it in a crowd.\nAn RFID lining that blocks card scanners.\nBlack Friday Sale: up to 60% off. 🎁\nTap Get Offer to claim the deal.",
+   "headline_1": "Black Friday: 50% Off",
+   "headline_2": "Now 50% Off: The Hobo 2.0",
+   "description": "3 colours + free US shipping",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER",
+   "versions": [
+    {
+     "hook": "H1",
+     "id": "P01H1",
+     "ad_name": "LC_261102_Hobo20_BlackFriday_B031_P01_H1_packedcafe",
+     "hook_text": "How many times do you check your zip in a crowd?",
+     "hook_first_line": "How many times do you check your zip in a crowd?",
+     "primary_text_2_hook": "How many times do you check your zip in a crowd?\nLockable zippers, so nobody can open it in a crowd.\nAn RFID lining that blocks card scanners.\nBlack Friday Sale: up to 60% off. 🎁\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H2",
+     "id": "P01H2",
+     "ad_name": "LC_261102_Hobo20_BlackFriday_B031_P01_H2_packedcafe",
+     "hook_text": "Squeezing through a packed cafe with your bag open behind you.",
+     "hook_first_line": "Squeezing through a packed cafe with your bag open behind you.",
+     "primary_text_2_hook": "Squeezing through a packed cafe with your bag open behind you.\nLockable zippers, so nobody can open it in a crowd.\nAn RFID lining that blocks card scanners.\nBlack Friday Sale: up to 60% off. 🎁\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H3",
+     "id": "P01H3",
+     "ad_name": "LC_261102_Hobo20_BlackFriday_B031_P01_H3_packedcafe",
+     "hook_text": "Watch these two zips clip together. Then try to get in.",
+     "hook_first_line": "Watch these two zips clip together. Then try to get in.",
+     "primary_text_2_hook": "Watch these two zips clip together. Then try to get in.\nLockable zippers, so nobody can open it in a crowd.\nAn RFID lining that blocks card scanners.\nBlack Friday Sale: up to 60% off. 🎁\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H4",
+     "id": "P01H4",
+     "ad_name": "LC_261102_Hobo20_BlackFriday_B031_P01_H4_packedcafe",
+     "hook_text": "Black Friday prices are live now, and this bag locks.",
+     "hook_first_line": "Black Friday prices are live now, and this bag locks.",
+     "primary_text_2_hook": "Black Friday prices are live now, and this bag locks.\nLockable zippers, so nobody can open it in a crowd.\nAn RFID lining that blocks card scanners.\nBlack Friday Sale: up to 60% off. 🎁\nTap Get Offer to claim the deal."
+    }
+   ]
+  },
+  {
+   "id": "P02",
+   "angle": "newjobbag",
+   "engine": "storyboard",
+   "product": "Hobo 2.0",
+   "winner": null,
+   "primary_text_1": "An open bag in a crowd is an easy target.\nBlack Friday: 50% off the Hobo 2.0 + free wallet.",
+   "primary_text_2": "This bag's lining blocks card scanners. 🖤\nA cut-resistant strap.\nHidden pockets and smart compartments for everything else.\nBlack Friday Sale: up to 60% off. 🎁\nTap Get Offer before it's gone.",
+   "headline_1": "Black Friday: 50% Off the Hobo 2.0",
+   "headline_2": "Free Pouch Wallet Included",
+   "description": "3 colours to choose from",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER",
+   "versions": [
+    {
+     "hook": "H1",
+     "id": "P02H1",
+     "ad_name": "LC_261102_Hobo20_BlackFriday_B031_P02_H1_newjobbag",
+     "hook_text": "What bag do you tell your best friend to take to a new job?",
+     "hook_first_line": "What bag do you tell your best friend to take to a new job?",
+     "primary_text_2_hook": "What bag do you tell your best friend to take to a new job?\nA cut-resistant strap.\nHidden pockets and smart compartments for everything else.\nBlack Friday Sale: up to 60% off. 🎁\nTap Get Offer before it's gone."
+    },
+    {
+     "hook": "H2",
+     "id": "P02H2",
+     "ad_name": "LC_261102_Hobo20_BlackFriday_B031_P02_H2_newjobbag",
+     "hook_text": "One bag, two straps, and she never has to swap bags.",
+     "hook_first_line": "One bag, two straps, and she never has to swap bags.",
+     "primary_text_2_hook": "One bag, two straps, and she never has to swap bags.\nA cut-resistant strap.\nHidden pockets and smart compartments for everything else.\nBlack Friday Sale: up to 60% off. 🎁\nTap Get Offer before it's gone."
+    },
+    {
+     "hook": "H3",
+     "id": "P02H3",
+     "ad_name": "LC_261102_Hobo20_BlackFriday_B031_P02_H3_newjobbag",
+     "hook_text": "Her keys are at the bottom of the bag again.",
+     "hook_first_line": "Her keys are at the bottom of the bag again.",
+     "primary_text_2_hook": "Her keys are at the bottom of the bag again.\nA cut-resistant strap.\nHidden pockets and smart compartments for everything else.\nBlack Friday Sale: up to 60% off. 🎁\nTap Get Offer before it's gone."
+    },
+    {
+     "hook": "H4",
+     "id": "P02H4",
+     "ad_name": "LC_261102_Hobo20_BlackFriday_B031_P02_H4_newjobbag",
+     "hook_text": "The one bag for the commute, the coffee run and the desk.",
+     "hook_first_line": "The one bag for the commute, the coffee run and the desk.",
+     "primary_text_2_hook": "The one bag for the commute, the coffee run and the desk.\nA cut-resistant strap.\nHidden pockets and smart compartments for everything else.\nBlack Friday Sale: up to 60% off. 🎁\nTap Get Offer before it's gone."
+    }
+   ]
+  },
+  {
+   "id": "P03",
+   "angle": "keystest",
+   "engine": "storyboard",
+   "product": "Hobo 2.0",
+   "winner": null,
+   "primary_text_1": "Would you carry a bag that locks?\nBlack Friday deal: the Hobo 2.0 is 50% off + free wallet.",
+   "primary_text_2": "Worried about pickpockets in a crowd? These zippers lock. 🖤\nHidden pockets and smart compartments for everything else.\nA table strap that loops around your chair, so your bag stays right where you left it.\nThis Black Friday: 50% off + a free pouch wallet. 🎁\nTap Get Offer to claim the deal.",
+   "headline_1": "Black Friday Deal: 50% Off + Free Wallet",
+   "headline_2": "Hobo 2.0: 50% Off + Free Wallet",
+   "description": "1-year warranty included",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER",
+   "versions": [
+    {
+     "hook": "H1",
+     "id": "P03H1",
+     "ad_name": "LC_261102_Hobo20_BlackFriday_B031_P03_H1_keystest",
+     "hook_text": "Can you find your keys without looking in your bag?",
+     "hook_first_line": "Can you find your keys without looking in your bag?",
+     "primary_text_2_hook": "Can you find your keys without looking in your bag?\nHidden pockets and smart compartments for everything else.\nA table strap that loops around your chair, so your bag stays right where you left it.\nThis Black Friday: 50% off + a free pouch wallet. 🎁\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H2",
+     "id": "P03H2",
+     "ad_name": "LC_261102_Hobo20_BlackFriday_B031_P03_H2_keystest",
+     "hook_text": "Digging to the bottom of your bag for a pair of keys. Again.",
+     "hook_first_line": "Digging to the bottom of your bag for a pair of keys. Again.",
+     "primary_text_2_hook": "Digging to the bottom of your bag for a pair of keys. Again.\nHidden pockets and smart compartments for everything else.\nA table strap that loops around your chair, so your bag stays right where you left it.\nThis Black Friday: 50% off + a free pouch wallet. 🎁\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H3",
+     "id": "P03H3",
+     "ad_name": "LC_261102_Hobo20_BlackFriday_B031_P03_H3_keystest",
+     "hook_text": "Phone, cards, keys. Watch where each one goes.",
+     "hook_first_line": "Phone, cards, keys. Watch where each one goes.",
+     "primary_text_2_hook": "Phone, cards, keys. Watch where each one goes.\nHidden pockets and smart compartments for everything else.\nA table strap that loops around your chair, so your bag stays right where you left it.\nThis Black Friday: 50% off + a free pouch wallet. 🎁\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H4",
+     "id": "P03H4",
+     "ad_name": "LC_261102_Hobo20_BlackFriday_B031_P03_H4_keystest",
+     "hook_text": "Black Friday prices are live now, and this bag passes the keys test.",
+     "hook_first_line": "Black Friday prices are live now, and this bag passes the keys test.",
+     "primary_text_2_hook": "Black Friday prices are live now, and this bag passes the keys test.\nHidden pockets and smart compartments for everything else.\nA table strap that loops around your chair, so your bag stays right where you left it.\nThis Black Friday: 50% off + a free pouch wallet. 🎁\nTap Get Offer to claim the deal."
+    }
+   ]
+  }
+ ],
+ "notes": [],
+ "problems": []
+}
