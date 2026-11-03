@@ -102,6 +102,29 @@ def test_every_batch_new_formats():
     assert not [p for p in redo if "last batch" in p or "earlier batch" in p or "of your own" in p], redo   # a redo of B030 itself
 
 
+def test_a_statics_only_sheet_needs_no_project():
+    import novelty
+    stats = [dict(ad("S01", "bold_poster", ["HALF PRICE."]), project=None), dict(ad("S02", "film_still", ["Last stop."], **OWN), project=None),
+             dict(id="S03", layout="studio", idea="The real packshot large on a calm backdrop.", headline="The Hobo Bag.")]
+    sheet = dict(product="Hobo Bag", theme="black friday", date="2026-11-03", research=["a statics-only batch"], projects=[], statics=stats)
+    real = novelty.load
+    novelty.load = lambda *a, **k: {"products": {}}
+    try:
+        P, _ = ideas.check(sheet, pr(), n_projects=0, n_statics=3)
+    finally:
+        novelty.load = real
+    assert not [p for p in P if "not in the sheet" in p], P
+    md = ideas.sheet_md(sheet)
+    assert "## Statics" in md and "S01" in md and "S03" in md, md
+    sheet["projects"], stats[0]["project"] = [], "P07"
+    novelty.load = lambda *a, **k: {"products": {}}
+    try:
+        P, _ = ideas.check(sheet, pr(), n_projects=0, n_statics=3)
+    finally:
+        novelty.load = real
+    assert any("S01: project 'P07' is not in the sheet" in p for p in P), P
+
+
 def test_the_prompt_carries_the_words_and_the_rules():
     lib = ai_gen.library()
     f = ideas.formats()["formats"]["pov_behind"]

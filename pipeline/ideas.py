@@ -519,7 +519,7 @@ def check(sheet, pr, n_projects=None, n_statics=None, exclude=None, day=None):
         elif s.get("layout") in SALE_LAYOUTS and not (camp and camp.get({"gifts": "gifts", "bundle": "bundle_any"}[s["layout"]])):
             P.append(f"{sid}: layout {s['layout']!r} needs a sale campaign with {'free gifts' if s['layout'] == 'gifts' else 'a 2-3 bag bundle'} "
                      f"running for the theme (campaign.py: none for {sheet.get('theme')!r} today)")
-        if s.get("project") not in seen_ids:
+        if s.get("project") not in seen_ids and (seen_ids or s.get("project")):   # a statics-only sheet: no project needed
             P.append(f"{sid}: project {s.get('project')!r} is not in the sheet")
         if len(str(s.get("idea") or "")) < 10:
             P.append(f"{sid}: idea: the creative idea in one sentence")
@@ -786,18 +786,24 @@ def sheet_md(sheet, scripts_=None):
                      f"{', '.join(c.get('show') or [])} | {(str(c['number']) + '. ' if c.get('number') else '') + (c.get('tag') or '')} |")
         w = sum(nwords(c["text"]) for c in p["chapters"]) + nwords(p["hooks"][0]["text"])
         L += [f"\n_{w} words, about {round(w / (2.55 if pres else 3.08))} s._\n"]
-        sts = [s for s in sheet.get("statics") or [] if s.get("project") == p["id"]]
-        if sts:
-            L += ["**Statics:**\n", "| # | Look | Idea | Words |", "|---|---|---|---|"]
-            for s in sts:
-                words = " · ".join(x for x in (s.get("kicker"), s.get("headline"), s.get("sub"), "50% pill" if s.get("pill") else "", s.get("badge")) if x)
-                look = s["layout"] + (" (AI scene: " + s["scene"]["kind"] + ")" if s["layout"] == "concept" else "")
-                if s["layout"] == "ad":
-                    fmt = ad_format(s)
-                    look, words = f"AI ad: {fmt.get('name')}{' (new format)' if fmt.get('new') else ''}", " / ".join(s.get("words") or [])
-                L.append(f"| {s['id']} | {look} | {s['idea']} | {words or '-'} |")
-            L.append("")
+        L += _statics_table([s for s in sheet.get("statics") or [] if s.get("project") == p["id"]], "**Statics:**\n")
+    pids = {p["id"] for p in sheet.get("projects") or []}
+    L += _statics_table([s for s in sheet.get("statics") or [] if s.get("project") not in pids], "## Statics\n")   # a statics-only sheet
     return "\n".join(L) + "\n"
+
+
+def _statics_table(sts, head):
+    if not sts:
+        return []
+    L = [head, "| # | Look | Idea | Words |", "|---|---|---|---|"]
+    for s in sts:
+        words = " · ".join(x for x in (s.get("kicker"), s.get("headline"), s.get("sub"), "50% pill" if s.get("pill") else "", s.get("badge")) if x)
+        look = s["layout"] + (" (AI scene: " + s["scene"]["kind"] + ")" if s["layout"] == "concept" else "")
+        if s["layout"] == "ad":
+            fmt = ad_format(s)
+            look, words = f"AI ad: {fmt.get('name')}{' (new format)' if fmt.get('new') else ''}", " / ".join(s.get("words") or [])
+        L.append(f"| {s['id']} | {look} | {s['idea']} | {words or '-'} |")
+    return L + [""]
 
 
 def sheet_csv(sheet, path):
