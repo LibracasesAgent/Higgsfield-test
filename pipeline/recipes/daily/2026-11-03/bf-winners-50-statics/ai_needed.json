@@ -1,0 +1,1072 @@
+{
+ "stills": [
+  {
+   "id": "AS01",
+   "use": "static",
+   "scene": "p00_s01_magazine_cover",
+   "kind": "object",
+   "colour": "Burgundy",
+   "layout": "ad",
+   "format": "magazine_cover",
+   "tag": "magazine",
+   "words": [
+    "LIBRA",
+    "THE BAG WITH A HIDDEN POCKET",
+    "THREE WAYS TO WEAR IT",
+    "BLACK FRIDAY: 50% OFF"
+   ],
+   "ref": "/tmp/run/bf50/site/hobo_bag_colour_burgundy.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS01.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 0,
+   "prompt": "A premium fashion-magazine cover, shot and laid out like a real printed issue: the bag photographed large as the cover star on a seamless studio backdrop in one rich colour, soft directional studio light with a gentle shadow, a tall elegant serif masthead across the top behind the top of the bag, a few short cover lines in a clean sans-serif down the left side, generous margins, the look of glossy paper. A seamless deep burgundy studio backdrop, the burgundy bag large and centred like a cover star, soft directional light and a gentle shadow on the floor. The exact handbag from the reference image, unchanged: same colour (burgundy), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"LIBRA\" / \"THE BAG WITH A HIDDEN POCKET\" / \"THREE WAYS TO WEAR IT\" / \"BLACK FRIDAY: 50% OFF\". Set them as the masthead in a tall high-contrast serif, the cover lines in a clean condensed sans-serif, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS02",
+   "use": "static",
+   "scene": "p00_s04_feature_diagram",
+   "kind": "object",
+   "colour": "Brown",
+   "layout": "ad",
+   "format": "feature_diagram",
+   "tag": "diagram",
+   "words": [
+    "Everything within reach",
+    "Gold zip: keys",
+    "Gold zip: phone",
+    "Top zip: closed"
+   ],
+   "ref": "/tmp/run/bf50/site/hobo_bag_colour_dark_sienna_nobadge.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS02.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 3,
+   "prompt": "A clean product infographic: the bag photographed straight-on on a plain light backdrop, centred and large, with thin straight leader lines from each feature to a short label set neatly at the left and right edges, a headline at the top, lots of white space, like a premium catalogue page. The bag photographed on a plain warm-white backdrop, large and centred, seen straight-on from the front exactly like the reference so BOTH gold side zips (one on the left side of the bag, one on the right side) and the gold top zip are visible, three thin straight leader lines: the label 'Gold zip: keys' points exactly at the gold zip on the left side of the bag, the label 'Gold zip: phone' points exactly at the gold zip on the right side of the bag, and the label 'Top zip: closed' points exactly at the gold zip along the top opening; the labels sit neatly at the left and right edges and the headline at the top. The exact handbag from the reference image, unchanged: same colour (brown), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. Only label what is visible from this angle; each leader line points exactly at the part it names. The only words in the image, each exactly once and spelled exactly as written: \"Everything within reach\" / \"Gold zip: keys\" / \"Gold zip: phone\" / \"Top zip: closed\". Set them as the headline in a refined serif, the labels in a clear medium-weight sans-serif, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS03",
+   "use": "static",
+   "scene": "p00_s06",
+   "kind": "object",
+   "colour": "Brown",
+   "layout": "concept",
+   "ref": "/tmp/run/bf50/site/hobo_bag_colour_dark_sienna_nobadge.jpg",
+   "aspect": "1:1",
+   "file": "ai/AS03.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "1:1"
+   },
+   "slot": 5,
+   "prompt": "Photorealistic candid lifestyle photograph, natural light, shot on a 35mm lens, shallow depth of field, true-to-life colours, fine film grain, no text, no logos, no watermark. The exact handbag from the reference image, unchanged: same colour (brown), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The bag standing upright on a light oak cafe table beside a white cup of latte and a small notebook, soft morning window light from the left, a shallow blurred cafe interior behind, the lower part of the frame is a calm empty oak table. Nobody is in the picture, not even blurred in the background. Square 1:1 composition, the handbag clearly visible and large in the frame.",
+   "est_credits": 1.0,
+   "motion": "AM01"
+  },
+  {
+   "id": "AS04",
+   "use": "static",
+   "scene": "p00_s12_bold_poster",
+   "kind": "object",
+   "colour": "Grey",
+   "layout": "ad",
+   "format": "bold_poster",
+   "tag": "poster",
+   "words": [
+    "50% OFF.",
+    "Black Friday"
+   ],
+   "ref": "/tmp/run/bf50/site/hobo_bag_colour_grey.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS04.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 11,
+   "prompt": "A bold graphic poster: one saturated flat colour fills the frame, the bag photographed as a clean cut-out with a soft natural drop shadow, very large heavy type that fills the width above it, one small line below, nothing else, confident Swiss-style layout. One saturated flat tomato-red colour fills the whole frame, the grey bag as a clean cut-out in the lower half with a soft natural drop shadow, the huge heavy type fills the top of the frame. The exact handbag from the reference image, unchanged: same colour (grey), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"50% OFF.\" / \"Black Friday\". Set them as the big words in a heavy bold grotesque sans-serif, the small line in the same family, light weight, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS05",
+   "use": "static",
+   "scene": "p00_s13_hand_note",
+   "kind": "object",
+   "colour": "Brown",
+   "layout": "ad",
+   "format": "hand_note",
+   "tag": "handnote",
+   "words": [
+    "Keys: side zip.",
+    "Cards: back pocket."
+   ],
+   "ref": "/tmp/run/bf50/site/hobo_bag_colour_dark_sienna_nobadge.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS05.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 12,
+   "prompt": "A candid real photo of a tidy desk with a small handwritten paper note stuck up like a reminder, natural slightly uneven handwriting in blue pen, the note large enough to read on a phone, soft window light, shallow depth of field, a realistic stationery look, no cartoon sticky-note graphics. A real photograph of a white wooden desk in daylight: the bag stands on the desk, and next to it a large square yellow paper note, about a third of the picture's width, is stuck on the front of the desk lamp shade facing the camera, handwritten in big thick blue marker letters with real uneven ink on two lines, slightly curled corner, nothing cartoonish, the handwriting large and easy to read on a phone. The exact handbag from the reference image, unchanged: same colour (brown), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"Keys: side zip.\" / \"Cards: back pocket.\". Set them as clean, legible type, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS06",
+   "use": "static",
+   "scene": "p00_s14_pov_behind",
+   "kind": "behind",
+   "colour": "Galaxy Black",
+   "layout": "ad",
+   "format": "pov_behind",
+   "tag": "pov",
+   "words": [
+    "POV: your keys are one zip away"
+   ],
+   "ref": "/tmp/run/bf50/site/hobo_bag_colour_galaxy_black.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS06.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 13,
+   "prompt": "A candid phone photo taken by a friend walking a few steps behind her: real street life, slightly off-centre framing, natural mixed light (shop windows, dusk sky or daylight), a little motion blur in the passers-by, real clothes with creases and texture, ordinary city details, nothing glossy, staged or computer-made. One short caption in bold white sans-serif with a soft shadow sits large across the empty sky or wall area, the way people caption a photo. A woman in a camel coat walks along a busy city pavement at dusk, seen only from behind, the black bag hanging on her shoulder with its gold side zip towards the camera, shop windows glowing, passers-by far away and blurred. The exact handbag from the reference image, unchanged: same colour (galaxy black), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"POV: your keys are one zip away\". Set them as a bold white sans-serif caption with a soft dark shadow, sentence case, set large on two or three lines, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. She is seen only from behind, walking away from the camera, her head turned forward, the bag on her shoulder towards the camera; nobody else faces the camera. No face is visible anywhere: nobody looks at the camera, every other person is far away, blurred and facing away. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS07",
+   "use": "static",
+   "scene": "p00_s16_tearoff_day",
+   "kind": "object",
+   "colour": "Red",
+   "layout": "ad",
+   "format": "tearoff_day",
+   "tag": "tearoffday",
+   "words": [
+    "FRIDAY",
+    "27",
+    "NOVEMBER",
+    "Black Friday"
+   ],
+   "ref": "/tmp/run/bf50/site/hobo_bag_colour_red.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS07.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 15,
+   "prompt": "A real close photograph of a paper tear-off day calendar block on a desk: the top page is cream paper with FRIDAY small in red capitals at the top, the date number set huge in a heavy serif in the middle, the month in small capitals below it and one short handwritten line in black marker across the bottom; crisp paper edges, soft daylight, calm editorial composition. A real photo of a desk tear-off day calendar block standing on a wooden desk, its top page showing a very large number on a plain cream page, the red bag standing beside it, soft window light, shallow depth of field. The exact handbag from the reference image, unchanged: same colour (red), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"FRIDAY\" / \"27\" / \"NOVEMBER\" / \"Black Friday\". Set them as clean, legible type, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS08",
+   "use": "static",
+   "scene": "p00_s17",
+   "kind": "object",
+   "colour": "Galaxy Black",
+   "layout": "concept",
+   "ref": "/tmp/run/bf50/site/hobo_bag_colour_galaxy_black.jpg",
+   "aspect": "1:1",
+   "file": "ai/AS08.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "1:1"
+   },
+   "slot": 16,
+   "prompt": "Photorealistic candid lifestyle photograph, natural light, shot on a 35mm lens, shallow depth of field, true-to-life colours, fine film grain, no text, no logos, no watermark. The exact handbag from the reference image, unchanged: same colour (galaxy black), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The bag standing on a dark walnut console table in the evening beside a lit white candle in a glass jar and a small ceramic dish, a dim warm wall behind, the lower part of the frame is a calm empty dark wood surface. Nobody is in the picture, not even blurred in the background. Square 1:1 composition, the handbag clearly visible and large in the frame.",
+   "est_credits": 1.0,
+   "motion": "AM02"
+  },
+  {
+   "id": "AS09",
+   "use": "static",
+   "scene": "p00_s18_flat_lay",
+   "kind": "object",
+   "colour": "Galaxy Black",
+   "layout": "ad",
+   "format": "flat_lay",
+   "tag": "flatlay",
+   "words": [
+    "Passport. Keys. Phone.",
+    "Each has a place."
+   ],
+   "ref": "/tmp/run/bf50/site/hobo_bag_colour_galaxy_black.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS09.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 17,
+   "prompt": "A top-down flat lay photographed from directly above on a real surface (oak table, linen, marble), soft window light from one side with natural shadows, the bag zipped shut in the middle and the everyday things it holds laid neatly around it, a calm empty area at the top for a short serif headline and one small line. A top-down flat lay on a pale linen cloth: the closed black bag in the middle, a plain navy passport, a single brass door key lying flat on its own (no keyring, no loop, no chain), a phone lying flat and a lipstick laid neatly around it, soft window light from one side, a calm empty area at the top for the headline. The exact handbag from the reference image, unchanged: same colour (galaxy black), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. The bag is closed (zipped): never show its inside; the items lie next to it, not in it. The only words in the image, each exactly once and spelled exactly as written: \"Passport. Keys. Phone.\" / \"Each has a place.\". Set them as the headline in an elegant serif, the line in a small sans-serif, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS10",
+   "use": "static",
+   "scene": "p00_s19_sale_tag",
+   "kind": "object",
+   "colour": "Grey",
+   "layout": "ad",
+   "format": "sale_tag",
+   "tag": "saletag",
+   "words": [
+    "BLACK FRIDAY",
+    "50% OFF"
+   ],
+   "ref": "/tmp/run/bf50/site/hobo_bag_colour_grey.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS10.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 18,
+   "prompt": "A real close photograph of a big kraft-paper hang tag with a punched hole and string, stamped with bold black letterpress type, hanging from the bag's strap ring in front of a soft out-of-focus stone background, crisp paper texture, the type large and centred on the tag. A large rectangular kraft-paper swing tag hangs from the strap ring of the grey bag by a loop of string, stamped in black letterpress ink, the bag on a pale stone surface in soft daylight, shallow depth of field. The exact handbag from the reference image, unchanged: same colour (grey), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"BLACK FRIDAY\" / \"50% OFF\". Set them as clean, legible type, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS11",
+   "use": "static",
+   "scene": "p00_s20_quiz_card",
+   "kind": "object",
+   "colour": "Galaxy Black",
+   "layout": "ad",
+   "format": "quiz_card",
+   "tag": "quizcard",
+   "words": [
+    "Where do your keys go?",
+    "A. Bottom of the bag",
+    "B. Gold side zip"
+   ],
+   "ref": "/tmp/run/bf50/site/hobo_bag_colour_galaxy_black.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS11.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 19,
+   "prompt": "A real photograph of a printed cream card standing on a table, a question in large serif capitals at the top and two answer lines under it in a clean sans-serif, a thin rule between them, a pencil beside the card, no screens, soft daylight, crisp paper grain, calm composition with the bag in the background. A cream printed quiz card with a thin black border propped against the black bag on a pale wooden table in daylight, a pencil lying beside it. The exact handbag from the reference image, unchanged: same colour (galaxy black), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"Where do your keys go?\" / \"A. Bottom of the bag\" / \"B. Gold side zip\". Set them as clean, legible type, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS12",
+   "use": "static",
+   "scene": "p00_s21_gift_moment",
+   "kind": "object",
+   "colour": "Blue",
+   "layout": "ad",
+   "format": "gift_moment",
+   "tag": "gifttag",
+   "words": [
+    "For her",
+    "Black Friday gift"
+   ],
+   "ref": "/tmp/run/bf50/site/hobo_bag_colour_blue.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS12.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 20,
+   "prompt": "A candid photo of a real, lived-in home in soft daylight from a window (a sofa or armchair with a throw, a book, a cup of tea), the bag sitting there with a slightly uneven satin ribbon around its handle and a small brown kraft-paper tag tied to it with string, the tag written by hand in pen with real ink. Natural colours, not glossy, no studio look. One short headline set in a clean serif in a calm empty part of the room. A candid photo of a lived-in living room in soft daylight: the blue bag on an armchair with a throw, a slightly uneven satin ribbon around its handle and a small brown kraft tag tied on with string, a mug and a book on the side table. The exact handbag from the reference image, unchanged: same colour (blue), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"For her\" / \"Black Friday gift\". Set them as the tag in natural handwriting in dark ink, the headline in a clean serif, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS13",
+   "use": "static",
+   "scene": "p00_s22",
+   "kind": "object",
+   "colour": "Burgundy",
+   "layout": "concept",
+   "ref": "/tmp/run/bf50/site/hobo_bag_colour_burgundy.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS13.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 21,
+   "prompt": "Photorealistic candid lifestyle photograph, natural light, shot on a 35mm lens, shallow depth of field, true-to-life colours, fine film grain, no text, no logos, no watermark. The exact handbag from the reference image, unchanged: same colour (burgundy), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The bag standing on a pale oak hallway console beside an empty ceramic key bowl and a small brass key, soft daylight from a front-door window on the left, a plain light wall behind, the lower part of the frame is a calm empty console surface. Nobody is in the picture, not even blurred in the background. Portrait 4:5 composition, the handbag clearly visible and large in the frame.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS14",
+   "use": "static",
+   "scene": "p00_s23_neon_sign",
+   "kind": "object",
+   "colour": "Blue",
+   "layout": "ad",
+   "format": "neon_sign",
+   "tag": "neonsign",
+   "words": [
+    "ZIP IT.",
+    "GO."
+   ],
+   "ref": "/tmp/run/bf50/site/hobo_bag_colour_blue.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS14.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 22,
+   "prompt": "A moody realistic night photograph of a neon tube sign mounted on a dark brick wall, thin glowing tube lettering in warm white with a faint halo, real reflections on the surface below, a shallow depth of field, the sign large and perfectly legible, the lettering simple and uncluttered. A dark console table in front of a dark brick wall, the blue bag standing on it in front of a glowing warm-white neon tube sign on the wall, the neon light casting a soft glow on the bag's top and the wall. The exact handbag from the reference image, unchanged: same colour (blue), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"ZIP IT.\" / \"GO.\". Set them as clean, legible type, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS15",
+   "use": "static",
+   "scene": "p00_s24_split_compare",
+   "kind": "object",
+   "colour": "Grey",
+   "layout": "ad",
+   "format": "split_compare",
+   "tag": "compare",
+   "words": [
+    "Digging, or done?",
+    "Open top",
+    "Gold side zip"
+   ],
+   "ref": "/tmp/run/bf50/site/hobo_bag_colour_grey.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS15.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 23,
+   "prompt": "A clean split-screen comparison: on the left a plain generic open-top tote bag (no brand, no logo) on a muted grey backdrop, on the right the real bag on a warm tinted backdrop, the same light on both, a short label under each side and one headline across the top. On the left a plain generic cream canvas open-top tote with no logo on a muted grey backdrop, on the right the grey bag on a warm tinted backdrop, the same soft light on both. The exact handbag from the reference image, unchanged: same colour (grey), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. The other bag is a generic plain tote, never a brand, never shown as broken or bad: just different. The only words in the image, each exactly once and spelled exactly as written: \"Digging, or done?\" / \"Open top\" / \"Gold side zip\". Set them as the headline in a bold sans-serif, the labels in small caps, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS16",
+   "use": "static",
+   "scene": "p00_s25_movie_poster",
+   "kind": "object",
+   "colour": "Galaxy Black",
+   "layout": "ad",
+   "format": "movie_poster",
+   "tag": "movieposter",
+   "words": [
+    "THREE WAYS",
+    "One bag. Black Friday."
+   ],
+   "ref": "/tmp/run/bf50/site/hobo_bag_colour_galaxy_black.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS16.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 24,
+   "prompt": "A realistic cinema one-sheet poster: the hero object large in dramatic cinematic light, the title set in huge condensed capitals across the top in warm white, a single tagline in small spaced capitals near the bottom, film grain, deep tonal range, the look of a printed movie poster pinned on a wall, no credits block, no actor names. A cinematic one-sheet: the black bag photographed large and low in dramatic side light against a deep midnight-blue gradient backdrop with a faint film grain, a clean empty band at the top for the title and a thin band at the bottom for the tagline. The exact handbag from the reference image, unchanged: same colour (galaxy black), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"THREE WAYS\" / \"One bag. Black Friday.\". Set them as clean, legible type, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS17",
+   "use": "static",
+   "scene": "p00_s27_macro_detail",
+   "kind": "object",
+   "colour": "Brown",
+   "layout": "ad",
+   "format": "macro_detail",
+   "tag": "macro",
+   "words": [
+    "Gold side zip."
+   ],
+   "ref": "/tmp/run/bf50/site/hobo_bag_06.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS17.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 26,
+   "prompt": "An extreme close-up macro photograph of one detail of the bag (the gold zip pull, the pebbled leather grain, the stitching where the handle meets the ring), razor-sharp on the detail with a soft fall-off, warm natural light, the colour of the reference exact, a short line of text in the soft out-of-focus area. An extreme close-up of the gold side zip pull and the zip teeth along the seam of the brown bag, crisp metal highlights, soft natural light, shallow depth of field. The exact handbag from the reference image, unchanged: same colour (brown), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. Only a detail the reference image shows clearly. The only words in the image, each exactly once and spelled exactly as written: \"Gold side zip.\". Set them as VERY large bold serif type that fills most of the picture's width across the upper third, on the softly blurred area, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS18",
+   "use": "static",
+   "scene": "p00_s28",
+   "kind": "object",
+   "colour": "Grey",
+   "layout": "concept",
+   "ref": "/tmp/run/bf50/site/hobo_bag_colour_grey.jpg",
+   "aspect": "1:1",
+   "file": "ai/AS18.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "1:1"
+   },
+   "slot": 27,
+   "prompt": "Photorealistic candid lifestyle photograph, natural light, shot on a 35mm lens, shallow depth of field, true-to-life colours, fine film grain, no text, no logos, no watermark. The exact handbag from the reference image, unchanged: same colour (grey), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The bag resting on a cushioned window seat beside a folded grey knit blanket, a large window behind it with raindrops on the glass and a soft grey city blurred outside, the lower part of the frame is a calm empty cushion. Nobody is in the picture, not even blurred in the background. Square 1:1 composition, the handbag clearly visible and large in the frame.",
+   "est_credits": 1.0,
+   "motion": "AM03"
+  },
+  {
+   "id": "AS19",
+   "use": "static",
+   "scene": "p00_s29_odd_one_out",
+   "kind": "object",
+   "colour": "Red",
+   "layout": "ad",
+   "format": "odd_one_out",
+   "tag": "oddoneout",
+   "words": [
+    "Spot the one that zips shut."
+   ],
+   "ref": "/tmp/run/bf50/site/hobo_bag_colour_red.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS19.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 28,
+   "prompt": "A clean realistic product photograph of a row of near-identical generic objects with one different object in the middle, shot straight-on at eye level in soft even light on a pale shelf, calm minimal styling, one short headline set large and sharp in the empty space above the row. Five bags in a neat row on a pale wooden shelf: four identical plain cream canvas open-top totes with no logos and, in the middle, the red bag, all lit by the same soft daylight. The exact handbag from the reference image, unchanged: same colour (red), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"Spot the one that zips shut.\". Set them as clean, legible type, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS20",
+   "use": "static",
+   "scene": "p00_s30_window_display",
+   "kind": "object",
+   "colour": "Galaxy Black",
+   "layout": "ad",
+   "format": "window_display",
+   "tag": "window",
+   "words": [
+    "BLACK FRIDAY SALE"
+   ],
+   "ref": "/tmp/run/bf50/site/hobo_bag_colour_galaxy_black.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS20.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 29,
+   "prompt": "A photo through the glass of a small boutique window at dusk: the bag displayed on a stand inside, warm interior light, soft street reflections on the glass, a short line of text painted on the window in neat gold sign-writing. A photo through the glass of a small boutique window at dusk with the black bag on a wooden stand, warm interior light, soft street reflections on the glass. The exact handbag from the reference image, unchanged: same colour (galaxy black), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"BLACK FRIDAY SALE\". Set them as gold sign-writing on glass, classic serif, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS21",
+   "use": "static",
+   "scene": "p00_s31_trading_card",
+   "kind": "object",
+   "colour": "Red",
+   "layout": "ad",
+   "format": "trading_card",
+   "tag": "tradingcard",
+   "words": [
+    "THE HOBO BAG",
+    "Back pocket: hidden",
+    "Side zips: two, gold",
+    "Wear: three ways"
+   ],
+   "ref": "/tmp/run/bf50/site/hobo_bag_colour_red.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS21.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 30,
+   "prompt": "A realistic photograph of a printed collectible card lying on a dark felt table: bold title across the top, a large photograph framed in the middle, three short attribute lines in a clean stat panel at the bottom, rounded corners, a fine print texture and a slight sheen, soft side light. A collectible trading card held flat on a dark table in soft light, a cream card with a rounded corner border and a large photograph of the red bag inside it, three short attribute lines in a neat stat panel under the photo, the card slightly angled, crisp print texture. The exact handbag from the reference image, unchanged: same colour (red), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"THE HOBO BAG\" / \"Back pocket: hidden\" / \"Side zips: two, gold\" / \"Wear: three ways\". Set them as clean, legible type, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS22",
+   "use": "static",
+   "scene": "p00_s32_travel_carry",
+   "kind": "behind",
+   "colour": "Blue",
+   "layout": "ad",
+   "format": "travel_carry",
+   "tag": "travel",
+   "words": [
+    "Cards stay against you."
+   ],
+   "ref": "/tmp/run/bf50/site/hobo_bag_colour_blue.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS22.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 31,
+   "prompt": "A candid travel photo: a woman seen from behind walking through a bright airport or train station with a small carry-on, the bag on her shoulder, large windows, real people blurred far away and facing away, natural daylight, documentary phone-photo look, one short caption in plain white sans-serif in the empty upper area. A candid travel photo: a woman in a navy coat walks through an airport hall with softly dimmed light and a darker upper area seen from behind, a small carry-on in one hand, the blue bag on her shoulder, travellers far away and blurred. The exact handbag from the reference image, unchanged: same colour (blue), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"Cards stay against you.\". Set them as a large bold white sans-serif on a soft dark translucent gradient band across the top of the picture so the white caption is easy to read against it, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. She is seen only from behind; every other person is far away, blurred and facing away. No face is visible anywhere: nobody looks at the camera, every other person is far away, blurred and facing away. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS23",
+   "use": "static",
+   "scene": "p00_s33",
+   "kind": "object",
+   "colour": "Grey",
+   "layout": "concept",
+   "ref": "/tmp/run/bf50/site/hobo_bag_colour_grey.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS23.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 32,
+   "prompt": "Photorealistic candid lifestyle photograph, natural light, shot on a 35mm lens, shallow depth of field, true-to-life colours, fine film grain, no text, no logos, no watermark. The exact handbag from the reference image, unchanged: same colour (grey), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The grey bag hanging by its strap on the back of a pale wooden chair pulled up to a small round table with a white coffee cup and saucer, soft daylight, a plain light wall behind, the lower part of the frame is a calm empty floor and tabletop. Nobody is in the picture, not even blurred in the background. Portrait 4:5 composition, the handbag clearly visible and large in the frame.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS24",
+   "use": "static",
+   "scene": "p00_s34_wear_card",
+   "kind": "object",
+   "colour": "Burgundy",
+   "layout": "ad",
+   "format": "wear_card",
+   "tag": "wearcard",
+   "words": [
+    "How to wear it",
+    "1 Shoulder",
+    "2 Handbag",
+    "3 Crossbody"
+   ],
+   "ref": "/tmp/run/bf50/site/hobo_bag_colour_burgundy.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS24.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 33,
+   "prompt": "A real photograph of a printed instruction card on a table: a bold serif title across the top and three numbered lines under it in a clean sans-serif with generous spacing, thin rules, crisp paper grain, soft window light, calm editorial still life, the card large enough to read on a phone. A cream printed instruction card standing upright on a pale linen cloth beside the burgundy bag, soft daylight from a window, a plain light wall behind. The exact handbag from the reference image, unchanged: same colour (burgundy), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"How to wear it\" / \"1 Shoulder\" / \"2 Handbag\" / \"3 Crossbody\". Set them as clean, legible type, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS25",
+   "use": "static",
+   "scene": "p00_s35_editorial_still_life",
+   "kind": "object",
+   "colour": "Galaxy Black",
+   "layout": "ad",
+   "format": "editorial_still_life",
+   "tag": "stilllife",
+   "words": [
+    "Looks expensive.",
+    "Wears three ways."
+   ],
+   "ref": "/tmp/run/bf50/site/hobo_bag_colour_galaxy_black.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS25.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 34,
+   "prompt": "A luxury editorial still life: the bag on a sculptural plinth or a stack of stone blocks, a few simple props (dried flowers, a ceramic vase, a folded silk scarf), one warm hard light making crisp shadows, a muted two-tone backdrop, composed like a high-end catalogue page, a small serif headline in the empty corner. The black bag on a pale limestone block beside a ceramic vase with dried grasses and a folded cream silk scarf, one warm hard light making crisp shadows, a muted sand backdrop. The exact handbag from the reference image, unchanged: same colour (galaxy black), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"Looks expensive.\" / \"Wears three ways.\". Set them as a small elegant serif, generous letter spacing, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS26",
+   "use": "static",
+   "scene": "p00_s37_polaroid_caption",
+   "kind": "object",
+   "colour": "Grey",
+   "layout": "ad",
+   "format": "polaroid_caption",
+   "tag": "polaroidcapt",
+   "words": [
+    "Side zip. Keys. Done."
+   ],
+   "ref": "/tmp/run/bf50/site/hobo_bag_colour_grey.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS26.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 36,
+   "prompt": "A real close photograph of an instant-film print resting on a table, thick white bottom border with a short handwritten caption in black marker, real paper sheen and slightly soft instant-film colour in the photo, the print large in the frame, no people in the photo, soft daylight. A white-bordered instant photo print lying on a pale wooden table, the photo showing the grey bag on a sunny windowsill, the thick bottom border carrying a short caption handwritten in black marker, soft daylight, a corner of linen cloth. The exact handbag from the reference image, unchanged: same colour (grey), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"Side zip. Keys. Done.\". Set them as clean, legible type, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS27",
+   "use": "static",
+   "scene": "p00_s38_newspaper_front",
+   "kind": "object",
+   "colour": "Blue",
+   "layout": "ad",
+   "format": "newspaper_front",
+   "tag": "newspaperfro",
+   "words": [
+    "THE LIBRA DAILY",
+    "Hidden pocket found on the back",
+    "Black Friday: 50% off"
+   ],
+   "ref": "/tmp/run/bf50/site/hobo_bag_colour_blue.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS27.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 37,
+   "prompt": "A realistic photograph of a folded newspaper front page on a table: an ornate serif masthead across the top, one large bold serif headline, a thin rule and one smaller line, the rest of the columns as tiny grey texture, real newsprint grain and slight paper creases, soft daylight, no photos of people on the page. A folded broadsheet newspaper lying on a cafe table in soft daylight next to the blue bag, a coffee cup at the edge of the frame, the front-page masthead and the main headline large and sharp, the rest of the page showing only tiny unreadable grey columns. The exact handbag from the reference image, unchanged: same colour (blue), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"THE LIBRA DAILY\" / \"Hidden pocket found on the back\" / \"Black Friday: 50% off\". Set them as clean, legible type, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS28",
+   "use": "static",
+   "scene": "p00_s39",
+   "kind": "object",
+   "colour": "Brown",
+   "layout": "concept",
+   "ref": "/tmp/run/bf50/site/hobo_bag_colour_dark_sienna_nobadge.jpg",
+   "aspect": "1:1",
+   "file": "ai/AS28.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "1:1"
+   },
+   "slot": 38,
+   "prompt": "Photorealistic candid lifestyle photograph, natural light, shot on a 35mm lens, shallow depth of field, true-to-life colours, fine film grain, no text, no logos, no watermark. The exact handbag from the reference image, unchanged: same colour (brown), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The bag resting on a pale cane chair by a tall window with sheer white curtains, soft daylight on a pale wooden floor, a plain light wall, the lower part of the frame is a calm empty floor. Nobody is in the picture, not even blurred in the background. Square 1:1 composition, the handbag clearly visible and large in the frame.",
+   "est_credits": 1.0,
+   "motion": "AM04"
+  },
+  {
+   "id": "AS29",
+   "use": "static",
+   "scene": "p00_s40_colour_block",
+   "kind": "object",
+   "colour": "Red",
+   "layout": "ad",
+   "format": "colour_block",
+   "tag": "colourblock",
+   "words": [
+    "Six colours. 50% off."
+   ],
+   "ref": "/tmp/run/bf50/site/hobo_bag_colour_red.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS29.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 39,
+   "prompt": "A playful studio set built from two or three solid colour blocks (a pastel cube, a curved step, a backdrop) that pick up the bag's colour, the bag resting on a block, soft even studio light, crisp clean shadows, one short line in bold sans-serif on the plain backdrop. A playful studio set built from two solid colour blocks, a pastel cube and a curved step in warm tones that pick up the red bag's colour, soft studio light, a seamless backdrop. The exact handbag from the reference image, unchanged: same colour (red), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"Six colours. 50% off.\". Set them as a bold rounded sans-serif, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS30",
+   "use": "static",
+   "scene": "p00_s41_shipping_box",
+   "kind": "object",
+   "colour": "Grey",
+   "layout": "ad",
+   "format": "shipping_box",
+   "tag": "shippingbox",
+   "words": [
+    "Packed for Black Friday."
+   ],
+   "ref": "/tmp/run/bf50/site/hobo_bag_colour_grey.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS30.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 40,
+   "prompt": "A realistic top-down photograph of an open brown cardboard shipping box with tissue paper folded neatly over the product, kraft packing tape, a soft shadow on a wooden floor, daylight from the side, one short line set cleanly in a calm empty area of the floor beside the box. A top-down photo of an open cardboard shipping box on a wooden floor, cream tissue paper folded around the closed grey bag, the bag's strap lying on top, soft daylight from a window. The exact handbag from the reference image, unchanged: same colour (grey), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"Packed for Black Friday.\". Set them as clean, legible type, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS31",
+   "use": "static",
+   "scene": "p00_s42_door_hanger",
+   "kind": "object",
+   "colour": "Brown",
+   "layout": "ad",
+   "format": "door_hanger",
+   "tag": "doorhanger",
+   "words": [
+    "Gone shopping.",
+    "Black Friday"
+   ],
+   "ref": "/tmp/run/bf50/site/hobo_bag_colour_dark_sienna_nobadge.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS31.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 41,
+   "prompt": "A realistic photograph of a printed door-hanger card on a door knob: a tall cream card with a die-cut round hole at the top, bold serif type centred on the card with generous margins, a soft shadow on the door, shallow depth of field, daylight. A cream card door hanger with a round hole hangs on a polished brass door knob of a white panelled door, the brown bag hanging on a brass hook on the same door below it, soft morning light. The exact handbag from the reference image, unchanged: same colour (brown), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"Gone shopping.\" / \"Black Friday\". Set them as clean, legible type, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS32",
+   "use": "static",
+   "scene": "p00_s43_street_poster",
+   "kind": "object",
+   "colour": "Burgundy",
+   "layout": "ad",
+   "format": "street_poster",
+   "tag": "billboard",
+   "words": [
+    "A hidden pocket on the back."
+   ],
+   "ref": "/tmp/run/bf50/site/hobo_bag_colour_burgundy.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS32.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 42,
+   "prompt": "A real photo of a city street: a large printed paper poster pasted on a wall or in a bus-shelter frame, slightly weathered edges, daylight with real reflections, pavement and street details around it. The poster shows the bag large on a solid colour with one short headline. Shot at a slight angle like a passer-by took it. A real photo of a city street at golden hour: a large printed paper poster pasted on a weathered brick wall, the burgundy bag large on a solid warm cream colour with the one short headline, pavement and a bicycle lamp post around it, shot at a slight angle. The exact handbag from the reference image, unchanged: same colour (burgundy), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"A hidden pocket on the back.\". Set them as the poster headline in a heavy sans-serif, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS33",
+   "use": "static",
+   "scene": "p00_s45_gift_unbox",
+   "kind": "hand",
+   "colour": "Burgundy",
+   "layout": "ad",
+   "format": "gift_unbox",
+   "tag": "unbox",
+   "words": [
+    "Black Friday, unwrapped."
+   ],
+   "ref": "/tmp/run/bf50/site/hobo_bag_colour_burgundy.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS33.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 44,
+   "prompt": "A top-down photo of hands lifting the bag out of a plain gift box with tissue paper, on a real table in soft daylight, only the hands and forearms in frame (natural hands, relaxed fingers, no rings or nail art), a short serif line in the empty table area. A top-down photo of two hands in a cream sleeve lifting the closed burgundy bag out of a plain white gift box lined with tissue paper, on a real wooden table in soft daylight. The exact handbag from the reference image, unchanged: same colour (burgundy), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"Black Friday, unwrapped.\". Set them as an elegant serif, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. Only hands and forearms are in the frame: no head, no face. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS34",
+   "use": "static",
+   "scene": "p00_s46",
+   "kind": "object",
+   "colour": "Red",
+   "layout": "concept",
+   "ref": "/tmp/run/bf50/site/hobo_bag_colour_red.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS34.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 45,
+   "prompt": "Photorealistic candid lifestyle photograph, natural light, shot on a 35mm lens, shallow depth of field, true-to-life colours, fine film grain, no text, no logos, no watermark. The exact handbag from the reference image, unchanged: same colour (red), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The red bag on a pale wooden table beside a roll of kraft wrapping paper, a spool of cream ribbon and a small tag, soft window light, a plain light wall behind, the lower part of the frame is a calm empty tabletop. Nobody is in the picture, not even blurred in the background. Portrait 4:5 composition, the handbag clearly visible and large in the frame.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS35",
+   "use": "static",
+   "scene": "p00_s47_cup_sleeve",
+   "kind": "object",
+   "colour": "Galaxy Black",
+   "layout": "ad",
+   "format": "cup_sleeve",
+   "tag": "cupsleeve",
+   "words": [
+    "Black Friday starts here."
+   ],
+   "ref": "/tmp/run/bf50/site/hobo_bag_colour_galaxy_black.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS35.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 46,
+   "prompt": "A realistic close photograph of a paper takeaway cup with a printed cardboard sleeve on a stone ledge, the sleeve's type set in a bold clean sans-serif and large enough to read on a phone, shallow depth of field, soft morning light, a blurred street behind. A takeaway paper coffee cup with a cream cardboard sleeve stands on a stone cafe ledge beside the black bag, morning light, a blurred street behind, the sleeve carrying the line in neat black print. The exact handbag from the reference image, unchanged: same colour (galaxy black), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"Black Friday starts here.\". Set them as clean, legible type, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS36",
+   "use": "static",
+   "scene": "p00_s48_framed_print",
+   "kind": "object",
+   "colour": "Grey",
+   "layout": "ad",
+   "format": "framed_print",
+   "tag": "framedprint",
+   "words": [
+    "Keys? Found."
+   ],
+   "ref": "/tmp/run/bf50/site/hobo_bag_colour_grey.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS36.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 47,
+   "prompt": "A real interior photograph of a framed typographic art print on a wall: white mat, thin oak frame, a short line set in large elegant serif letters centred on the print, soft raking daylight, a calm gallery-wall look, the type perfectly legible. A hallway wall with a large framed typographic art print in a thin oak frame hung above a pale console, the grey bag standing on the console below it, soft light from a side window, a vase of dried grass. The exact handbag from the reference image, unchanged: same colour (grey), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"Keys? Found.\". Set them as clean, legible type, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS37",
+   "use": "static",
+   "scene": "p00_s49",
+   "kind": "object",
+   "colour": "Galaxy Black",
+   "layout": "concept",
+   "ref": "/tmp/run/bf50/site/hobo_bag_colour_galaxy_black.jpg",
+   "aspect": "1:1",
+   "file": "ai/AS37.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "1:1"
+   },
+   "slot": 48,
+   "prompt": "Photorealistic candid lifestyle photograph, natural light, shot on a 35mm lens, shallow depth of field, true-to-life colours, fine film grain, no text, no logos, no watermark. The exact handbag from the reference image, unchanged: same colour (galaxy black), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The black bag standing on a stone balcony ledge at night with a softly blurred city skyline of warm lights behind it, a faint reflection on the stone, the lower part of the frame is a calm empty dark stone surface. Nobody is in the picture, not even blurred in the background. Square 1:1 composition, the handbag clearly visible and large in the frame.",
+   "est_credits": 1.0,
+   "motion": "AM05"
+  },
+  {
+   "id": "AS38",
+   "use": "static",
+   "scene": "p00_s50_luggage_tag",
+   "kind": "object",
+   "colour": "Blue",
+   "layout": "ad",
+   "format": "luggage_tag",
+   "tag": "luggagetag",
+   "words": [
+    "Passport: back pocket"
+   ],
+   "ref": "/tmp/run/bf50/site/hobo_bag_colour_blue.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS38.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 49,
+   "prompt": "A real close photograph of a cream paper luggage tag with a reinforced eyelet hanging from a string on the product, the tag text set large in dark ink in a clean sans-serif, crisp paper texture, a soft out-of-focus travel scene behind, daylight. A plain cream paper luggage tag with a reinforced eyelet and a loop of string tied to the strap ring of the blue bag, the bag standing on a pale travel-trunk surface in soft light, shallow depth of field. The exact handbag from the reference image, unchanged: same colour (blue), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"Passport: back pocket\". Set them as clean, legible type, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  }
+ ],
+ "clips": [
+  {
+   "id": "AM01",
+   "use": "motion",
+   "start": "AS03",
+   "end_image": true,
+   "kind": "object",
+   "scene": "p00_s06",
+   "slot": 5,
+   "model": "kling3_0",
+   "params": {
+    "mode": "pro",
+    "sound": "off",
+    "duration": 5,
+    "aspect_ratio": "1:1"
+   },
+   "prompt": "Locked-off tripod shot, the camera stays still. Only gentle ambient motion: Steam curls up from the latte and warm morning sunlight shifts slowly across the table. The handbag stays perfectly still, exactly the same shape, colour and details, no morphing, it never opens. No people, no hands, no text appears.",
+   "file": "ai/clips/AM01.mp4",
+   "seconds": 5.0,
+   "trim": 5.0,
+   "est_credits": 8.75
+  },
+  {
+   "id": "AM02",
+   "use": "motion",
+   "start": "AS08",
+   "end_image": true,
+   "kind": "object",
+   "scene": "p00_s17",
+   "slot": 16,
+   "model": "kling3_0",
+   "params": {
+    "mode": "pro",
+    "sound": "off",
+    "duration": 5,
+    "aspect_ratio": "1:1"
+   },
+   "prompt": "Locked-off tripod shot, the camera stays still. Only gentle ambient motion: A candle flame flickers softly and its warm light moves gently over the wall behind. The handbag stays perfectly still, exactly the same shape, colour and details, no morphing, it never opens. No people, no hands, no text appears.",
+   "file": "ai/clips/AM02.mp4",
+   "seconds": 5.0,
+   "trim": 5.0,
+   "est_credits": 8.75
+  },
+  {
+   "id": "AM03",
+   "use": "motion",
+   "start": "AS18",
+   "end_image": true,
+   "kind": "object",
+   "scene": "p00_s28",
+   "slot": 27,
+   "model": "kling3_0",
+   "params": {
+    "mode": "pro",
+    "sound": "off",
+    "duration": 5,
+    "aspect_ratio": "1:1"
+   },
+   "prompt": "Locked-off tripod shot, the camera stays still. Only gentle ambient motion: Rain runs down the window glass and the grey city light outside shifts softly. The handbag stays perfectly still, exactly the same shape, colour and details, no morphing, it never opens. No people, no hands, no text appears.",
+   "file": "ai/clips/AM03.mp4",
+   "seconds": 5.0,
+   "trim": 5.0,
+   "est_credits": 8.75
+  },
+  {
+   "id": "AM04",
+   "use": "motion",
+   "start": "AS28",
+   "end_image": true,
+   "kind": "object",
+   "scene": "p00_s39",
+   "slot": 38,
+   "model": "kling3_0",
+   "params": {
+    "mode": "pro",
+    "sound": "off",
+    "duration": 5,
+    "aspect_ratio": "1:1"
+   },
+   "prompt": "Locked-off tripod shot, the camera does not move, pan, zoom or orbit. The sheer white curtains behind the chair visibly billow and sway in a gentle breeze, and soft light shifts across the wall. The handbag, the chair and everything on it stay perfectly still, exactly the same shape, colour and details, no morphing, the bag never opens. No people, no hands, no text appears.",
+   "file": "ai/clips/AM04.mp4",
+   "seconds": 5.0,
+   "trim": 5.0,
+   "est_credits": 8.75
+  },
+  {
+   "id": "AM05",
+   "use": "motion",
+   "start": "AS37",
+   "end_image": true,
+   "kind": "object",
+   "scene": "p00_s49",
+   "slot": 48,
+   "model": "kling3_0",
+   "params": {
+    "mode": "pro",
+    "sound": "off",
+    "duration": 5,
+    "aspect_ratio": "1:1"
+   },
+   "prompt": "Locked-off tripod shot, the camera stays still. Only gentle ambient motion: City lights twinkle and drift softly out of focus in the background and a faint haze moves across the skyline. The handbag stays perfectly still, exactly the same shape, colour and details, no morphing, it never opens. No people, no hands, no text appears.",
+   "file": "ai/clips/AM05.mp4",
+   "seconds": 5.0,
+   "trim": 5.0,
+   "est_credits": 8.75
+  }
+ ],
+ "est_credits": 81.75,
+ "notes": [],
+ "grade_refs": [],
+ "budget": {
+  "cap": 100.0,
+  "tts_est": 0.0,
+  "reserve": 8.0
+ },
+ "steps": [
+  "1. Upload each distinct `ref` once (media_upload, curl PUT, media_confirm); generate every still with generate_image_batch (model/params/prompt as listed, medias [{value: media_id, role: image_references}], max 12 per call); jobs_wait; download each result to $OUT/<file>.",
+  "2. python3 pipeline/ai_gen.py gate --out $OUT ; LOOK at $OUT/qa/ai_stills.jpg (reference | still): reject any still where the bag's shape, colour, handles or hardware differ from the reference, or that looks AI: python3 pipeline/ai_gen.py reject --out $OUT AS03 ...",
+  "3. For every clip whose start still passed: generate_video_batch (start_image = that still's job id, model/params/prompt as listed); jobs_wait; download to $OUT/<file>. Clips of a rejected still are skipped. If a submission comes back with a preset recommendation instead of a job, send it again with `declined_preset_id` = that preset's id (the project never uses presets).",
+  "3b. Motion stills (AM.. clips, `use: motion`): generate_video_batch with medias [{value: <the still's job id>, role: start_image}, {value: <the same job id>, role: end_image}] (the same still first and last, so the loop has no seam), model/params/prompt as listed.",
+  "4. python3 pipeline/ai_gen.py clips --out $OUT ; LOOK at $OUT/qa/ai_clips.jpg; reject morphing / odd-hand clips with `reject` (a motion still where the bag changes shape, opens, or anything morphs: `reject AM02`). Then render as usual (it applies the result; a motion still whose clip failed ships as the still static alone).",
+  "Report: credits before -> after (balance), how many AI assets passed. Never ship a still or clip you would not believe is real."
+ ]
+}

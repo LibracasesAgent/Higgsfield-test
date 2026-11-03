@@ -1,0 +1,664 @@
+{
+ "product": "Hobo Bag",
+ "theme": "black friday",
+ "date": "2026-11-03",
+ "research": [
+  "Read the packet and the 2026-11 all-time-best research: contrast, offer-first, post-it, quiz, calendar and billboard formats are the fashion top formats",
+  "Winners 94-H4 and 147-H1 (Hobo Bag): hidden back pocket against the body, divided compartments so you never dig for keys, strap three ways: every line leans on those",
+  "Earlier Hobo statics (B014-B030) read from the packet: new words, new formats; no price, no free, no leather, no workshop story"
+ ],
+ "projects": [],
+ "statics": [
+  {
+   "layout": "ad",
+   "idea": "A fashion-magazine cover for the sale with the three true selling points as cover lines.",
+   "format": "magazine_cover",
+   "words": [
+    "LIBRA",
+    "THE BAG WITH A HIDDEN POCKET",
+    "THREE WAYS TO WEAR IT",
+    "BLACK FRIDAY: 50% OFF"
+   ],
+   "scene": {
+    "colour": "Burgundy",
+    "prompt": "A seamless deep burgundy studio backdrop, the burgundy bag large and centred like a cover star, soft directional light and a gentle shadow on the floor."
+   },
+   "id": "S01"
+  },
+  {
+   "layout": "native",
+   "idea": "A real footage frame of a hand on the hidden back pocket.",
+   "headline": "The hidden back pocket.",
+   "id": "S02"
+  },
+  {
+   "layout": "native",
+   "idea": "A real footage frame of the strap clip: two straps give three ways to wear it.",
+   "headline": "Two straps. Three ways.",
+   "id": "S03"
+  },
+  {
+   "layout": "ad",
+   "idea": "A premium catalogue diagram that shows where keys, phone and cards go, using only what the side view shows.",
+   "format": "feature_diagram",
+   "words": [
+    "Everything within reach",
+    "Gold zip: keys",
+    "Gold zip: phone",
+    "Top zip: closed"
+   ],
+   "scene": {
+    "colour": "Brown",
+    "prompt": "The bag photographed on a plain warm-white backdrop, large and centred, seen from the side so the gold side zip and the strap rings point towards the camera, thin straight leader lines from the gold side zip and the top zip to short labels at the left and right edges.",
+    "ref": "hobo_bag_06.jpg"
+   },
+   "id": "S04"
+  },
+  {
+   "layout": "native",
+   "idea": "A real footage frame showing the hidden zipped pocket, flat and tidy.",
+   "headline": "Hidden pocket, zipped flat.",
+   "id": "S05"
+  },
+  {
+   "layout": "concept",
+   "idea": "A latte and the bag on a cafe table in morning light, steam rising: keys one zip away.",
+   "headline": "Keys? One zip away.",
+   "kicker": "BLACK FRIDAY",
+   "where": "bottom",
+   "scene": {
+    "kind": "object",
+    "colour": "Brown",
+    "prompt": "The bag standing upright on a light oak cafe table beside a white cup of latte and a small notebook, soft morning window light from the left, a shallow blurred cafe interior behind, the lower part of the frame is a calm empty oak table."
+   },
+   "pill": true,
+   "motion": "Steam curls up from the latte and warm morning sunlight shifts slowly across the table.",
+   "id": "S06"
+  },
+  {
+   "layout": "native",
+   "idea": "A real footage frame of the gold side zip, where keys and phone go.",
+   "headline": "Side zip: keys and phone.",
+   "id": "S07"
+  },
+  {
+   "layout": "studio",
+   "idea": "The real packshot large on a calm tinted backdrop with one short line.",
+   "headline": "Cards stay close.",
+   "id": "S08"
+  },
+  {
+   "layout": "studio",
+   "idea": "The real packshot in another colour on a tinted seamless.",
+   "headline": "A gold zip on each side.",
+   "id": "S09"
+  },
+  {
+   "layout": "studio",
+   "idea": "The real packshot in a third colour.",
+   "headline": "Nothing sinks to the bottom.",
+   "id": "S10"
+  },
+  {
+   "layout": "studio",
+   "idea": "The real packshot in a fourth colour.",
+   "headline": "Gold zips. Easy mornings.",
+   "id": "S11"
+  },
+  {
+   "layout": "ad",
+   "idea": "The offer-first poster: the percent as the picture, nothing else.",
+   "format": "bold_poster",
+   "words": [
+    "50% OFF.",
+    "Black Friday"
+   ],
+   "scene": {
+    "colour": "Grey",
+    "prompt": "One saturated flat tomato-red colour fills the whole frame, the grey bag as a clean cut-out in the lower half with a soft natural drop shadow, the huge heavy type fills the top of the frame."
+   },
+   "id": "S12"
+  },
+  {
+   "layout": "ad",
+   "idea": "A real photographed handwritten reminder note beside the bag.",
+   "format": "hand_note",
+   "words": [
+    "Keys: side zip.",
+    "Cards: back pocket."
+   ],
+   "scene": {
+    "colour": "Brown",
+    "prompt": "A real photograph of a white wooden desk in daylight: the bag stands on the desk, and next to it a small square yellow paper note is stuck to the edge of a desk lamp, handwritten in blue ballpoint pen with real uneven ink, slightly curled corner, nothing cartoonish."
+   },
+   "format_name": "Handwritten desk note",
+   "people": "none",
+   "art": "A candid real photo of a tidy desk with a small handwritten paper note stuck up like a reminder, natural slightly uneven handwriting in blue pen, the note large enough to read on a phone, soft window light, shallow depth of field, a realistic stationery look, no cartoon sticky-note graphics.",
+   "id": "S13"
+  },
+  {
+   "layout": "ad",
+   "idea": "A candid street photo taken from behind her with a POV caption.",
+   "format": "pov_behind",
+   "words": [
+    "POV: your keys are one zip away"
+   ],
+   "scene": {
+    "colour": "Black",
+    "prompt": "A woman in a camel coat walks along a busy city pavement at dusk, seen only from behind, the black bag hanging on her shoulder with its gold side zip towards the camera, shop windows glowing, passers-by far away and blurred."
+   },
+   "id": "S14"
+  },
+  {
+   "layout": "quotes",
+   "idea": "One verbatim review by the packshot.",
+   "id": "S15"
+  },
+  {
+   "layout": "ad",
+   "idea": "A tear-off calendar page that marks Black Friday, 27 November.",
+   "format": "tearoff_day",
+   "words": [
+    "FRIDAY",
+    "27",
+    "NOVEMBER",
+    "Black Friday"
+   ],
+   "scene": {
+    "colour": "Red",
+    "prompt": "A real photo of a desk tear-off day calendar block standing on a wooden desk, its top page showing a very large number on a plain cream page, the red bag standing beside it, soft window light, shallow depth of field."
+   },
+   "format_name": "Tear-off day calendar",
+   "people": "none",
+   "art": "A real close photograph of a paper tear-off day calendar block on a desk: the top page is cream paper with FRIDAY small in red capitals at the top, the date number set huge in a heavy serif in the middle, the month in small capitals below it and one short handwritten line in black marker across the bottom; crisp paper edges, soft daylight, calm editorial composition.",
+   "id": "S16"
+  },
+  {
+   "layout": "concept",
+   "idea": "A candle burning beside the bag on a console in the evening: a hidden pocket on the back, held against you.",
+   "headline": "Pocket on the back, against you.",
+   "kicker": "BLACK FRIDAY",
+   "where": "bottom",
+   "scene": {
+    "kind": "object",
+    "colour": "Black",
+    "prompt": "The bag standing on a dark walnut console table in the evening beside a lit white candle in a glass jar and a small ceramic dish, a dim warm wall behind, the lower part of the frame is a calm empty dark wood surface."
+   },
+   "motion": "A candle flame flickers softly and its warm light moves gently over the wall behind.",
+   "id": "S17"
+  },
+  {
+   "layout": "ad",
+   "idea": "A flat lay of the things that go where: passport, keys and phone beside the closed bag.",
+   "format": "flat_lay",
+   "words": [
+    "Passport. Keys. Phone.",
+    "Each has a place."
+   ],
+   "scene": {
+    "colour": "Black",
+    "prompt": "A top-down flat lay on a pale linen cloth: the closed black bag in the middle, a plain navy passport, a brass key on a small ring, a phone lying flat and a lipstick laid neatly around it, soft window light from one side, a calm empty area at the top for the headline."
+   },
+   "id": "S18"
+  },
+  {
+   "layout": "ad",
+   "idea": "A letterpress sale tag hanging from the bag.",
+   "format": "sale_tag",
+   "words": [
+    "BLACK FRIDAY",
+    "50% OFF"
+   ],
+   "scene": {
+    "colour": "Grey",
+    "prompt": "A large rectangular kraft-paper swing tag hangs from the strap ring of the grey bag by a loop of string, stamped in black letterpress ink, the bag on a pale stone surface in soft daylight, shallow depth of field."
+   },
+   "format_name": "Hang tag",
+   "people": "none",
+   "art": "A real close photograph of a big kraft-paper hang tag with a punched hole and string, stamped with bold black letterpress type, hanging from the bag's strap ring in front of a soft out-of-focus stone background, crisp paper texture, the type large and centred on the tag.",
+   "id": "S19"
+  },
+  {
+   "layout": "ad",
+   "idea": "A printed multiple-choice card that answers where the keys go.",
+   "format": "quiz_card",
+   "words": [
+    "Where do your keys go?",
+    "A. Bottom of the bag",
+    "B. Gold side zip"
+   ],
+   "scene": {
+    "colour": "Black",
+    "prompt": "A cream printed quiz card with a thin black border propped against the black bag on a pale wooden table in daylight, a pencil lying beside it."
+   },
+   "format_name": "Printed quiz card",
+   "people": "none",
+   "art": "A real photograph of a printed cream card standing on a table, a question in large serif capitals at the top and two answer lines under it in a clean sans-serif, a thin rule between them, a pencil beside the card, no screens, soft daylight, crisp paper grain, calm composition with the bag in the background.",
+   "id": "S20"
+  },
+  {
+   "layout": "ad",
+   "idea": "A gift tag on the bag in a real living room.",
+   "format": "gift_moment",
+   "words": [
+    "For her",
+    "Black Friday gift"
+   ],
+   "scene": {
+    "colour": "Blue",
+    "prompt": "A candid photo of a lived-in living room in soft daylight: the blue bag on an armchair with a throw, a slightly uneven satin ribbon around its handle and a small brown kraft tag tied on with string, a mug and a book on the side table."
+   },
+   "id": "S21"
+  },
+  {
+   "layout": "concept",
+   "idea": "The bag on a hallway console beside a small key bowl: keys now have a zip.",
+   "headline": "Your keys have a zip now.",
+   "kicker": "BLACK FRIDAY",
+   "where": "bottom",
+   "scene": {
+    "kind": "object",
+    "colour": "Burgundy",
+    "prompt": "The bag standing on a pale oak hallway console beside an empty ceramic key bowl and a small brass key, soft daylight from a front-door window on the left, a plain light wall behind, the lower part of the frame is a calm empty console surface."
+   },
+   "id": "S22"
+  },
+  {
+   "layout": "ad",
+   "idea": "A neon sign on a brick wall above the bag.",
+   "format": "neon_sign",
+   "words": [
+    "ZIP IT.",
+    "GO."
+   ],
+   "scene": {
+    "colour": "Blue",
+    "prompt": "A dark console table in front of a dark brick wall, the blue bag standing on it in front of a glowing warm-white neon tube sign on the wall, the neon light casting a soft glow on the bag's top and the wall."
+   },
+   "format_name": "Neon sign",
+   "people": "none",
+   "art": "A moody realistic night photograph of a neon tube sign mounted on a dark brick wall, thin glowing tube lettering in warm white with a faint halo, real reflections on the surface below, a shallow depth of field, the sign large and perfectly legible, the lettering simple and uncluttered.",
+   "id": "S23"
+  },
+  {
+   "layout": "ad",
+   "idea": "The ordinary open tote beside this one, a fair side-by-side.",
+   "format": "split_compare",
+   "words": [
+    "Digging, or done?",
+    "Open top",
+    "Gold side zip"
+   ],
+   "scene": {
+    "colour": "Grey",
+    "prompt": "On the left a plain generic cream canvas open-top tote with no logo on a muted grey backdrop, on the right the grey bag on a warm tinted backdrop, the same soft light on both."
+   },
+   "id": "S24"
+  },
+  {
+   "layout": "ad",
+   "idea": "A cinema poster for the three ways to wear it.",
+   "format": "movie_poster",
+   "words": [
+    "THREE WAYS",
+    "One bag. Black Friday."
+   ],
+   "scene": {
+    "colour": "Black",
+    "prompt": "A cinematic one-sheet: the black bag photographed large and low in dramatic side light against a deep midnight-blue gradient backdrop with a faint film grain, a clean empty band at the top for the title and a thin band at the bottom for the tagline."
+   },
+   "format_name": "Cinema one-sheet",
+   "people": "none",
+   "art": "A realistic cinema one-sheet poster: the hero object large in dramatic cinematic light, the title set in huge condensed capitals across the top in warm white, a single tagline in small spaced capitals near the bottom, film grain, deep tonal range, the look of a printed movie poster pinned on a wall, no credits block, no actor names.",
+   "id": "S25"
+  },
+  {
+   "layout": "quotes",
+   "idea": "A second verbatim review by the packshot.",
+   "id": "S26"
+  },
+  {
+   "layout": "ad",
+   "idea": "A macro of the gold side zip.",
+   "format": "macro_detail",
+   "words": [
+    "Gold side zip."
+   ],
+   "scene": {
+    "colour": "Brown",
+    "prompt": "An extreme close-up of the gold side zip pull and the zip teeth along the seam of the brown bag, crisp metal highlights, soft natural light, shallow depth of field.",
+    "ref": "hobo_bag_06.jpg"
+   },
+   "id": "S27"
+  },
+  {
+   "layout": "concept",
+   "idea": "Rain on the window beside the bag on a window seat: three ways to wear it, whatever the weather.",
+   "headline": "Three ways to wear it.",
+   "kicker": "BLACK FRIDAY",
+   "where": "bottom",
+   "scene": {
+    "kind": "object",
+    "colour": "Grey",
+    "prompt": "The bag resting on a cushioned window seat beside a folded grey knit blanket, a large window behind it with raindrops on the glass and a soft grey city blurred outside, the lower part of the frame is a calm empty cushion."
+   },
+   "motion": "Rain runs down the window glass and the grey city light outside shifts softly.",
+   "id": "S28"
+  },
+  {
+   "layout": "ad",
+   "idea": "A row of ordinary open totes with one that zips shut in the middle.",
+   "format": "odd_one_out",
+   "words": [
+    "Spot the one that zips shut."
+   ],
+   "scene": {
+    "colour": "Red",
+    "prompt": "Five bags in a neat row on a pale wooden shelf: four identical plain cream canvas open-top totes with no logos and, in the middle, the red bag, all lit by the same soft daylight."
+   },
+   "format_name": "Odd one out",
+   "people": "none",
+   "art": "A clean realistic product photograph of a row of near-identical generic objects with one different object in the middle, shot straight-on at eye level in soft even light on a pale shelf, calm minimal styling, one short headline set large and sharp in the empty space above the row.",
+   "id": "S29"
+  },
+  {
+   "layout": "ad",
+   "idea": "The boutique window lettering for the sale.",
+   "format": "window_display",
+   "words": [
+    "BLACK FRIDAY SALE"
+   ],
+   "scene": {
+    "colour": "Black",
+    "prompt": "A photo through the glass of a small boutique window at dusk with the black bag on a wooden stand, warm interior light, soft street reflections on the glass."
+   },
+   "id": "S30"
+  },
+  {
+   "layout": "ad",
+   "idea": "A collector's card that lists the bag's three true attributes.",
+   "format": "trading_card",
+   "words": [
+    "THE HOBO BAG",
+    "Back pocket: hidden",
+    "Side zips: two, gold",
+    "Wear: three ways"
+   ],
+   "scene": {
+    "colour": "Red",
+    "prompt": "A collectible trading card held flat on a dark table in soft light, a cream card with a rounded corner border and a large photograph of the red bag inside it, three short attribute lines in a neat stat panel under the photo, the card slightly angled, crisp print texture."
+   },
+   "format_name": "Collector card",
+   "people": "none",
+   "art": "A realistic photograph of a printed collectible card lying on a dark felt table: bold title across the top, a large photograph framed in the middle, three short attribute lines in a clean stat panel at the bottom, rounded corners, a fine print texture and a slight sheen, soft side light.",
+   "id": "S31"
+  },
+  {
+   "layout": "ad",
+   "idea": "A candid airport snapshot from behind with one caption.",
+   "format": "travel_carry",
+   "words": [
+    "Cards stay against you."
+   ],
+   "scene": {
+    "colour": "Blue",
+    "prompt": "A candid travel photo: a woman in a navy coat walks through a bright airport hall seen from behind, a small carry-on in one hand, the blue bag on her shoulder, travellers far away and blurred."
+   },
+   "id": "S32"
+  },
+  {
+   "layout": "concept",
+   "idea": "The bag hung on a wooden chair at a dining table, a coffee cup beside it: hang it, zip it, go.",
+   "headline": "Hang it. Zip it. Go.",
+   "kicker": "BLACK FRIDAY",
+   "where": "bottom",
+   "scene": {
+    "kind": "object",
+    "colour": "Grey",
+    "prompt": "The grey bag hanging by its strap on the back of a pale wooden chair pulled up to a small round table with a white coffee cup and saucer, soft daylight, a plain light wall behind, the lower part of the frame is a calm empty floor and tabletop."
+   },
+   "id": "S33"
+  },
+  {
+   "layout": "ad",
+   "idea": "A printed how-to card for the three ways to wear it.",
+   "format": "wear_card",
+   "words": [
+    "How to wear it",
+    "1 Shoulder",
+    "2 Handbag",
+    "3 Crossbody"
+   ],
+   "scene": {
+    "colour": "Burgundy",
+    "prompt": "A cream printed instruction card standing upright on a pale linen cloth beside the burgundy bag, soft daylight from a window, a plain light wall behind."
+   },
+   "format_name": "How-to-wear card",
+   "people": "none",
+   "art": "A real photograph of a printed instruction card on a table: a bold serif title across the top and three numbered lines under it in a clean sans-serif with generous spacing, thin rules, crisp paper grain, soft window light, calm editorial still life, the card large enough to read on a phone.",
+   "id": "S34"
+  },
+  {
+   "layout": "ad",
+   "idea": "A quiet editorial still life that says it looks expensive.",
+   "format": "editorial_still_life",
+   "words": [
+    "Looks expensive.",
+    "Wears three ways."
+   ],
+   "scene": {
+    "colour": "Black",
+    "prompt": "The black bag on a pale limestone block beside a ceramic vase with dried grasses and a folded cream silk scarf, one warm hard light making crisp shadows, a muted sand backdrop."
+   },
+   "id": "S35"
+  },
+  {
+   "id": "S36",
+   "layout": "studio",
+   "idea": "The real packshot in a fifth colour (red) on a tinted seamless, replacing the stars static (a review mentioned a free wallet).",
+   "headline": "Keys, phone, cards: sorted."
+  },
+  {
+   "layout": "ad",
+   "idea": "An instant photo print with a handwritten caption.",
+   "format": "polaroid_caption",
+   "words": [
+    "Side zip. Keys. Done."
+   ],
+   "scene": {
+    "colour": "Grey",
+    "prompt": "A white-bordered instant photo print lying on a pale wooden table, the photo showing the grey bag on a sunny windowsill, the thick bottom border carrying a short caption handwritten in black marker, soft daylight, a corner of linen cloth."
+   },
+   "format_name": "Instant photo print",
+   "people": "none",
+   "art": "A real close photograph of an instant-film print resting on a table, thick white bottom border with a short handwritten caption in black marker, real paper sheen and slightly soft instant-film colour in the photo, the print large in the frame, no people in the photo, soft daylight.",
+   "id": "S37"
+  },
+  {
+   "layout": "ad",
+   "idea": "A playful front page that announces the hidden pocket and the sale.",
+   "format": "newspaper_front",
+   "words": [
+    "THE LIBRA DAILY",
+    "Hidden pocket found on the back",
+    "Black Friday: 50% off"
+   ],
+   "scene": {
+    "colour": "Blue",
+    "prompt": "A folded broadsheet newspaper lying on a cafe table in soft daylight next to the blue bag, a coffee cup at the edge of the frame, the front-page masthead and the main headline large and sharp, the rest of the page showing only tiny unreadable grey columns."
+   },
+   "format_name": "Front page",
+   "people": "none",
+   "art": "A realistic photograph of a folded newspaper front page on a table: an ornate serif masthead across the top, one large bold serif headline, a thin rule and one smaller line, the rest of the columns as tiny grey texture, real newsprint grain and slight paper creases, soft daylight, no photos of people on the page.",
+   "id": "S38"
+  },
+  {
+   "layout": "concept",
+   "idea": "Sheer curtains moving in a breeze behind the bag on a chair: two gold side zips.",
+   "headline": "Two gold side zips.",
+   "kicker": "BLACK FRIDAY",
+   "where": "bottom",
+   "scene": {
+    "kind": "object",
+    "colour": "Brown",
+    "prompt": "The bag resting on a pale cane chair by a tall window with sheer white curtains, soft daylight on a pale wooden floor, a plain light wall, the lower part of the frame is a calm empty floor."
+   },
+   "motion": "the sheer white curtains behind the chair visibly billow and sway in a gentle breeze, soft light shifts across the wall; the bag, chair and everything on it stay perfectly still",
+   "id": "S39"
+  },
+  {
+   "layout": "ad",
+   "idea": "A colour-block set that says six colours and the sale.",
+   "format": "colour_block",
+   "words": [
+    "Six colours. 50% off."
+   ],
+   "scene": {
+    "colour": "Red",
+    "prompt": "A playful studio set built from two solid colour blocks, a pastel cube and a curved step in warm tones that pick up the red bag's colour, soft studio light, a seamless backdrop."
+   },
+   "id": "S40"
+  },
+  {
+   "layout": "ad",
+   "idea": "An open delivery box with the bag in tissue paper.",
+   "format": "shipping_box",
+   "words": [
+    "Packed for Black Friday."
+   ],
+   "scene": {
+    "colour": "Grey",
+    "prompt": "A top-down photo of an open cardboard shipping box on a wooden floor, cream tissue paper folded around the closed grey bag, the bag's strap lying on top, soft daylight from a window."
+   },
+   "format_name": "Open delivery box",
+   "people": "none",
+   "art": "A realistic top-down photograph of an open brown cardboard shipping box with tissue paper folded neatly over the product, kraft packing tape, a soft shadow on a wooden floor, daylight from the side, one short line set cleanly in a calm empty area of the floor beside the box.",
+   "id": "S41"
+  },
+  {
+   "layout": "ad",
+   "idea": "A hotel-style door hanger that says it is Black Friday.",
+   "format": "door_hanger",
+   "words": [
+    "Gone shopping.",
+    "Black Friday"
+   ],
+   "scene": {
+    "colour": "Brown",
+    "prompt": "A cream card door hanger with a round hole hangs on a polished brass door knob of a white panelled door, the brown bag hanging on a brass hook on the same door below it, soft morning light."
+   },
+   "format_name": "Door hanger",
+   "people": "none",
+   "art": "A realistic photograph of a printed door-hanger card on a door knob: a tall cream card with a die-cut round hole at the top, bold serif type centred on the card with generous margins, a soft shadow on the door, shallow depth of field, daylight.",
+   "id": "S42"
+  },
+  {
+   "layout": "ad",
+   "idea": "A poster pasted on a city wall that names the hidden pocket.",
+   "format": "street_poster",
+   "words": [
+    "A hidden pocket on the back."
+   ],
+   "scene": {
+    "colour": "Burgundy",
+    "prompt": "A real photo of a city street at golden hour: a large printed paper poster pasted on a weathered brick wall, the burgundy bag large on a solid warm cream colour with the one short headline, pavement and a bicycle lamp post around it, shot at a slight angle."
+   },
+   "id": "S43"
+  },
+  {
+   "layout": "quotes",
+   "idea": "A third verbatim review by the packshot.",
+   "id": "S44"
+  },
+  {
+   "layout": "ad",
+   "idea": "Hands lifting the bag out of a gift box.",
+   "format": "gift_unbox",
+   "words": [
+    "Black Friday, unwrapped."
+   ],
+   "scene": {
+    "colour": "Burgundy",
+    "prompt": "A top-down photo of two hands in a cream sleeve lifting the closed burgundy bag out of a plain white gift box lined with tissue paper, on a real wooden table in soft daylight."
+   },
+   "id": "S45"
+  },
+  {
+   "layout": "concept",
+   "idea": "A gift ribbon and wrapping paper beside the bag: one for her, one for you.",
+   "headline": "For her. For you.",
+   "kicker": "BLACK FRIDAY",
+   "where": "bottom",
+   "scene": {
+    "kind": "object",
+    "colour": "Red",
+    "prompt": "The red bag on a pale wooden table beside a roll of kraft wrapping paper, a spool of cream ribbon and a small tag, soft window light, a plain light wall behind, the lower part of the frame is a calm empty tabletop."
+   },
+   "pill": true,
+   "id": "S46"
+  },
+  {
+   "layout": "ad",
+   "idea": "A coffee cup sleeve that carries the sale line.",
+   "format": "cup_sleeve",
+   "words": [
+    "Black Friday starts here."
+   ],
+   "scene": {
+    "colour": "Black",
+    "prompt": "A takeaway paper coffee cup with a cream cardboard sleeve stands on a stone cafe ledge beside the black bag, morning light, a blurred street behind, the sleeve carrying the line in neat black print."
+   },
+   "format_name": "Coffee cup sleeve",
+   "people": "none",
+   "art": "A realistic close photograph of a paper takeaway cup with a printed cardboard sleeve on a stone ledge, the sleeve's type set in a bold clean sans-serif and large enough to read on a phone, shallow depth of field, soft morning light, a blurred street behind.",
+   "id": "S47"
+  },
+  {
+   "layout": "ad",
+   "idea": "A framed art print above the bag with a short line.",
+   "format": "framed_print",
+   "words": [
+    "Keys? Found."
+   ],
+   "scene": {
+    "colour": "Grey",
+    "prompt": "A hallway wall with a large framed typographic art print in a thin oak frame hung above a pale console, the grey bag standing on the console below it, soft light from a side window, a vase of dried grass."
+   },
+   "format_name": "Framed art print",
+   "people": "none",
+   "art": "A real interior photograph of a framed typographic art print on a wall: white mat, thin oak frame, a short line set in large elegant serif letters centred on the print, soft raking daylight, a calm gallery-wall look, the type perfectly legible.",
+   "id": "S48"
+  },
+  {
+   "layout": "concept",
+   "idea": "City lights glowing behind the bag on a ledge after dark: no more digging for keys.",
+   "headline": "No more digging for keys.",
+   "kicker": "BLACK FRIDAY",
+   "where": "bottom",
+   "scene": {
+    "kind": "object",
+    "colour": "Black",
+    "prompt": "The black bag standing on a stone balcony ledge at night with a softly blurred city skyline of warm lights behind it, a faint reflection on the stone, the lower part of the frame is a calm empty dark stone surface."
+   },
+   "pill": true,
+   "motion": "City lights twinkle and drift softly out of focus in the background and a faint haze moves across the skyline.",
+   "id": "S49"
+  },
+  {
+   "layout": "ad",
+   "idea": "A travel luggage tag tied to the bag.",
+   "format": "luggage_tag",
+   "words": [
+    "Passport: back pocket"
+   ],
+   "scene": {
+    "colour": "Blue",
+    "prompt": "A plain cream paper luggage tag with a reinforced eyelet and a loop of string tied to the strap ring of the blue bag, the bag standing on a pale travel-trunk surface in soft light, shallow depth of field."
+   },
+   "format_name": "Luggage tag",
+   "people": "none",
+   "art": "A real close photograph of a cream paper luggage tag with a reinforced eyelet hanging from a string on the product, the tag text set large in dark ink in a clean sans-serif, crisp paper texture, a soft out-of-focus travel scene behind, daylight.",
+   "id": "S50"
+  }
+ ]
+}

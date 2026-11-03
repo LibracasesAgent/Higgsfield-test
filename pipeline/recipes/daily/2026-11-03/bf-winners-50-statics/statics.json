@@ -1,0 +1,735 @@
+{
+ "ads": [
+  {
+   "layout": "ad",
+   "photo": "ai/AS01.png",
+   "format": "magazine_cover",
+   "words": [
+    "LIBRA",
+    "THE BAG WITH A HIDDEN POCKET",
+    "THREE WAYS TO WEAR IT",
+    "BLACK FRIDAY: 50% OFF"
+   ],
+   "headline": "THE BAG WITH A HIDDEN POCKET",
+   "name": "LC_261103_HoboBag_BlackFriday_B036_S01_magazine",
+   "ai": {
+    "id": "AS01",
+    "scene": "p00_s01_magazine_cover",
+    "colour": "Burgundy",
+    "format": "magazine_cover"
+   }
+  },
+  {
+   "layout": "native",
+   "photo": "photos/frames/F_1pwD5FXA8__0097.jpg",
+   "caption": "The hidden back pocket.",
+   "pct": 50,
+   "name": "LC_261103_HoboBag_BlackFriday_B036_S02_native",
+   "frame": {
+    "clip": "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+    "t": 9.72
+   }
+  },
+  {
+   "layout": "native",
+   "photo": "photos/frames/F_1nnsvEIfgq_0180.jpg",
+   "caption": "Two straps. Three ways.",
+   "pct": 50,
+   "name": "LC_261103_HoboBag_BlackFriday_B036_S03_native",
+   "frame": {
+    "clip": "1nnsvEIfgqziYdrmeUrrtgL3Qo3YHV7Sw",
+    "t": 18.0
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS02.png",
+   "format": "feature_diagram",
+   "words": [
+    "Everything within reach",
+    "Gold zip: keys",
+    "Gold zip: phone",
+    "Top zip: closed"
+   ],
+   "headline": "Everything within reach",
+   "name": "LC_261103_HoboBag_BlackFriday_B036_S04_diagram",
+   "ai": {
+    "id": "AS02",
+    "scene": "p00_s04_feature_diagram",
+    "colour": "Brown",
+    "format": "feature_diagram"
+   }
+  },
+  {
+   "layout": "native",
+   "photo": "photos/cand/F_1XTfJnV-s9_0189.jpg",
+   "caption": "Hidden pocket, zipped flat.",
+   "pct": 50,
+   "name": "LC_261103_HoboBag_BlackFriday_B036_S05_native",
+   "frame": {
+    "clip": "1XTfJnV-s9YVXmsv30f29mYqy5yV38n96",
+    "t": 18.95
+   }
+  },
+  {
+   "layout": "concept",
+   "photo": "ai/AS03.png",
+   "kicker": "BLACK FRIDAY",
+   "headline": "Keys? One zip away.",
+   "where": "bottom",
+   "pct": 50,
+   "name": "LC_261103_HoboBag_BlackFriday_B036_S06_concept",
+   "ai": {
+    "id": "AS03",
+    "scene": "p00_s06",
+    "colour": "Brown"
+   }
+  },
+  {
+   "layout": "native",
+   "photo": "photos/frames/F_1524uBg6iC_0165.jpg",
+   "caption": "Side zip: keys and phone.",
+   "pct": 50,
+   "name": "LC_261103_HoboBag_BlackFriday_B036_S07_native",
+   "frame": {
+    "clip": "1524uBg6iCo25tT2dqKoDXFTeZjWODEQV",
+    "t": 16.52
+   }
+  },
+  {
+   "layout": "studio",
+   "photo": "site/hobo_bag_colour_galaxy_black.jpg",
+   "pct": 50,
+   "name": "LC_261103_HoboBag_BlackFriday_B036_S08_studio",
+   "caption": "Cards stay close."
+  },
+  {
+   "layout": "studio",
+   "photo": "site/hobo_bag_colour_blue.jpg",
+   "pct": 50,
+   "name": "LC_261103_HoboBag_BlackFriday_B036_S09_studio",
+   "caption": "A gold zip on each side."
+  },
+  {
+   "layout": "studio",
+   "photo": "site/hobo_bag_colour_grey.jpg",
+   "name": "LC_261103_HoboBag_BlackFriday_B036_S10_studio",
+   "caption": "Nothing sinks to the bottom."
+  },
+  {
+   "layout": "studio",
+   "photo": "site/hobo_bag_colour_burgundy.jpg",
+   "pct": 50,
+   "name": "LC_261103_HoboBag_BlackFriday_B036_S11_studio",
+   "caption": "Gold zips. Easy mornings."
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS04.png",
+   "format": "bold_poster",
+   "words": [
+    "50% OFF.",
+    "Black Friday"
+   ],
+   "headline": "50% OFF.",
+   "name": "LC_261103_HoboBag_BlackFriday_B036_S12_poster",
+   "ai": {
+    "id": "AS04",
+    "scene": "p00_s12_bold_poster",
+    "colour": "Grey",
+    "format": "bold_poster"
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS05.png",
+   "format": "hand_note",
+   "words": [
+    "Keys: side zip.",
+    "Cards: back pocket."
+   ],
+   "headline": "Keys: side zip.",
+   "name": "LC_261103_HoboBag_BlackFriday_B036_S13_handnote",
+   "ai": {
+    "id": "AS05",
+    "scene": "p00_s13_hand_note",
+    "colour": "Brown",
+    "format": "hand_note"
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS06.png",
+   "format": "pov_behind",
+   "words": [
+    "POV: your keys are one zip away"
+   ],
+   "headline": "POV: your keys are one zip away",
+   "name": "LC_261103_HoboBag_BlackFriday_B036_S14_pov",
+   "ai": {
+    "id": "AS06",
+    "scene": "p00_s14_pov_behind",
+    "colour": "Galaxy Black",
+    "format": "pov_behind"
+   }
+  },
+  {
+   "layout": "quotes",
+   "photo": "site/hobo_bag_colour_red.jpg",
+   "reviews": [
+    3
+   ],
+   "pct": 50,
+   "cta": "Get the Black Friday deal",
+   "name": "LC_261103_HoboBag_BlackFriday_B036_S15_quotes"
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS07.png",
+   "format": "tearoff_day",
+   "words": [
+    "FRIDAY",
+    "27",
+    "NOVEMBER",
+    "Black Friday"
+   ],
+   "headline": "FRIDAY",
+   "name": "LC_261103_HoboBag_BlackFriday_B036_S16_tearoffday",
+   "ai": {
+    "id": "AS07",
+    "scene": "p00_s16_tearoff_day",
+    "colour": "Red",
+    "format": "tearoff_day"
+   }
+  },
+  {
+   "layout": "concept",
+   "photo": "ai/AS08.png",
+   "kicker": "BLACK FRIDAY",
+   "headline": "Pocket on the back, against you.",
+   "where": "bottom",
+   "name": "LC_261103_HoboBag_BlackFriday_B036_S17_concept",
+   "ai": {
+    "id": "AS08",
+    "scene": "p00_s17",
+    "colour": "Galaxy Black"
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS09.png",
+   "format": "flat_lay",
+   "words": [
+    "Passport. Keys. Phone.",
+    "Each has a place."
+   ],
+   "headline": "Passport. Keys. Phone.",
+   "name": "LC_261103_HoboBag_BlackFriday_B036_S18_flatlay",
+   "ai": {
+    "id": "AS09",
+    "scene": "p00_s18_flat_lay",
+    "colour": "Galaxy Black",
+    "format": "flat_lay"
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS10.png",
+   "format": "sale_tag",
+   "words": [
+    "BLACK FRIDAY",
+    "50% OFF"
+   ],
+   "headline": "BLACK FRIDAY",
+   "name": "LC_261103_HoboBag_BlackFriday_B036_S19_saletag",
+   "ai": {
+    "id": "AS10",
+    "scene": "p00_s19_sale_tag",
+    "colour": "Grey",
+    "format": "sale_tag"
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS11.png",
+   "format": "quiz_card",
+   "words": [
+    "Where do your keys go?",
+    "A. Bottom of the bag",
+    "B. Gold side zip"
+   ],
+   "headline": "Where do your keys go?",
+   "name": "LC_261103_HoboBag_BlackFriday_B036_S20_quizcard",
+   "ai": {
+    "id": "AS11",
+    "scene": "p00_s20_quiz_card",
+    "colour": "Galaxy Black",
+    "format": "quiz_card"
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS12.png",
+   "format": "gift_moment",
+   "words": [
+    "For her",
+    "Black Friday gift"
+   ],
+   "headline": "For her",
+   "name": "LC_261103_HoboBag_BlackFriday_B036_S21_gifttag",
+   "ai": {
+    "id": "AS12",
+    "scene": "p00_s21_gift_moment",
+    "colour": "Blue",
+    "format": "gift_moment"
+   }
+  },
+  {
+   "layout": "concept",
+   "photo": "ai/AS13.png",
+   "kicker": "BLACK FRIDAY",
+   "headline": "Your keys have a zip now.",
+   "where": "bottom",
+   "name": "LC_261103_HoboBag_BlackFriday_B036_S22_concept",
+   "ai": {
+    "id": "AS13",
+    "scene": "p00_s22",
+    "colour": "Burgundy"
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS14.png",
+   "format": "neon_sign",
+   "words": [
+    "ZIP IT.",
+    "GO."
+   ],
+   "headline": "ZIP IT.",
+   "name": "LC_261103_HoboBag_BlackFriday_B036_S23_neonsign",
+   "ai": {
+    "id": "AS14",
+    "scene": "p00_s23_neon_sign",
+    "colour": "Blue",
+    "format": "neon_sign"
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS15.png",
+   "format": "split_compare",
+   "words": [
+    "Digging, or done?",
+    "Open top",
+    "Gold side zip"
+   ],
+   "headline": "Digging, or done?",
+   "name": "LC_261103_HoboBag_BlackFriday_B036_S24_compare",
+   "ai": {
+    "id": "AS15",
+    "scene": "p00_s24_split_compare",
+    "colour": "Grey",
+    "format": "split_compare"
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS16.png",
+   "format": "movie_poster",
+   "words": [
+    "THREE WAYS",
+    "One bag. Black Friday."
+   ],
+   "headline": "THREE WAYS",
+   "name": "LC_261103_HoboBag_BlackFriday_B036_S25_movieposter",
+   "ai": {
+    "id": "AS16",
+    "scene": "p00_s25_movie_poster",
+    "colour": "Galaxy Black",
+    "format": "movie_poster"
+   }
+  },
+  {
+   "layout": "quotes",
+   "photo": "site/hobo_bag_colour_burgundy.jpg",
+   "reviews": [
+    9
+   ],
+   "pct": 50,
+   "cta": "Get the Black Friday deal",
+   "name": "LC_261103_HoboBag_BlackFriday_B036_S26_quotes"
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS17.png",
+   "format": "macro_detail",
+   "words": [
+    "Gold side zip."
+   ],
+   "headline": "Gold side zip.",
+   "name": "LC_261103_HoboBag_BlackFriday_B036_S27_macro",
+   "ai": {
+    "id": "AS17",
+    "scene": "p00_s27_macro_detail",
+    "colour": "Brown",
+    "format": "macro_detail"
+   }
+  },
+  {
+   "layout": "concept",
+   "photo": "ai/AS18.png",
+   "kicker": "BLACK FRIDAY",
+   "headline": "Three ways to wear it.",
+   "where": "bottom",
+   "name": "LC_261103_HoboBag_BlackFriday_B036_S28_concept",
+   "ai": {
+    "id": "AS18",
+    "scene": "p00_s28",
+    "colour": "Grey"
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS19.png",
+   "format": "odd_one_out",
+   "words": [
+    "Spot the one that zips shut."
+   ],
+   "headline": "Spot the one that zips shut.",
+   "name": "LC_261103_HoboBag_BlackFriday_B036_S29_oddoneout",
+   "ai": {
+    "id": "AS19",
+    "scene": "p00_s29_odd_one_out",
+    "colour": "Red",
+    "format": "odd_one_out"
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS20.png",
+   "format": "window_display",
+   "words": [
+    "BLACK FRIDAY SALE"
+   ],
+   "headline": "BLACK FRIDAY SALE",
+   "name": "LC_261103_HoboBag_BlackFriday_B036_S30_window",
+   "ai": {
+    "id": "AS20",
+    "scene": "p00_s30_window_display",
+    "colour": "Galaxy Black",
+    "format": "window_display"
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS21.png",
+   "format": "trading_card",
+   "words": [
+    "THE HOBO BAG",
+    "Back pocket: hidden",
+    "Side zips: two, gold",
+    "Wear: three ways"
+   ],
+   "headline": "THE HOBO BAG",
+   "name": "LC_261103_HoboBag_BlackFriday_B036_S31_tradingcard",
+   "ai": {
+    "id": "AS21",
+    "scene": "p00_s31_trading_card",
+    "colour": "Red",
+    "format": "trading_card"
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS22.png",
+   "format": "travel_carry",
+   "words": [
+    "Cards stay against you."
+   ],
+   "headline": "Cards stay against you.",
+   "name": "LC_261103_HoboBag_BlackFriday_B036_S32_travel",
+   "ai": {
+    "id": "AS22",
+    "scene": "p00_s32_travel_carry",
+    "colour": "Blue",
+    "format": "travel_carry"
+   }
+  },
+  {
+   "layout": "concept",
+   "photo": "ai/AS23.png",
+   "kicker": "BLACK FRIDAY",
+   "headline": "Hang it. Zip it. Go.",
+   "where": "bottom",
+   "name": "LC_261103_HoboBag_BlackFriday_B036_S33_concept",
+   "ai": {
+    "id": "AS23",
+    "scene": "p00_s33",
+    "colour": "Grey"
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS24.png",
+   "format": "wear_card",
+   "words": [
+    "How to wear it",
+    "1 Shoulder",
+    "2 Handbag",
+    "3 Crossbody"
+   ],
+   "headline": "How to wear it",
+   "name": "LC_261103_HoboBag_BlackFriday_B036_S34_wearcard",
+   "ai": {
+    "id": "AS24",
+    "scene": "p00_s34_wear_card",
+    "colour": "Burgundy",
+    "format": "wear_card"
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS25.png",
+   "format": "editorial_still_life",
+   "words": [
+    "Looks expensive.",
+    "Wears three ways."
+   ],
+   "headline": "Looks expensive.",
+   "name": "LC_261103_HoboBag_BlackFriday_B036_S35_stilllife",
+   "ai": {
+    "id": "AS25",
+    "scene": "p00_s35_editorial_still_life",
+    "colour": "Galaxy Black",
+    "format": "editorial_still_life"
+   }
+  },
+  {
+   "layout": "studio",
+   "photo": "site/hobo_bag_colour_red.jpg",
+   "pct": 50,
+   "name": "LC_261103_HoboBag_BlackFriday_B036_S36_studio",
+   "caption": "Keys, phone, cards: sorted."
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS26.png",
+   "format": "polaroid_caption",
+   "words": [
+    "Side zip. Keys. Done."
+   ],
+   "headline": "Side zip. Keys. Done.",
+   "name": "LC_261103_HoboBag_BlackFriday_B036_S37_polaroidcapt",
+   "ai": {
+    "id": "AS26",
+    "scene": "p00_s37_polaroid_caption",
+    "colour": "Grey",
+    "format": "polaroid_caption"
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS27.png",
+   "format": "newspaper_front",
+   "words": [
+    "THE LIBRA DAILY",
+    "Hidden pocket found on the back",
+    "Black Friday: 50% off"
+   ],
+   "headline": "THE LIBRA DAILY",
+   "name": "LC_261103_HoboBag_BlackFriday_B036_S38_newspaperfro",
+   "ai": {
+    "id": "AS27",
+    "scene": "p00_s38_newspaper_front",
+    "colour": "Blue",
+    "format": "newspaper_front"
+   }
+  },
+  {
+   "layout": "concept",
+   "photo": "ai/AS28.png",
+   "kicker": "BLACK FRIDAY",
+   "headline": "Two gold side zips.",
+   "where": "bottom",
+   "name": "LC_261103_HoboBag_BlackFriday_B036_S39_concept",
+   "ai": {
+    "id": "AS28",
+    "scene": "p00_s39",
+    "colour": "Brown"
+   },
+   "motion": {
+    "id": "AM04",
+    "file": "ai/clips/AM04_c.mp4",
+    "seconds": 5.0
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS29.png",
+   "format": "colour_block",
+   "words": [
+    "Six colours. 50% off."
+   ],
+   "headline": "Six colours. 50% off.",
+   "name": "LC_261103_HoboBag_BlackFriday_B036_S40_colourblock",
+   "ai": {
+    "id": "AS29",
+    "scene": "p00_s40_colour_block",
+    "colour": "Red",
+    "format": "colour_block"
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS30.png",
+   "format": "shipping_box",
+   "words": [
+    "Packed for Black Friday."
+   ],
+   "headline": "Packed for Black Friday.",
+   "name": "LC_261103_HoboBag_BlackFriday_B036_S41_shippingbox",
+   "ai": {
+    "id": "AS30",
+    "scene": "p00_s41_shipping_box",
+    "colour": "Grey",
+    "format": "shipping_box"
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS31.png",
+   "format": "door_hanger",
+   "words": [
+    "Gone shopping.",
+    "Black Friday"
+   ],
+   "headline": "Gone shopping.",
+   "name": "LC_261103_HoboBag_BlackFriday_B036_S42_doorhanger",
+   "ai": {
+    "id": "AS31",
+    "scene": "p00_s42_door_hanger",
+    "colour": "Brown",
+    "format": "door_hanger"
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS32.png",
+   "format": "street_poster",
+   "words": [
+    "A hidden pocket on the back."
+   ],
+   "headline": "A hidden pocket on the back.",
+   "name": "LC_261103_HoboBag_BlackFriday_B036_S43_billboard",
+   "ai": {
+    "id": "AS32",
+    "scene": "p00_s43_street_poster",
+    "colour": "Burgundy",
+    "format": "street_poster"
+   }
+  },
+  {
+   "layout": "quotes",
+   "photo": "site/hobo_bag_colour_dark_sienna_nobadge.jpg",
+   "reviews": [
+    10
+   ],
+   "pct": 50,
+   "cta": "Get the Black Friday deal",
+   "name": "LC_261103_HoboBag_BlackFriday_B036_S44_quotes"
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS33.png",
+   "format": "gift_unbox",
+   "words": [
+    "Black Friday, unwrapped."
+   ],
+   "headline": "Black Friday, unwrapped.",
+   "name": "LC_261103_HoboBag_BlackFriday_B036_S45_unbox",
+   "ai": {
+    "id": "AS33",
+    "scene": "p00_s45_gift_unbox",
+    "colour": "Burgundy",
+    "format": "gift_unbox"
+   }
+  },
+  {
+   "layout": "concept",
+   "photo": "ai/AS34.png",
+   "kicker": "BLACK FRIDAY",
+   "headline": "For her. For you.",
+   "where": "bottom",
+   "pct": 50,
+   "name": "LC_261103_HoboBag_BlackFriday_B036_S46_concept",
+   "ai": {
+    "id": "AS34",
+    "scene": "p00_s46",
+    "colour": "Red"
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS35.png",
+   "format": "cup_sleeve",
+   "words": [
+    "Black Friday starts here."
+   ],
+   "headline": "Black Friday starts here.",
+   "name": "LC_261103_HoboBag_BlackFriday_B036_S47_cupsleeve",
+   "ai": {
+    "id": "AS35",
+    "scene": "p00_s47_cup_sleeve",
+    "colour": "Galaxy Black",
+    "format": "cup_sleeve"
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS36.png",
+   "format": "framed_print",
+   "words": [
+    "Keys? Found."
+   ],
+   "headline": "Keys? Found.",
+   "name": "LC_261103_HoboBag_BlackFriday_B036_S48_framedprint",
+   "ai": {
+    "id": "AS36",
+    "scene": "p00_s48_framed_print",
+    "colour": "Grey",
+    "format": "framed_print"
+   }
+  },
+  {
+   "layout": "concept",
+   "photo": "ai/AS37.png",
+   "kicker": "BLACK FRIDAY",
+   "headline": "No more digging for keys.",
+   "where": "bottom",
+   "pct": 50,
+   "name": "LC_261103_HoboBag_BlackFriday_B036_S49_concept",
+   "ai": {
+    "id": "AS37",
+    "scene": "p00_s49",
+    "colour": "Galaxy Black"
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS38.png",
+   "format": "luggage_tag",
+   "words": [
+    "Passport: back pocket"
+   ],
+   "headline": "Passport: back pocket",
+   "name": "LC_261103_HoboBag_BlackFriday_B036_S50_luggagetag",
+   "ai": {
+    "id": "AS38",
+    "scene": "p00_s50_luggage_tag",
+    "colour": "Blue",
+    "format": "luggage_tag"
+   }
+  }
+ ],
+ "card_photos": []
+}
