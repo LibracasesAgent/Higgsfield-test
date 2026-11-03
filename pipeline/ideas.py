@@ -37,7 +37,10 @@ experience, no health / medical claims):
     "idea": "the creative idea in one sentence",
     "headline": "<= 8 words, optional", "kicker": "BLACK FRIDAY (optional)", "sub": "optional", "pill": true (the offer's % pill) | "badge": "text",
     "where": "top|bottom (concept: where the words go; the scene leaves that end empty)", "tone": "dark|light (optional)",
-    "scene": {"kind": "object|worn|hand", "colour": "Black", "prompt": "the scene: surface, props, light, composition (no people / faces)"}
+    "scene": {"kind": "object|worn|hand", "colour": "Black", "prompt": "the scene: surface, props, light, composition (no people / faces)"},
+    "motion": "steam rises from the latte, sunlight flickers through the window"  (optional, object scenes only, at most 6 a batch:
+              a MOTION STILL: the scene also becomes a 5 s silent loop, Kling 3.0 pro from the still, ~9 credits, our words over it;
+              only what is around the bag moves: never the bag, a person or a hand)
  }, {
     "id": "S02", "project": "P02", "layout": "ad", "idea": "...",
     "format": "magazine_cover"  (data/static_formats.json) | "<a new id>" with "format_name": "...", "art": "the art direction (>= 60 chars)",
@@ -92,6 +95,9 @@ def sale_campaign(theme, day=None):
     compliance.use_campaign(c)
     return c
 HOOK_TYPES = ("promise", "superlative", "question", "problem", "price")
+MAX_MOTION = 6                                         # motion stills a batch at most (ai_gen.MAX_MOTION; ~9 credits each)
+MOTION_PEOPLE = re.compile(r"\b(?:woman|women|man|men|person|people|girl|she|he|her|his|hands?|fingers?|face|someone|somebody)\b", re.I)
+MOTION_BAG = re.compile(r"\b(?:bags?|handbags?|hobo|purses?|zips?|zippers?|straps?|pouch)\b", re.I)   # (the motion line never names the bag)
 MAX_HOOK_WORDS = 14
 MAX_CHAPTER_WORDS, MAX_SENTENCES = 70, 5            # (the script engine's own limits are 45 / 3: a strategist's story needs more room)
 WORDS = (170, 285)                                   # the whole script: 55-80 s at 185-215 wpm
@@ -564,9 +570,27 @@ def check(sheet, pr, n_projects=None, n_statics=None, exclude=None, day=None):
             h = re.sub(r"\W+", " ", ad_headline(s).lower()).strip()
             if h and h in old_caps and h.removeprefix("the ") != re.sub(r"\W+", " ", pr["name"].lower()).strip():   # (the name alone may repeat)
                 P.append(f"{s.get('id')}: the line {ad_headline(s)!r} was on a static of an earlier batch: new words")
+    moving = [s for s in stats if s.get("motion") is not None]
+    for s in moving:                  # motion stills (owner 2026-11-03): a concept scene as a short loop, our typography over it
+        sid, mo = s.get("id") or "?", s.get("motion")
+        if s.get("layout") != "concept":
+            P.append(f"{sid}: motion: only a concept static moves (an AI ad's own words would warp in a clip)")
+        elif not isinstance(mo, str) or len(mo.strip()) < 20:
+            P.append(f"{sid}: motion: what moves around the bag, in a sentence (steam from the cup, light through the window ...)")
+        elif MOTION_PEOPLE.search(mo):
+            P.append(f"{sid}: motion: nobody and no hand moves in a motion still: only the scene around the bag")
+        elif MOTION_BAG.search(mo):
+            P.append(f"{sid}: motion: say only what moves around the bag, without naming the bag (it never moves: it would morph)")
+        if s.get("style") == "overlay":
+            P.append(f"{sid}: motion: a motion still keeps its words in the footer (no style overlay)")
+        if s.get("layout") == "concept" and (s.get("scene") or {}).get("kind", "object") != "object":
+            P.append(f"{sid}: motion: only an object scene (scene.kind object: nobody in the picture) becomes a motion still")
+    if len(moving) > MAX_MOTION:
+        P.append(f"statics: {len(moving)} motion stills, at most {MAX_MOTION} a batch (~9 credits each)")
     if stats:
         n_ai = sum(s.get("layout") in ("concept", "ad") for s in stats)
-        W.append(f"{n_ai} AI statics of {len(stats)} ({len(ads)} designed ads, {n_ai - len(ads)} studio scenes; about {n_ai} credits plus retries)")
+        W.append(f"{n_ai} AI statics of {len(stats)} ({len(ads)} designed ads, {n_ai - len(ads)} studio scenes; about {n_ai} credits plus retries)"
+                 + (f"; {len(moving)} motion stills, about {round(8.75 * len(moving))} credits more" if moving else ""))
         heads = [re.sub(r"\W+", " ", ((ad_headline(s) if s.get("layout") == "ad" else s.get("headline")) or "").lower()).strip()
                  for s in stats if s.get("headline") or s.get("layout") == "ad"]
         for h in {x for x in heads if heads.count(x) > 1}:
@@ -761,6 +785,10 @@ def packet(pr, theme, n_projects, n_statics, request=""):
           "(a latte, keys, a notebook, gift boxes, a chair), the bag fully visible; leave the end where the words go EMPTY (calm surface, nothing "
           "on it); never a face, eyes, sunglasses, a mannequin or a person even blurred in the background (a person is cropped at the shoulders "
           "or seen from behind); no text or logos in the picture (the words are set on it). One idea per static, a different scene each time.",
+          "Motion stills (owner 2026-11-03): up to 6 `concept` object scenes may carry `motion` (what moves AROUND the bag, in one sentence, "
+          "without naming the bag: 'steam curls up from the latte, sunlight flickers through the blinds'): the static also ships as a 5 s "
+          "silent loop (Kling 3.0 pro from its still, ~9 credits each, the same footer words). Pick scenes with something that moves "
+          "naturally (steam, candle light, rain on a window, curtains, leaves, city bokeh); the bag, people and hands never move.",
           "Mix: about two thirds `ad` (each a different format), the rest real photos (studio / native / value / quotes) or `concept`."]
     L += ["\n## 6. Output\n", "Write `ideas.json` (format in `ideas.py --help`): per project a big idea, why it is new, 4 hooks of different types, "
           "5-11 chapters each with `show` tags, the offer last; per static its concept. Then run `ideas.py check`."]

@@ -712,6 +712,25 @@ revenue, verdict, notes; grey formulas: hook rate, CTR, CPA, ROAS), Summary (by 
 - **Fix by hand:** `python3 pipeline/tracker.py sync --batch B045` (or `--all` to refresh every batch's file details); `show` counts.
 - B001's files sit in the Outputs folder "oct 3 test" (`folder_overrides`), whose subfolder of B012 statics is skipped.
 
+### 4l. Motion stills and the model test (owner 2026-11-03)
+
+The owner: "use Higgsfield for motion stills ... best model ... studio level, good typography". Built and tested that day:
+- **Image model test** (the same magazine-cover and POV-from-behind prompts, the real packshot as the reference): GPT Image 2.5
+  medium (1 credit) and high (2.75) kept the real bag (shape, pouch, hardware, centre seam) best and set every word right with no
+  other text; Nano Banana Pro (2) changed the bag's shape and colour; FLUX 3 (3) shrank the bag and added a stray shop sign. High
+  looked no better than medium at feed size: medium 2k stays (`ai_gen.IMG`).
+- **Motion stills** (`ideas.py` `"motion"` on a concept object scene, at most 6 a batch): the still is made square (1:1), Kling 3.0
+  pro animates it for 5 s with the still as its first AND last frame (a seamless loop; 8.75 credits; Seedance 2.0 1080p would be 60,
+  Kling 4.0 16.25), `ai_gen.py clips` conforms it (1080 square, 30 fps, silent) and gates it (it moves, nothing morphs, the loop
+  closes, it starts on the still, no face), and `brand_statics.render_motion` renders the static once and swaps only its photo part
+  per frame: our footer type, kicker and % pill never move or shimmer. Output `<static>_motion.mp4` (1080x1350, 5 s, no audio) next to
+  the PNG in Drive Statics; the ad copy row is the static's own. A clip that fails: the still static ships alone. Kling added a slow
+  push-in and back in the test although asked for a locked-off camera: it reads as a premium "breathing" shot and passes.
+- The motion line says only what moves AROUND the bag (steam, candle light, rain on glass, curtains, leaves, city bokeh); it never
+  names the bag (the check refuses it) and nobody moves (no people, no hands).
+- smokebag.xyz (an AI ad portfolio) and Pinterest are not readable from here (script gallery; crawler blocked): design references
+  for a batch come from docs/research and the format library, or from screenshots the client drops into Drive.
+
 ### 4k. Videos are stories, not feature lists (owner 2026-10-27)
 
 Diagnosis (B025 / B027, 25 Oct): every project walked through the same five features (back pocket, side zips, compartments, three

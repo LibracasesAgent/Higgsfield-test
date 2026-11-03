@@ -14,6 +14,9 @@ Higgsfield is reached through the agent's MCP tools, not from Python, so the flo
      sharpness checks, a contact sheet qa/ai_stills.jpg (reference | still) the agent LOOKS AT; `reject AS03 ...` drops any
      that morph the bag or look AI;
   4. the agent generates the clips from the approved stills (generate_video_batch), downloads each to its `file`;
+  4b. motion stills (AM.., owner 2026-11-03): a concept static's square still animated 5 s by Kling 3.0 pro with the still as its
+     first and last frame; `clips` conforms them square and gates them (moves, closes, starts on the still, no face, no morph);
+     brand_statics.render_motion puts the static's own footer over every frame (<static>_motion.mp4);
   5. `python3 pipeline/ai_gen.py clips --out $OUT`: conform to 1080x1920 / 30 fps with the real footage's look (grade, grain,
      sharpness), checks (faces, black / frozen frames, drift), a contact sheet qa/ai_clips.jpg to look at; `reject AC02 ...`;
   6. render applies the result (apply(): a rejected or missing still gives its static back as the real-photo static it
@@ -46,6 +49,10 @@ CLIP_MODELS = {                      # tested 2026-10-20 on the same two stills 
     "kling3_0": dict(model="kling3_0", params=dict(mode="std", sound="off", duration=3), cost=4.5, trim=3.0),
     "minimax_hailuo": dict(model="minimax_hailuo", params=dict(variant="minimax-2.3", duration=6, resolution="768"),
                            cost=6.0, trim=3.2)}
+MOTION = dict(model="kling3_0", params=dict(mode="pro", sound="off", duration=5, aspect_ratio="1:1"), cost=8.75, seconds=5.0)
+# (motion stills, owner 2026-11-03; tested that day on a cafe scene: Kling 3.0 pro, the still as its first AND last frame, so the
+#  loop has no seam: 8.75 credits; Seedance 2.0 1080p was 60 and Kling 4.0 16.25 for the same 5 s)
+MAX_MOTION = 6                       # motion stills a batch makes at most (they cost ~9 credits each)
 RESERVE = 8.0                        # credits kept for a re-generation of an AI asset that fails the gate
 STATIC_SHARE = 0.4                   # of a batch's statics at most this share are AI scenes (the rest stay real photos)
 MAX_STATICS, MAX_CLIPS = 12, 8
@@ -172,6 +179,13 @@ def motion_prompt(lib, scene, noun):
     return lib["motion"][scene["kind"]].format(noun=noun)
 
 
+def motion_still_prompt(what, noun):
+    """The prompt of a motion still's clip: the sheet's own `motion` words (what moves) inside the keep-the-bag-still frame."""
+    what = what.strip().rstrip(".")
+    return (f"Locked-off tripod shot, the camera stays still. Only gentle ambient motion: {what}. The {noun} stays perfectly still, "
+            f"exactly the same shape, colour and details, no morphing, it never opens. No people, no hands, no text appears.")
+
+
 def clip_model_for(scene):
     return "kling3_0" if scene["kind"] == "object" else "minimax_hailuo"
 
@@ -251,8 +265,11 @@ STEPS = [
     "3. For every clip whose start still passed: generate_video_batch (start_image = that still's job id, model/params/prompt as "
     "listed); jobs_wait; download to $OUT/<file>. Clips of a rejected still are skipped. If a submission comes back with a preset "
     "recommendation instead of a job, send it again with `declined_preset_id` = that preset's id (the project never uses presets).",
+    "3b. Motion stills (AM.. clips, `use: motion`): generate_video_batch with medias [{value: <the still's job id>, role: start_image}, "
+    "{value: <the same job id>, role: end_image}] (the same still first and last, so the loop has no seam), model/params/prompt as listed.",
     "4. python3 pipeline/ai_gen.py clips --out $OUT ; LOOK at $OUT/qa/ai_clips.jpg; reject morphing / odd-hand clips with "
-    "`reject`. Then render as usual (it applies the result).",
+    "`reject` (a motion still where the bag changes shape, opens, or anything morphs: `reject AM02`). Then render as usual (it "
+    "applies the result; a motion still whose clip failed ships as the still static alone).",
     "Report: credits before -> after (balance), how many AI assets passed. Never ship a still or clip you would not believe is real."]
 
 
@@ -594,6 +611,55 @@ def gate_clip(path, tmp, kind="object"):
     return r
 
 
+def conform_motion(src, dst, seconds):
+    """A motion still's clip as render_motion wants it: square 1080, 30 fps, no sound, `seconds` long (no grade or grain: the
+    still it starts and ends on is the static's own photo)."""
+    vf = "scale=1080:1080:force_original_aspect_ratio=increase,crop=1080:1080,fps=30,format=yuv420p"
+    r = subprocess.run(["ffmpeg", "-v", "error", "-y", "-i", src, "-t", f"{seconds:.2f}", "-an", "-vf", vf, "-c:v", "libx264",
+                        "-preset", "medium", "-crf", "17", "-movflags", "+faststart", dst], capture_output=True, text=True)
+    return r.returncode == 0 and os.path.exists(dst)
+
+
+def gate_motion(path, tmp, still=None):
+    """A motion still's clip: readable and 3 s+, no black frame, no face, it moves (a little), nothing changes wildly (a morph), the
+    loop closes (its last frame is its first) and it starts on the still."""
+    info = ffprobe(path)
+    if not info or info["dur"] < 3:
+        return dict(ok=False, problems=["unreadable or under 3 s"])
+    d_ = info["dur"]
+    fr = grab(path, [0.05, d_ * 0.25, d_ * 0.5, d_ * 0.75, max(d_ - 0.08, 0.1)], tmp, "motion")
+    cv2, np = _cv()
+    ims = [cv2.imread(p) for p in fr]
+    if len(ims) < 5 or any(i is None for i in ims):
+        return dict(ok=False, problems=["frames unreadable"])
+    g = [cv2.resize(cv2.cvtColor(i, cv2.COLOR_BGR2GRAY), (360, 360)).astype(np.float32) for i in ims]
+    r = dict(ok=True, problems=[])
+    if min(float(x.mean()) for x in g) < 12:
+        r["problems"].append("black frame")
+    move = max(float(np.abs(g[0] - x).mean()) for x in g[1:4])
+    seam = float(np.abs(g[0] - g[-1]).mean())
+    r.update(motion=round(move, 1), seam=round(seam, 1))
+    if move < 0.6:
+        r["problems"].append("frozen (no motion)")
+    if move > 40:
+        r["problems"].append("wild change inside the clip (a morph?)")
+    if seam > 3:                      # (Kling with the still as its last frame: ~1.5; a clip that ignored it: as much as it moved)
+        r["problems"].append("the loop does not close (its last frame is not its first)")
+    if still and os.path.exists(still):
+        s0 = cv2.imread(still)
+        if s0 is not None:
+            s0 = cv2.resize(cv2.cvtColor(s0, cv2.COLOR_BGR2GRAY), (360, 360)).astype(np.float32)
+            r["start_vs_still"] = round(float(np.abs(s0 - g[0]).mean()), 1)
+            if r["start_vs_still"] > 25:
+                r["problems"].append("it does not start on its still")
+    n = max(faces(p) for p in fr)
+    if n:
+        r["problems"].append("face")
+    r["faces"] = n
+    r["ok"] = not r["problems"]
+    return r
+
+
 def cmd_clips(out):
     need = load_needed(out)
     if not need:
@@ -615,6 +681,19 @@ def cmd_clips(out):
             missing.append(c["id"])
             continue
         was = g["clips"].get(c["id"]) or {}
+        if c.get("use") == "motion":     # a motion still: square, its own still first and last, no grade (it is the static's photo)
+            if not conform_motion(raw, done, c.get("seconds") or MOTION["seconds"]):
+                g["clips"][c["id"]] = dict(ok=False, problems=["conform failed"])
+                continue
+            r = gate_motion(done, tmp, os.path.join(out, "ai", f"{c['start']}.png"))
+            if was.get("rejected"):
+                r.update(ok=False, rejected=True, problems=r["problems"] + ["rejected by eye"])
+            g["clips"][c["id"]] = r
+            info = ffprobe(done) or {"dur": 5}
+            rows.append((f"{c['id']} motion {c['scene']} {'OK' if r['ok'] else 'FAIL ' + '; '.join(r['problems'])}",
+                         grab(done, [0.2, info["dur"] * 0.35, info["dur"] * 0.65, info["dur"] - 0.2], os.path.join(out, "qa", "_ai"),
+                              c["id"])))
+            continue
         sf = grab(raw, [0.1, 1.0, 2.0], tmp, c["id"] + "_ai")
         sat, con = grade_match(sf, real, tmp)
         if not conform(raw, done, c["trim"], sat, con):
@@ -640,7 +719,7 @@ def cmd_clips(out):
 def cmd_reject(out, ids):
     g = load_gate(out)
     for i in ids:
-        sec = "clips" if i.startswith("AC") else "stills"
+        sec = "clips" if i.startswith(("AC", "AM")) else "stills"
         e = g.setdefault(sec, {}).setdefault(i, {})
         e.update(ok=False, rejected=True)
         e["problems"] = list(dict.fromkeys((e.get("problems") or []) + ["rejected by eye"]))
@@ -693,7 +772,8 @@ def apply(out):
     g = load_gate(out)
     ok_s = {i for i, v in (g.get("stills") or {}).items() if v.get("ok") and os.path.exists(os.path.join(out, "ai", f"{i}.png"))}
     ok_c = {i for i, v in (g.get("clips") or {}).items() if v.get("ok") and os.path.exists(os.path.join(out, clip_file(out, i)))}
-    rep = dict(statics_ai=[], statics_back=[], clips_ai=sorted(ok_c), clips_swapped=0, clips_dropped=0, changed=False)
+    rep = dict(statics_ai=[], statics_back=[], clips_ai=sorted(ok_c), clips_swapped=0, clips_dropped=0, motion_ai=[], motion_dropped=[],
+               changed=False)
     # ---- statics
     sp = os.path.join(out, "statics.json")
     if os.path.exists(sp):
@@ -707,6 +787,12 @@ def apply(out):
                 rep["statics_ai"].append(ad["name"])
                 if fb:
                     rename[fb["name"]] = ad["name"]
+                mo = ad.get("motion")
+                if mo and mo.get("id") in ok_c:
+                    rep["motion_ai"].append(ad["name"])
+                elif mo:                  # its clip failed or was never made: the still static ships alone
+                    ad.pop("motion")
+                    rep["motion_dropped"].append(ad["name"])
             elif fb:
                 st["ads"][k] = fb
                 rep["statics_back"].append(f"{ad['name']} -> {fb['name']}")

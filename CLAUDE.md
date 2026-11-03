@@ -36,7 +36,9 @@ The repo's default branch is `claude/loving-meitner-4amjii`. Read `docs/PLAYBOOK
    (`$OUT/ai_needed.json`) only when the product's own material is thin (a new product with a few photos and a clip) or the request
    says so (`--ai`): then the real bag in a new scene (cafe, street from behind, hallway ...), still 4:5 / clip 3 s. You make
    exactly what `ai_needed.json` lists (models, prompts, ids): images with `gpt_image_2_5` (medium, 2k), clips with `kling3_0` /
-   `minimax_hailuo`. Never: other generators or models, presets, Ads Studio, `execute_preset`, upscalers, voice cloning, a face in any
+   `minimax_hailuo`, **motion stills** (`AM..`, owner 2026-11-03) with `kling3_0` pro, 5 s, the still as BOTH its start and end image
+   (model test 2026-11-03: GPT Image 2.5 kept the real bag best of four image models; Kling 3.0 pro 8.75 credits a 5 s loop against
+   60 for Seedance 2.0 and 16.25 for Kling 4.0). Never: other generators or models, presets, Ads Studio, `execute_preset`, upscalers, voice cloning, a face in any
    picture except the PRESENTER's (below), a prompt of your own (the exceptions: the SCENE of a `concept` static
    in the strategist's sheet, section S: surface, props, light, composition; `ai_gen` adds the keep-the-real-bag text, the style and the no-face rule;
    and an `ad` static's picture, exact words and, for a format of your own, its art direction: `ai_gen.build_ad_prompt` adds the rest). An AI asset ships only when it passed
@@ -58,7 +60,7 @@ The repo's default branch is `claude/loving-meitner-4amjii`. Read `docs/PLAYBOOK
    for the AI assets `media_upload` + `media_confirm`, `generate_image_batch`, `generate_video_batch`; and `jobs_wait`,
    `balance`, `transactions`; for a NEW presenter (not a batch): `generate_image_batch` with `soul_2`, `show_characters`
    (train a Soul ID) and `show_reference_elements`. One ugc project (one voice take per chapter + 4 hook lines) costs about 4-5 credits, a full
-   batch (5 projects) about 22; a scene still ~1, a clip 4.5-6; the one presenter project of a batch of 2+ about 225 (section 4). **A batch is capped at 100 credits, voiceover + AI together** (a batch with a presenter adds her stills and takes on top:
+   batch (5 projects) about 22; a scene still ~1, a clip 4.5-6, a motion still ~8.75 (+ its still); the one presenter project of a batch of 2+ about 225 (section 4). **A batch is capped at 100 credits, voiceover + AI together** (a batch with a presenter adds her stills and takes on top:
    ~2.5 credits per second of her talking, a 4-project batch ~900; `plan` caps that part at 1000 (`--presenter-cap X` when the request names
    more) and prints it as `presenter`)
    (`plan` plans the AI part inside it: 100 - voiceover - a reserve of 8 for one re-make of a failed asset; `plan` refuses more
@@ -330,7 +332,9 @@ python3 pipeline/ideas.py packet --product "<name>" [--theme "<words>"] --projec
    6+ ads), never a format the product's last batch used; `words` = the exact 1-4 lines the picture carries, few and short, no price
    figures, no quotation marks; `scene.prompt` = what the picture shows; realistic, the bag closed, no face, no fake buttons / app screens /
    notifications, no real magazine or brand name; `scene.colour` / `scene.ref` pick the reference packshot), optionally a `concept` scene or
-   two (no face, eyes, sunglasses, mannequin, interior of the bag; the end where the words go EMPTY), and the rest real: studio / native /
+   two (no face, eyes, sunglasses, mannequin, interior of the bag; the end where the words go EMPTY; up to 6 object scenes may also be
+   **motion stills**: `"motion": "<what moves AROUND the bag: steam, light, rain, curtains, leaves, city bokeh>"`, never naming the bag,
+   nobody moving: the static then also ships as a 5 s silent loop with the same footer words, `<name>_motion.mp4`), and the rest real: studio / native /
    quotes / value / offer / stars where they fit. Look at every AI ad's contact sheet: read each word, check the bag, `reject` what is off. Only the packet's facts; no first person, no invented customer experience, no countdown
    or sale end date nobody confirmed, no "theft-proof"; counts like "five things" only when the video delivers them.
 3. `python3 pipeline/ideas.py check $OUT/ideas.json --product "<name>" --projects M --statics N`: fix every PROBLEM (warnings: read them),
@@ -375,7 +379,10 @@ python3 pipeline/make_batch.py plan <flags> --ideas $OUT/ideas.json --request "<
    3. For every clip whose start still (`AV..`) passed: `generate_video_batch` (start_image = that still's job id, `model` /
       `params` / `prompt` as listed); `jobs_wait`; download to `$OUT/<file>`; `python3 pipeline/ai_gen.py clips --out $OUT`;
       **look at `$OUT/qa/ai_clips.jpg`** (4 frames per clip) and `reject` AC.. ids where the bag morphs, a hand looks wrong, or
-      it looks AI. A failed still / clip is not remade unless the reserve covers it (one retry, same prompt, then give up).
+      it looks AI. **Motion stills** (`AM..`, `"use": "motion"`): the same call with `medias` = [{value: <the still's job id>, role:
+      start_image}, {value: <the same job id>, role: end_image}] (the loop closes on its own still); the gate checks it moves, closes
+      and starts on the still; look at its 4 frames and `reject AM02` where the bag changes, opens or anything morphs (its static
+      ships as the still alone). A failed still / clip is not remade unless the reserve covers it (one retry, same prompt, then give up).
       A submission answered with a preset recommendation instead of a job: send it again with `declined_preset_id` = that preset's id
       (the project never uses presets); a 429 rate limit: send it again.
    `render` applies the result by itself: a rejected or missing still gives its static back as the real-photo static it
@@ -388,7 +395,8 @@ python3 pipeline/make_batch.py plan <flags> --ideas $OUT/ideas.json --request "<
    upload the statics first (`render --only S`, `upload --only S`), then the videos (`render --only V`,
    `upload --only V`): the same folder (same batch). No progress messages: one reply at the end. Use a fresh `$OUT` for
    every request.
-4. **QA:** Read `$OUT/qa/statics.jpg`, every `$OUT/qa/P*.jpg` (one per project: the 4 hooks side by side
+4. **QA:** Read `$OUT/qa/statics.jpg` (and `$OUT/qa/motion.jpg`: 4 frames of each motion still: the words stay still, only the scene
+   moves, the bag never changes), every `$OUT/qa/P*.jpg` (one per project: the 4 hooks side by side
    + the body + a 'body vs H1' number per version: under 10 = same body) and `$OUT/qa/report.json`. Captions
    sit at the bottom (white text with an outline, keywords on a red pill), jump to the top only for shots whose
    bottom shows a face or the product, and never sit over the end card (`"caption_zone": "reels"` in a spec keeps

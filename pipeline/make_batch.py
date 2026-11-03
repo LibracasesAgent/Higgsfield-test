@@ -2476,7 +2476,7 @@ def plan(a):
             ideas_scenes = []
         lib_ = ai_gen.library()
         flib_ = ideas.formats()["formats"]
-        stills_ = []
+        stills_, motion_ = [], []
         for k_, (i_, x_) in enumerate(ideas_scenes):
             sc_ = x_["scene"]
             want_ = {"brown": "sienn", "tan": "sienn"}.get((sc_.get("colour") or "").lower(), (sc_.get("colour") or "").lower())   # (the site calls brown 'Dark Sienn')
@@ -2493,14 +2493,38 @@ def plan(a):
                                     est_credits=ai_gen.IMG["cost"]))
                 continue
             prompt_ = sc_["prompt"].replace("{", "(").replace("}", ")").strip()
+            moving_ = bool(x_.get("motion")) and len(motion_) < ai_gen.MAX_MOTION   # a motion still: a square still, its clip loops on it
+            asp_ = "1:1" if moving_ else "4:5"
+            pr_ = ai_gen.build_prompt(lib_, dict(kind=sc_["kind"], prompt=prompt_ + " " + (ideas.NO_PEOPLE if sc_["kind"] == "object" else
+                                                                     "No other person is in the picture.")), ai_gen.noun_of(pr["name"]),
+                                      ref_.get("colour"), False)
+            if moving_:
+                pr_ = pr_.replace("Portrait 4:5 composition", "Square 1:1 composition")
             stills_.append(dict(id=f"AS{k_ + 1:02d}", use="static", scene=f"{x_.get('project', 'P00')}_{x_['id']}".lower(), kind=sc_["kind"],
-                                colour=ref_.get("colour"), layout="concept", ref=ref_["file"], aspect="4:5", file=f"ai/AS{k_ + 1:02d}.png",
-                                model=ai_gen.IMG["model"], params=dict(ai_gen.IMG["params"], aspect_ratio="4:5"), slot=i_,
-                                prompt=ai_gen.build_prompt(lib_, dict(kind=sc_["kind"], prompt=prompt_ + " " + (ideas.NO_PEOPLE if sc_["kind"] == "object" else
-                                                                                     "No other person is in the picture.")), ai_gen.noun_of(pr["name"]),
-                                                           ref_.get("colour"), False), est_credits=ai_gen.IMG["cost"]))
+                                colour=ref_.get("colour"), layout="concept", ref=ref_["file"], aspect=asp_, file=f"ai/AS{k_ + 1:02d}.png",
+                                model=ai_gen.IMG["model"], params=dict(ai_gen.IMG["params"], aspect_ratio=asp_), slot=i_,
+                                prompt=pr_, est_credits=ai_gen.IMG["cost"]))
+            if moving_:
+                mid_ = f"AM{len(motion_) + 1:02d}"
+                motion_.append(dict(id=mid_, use="motion", start=stills_[-1]["id"], end_image=True, kind="object",
+                                    scene=stills_[-1]["scene"], slot=i_, model=ai_gen.MOTION["model"], params=dict(ai_gen.MOTION["params"]),
+                                    prompt=ai_gen.motion_still_prompt(x_["motion"], ai_gen.noun_of(pr["name"])), file=f"ai/clips/{mid_}.mp4",
+                                    seconds=ai_gen.MOTION["seconds"], trim=ai_gen.MOTION["seconds"], est_credits=ai_gen.MOTION["cost"]))
+                stills_[-1]["motion"] = mid_
+            elif x_.get("motion"):
+                warnings.append(f"ideas: {x_['id']}: more than {ai_gen.MAX_MOTION} motion stills: this one is a still static only")
+        cap_ = (getattr(a, "ai_cap", None) or MAX_CREDITS) - 4.5 * a.videos - ai_gen.RESERVE
+        while motion_ and sum(x_["est_credits"] for x_ in stills_ + motion_) > cap_:      # the 100-credit cap: drop motion from the end
+            gone_ = motion_.pop()
+            next(x_ for x_ in stills_ if x_["id"] == gone_["start"]).pop("motion", None)
+            warnings.append(f"ideas: {gone_['id']} (motion of {gone_['scene']}) left out: the AI part would pass the batch's "
+                            f"{getattr(a, 'ai_cap', None) or MAX_CREDITS:g}-credit cap (the static stays as a still)")
+        if motion_:
+            warnings.append(f"motion stills: {len(motion_)} ({', '.join(m_['id'] for m_ in motion_)}), ~{ai_gen.MOTION['cost']:g} credits each "
+                            f"({ai_gen.MOTION['model']} {ai_gen.MOTION['params']['mode']}, {ai_gen.MOTION['seconds']:g} s loop): generate them "
+                            f"after the stills passed the gate (ai_gen.py show)")
         if stills_:
-            ai_plan = dict(stills=stills_, clips=[], est_credits=round(sum(x_["est_credits"] for x_ in stills_), 2),
+            ai_plan = dict(stills=stills_, clips=motion_, est_credits=round(sum(x_["est_credits"] for x_ in stills_ + motion_), 2),
                            notes=[], grade_refs=[], budget=dict(cap=getattr(a, "ai_cap", None) or MAX_CREDITS, tts_est=round(4.5 * a.videos, 2),
                                                                reserve=ai_gen.RESERVE))
             os.makedirs(os.path.join(out, "ai", "clips"), exist_ok=True)
@@ -2555,6 +2579,8 @@ def plan(a):
             d_["badge"] = x_["badge"]
         d_.update(name=re.sub(r"(_S\d+_).*$", lambda m_: m_.group(1) + "concept", orig_["name"]),
                   ai=dict(id=s_["id"], scene=s_["scene"], colour=s_.get("colour")), fallback=orig_)
+        if s_.get("motion"):              # its motion still (render: brand_statics.render_motion, when the clip passed the gate)
+            d_["motion"] = dict(id=s_["motion"], file=ai_gen.clip_file(out, s_["motion"]), seconds=ai_gen.MOTION["seconds"])
         statics[i_] = d_
     for k_, s_ in enumerate(x for x in ai_plan["stills"] if x["use"] == "static" and not sheet_scenes):
         i_ = ai_slot(s_["layout"])
@@ -3027,7 +3053,8 @@ def plan(a):
     # ---------- AI assets: only what the kept ads use is generated (a --only redo, a video left out); ai_needed.json says what
     if ai_plan["stills"] or ai_plan["clips"]:
         spec_txt = json.dumps(specs)
-        ai_plan["clips"] = [c_ for c_ in ai_plan["clips"] if f"{c_['id']}_c.mp4" in spec_txt]
+        moving_ = {x["motion"]["id"] for x in statics if x.get("motion")}         # (motion stills: a static's own clip)
+        ai_plan["clips"] = [c_ for c_ in ai_plan["clips"] if f"{c_['id']}_c.mp4" in spec_txt or c_["id"] in moving_]
         keep_s = {c_["start"] for c_ in ai_plan["clips"]} | {x["ai"]["id"] for x in statics if x.get("ai")}
         ai_plan["stills"] = [s_ for s_ in ai_plan["stills"] if s_["id"] in keep_s]
         ai_plan["est_credits"] = round(sum(x["est_credits"] for x in ai_plan["stills"] + ai_plan["clips"]), 2)
@@ -3582,6 +3609,52 @@ def static_qa(out, names, failed=None):
     return rep
 
 
+def motion_names(out, names):
+    """{static name: its motion still's file} for the statics that carry a passed motion clip (statics.json after ai_gen.apply)."""
+    try:
+        ads = json.load(open(os.path.join(out, "statics.json"))).get("ads") or []
+    except (OSError, ValueError):
+        return {}
+    return {x["name"]: os.path.join(out, "statics", x["name"] + "_motion.mp4") for x in ads if x.get("motion") and x["name"] in names}
+
+
+def motion_qa(out, names, failed=None):
+    """The motion stills (owner 2026-11-03): one row each (a failed render is listed and left out; its still static ships), and
+    qa/motion.jpg: 4 frames of each, to look at (the words stay still, only the photo moves, the bag never changes)."""
+    rows, strips = [], []
+    for k, (n, f) in enumerate(motion_names(out, names).items()):
+        mn = n + "_motion"
+        sid = (re.search(r"_(S\d+)_", n) or [None, f"M{k + 1:02d}"])[1]
+        ok = os.path.exists(f)
+        problems = [] if ok else [f"render failed: motion still {(failed or {}).get(mn, 'not made')} (its still static ships alone)"]
+        rows.append(dict(name=mn, id=sid + "m", engine="motion", format="motion", ok=ok, problems=problems, hard=list(problems)))
+        print(json.dumps(rows[-1]), flush=True)
+        if ok:
+            strips.append(f)
+    if strips:
+        from PIL import Image
+        tmp = os.path.join(out, "qa", "_motion")
+        os.makedirs(tmp, exist_ok=True)
+        tiles = []
+        for f in strips:
+            row = []
+            for j, t in enumerate((0.2, 1.6, 3.0, 4.6)):
+                fp = os.path.join(tmp, f"{os.path.basename(f)[:-4]}_{j}.jpg")
+                subprocess.run(["ffmpeg", "-v", "error", "-y", "-ss", f"{t}", "-i", f, "-frames:v", "1", "-vf", "scale=216:-2", fp],
+                               capture_output=True)
+                if os.path.exists(fp):
+                    row.append(Image.open(fp))
+            if row:
+                tiles.append(row)
+        if tiles:
+            g = Image.new("RGB", (216 * 4, 270 * len(tiles)), "white")
+            for r_, row in enumerate(tiles):
+                for c_, im in enumerate(row):
+                    g.paste(im, (216 * c_, 270 * r_))
+            g.save(os.path.join(out, "qa", "motion.jpg"), quality=88)
+    return rows
+
+
 def load_plan(out):
     """plan.json, refused when it asked for hook versions but has none (a plan whose projects.expand step was refused or
     undone lists the bare V01 .. videos: they must never be rendered or uploaded as if they were the batch)."""
@@ -3672,6 +3745,7 @@ def render(a):
             sys.exit(f"brand_statics.py failed (exit {r_.returncode}): see above")
         failed = dict(m.groups() for m in re.finditer(r"^FAILED (\S+): (.+)$", r_.stderr, re.M))
         report.update({r["name"]: r for r in static_qa(out, p["statics"], failed)})
+        report.update({r["name"]: r for r in motion_qa(out, p["statics"], failed)})
     if vids:
         prefetch(out, vids)
     vids = sorted(vids, key=lambda v: not re.search(r"H1$|^V\d+$|^W", str(v["id"])))   # the first version of each project first: it renders the shots
@@ -3960,6 +4034,7 @@ def upload(a):
     projs = {x["id"]: x for x in p.get("projects") or []}
     vproj = {v["name"]: projs.get(v.get("project")) for v in p["videos"]}
     want = [(os.path.join(out, "statics", n + ".png"), "static", static_id(n)) for n in p["statics"]] + \
+           [(f, "static", static_id(n)) for n, f in motion_names(out, p["statics"]).items()] + \
            [(os.path.join(out, "videos", v["name"] + ".mp4"), "video", v["id"]) for v in p["videos"]]
     listed = {f for f, _, _ in want}
     if a.only:        # same ids as render --only: S, V/P, P03, P03H2, 'S01,P02' (--hooks 1 plans: V03)
@@ -4048,7 +4123,9 @@ def upload(a):
                                               if a.only and n not in in_run and sent_before(n, kind)}
         with open(cp, encoding="utf-8-sig") as fh:
             rd = csv.DictReader(fh)
-            cols, rows = rd.fieldnames, [r for r in rd if r.get("ad_name") in sent]
+            all_ = list(rd)
+            cols, rows = rd.fieldnames, [r for r in all_ if r.get("ad_name") in sent]
+            rows += [dict(r, ad_name=r["ad_name"] + "_motion") for r in all_ if (r.get("ad_name") or "") + "_motion" in sent]
         try:
             acj = json.load(open(os.path.join(out, "ad_copy.json")))
         except (OSError, ValueError):

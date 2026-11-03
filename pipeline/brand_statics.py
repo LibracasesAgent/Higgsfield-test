@@ -1892,6 +1892,7 @@ def l_concept(a, sd):
     im = scene_photo(a, sd, "concept")
     head, kicker, sub, offer = a.get("headline"), a.get("kicker"), a.get("sub"), offer_text(a)
     if not (head or kicker or sub or offer):
+        a["_geom"] = dict(mode="full")
         return cover_photo(im, a, (W, H), 1.0).convert("RGBA")
     M, gap = SCENE_M, 20
     c0 = Image.new("RGB", (W, H))
@@ -1922,6 +1923,7 @@ def l_concept(a, sd):
         scrim.putalpha(Image.fromarray((ramp ** 1.5 * (0.80 if tone == "light" else 0.70) * 255 * np.ones((1, W))).astype("uint8")))
         c = Image.alpha_composite(c, scrim)
         y0 = top_y
+        a["_geom"] = dict(mode="overlay")
     else:
         band = block + 2 * 40
         ph_h = H - band
@@ -1941,6 +1943,7 @@ def l_concept(a, sd):
         c.alpha_composite(blend, (0, band if where == "top" else ph_h - 70))
         y0 = 40 if where == "top" else ph_h + 40
         tone = "light" if light else "dark"
+        a["_geom"] = dict(mode="band", where=where, ph_h=ph_h, band=band, fy=fy, col=col)   # (render_motion: the photo part of it)
     d = ImageDraw.Draw(c)
     y = y0
     for kind, h in parts:
@@ -1966,6 +1969,59 @@ def l_ad(a, sd):
 
 
 LAYOUTS = {k[2:]: v for k, v in globals().items() if k.startswith("l_")}
+
+MOTION_FPS = 30
+
+
+def _band_frame(base, fr, g):
+    """One frame of a motion still: the rendered static with its photo part replaced by the clip's frame (the same crop and the
+    same melt into the footer as l_concept), so the words, the footer and the pill stay exactly as they are."""
+    W = base.width
+    ph_h, band, where = g["ph_h"], g["band"], g["where"]
+    ph = ImageOps.fit(fr, (W, ph_h), Image.LANCZOS, centering=(0.5, g["fy"] if g.get("fy") is not None else 0.5))
+    c = base.convert("RGBA")
+    c.paste(ph.convert("RGBA"), (0, band if where == "top" else 0))
+    import numpy as np
+    blend = Image.new("RGBA", (W, 70), tuple(g["col"]) + (0,))
+    ramp = np.linspace(255, 0, 70) if where == "top" else np.linspace(0, 255, 70)
+    blend.putalpha(Image.fromarray((ramp[:, None] * np.ones((1, W))).astype("uint8")))
+    c.alpha_composite(blend, (0, band if where == "top" else ph_h - 70))
+    return c.convert("RGB")
+
+
+def render_motion(ad, sd, clip, dest, seconds=None):
+    """A motion still (owner 2026-11-03): the concept static as a short silent loop. The static is rendered once (the words, the
+    footer, the pill: our typography, never the AI's), then every frame of the AI clip (ai_gen: the same still as its first and last
+    frame, so the loop has no seam) replaces its photo part. A concept static with no words: the clip full frame. Returns dest."""
+    import shutil
+    import subprocess
+    import tempfile
+    base = render(ad, sd)
+    g = ad.get("_geom") or {}
+    if g.get("mode") not in ("band", "full"):
+        raise ValueError(f"motion: the concept look {g.get('mode')!r} has words over the photo: a motion still needs the footer look")
+    W, H = base.size
+    tmp = tempfile.mkdtemp(prefix="motion_")
+    try:
+        cmd = ["ffmpeg", "-v", "error", "-y", "-i", clip] + (["-t", f"{seconds:.2f}"] if seconds else []) + \
+              ["-vf", f"fps={MOTION_FPS}", os.path.join(tmp, "%04d.png")]
+        subprocess.run(cmd, check=True, capture_output=True)
+        frames = sorted(f for f in os.listdir(tmp) if f.endswith(".png"))
+        if len(frames) < MOTION_FPS:
+            raise ValueError(f"motion: {clip} gave {len(frames)} frames (under 1 s)")
+        enc = subprocess.Popen(["ffmpeg", "-v", "error", "-y", "-f", "rawvideo", "-pix_fmt", "rgb24", "-s", f"{W}x{H}",
+                                "-r", str(MOTION_FPS), "-i", "-", "-an", "-c:v", "libx264", "-preset", "medium", "-crf", "18",
+                                "-pix_fmt", "yuv420p", "-movflags", "+faststart", dest], stdin=subprocess.PIPE)
+        for f in frames:
+            fr = Image.open(os.path.join(tmp, f)).convert("RGB")
+            im = _band_frame(base, fr, g) if g["mode"] == "band" else ImageOps.fit(fr, (W, H), Image.LANCZOS, centering=(0.5, 0.5))
+            enc.stdin.write(im.tobytes())
+        enc.stdin.close()
+        if enc.wait():
+            raise ValueError("motion: the encode failed")
+        return dest
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
 
 
 def render(ad, sd, tries=6):
@@ -2017,6 +2073,16 @@ def main():
             continue
         im.save(out, "PNG", optimize=True)
         print(out, im.size)
+        mo = ad.get("motion")             # a motion still (ai_gen: its clip passed the gate): the same static as a short loop
+        if mo and os.path.isfile(os.path.join(sd, mo["file"])):
+            dest = os.path.join(a.outdir, ad["name"] + "_motion.mp4")
+            try:
+                render_motion(dict(ad), sd, os.path.join(sd, mo["file"]), dest, mo.get("seconds"))
+                print(dest, "motion")
+            except Exception as e:  # noqa: BLE001  the still static stands on its own; the motion version is left out
+                if os.path.exists(dest):
+                    os.remove(dest)
+                print(f"FAILED {ad['name']}_motion: {type(e).__name__}: {e}", file=sys.stderr, flush=True)
     if failed and a.strict:
         sys.exit(1)
 
