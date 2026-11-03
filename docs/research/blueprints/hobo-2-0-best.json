@@ -1,0 +1,443 @@
+{
+ "product": "Hobo 2.0",
+ "theme": "black friday",
+ "date": "2026-11-03",
+ "no_presenter": "the all-time-best blueprint runs without the presenter (docs/research/2026-11-all-time-best-ad.md: B016's presenter projects 1.90-2.06 ROAS against B017's voiceover 'versus' 2.97; an AI spokesperson cut CTR ~29% in a Meta field test)",
+ "research": [
+  "docs/research/2026-11-all-time-best-ad.md: the account's own winners (Sept brief, 20 ads, ROAS 2.90) and our AI ads (18-26 Oct, ROAS 2.13); B017 P04 'versus' (2.97) and the B017 statics (2.91) are the only AI ads above the account average, both a contrast frame shown on real footage",
+  "Category objection (Rick Steves forum, Zappos reviews): anti-theft bags look like tourist gear ('neon-signed me as a tourist'): P01 opens on it",
+  "Travel advice repeats three bag rules (across the body, valuables inside, close to you at the table): P02 turns them into the structure, with no crime or fear",
+  "Gift season: 92% of Cyber Weekend 2025 buyers bought a gift (Numerator); the site's own fact 'order by 14 December 2026 for the best chance of delivery before Christmas' closes P03",
+  "Statics: offer-first banners take 29% of Meta spend from 22% of ads (Motion 2026); a text line on every picture; post-it and quiz rank top in fashion: S01 offer-first, S02 post-it, S04 quiz, S03 the winning ordinary-vs-this frame"
+ ],
+ "projects": [
+  {
+   "id": "P01",
+   "slug": "nothiking",
+   "title": "The security bag that doesn't look like one",
+   "structure": "swap",
+   "big_idea": "Travel security bags look like hiking gear, so they stay in the cupboard; the Hobo 2.0 looks like the everyday handbag and hides three security details you only notice up close.",
+   "why_new": "B017's winning 'versus' compared five features as a list; this one answers the category's biggest objection (security bags look like gear) with three details shown one at a time, two of them proof shots with their own sound.",
+   "hooks": [
+    {
+     "text": "Most travel security bags look like hiking gear. This one looks like a handbag.",
+     "type": "problem",
+     "label": "NOT HIKING GEAR",
+     "show": [
+      "worn",
+      "outdoor"
+     ]
+    },
+    {
+     "text": "Would you guess this handbag locks?",
+     "type": "question",
+     "label": "IT LOCKS?",
+     "show": [
+      "zip_hand",
+      "zip"
+     ]
+    },
+    {
+     "text": "Watch two gold zip pulls clip together, and lock.",
+     "type": "promise",
+     "label": "WATCH THIS",
+     "show": [
+      "lock",
+      "zip_hand"
+     ]
+    },
+    {
+     "text": "Half price this Black Friday: a handbag with lockable zippers.",
+     "type": "price",
+     "label": "HALF PRICE",
+     "show": [
+      "strap",
+      "worn"
+     ]
+    }
+   ],
+   "chapters": [
+    {
+     "kind": "point",
+     "beat": "now",
+     "text": "Most travel security bags look like something you would take on a hike. Clips, mesh, a belt across the front. So they stay in the cupboard, and you carry your everyday bag instead.",
+     "tag": null,
+     "show": [
+      "worn",
+      "outdoor"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "switch",
+     "text": "The Hobo 2.0 looks like that everyday bag. A classic hobo shape, gold zips, nothing that looks like gear. The difference is in the details you only notice up close.",
+     "tag": null,
+     "show": [
+      "handheld",
+      "worn"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "difference",
+     "proof_shot": true,
+     "text": "Start with the zips. Clip the two gold pulls together and they lock, so nobody can open the bag behind you in a crowd.",
+     "tag": "LOCKABLE ZIPPERS",
+     "show": [
+      "zip_hand",
+      "lock",
+      "zip"
+     ],
+     "highlight": [
+      "lock"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "second_difference",
+     "text": "Then the lining. From the outside you would never know. On the inside it is RFID, so it blocks card scanners while your cards sit in the bag.",
+     "tag": "RFID LINING",
+     "show": [
+      "inside",
+      "pocket"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "second_difference",
+     "proof_shot": true,
+     "text": "And when you sit down, the table strap loops around your chair. The bag stays right where you left it, next to you, not on the floor.",
+     "tag": "TABLE SECURITY STRAP",
+     "show": [
+      "tie",
+      "placed",
+      "cafe"
+     ]
+    },
+    {
+     "kind": "offer",
+     "beat": "offer",
+     "text": "So it is the bag you would carry anyway, with the security built in. The Hobo 2.0 is fifty percent off in the Early Black Friday sale, with free US shipping. Tap the link below.",
+     "show": [
+      "worn",
+      "strap"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "P02",
+   "slug": "threerules",
+   "title": "The three bag rules for any trip",
+   "structure": "three_rules",
+   "structure_name": "The three rules",
+   "shape": "The three bag rules people repeat before every trip (across your body, valuables inside, close to you at the table), one at a time, each kept by a part of the bag, then the payoff: you stop thinking about them.",
+   "big_idea": "Before any trip someone gives you the same three bag rules; the Hobo 2.0 keeps all three for you, one feature each, told calmly with no crime and no fear.",
+   "why_new": "No Hobo 2.0 batch used advice everyone already knows as the structure: three numbered rules the viewer recognises, each answered by a different feature, led by the cut-resistant crossbody strap (never the lead before).",
+   "hooks": [
+    {
+     "text": "The three bag rules for any trip, and one bag that keeps them.",
+     "type": "promise",
+     "label": "3 TRAVEL RULES",
+     "show": [
+      "worn",
+      "walking"
+     ]
+    },
+    {
+     "text": "Do you wear your bag across your body when you travel?",
+     "type": "question",
+     "label": "ACROSS YOUR BODY",
+     "show": [
+      "strap",
+      "worn"
+     ]
+    },
+    {
+     "text": "Your cards should never ride at the top of an open bag.",
+     "type": "problem",
+     "label": "CARDS INSIDE",
+     "show": [
+      "pocket",
+      "zip_hand"
+     ]
+    },
+    {
+     "text": "On a trip, is your bag on the floor or on your chair?",
+     "type": "question",
+     "label": "AT THE TABLE",
+     "show": [
+      "tie",
+      "cafe"
+     ]
+    }
+   ],
+   "chapters": [
+    {
+     "kind": "point",
+     "beat": "setup",
+     "pace": "slow",
+     "text": "Before any trip, someone gives you the same three rules about your bag. Wear it across your body. Keep your cards inside. And keep it close when you sit down.",
+     "tag": null,
+     "show": [
+      "worn",
+      "walking"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "rule_1",
+     "text": "Rule one, across your body. The Hobo 2.0 comes with a wide crossbody strap, and the strap is cut-resistant, so it is built to stay on you.",
+     "tag": "CUT-RESISTANT STRAP",
+     "number": 1,
+     "show": [
+      "strap",
+      "worn"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "rule_2",
+     "text": "Rule two, cards inside. Hidden pockets and smart compartments give your cards and your phone a place of their own, out of sight, so you never dig for them at a counter.",
+     "tag": "HIDDEN POCKETS",
+     "number": 2,
+     "show": [
+      "pocket",
+      "inside",
+      "zip_hand"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "rule_3",
+     "proof_shot": true,
+     "text": "Rule three, keep it close. At the cafe, loop the table strap around your chair, and the bag stays right where you left it.",
+     "tag": "TABLE SECURITY STRAP",
+     "number": 3,
+     "show": [
+      "tie",
+      "placed",
+      "cafe"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "payoff",
+     "pace": "slow",
+     "text": "Three rules, and the bag keeps all of them for you, from the first train to the last dinner. You just get on with your day.",
+     "tag": null,
+     "show": [
+      "worn",
+      "outdoor"
+     ]
+    },
+    {
+     "kind": "offer",
+     "beat": "offer",
+     "text": "The Hobo 2.0 is fifty percent off in the Early Black Friday sale, with free US shipping. Black Friday prices are live now, so there is no need to wait. Tap the link below.",
+     "show": [
+      "worn",
+      "strap"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "P03",
+   "slug": "momontheroad",
+   "title": "For the mom who spends December on the road",
+   "structure": "gift_reveal",
+   "big_idea": "A gift for one person, the mom who travels to everyone else for the holidays: the bag goes on her shoulder, and two reasons it suits her trips, ending on the site's real order-by date.",
+   "why_new": "No Hobo 2.0 gift video named one person and her December, and none closed on the site's order-by date for Christmas delivery; it leads with the RFID lining.",
+   "hooks": [
+    {
+     "text": "The gift for the mom who spends December on the road.",
+     "type": "promise",
+     "label": "GIFT FOR MOM",
+     "show": [
+      "worn",
+      "walking"
+     ]
+    },
+    {
+     "text": "What do you give the mom who already has a bag?",
+     "type": "question",
+     "label": "GIFT IDEA",
+     "show": [
+      "strap",
+      "worn"
+     ]
+    },
+    {
+     "text": "Her cards ride at the top of an open tote, every single trip.",
+     "type": "problem",
+     "label": "HER CARDS",
+     "show": [
+      "pocket",
+      "inside"
+     ]
+    },
+    {
+     "text": "Fifty percent off this Black Friday: the gift for the mom who travels.",
+     "type": "price",
+     "label": "HALF PRICE",
+     "show": [
+      "zip_hand",
+      "zip"
+     ]
+    }
+   ],
+   "chapters": [
+    {
+     "kind": "point",
+     "beat": "who",
+     "text": "This one is for the mom who spends December on the road. Stations, long drives, a different kitchen every weekend. She is the one carrying the tickets, the snacks and everybody's chargers.",
+     "tag": null,
+     "show": [
+      "worn",
+      "walking"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "reveal",
+     "proof_shot": true,
+     "text": "She slides the strap onto her shoulder, and it looks like the classic handbag she would pick for herself. Simple, gold zips, nothing that looks like gear.",
+     "tag": null,
+     "show": [
+      "strap",
+      "worn"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "reason",
+     "text": "Reason one, the RFID lining. It blocks card scanners, so her cards stay private in every queue she waits in.",
+     "tag": "RFID LINING",
+     "number": 1,
+     "show": [
+      "inside",
+      "pocket"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "second_reason",
+     "text": "Reason two, hidden pockets and smart compartments. Her phone, her cards and her keys each get a place of their own, so nothing sinks to the bottom.",
+     "tag": "HIDDEN POCKETS",
+     "number": 2,
+     "show": [
+      "pocket",
+      "packing",
+      "inside"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "second_reason",
+     "text": "And in a busy station, the zippers lock. Clip the two pulls together, and nobody can open the bag behind her while she reads the departures board.",
+     "tag": "LOCKABLE ZIPPERS",
+     "number": 3,
+     "show": [
+      "zip_hand",
+      "lock",
+      "zip"
+     ]
+    },
+    {
+     "kind": "offer",
+     "beat": "offer",
+     "text": "The Hobo 2.0 is fifty percent off in the Early Black Friday sale, with free US shipping. Order by the fourteenth of December for the best chance of delivery before Christmas. Tap the link below.",
+     "show": [
+      "worn",
+      "strap"
+     ]
+    }
+   ]
+  }
+ ],
+ "statics": [
+  {
+   "id": "S01",
+   "project": "P01",
+   "layout": "ad",
+   "format": "bold_poster",
+   "idea": "Offer-first, the static Meta funds most in the sale: the % huge, one line that says what makes this bag different.",
+   "words": [
+    "50% OFF.",
+    "The handbag that locks."
+   ],
+   "scene": {
+    "colour": "Black",
+    "prompt": "The black bag standing upright on a deep burgundy seamless backdrop, soft studio light from the left, a gentle floor shadow, the words above it."
+   }
+  },
+  {
+   "id": "S02",
+   "project": "P02",
+   "layout": "ad",
+   "format": "post_it",
+   "format_name": "Post-it reminder",
+   "people": "none",
+   "art": "A real phone photo of a home hallway: the bag hangs by its strap on a wooden coat hook beside the front door, one square yellow sticky note stuck on the door at eye level with a short reminder handwritten in thick black marker, natural morning light, real paint and wood textures, slightly imperfect framing.",
+   "idea": "The post-it note, fashion's top static format: the travel rule as a reminder by the door, the bag already keeping it.",
+   "words": [
+    "Across your body.",
+    "Cards inside. Zips locked."
+   ],
+   "scene": {
+    "colour": "Black",
+    "prompt": "A calm hallway by a white front door, the bag on a coat hook, a pair of shoes on a mat below, morning light from a side window."
+   }
+  },
+  {
+   "id": "S03",
+   "project": "P01",
+   "layout": "ad",
+   "format": "split_compare",
+   "idea": "The B017 winning frame as a picture: an ordinary open-top tote on the left, the Hobo 2.0 zipped shut on the right, two true labels.",
+   "words": [
+    "Which one goes in the crowd?",
+    "Open top",
+    "Zips that lock"
+   ],
+   "scene": {
+    "colour": "Black",
+    "prompt": "Two bags side by side on a light oak table against a warm cream wall: on the left a plain unbranded canvas tote with an open top, on the right the bag zipped shut; even soft daylight."
+   }
+  },
+  {
+   "id": "S04",
+   "project": "P03",
+   "layout": "ad",
+   "format": "quiz_card",
+   "format_name": "Quiz card",
+   "people": "none",
+   "art": "A real photo of a small printed quiz card propped against the bag on a cafe table: a short question and two answers marked A and B in clean dark type on off-white card, a coffee cup beside it, warm window light, shallow depth of field, real paper texture.",
+   "idea": "The quiz, the second-best fashion format: one question about where the cards go, the right answer is the bag.",
+   "words": [
+    "Where do her cards go?",
+    "A. An open tote",
+    "B. Behind RFID lining"
+   ],
+   "scene": {
+    "colour": "Brown",
+    "prompt": "A small round cafe table by a window, the bag standing closed on the table, a latte in a white cup, the quiz card leaning against the bag."
+   }
+  },
+  {
+   "id": "S05",
+   "project": "P02",
+   "layout": "quotes",
+   "idea": "One verbatim review from the Hobo 2.0 page (Sarah M., the solo traveller) beside the real packshot.",
+   "headline": "Made for solo trips."
+  },
+  {
+   "id": "S06",
+   "project": "P01",
+   "layout": "native",
+   "idea": "A real footage frame of hands clipping the two gold zip pulls together: the proof of P01 as a still.",
+   "headline": "Two pulls. One clip. Locked."
+  }
+ ]
+}

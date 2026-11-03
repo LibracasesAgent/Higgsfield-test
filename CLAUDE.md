@@ -337,6 +337,9 @@ python3 pipeline/ideas.py packet --product "<name>" [--theme "<words>"] --projec
    check again. Then `plan --ideas $OUT/ideas.json ...` (section 5); `plan` copies the sheet and makes `strategy_sheet.md/.csv`, which
    `upload` puts in the Drive batch folder.
 4. The reply names the ideas (one line per project: title, structure, why it is new) and links the strategy sheet.
+5. **A request that names a blueprint sheet** (`docs/research/blueprints/<name>.json`, from `docs/research/2026-11-all-time-best-ad.md`):
+   copy it to `$OUT/ideas.json`, still read the packet, run `ideas.py check` with the request's numbers and change only what the check
+   names (a structure or format an earlier batch has used since, a fact that changed); its scripts are the batch's scripts.
 
 ## 5. The run (every pipeline)
 

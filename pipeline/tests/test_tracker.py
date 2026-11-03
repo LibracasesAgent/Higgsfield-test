@@ -54,7 +54,9 @@ def sheet_with_typed_values():
 def run_sync():
     saved = {}
     fake = FakeDrive()
-    old = (tracker.token, tracker.export, tracker.replace, tracker.load_cfg)
+    import ledger
+    old = (tracker.token, tracker.export, tracker.replace, tracker.load_cfg, ledger.load)
+    ledger.load = lambda *a, **k: {"batches": []}                          # the fake Drive's B030 / B031, not the real ledger's
     tracker.token = lambda: (fake, "tok")
     tracker.export = lambda du, tok, sid: saved.get("wb") or sheet_with_typed_values()
     tracker.replace = lambda du, tok, sid, wb: saved.update(wb=_reload(wb))
@@ -62,7 +64,7 @@ def run_sync():
     try:
         res = tracker.sync(["B030"], quiet=True)
     finally:
-        tracker.token, tracker.export, tracker.replace, tracker.load_cfg = old
+        tracker.token, tracker.export, tracker.replace, tracker.load_cfg, ledger.load = old
     return res, saved["wb"]
 
 

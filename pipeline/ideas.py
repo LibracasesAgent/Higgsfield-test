@@ -729,7 +729,8 @@ def packet(pr, theme, n_projects, n_statics, request=""):
           "\n## 4. Research notes (read them: docs/research/*.md; the facts above beat them)\n"]
     rd = os.path.join(os.path.dirname(HERE), "docs", "research")
     for f in sorted(os.listdir(rd)) if os.path.isdir(rd) else []:
-        L.append(f"- docs/research/{f}")
+        if f.endswith(".md"):                        # the notes; sub-folders (sources, blueprint sheets) are linked from them
+            L.append(f"- docs/research/{f}")
     fl = formats()
     import novelty
     last_f = novelty.recent(pr["name"], "format", last=1)
