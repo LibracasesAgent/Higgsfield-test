@@ -3421,6 +3421,333 @@
        "structure": "friend_advice"
       }
      ]
+    },
+    {
+     "clips": [],
+     "date": "2026-11-03",
+     "name": "B036 – 2026-11-03 – Hobo Bag BlackFriday – 50 statics",
+     "statics": [
+      {
+       "caption": "THE BAG WITH A HIDDEN POCKET",
+       "colour": "Burgundy",
+       "format": "magazine_cover",
+       "layout": "ad",
+       "scene": "p00_s01_magazine_cover"
+      },
+      {
+       "caption": "The hidden back pocket.",
+       "frame_clip": "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+       "layout": "native",
+       "photo": "F_1pwD5FXA8__0097.jpg"
+      },
+      {
+       "caption": "Two straps. Three ways.",
+       "frame_clip": "1nnsvEIfgqziYdrmeUrrtgL3Qo3YHV7Sw",
+       "layout": "native",
+       "photo": "F_1nnsvEIfgq_0180.jpg"
+      },
+      {
+       "caption": "Everything within reach",
+       "colour": "Brown",
+       "format": "feature_diagram",
+       "layout": "ad",
+       "scene": "p00_s04_feature_diagram"
+      },
+      {
+       "caption": "Hidden pocket, zipped flat.",
+       "frame_clip": "1XTfJnV-s9YVXmsv30f29mYqy5yV38n96",
+       "layout": "native",
+       "photo": "F_1XTfJnV-s9_0189.jpg"
+      },
+      {
+       "caption": "Keys? One zip away.",
+       "colour": "Brown",
+       "layout": "concept",
+       "scene": "p00_s06"
+      },
+      {
+       "caption": "Side zip: keys and phone.",
+       "frame_clip": "1524uBg6iCo25tT2dqKoDXFTeZjWODEQV",
+       "layout": "native",
+       "photo": "F_1524uBg6iC_0165.jpg"
+      },
+      {
+       "caption": "Cards stay close.",
+       "layout": "studio",
+       "photo": "hobo_bag_colour_galaxy_black.jpg"
+      },
+      {
+       "caption": "A gold zip on each side.",
+       "layout": "studio",
+       "photo": "hobo_bag_colour_blue.jpg"
+      },
+      {
+       "caption": "Nothing sinks to the bottom.",
+       "layout": "studio",
+       "photo": "hobo_bag_colour_grey.jpg"
+      },
+      {
+       "caption": "Gold zips. Easy mornings.",
+       "layout": "studio",
+       "photo": "hobo_bag_colour_burgundy.jpg"
+      },
+      {
+       "caption": "50% OFF.",
+       "colour": "Grey",
+       "format": "bold_poster",
+       "layout": "ad",
+       "scene": "p00_s12_bold_poster"
+      },
+      {
+       "caption": "Keys: side zip.",
+       "colour": "Brown",
+       "format": "hand_note",
+       "layout": "ad",
+       "scene": "p00_s13_hand_note"
+      },
+      {
+       "caption": "POV: your keys are one zip away",
+       "colour": "Galaxy Black",
+       "format": "pov_behind",
+       "layout": "ad",
+       "scene": "p00_s14_pov_behind"
+      },
+      {
+       "layout": "quotes",
+       "photo": "hobo_bag_colour_red.jpg"
+      },
+      {
+       "caption": "FRIDAY",
+       "colour": "Red",
+       "format": "tearoff_day",
+       "layout": "ad",
+       "scene": "p00_s16_tearoff_day"
+      },
+      {
+       "caption": "Pocket on the back, against you.",
+       "colour": "Galaxy Black",
+       "layout": "concept",
+       "scene": "p00_s17"
+      },
+      {
+       "caption": "Passport. Keys. Phone.",
+       "colour": "Galaxy Black",
+       "format": "flat_lay",
+       "layout": "ad",
+       "scene": "p00_s18_flat_lay"
+      },
+      {
+       "caption": "BLACK FRIDAY",
+       "colour": "Grey",
+       "format": "sale_tag",
+       "layout": "ad",
+       "scene": "p00_s19_sale_tag"
+      },
+      {
+       "caption": "Where do your keys go?",
+       "colour": "Galaxy Black",
+       "format": "quiz_card",
+       "layout": "ad",
+       "scene": "p00_s20_quiz_card"
+      },
+      {
+       "caption": "For her",
+       "colour": "Blue",
+       "format": "gift_moment",
+       "layout": "ad",
+       "scene": "p00_s21_gift_moment"
+      },
+      {
+       "caption": "Your keys have a zip now.",
+       "colour": "Burgundy",
+       "layout": "concept",
+       "scene": "p00_s22"
+      },
+      {
+       "caption": "ZIP IT.",
+       "colour": "Blue",
+       "format": "neon_sign",
+       "layout": "ad",
+       "scene": "p00_s23_neon_sign"
+      },
+      {
+       "caption": "Digging, or done?",
+       "colour": "Grey",
+       "format": "split_compare",
+       "layout": "ad",
+       "scene": "p00_s24_split_compare"
+      },
+      {
+       "caption": "THREE WAYS",
+       "colour": "Galaxy Black",
+       "format": "movie_poster",
+       "layout": "ad",
+       "scene": "p00_s25_movie_poster"
+      },
+      {
+       "layout": "quotes",
+       "photo": "hobo_bag_colour_burgundy.jpg"
+      },
+      {
+       "caption": "Gold side zip.",
+       "colour": "Brown",
+       "format": "macro_detail",
+       "layout": "ad",
+       "scene": "p00_s27_macro_detail"
+      },
+      {
+       "caption": "Three ways to wear it.",
+       "colour": "Grey",
+       "layout": "concept",
+       "scene": "p00_s28"
+      },
+      {
+       "caption": "Spot the one that zips shut.",
+       "colour": "Red",
+       "format": "odd_one_out",
+       "layout": "ad",
+       "scene": "p00_s29_odd_one_out"
+      },
+      {
+       "caption": "BLACK FRIDAY SALE",
+       "colour": "Galaxy Black",
+       "format": "window_display",
+       "layout": "ad",
+       "scene": "p00_s30_window_display"
+      },
+      {
+       "caption": "THE HOBO BAG",
+       "colour": "Red",
+       "format": "trading_card",
+       "layout": "ad",
+       "scene": "p00_s31_trading_card"
+      },
+      {
+       "caption": "Cards stay against you.",
+       "colour": "Blue",
+       "format": "travel_carry",
+       "layout": "ad",
+       "scene": "p00_s32_travel_carry"
+      },
+      {
+       "caption": "Hang it. Zip it. Go.",
+       "colour": "Grey",
+       "layout": "concept",
+       "scene": "p00_s33"
+      },
+      {
+       "caption": "How to wear it",
+       "colour": "Burgundy",
+       "format": "wear_card",
+       "layout": "ad",
+       "scene": "p00_s34_wear_card"
+      },
+      {
+       "caption": "Looks expensive.",
+       "colour": "Galaxy Black",
+       "format": "editorial_still_life",
+       "layout": "ad",
+       "scene": "p00_s35_editorial_still_life"
+      },
+      {
+       "caption": "Keys, phone, cards: sorted.",
+       "layout": "studio",
+       "photo": "hobo_bag_colour_red.jpg"
+      },
+      {
+       "caption": "Side zip. Keys. Done.",
+       "colour": "Grey",
+       "format": "polaroid_caption",
+       "layout": "ad",
+       "scene": "p00_s37_polaroid_caption"
+      },
+      {
+       "caption": "THE LIBRA DAILY",
+       "colour": "Blue",
+       "format": "newspaper_front",
+       "layout": "ad",
+       "scene": "p00_s38_newspaper_front"
+      },
+      {
+       "caption": "Two gold side zips.",
+       "colour": "Brown",
+       "layout": "concept",
+       "scene": "p00_s39"
+      },
+      {
+       "caption": "Six colours. 50% off.",
+       "colour": "Red",
+       "format": "colour_block",
+       "layout": "ad",
+       "scene": "p00_s40_colour_block"
+      },
+      {
+       "caption": "Packed for Black Friday.",
+       "colour": "Grey",
+       "format": "shipping_box",
+       "layout": "ad",
+       "scene": "p00_s41_shipping_box"
+      },
+      {
+       "caption": "Gone shopping.",
+       "colour": "Brown",
+       "format": "door_hanger",
+       "layout": "ad",
+       "scene": "p00_s42_door_hanger"
+      },
+      {
+       "caption": "A hidden pocket on the back.",
+       "colour": "Burgundy",
+       "format": "street_poster",
+       "layout": "ad",
+       "scene": "p00_s43_street_poster"
+      },
+      {
+       "layout": "quotes",
+       "photo": "hobo_bag_colour_dark_sienna_nobadge.jpg"
+      },
+      {
+       "caption": "Black Friday, unwrapped.",
+       "colour": "Burgundy",
+       "format": "gift_unbox",
+       "layout": "ad",
+       "scene": "p00_s45_gift_unbox"
+      },
+      {
+       "caption": "For her. For you.",
+       "colour": "Red",
+       "layout": "concept",
+       "scene": "p00_s46"
+      },
+      {
+       "caption": "Black Friday starts here.",
+       "colour": "Galaxy Black",
+       "format": "cup_sleeve",
+       "layout": "ad",
+       "scene": "p00_s47_cup_sleeve"
+      },
+      {
+       "caption": "Keys? Found.",
+       "colour": "Grey",
+       "format": "framed_print",
+       "layout": "ad",
+       "scene": "p00_s48_framed_print"
+      },
+      {
+       "caption": "No more digging for keys.",
+       "colour": "Galaxy Black",
+       "layout": "concept",
+       "scene": "p00_s49"
+      },
+      {
+       "caption": "Passport: back pocket",
+       "colour": "Blue",
+       "format": "luggage_tag",
+       "layout": "ad",
+       "scene": "p00_s50_luggage_tag"
+      }
+     ],
+     "videos": []
     }
    ]
   },

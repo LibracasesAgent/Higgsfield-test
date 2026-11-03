@@ -1,0 +1,40 @@
+{
+ "ok": true,
+ "product": "Hobo Bag",
+ "offer": "50% off + free matching pouch wallet",
+ "checked": 462,
+ "problems": [],
+ "allowed": [
+  {
+   "where": "ad copy LC_261103_HoboBag_BlackFriday_B036_S15_quotes primary_text_2",
+   "text": "\"Best bag I have ever bought.\" - Carol R.\nTwo straps, so you can wear it on the shoulder, as a handbag, or crossbody.\nSoft and water-resistant, it looks expensive and only gets better with time.\nBlack Friday: the Hobo Bag is 50% off.\nTap Get Offer.",
+   "category": "claims",
+   "term": "Best bag",
+   "why": "a customer review (verbatim, or attributed to the customer by name)"
+  },
+  {
+   "where": "ad copy LC_261103_HoboBag_BlackFriday_B036_S15_quotes headline_1",
+   "text": "\"Best bag I have ever bought\"",
+   "category": "claims",
+   "term": "Best bag",
+   "why": "a customer review (verbatim, or attributed to the customer by name)"
+  },
+  {
+   "where": "ad copy LC_261103_HoboBag_BlackFriday_B036_S26_quotes primary_text_2",
+   "text": "\"Got this bag for my daughter for Christmas and she adores it.\" - Felicia S.\nSoft and water-resistant, it looks expensive and only gets better with time.\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nBlack Friday Sale: up to 60% off.\nTap Get Offer to claim the deal.",
+   "category": "testimonial",
+   "term": "my daughter",
+   "why": "a customer review (verbatim, or attributed to the customer by name)"
+  },
+  {
+   "where": "ad copy LC_261103_HoboBag_BlackFriday_B036_S44_quotes primary_text_2",
+   "text": "\"The best bag for travel and every day use.\" - Mercy A.\nSoft and water-resistant, it looks expensive and only gets better with time.\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nBlack Friday Sale: up to 60% off.\nTap Get Offer.",
+   "category": "claims",
+   "term": "best bag",
+   "why": "a customer review (verbatim, or attributed to the customer by name)"
+  }
+ ],
+ "raw_story": [],
+ "raw_cuts": [],
+ "report": "/tmp/run/bf50/compliance.json"
+}

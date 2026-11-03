@@ -2592,7 +2592,326 @@
      "label": "Your phone is right where your hand lands."
     }
    ]
+  },
+  {
+   "id": "B036",
+   "n": 36,
+   "rev": 1,
+   "date": "2026-11-03",
+   "product": "Hobo Bag",
+   "theme": "BlackFriday",
+   "pipeline": "catalog",
+   "request": "Hobo Bag, black friday: 50 statics (30 AI-designed ads, 8 studio concepts, 12 real), no videos",
+   "statics": 50,
+   "projects": 0,
+   "hooks": 4,
+   "seed": 4,
+   "status": "uploaded",
+   "folder": "B036 – 2026-11-03 – Hobo Bag BlackFriday – 50 statics",
+   "link": "https://drive.google.com/drive/folders/1PvqDCJ7YlV_9Iw_F0Y7a2J0o3XwsUT89",
+   "ads": [
+    {
+     "name": "LC_261103_HoboBag_BlackFriday_B036_S01_magazine",
+     "kind": "static",
+     "fp": "s|ad|AS01.png|the bag with a hidden pocket",
+     "label": "THE BAG WITH A HIDDEN POCKET"
+    },
+    {
+     "name": "LC_261103_HoboBag_BlackFriday_B036_S02_native",
+     "kind": "static",
+     "fp": "s|native|F_1pwD5FXA8__0097.jpg|the hidden back pocket.",
+     "label": "The hidden back pocket."
+    },
+    {
+     "name": "LC_261103_HoboBag_BlackFriday_B036_S03_native",
+     "kind": "static",
+     "fp": "s|native|F_1nnsvEIfgq_0180.jpg|two straps. three ways.",
+     "label": "Two straps. Three ways."
+    },
+    {
+     "name": "LC_261103_HoboBag_BlackFriday_B036_S04_diagram",
+     "kind": "static",
+     "fp": "s|ad|AS02.png|everything within reach",
+     "label": "Everything within reach"
+    },
+    {
+     "name": "LC_261103_HoboBag_BlackFriday_B036_S05_native",
+     "kind": "static",
+     "fp": "s|native|F_1XTfJnV-s9_0189.jpg|hidden pocket, zipped flat.",
+     "label": "Hidden pocket, zipped flat."
+    },
+    {
+     "name": "LC_261103_HoboBag_BlackFriday_B036_S06_concept",
+     "kind": "static",
+     "fp": "s|concept|AS03.png|keys? one zip away.",
+     "label": "Keys? One zip away."
+    },
+    {
+     "name": "LC_261103_HoboBag_BlackFriday_B036_S07_native",
+     "kind": "static",
+     "fp": "s|native|F_1524uBg6iC_0165.jpg|side zip: keys and phone.",
+     "label": "Side zip: keys and phone."
+    },
+    {
+     "name": "LC_261103_HoboBag_BlackFriday_B036_S08_studio",
+     "kind": "static",
+     "fp": "s|studio|hobo_bag_colour_galaxy_black.jpg|cards stay close.",
+     "label": "Cards stay close."
+    },
+    {
+     "name": "LC_261103_HoboBag_BlackFriday_B036_S09_studio",
+     "kind": "static",
+     "fp": "s|studio|hobo_bag_colour_blue.jpg|a gold zip on each side.",
+     "label": "A gold zip on each side."
+    },
+    {
+     "name": "LC_261103_HoboBag_BlackFriday_B036_S10_studio",
+     "kind": "static",
+     "fp": "s|studio|hobo_bag_colour_grey.jpg|nothing sinks to the bottom.",
+     "label": "Nothing sinks to the bottom."
+    },
+    {
+     "name": "LC_261103_HoboBag_BlackFriday_B036_S11_studio",
+     "kind": "static",
+     "fp": "s|studio|hobo_bag_colour_burgundy.jpg|gold zips. easy mornings.",
+     "label": "Gold zips. Easy mornings."
+    },
+    {
+     "name": "LC_261103_HoboBag_BlackFriday_B036_S12_poster",
+     "kind": "static",
+     "fp": "s|ad|AS04.png|50% off.",
+     "label": "50% OFF."
+    },
+    {
+     "name": "LC_261103_HoboBag_BlackFriday_B036_S13_handnote",
+     "kind": "static",
+     "fp": "s|ad|AS05.png|keys: side zip.",
+     "label": "Keys: side zip."
+    },
+    {
+     "name": "LC_261103_HoboBag_BlackFriday_B036_S14_pov",
+     "kind": "static",
+     "fp": "s|ad|AS06.png|pov: your keys are one zip away",
+     "label": "POV: your keys are one zip away"
+    },
+    {
+     "name": "LC_261103_HoboBag_BlackFriday_B036_S15_quotes",
+     "kind": "static",
+     "fp": "s|quotes|hobo_bag_colour_red.jpg|",
+     "label": ""
+    },
+    {
+     "name": "LC_261103_HoboBag_BlackFriday_B036_S16_tearoffday",
+     "kind": "static",
+     "fp": "s|ad|AS07.png|friday",
+     "label": "FRIDAY"
+    },
+    {
+     "name": "LC_261103_HoboBag_BlackFriday_B036_S17_concept",
+     "kind": "static",
+     "fp": "s|concept|AS08.png|pocket on the back, against you.",
+     "label": "Pocket on the back, against you."
+    },
+    {
+     "name": "LC_261103_HoboBag_BlackFriday_B036_S18_flatlay",
+     "kind": "static",
+     "fp": "s|ad|AS09.png|passport. keys. phone.",
+     "label": "Passport. Keys. Phone."
+    },
+    {
+     "name": "LC_261103_HoboBag_BlackFriday_B036_S19_saletag",
+     "kind": "static",
+     "fp": "s|ad|AS10.png|black friday",
+     "label": "BLACK FRIDAY"
+    },
+    {
+     "name": "LC_261103_HoboBag_BlackFriday_B036_S20_quizcard",
+     "kind": "static",
+     "fp": "s|ad|AS11.png|where do your keys go?",
+     "label": "Where do your keys go?"
+    },
+    {
+     "name": "LC_261103_HoboBag_BlackFriday_B036_S21_gifttag",
+     "kind": "static",
+     "fp": "s|ad|AS12.png|for her",
+     "label": "For her"
+    },
+    {
+     "name": "LC_261103_HoboBag_BlackFriday_B036_S22_concept",
+     "kind": "static",
+     "fp": "s|concept|AS13.png|your keys have a zip now.",
+     "label": "Your keys have a zip now."
+    },
+    {
+     "name": "LC_261103_HoboBag_BlackFriday_B036_S23_neonsign",
+     "kind": "static",
+     "fp": "s|ad|AS14.png|zip it.",
+     "label": "ZIP IT."
+    },
+    {
+     "name": "LC_261103_HoboBag_BlackFriday_B036_S24_compare",
+     "kind": "static",
+     "fp": "s|ad|AS15.png|digging, or done?",
+     "label": "Digging, or done?"
+    },
+    {
+     "name": "LC_261103_HoboBag_BlackFriday_B036_S25_movieposter",
+     "kind": "static",
+     "fp": "s|ad|AS16.png|three ways",
+     "label": "THREE WAYS"
+    },
+    {
+     "name": "LC_261103_HoboBag_BlackFriday_B036_S26_quotes",
+     "kind": "static",
+     "fp": "s|quotes|hobo_bag_colour_burgundy.jpg|",
+     "label": ""
+    },
+    {
+     "name": "LC_261103_HoboBag_BlackFriday_B036_S27_macro",
+     "kind": "static",
+     "fp": "s|ad|AS17.png|gold side zip.",
+     "label": "Gold side zip."
+    },
+    {
+     "name": "LC_261103_HoboBag_BlackFriday_B036_S28_concept",
+     "kind": "static",
+     "fp": "s|concept|AS18.png|three ways to wear it.",
+     "label": "Three ways to wear it."
+    },
+    {
+     "name": "LC_261103_HoboBag_BlackFriday_B036_S29_oddoneout",
+     "kind": "static",
+     "fp": "s|ad|AS19.png|spot the one that zips shut.",
+     "label": "Spot the one that zips shut."
+    },
+    {
+     "name": "LC_261103_HoboBag_BlackFriday_B036_S30_window",
+     "kind": "static",
+     "fp": "s|ad|AS20.png|black friday sale",
+     "label": "BLACK FRIDAY SALE"
+    },
+    {
+     "name": "LC_261103_HoboBag_BlackFriday_B036_S31_tradingcard",
+     "kind": "static",
+     "fp": "s|ad|AS21.png|the hobo bag",
+     "label": "THE HOBO BAG"
+    },
+    {
+     "name": "LC_261103_HoboBag_BlackFriday_B036_S32_travel",
+     "kind": "static",
+     "fp": "s|ad|AS22.png|cards stay against you.",
+     "label": "Cards stay against you."
+    },
+    {
+     "name": "LC_261103_HoboBag_BlackFriday_B036_S33_concept",
+     "kind": "static",
+     "fp": "s|concept|AS23.png|hang it. zip it. go.",
+     "label": "Hang it. Zip it. Go."
+    },
+    {
+     "name": "LC_261103_HoboBag_BlackFriday_B036_S34_wearcard",
+     "kind": "static",
+     "fp": "s|ad|AS24.png|how to wear it",
+     "label": "How to wear it"
+    },
+    {
+     "name": "LC_261103_HoboBag_BlackFriday_B036_S35_stilllife",
+     "kind": "static",
+     "fp": "s|ad|AS25.png|looks expensive.",
+     "label": "Looks expensive."
+    },
+    {
+     "name": "LC_261103_HoboBag_BlackFriday_B036_S36_studio",
+     "kind": "static",
+     "fp": "s|studio|hobo_bag_colour_red.jpg|keys, phone, cards: sorted.",
+     "label": "Keys, phone, cards: sorted."
+    },
+    {
+     "name": "LC_261103_HoboBag_BlackFriday_B036_S37_polaroidcapt",
+     "kind": "static",
+     "fp": "s|ad|AS26.png|side zip. keys. done.",
+     "label": "Side zip. Keys. Done."
+    },
+    {
+     "name": "LC_261103_HoboBag_BlackFriday_B036_S38_newspaperfro",
+     "kind": "static",
+     "fp": "s|ad|AS27.png|the libra daily",
+     "label": "THE LIBRA DAILY"
+    },
+    {
+     "name": "LC_261103_HoboBag_BlackFriday_B036_S39_concept",
+     "kind": "static",
+     "fp": "s|concept|AS28.png|two gold side zips.",
+     "label": "Two gold side zips."
+    },
+    {
+     "name": "LC_261103_HoboBag_BlackFriday_B036_S40_colourblock",
+     "kind": "static",
+     "fp": "s|ad|AS29.png|six colours. 50% off.",
+     "label": "Six colours. 50% off."
+    },
+    {
+     "name": "LC_261103_HoboBag_BlackFriday_B036_S41_shippingbox",
+     "kind": "static",
+     "fp": "s|ad|AS30.png|packed for black friday.",
+     "label": "Packed for Black Friday."
+    },
+    {
+     "name": "LC_261103_HoboBag_BlackFriday_B036_S42_doorhanger",
+     "kind": "static",
+     "fp": "s|ad|AS31.png|gone shopping.",
+     "label": "Gone shopping."
+    },
+    {
+     "name": "LC_261103_HoboBag_BlackFriday_B036_S43_billboard",
+     "kind": "static",
+     "fp": "s|ad|AS32.png|a hidden pocket on the back.",
+     "label": "A hidden pocket on the back."
+    },
+    {
+     "name": "LC_261103_HoboBag_BlackFriday_B036_S44_quotes",
+     "kind": "static",
+     "fp": "s|quotes|hobo_bag_colour_dark_sienna_nobadge.jpg|",
+     "label": ""
+    },
+    {
+     "name": "LC_261103_HoboBag_BlackFriday_B036_S45_unbox",
+     "kind": "static",
+     "fp": "s|ad|AS33.png|black friday, unwrapped.",
+     "label": "Black Friday, unwrapped."
+    },
+    {
+     "name": "LC_261103_HoboBag_BlackFriday_B036_S46_concept",
+     "kind": "static",
+     "fp": "s|concept|AS34.png|for her. for you.",
+     "label": "For her. For you."
+    },
+    {
+     "name": "LC_261103_HoboBag_BlackFriday_B036_S47_cupsleeve",
+     "kind": "static",
+     "fp": "s|ad|AS35.png|black friday starts here.",
+     "label": "Black Friday starts here."
+    },
+    {
+     "name": "LC_261103_HoboBag_BlackFriday_B036_S48_framedprint",
+     "kind": "static",
+     "fp": "s|ad|AS36.png|keys? found.",
+     "label": "Keys? Found."
+    },
+    {
+     "name": "LC_261103_HoboBag_BlackFriday_B036_S49_concept",
+     "kind": "static",
+     "fp": "s|concept|AS37.png|no more digging for keys.",
+     "label": "No more digging for keys."
+    },
+    {
+     "name": "LC_261103_HoboBag_BlackFriday_B036_S50_luggagetag",
+     "kind": "static",
+     "fp": "s|ad|AS38.png|passport: back pocket",
+     "label": "Passport: back pocket"
+    }
+   ]
   }
  ],
- "next": 36
+ "next": 37
 }
