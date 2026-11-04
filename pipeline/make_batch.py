@@ -4065,7 +4065,7 @@ def folder_name(p, name_arg="", today=""):
         return f"{date_} – {name_arg or p.get('request') or p['product']}"
     th_ = p.get("theme_name") or ""
     parts = [f"{len(p['statics'])} statics"] * bool(p["statics"]) + \
-        [f"{len(p['projects'])} projects"] * bool(p.get("projects")) + [f"{len(p['videos'])} videos"] * bool(p["videos"] and not p.get("projects"))
+        [f"{len(p.get('projects') or [])} projects"] * bool(p.get("projects")) + [f"{len(p['videos'])} videos"] * bool(p["videos"] and not p.get("projects"))
     desc = name_arg or (p["product"] + ("" if th_ in ("", "Evergreen") else f" {th_}") + " – " + " + ".join(parts or ["no ads"]))
     return f"{lbt['id']} – {date_} – {desc}"
 
