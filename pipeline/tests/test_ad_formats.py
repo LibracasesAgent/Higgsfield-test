@@ -94,9 +94,12 @@ def test_every_batch_new_formats():
                          ad("S03", "film_still", ["Last train home."], **OWN)], last)
     assert any("S01" in p and "last batch" in p for p in P), P
     assert any("of your own" in p for p in P), P                     # (film_still was invented last batch: not new any more)
+    P = static_problems([ad("S01", "magazine_cover", ["LIBRA", "Last stop."]), ad("S02", "flat_lay", ["Everything fits."]),
+                         ad("S03", "window_box", ["Zipped."], **dict(OWN, format_name="Window box"))], last)
+    assert any("Last stop" in p and "earlier batch" in p for p in P), P
     P = static_problems([ad("S01", "magazine_cover", ["LIBRA", "HALF PRICE."]), ad("S02", "flat_lay", ["Everything fits."]),
                          ad("S03", "window_box", ["Zipped."], **dict(OWN, format_name="Window box"))], last)
-    assert any("HALF PRICE" in p and "earlier batch" in p for p in P), P
+    assert not any("HALF PRICE" in p and "earlier batch" in p for p in P), P      # (the offer repeats by design: Wouter 2026-11-04)
     redo = static_problems([ad("S01", "bold_poster", ["HALF PRICE."]), ad("S02", "film_still", ["Last stop."], **OWN),
                             ad("S03", "magazine_cover", ["LIBRA", "THE ZIP ISSUE"])], last, exclude="B030")
     assert not [p for p in redo if "last batch" in p or "earlier batch" in p or "of your own" in p], redo   # a redo of B030 itself
@@ -123,6 +126,31 @@ def test_a_statics_only_sheet_needs_no_project():
     finally:
         novelty.load = real
     assert any("S01: project 'P07' is not in the sheet" in p for p in P), P
+
+
+def test_every_static_shows_the_offer_from_2026_11_04():
+    import novelty
+    base = dict(product="Hobo Bag", theme="black friday", research=["offer test"], projects=[])
+    no_offer = [ad("S01", "giant_numerals", ["The everyday hobo."]), ad("S02", "film_still", ["Last stop. 50% off."], **OWN),
+                dict(id="S03", layout="concept", idea="The bag on a cafe table by the window.", headline="Coffee first.",
+                     scene=dict(kind="object", colour="Black", prompt="The bag on a round marble cafe table by a tall window."))]
+    real = novelty.load
+    novelty.load = lambda *a, **k: {"products": {}}
+    try:
+        P, _ = ideas.check(dict(base, date="2026-11-04", statics=copy.deepcopy(no_offer)), pr(), n_projects=0, n_statics=3)
+        assert any(p.startswith("S01: no offer") for p in P) and any(p.startswith("S03: no offer") for p in P), P
+        assert not any(p.startswith("S02: no offer") for p in P), P
+        fixed = copy.deepcopy(no_offer)
+        fixed[0]["words"], fixed[2]["pill"] = ["50%", "OFF", "Early Black Friday"], True
+        P, _ = ideas.check(dict(base, date="2026-11-04", statics=fixed), pr(), n_projects=0, n_statics=3)
+        assert not [p for p in P if "no offer" in p], P
+        P, _ = ideas.check(dict(base, date="2026-11-03", statics=copy.deepcopy(no_offer)), pr(), n_projects=0, n_statics=3)
+        assert not [p for p in P if "no offer" in p], P          # (an older sheet keeps its own day's rules)
+    finally:
+        novelty.load = real
+    lib = ai_gen.library()
+    p = ai_gen.build_ad_prompt(lib, ideas.formats()["formats"]["giant_numerals"], ad("S01", "giant_numerals", ["50%", "OFF"]), "handbag", None)
+    assert 'The offer "50%" is the boldest' in p
 
 
 def test_the_prompt_carries_the_words_and_the_rules():

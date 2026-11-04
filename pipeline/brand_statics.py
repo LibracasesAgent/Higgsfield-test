@@ -1275,7 +1275,7 @@ def offer_pill(c, d, offer, calm, m=40):
     """The small red offer pill m px from the top and from the calmer of the two top corners of RGBA canvas c, with a soft shadow;
     a long badge text shrinks to 62% of the width."""
     W = c.width
-    for psz in range(34, 21, -2):
+    for psz in range(42, 23, -2):     # (Wouter 2026-11-04: the offer must be seen: a bigger pill than before, 34)
         f = XB(psz)
         if width(d, offer, f) + 3 * f.size <= 0.62 * W:
             break
@@ -1441,7 +1441,7 @@ def l_studio(a, sd):
     top = brand_mark(d, W, a.get("top", 62), ink) + 28
     f = fit(d, text, SERIF, a.get("hsize", 70), W - 200, 1, 46) if text else None
     ph = (put(d, text, f, ink, 0, W - 200, lh=1.0, dry=True) if text else 0)
-    pill_h = int(36 * 2.4) if offer else 0
+    pill_h = int(44 * 2.4) if offer else 0
     cta = a.get("cta")                                    # (a video's end card: a dark button under the offer, above Meta's bottom UI)
     cta_h = int(34 * 2.4) if cta else 0
     gap = 26
@@ -1461,7 +1461,7 @@ def l_studio(a, sd):
     if text:
         y = put(d, text, f, ink, y, W - 200, lh=1.0) + gap
     if offer:
-        y = pill(d, W, y, offer, bg=RED, size=34, bold=True) + gap
+        y = pill(d, W, y, offer, bg=RED, size=42, bold=True) + gap       # (Wouter 2026-11-04: the offer seen at a glance)
     if cta:
         pill(d, W, y, cta, bg=ESPRESSO, size=34)
     return c.convert("RGBA")
@@ -1900,7 +1900,7 @@ def l_concept(a, sd):
     fk, fs = SANS(26, "SemiBold"), SANS(30, "Medium")
     kt = spaced(kicker) if kicker else None
     fh = fit(d0, head, SERIF, a.get("hsize", 84), W - 2 * M, 2, 52) if head else None
-    pill_h = int(32 * 2.4) if offer else 0
+    pill_h = int(42 * 2.4) if offer else 0
     parts = [x for x in (("k", put(d0, [kt], fk, WHITE, 0, W, dry=True)) if kt else None,
                          ("h", put(d0, head, fh, WHITE, 0, W - 2 * M, lh=1.0, dry=True)) if head else None,
                          ("s", put(d0, sub, fs, WHITE, 0, W - 2 * M, dry=True)) if sub else None,
@@ -1954,7 +1954,7 @@ def l_concept(a, sd):
         elif kind == "s":
             put(d, sub, fs, ink, y, W - 2 * M)
         else:
-            pill(d, W, y, offer, bg=RED, size=32, bold=True)
+            pill(d, W, y, offer, bg=RED, size=42, bold=True)
         y += h + gap
     return c
 

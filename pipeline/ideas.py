@@ -112,7 +112,21 @@ MAGAZINES = re.compile(r"\b(vogue|elle|harper'?s|bazaar|cosmopolitan|marie clair
 INSIDE = re.compile(r"\b(inside (?:of )?the bag|open bag|unzipped|bag (?:is )?open|interior of the bag|bag'?s interior|lining|spilling out|"
                     r"peeking out)\b", re.I)
 AD_PEOPLE = ("none", "behind", "cropped")
-NEW_FORMATS = ((3, 1), (6, 2))                       # (ad statics in the batch, formats of your own it needs at least)
+NEW_FORMATS = ((3, 1),)                               # (ad statics in the batch, formats of your own it needs at least: one; owner
+#                                                       2026-11-04: the offer and a design that sells beat novelty for its own sake)
+OFFER_FROM = "2026-11-04"                              # Wouter 2026-11-04 'don't have the offer on it': every static shows the offer
+
+
+def product_pct(pr):
+    """The product's own % (its offer badge: 50 for the Hobo Bag, 60 for the 3-Piece Set); None when it has no % offer."""
+    d = re.sub(r"\D", "", str((((pr.get("offer") or {}).get("badge") or {}).get("big")) or ""))
+    return int(d) if d and 5 <= int(d) <= 90 else None
+
+
+def offer_shown(text, pct):
+    """Does a printed line carry the offer ('50% OFF', '50%', 'fifty percent', 'half price' for 50)?"""
+    t = (text or "").lower()
+    return bool(re.search(rf"\b{pct}\s?%|\b{pct} ?percent\b", t) or (pct == 50 and re.search(r"\bhalf[- ]price\b", t)))
 STORY_FROM = "2026-10-27"                            # the story rules (owner 2026-10-27) check sheets from this day on
 STORY_MAX_FEATURES = 3                               # features one video may talk about
 PROOF_TAGS = {"zip", "zip_hand", "side_zip", "snap", "lock", "pocket", "packing", "strap", "tie", "inside"}   # a movement the shot proves
@@ -257,11 +271,23 @@ def ad_format(s, lib=None):
                 name=s.get("format_name") or s.get("format"), art=s.get("art") or "", people=s.get("people") or "none", words=14, new=True)
 
 
+OFFER_WORDS = re.compile(r"\b(?:up to|early|black friday|cyber monday|cyber week|sale|clearance|\d+\s?%|percent|off|half|price|now|"
+                         r"the|\+)\b|[\d%+.:!·,\-–—/]", re.I)
+
+
+def offer_only(line):
+    """A line that is only the offer / the sale ('50% OFF', 'BLACK FRIDAY', 'Early Black Friday', 'HALF PRICE'): every static carries
+    one (Wouter 2026-11-04), so it never names an ad and never counts as a repeat."""
+    return not OFFER_WORDS.sub(" ", line or "").strip()
+
+
 def ad_headline(s):
-    """The line of an `ad` static that names it (ad copy, tracker, novelty): `headline`, else the first line that is not the masthead."""
+    """The line of an `ad` static that names it (ad copy, tracker, novelty): `headline`, else the first line that is not the masthead
+    nor only the offer (then the first line)."""
     if s.get("headline"):
         return s["headline"]
-    return next((w for w in s.get("words") or [] if w.strip().upper() != "LIBRA"), (s.get("words") or [""])[0])
+    ws = [w for w in s.get("words") or [] if w.strip().upper() != "LIBRA"]
+    return next((w for w in ws if not offer_only(w)), (ws or s.get("words") or [""])[0])
 MIN_MOMENTS = 4                                      # good footage moments a tag should have for the product before a chapter leans on it
 STOPWORDS = set("the a an and or of to in on for with your you it its this that is are be at by as from up out so no not more all".split())
 
@@ -518,8 +544,16 @@ def check(sheet, pr, n_projects=None, n_statics=None, exclude=None, day=None):
             W.append(f"videos: {n_pres} presenter projects (about 225 credits each): only when the request names that many")
     allowed = sorted({(int(m.group(1)) if m.group(1).isdigit() else compliance.ONES[m.group(1).lower()])
                       for i_ in items for m in compliance.COUNT_WORD.finditer(i_["text"])})      # ('Five things ...': a count the video shows, not a stat)
+    pct = product_pct(pr)
+    offer_rule = bool(pct) and (sheet.get("date") or day or datetime.date.today().isoformat()) >= OFFER_FROM
     for k, s in enumerate(stats, 1):
         sid = f"{s.get('id') or '?'}"
+        if offer_rule and s.get("layout") == "ad" and not any(offer_shown(w, pct) for w in s.get("words") or []):
+            P.append(f"{sid}: no offer on the picture (Wouter 2026-11-04: every static shows the offer): one of its words is the offer, "
+                     f"set big as part of the design ('{pct}% OFF'{', HALF PRICE' if pct == 50 else ''})")
+        if offer_rule and s.get("layout") == "concept" and not s.get("pill") and \
+                not any(offer_shown(s.get(x_), pct) for x_ in ("kicker", "headline", "sub", "badge")):
+            P.append(f"{sid}: no offer on the concept static (Wouter 2026-11-04): \"pill\": true (the {pct}% OFF badge) or the % in its words")
         if s.get("layout") not in LAYOUTS:
             P.append(f"{sid}: layout {s.get('layout')!r} (one of {', '.join(LAYOUTS)})")
         elif s.get("layout") in SALE_LAYOUTS and not (camp and camp.get({"gifts": "gifts", "bundle": "bundle_any"}[s["layout"]])):
@@ -568,7 +602,7 @@ def check(sheet, pr, n_projects=None, n_statics=None, exclude=None, day=None):
         old_caps = {re.sub(r"\W+", " ", c.lower()).strip() for c in novelty.recent(pr["name"], "caption", last=novelty.KEEP, log=nl)}
         for s in ads:
             h = re.sub(r"\W+", " ", ad_headline(s).lower()).strip()
-            if h and h in old_caps and h.removeprefix("the ") != re.sub(r"\W+", " ", pr["name"].lower()).strip():   # (the name alone may repeat)
+            if h and not offer_only(ad_headline(s)) and h in old_caps and h.removeprefix("the ") != re.sub(r"\W+", " ", pr["name"].lower()).strip():   # (the name alone may repeat)
                 P.append(f"{s.get('id')}: the line {ad_headline(s)!r} was on a static of an earlier batch: new words")
     moving = [s for s in stats if s.get("motion") is not None]
     for s in moving:                  # motion stills (owner 2026-11-03): a concept scene as a short loop, our typography over it
@@ -592,7 +626,8 @@ def check(sheet, pr, n_projects=None, n_statics=None, exclude=None, day=None):
         W.append(f"{n_ai} AI statics of {len(stats)} ({len(ads)} designed ads, {n_ai - len(ads)} studio scenes; about {n_ai} credits plus retries)"
                  + (f"; {len(moving)} motion stills, about {round(8.75 * len(moving))} credits more" if moving else ""))
         heads = [re.sub(r"\W+", " ", ((ad_headline(s) if s.get("layout") == "ad" else s.get("headline")) or "").lower()).strip()
-                 for s in stats if s.get("headline") or s.get("layout") == "ad"]
+                 for s in stats if (s.get("headline") or s.get("layout") == "ad")
+                 and not offer_only(ad_headline(s) if s.get("layout") == "ad" else s.get("headline"))]
         for h in {x for x in heads if heads.count(x) > 1}:
             P.append(f"statics: the headline {h!r} is used twice")
     C = compliance
@@ -722,12 +757,27 @@ def packet(pr, theme, n_projects, n_statics, request=""):
           "- Every project a DIFFERENT concept (person, setting, opening, format, emotion): Meta groups look-alike ads and they share "
           "delivery, so four similar videos count as one. Never the same structure twice in a batch.",
           "- Open with a reason to buy this bag in the first 2 seconds, shown not told (a hand that can't reach the back pocket, the zip "
-          "closing, what fits, two ways to carry); the sale is the close. Every brand opens with '50% off' in November: we don't.",
+          "closing, what fits, two ways to carry); the sale is the close. Every brand opens with '50% off' in November: our videos don't (the statics do show it, below).",
           "- Sell the 3-Piece Set where it fits (the Hobo Bag page offers it as the 'Best Value' upgrade; its ads ran at ROAS ~3 with a "
           "bigger basket): three pieces for one price.",
           "- No exact prices in new lines or statics while the owner tests a price change: say the % ('50% off', 'up to 60% off').",
           "- Statics: one idea each, few words, the bag big; most should be AI ads (the AI ads 'seem to be starting to work': owner): "
-          "the `ad` formats of section 5, each batch new ones, realistic, never the same look twice."]
+          "the `ad` formats of section 5, each batch new ones, realistic, never the same look twice.",
+          "- **Every static shows the offer** (Wouter 2026-11-04 on B036's 50 statics: 'Don't have the offer on it. Not sure if those will "
+          "work.'): every `ad` carries the offer in its words as a HERO element of the design (giant numerals behind the bag, a swing tag on "
+          "the strap, a sticker burst, a window decal, neon, a stamp, a ribbon, a sale shopping bag: the offer-led formats of section 5), "
+          "every `concept` has `pill: true`, every real static gets the % badge. Lead with the product's own offer stack from the site: "
+          "the Hobo Bag '50% OFF + FREE pouch wallet + free US shipping', the 3-Piece Set '60% OFF, 3 bags, 1 set' (the site's 'Best Value' "
+          "upgrade), the Hobo 2.0 '50% OFF'. The check refuses an ad without it.",
+          "- **Scroll-stoppers, studio level, a different design every time** (the owner 2026-11-04: 'offers are nice but the design is the "
+          "same every time ... studio level design with offers that increase scroll stopping'): the account's long-running image ads (Meta "
+          "Ad Library, Libra's own, some live since Sep 2025) all make the offer the loudest words and the set or the bag big, on a "
+          "saturated or warm backdrop. Stop the thumb with ONE strong device per ad: an unexpected scale (numerals bigger than the bag), a "
+          "saturated colour the feed doesn't have (deep red, burgundy, forest green, cobalt, black), a real-world object that carries the "
+          "offer (tag, sticker, neon, stamp, ribbon, shop window, paper shopping bag), a diagonal split, a candid real-life moment from "
+          "behind. Vary across the batch: backdrop colour, composition (centred, off-centre, top-down, close-up, wide), type style "
+          "(condensed sans, serif, neon, stamp, handwriting) and the offer device; never two ads alike. One focal point, the offer read in "
+          "under a second, at most one more short line."]
     sl = structures()
     import novelty as NV
     last_s = NV.recent(pr["name"], "structure", last=1)

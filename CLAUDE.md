@@ -327,7 +327,11 @@ python3 pipeline/ideas.py packet --product "<name>" [--theme "<words>"] --projec
    price, the %, the sale and the bundle only in the last chapter and in at most one hook; the 4 hooks open on 4 different pictures of
    the bag doing something (first `show` tag a movement or a person, never hero / placed / colours); one or two `"proof_shot": true`
    chapters (a movement the picture proves: the shot is held 2-3 s and plays the clip's own sound, e.g. the zip); the bag on a person
-   (worn / walking) in two chapters of every non-presenter project; one presenter project per batch of 2+ (section 4). **N statics**, about two thirds `ad` (AI-designed ads, owner 2026-10-26: each a different format from the packet's library
+   (worn / walking) in two chapters of every non-presenter project; one presenter project per batch of 2+ (section 4). **N statics**, **every one showing the offer** (Wouter 2026-11-04 on B036: "Don't have the offer on it": an `ad`'s words include
+   the product's % as a HERO element of the design, a `concept` has `pill: true`, real statics get the % badge; the check refuses
+   less) and **a different scroll-stopping design each** (the owner: "studio level design with offers"; the offer-led formats:
+   giant numerals, swing tag, sticker burst, colour split, neon, shop-window decal, rubber stamp, ribbon, sale shopping bag, set
+   lineup), about two thirds `ad` (AI-designed ads, owner 2026-10-26: each a different format from the packet's library
    (★ = the owner's favourites) or one you invent (`format` id of your own + `format_name`, `art`, `people`; at least one a batch, two with
    6+ ads), never a format the product's last batch used; `words` = the exact 1-4 lines the picture carries, few and short, no price
    figures, no quotation marks; `scene.prompt` = what the picture shows; realistic, the bag closed, no face, no fake buttons / app screens /

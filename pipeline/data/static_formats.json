@@ -6,76 +6,337 @@
   "No before / after, no 'you' with a personal attribute (body, age, health, money trouble), nothing sensational or shocking.",
   "No other brand's name or logo, no celebrity, no real publication's name (the magazine masthead is LIBRA).",
   "Few words: one headline and at most two short lines; the picture carries the ad.",
-  "Words big enough to read on a phone in the feed: a tiny label or caption is wasted (the prompt asks for it; look at the contact sheet)."
+  "Words big enough to read on a phone in the feed: a tiny label or caption is wasted (the prompt asks for it; look at the contact sheet).",
+  "The offer is part of every AI ad (Wouter 2026-11-04: 'don't have the offer on it'): one of its words is the offer, set as a hero element of the design (giant numerals, a tag, a sticker, a ribbon, a window decal, neon), never a footnote."
  ],
  "formats": [
-  {"id": "magazine_cover", "tag": "magazine", "name": "Fashion magazine cover", "liked": 2, "people": "none", "words": 18,
+  {
+   "id": "magazine_cover",
+   "tag": "magazine",
+   "name": "Fashion magazine cover",
+   "liked": 2,
+   "people": "none",
+   "words": 18,
    "art": "A premium fashion-magazine cover, shot and laid out like a real printed issue: the bag photographed large as the cover star on a seamless studio backdrop in one rich colour, soft directional studio light with a gentle shadow, a tall elegant serif masthead across the top behind the top of the bag, a few short cover lines in a clean sans-serif down the left side, generous margins, the look of glossy paper.",
    "words_hint": "masthead LIBRA + 2-3 cover lines of 3-6 words (one may be the sale)",
    "type": "the masthead in a tall high-contrast serif, the cover lines in a clean condensed sans-serif",
-   "example": ["LIBRA", "THE BAG THAT ZIPS SHUT", "3 WAYS TO CARRY", "EARLY BLACK FRIDAY: 50% OFF"]},
-  {"id": "feature_diagram", "tag": "diagram", "name": "Feature diagram with callouts", "liked": 3, "people": "none", "words": 18,
+   "example": [
+    "LIBRA",
+    "THE BAG THAT ZIPS SHUT",
+    "3 WAYS TO CARRY",
+    "EARLY BLACK FRIDAY: 50% OFF"
+   ]
+  },
+  {
+   "id": "feature_diagram",
+   "tag": "diagram",
+   "name": "Feature diagram with callouts",
+   "liked": 3,
+   "people": "none",
+   "words": 18,
    "art": "A clean product infographic: the bag photographed straight-on on a plain light backdrop, centred and large, with thin straight leader lines from each feature to a short label set neatly at the left and right edges, a headline at the top, lots of white space, like a premium catalogue page.",
    "words_hint": "a headline + 3-4 labels of 2-4 words; only features you can SEE from the reference's angle (a back pocket needs the back view: scene.ref)",
    "type": "the headline in a refined serif, the labels in a clear medium-weight sans-serif",
    "bag": "Only label what is visible from this angle; each leader line points exactly at the part it names.",
-   "example": ["Built for busy places", "Zip-top closure", "Adjustable crossbody strap", "Gold zip pulls"]},
-  {"id": "bold_poster", "tag": "poster", "name": "Bold one-colour poster", "liked": 4, "people": "none", "words": 6,
+   "example": [
+    "Built for busy places",
+    "Zip-top closure",
+    "Adjustable crossbody strap",
+    "Gold zip pulls"
+   ]
+  },
+  {
+   "id": "bold_poster",
+   "tag": "poster",
+   "name": "Bold one-colour poster",
+   "liked": 4,
+   "people": "none",
+   "words": 6,
    "art": "A bold graphic poster: one saturated flat colour fills the frame, the bag photographed as a clean cut-out with a soft natural drop shadow, very large heavy type that fills the width above it, one small line below, nothing else, confident Swiss-style layout.",
    "words_hint": "1-3 huge words + one small line",
    "type": "the big words in a heavy bold grotesque sans-serif, the small line in the same family, light weight",
-   "example": ["HALF PRICE.", "Early Black Friday"]},
-  {"id": "pov_behind", "tag": "pov", "name": "POV street photo from behind", "liked": 6, "people": "behind", "words": 12,
+   "example": [
+    "HALF PRICE.",
+    "Early Black Friday"
+   ]
+  },
+  {
+   "id": "pov_behind",
+   "tag": "pov",
+   "name": "POV street photo from behind",
+   "liked": 6,
+   "people": "behind",
+   "words": 12,
    "art": "A candid phone photo taken by a friend walking a few steps behind her: real street life, slightly off-centre framing, natural mixed light (shop windows, dusk sky or daylight), a little motion blur in the passers-by, real clothes with creases and texture, ordinary city details, nothing glossy, staged or computer-made. One short caption in bold white sans-serif with a soft shadow sits large across the empty sky or wall area, the way people caption a photo.",
    "words_hint": "one caption that starts 'POV:' (at most 12 words)",
    "type": "a bold white sans-serif caption with a soft dark shadow, sentence case, set large on two or three lines",
    "people_note": "She is seen only from behind, walking away from the camera, her head turned forward, the bag on her shoulder towards the camera; nobody else faces the camera.",
-   "example": ["POV: your bag stays zipped in the crowd"]},
-  {"id": "flat_lay", "tag": "flatlay", "name": "Top-down flat lay", "liked": 7, "people": "none", "words": 10,
+   "example": [
+    "POV: your bag stays zipped in the crowd"
+   ]
+  },
+  {
+   "id": "flat_lay",
+   "tag": "flatlay",
+   "name": "Top-down flat lay",
+   "liked": 7,
+   "people": "none",
+   "words": 10,
    "art": "A top-down flat lay photographed from directly above on a real surface (oak table, linen, marble), soft window light from one side with natural shadows, the bag zipped shut in the middle and the everyday things it holds laid neatly around it, a calm empty area at the top for a short serif headline and one small line.",
    "words_hint": "a 2-4 word headline + one small line",
    "type": "the headline in an elegant serif, the line in a small sans-serif",
    "bag": "The bag is closed (zipped): never show its inside; the items lie next to it, not in it.",
-   "example": ["Everything fits.", "Early Black Friday: 50% off"]},
-  {"id": "gift_moment", "tag": "gifttag", "name": "Real-home gift moment", "liked": 8, "people": "none", "words": 10,
+   "example": [
+    "Everything fits.",
+    "Early Black Friday: 50% off"
+   ]
+  },
+  {
+   "id": "gift_moment",
+   "tag": "gifttag",
+   "name": "Real-home gift moment",
+   "liked": 8,
+   "people": "none",
+   "words": 10,
    "art": "A candid photo of a real, lived-in home in soft daylight from a window (a sofa or armchair with a throw, a book, a cup of tea), the bag sitting there with a slightly uneven satin ribbon around its handle and a small brown kraft-paper tag tied to it with string, the tag written by hand in pen with real ink. Natural colours, not glossy, no studio look. One short headline set in a clean serif in a calm empty part of the room.",
    "words_hint": "the handwritten tag (1-3 words: 'For Mum', 'For you') + a short headline",
    "type": "the tag in natural handwriting in dark ink, the headline in a clean serif",
-   "example": ["For Mum", "A gift for every day."]},
-  {"id": "editorial_still_life", "tag": "stilllife", "name": "Editorial still life", "people": "none", "words": 8,
+   "example": [
+    "For Mum",
+    "A gift for every day."
+   ]
+  },
+  {
+   "id": "editorial_still_life",
+   "tag": "stilllife",
+   "name": "Editorial still life",
+   "people": "none",
+   "words": 8,
    "art": "A luxury editorial still life: the bag on a sculptural plinth or a stack of stone blocks, a few simple props (dried flowers, a ceramic vase, a folded silk scarf), one warm hard light making crisp shadows, a muted two-tone backdrop, composed like a high-end catalogue page, a small serif headline in the empty corner.",
    "words_hint": "a 2-5 word headline + an optional small line",
-   "type": "a small elegant serif, generous letter spacing"},
-  {"id": "split_compare", "tag": "compare", "name": "Split-screen comparison", "people": "none", "words": 14,
+   "type": "a small elegant serif, generous letter spacing"
+  },
+  {
+   "id": "split_compare",
+   "tag": "compare",
+   "name": "Split-screen comparison",
+   "people": "none",
+   "words": 14,
    "art": "A clean split-screen comparison: on the left a plain generic open-top tote bag (no brand, no logo) on a muted grey backdrop, on the right the real bag on a warm tinted backdrop, the same light on both, a short label under each side and one headline across the top.",
    "words_hint": "a headline + one 2-3 word label per side (true facts only: 'Open top' vs 'Zips shut')",
    "type": "the headline in a bold sans-serif, the labels in small caps",
-   "bag": "The other bag is a generic plain tote, never a brand, never shown as broken or bad: just different."},
-  {"id": "street_poster", "tag": "billboard", "name": "Poster on a city wall", "people": "none", "words": 8,
+   "bag": "The other bag is a generic plain tote, never a brand, never shown as broken or bad: just different."
+  },
+  {
+   "id": "street_poster",
+   "tag": "billboard",
+   "name": "Poster on a city wall",
+   "people": "none",
+   "words": 8,
    "art": "A real photo of a city street: a large printed paper poster pasted on a wall or in a bus-shelter frame, slightly weathered edges, daylight with real reflections, pavement and street details around it. The poster shows the bag large on a solid colour with one short headline. Shot at a slight angle like a passer-by took it.",
    "words_hint": "a 2-5 word headline on the poster + an optional small line",
-   "type": "the poster headline in a heavy sans-serif"},
-  {"id": "macro_detail", "tag": "macro", "name": "Macro detail close-up", "people": "none", "words": 8,
+   "type": "the poster headline in a heavy sans-serif"
+  },
+  {
+   "id": "macro_detail",
+   "tag": "macro",
+   "name": "Macro detail close-up",
+   "people": "none",
+   "words": 8,
    "art": "An extreme close-up macro photograph of one detail of the bag (the gold zip pull, the pebbled leather grain, the stitching where the handle meets the ring), razor-sharp on the detail with a soft fall-off, warm natural light, the colour of the reference exact, a short line of text in the soft out-of-focus area.",
    "words_hint": "one short line about that detail",
    "type": "a clean small sans-serif or serif",
-   "bag": "Only a detail the reference image shows clearly."},
-  {"id": "gift_unbox", "tag": "unbox", "name": "Unboxing from above", "people": "cropped", "words": 8,
+   "bag": "Only a detail the reference image shows clearly."
+  },
+  {
+   "id": "gift_unbox",
+   "tag": "unbox",
+   "name": "Unboxing from above",
+   "people": "cropped",
+   "words": 8,
    "art": "A top-down photo of hands lifting the bag out of a plain gift box with tissue paper, on a real table in soft daylight, only the hands and forearms in frame (natural hands, relaxed fingers, no rings or nail art), a short serif line in the empty table area.",
    "words_hint": "one short headline (no 'free' anything)",
-   "type": "an elegant serif"},
-  {"id": "travel_carry", "tag": "travel", "name": "Travel day snapshot", "people": "behind", "words": 10,
+   "type": "an elegant serif"
+  },
+  {
+   "id": "travel_carry",
+   "tag": "travel",
+   "name": "Travel day snapshot",
+   "people": "behind",
+   "words": 10,
    "art": "A candid travel photo: a woman seen from behind walking through a bright airport or train station with a small carry-on, the bag on her shoulder, large windows, real people blurred far away and facing away, natural daylight, documentary phone-photo look, one short caption in plain white sans-serif in the empty upper area.",
    "words_hint": "one short caption",
    "type": "a plain white sans-serif with a soft shadow",
-   "people_note": "She is seen only from behind; every other person is far away, blurred and facing away."},
-  {"id": "colour_block", "tag": "colourblock", "name": "Colour-block studio set", "people": "none", "words": 6,
+   "people_note": "She is seen only from behind; every other person is far away, blurred and facing away."
+  },
+  {
+   "id": "colour_block",
+   "tag": "colourblock",
+   "name": "Colour-block studio set",
+   "people": "none",
+   "words": 6,
    "art": "A playful studio set built from two or three solid colour blocks (a pastel cube, a curved step, a backdrop) that pick up the bag's colour, the bag resting on a block, soft even studio light, crisp clean shadows, one short line in bold sans-serif on the plain backdrop.",
    "words_hint": "1-4 words",
-   "type": "a bold rounded sans-serif"},
-  {"id": "window_display", "tag": "window", "name": "Boutique window display", "people": "none", "words": 8,
+   "type": "a bold rounded sans-serif"
+  },
+  {
+   "id": "window_display",
+   "tag": "window",
+   "name": "Boutique window display",
+   "people": "none",
+   "words": 8,
    "art": "A photo through the glass of a small boutique window at dusk: the bag displayed on a stand inside, warm interior light, soft street reflections on the glass, a short line of text painted on the window in neat gold sign-writing.",
    "words_hint": "the window lettering: 2-5 words (the sale line works)",
-   "type": "gold sign-writing on glass, classic serif"}
+   "type": "gold sign-writing on glass, classic serif"
+  },
+  {
+   "id": "giant_numerals",
+   "tag": "numerals",
+   "name": "Giant offer numerals",
+   "people": "none",
+   "words": 6,
+   "offer": true,
+   "art": "A bold studio ad: the offer's numerals set enormous, filling most of the frame edge to edge on a seamless saturated colour backdrop, and the bag standing in front of them so it overlaps the numbers and casts a soft shadow on the backdrop, real depth, crisp studio light; one small line below. The numerals are the loudest thing in the picture after the bag.",
+   "words_hint": "the offer split as huge numerals + 1 small line ('50%' / 'OFF' / 'Early Black Friday')",
+   "type": "the numerals in an extra-bold condensed grotesque, the small line in the same family, light weight",
+   "example": [
+    "50%",
+    "OFF",
+    "Early Black Friday"
+   ]
+  },
+  {
+   "id": "swing_tag",
+   "tag": "swingtag",
+   "name": "Oversized sale swing tag",
+   "people": "none",
+   "words": 8,
+   "offer": true,
+   "art": "An editorial product photo: an oversized thick paper swing tag tied to the bag's strap with a cotton string, the tag printed with the offer in big bold type, turned towards the camera and fully readable, the bag on a calm surface in soft directional light, real paper texture and a gentle shadow from the tag.",
+   "words_hint": "the offer on the tag + one short line under the bag ('50% OFF' / 'Black Friday')",
+   "type": "the tag's offer in a heavy bold sans-serif, the small line in a refined serif",
+   "example": [
+    "50% OFF",
+    "Black Friday"
+   ]
+  },
+  {
+   "id": "sticker_burst",
+   "tag": "burst",
+   "name": "Starburst sale sticker",
+   "people": "none",
+   "words": 8,
+   "offer": true,
+   "art": "A premium studio product shot of the bag on a tinted seamless backdrop with one big round starburst sticker printed with the offer stuck over a corner of the picture like a real glossy printed sticker (a slight lift and soft shadow at its edge), a short headline in elegant type at the top, nothing else.",
+   "words_hint": "a short headline + the offer on the sticker ('The everyday hobo.' / '50% OFF')",
+   "type": "the headline in a high-contrast serif, the sticker's offer in an extra-bold sans-serif, white on red",
+   "example": [
+    "The everyday hobo.",
+    "50% OFF"
+   ]
+  },
+  {
+   "id": "colour_split",
+   "tag": "split",
+   "name": "Diagonal colour split",
+   "people": "none",
+   "words": 8,
+   "offer": true,
+   "art": "A graphic ad split diagonally into two fields: one saturated flat colour field carrying the offer in very large bold type, the other a real photo of the bag in a calm setting; the bag crosses the split line slightly so it feels three-dimensional, clean modern layout, strong contrast that stops the scroll.",
+   "words_hint": "the offer + one small line ('50% OFF' / 'The hidden-pocket hobo')",
+   "type": "a heavy bold grotesque sans-serif, white on the colour field",
+   "example": [
+    "50% OFF",
+    "The hidden-pocket hobo"
+   ]
+  },
+  {
+   "id": "neon_offer",
+   "tag": "neon",
+   "name": "Neon offer sign",
+   "people": "none",
+   "words": 6,
+   "offer": true,
+   "art": "A real night-time boutique corner: warm neon tubes spelling the offer glow on a dark plaster or brick wall, the bag standing on a stool or plinth below the sign, lit by its own soft white spotlight so its true colour reads clearly (the neon only rims it), a little haze, shot on a phone, real reflections, nothing CGI.",
+   "words_hint": "the offer in neon (1-3 words) + an optional tiny line ('50% OFF')",
+   "type": "neon tube lettering, warm pink-red or white glow, perfectly spelled",
+   "example": [
+    "50% OFF"
+   ]
+  },
+  {
+   "id": "shop_window_decal",
+   "tag": "decal",
+   "name": "Shop-window sale decal",
+   "people": "none",
+   "words": 8,
+   "offer": true,
+   "art": "A real shop window from the street at dusk: big vinyl sale lettering with the offer stuck on the glass, the bag displayed alone on a plinth behind it in warm interior light, a faint reflection of the street on the glass, real depth; the lettering never covers the bag.",
+   "words_hint": "the window lettering: the offer + 1-3 words ('BLACK FRIDAY' / '50% OFF')",
+   "type": "bold white or red vinyl window lettering, slightly spaced capitals",
+   "example": [
+    "BLACK FRIDAY",
+    "50% OFF"
+   ]
+  },
+  {
+   "id": "rubber_stamp",
+   "tag": "stamp",
+   "name": "Rubber-stamp offer",
+   "people": "none",
+   "words": 6,
+   "offer": true,
+   "art": "A top-down shot on thick cream or kraft paper: the bag lies flat and closed, and a huge red rubber-stamp impression of the offer sits beside it at a slight angle, real uneven ink texture and paper grain, soft daylight, a couple of small props (a pen, a ribbon) at the edges.",
+   "words_hint": "the stamped offer (1-3 words) + an optional small line ('HALF PRICE' / 'Early Black Friday')",
+   "type": "a distressed rubber-stamp slab serif in red ink, the small line in a typewriter face",
+   "example": [
+    "HALF PRICE",
+    "Early Black Friday"
+   ]
+  },
+  {
+   "id": "ribbon_banner",
+   "tag": "ribbon",
+   "name": "Satin sale ribbon",
+   "people": "none",
+   "words": 8,
+   "offer": true,
+   "art": "A luxe studio still life: a wide satin ribbon printed with the offer runs across the frame behind the base of the bag and drapes onto the surface in soft folds, the bag standing in front of it, soft directional light with real sheen on the satin, a calm tinted backdrop.",
+   "words_hint": "the offer printed on the ribbon (2-5 words) + an optional small line ('BLACK FRIDAY · 50% OFF')",
+   "type": "spaced bold capitals printed on the ribbon, crisp and perfectly spelled",
+   "example": [
+    "BLACK FRIDAY · 50% OFF"
+   ]
+  },
+  {
+   "id": "paper_shopping_bag",
+   "tag": "shopper",
+   "name": "Sale shopping bag",
+   "people": "none",
+   "words": 8,
+   "offer": true,
+   "art": "A boutique counter shot: a crisp unbranded paper shopping bag printed with the offer in big type stands beside the handbag, tissue paper peeking out, warm store light, real paper folds and texture, the handbag the hero in front.",
+   "words_hint": "the offer printed on the paper bag + an optional small line ('50% OFF' / 'Black Friday')",
+   "type": "a heavy bold sans-serif printed on the paper bag",
+   "example": [
+    "50% OFF",
+    "Black Friday"
+   ]
+  },
+  {
+   "id": "set_lineup",
+   "tag": "lineup",
+   "name": "Set lineup with offer",
+   "people": "none",
+   "words": 10,
+   "offer": true,
+   "art": "A premium studio lineup: every piece of the set standing in a row on a long plinth from largest to smallest, a saturated seamless backdrop, crisp shadows, and the offer set very large above the row, a small line naming the pieces below; for a set only (the pieces shown are the set's).",
+   "words_hint": "the offer + what is in the set ('60% OFF' / '3 bags. 1 set.')",
+   "type": "the offer in an extra-bold condensed sans-serif, the small line in a refined serif",
+   "example": [
+    "60% OFF",
+    "3 bags. 1 set."
+   ]
+  }
  ]
 }

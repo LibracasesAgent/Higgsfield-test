@@ -1921,6 +1921,9 @@ def plan(a):
         statics.append(s)
     if sheet is not None:             # the strategist's own words on the real-photo statics
         for i_, x_ in enumerate(sheet.get("statics") or []):
+            if i_ < len(statics) and s_pct and 5 <= s_pct <= 90 and statics[i_].get("layout") in ("studio", "native") and \
+                    (sheet.get("date") or "") >= "2026-11-04":
+                statics[i_]["pct"] = s_pct          # (Wouter 2026-11-04: every static shows the offer)
             if i_ < len(statics) and x_["layout"] in ("studio", "native") and x_.get("headline"):
                 statics[i_].pop("headline", None)
                 statics[i_]["caption"] = x_["headline"]
@@ -2465,7 +2468,8 @@ def plan(a):
     sheet_scenes = ideas_scenes = []
     if sheet is not None and a.statics:        # the strategist's AI studio scenes (ideas.py): exactly those, in the sheet's order
         import ideas
-        ai_refs_ = [dict(file=f_, colour=n_) for n_, f_ in colour_imgs if f_ in packs and f_ not in no_static]
+        ai_refs_ = [dict(file=f_, colour=n_) for n_, f_ in colour_imgs if (f_ in packs or "/clean/" in f_) and f_ not in no_static]   # (clean/:
+        #            a colour's packshot with its site badge removed, e.g. the Dark Sienna Hobo Bag, is a packshot too)
         ai_refs_ += [dict(file=f_, colour=None) for f_ in packs if f_ not in {r_["file"] for r_ in ai_refs_} and f_ not in no_static]
         ideas_scenes = [(i_, x_) for i_, x_ in ideas.concept_scenes(sheet) if i_ < a.statics]
         if ideas_scenes and not ai_refs_:
@@ -2480,6 +2484,7 @@ def plan(a):
         for k_, (i_, x_) in enumerate(ideas_scenes):
             sc_ = x_["scene"]
             want_ = {"brown": "sienn", "tan": "sienn"}.get((sc_.get("colour") or "").lower(), (sc_.get("colour") or "").lower())   # (the site calls brown 'Dark Sienn')
+            want_ = "sienn" if "sienn" in want_ else want_           # ('Dark Sienna' too)
             ref_ = next((r_ for r_ in ai_refs_ if want_ and r_.get("colour") and want_ in r_["colour"].lower()), None) or ai_refs_[k_ % len(ai_refs_)]
             if sc_.get("ref") and os.path.exists(os.path.join(site, os.path.basename(sc_["ref"]))):    # a named site photo (the back view of the bag)
                 ref_ = dict(file=os.path.join(site, os.path.basename(sc_["ref"])), colour=sc_.get("colour"))
@@ -2532,7 +2537,7 @@ def plan(a):
             sheet_scenes = stills_
     if sheet is None and need and not getattr(a, "no_ai", False) and not getattr(a, "classic", False) and (a.statics or (a.videos and not story)) \
             and (getattr(a, "ai", False) or not real_rich):
-        ai_refs = [dict(file=f_, colour=n_) for n_, f_ in colour_imgs if f_ in packs and f_ not in no_static]
+        ai_refs = [dict(file=f_, colour=n_) for n_, f_ in colour_imgs if (f_ in packs or "/clean/" in f_) and f_ not in no_static]
         ai_refs += [dict(file=f_, colour=None) for f_ in packs if f_ not in {r_["file"] for r_ in ai_refs} and f_ not in no_static]
         try:
             ai_plan = ai_gen.plan_ai(

@@ -712,6 +712,28 @@ revenue, verdict, notes; grey formulas: hook rate, CTR, CPA, ROAS), Summary (by 
 - **Fix by hand:** `python3 pipeline/tracker.py sync --batch B045` (or `--all` to refresh every batch's file details); `show` counts.
 - B001's files sit in the Outputs folder "oct 3 test" (`folder_overrides`), whose subfolder of B012 statics is skipped.
 
+### 4m. Every static shows the offer, in a scroll-stopping design (Wouter + owner 2026-11-04)
+
+Wouter on B036 (50 Hobo Bag statics, 3 Nov): "Not sure about those statics. Don't have the offer on it. Not sure if those will work."
+B036's 30 AI ads used 30 formats but only ~6 carried the %; the rest were feature lines or wordplay ("ZIP IT. GO.", "Keys? Found.").
+The owner: "offers are nice but the design is same every time ... studio level design with offers that increase scroll stopping".
+Libra's own long-running image ads (Meta Ad Library, 4 Nov; some live since Sep 2025, mostly the 3-Piece Set) all make the offer the
+loudest words (60% OFF, 3 BAGS 1 PRICE, 50% OFF CLEARANCE SALE) over a big packshot. What changed:
+- `ideas.py check` (sheets dated from 2026-11-04): an `ad` without the product's % in its words, or a `concept` without `pill: true`,
+  is a problem; real studio / native statics always get the % badge; the pills are bigger (42 px). Offer-only lines ("50% OFF",
+  "BLACK FRIDAY") never count as repeats and never name an ad (`ideas.offer_only`).
+- Ten offer-led formats in `data/static_formats.json` (`"offer": true`): giant_numerals, swing_tag, sticker_burst, colour_split,
+  neon_offer, shop_window_decal, rubber_stamp, ribbon_banner, paper_shopping_bag, set_lineup (sets only); `build_ad_prompt` makes the
+  offer the boldest words; only one invented format a batch is required now (was two with 6+ ads).
+- `ai_gen` text gate: a fragment of the right % ('0%' of a stylised '50%') while the right % is also read is only 'look'; a whole other
+  number is still a hard fail. Colour cast: the neon format lights the bag with its own white spot (a red-neon test failed the colour gate).
+- Tested 4 Nov: 9 samples (GPT Image 2.5 medium, 9 credits): 8 passed and read as studio ads with the offer built in.
+- The site (4 Nov): Hobo Bag $54.95 (was $109.90) "50% OFF + FREE wallet", the 3-Piece Set as "BEST VALUE 60% OFF, only $15.00 more";
+  free US shipping; 1-year warranty. The banner says "FLASH SALE ENDS TONIGHT ... LIMITED STOCK" daily and the product pages say "30-Day
+  Money-Back Guarantee" / "Free Returns", but the Black Friday terms (read again 4 Nov) say final sale, no returns: we keep the final-sale
+  rule and no daily "ends tonight" (Wouter to resolve the conflict on the site).
+- Also fixed: the Dark Sienna (brown) Hobo Bag's badge-free packshot is an AI reference again (it was skipped: "/clean/" files).
+
 ### 4l. Motion stills and the model test (owner 2026-11-03)
 
 The owner: "use Higgsfield for motion stills ... best model ... studio level, good typography". Built and tested that day:
