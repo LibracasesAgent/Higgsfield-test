@@ -1,7 +1,7 @@
 {
  "product": "Hobo 2.0",
  "theme": "black friday",
- "date": "2026-11-03",
+ "date": "2026-11-04",
  "no_presenter": "the all-time-best blueprint runs without the presenter (docs/research/2026-11-all-time-best-ad.md: B016's presenter projects 1.90-2.06 ROAS against B017's voiceover 'versus' 2.97; an AI spokesperson cut CTR ~29% in a Meta field test)",
  "research": [
   "docs/research/2026-11-all-time-best-ad.md: the account's own winners (Sept brief, 20 ads, ROAS 2.90) and our AI ads (18-26 Oct, ROAS 2.13); B017 P04 'versus' (2.97) and the B017 statics (2.91) are the only AI ads above the account average, both a contrast frame shown on real footage",
@@ -359,18 +359,19 @@
  "statics": [
   {
    "id": "S01",
-   "project": "P01",
+   "project": "P03",
    "layout": "ad",
    "format": "bold_poster",
-   "idea": "Offer-first, the static Meta funds most in the sale: the % huge, one line that says what makes this bag different.",
+   "idea": "Offer-first, the static Meta funds most in the sale: the % huge, then the gift line of P03 (the handbag that locks, for Mum).",
    "words": [
     "50% OFF.",
-    "The handbag that locks."
+    "For Mum: the handbag that locks."
    ],
    "scene": {
     "colour": "Black",
     "prompt": "The black bag standing upright on a deep burgundy seamless backdrop, soft studio light from the left, a gentle floor shadow, the words above it."
-   }
+   },
+   "story": "gift"
   },
   {
    "id": "S02",
@@ -379,32 +380,38 @@
    "format": "post_it",
    "format_name": "Post-it reminder",
    "people": "none",
-   "art": "A real phone photo of a home hallway: the bag hangs by its strap on a wooden coat hook beside the front door, one square yellow sticky note stuck on the door at eye level with a short reminder handwritten in thick black marker, natural morning light, real paint and wood textures, slightly imperfect framing.",
+   "art": "A real phone photo of a home hallway: the bag hangs by its strap on a wooden coat hook beside the front door, one square yellow sticky note stuck on the door at eye level with a short reminder handwritten in thick black marker, natural morning light, real paint and wood textures, slightly imperfect framing. The offer is printed big on a red paper sale tag tied to the bag's strap with string, turned towards the camera.",
    "idea": "The post-it note, fashion's top static format: the travel rule as a reminder by the door, the bag already keeping it.",
    "words": [
     "Across your body.",
-    "Cards inside. Zips locked."
+    "Cards inside. Zips locked.",
+    "50% OFF"
    ],
    "scene": {
     "colour": "Black",
     "prompt": "A calm hallway by a white front door, the bag on a coat hook, a pair of shoes on a mat below, morning light from a side window."
-   }
+   },
+   "story": "moment",
+   "feature": "CUT-RESISTANT STRAP"
   },
   {
    "id": "S03",
    "project": "P01",
    "layout": "ad",
    "format": "split_compare",
-   "idea": "The B017 winning frame as a picture: an ordinary open-top tote on the left, the Hobo 2.0 zipped shut on the right, two true labels.",
+   "idea": "The B017 winning frame as a picture: an ordinary open-top tote on the left, the Hobo 2.0 zipped shut on the right, two true labels. The offer on a round red sticker on the right half.",
    "words": [
     "Which one goes in the crowd?",
     "Open top",
-    "Zips that lock"
+    "Zips that lock",
+    "50% OFF"
    ],
    "scene": {
     "colour": "Black",
     "prompt": "Two bags side by side on a light oak table against a warm cream wall: on the left a plain unbranded canvas tote with an open top, on the right the bag zipped shut; even soft daylight."
-   }
+   },
+   "story": "problem_fix",
+   "feature": "LOCKABLE ZIPPERS"
   },
   {
    "id": "S04",
@@ -413,17 +420,20 @@
    "format": "quiz_card",
    "format_name": "Quiz card",
    "people": "none",
-   "art": "A real photo of a small printed quiz card propped against the bag on a cafe table: a short question and two answers marked A and B in clean dark type on off-white card, a coffee cup beside it, warm window light, shallow depth of field, real paper texture.",
+   "art": "A real photo of a small printed quiz card propped against the bag on a cafe table: a short question and two answers marked A and B in clean dark type on off-white card, a coffee cup beside it, warm window light, shallow depth of field, real paper texture. The offer is a round red sticker stuck on the card's corner.",
    "idea": "The quiz, the second-best fashion format: one question about where the cards go, the right answer is the bag.",
    "words": [
     "Where do her cards go?",
     "A. An open tote",
-    "B. Behind RFID lining"
+    "B. RFID lining",
+    "50% OFF"
    ],
    "scene": {
     "colour": "Brown",
     "prompt": "A small round cafe table by a window, the bag standing closed on the table, a latte in a white cup, the quiz card leaning against the bag."
-   }
+   },
+   "story": "problem_fix",
+   "feature": "RFID LINING"
   },
   {
    "id": "S05",
@@ -437,7 +447,9 @@
    "project": "P01",
    "layout": "native",
    "idea": "A real footage frame of hands clipping the two gold zip pulls together: the proof of P01 as a still.",
-   "headline": "Two pulls. One clip. Locked."
+   "headline": "Two pulls. One clip. Locked.",
+   "story": "proof",
+   "feature": "LOCKABLE ZIPPERS"
   }
  ]
 }

@@ -712,6 +712,31 @@ revenue, verdict, notes; grey formulas: hook rate, CTR, CPA, ROAS), Summary (by 
 - **Fix by hand:** `python3 pipeline/tracker.py sync --batch B045` (or `--all` to refresh every batch's file details); `show` counts.
 - B001's files sit in the Outputs folder "oct 3 test" (`folder_overrides`), whose subfolder of B012 statics is skipped.
 
+### 4n. Every static tells a story next to the offer (the team 2026-11-04)
+
+Wouter on the 9 offer-led samples (4m): "Yeah could work". The team: "story is not enough": "50% OFF" + "Early Black Friday" or
+"The everyday hobo." gives a scroll-stopper but no reason to buy. What changed (`ideas.py check`, sheets dated from 2026-11-04):
+- Each static of layout `ad` / `concept` / `studio` / `native` names its `story` (data/static_formats.json `stories`: problem_fix, moment,
+  proof, gift, value, ways) and, for problem_fix / moment / proof / ways, its `feature` (one of the product's feature tags), and carries
+  the story line (`ideas.story_line`: an ad's first line that is not the masthead, the offer or the bag's name alone, 3+ words; the
+  headline of the others). quotes / stars / checklist count as proof, value / bundle as value, gifts as gift.
+- The batch: at least 3 story types (2 under 6 statics), none on more than 40%, no feature on more than a third of the statics, at
+  most one `offer` / `colours` static (they tell none). The sheet md / csv show each static's story.
+- The prompt: the offer stays the boldest words; the story lines are "the second voice", readable on a phone, and the picture shows
+  their moment (a question's answer, never the problem). The offer formats' word limits grew by about 4 so a story line fits; five
+  story formats: taped_question, pov_sticker, note_card, carry_map, day_strip (no digits on it: "8am" reads as a claim).
+- Tested 4 Nov (9 credits): the taped question, the giant numerals with "Shoulder, hand or crossbody.", the day strip and the HALF
+  PRICE stamp with "Bag + matching wallet, one price." read as studio ads with a reason; the carry map read right by eye but the gate
+  read "90%" off its stylised "50%" (a two-digit % stays a hard fail: a 60% on a 50% bag is the error it exists for, so that static
+  falls back to a real one); the train-platform POV had a face at the edge (rejected); the note card's and the postcard's handwriting
+  was too small for a phone (the note card now asks for a big card close to the camera). The gate also read "4%" / "7%" off the
+  stamp's ink: a one-digit % is now only 'look'.
+- When an AI static fails the gate, its real stand-in (a footage frame / the studio packshot) now carries the sheet's story line
+  (`ideas.story_caption`: a question with its answer), except a `moment` story (its place is not in the stand-in's picture).
+- Also fixed: `make_batch.py plan --help` crashed on an unescaped "40%" in a help text; a re-plan into the same `--out` kept the
+  `_ai_before` copy of the earlier plan, so `ai_gen.apply` (render) brought the old statics back (plan now clears it); the static
+  frame picker took a frame its labels call bad ("empty white car seat ... no bag": `footage_index.bad_moment`, skipped now).
+
 ### 4m. Every static shows the offer, in a scroll-stopping design (Wouter + owner 2026-11-04)
 
 Wouter on B036 (50 Hobo Bag statics, 3 Nov): "Not sure about those statics. Don't have the offer on it. Not sure if those will work."

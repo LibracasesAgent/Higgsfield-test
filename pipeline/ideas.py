@@ -37,6 +37,9 @@ experience, no health / medical claims):
     "idea": "the creative idea in one sentence",
     "headline": "<= 8 words, optional", "kicker": "BLACK FRIDAY (optional)", "sub": "optional", "pill": true (the offer's % pill) | "badge": "text",
     "where": "top|bottom (concept: where the words go; the scene leaves that end empty)", "tone": "dark|light (optional)",
+    "story": "problem_fix|moment|proof|gift|value|ways"  (what it tells next to the offer: data/static_formats.json 'stories'; sheets from
+             2026-11-04, the layouts ad / concept / studio / native), "feature": "GOLD SIDE ZIPS"  (the product's feature tag the story is
+             about: problem_fix / moment / proof / ways),
     "scene": {"kind": "object|worn|hand", "colour": "Black", "prompt": "the scene: surface, props, light, composition (no people / faces)"},
     "motion": "steam rises from the latte, sunlight flickers through the window"  (optional, object scenes only, at most 6 a batch:
               a MOTION STILL: the scene also becomes a 5 s silent loop, Kling 3.0 pro from the still, ~9 credits, our words over it;
@@ -51,6 +54,11 @@ experience, no health / medical claims):
  }]
 }
 The words of the scene prompt are only the scene: the keep-the-real-bag text, the style and the no-face rule are added by ai_gen.
+OFFER + STORY (Wouter and the team 2026-11-04; sheets from that day on): every static shows the product's offer (an ad's words carry the
+% as a hero element, a concept `pill: true`, real statics the % badge) AND tells a story: one line of 3+ words that says why to buy (the
+ad's first line that is not the offer, the masthead or the bag's name; a concept / studio / native headline), its `story` type and, for a
+feature story, its `feature`; at least 3 story types a batch (2 under 6 statics), none on more than 40%, no feature on more than a third,
+at most one `offer` / `colours` static (they tell none).
 STORIES (owner 2026-10-27; sheets from that day on): every project a story structure (one a batch, not the last batch's), at most 3 features
 and a different lead feature per project, the price only in the last chapter and in at most one hook, hooks that open on four different
 pictures of the bag doing something (first `show` tag a movement or a person), one or two proof shots, the bag on a person (worn /
@@ -115,6 +123,12 @@ AD_PEOPLE = ("none", "behind", "cropped")
 NEW_FORMATS = ((3, 1),)                               # (ad statics in the batch, formats of your own it needs at least: one; owner
 #                                                       2026-11-04: the offer and a design that sells beat novelty for its own sake)
 OFFER_FROM = "2026-11-04"                              # Wouter 2026-11-04 'don't have the offer on it': every static shows the offer
+STATIC_STORY_FROM = "2026-11-04"                       # the team 2026-11-04 on the 9 offer-led samples ('story is not enough'):
+#                                                       every static tells a story next to the offer (ideas.check, sheets from this day)
+STORY_LAYOUTS = ("ad", "concept", "studio", "native")  # the layouts whose words the strategist writes: each names its story and carries its line
+STORY_SELF = {"quotes": "proof", "stars": "proof", "checklist": "proof", "value": "value", "bundle": "value", "gifts": "gift"}  # (their own reason)
+NO_STORY = ("offer", "colours")                        # the offer / the colours alone: at most one a batch
+NAME_ONLY = re.compile(r"^\W*(?:the|your|a|an)?\s*(?:[\w'’-]+\s+){0,2}(?:hobo|bag|handbag|set|tote|purse|crossbody|satchel)\W*$", re.I)
 
 
 def product_pct(pr):
@@ -137,12 +151,14 @@ PRICE_WORDS = re.compile(r"\d+\s?%|\bpercent\b|\bhalf[- ]price\b|\bsale\b|\bblac
 
 
 def formats():
-    """data/static_formats.json: {"meta": [rules], "formats": {id: format}} (the AI-designed ad formats, ideas.py / ai_gen.py)."""
+    """data/static_formats.json: {"meta": [rules], "formats": {id: format}, "stories": {id: story type}} (the AI-designed ad formats and
+    the static stories, ideas.py / ai_gen.py)."""
     try:
         d = json.load(open(os.path.join(HERE, "data", "static_formats.json")))
     except (OSError, ValueError):
         d = {}
-    return dict(meta=d.get("meta") or [], formats={f["id"]: f for f in d.get("formats") or []})
+    return dict(meta=d.get("meta") or [], formats={f["id"]: f for f in d.get("formats") or []},
+                stories={x["id"]: x for x in d.get("stories") or []})
 
 
 def structures():
@@ -288,6 +304,32 @@ def ad_headline(s):
         return s["headline"]
     ws = [w for w in s.get("words") or [] if w.strip().upper() != "LIBRA"]
     return next((w for w in ws if not offer_only(w)), (ws or s.get("words") or [""])[0])
+
+
+def story_line(s):
+    """The line of a static that tells its story next to the offer (the team 2026-11-04: 'story is not enough'): an `ad`'s first line
+    that is not the masthead, the offer alone or the bag's name alone; a concept / studio / native static's headline (or sub). None
+    when it has none ('The everyday hobo.' names the bag, it tells nothing)."""
+    lines = (s.get("words") or []) if s.get("layout") == "ad" else [s.get("headline"), s.get("sub")]
+    ok = [w.strip() for w in lines if w and w.strip().upper() != "LIBRA" and not offer_only(w) and not NAME_ONLY.match(w.strip())
+          and nwords(w) >= 3]
+    return max(ok, key=nwords) if ok else None      # (the longest: 'One bag, all day.' over the labels 'Morning · Desk · Dinner')
+
+
+def story_caption(s):
+    """The caption a real-photo stand-in of this static carries when its AI picture fails the gate (the story stays, the picture is a real
+    one): its story line, with the answer after a question ('Keys at the bottom again? Two gold side zips.'); None without a story."""
+    line = story_line(s)
+    if not line or s.get("layout") != "ad":
+        return line
+    rest = [w.strip() for w in s.get("words") or [] if w.strip() and w.strip().upper() != "LIBRA" and not offer_only(w)]
+    q = next((k for k, w in enumerate(rest[:-1]) if w.endswith("?")), None)
+    return f"{rest[q]} {rest[q + 1]}" if q is not None else line
+
+
+def feature_tags(pr):
+    """The product's feature tags (HIDDEN BACK POCKET, GOLD SIDE ZIPS ...): what a static's story may be about."""
+    return [f[1] for f in pr.get("features") or [] if isinstance(f, (list, tuple)) and len(f) > 1 and f[1]]
 MIN_MOMENTS = 4                                      # good footage moments a tag should have for the product before a chapter leans on it
 STOPWORDS = set("the a an and or of to in on for with your you it its this that is are be at by as from up out so no not more all".split())
 
@@ -388,6 +430,52 @@ def ad_problems(s, sid, lib, P, W, items):
     if fmt.get("people") == "none" and re.search(r"\b(woman|man|girl|person|people|she|her|hands?)\b", pt, re.I) \
             and not re.search(r"\b(no|nobody|without)\b[^.]{0,30}\b(person|people|one)\b", pt, re.I):
         W.append(f"{sid}: the {fmt.get('id')} format has nobody in the picture, but the scene names a person: ai_gen tells the model nobody is there")
+
+
+def static_story_problems(stats, pr, P, W):
+    """Every static tells a story next to the offer (the team 2026-11-04 on the 9 offer-led samples: 'story is not enough'): a static
+    whose words the strategist writes names its `story` (a type of data/static_formats.json 'stories') and, for a feature story, the
+    `feature`, and carries the story line; the engine's review / value / checklist layouts carry their own; across the batch at least 3
+    story types (2 under 6 statics), none on more than 40%, no feature on more than a third, the offer or the colours alone once at most."""
+    kinds_lib = formats()["stories"]
+    tags = {t.upper() for t in feature_tags(pr)}
+    kinds = []
+    for s in stats:
+        sid, lay = s.get("id") or "?", s.get("layout")
+        if lay in STORY_LAYOUTS:
+            st = s.get("story")
+            if st not in kinds_lib:
+                P.append(f"{sid}: story: what it tells next to the offer, one of {', '.join(kinds_lib)} (the team 2026-11-04: "
+                         f"'story is not enough')")
+            else:
+                kinds.append(st)
+                if kinds_lib[st].get("feature") and not s.get("feature"):
+                    P.append(f"{sid}: feature: the one feature its {st} story is about ({', '.join(sorted(tags)) or 'a fact of the packet'})")
+            if not story_line(s):
+                P.append(f"{sid}: no story line: next to the offer one line of 3+ words says why to buy (a moment, a problem and its fix, "
+                         f"proof, the gift, the value); the offer alone or the bag's name ('The everyday hobo.') tells nothing")
+        elif lay in STORY_SELF:
+            kinds.append(s.get("story") if s.get("story") in kinds_lib else STORY_SELF[lay])
+        if s.get("feature") and tags and str(s["feature"]).upper() not in tags:
+            W.append(f"{sid}: feature {s['feature']!r} is not one of {pr['name']}'s feature tags ({', '.join(sorted(tags))}): only a fact "
+                     f"of the packet")
+    bare = [s.get("id") or "?" for s in stats if s.get("layout") in NO_STORY]
+    if len(bare) > 1:
+        P.append(f"statics: {', '.join(bare)} show the offer / the colours alone, no story: at most one a batch")
+    need = 3 if len(stats) >= 6 else 2 if len(stats) >= 3 else 1
+    if kinds and len(set(kinds)) < need:
+        P.append(f"statics: {len(set(kinds))} story type(s) ({', '.join(sorted(set(kinds)))}): at least {need} in a batch of {len(stats)} "
+                 f"(a moment, a problem and its fix, proof, the gift, the value, the ways to wear)")
+    if len(kinds) >= 5:
+        for t in sorted(set(kinds)):
+            if kinds.count(t) > 0.4 * len(kinds):
+                P.append(f"statics: the {t} story on {kinds.count(t)} of {len(kinds)} statics, at most {int(0.4 * len(kinds))}: vary the "
+                         f"reason to buy")
+    feats = [str(s.get("feature")).upper() for s in stats if s.get("feature")]
+    cap = max(2, -(-len(stats) // 3))
+    for f in sorted(set(feats)):
+        if feats.count(f) > cap:
+            P.append(f"statics: {feats.count(f)} statics tell the {f} story, at most {cap}: spread the stories over the features")
 
 
 def check(sheet, pr, n_projects=None, n_statics=None, exclude=None, day=None):
@@ -584,6 +672,8 @@ def check(sheet, pr, n_projects=None, n_statics=None, exclude=None, day=None):
             ad_problems(s, sid, lib, P, W, items)
         if s.get("pill") not in (None, True, False):
             P.append(f"{sid}: pill is true or false (the offer's % pill); a custom text goes in badge")
+    if stats and (sheet.get("date") or day or datetime.date.today().isoformat()) >= STATIC_STORY_FROM:
+        static_story_problems(stats, pr, P, W)
     ads = [s for s in stats if s.get("layout") == "ad"]
     if ads:                 # every batch new formats (owner 2026-10-26): once a batch, not the last batch's, some of the strategist's own
         fm = [s.get("format") for s in ads]
@@ -777,7 +867,16 @@ def packet(pr, theme, n_projects, n_statics, request=""):
           "offer (tag, sticker, neon, stamp, ribbon, shop window, paper shopping bag), a diagonal split, a candid real-life moment from "
           "behind. Vary across the batch: backdrop colour, composition (centred, off-centre, top-down, close-up, wide), type style "
           "(condensed sans, serif, neon, stamp, handwriting) and the offer device; never two ads alike. One focal point, the offer read in "
-          "under a second, at most one more short line."]
+          "under a second, then ONE story line (below).",
+          "- **Every static tells a story too** (the team 2026-11-04 on the 9 offer-led samples, which Wouter liked: 'Yeah could work' "
+          "... 'story is not enough': '50% OFF' + 'Early Black Friday' gives no reason to buy): the offer is the loudest words, ONE "
+          "story line of 3-8 words says WHY, and the picture shows that very moment. Name it in the sheet: `story` (problem_fix, moment, "
+          "proof, gift, value, ways: section 5) and, for a feature story, `feature` (one of the product's feature tags). 'Packed train. "
+          "Cards on your side.' over a photo from behind on a platform, the bag worn; 'Keys at the bottom again?' / 'Two gold side zips.' "
+          "over a hand at the zip; 'For Mum. Bag + matching wallet.' on a gift tag by the ribbon; '3 bags. 1 set.' over the set lineup. "
+          "Never a line that only names the bag ('The everyday hobo.', 'The hidden-pocket hobo') and never a bare sale word as the only "
+          "line. Across the batch at least 3 story types, none on more than 40% of the statics, no feature on more than a third, the "
+          "offer or colours layout alone at most once. Only facts of section 1; no invented reaction, no quote that is not a verbatim review."]
     sl = structures()
     import novelty as NV
     last_s = NV.recent(pr["name"], "structure", last=1)
@@ -820,9 +919,18 @@ def packet(pr, theme, n_projects, n_statics, request=""):
           f"Formats the product's last batch used (not this batch): {', '.join(last_f) or 'none'}; used before: {', '.join(ever_f) or 'none'}.",
           "\nThe format library (data/static_formats.json; ★ = the owner liked it on the test sheet):\n"]
     for f in fl["formats"].values():
-        L.append(f"- `{f['id']}`{' ★' if f.get('liked') else ''} {f['name']} (people: {f['people']}, at most {f['words']} words): "
+        L.append(f"- `{f['id']}`{' ★' if f.get('liked') else ''} {f['name']} (" + ("offer-led, " if f.get("offer") else "") +
+                 ("story, " if f.get("story") else "") + f"people: {f['people']}, at most {f['words']} words): "
                  f"{f.get('words_hint') or ''}" + (f"; e.g. {' / '.join(f['example'])}" if f.get("example") else "") +
                  (f"; {f['bag']}" if f.get("bag") else ""))
+    tags_ = feature_tags(pr)
+    L += ["\nThe stories a static tells next to its offer (`story`; data/static_formats.json 'stories'; feature = the story needs a "
+          f"`feature`: one of {', '.join(tags_) or 'the product facts'}):\n"]
+    for x in fl["stories"].values():
+        L.append(f"- `{x['id']}` {x['name']}{' (feature)' if x.get('feature') else ''}: {x['what']}; e.g. {' / '.join(x['example'])}")
+    L += ["(quotes / stars / checklist count as proof, value / bundle as value, gifts as gift; offer and colours tell none: at most one a "
+          "batch. The formats marked `story` in the library are built around one: the taped question, the real moment with a sticker, "
+          "the handwritten note, where it all goes, three moments in a day.)"]
     L += ["\nMeta's rules for the ads (the check refuses what breaks them):\n"] + [f"- {x}" for x in fl["meta"]]
     L += ["- Keep the bag closed (no photo of its inside: the AI would invent one); a feature label only for what the reference shows "
           "(the back pocket needs the back view: scene.ref).\n",
@@ -873,21 +981,22 @@ def sheet_md(sheet, scripts_=None):
 def _statics_table(sts, head):
     if not sts:
         return []
-    L = [head, "| # | Look | Idea | Words |", "|---|---|---|---|"]
+    L = [head, "| # | Look | Story | Idea | Words |", "|---|---|---|---|---|"]
     for s in sts:
         words = " · ".join(x for x in (s.get("kicker"), s.get("headline"), s.get("sub"), "50% pill" if s.get("pill") else "", s.get("badge")) if x)
         look = s["layout"] + (" (AI scene: " + s["scene"]["kind"] + ")" if s["layout"] == "concept" else "")
         if s["layout"] == "ad":
             fmt = ad_format(s)
             look, words = f"AI ad: {fmt.get('name')}{' (new format)' if fmt.get('new') else ''}", " / ".join(s.get("words") or [])
-        L.append(f"| {s['id']} | {look} | {s['idea']} | {words or '-'} |")
+        story = (s.get("story") or STORY_SELF.get(s["layout"]) or "-") + (f": {s['feature']}" if s.get("feature") else "")
+        L.append(f"| {s['id']} | {look} | {story} | {s['idea']} | {words or '-'} |")
     return L + [""]
 
 
 def sheet_csv(sheet, path):
     with open(path, "w", newline="") as f:
         w = csv.writer(f)
-        w.writerow(["project", "title", "kind", "id", "text / idea", "picture it needs", "on screen", "scene prompt"])
+        w.writerow(["project", "title", "kind", "id", "text / idea", "picture it needs", "on screen", "scene prompt", "story"])
         for p in sheet.get("projects") or []:
             for k, h in enumerate(p["hooks"][:4], 1):
                 w.writerow([p["id"], p["title"], f"hook H{k} ({h['type']})", f"{p['id']}H{k}", h["text"], ",".join(h.get("show") or []), h["label"], ""])
@@ -897,7 +1006,8 @@ def sheet_csv(sheet, path):
         for s in sheet.get("statics") or []:
             w.writerow([s.get("project"), "", f"static {s['layout']}" + (f" {s.get('format')}" if s["layout"] == "ad" else ""), s["id"], s["idea"], "",
                         " / ".join(s.get("words") or []) if s["layout"] == "ad" else
-                        " · ".join(x for x in (s.get("kicker"), s.get("headline"), s.get("sub")) if x), (s.get("scene") or {}).get("prompt", "")])
+                        " · ".join(x for x in (s.get("kicker"), s.get("headline"), s.get("sub")) if x), (s.get("scene") or {}).get("prompt", ""),
+                        (s.get("story") or STORY_SELF.get(s["layout"]) or "") + (f": {s['feature']}" if s.get("feature") else "")])
 
 
 # ------------------------------------------------------------------ CLI

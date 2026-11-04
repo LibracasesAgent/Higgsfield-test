@@ -1927,6 +1927,15 @@ def plan(a):
             if i_ < len(statics) and x_["layout"] in ("studio", "native") and x_.get("headline"):
                 statics[i_].pop("headline", None)
                 statics[i_]["caption"] = x_["headline"]
+            elif i_ < len(statics) and x_["layout"] in ("ad", "concept") and statics[i_].get("layout") in ("native", "studio") and \
+                    ideas.story_caption(x_) and x_.get("story") != "moment" and (sheet.get("date") or "") >= ideas.STATIC_STORY_FROM:
+                # (the real stand-in of an AI static keeps its story when the AI picture fails: a frame's caption, a packshot's line;
+                # not a `moment`: 'Packed train.' over a stand-in frame of a lawn is wrong, the frame keeps its own feature caption)
+                statics[i_].update({"caption": ideas.story_caption(x_)} if statics[i_]["layout"] == "native" else {"headline": ideas.story_caption(x_)})
+                if statics[i_]["layout"] == "native":
+                    statics[i_].pop("headline", None)
+                else:
+                    statics[i_].pop("sub", None)
             elif i_ < len(statics) and x_["layout"] == statics[i_].get("layout") in ("gifts", "bundle") and x_.get("headline"):
                 statics[i_]["headline"] = x_["headline"]
     if no_photo:                      # one warning, not one per static (a clips-only folder)
@@ -3129,6 +3138,8 @@ def plan(a):
                     os.remove(os.path.join(out, x))
     json.dump({**said_before, **now}, open(rp, "w"), indent=1, ensure_ascii=False)
     json.dump(dict(ads=statics, card_photos=sorted(cards)), open(os.path.join(out, "statics.json"), "w"), indent=1)
+    shutil.rmtree(os.path.join(out, ai_gen.PRISTINE), ignore_errors=True)   # (a re-plan: ai_gen.apply starts from THIS plan, not the
+    #                                                                          copy an earlier apply saved of the plan before it)
     for name, spec in specs.items():
         json.dump(spec, open(os.path.join(out, name + ".json"), "w"), indent=1)
     json.dump(tts_u, open(os.path.join(out, "tts_needed.json"), "w"), indent=1)
@@ -4396,7 +4407,7 @@ def main():
                     "real photos and footage (by default AI only fills what the real material cannot)")
     pl.add_argument("--no-frames", action="store_true", help="no statics from real footage frames (footage_index.frame_bank)")
     pl.add_argument("--no-ai", action="store_true", help="no AI scene stills / clips (ai_gen.py): real photos and footage only. "
-                    "Default: about 40% of the statics and a few video shots are the real bag placed in new scenes "
+                    "Default: about 40%% of the statics and a few video shots are the real bag placed in new scenes "
                     "(owner 2026-10-20), generated after plan (ai_needed.json) and kept only when they pass the quality gate")
     pl.add_argument("--presenter-cap", type=float, help="credits for the presenter's scene stills + talking takes (default presenter.CAP: "
                     "the presenter step costs ~2 credits per second of her talking; the 100 of --ai-cap are for voiceover + AI scenes)")

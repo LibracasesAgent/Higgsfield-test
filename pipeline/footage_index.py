@@ -367,6 +367,13 @@ def portrait_window(path, aspect=0.8):
     return path
 
 
+def bad_moment(r, t, near=0.5):
+    """Is the frame at t seconds of an index row one its labels call bad (q 'bad', or 'no bag' in its description: the empty car seat
+    before the hand puts the bag down, 2026-11-04 sample)? A static's real frame never comes from there."""
+    return any(abs(float(m.get("t", -9)) - t) <= near and (m.get("q") == "bad" or re.search(r"\bno (?:bag|product|handbag)\b", m.get("desc") or "", re.I))
+               for m in r.get("moments") or [])
+
+
 def frame_bank(product, n, out_dir, avoid=(), seed=1, workers=4, keep=None):
     """n real frames from n different indexed clips of the product, as statics photos: the sharpest face-free frame of 7 taken
     across each clip (4K vertical clips first), written to out_dir as JPGs (1440 px wide). `avoid`: Drive ids the product's last
@@ -387,6 +394,8 @@ def frame_bank(product, n, out_dir, avoid=(), seed=1, workers=4, keep=None):
         src = local_source(r["id"])           # (kept in pipeline/cache/media: the batch's videos read the same file)
         for k, f in enumerate(BANK_AT):
             t = round(float(r["duration"]) * f, 2)
+            if bad_moment(r, t):
+                continue
             p = os.path.join(out_dir, f"_c_{r['id'][:10]}_{k}.jpg")
             land = r["width"] > r["height"]
             vf = f"scale={2880 if land else BANK_W}:-2:flags=lanczos"        # (a landscape 4K frame is cut to 4:5 below: 1152 px wide)

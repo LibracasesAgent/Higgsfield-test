@@ -61,6 +61,15 @@ def test_bank_rows_take_only_clean_vertical_clips():
             fi.INDEX = old
 
 
+def test_a_frame_labelled_bad_is_never_a_static():
+    import footage_index as fi
+    r = dict(moments=[dict(t=0.61, tags=["car"], q="bad", desc="empty white car seat and seat belt, no bag"),
+                      dict(t=1.84, tags=["car", "placed"], q="good", desc="hand sets brown bag onto white car seat"),
+                      dict(t=4.29, tags=["hero"], q="ok", desc="the bag on the seat, no bag strap visible")])
+    assert fi.bad_moment(r, 0.59) and not fi.bad_moment(r, 1.9) and not fi.bad_moment(r, 3.0)
+    assert not fi.bad_moment(dict(), 0.5)
+
+
 def test_static_cycle_with_frames():
     seq = make_batch.static_cycle(True, True, False, False, 9)
     assert len(seq) == 20 and seq.count("native") == 8 and seq.count("studio") == 4, seq

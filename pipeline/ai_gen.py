@@ -127,10 +127,17 @@ def build_ad_prompt(lib, fmt, ad, noun, colour):
             f"spans most of the picture's width), never over the {noun}. No other text anywhere: "
             f"no logos, no brand names, no labels or writing on the {noun}, no watermark.") if words else \
         f"No text, no logos and no writing anywhere in the image."
+    import ideas
     offer_w = [w for w in words if re.search(r"\d\s?%|half[- ]price", w, re.I)]
     if offer_w:                       # (Wouter 2026-11-04: the offer is a hero element of every ad, never a footnote)
         text += (f" The offer {' / '.join(chr(34) + w + chr(34) for w in offer_w)} is the boldest, largest wording in the picture, read "
                  f"in under a second" + (", with perfectly drawn numerals and percent sign." if any("%" in w for w in offer_w) else "."))
+        story = [w for w in words if w not in offer_w and w.upper() != "LIBRA" and not ideas.offer_only(w)]   # ('OFF', 'Black Friday': the sale)
+        if story:                     # (the team 2026-11-04: 'story is not enough': the offer says how much, these lines say why)
+            text += (f" {'The line' if len(story) == 1 else 'The lines'} {' / '.join(chr(34) + w + chr(34) for w in story)} "
+                     f"{'is' if len(story) == 1 else 'are'} the second voice of the ad: smaller than the offer but clearly readable on a "
+                     f"phone, never tiny or faint; the picture shows the moment {'it tells' if len(story) == 1 else 'they tell'}" +
+                     (" (a question's answer, never the problem itself)." if any(w.endswith("?") for w in story) else "."))
     people = AD_PEOPLE[fmt.get("people") or "none"]
     if fmt.get("people") == "behind":
         people = (fmt.get("people_note") or "The one person in the picture is seen only from behind, turned away from the camera.") + " " + people
@@ -172,15 +179,16 @@ def text_check(path, words):
     pct = lambda t: set(re.sub(r"\s", "", x) for x in re.findall(r"\d+\s?%", t.replace(" %", "%")))  # noqa: E731
     have, ok = pct(" ".join(got)), pct(" ".join(want))
     extra = sorted(have - ok)
-    # a fragment of the right offer ('0%' of a giant stylised '50%', a 1-digit misread of neon) while the right % was read too: OCR, not
-    # a wrong offer (only 'look'); a whole other number ('70%' where the words say 50%) stays a hard fail
-    frag = [x for x in extra if (have & ok) and (len(x) <= 2 or any(o.endswith(x) for o in ok))]
+    # a fragment of the right offer ('0%' of a giant stylised '50%') while the right % was read too, or any one-digit %: OCR, not a wrong
+    # offer (only 'look'); a whole other number ('70%' where the words say 50%) stays a hard fail
+    frag = [x for x in extra if len(x) <= 2 or ((have & ok) and any(o.endswith(x) for o in ok))]   # ('4%' read off a stamp's ink texture:
+    #                                                       a one-digit % is OCR noise, never an offer of ours; a 2-digit one stays a fail)
     hard = [x for x in extra if x not in frag]
     r = dict(read=" ".join(got)[:300], missing=missing, extra_pct=extra, problems=[])
     if hard:
         r["problems"].append(f"a % the words do not have: {', '.join(hard)}")
     if frag:
-        r["problems"].append(f"look: the right % was read, plus a fragment ({', '.join(frag)}): read the offer on the contact sheet")
+        r["problems"].append(f"look: {'the right % was read, plus ' if have & ok else ''}a stray % fragment ({', '.join(frag)}): read the offer on the contact sheet")
     if missing:
         r["problems"].append(f"look: words not read back: {' '.join(missing[:8])}")
     return r

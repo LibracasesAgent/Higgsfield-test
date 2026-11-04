@@ -71,7 +71,7 @@ def test_the_check_refuses_what_meta_or_the_bag_would_not_allow():
         "closed": ad("S01", "flat_lay", ["Everything fits."], prompt="Top-down on oak, the bag unzipped with a wallet and keys inside the bag."),
         "prices": ad("S01", "bold_poster", ["Only $52.50"]),
         "face": ad("S01", "pov_behind", ["POV: zipped"], prompt="A woman smiling at the camera on a busy street at dusk, the bag on her shoulder."),
-        "words": ad("S01", "bold_poster", ["HALF PRICE TODAY ON THE BAG", "Early Black Friday"]),
+        "words": ad("S01", "bold_poster", ["HALF PRICE TODAY ON THE EVERYDAY BAG", "Early Black Friday, the sale is now on"]),
         "format": ad("S01", "my_idea", ["Zipped."]),
     }
     want = {"fake interface": "fake interface", "publication": "publication", "closed": "closed", "prices": "prices", "face": "face",
@@ -151,6 +151,54 @@ def test_every_static_shows_the_offer_from_2026_11_04():
     lib = ai_gen.library()
     p = ai_gen.build_ad_prompt(lib, ideas.formats()["formats"]["giant_numerals"], ad("S01", "giant_numerals", ["50%", "OFF"]), "handbag", None)
     assert 'The offer "50%" is the boldest' in p
+
+
+def test_every_static_tells_a_story_from_2026_11_04():
+    """The team 2026-11-04 on the 9 offer-led samples: 'story is not enough': the offer AND one line that says why to buy."""
+    import novelty
+    base = dict(product="Hobo Bag", theme="black friday", research=["story test"], projects=[])
+    cafe = dict(kind="object", colour="Black", prompt="The bag on a round marble cafe table by a tall window, the bottom of the frame calm and empty.")
+    bare = [ad("S01", "giant_numerals", ["50%", "OFF", "Early Black Friday"]), ad("S02", "sticker_burst", ["The everyday hobo.", "50% OFF"]),
+            ad("S03", "film_still", ["Last stop. 50% off."], **OWN),
+            dict(id="S04", layout="concept", idea="The bag on a cafe table by the window.", headline="Coffee first. Zipped always.", pill=True, scene=cafe),
+            dict(id="S05", layout="offer", idea="The offer card."), dict(id="S06", layout="colours", idea="The colours side by side.")]
+    told = lambda P: [p for p in P if "story" in p or "feature" in p]   # noqa: E731
+    real = novelty.load
+    novelty.load = lambda *a, **k: {"products": {}}
+    try:
+        P = told(ideas.check(dict(base, date="2026-11-04", statics=copy.deepcopy(bare)), pr(), n_projects=0, n_statics=6)[0])
+        assert any(p.startswith("S01: no story line") for p in P) and any(p.startswith("S02: no story line") for p in P), P
+        assert not any(p.startswith("S03: no story line") for p in P) and any(p.startswith("S03: story:") for p in P), P
+        assert any("S05, S06 show the offer / the colours alone" in p for p in P), P
+        fixed = copy.deepcopy(bare)
+        fixed[0].update(words=["50%", "OFF", "Cards stay on your side."], story="moment", feature="HIDDEN BACK POCKET")
+        fixed[1].update(words=["Two gold side zips for your keys.", "50% OFF"], story="problem_fix", feature="GOLD SIDE ZIPS")
+        fixed[2].update(story="moment", feature="3 WAYS TO WEAR")
+        fixed[3].update(story="gift")
+        fixed[5] = dict(id="S06", layout="quotes", idea="One verbatim review by the packshot.")
+        P, W = ideas.check(dict(base, date="2026-11-04", statics=fixed), pr(), n_projects=0, n_statics=6)
+        assert told(P) == [], told(P)
+        assert not [w for w in W if "feature" in w], W
+        assert told(ideas.check(dict(base, date="2026-11-03", statics=copy.deepcopy(bare)), pr(), n_projects=0, n_statics=6)[0]) == []
+        same = copy.deepcopy(fixed)                  # one story type everywhere / one feature on half the batch
+        for x in same[:4]:
+            x.update(story="problem_fix", feature="GOLD SIDE ZIPS")
+        P = told(ideas.check(dict(base, date="2026-11-04", statics=same), pr(), n_projects=0, n_statics=6)[0])
+        assert any("the problem_fix story on 4 of 5" in p for p in P) and any("tell the GOLD SIDE ZIPS story" in p for p in P), P
+        assert any("story type(s)" in p for p in P), P
+    finally:
+        novelty.load = real
+    assert ideas.story_line(dict(layout="ad", words=["LIBRA", "50% OFF", "Packed train. Cards on your side."])) == "Packed train. Cards on your side."
+    assert ideas.story_line(dict(layout="ad", words=["60% OFF", "3 bags. 1 set."])) == "3 bags. 1 set."
+    assert ideas.story_line(dict(layout="ad", words=["50% OFF", "The hidden-pocket hobo"])) is None
+    assert ideas.story_line(dict(layout="ad", words=["Morning · Desk · Dinner", "One bag, all day.", "50% OFF"])) == "One bag, all day."
+    assert ideas.story_caption(dict(layout="ad", words=["Keys at the bottom again?", "Two gold side zips.", "50% OFF"])) == \
+        "Keys at the bottom again? Two gold side zips."              # (the real stand-in's caption when the AI picture fails)
+    p = ai_gen.build_ad_prompt(ai_gen.library(), ideas.formats()["formats"]["sticker_burst"],
+                               ad("S01", "sticker_burst", ["Two gold side zips for your keys.", "50% OFF"]), "handbag", None)
+    assert 'The offer "50% OFF" is the boldest' in p and 'The line "Two gold side zips for your keys." is the second voice' in p and "answer" not in p
+    md = ideas.sheet_md(dict(base, date="2026-11-04", statics=fixed))
+    assert "problem_fix: GOLD SIDE ZIPS" in md and "| proof |" in md, md
 
 
 def test_the_prompt_carries_the_words_and_the_rules():

@@ -331,7 +331,13 @@ python3 pipeline/ideas.py packet --product "<name>" [--theme "<words>"] --projec
    the product's % as a HERO element of the design, a `concept` has `pill: true`, real statics get the % badge; the check refuses
    less) and **a different scroll-stopping design each** (the owner: "studio level design with offers"; the offer-led formats:
    giant numerals, swing tag, sticker burst, colour split, neon, shop-window decal, rubber stamp, ribbon, sale shopping bag, set
-   lineup), about two thirds `ad` (AI-designed ads, owner 2026-10-26: each a different format from the packet's library
+   lineup), **and a story on every one** (the team 2026-11-04 on the 9 offer-led samples Wouter liked: "story is not enough"): the
+   offer loudest, then ONE line of 3-8 words that says WHY to buy and a picture of that moment ("Packed train. Cards on your side." from
+   behind on a platform; "Keys at the bottom again?" / "Two gold side zips." over a hand at the zip; "3 bags. 1 set."): each static names
+   its `story` (problem_fix, moment, proof, gift, value, ways) and, for a feature story, its `feature` tag; never a line that only names
+   the bag ("The everyday hobo.") or a bare sale word; at least 3 story types a batch, none on over 40%, no feature on over a third, one
+   `offer` / `colours` static at most (the story formats: taped question, moment + sticker, note card, where it all goes, day strip;
+   a story on a prop is set large: small handwriting is lost in the feed), about two thirds `ad` (AI-designed ads, owner 2026-10-26: each a different format from the packet's library
    (★ = the owner's favourites) or one you invent (`format` id of your own + `format_name`, `art`, `people`; at least one a batch, two with
    6+ ads), never a format the product's last batch used; `words` = the exact 1-4 lines the picture carries, few and short, no price
    figures, no quotation marks; `scene.prompt` = what the picture shows; realistic, the bag closed, no face, no fake buttons / app screens /

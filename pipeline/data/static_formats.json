@@ -7,7 +7,9 @@
   "No other brand's name or logo, no celebrity, no real publication's name (the magazine masthead is LIBRA).",
   "Few words: one headline and at most two short lines; the picture carries the ad.",
   "Words big enough to read on a phone in the feed: a tiny label or caption is wasted (the prompt asks for it; look at the contact sheet).",
-  "The offer is part of every AI ad (Wouter 2026-11-04: 'don't have the offer on it'): one of its words is the offer, set as a hero element of the design (giant numerals, a tag, a sticker, a ribbon, a window decal, neon), never a footnote."
+  "The offer is part of every AI ad (Wouter 2026-11-04: 'don't have the offer on it'): one of its words is the offer, set as a hero element of the design (giant numerals, a tag, a sticker, a ribbon, a window decal, neon), never a footnote.",
+  "Every static tells a story next to the offer (the team 2026-11-04 after the 9 offer-led samples: 'story is not enough'): the offer is the loudest words, ONE story line says why (a moment, a problem and its fix, proof, the gift, the value, the ways to wear) and the picture shows that moment; a line that only names the bag ('The everyday hobo.') is not a story.",
+  "A story line set on a prop (a note card, a postcard, a tag, a label) must be large and close to the camera: small handwriting on a small card is lost in the feed (2026-11-04 samples: the note card and the postcard were unreadable at phone size)."
  ],
  "formats": [
   {
@@ -51,13 +53,13 @@
    "name": "Bold one-colour poster",
    "liked": 4,
    "people": "none",
-   "words": 6,
-   "art": "A bold graphic poster: one saturated flat colour fills the frame, the bag photographed as a clean cut-out with a soft natural drop shadow, very large heavy type that fills the width above it, one small line below, nothing else, confident Swiss-style layout.",
-   "words_hint": "1-3 huge words + one small line",
+   "words": 10,
+   "art": "A bold graphic poster: one saturated flat colour fills the frame, the bag photographed as a clean cut-out with a soft natural drop shadow, very large heavy type that fills the width above it, one short story line below in clean readable type, nothing else, confident Swiss-style layout.",
+   "words_hint": "1-3 huge words (the offer) + one story line",
    "type": "the big words in a heavy bold grotesque sans-serif, the small line in the same family, light weight",
    "example": [
     "HALF PRICE.",
-    "Early Black Friday"
+    "Two straps. Three ways to wear."
    ]
   },
   {
@@ -194,15 +196,15 @@
    "tag": "numerals",
    "name": "Giant offer numerals",
    "people": "none",
-   "words": 6,
+   "words": 10,
    "offer": true,
-   "art": "A bold studio ad: the offer's numerals set enormous, filling most of the frame edge to edge on a seamless saturated colour backdrop, and the bag standing in front of them so it overlaps the numbers and casts a soft shadow on the backdrop, real depth, crisp studio light; one small line below. The numerals are the loudest thing in the picture after the bag.",
-   "words_hint": "the offer split as huge numerals + 1 small line ('50%' / 'OFF' / 'Early Black Friday')",
+   "art": "A bold studio ad: the offer's numerals set enormous, filling most of the frame edge to edge on a seamless saturated colour backdrop, and the bag standing in front of them so it overlaps the numbers and casts a soft shadow on the backdrop, real depth, crisp studio light; one short story line below in clean readable type. The numerals are the loudest thing in the picture after the bag.",
+   "words_hint": "the offer split as huge numerals + one story line ('50%' / 'OFF' / 'Cards stay on your side.')",
    "type": "the numerals in an extra-bold condensed grotesque, the small line in the same family, light weight",
    "example": [
     "50%",
     "OFF",
-    "Early Black Friday"
+    "Cards stay on your side."
    ]
   },
   {
@@ -210,14 +212,14 @@
    "tag": "swingtag",
    "name": "Oversized sale swing tag",
    "people": "none",
-   "words": 8,
+   "words": 11,
    "offer": true,
    "art": "An editorial product photo: an oversized thick paper swing tag tied to the bag's strap with a cotton string, the tag printed with the offer in big bold type, turned towards the camera and fully readable, the bag on a calm surface in soft directional light, real paper texture and a gentle shadow from the tag.",
-   "words_hint": "the offer on the tag + one short line under the bag ('50% OFF' / 'Black Friday')",
+   "words_hint": "the offer on the tag + one story line under the bag ('50% OFF' / 'Two straps. Three ways to wear.')",
    "type": "the tag's offer in a heavy bold sans-serif, the small line in a refined serif",
    "example": [
     "50% OFF",
-    "Black Friday"
+    "Two straps. Three ways to wear."
    ]
   },
   {
@@ -225,13 +227,13 @@
    "tag": "burst",
    "name": "Starburst sale sticker",
    "people": "none",
-   "words": 8,
+   "words": 11,
    "offer": true,
    "art": "A premium studio product shot of the bag on a tinted seamless backdrop with one big round starburst sticker printed with the offer stuck over a corner of the picture like a real glossy printed sticker (a slight lift and soft shadow at its edge), a short headline in elegant type at the top, nothing else.",
-   "words_hint": "a short headline + the offer on the sticker ('The everyday hobo.' / '50% OFF')",
+   "words_hint": "a story headline + the offer on the sticker ('Two gold side zips for your keys.' / '50% OFF')",
    "type": "the headline in a high-contrast serif, the sticker's offer in an extra-bold sans-serif, white on red",
    "example": [
-    "The everyday hobo.",
+    "Two gold side zips for your keys.",
     "50% OFF"
    ]
   },
@@ -240,14 +242,14 @@
    "tag": "split",
    "name": "Diagonal colour split",
    "people": "none",
-   "words": 8,
+   "words": 12,
    "offer": true,
    "art": "A graphic ad split diagonally into two fields: one saturated flat colour field carrying the offer in very large bold type, the other a real photo of the bag in a calm setting; the bag crosses the split line slightly so it feels three-dimensional, clean modern layout, strong contrast that stops the scroll.",
-   "words_hint": "the offer + one small line ('50% OFF' / 'The hidden-pocket hobo')",
+   "words_hint": "the offer + one story line ('50% OFF' / 'The pocket that sits flat against you.')",
    "type": "a heavy bold grotesque sans-serif, white on the colour field",
    "example": [
     "50% OFF",
-    "The hidden-pocket hobo"
+    "The pocket that sits flat against you."
    ]
   },
   {
@@ -255,13 +257,14 @@
    "tag": "neon",
    "name": "Neon offer sign",
    "people": "none",
-   "words": 6,
+   "words": 10,
    "offer": true,
-   "art": "A real night-time boutique corner: warm neon tubes spelling the offer glow on a dark plaster or brick wall, the bag standing on a stool or plinth below the sign, lit by its own soft white spotlight so its true colour reads clearly (the neon only rims it), a little haze, shot on a phone, real reflections, nothing CGI.",
-   "words_hint": "the offer in neon (1-3 words) + an optional tiny line ('50% OFF')",
+   "art": "A real night-time boutique corner: warm neon tubes spelling the offer glow on a dark plaster or brick wall, the bag standing on a stool or plinth below the sign, lit by its own soft white spotlight so its true colour reads clearly (the neon only rims it), a little haze, shot on a phone, real reflections, nothing CGI; the story line is set small in clean white print type on the wall below the sign, not in neon.",
+   "words_hint": "the offer in neon (1-3 words) + one story line in small clean type ('50% OFF' / 'Late train. Zipped shut.')",
    "type": "neon tube lettering, warm pink-red or white glow, perfectly spelled",
    "example": [
-    "50% OFF"
+    "50% OFF",
+    "Late train. Zipped shut."
    ]
   },
   {
@@ -269,14 +272,15 @@
    "tag": "decal",
    "name": "Shop-window sale decal",
    "people": "none",
-   "words": 8,
+   "words": 11,
    "offer": true,
    "art": "A real shop window from the street at dusk: big vinyl sale lettering with the offer stuck on the glass, the bag displayed alone on a plinth behind it in warm interior light, a faint reflection of the street on the glass, real depth; the lettering never covers the bag.",
-   "words_hint": "the window lettering: the offer + 1-3 words ('BLACK FRIDAY' / '50% OFF')",
+   "words_hint": "the window lettering: the offer + 1-3 words, and one story line ('BLACK FRIDAY' / '50% OFF' / 'Bag + matching wallet.')",
    "type": "bold white or red vinyl window lettering, slightly spaced capitals",
    "example": [
     "BLACK FRIDAY",
-    "50% OFF"
+    "50% OFF",
+    "Bag + matching wallet."
    ]
   },
   {
@@ -284,14 +288,14 @@
    "tag": "stamp",
    "name": "Rubber-stamp offer",
    "people": "none",
-   "words": 6,
+   "words": 10,
    "offer": true,
    "art": "A top-down shot on thick cream or kraft paper: the bag lies flat and closed, and a huge red rubber-stamp impression of the offer sits beside it at a slight angle, real uneven ink texture and paper grain, soft daylight, a couple of small props (a pen, a ribbon) at the edges.",
-   "words_hint": "the stamped offer (1-3 words) + an optional small line ('HALF PRICE' / 'Early Black Friday')",
+   "words_hint": "the stamped offer (1-3 words) + one story line ('HALF PRICE' / 'For Mum, with a matching wallet.')",
    "type": "a distressed rubber-stamp slab serif in red ink, the small line in a typewriter face",
    "example": [
     "HALF PRICE",
-    "Early Black Friday"
+    "For Mum, with a matching wallet."
    ]
   },
   {
@@ -299,13 +303,14 @@
    "tag": "ribbon",
    "name": "Satin sale ribbon",
    "people": "none",
-   "words": 8,
+   "words": 11,
    "offer": true,
    "art": "A luxe studio still life: a wide satin ribbon printed with the offer runs across the frame behind the base of the bag and drapes onto the surface in soft folds, the bag standing in front of it, soft directional light with real sheen on the satin, a calm tinted backdrop.",
-   "words_hint": "the offer printed on the ribbon (2-5 words) + an optional small line ('BLACK FRIDAY · 50% OFF')",
+   "words_hint": "the offer printed on the ribbon (2-5 words) + one story line ('BLACK FRIDAY · 50% OFF' / 'Gift-ready for Mum.')",
    "type": "spaced bold capitals printed on the ribbon, crisp and perfectly spelled",
    "example": [
-    "BLACK FRIDAY · 50% OFF"
+    "BLACK FRIDAY · 50% OFF",
+    "Gift-ready for Mum."
    ]
   },
   {
@@ -313,14 +318,14 @@
    "tag": "shopper",
    "name": "Sale shopping bag",
    "people": "none",
-   "words": 8,
+   "words": 11,
    "offer": true,
    "art": "A boutique counter shot: a crisp unbranded paper shopping bag printed with the offer in big type stands beside the handbag, tissue paper peeking out, warm store light, real paper folds and texture, the handbag the hero in front.",
-   "words_hint": "the offer printed on the paper bag + an optional small line ('50% OFF' / 'Black Friday')",
+   "words_hint": "the offer printed on the paper bag + one story line ('50% OFF' / 'Bag + matching wallet, one price.')",
    "type": "a heavy bold sans-serif printed on the paper bag",
    "example": [
     "50% OFF",
-    "Black Friday"
+    "Bag + matching wallet, one price."
    ]
   },
   {
@@ -328,14 +333,159 @@
    "tag": "lineup",
    "name": "Set lineup with offer",
    "people": "none",
-   "words": 10,
+   "words": 12,
    "offer": true,
    "art": "A premium studio lineup: every piece of the set standing in a row on a long plinth from largest to smallest, a saturated seamless backdrop, crisp shadows, and the offer set very large above the row, a small line naming the pieces below; for a set only (the pieces shown are the set's).",
-   "words_hint": "the offer + what is in the set ('60% OFF' / '3 bags. 1 set.')",
+   "words_hint": "the offer + what is in the set, said as the value ('60% OFF' / '3 bags. 1 set.')",
    "type": "the offer in an extra-bold condensed sans-serif, the small line in a refined serif",
    "example": [
     "60% OFF",
     "3 bags. 1 set."
+   ]
+  },
+  {
+   "id": "taped_question",
+   "tag": "question",
+   "name": "Taped question, real answer",
+   "people": "cropped",
+   "words": 12,
+   "offer": true,
+   "story": true,
+   "art": "A real everyday photo with a torn strip of white paper taped across its top, a short everyday question written on it in black marker; below it the bag in a real setting that shows the answer (a hand at a gold side zip, the strap across a coat, the bag on a cafe chair), natural window light, real textures; the answer set in clean bold type near the bottom, and the offer on a round red sticker overlapping one corner of the photo. The picture shows only the answer, never a before / after.",
+   "words_hint": "the problem as a short question (on the taped strip) + the answer (3-6 words) + the offer on the sticker ('Keys at the bottom again?' / 'Two gold side zips.' / '50% OFF')",
+   "type": "the question in natural black marker handwriting, the answer in a bold clean sans-serif, the sticker's offer in heavy white type on red",
+   "example": [
+    "Keys at the bottom again?",
+    "Two gold side zips.",
+    "50% OFF"
+   ]
+  },
+  {
+   "id": "pov_sticker",
+   "tag": "povsticker",
+   "name": "Real moment with a sale sticker",
+   "people": "behind",
+   "words": 12,
+   "offer": true,
+   "story": true,
+   "art": "A candid phone photo taken a few steps behind her in a busy real place (a packed train platform, a street market, an airport queue, a school gate): slightly off-centre, natural mixed light, a little motion blur in the passers-by, real clothes with creases; the bag worn on the shoulder or crossbody towards the camera, zipped. One caption in bold white sans-serif with a soft shadow across the empty upper part, the way people caption a photo, and a round glossy sale sticker slapped on a lower corner as if stuck onto the print.",
+   "words_hint": "the moment as a caption (at most 8 words) + the offer on the sticker ('Packed train. Cards on your side.' / '50% OFF')",
+   "type": "the caption in a bold white sans-serif with a soft dark shadow, sentence case; the sticker's offer in heavy white type on red",
+   "people_note": "She is seen only from behind, walking away from the camera, her head turned forward, the bag towards the camera; nobody else faces the camera.",
+   "example": [
+    "Packed train. Cards on your side.",
+    "50% OFF"
+   ]
+  },
+  {
+   "id": "note_card",
+   "tag": "note",
+   "name": "Handwritten note by the bag",
+   "people": "none",
+   "words": 12,
+   "offer": true,
+   "story": true,
+   "art": "A candid close photo of a real home corner in soft daylight (a hallway console with keys and a small plant, a kitchen counter, a desk by a window): the bag standing there zipped, and in the foreground a large cream note card (about a quarter of the frame, close to the camera, facing it squarely) leaning against the bag, its short reminder written by hand in big bold pen strokes that read easily on a phone; the offer printed big on a red paper tag tied to the handle with string. Lived-in, natural colours, nothing glossy, no mirror.",
+   "words_hint": "the handwritten note (a moment or a gift, 3-6 words) + the offer on the tag ('Mum's birthday: sorted.' / '50% OFF')",
+   "type": "the note in natural handwriting in dark blue ink; the tag's offer in a heavy bold sans-serif",
+   "example": [
+    "Mum's birthday: sorted.",
+    "50% OFF"
+   ]
+  },
+  {
+   "id": "carry_map",
+   "tag": "carrymap",
+   "name": "Where it all goes",
+   "people": "none",
+   "words": 14,
+   "offer": true,
+   "story": true,
+   "art": "A top-down flat lay on a warm plain surface (linen, oak or a coloured paper backdrop): the bag lying flat and zipped in the middle with its pouch wallet beside it, the everyday things laid neatly around them (a phone, keys on a ring, a card holder, a lip balm), each joined to the part it goes in by a thin hand-drawn white arrow with a short handwritten label, and the offer in a bold circle stamp in one corner. Even soft daylight, real shadows, a real photo.",
+   "words_hint": "2 short labels ('Keys: side zip' / 'Cards: pouch wallet') + the offer ('50% OFF'); only parts you can see from the top",
+   "type": "the labels in neat white handwriting, the offer in a bold condensed sans-serif inside a circle",
+   "bag": "Each arrow points exactly at the part it names (a side zip, the pouch wallet); nothing points at a part this view does not show.",
+   "example": [
+    "Keys: side zip",
+    "Cards: pouch wallet",
+    "50% OFF"
+   ]
+  },
+  {
+   "id": "day_strip",
+   "tag": "daystrip",
+   "name": "Three moments, one bag",
+   "people": "behind",
+   "words": 12,
+   "offer": true,
+   "story": true,
+   "art": "Three real candid photos of the same bag stacked as three wide frames with thin white gaps, like a phone photo strip of one day: the morning commute seen from behind on a station platform, the bag on an office chair by a desk, the bag hung on a chair at a dinner table in warm evening light; a small one-word label in the corner of each frame (the time of day, in words, never digits) and the offer in a bold band across the bottom. The same bag in the same colour in every frame; real light, real places.",
+   "words_hint": "three one-word labels or one line + the offer ('Morning · Desk · Dinner' / 'One bag, all day.' / '50% OFF'); no digits (a number reads as a claim)",
+   "type": "the time labels small in a clean white sans-serif, the line and the offer in a heavy condensed sans-serif",
+   "people_note": "In the one frame with a person she is seen only from behind, walking away from the camera; nobody faces the camera.",
+   "example": [
+    "Morning · Desk · Dinner",
+    "One bag, all day.",
+    "50% OFF"
+   ]
+  }
+ ],
+ "stories": [
+  {
+   "id": "problem_fix",
+   "name": "A problem, then the fix",
+   "feature": true,
+   "what": "a small everyday annoyance in a few words (a question works), then what the bag does about it; the picture shows the fix, never a before / after",
+   "example": [
+    "Keys at the bottom again?",
+    "Two gold side zips."
+   ]
+  },
+  {
+   "id": "moment",
+   "name": "One real moment",
+   "feature": true,
+   "what": "a moment of the day where the bag matters (the packed train, the market, the school run, the airport queue, a late walk home); the picture IS that moment, candid, the bag worn or in use",
+   "example": [
+    "Packed train.",
+    "Cards flat against you."
+   ]
+  },
+  {
+   "id": "proof",
+   "name": "Proof you can see",
+   "feature": true,
+   "what": "a detail the picture proves up close (the gold zip, the pocket, the strap hardware) or one verbatim review (layout quotes / stars); the line names what you see",
+   "example": [
+    "Gold zips on both sides."
+   ]
+  },
+  {
+   "id": "gift",
+   "name": "The gift",
+   "feature": false,
+   "what": "who it is for and the moment of giving (Mum, a sister, a friend; the ribbon, the tag, the table); never a made-up reaction or quote",
+   "example": [
+    "For Mum.",
+    "Bag + matching wallet."
+   ]
+  },
+  {
+   "id": "value",
+   "name": "What you get",
+   "feature": false,
+   "what": "what the offer buys, said plainly (the bag + the free pouch wallet; 3 bags, 1 set); the % is the hero, this line is the maths",
+   "example": [
+    "3 bags. 1 set."
+   ]
+  },
+  {
+   "id": "ways",
+   "name": "Ways to carry",
+   "feature": true,
+   "what": "the two straps / three ways to wear it, shown on a person from behind or laid out side by side",
+   "example": [
+    "Shoulder. Hand. Crossbody."
    ]
   }
  ]
