@@ -72,7 +72,9 @@ def library():
 
 def noun_of(name):
     n = (name or "").lower()
-    return "backpack" if "backpack" in n else "handbag"
+    if "backpack" in n:
+        return "backpack"
+    return "bag set" if re.search(r"\bset\b", n) else "handbag"    # (a set's reference shows all its pieces: keep every one)
 
 
 # ------------------------------------------------------------------ planning

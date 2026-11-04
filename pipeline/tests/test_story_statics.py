@@ -135,6 +135,28 @@ def test_the_sheet_check():
         assert any(want[k] in p for p in P), (k, P)
 
 
+def test_hero_and_colours_show_the_offer():
+    """(Wouter 2026-11-04 'Don't have the offer on it': a hero / colours static that stands in for a real slot draws the %.)"""
+    d = tempfile.mkdtemp()
+    try:
+        ph = photo(d)
+        for a in (dict(name="t_hero", layout="hero", photo=ph, headline="Cards and cash, in the matching pouch.", pct=60),
+                  dict(name="t_col", layout="colours", headline="Which colour are you?", pct=60,
+                       photos=[dict(src=ph, name="Red"), dict(src=ph, name="Blue")])):
+            assert bs.render(copy.deepcopy(a), d).size == (1080, 1350), a["layout"]
+            bs.TRACK[0] = True
+            try:
+                bs.DRAWN.clear()
+                bs.LAYOUTS[a["layout"]](copy.deepcopy(a), d)
+                labels = " | ".join(str(e["label"]) for e in bs.DRAWN)
+            finally:
+                bs.TRACK[0] = False
+                bs.DRAWN.clear()
+            assert "60%" in labels, (a["layout"], labels)
+    finally:
+        shutil.rmtree(d, ignore_errors=True)
+
+
 def test_the_scene_asks_for_its_composition():
     assert "top third is calm" in ai_gen.STORY_COMPOSE["hook"] and "bottom 40%" in ai_gen.STORY_COMPOSE["quote"]
     assert all(k in ai_gen.STORY_COMPOSE for k in ideas.STORY_LOOKS) and set(ideas.STORY_LOOKS) == set(bs.STORY_LOOKS)

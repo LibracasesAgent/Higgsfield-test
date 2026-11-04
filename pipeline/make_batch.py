@@ -1585,7 +1585,7 @@ def plan(a):
                     import footage_index
                     want_ = min(FRAMES_PER_BATCH, max(5, round(0.45 * a.statics) + 1))       # (20 statics: 9 frames; 5 statics: 5)
                     if sheet is not None:     # (a sheet's real-frame slots: its native statics, the stand-ins of its AI ones, its story statics)
-                        want_ = max(want_, min(12, sum(x_.get("layout") in ("native", "concept", "ad", "story")
+                        want_ = max(want_, min(24, sum(x_.get("layout") in ("native", "concept", "ad", "story")
                                                        for x_ in (sheet.get("statics") or [])[:a.statics])))
                     got = footage_index.frame_bank(
                         name_, want_, os.path.join(out, "photos", "frames"), avoid=novelty.recent(pr["name"], "frame_clip"),
@@ -1941,12 +1941,16 @@ def plan(a):
         statics.append(s)
     if sheet is not None:             # the strategist's own words on the real-photo statics
         for i_, x_ in enumerate(sheet.get("statics") or []):
-            if i_ < len(statics) and s_pct and 5 <= s_pct <= 90 and statics[i_].get("layout") in ("studio", "native") and \
+            if i_ < len(statics) and s_pct and 5 <= s_pct <= 90 and statics[i_].get("layout") in ("studio", "native", "hero", "colours") and \
                     (sheet.get("date") or "") >= "2026-11-04":
                 statics[i_]["pct"] = s_pct          # (Wouter 2026-11-04: every static shows the offer)
             if i_ < len(statics) and x_["layout"] in ("studio", "native") and x_.get("headline"):
-                statics[i_].pop("headline", None)
-                statics[i_]["caption"] = x_["headline"]
+                if statics[i_].get("layout") in ("studio", "native", "lifestyle"):
+                    statics[i_].pop("headline", None)
+                    statics[i_]["caption"] = x_["headline"]
+                else:                     # (no packshot / frame left: the slot is a hero, whose line is its headline)
+                    statics[i_]["headline"] = x_["headline"]
+                    statics[i_].pop("sub", None)
             elif i_ < len(statics) and x_["layout"] == "story":
                 if statics[i_].get("layout") in ("native", "lifestyle") and statics[i_].get("photo"):
                     statics[i_] = story_spec(x_, statics[i_])
@@ -2518,9 +2522,12 @@ def plan(a):
         stills_, motion_ = [], []
         for k_, (i_, x_) in enumerate(ideas_scenes):
             sc_ = x_["scene"]
-            want_ = {"brown": "sienn", "tan": "sienn"}.get((sc_.get("colour") or "").lower(), (sc_.get("colour") or "").lower())   # (the site calls brown 'Dark Sienn')
+            asked_ = (sc_.get("colour") or "").lower()
+            want_ = {"brown": "sienn", "tan": "sienn"}.get(asked_, asked_)   # (the Hobo Bag's site calls brown 'Dark Sienn')
             want_ = "sienn" if "sienn" in want_ else want_           # ('Dark Sienna' too)
-            ref_ = next((r_ for r_ in ai_refs_ if want_ and r_.get("colour") and want_ in r_["colour"].lower()), None) or ai_refs_[k_ % len(ai_refs_)]
+            ref_ = next((r_ for r_ in ai_refs_ if asked_ and r_.get("colour") and r_["colour"].lower() == asked_), None) or \
+                next((r_ for r_ in ai_refs_ if want_ and r_.get("colour") and want_ in r_["colour"].lower()), None) or \
+                next((r_ for r_ in ai_refs_ if asked_ and r_.get("colour") and asked_ in r_["colour"].lower()), None) or ai_refs_[k_ % len(ai_refs_)]
             if sc_.get("ref") and os.path.exists(os.path.join(site, os.path.basename(sc_["ref"]))):    # a named site photo (the back view of the bag)
                 ref_ = dict(file=os.path.join(site, os.path.basename(sc_["ref"])), colour=sc_.get("colour"))
             if x_["layout"] == "ad":          # an AI-designed ad: the format's art direction + the picture + the exact words (ai_gen)

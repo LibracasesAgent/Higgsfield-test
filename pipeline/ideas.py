@@ -1006,7 +1006,7 @@ def packet(pr, theme, n_projects, n_statics, request=""):
           "**AI-designed ads first** (owner 2026-10-26, after the test sheet: 'i like 2, 3, 4, 6 (make it realistic), 7, 8 (make it more "
           "realistic) ... make them unique each time we run a batch ... new ideas and new formats that follow Meta guidelines'): layout `ad` = "
           "Higgsfield designs the WHOLE ad from the real packshot, picture and words (gpt_image_2_5 sets short text correctly; the gate reads "
-          "it back). About two thirds of the statics are `ad`, each a DIFFERENT format and idea; the rest real (studio / native / quotes / "
+          "it back). About half of the statics are `ad`, each a DIFFERENT format and idea, about a third `story`; the rest real (studio / native / quotes / "
           "value / stars) or `concept`. Each batch at least one format of your own (two with 6+ ad statics): a new id with format_name, "
           "art (the art direction: what kind of picture, the layout, the type) and people. Realistic beats glossy: a format that is a "
           "photo must look like a real photo (real light, real textures, a candid angle), never CGI.",

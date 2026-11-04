@@ -593,8 +593,9 @@ def l_hero(a, sd):
     py = H - 175
     box = place_packshot(c, load(sd, a["photo"]), room((90, y + 52, W - 90, py - 44)))
     c = c.convert("RGBA")
-    if a.get("badge"):
-        auto_badge(c, a["badge"], 116, box)
+    b_ = a.get("badge") or ({"top": "", "big": f"{int(a['pct'])}%", "bottom": "OFF"} if a.get("pct") else None)
+    if b_:                 # (Wouter 2026-11-04: every static shows the offer: a hero without its own badge gets the % one)
+        auto_badge(c, b_, 116, box)
     pill(ImageDraw.Draw(c), W, py, a.get("cta", "Shop now"))
     return c
 
@@ -760,6 +761,13 @@ def l_colours(a, sd):
     ph = a["photos"]
     py = H - 165
     gx, gy0, gy1 = 50, y + 40, py - 40
+    if a.get("pct"):       # (Wouter 2026-11-04: every static shows the offer: the red % pill above the CTA)
+        if not 5 <= int(a["pct"]) <= 90:
+            raise ValueError(f"colours: pct {a['pct']} out of range")
+        off = f"{int(a['pct'])}% OFF"
+        oh = pill(d, W, 0, off, size=40, bold=True, dry=True)
+        pill(d, W, py - 24 - oh, off, bg=RED, size=40, bold=True)
+        gy1 = py - 24 - oh - 40
     f = SANS(32, "SemiBold")
     nh = sum(metrics(f))
     asp = packshot_aspect(load(sd, ph[0]["src"]))
