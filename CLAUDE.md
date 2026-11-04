@@ -17,10 +17,11 @@ was a mistake, see rule 6). Statics come only from `make_batch.py` (its own layo
 backgrounds). `plan` avoids openings used before (with `pipeline/data/novelty_log.json`: the scenes, photos, captions and hooks of the
 product's last batches) and the packet lists them, so don't read Drive folders to "avoid repeats". Real footage comes first; AI
 images are the studio scenes of the sheet's `concept` statics and what `plan` writes to `ai_needed.json` (section 5, step 2b): never
-make AI images or video of your own. **Statics are mostly AI-designed ads** (owner 2026-10-26, section S): about two thirds of a
+make AI images or video of your own. **Statics are mostly AI-designed ads and story statics** (owner 2026-10-26, team 2026-11-04, section S): about half of a
 batch's statics are `ad`, a whole ad (picture + words) Higgsfield designs from the real packshot in a format from
 `pipeline/data/static_formats.json` or one the strategist invents, every format once a batch, never the product's last batch's, at least
-one new format each batch; the rest real. Winner remixes (section 1) have no strategist step: they keep the proven RAW; only their fill
+one new format each batch; about a third are `story` (the full anatomy of the long-running DTC statics in our own type: hook, the
+moment, one promise, a verbatim review with stars, the % sticker + gift, the brand mark); the rest real. Winner remixes (section 1) have no strategist step: they keep the proven RAW; only their fill
 projects and statics do. `plan` without `--ideas` (the engine's templates) is for a request that fixes the words (`--lines`).
 
 The repo's default branch is `claude/loving-meitner-4amjii`. Read `docs/PLAYBOOK.md` once per session
@@ -337,7 +338,13 @@ python3 pipeline/ideas.py packet --product "<name>" [--theme "<words>"] --projec
    its `story` (problem_fix, moment, proof, gift, value, ways) and, for a feature story, its `feature` tag; never a line that only names
    the bag ("The everyday hobo.") or a bare sale word; at least 3 story types a batch, none on over 40%, no feature on over a third, one
    `offer` / `colours` static at most (the story formats: taped question, moment + sticker, note card, where it all goes, day strip;
-   a story on a prop is set large: small handwriting is lost in the feed), about two thirds `ad` (AI-designed ads, owner 2026-10-26: each a different format from the packet's library
+   a story on a prop is set large: small handwriting is lost in the feed). **Top tier = the full anatomy** (2026-11-04: "good but very
+   basic and not top tier"; docs/research/2026-11-story-statics.md): about a third of the statics are layout `story` (`ideas.py --help`):
+   `look` hook (problem-solution: the hook with `highlight` words on a marker, the answer `sub`, a review card, the sticker) / quote (the
+   customer's own words as the headline) / list (3 numbered `points`) / versus (`them` vs `us`, 3-4 `rows`) / stack (the % huge, 3-4
+   things you get), always a `review` (a number of the product's reviews.json list in the packet, verbatim, a different one each time)
+   and the % sticker with the gift tag; a `scene` (the moment of the hook, an AI story scene: `ai_gen` adds the composition the look
+   needs) or none (a real footage frame); each look at most twice a batch. Then about half `ad` (AI-designed ads, owner 2026-10-26: each a different format from the packet's library
    (★ = the owner's favourites) or one you invent (`format` id of your own + `format_name`, `art`, `people`; at least one a batch, two with
    6+ ads), never a format the product's last batch used; `words` = the exact 1-4 lines the picture carries, few and short, no price
    figures, no quotation marks; `scene.prompt` = what the picture shows; realistic, the bag closed, no face, no fake buttons / app screens /

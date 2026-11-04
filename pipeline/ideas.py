@@ -41,7 +41,7 @@ experience, no health / medical claims):
              2026-11-04, the layouts ad / concept / studio / native), "feature": "GOLD SIDE ZIPS"  (the product's feature tag the story is
              about: problem_fix / moment / proof / ways),
     "scene": {"kind": "object|worn|hand", "colour": "Black", "prompt": "the scene: surface, props, light, composition (no people / faces)"},
-    "motion": "steam rises from the latte, sunlight flickers through the window"  (optional, object scenes only, at most 6 a batch:
+    "motion": "steam rises from the latte, sunlight flickers through the window"  (optional, concept object scenes only, at most 6 a batch:
               a MOTION STILL: the scene also becomes a 5 s silent loop, Kling 3.0 pro from the still, ~9 credits, our words over it;
               only what is around the bag moves: never the bag, a person or a hand)
  }, {
@@ -53,6 +53,20 @@ experience, no health / medical claims):
     "scene": {"colour": "Burgundy", "ref": "optional site photo (a back view)", "prompt": "what the picture shows: setting, props, light"}
  }]
 }
+STORY statics (layout "story", 2026-11-04 "very basic, not top tier"): the layered anatomy of the DTC statics that keep running,
+set by our renderer in exact type over the photo of the moment (brand_statics.l_story):
+    {"id": "S03", "layout": "story", "look": "hook|quote|list|versus|stack", "story": "problem_fix", "feature": "GOLD SIDE ZIPS",
+     "idea": "...", "kicker": "EARLY BLACK FRIDAY" (optional), "hook": "Keys at the bottom of your bag again?" (3-10 words),
+     "highlight": ["keys"] (hook words on a marker), "sub": "Two gold side zips keep them in reach." (hook look: the answer),
+     "points": ["...", "...", "..."] (list: 3 reasons; stack: 3-4 things you get), "them": "Open tote", "us": "Hobo Bag",
+     "rows": [["Open top", "Zips shut"], ...] (versus: 3-4), "review": 12 (one of the product's reviews.json numbers: the proof),
+     "review_text": "a verbatim part of it" (optional), "scene": {"kind": "worn", "colour": "Grey", "prompt": "the moment of the hook"}
+     (optional: without it a real footage frame is the photo)}
+  hook: the photo full bleed, the hook big at the top, the answer, a review card, the % sticker (+ the gift tag) in the calmer corner;
+  quote: the customer's own words as the headline (a big gold quote mark, stars, her name), the sticker top right; list: the photo
+  above, a deep panel with the hook and 3 numbered reasons, a proof line; versus: the photo with the hook, a cream panel them vs us
+  (crosses / ticks); stack: the photo with the hook, a cream panel with the % huge and what you get as ticks. The words are the
+  sheet's, the review is verbatim, the % and the gift are the product's.
 The words of the scene prompt are only the scene: the keep-the-real-bag text, the style and the no-face rule are added by ai_gen.
 OFFER + STORY (Wouter and the team 2026-11-04; sheets from that day on): every static shows the product's offer (an ad's words carry the
 % as a hero element, a concept `pill: true`, real statics the % badge) AND tells a story: one line of 3+ words that says why to buy (the
@@ -91,7 +105,7 @@ import sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
 
-LAYOUTS = ("ad", "concept", "studio", "native", "quotes", "value", "offer", "stars", "colours", "checklist", "gifts", "bundle")
+LAYOUTS = ("ad", "story", "concept", "studio", "native", "quotes", "value", "offer", "stars", "colours", "checklist", "gifts", "bundle")
 SALE_LAYOUTS = ("gifts", "bundle")                   # only while a sale campaign runs (campaign.py): its free gifts / 2-3 bags together
 
 
@@ -125,7 +139,8 @@ NEW_FORMATS = ((3, 1),)                               # (ad statics in the batch
 OFFER_FROM = "2026-11-04"                              # Wouter 2026-11-04 'don't have the offer on it': every static shows the offer
 STATIC_STORY_FROM = "2026-11-04"                       # the team 2026-11-04 on the 9 offer-led samples ('story is not enough'):
 #                                                       every static tells a story next to the offer (ideas.check, sheets from this day)
-STORY_LAYOUTS = ("ad", "concept", "studio", "native")  # the layouts whose words the strategist writes: each names its story and carries its line
+STORY_LAYOUTS = ("ad", "story", "concept", "studio", "native")   # the layouts whose words the strategist writes: each names its story
+STORY_LOOKS = ("hook", "quote", "list", "versus", "stack")   # layout `story` (brand_statics.l_story): the long-running DTC static anatomy
 STORY_SELF = {"quotes": "proof", "stars": "proof", "checklist": "proof", "value": "value", "bundle": "value", "gifts": "gift"}  # (their own reason)
 NO_STORY = ("offer", "colours")                        # the offer / the colours alone: at most one a batch
 NAME_ONLY = re.compile(r"^\W*(?:the|your|a|an)?\s*(?:[\w'’-]+\s+){0,2}(?:hobo|bag|handbag|set|tote|purse|crossbody|satchel)\W*$", re.I)
@@ -310,7 +325,12 @@ def story_line(s):
     """The line of a static that tells its story next to the offer (the team 2026-11-04: 'story is not enough'): an `ad`'s first line
     that is not the masthead, the offer alone or the bag's name alone; a concept / studio / native static's headline (or sub). None
     when it has none ('The everyday hobo.' names the bag, it tells nothing)."""
-    lines = (s.get("words") or []) if s.get("layout") == "ad" else [s.get("headline"), s.get("sub")]
+    if s.get("layout") == "story":                 # (its hook; a quote look's story is the customer's own words)
+        if s.get("look") == "quote" and s.get("review"):
+            return s.get("review_text") or f"review {s['review']}"
+        lines = [s.get("hook")]
+    else:
+        lines = (s.get("words") or []) if s.get("layout") == "ad" else [s.get("headline"), s.get("sub")]
     ok = [w.strip() for w in lines if w and w.strip().upper() != "LIBRA" and not offer_only(w) and not NAME_ONLY.match(w.strip())
           and nwords(w) >= 3]
     return max(ok, key=nwords) if ok else None      # (the longest: 'One bag, all day.' over the labels 'Morning · Desk · Dinner')
@@ -476,6 +496,69 @@ def static_story_problems(stats, pr, P, W):
     for f in sorted(set(feats)):
         if feats.count(f) > cap:
             P.append(f"statics: {feats.count(f)} statics tell the {f} story, at most {cap}: spread the stories over the features")
+
+
+def story_static_problems(s, sid, pr, P, W, items):
+    """The checks of one `story` static (brand_statics.l_story): its look, the hook (3-10 words; highlight words in it), the answer line,
+    the points / rows, the review (one of the product's own reviews.json numbers, any review_text a verbatim part of it), the scene
+    (optional: an AI story scene like a concept's; without one a real footage frame is the photo)."""
+    import ugc_script as U
+    look = s.get("look")
+    if look not in STORY_LOOKS:
+        P.append(f"{sid}: look {look!r} (one of {', '.join(STORY_LOOKS)})")
+    hook = s.get("hook") or ""
+    if look == "quote":
+        if hook and nwords(hook) > 6:
+            P.append(f"{sid}: a quote look's hook is a small kicker over the customer's words: at most 6 words")
+    elif not 3 <= nwords(hook) <= 10:
+        P.append(f"{sid}: hook: the headline that names the moment or the friction, 3-10 words ({nwords(hook)} given)")
+    for w in s.get("highlight") or []:
+        if re.sub(r"\W", "", str(w)).lower() not in {re.sub(r"\W", "", x).lower() for x in hook.split()}:
+            P.append(f"{sid}: highlight {w!r} is not a word of the hook")
+    if s.get("sub") and (look != "hook" or nwords(s["sub"]) > 12):
+        P.append(f"{sid}: sub: the answer line of a hook look, at most 12 words")
+    pts = s.get("points") or []
+    if look in ("list", "stack") and not (3 if look == "list" else 3) <= len(pts) <= (3 if look == "list" else 4):
+        P.append(f"{sid}: points: {'3 numbered reasons' if look == 'list' else '3-4 things you get'} ({len(pts)} given)")
+    for x in pts:
+        if nwords(x) > 8:
+            P.append(f"{sid}: point {x!r}: at most 8 words")
+    rows = s.get("rows") or []
+    if look == "versus":
+        if not 3 <= len(rows) <= 4 or not all(isinstance(r, (list, tuple)) and len(r) == 2 for r in rows):
+            P.append(f"{sid}: rows: 3-4 pairs [the other bag, ours], each at most 5 words")
+        for r in rows:
+            for x in r if isinstance(r, (list, tuple)) else []:
+                if nwords(x) > 5:
+                    P.append(f"{sid}: row {x!r}: at most 5 words")
+        for k in ("them", "us"):
+            if s.get(k) and nwords(s[k]) > 3:
+                P.append(f"{sid}: {k}: at most 3 words")
+        if re.search(r"\b(?:coach|kate spade|michael kors|longchamp|pacsafe|travelon|tumi|calpak|bellroy|fossil)\b", " ".join(
+                [str(s.get("them") or ""), hook] + [r[0] for r in rows if isinstance(r, (list, tuple)) and r]), re.I):
+            P.append(f"{sid}: versus names a real brand: the other side is a generic bag ('Your old tote', 'Open tote')")
+    revs = {r["n"]: r for r in json.load(open(os.path.join(HERE, "data", "reviews.json")))["reviews"]}
+    n = s.get("review")
+    if not n:
+        P.append(f"{sid}: review: the proof every story static carries, a reviews.json number of {pr['name']} ({pr.get('reviews')})")
+    elif n not in (pr.get("reviews") or []):
+        P.append(f"{sid}: review {n} is not one of {pr['name']}'s reviews ({pr.get('reviews')})")
+    elif s.get("review_text") and re.sub(r"\s+", " ", s["review_text"]).strip() not in re.sub(r"\s+", " ", revs[n]["text"]):
+        P.append(f"{sid}: review_text is not a verbatim part of review {n} ({revs[n]['name']}): never reword a customer")
+    sc = s.get("scene")
+    if sc:
+        pt = sc.get("prompt") or ""
+        if len(pt) < 60 or sc.get("kind") not in ("object", "worn", "hand"):
+            P.append(f"{sid}: scene: kind (object|worn|hand) and a prompt of at least 60 characters (the moment of the hook)")
+        if FACE_WORDS.search(re.sub(r"\b(?:no|nobody|not|without|never|neither)\b[^.;]{0,50}?\b(?:face|faces|eyes|mouth|portrait)\b", "", pt, flags=re.I)):
+            P.append(f"{sid}: the scene prompt asks for a face / eyes / sunglasses / a mannequin: the picture has no face at all")
+        if INSIDE.search(pt):
+            P.append(f"{sid}: {INSIDE.search(pt).group(0)!r}: keep the bag closed")
+    for t in [hook, s.get("sub"), s.get("kicker"), s.get("them"), s.get("us")] + list(pts) + [x for r in rows if isinstance(r, (list, tuple)) for x in r]:
+        if t:
+            if U.FIRST.search(str(t)):
+                P.append(f"{sid}: {t!r}: first person (only a customer's verbatim review speaks as 'I')")
+            items.append(dict(where=f"{sid} story", text=str(t), source="ours"))
 
 
 def check(sheet, pr, n_projects=None, n_statics=None, exclude=None, day=None):
@@ -670,6 +753,8 @@ def check(sheet, pr, n_projects=None, n_statics=None, exclude=None, day=None):
                 pass
         if s.get("layout") == "ad":
             ad_problems(s, sid, lib, P, W, items)
+        if s.get("layout") == "story":
+            story_static_problems(s, sid, pr, P, W, items)
         if s.get("pill") not in (None, True, False):
             P.append(f"{sid}: pill is true or false (the offer's % pill); a custom text goes in badge")
     if stats and (sheet.get("date") or day or datetime.date.today().isoformat()) >= STATIC_STORY_FROM:
@@ -712,7 +797,7 @@ def check(sheet, pr, n_projects=None, n_statics=None, exclude=None, day=None):
     if len(moving) > MAX_MOTION:
         P.append(f"statics: {len(moving)} motion stills, at most {MAX_MOTION} a batch (~9 credits each)")
     if stats:
-        n_ai = sum(s.get("layout") in ("concept", "ad") for s in stats)
+        n_ai = sum(s.get("layout") in ("concept", "ad") or (s.get("layout") == "story" and bool(s.get("scene"))) for s in stats)
         W.append(f"{n_ai} AI statics of {len(stats)} ({len(ads)} designed ads, {n_ai - len(ads)} studio scenes; about {n_ai} credits plus retries)"
                  + (f"; {len(moving)} motion stills, about {round(8.75 * len(moving))} credits more" if moving else ""))
         heads = [re.sub(r"\W+", " ", ((ad_headline(s) if s.get("layout") == "ad" else s.get("headline")) or "").lower()).strip()
@@ -774,7 +859,8 @@ def scripts(sheet, pr, hooks=4):
 
 def concept_scenes(sheet):
     """The sheet's AI statics in order (the studio scenes and the designed ads): [(index in statics, static dict)]."""
-    return [(i, s) for i, s in enumerate(sheet.get("statics") or []) if s.get("layout") in ("concept", "ad")]
+    return [(i, s) for i, s in enumerate(sheet.get("statics") or []) if s.get("layout") in ("concept", "ad")
+            or (s.get("layout") == "story" and s.get("scene"))]
 
 
 # ------------------------------------------------------------------ the packet the strategist reads
@@ -876,7 +962,15 @@ def packet(pr, theme, n_projects, n_statics, request=""):
           "over a hand at the zip; 'For Mum. Bag + matching wallet.' on a gift tag by the ribbon; '3 bags. 1 set.' over the set lineup. "
           "Never a line that only names the bag ('The everyday hobo.', 'The hidden-pocket hobo') and never a bare sale word as the only "
           "line. Across the batch at least 3 story types, none on more than 40% of the statics, no feature on more than a third, the "
-          "offer or colours layout alone at most once. Only facts of section 1; no invented reaction, no quote that is not a verbatim review."]
+          "offer or colours layout alone at most once. Only facts of section 1; no invented reaction, no quote that is not a verbatim review.",
+          "- **Top tier = the full anatomy, not one line** (the team 2026-11-04 on the story samples: 'good but very basic and not top "
+          "tier'; docs/research/2026-11-story-statics.md: the statics that keep running carry 5-6 layers, ours carried 2-3): a hook that "
+          "names the friction in 'you' words ('Keys at the bottom of your bag again?'), the picture of that moment, ONE promise, visible "
+          "proof (stars + a verbatim review), the offer stack (the % + the free wallet), a small brand mark. Layout `story` sets exactly "
+          "that in our own type over the AI story scene or a real footage frame, in five looks of the formats that keep running "
+          "(problem hook, testimonial quote, listicle, us vs them, offer stack): about a third of the statics are `story` (each look at "
+          "most twice, a different review each time), about half `ad`, the rest real. The `ad` formats stay the bold design pieces; give "
+          "them the story line, not the proof (the AI cannot be trusted with a customer's exact words)."]
     sl = structures()
     import novelty as NV
     last_s = NV.recent(pr["name"], "structure", last=1)
@@ -931,6 +1025,13 @@ def packet(pr, theme, n_projects, n_statics, request=""):
     L += ["(quotes / stars / checklist count as proof, value / bundle as value, gifts as gift; offer and colours tell none: at most one a "
           "batch. The formats marked `story` in the library are built around one: the taped question, the real moment with a sticker, "
           "the handwritten note, where it all goes, three moments in a day.)"]
+    revs_ = {r["n"]: r for r in json.load(open(os.path.join(HERE, "data", "reviews.json")))["reviews"]}
+    L += [f"\nThe reviews a `story` static may show (`review`: the number; verbatim, never reworded; `review_text` only a verbatim "
+          f"part of it). {pr['name']}'s:\n"]
+    for n_ in pr.get("reviews") or []:
+        r_ = revs_.get(n_)
+        if r_:
+            L.append(f"- {n_}: {r_['name']}{' (verified)' if r_.get('verified') else ''}: {r_['text'].strip()}")
     L += ["\nMeta's rules for the ads (the check refuses what breaks them):\n"] + [f"- {x}" for x in fl["meta"]]
     L += ["- Keep the bag closed (no photo of its inside: the AI would invent one); a feature label only for what the reference shows "
           "(the back pocket needs the back view: scene.ref).\n",
@@ -947,7 +1048,13 @@ def packet(pr, theme, n_projects, n_statics, request=""):
           "without naming the bag: 'steam curls up from the latte, sunlight flickers through the blinds'): the static also ships as a 5 s "
           "silent loop (Kling 3.0 pro from its still, ~9 credits each, the same footer words). Pick scenes with something that moves "
           "naturally (steam, candle light, rain on a window, curtains, leaves, city bokeh); the bag, people and hands never move.",
-          "Mix: about two thirds `ad` (each a different format), the rest real photos (studio / native / value / quotes) or `concept`."]
+          "`story` (the top-tier anatomy, our own type: hook / quote / list / versus / stack, ideas.py --help): the photo of the moment "
+          "(an AI story scene whose composition the look asks for, or a real footage frame), the hook, a verbatim review of the product "
+          "(reviews.json numbers listed in section 1), the % sticker with the gift tag. The scene prompt shows the hook's moment; the "
+          "look keeps its words off the bag (hook: the top third and a bottom corner calm; quote: the bottom 40% calm and darker; list / "
+          "versus / stack: the bag in the middle band, the frame's top and bottom are cropped).",
+          "Mix: about half `ad` (each a different format), about a third `story` (each look at most twice), the rest real photos "
+          "(studio / native / value / quotes) or `concept`."]
     L += ["\n## 6. Output\n", "Write `ideas.json` (format in `ideas.py --help`): per project a big idea, why it is new, 4 hooks of different types, "
           "5-11 chapters each with `show` tags, the offer last; per static its concept. Then run `ideas.py check`."]
     return "\n".join(L) + "\n"
@@ -988,6 +1095,11 @@ def _statics_table(sts, head):
         if s["layout"] == "ad":
             fmt = ad_format(s)
             look, words = f"AI ad: {fmt.get('name')}{' (new format)' if fmt.get('new') else ''}", " / ".join(s.get("words") or [])
+        elif s["layout"] == "story":
+            look = f"story: {s.get('look')}" + (f" (AI scene: {s['scene'].get('kind')})" if s.get("scene") else " (a real footage frame)")
+            words = " · ".join(x for x in (s.get("kicker"), s.get("hook"), s.get("sub"), " / ".join(s.get("points") or []),
+                                           " / ".join(f"{a_} vs {b_}" for a_, b_ in s.get("rows") or []),
+                                           f"review {s.get('review')}" if s.get("review") else "", "% sticker") if x)
         story = (s.get("story") or STORY_SELF.get(s["layout"]) or "-") + (f": {s['feature']}" if s.get("feature") else "")
         L.append(f"| {s['id']} | {look} | {story} | {s['idea']} | {words or '-'} |")
     return L + [""]

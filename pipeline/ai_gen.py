@@ -116,6 +116,20 @@ def ad_kind(fmt):
     return {"none": "object", "cropped": "hand", "behind": "behind"}.get(fmt.get("people") or "none", "object")
 
 
+STORY_COMPOSE = {                    # (ideas.py layout 'story': where its look puts the words, so the scene leaves that part calm)
+    "hook": "Composition: the bag large in the middle of the frame; the top third is calm and simple (a plain wall, sky or soft "
+            "background) and both lower corners are calm, for the words.",
+    "quote": "Composition: the bag large in the upper half of the frame; the bottom 40% is calm, simple and a little darker (a plain "
+             "floor, table top or soft shadow), for the words.",
+    "list": "Composition: the whole bag fits inside the middle half of the frame's height with calm space above and below it (the "
+             "top fifth and the bottom third are cropped away), nothing important at the very top or bottom.",
+    "versus": "Composition: the whole bag fits inside the middle half of the frame's height with calm space above and below it (the "
+             "top fifth and the bottom third are cropped away), nothing important at the very top or bottom.",
+    "stack": "Composition: the whole bag fits inside the middle half of the frame's height with calm space above and below it (the "
+             "top fifth and the bottom third are cropped away), nothing important at the very top or bottom.",
+}
+
+
 def build_ad_prompt(lib, fmt, ad, noun, colour):
     """The prompt of an AI-designed ad (layout 'ad', ideas.py): the format's art direction, the strategist's picture, the keep-the-real-bag
     text, the exact words (each once, nothing else), the people rule and the realism line. The strategist writes only the picture and the

@@ -60,6 +60,10 @@ picks them). All three refuse a missing photo / a face (the DNN check) and never
                                                                    price in one row: big price, beside it the '50% OFF' tag over the struck
                                                                    was price; gift label, CTA. Same checks as value (was above price, pct
                                                                    within 2 points of price / was); with no price a red '50% OFF' plate
+Story statics (ideas.py layout 'story', 2026-11-04: the anatomy of the long-running DTC statics, l_story):
+  story     photo, look (hook|quote|list|versus|stack), hook, highlight?, sub?, kicker?, points?, rows?, them?, us?, review (reviews.json n),
+            review_text? (verbatim), pct|badge?, gift?     the photo of the moment with the hook (marker highlights), the proof (stars + a
+                                                                   verbatim review), the % sticker + gift tag and the LIBRA CASES mark
 New optional spec keys (all of them are drawn verbatim, nothing is added):
   quotes   [{"text": verbatim quote, "author": "Jenny H.", "verified": false, "stars": true}]   (quotes layout; 'reviews' still works)
   price    "$59.95"      was   "$119.95" (must be above price; with pct, price must be pct % below was, +-2 points, else the static is refused)
@@ -499,7 +503,7 @@ def badge(canvas, cx, cy, r, top, big, bottom, colour=RED, angle=-12, host=None)
     sh = sh.filter(ImageFilter.GaussianBlur(10))
     canvas.alpha_composite(sh, (int(cx - lay.width / 2 + 6), int(cy - lay.height / 2 + 10)))
     canvas.alpha_composite(lay, (int(cx - lay.width / 2), int(cy - lay.height / 2)))
-    note("badge", (cx - r, cy - r, cx + r, cy + r), circle=(cx, cy, r), host=host, label=big)
+    return note("badge", (cx - r, cy - r, cx + r, cy + r), circle=(cx, cy, r), host=host, label=big)
 
 
 def auto_badge(canvas, b, r, photo, host=None):
@@ -1956,6 +1960,320 @@ def l_concept(a, sd):
         else:
             pill(d, W, y, offer, bg=RED, size=42, bold=True)
         y += h + gap
+    return c
+
+
+# ---------------------------------------------------------------- story statics (2026-11-04: "these are good but very basic and not top
+# tier"): the anatomy of the DTC statics that keep running (docs/research/2026-11-story-statics.md): a hook that names the friction, the
+# picture of the moment, one promise, visible proof (a verbatim review with stars), the offer stack and a small brand mark. Every word
+# is the spec's own (the review verbatim from reviews.json); the photo is an AI story scene of the real bag or a real footage frame.
+STORY_LOOKS = ("hook", "quote", "list", "versus", "stack")
+DEEP = (30, 24, 21)                  # the list / versus panel
+
+
+def scrim(c, top, bottom, alpha, colour=(14, 11, 9), rise=True):
+    """A soft gradient over c from `top` to `bottom` (px): `alpha` (0-1) at the dark end; rise: dark at the bottom, else at the top."""
+    import numpy as np
+    W = c.width
+    h = max(bottom - top, 1)
+    ramp = np.linspace(0, 1, h) if rise else np.linspace(1, 0, h)
+    a_ = (np.clip(ramp, 0, 1) ** 1.6 * alpha * 255)[:, None] * np.ones((1, W))
+    lay = Image.new("RGBA", (W, h), colour + (0,))
+    lay.putalpha(Image.fromarray(a_.astype("uint8")))
+    c.alpha_composite(lay, (0, top))
+
+
+def marked(c, d, text, f, x, top, max_w, fill, hl=(), mark=(232, 185, 70), mark_ink=INK, lh=1.08, host=None, dry=False):
+    """Left-aligned headline from `top` (ink top) with the words in `hl` on a marker swipe (a rounded block of `mark` behind them,
+    their ink in `mark_ink`): the highlighter look of the long-running hook statics. Returns the bottom (dry: measure only)."""
+    lines = wrap(d, text, f, max_w, True)
+    asc, desc = metrics(f)
+    step = max(int(f.size * lh), asc + desc + int(f.size * 0.1))
+    hl_ = {re.sub(r"\W", "", w).lower() for w in hl or ()}
+    base, low, g = top + asc, top, next(_grp)
+    for ln in lines:
+        xx = x
+        for w in ln.split(" ") if not dry else ():
+            ww = width(d, w, f)
+            on = re.sub(r"\W", "", w).lower() in hl_
+            if on:
+                pad = int(f.size * 0.12)
+                d.rounded_rectangle([xx - pad, base - asc - pad * 0.6, xx + ww + pad, base + desc * 0.55 + pad * 0.4], radius=pad,
+                                    fill=mark)
+            d.text((xx, base), w, font=f, fill=mark_ink if on else fill, anchor="ls", **FEAT)
+            xx += ww + width(d, " ", f)
+        bb = d.textbbox((x, base), ln, font=f, anchor="ls", **FEAT)
+        if not dry:
+            note("text", bb, host=host, size=f.size, grp=g, label=ln)
+        low = max(low, bb[3])
+        base += step
+    return low
+
+
+def offer_sticker(c, cx, cy, r, a, angle=-10, host=None, side=None):
+    """The round red offer sticker (pct: '50%' over 'OFF'; a badge's own words else) and, when the spec names a gift, a small dark tag
+    '+ FREE POUCH WALLET' pinned under it. Returns the lowest y it covers."""
+    pct, b_ = a.get("pct"), a.get("badge") if isinstance(a.get("badge"), dict) else {}
+    if not pct and not b_.get("big"):
+        return cy                            # (no offer: no sticker; nothing is made up)
+    big, bottom = (f"{int(pct)}%", "OFF") if pct else (b_["big"], b_.get("bottom", ""))
+    lay = Image.new("RGBA", (2 * r + 24, 2 * r + 24), (0, 0, 0, 0))
+    dl = ImageDraw.Draw(lay)
+    o = 12
+    dl.ellipse([o, o, o + 2 * r, o + 2 * r], fill=RED + (255,))
+    dl.ellipse([o + 10, o + 10, o + 2 * r - 10, o + 2 * r - 10], outline=(255, 255, 255, 150), width=3)
+    fb, fo = BLACK(int(r * 0.66 / SCALE[0])), BLACK(int(r * 0.34 / SCALE[0]))      # (the sticker keeps its size)
+    dl.text((o + r, o + r * 0.92), big, font=fb, fill=WHITE, anchor="ms", **FEAT)
+    if bottom:
+        dl.text((o + r, o + r * 1.02), bottom, font=fo, fill=WHITE, anchor="mt", **FEAT)
+    lay = lay.rotate(angle, resample=Image.BICUBIC, expand=True)
+    sh = Image.new("RGBA", lay.size, (0, 0, 0, 0))
+    sh.paste((0, 0, 0, 90), mask=lay.split()[3])
+    c.alpha_composite(sh.filter(ImageFilter.GaussianBlur(10)), (int(cx - lay.width / 2 + 6), int(cy - lay.height / 2 + 10)))
+    c.alpha_composite(lay, (int(cx - lay.width / 2), int(cy - lay.height / 2)))
+    g = note("badge", (cx - r, cy - r, cx + r, cy + r), circle=(cx, cy, r), host=host, label=big)
+    low = cy + r
+    if a.get("gift"):
+        d = ImageDraw.Draw(c)
+        f = XB(26)
+        t = "+ " + a["gift"].upper()
+        w, h = width(d, t, f) + 2 * f.size, int(f.size * 2.1)
+        x = min(max(cx - w / 2, EDGE), c.width - EDGE - w)
+        if side == "right":                  # (pinned toward the edge: it never reaches into what sits beside the sticker)
+            x = c.width - EDGE - 16 - w if cx + w / 2 > c.width - EDGE - 16 else cx - w / 2
+        elif side == "left":
+            x = EDGE + 16 if cx - w / 2 < EDGE + 16 else cx - w / 2
+        y = cy + r * 0.78
+        d.rounded_rectangle([x, y, x + w, y + h], radius=h / 2, fill=INK)
+        d.text((x + w / 2, y + h / 2), t, font=f, fill=WHITE, anchor="mm", **FEAT)
+        note("pill", (x, y, x + w, y + h), host=g, label=t)     # (pinned onto the sticker: one piece with it)
+        low = y + h
+    return low
+
+
+def story_review(a, max_chars=110):
+    """(snippet, name, verified) of the spec's review: `review` (a reviews.json number) and an optional `review_text` (a verbatim part
+    of it; else the best sentence: snippet()). None without one; a review_text that is not verbatim is a ValueError."""
+    if not a.get("review"):
+        return None
+    if not a.get("review_text"):         # (the best short sentence of it: a panel's proof line holds about 70 characters)
+        revs = {r_["n"]: r_ for r_ in json.load(open(os.path.join(HERE, "data", "reviews.json")))["reviews"]}
+        t_ = snippet(revs[int(a["review"])]["text"], max_chars) or snippet(revs[int(a["review"])]["text"])
+        item = dict(n=int(a["review"]), text=t_) if t_ else int(a["review"])
+    else:
+        item = dict(n=int(a["review"]), text=a["review_text"])
+    got = review_snippets([item])
+    return got[0] if got else None
+
+
+def review_card(c, d, rv, x0, y0, w, size=32, dry=False):
+    """A compact proof card at (x0, y0), w wide: gold stars, the verbatim snippet, '— Name  ✓ Verified Buyer'. Returns its bottom
+    (dry: its height, nothing drawn)."""
+    text, name, verified = rv
+    fq, fn = SANS(size, "Medium"), SANS(int(size * 0.84), "SemiBold")
+    pad, s = 30, int(size * 0.9)
+    q = "“" + text.strip() + "”"
+    qh = put(d, q, fq, INK, 0, w - 2 * pad, x=0, lh=1.24, dry=True)
+    h = int(pad + s + 16 + qh + air(fn) + sum(metrics(fn)) + pad)
+    if dry:
+        return h
+    host = soft_card(c, d, x0, y0, w, h)
+    y = stars(d, x0 + pad, y0 + pad, s, host=host) + 16
+    y = put(d, q, fq, INK, y, w - 2 * pad, x=x0 + pad, lh=1.24, host=host)
+    name_line(d, x0 + pad, y + air(fn), name, verified, fn, host=host, label=SCENE_LABEL)
+    return y0 + h
+
+
+def proof_line(d, rv, x, y, max_w, ink, size=28):
+    """One line of proof on a panel: stars, then the snippet and its author in `ink`. Returns the bottom."""
+    text, name, _ = rv
+    s = int(size * 0.95)
+    stars(d, x, y, s)
+    f = SANS(size, "Medium")
+    t = f"“{text.strip()}” — {name}"
+    while width(d, t, f) > max_w - (5 * s + 52) and f.size > 20:
+        f = SANS(f.size - 2, "Medium")
+    return max(put(d, [t], f, ink, y + (s - metrics(f)[0]) / 2, max_w, x=x + 5 * s + 52), y + s)
+
+
+def l_story(a, sd):
+    """A story static (ideas.py layout 'story'): `look` one of STORY_LOOKS on a photo of the moment (`photo`: the AI story scene or a
+    real footage frame), always with the hook (`hook`, `highlight` words on a marker), the proof (`review` / `review_text`, verbatim),
+    the offer sticker (`pct` / `badge`, `gift`) and the LIBRA CASES mark:
+      hook    the photo full bleed, the hook big on a dark scrim at the top with `sub` (the answer) under it, the review card bottom
+              left, the sticker in the calmer bottom corner
+      quote   the photo full bleed, the customer's own words as the headline (Cormorant, a big gold quote mark) on a dark scrim at
+              the bottom with stars and her name; `hook` (optional) as a kicker above; the sticker top right
+      list    the photo over the top 55%, a deep panel with the hook and 3 numbered `points`, the proof line at the bottom
+      versus  the photo over the top half with the hook on it, a cream panel: `them` vs `us` (default: the product's short name),
+              `rows` [[them, us], ...] with crosses and ticks, the proof line
+      stack   the photo over the top 54% with the hook on it, a cream panel: the % huge on the left, 'EVERYTHING YOU GET' and the
+              `points` as ticks on the right, the proof line
+    Nothing is drawn that the spec does not carry."""
+    import numpy as np
+    W, H = a.get("size", [1080, 1350])
+    look = a.get("look") or "hook"
+    if look not in STORY_LOOKS:
+        raise ValueError(f"story: look {look!r} (one of {', '.join(STORY_LOOKS)})")
+    im = scene_photo(a, sd, "story")
+    rv = story_review(a, 110 if look in ("hook", "quote") else 64)
+    hook, sub, kicker, hl = a.get("hook"), a.get("sub"), a.get("kicker"), a.get("highlight") or ()
+    if look != "quote":
+        hook = hook or a.get("headline")
+    if look != "quote" and not hook:
+        raise ValueError(f"story {look}: needs a hook")
+    if look in ("quote", "hook") and not rv:
+        raise ValueError(f"story {look}: needs a review (reviews.json number)")
+    M = SCENE_M
+    fk = SANS(24, "SemiBold")
+
+    def wordmark(d, y, ink, x=None):
+        t = "L I B R A   C A S E S"
+        put(d, [t], fk, ink, y, W, x=x if x is not None else W - M - width(d, t, fk))
+
+    if look in ("hook", "quote"):
+        ph = cover_photo(im, a, (W, H), 1.0)
+        calm = calm_of(ph)
+        c = ph.convert("RGBA")
+        d = ImageDraw.Draw(c)
+        if look == "hook":
+            d0 = ImageDraw.Draw(Image.new("RGB", (W, H)))
+            fh = fit(d0, hook, XB, a.get("hsize", 78), W - 2 * M, 3, 54)
+            fs = SANS(40, "SemiBold")
+            hh = marked(None, d0, hook, fh, M, 0, W - 2 * M, WHITE, hl, dry=True)
+            sh_ = put(d0, sub, fs, WHITE, 0, W - 2 * M, x=0, dry=True) if sub else 0
+            top_h = M + 56 + hh + (air(fs, fh) + sh_ if sub else 0)
+            scrim(c, 0, int(top_h + 260), 0.90, rise=False)
+            if kicker:
+                put(d, [spaced(kicker)], fk, (232, 205, 150), M, W, x=M)
+            wordmark(d, M, WHITE)
+            y = marked(c, d, hook, fh, M, M + 56, W - 2 * M, WHITE, hl)
+            if sub:
+                put(d, sub, fs, (246, 238, 226), y + air(fs, fh), W - 2 * M, x=M)
+            scrim(c, int(H * 0.60), H, 0.45)
+            d = ImageDraw.Draw(c)
+            r, cw = 108, int(W * 0.52)
+            left = calm((0, int(H * 0.66), int(W * 0.6), H)) <= calm((int(W * 0.4), int(H * 0.66), W, H))   # (the card: the calmer side)
+            ch = review_card(None, d0, rv, 0, 0, cw, dry=True)
+            card_x = M if left else W - M - cw
+            review_card(c, d, rv, card_x, H - M - ch, cw)
+            sx = W - M - r - 14 if left else M + r + 14
+            offer_sticker(c, sx, H - M - ch + r * 0.2 - (40 if a.get("gift") else 0), r, a, angle=-10 if left else 10,
+                          side="right" if left else "left")
+        else:
+            text, name, verified = rv
+            QSERIF = lambda z: font("CormorantGaramond.ttf", z, "Bold")  # noqa: E731
+            d0 = ImageDraw.Draw(Image.new("RGB", (W, H)))
+            q = text.strip() + "”"
+            for size in range(a.get("qsize", 76), 43, -4):          # the customer's words as big as 3-4 lines allow
+                fq = QSERIF(size)
+                qh = put(d0, q, fq, WHITE, 0, W - 2 * M, x=0, lh=1.06, dry=True)
+                if qh <= H * 0.27:
+                    break
+            fn, s_, fm = SANS(30, "SemiBold"), 34, QSERIF(220)
+            mb = d0.textbbox((0, 0), "“", font=fm, anchor="lt")
+            mh = mb[3] - mb[1]
+            row_y = H - M - s_                                        # stars + name, bottom up
+            q_top = row_y - 30 - qh
+            m_top = q_top - 22 - mh
+            k_top = m_top - 44
+            scrim(c, max(int((k_top if (kicker or hook) else m_top) - 300), 0), H, 0.92)
+            scrim(c, 0, 240, 0.42, rise=False)       # (the brand mark and the sticker read on a bright photo too)
+            d = ImageDraw.Draw(c)
+            wordmark(d, M, WHITE, x=M)
+            offer_sticker(c, W - M - 118, M + 118, 108, a, angle=10)
+            small = kicker or hook                     # (the small spaced line over the customer's words)
+            if small:
+                put(d, [spaced(small)], fk, (232, 205, 150), k_top, W - 2 * M, x=M)
+            d.text((M - 6 - mb[0], m_top - mb[1]), "“", font=fm, fill=(232, 185, 70), anchor="lt")
+            note("mark", (M - 6, m_top, M - 6 + mb[2] - mb[0], m_top + mh), label="quote mark")
+            put(d, q, fq, WHITE, q_top, W - 2 * M, x=M, lh=1.06)
+            stars(d, M, row_y, s_)
+            put(d, ["— " + name + ("   ✓ " + SCENE_LABEL if verified else "")], fn, (236, 228, 216), row_y + (s_ - metrics(fn)[0]) / 2,
+                W, x=M + 5 * s_ + 56)
+        return c
+
+    # ---- the panel looks: the photo above, a panel with the story below
+    share = {"list": 0.55, "versus": 0.50, "stack": 0.54}[look]
+    ph_h = int(H * share)
+    if not a.get("focus"):                     # (the part of the photo that holds the picture: the bag, not the floor)
+        full = ImageOps.fit(im, (W, int(im.height * W / im.width)), Image.LANCZOS)
+        a = dict(a, focus=[0.5, concept_crop_y(full, ph_h)])
+    ph = cover_photo(im, a, (W, ph_h), 1.0)
+    calm = calm_of(ph)
+    dark = look == "list"
+    bg = DEEP if dark else CREAM
+    ink, soft = (WHITE, (226, 214, 198)) if dark else (INK, MUTED)
+    c = Image.new("RGBA", (W, H), bg + (255,))
+    top = ph.convert("RGBA")
+    d0 = ImageDraw.Draw(Image.new("RGB", (W, H)))
+    if look in ("versus", "stack"):            # the hook on the photo (a dark scrim at its top)
+        fh = fit(d0, hook, XB, a.get("hsize", 70), W - 2 * M, 2, 48)
+        hh = marked(None, d0, hook, fh, M, 0, W - 2 * M, WHITE, hl, dry=True)
+        scrim(top, 0, int(M + 52 + hh + 200), 0.82, rise=False)
+    else:
+        scrim(top, 0, 260, 0.45, rise=False)   # (the brand mark and the sticker read on a bright photo too)
+    c.alpha_composite(top, (0, 0))
+    blend = Image.new("RGBA", (W, 60), bg + (0,))                       # (the photo melts into the panel)
+    blend.putalpha(Image.fromarray((np.linspace(0, 255, 60)[:, None] * np.ones((1, W))).astype("uint8")))
+    c.alpha_composite(blend, (0, ph_h - 60))
+    d = ImageDraw.Draw(c)
+    right_calm = calm((W // 2, 0, W, ph_h // 2)) <= calm((0, 0, W // 2, ph_h // 2))
+    if look == "list":                         # (the sticker in the photo's calmer top corner, the mark in the other)
+        wordmark(d, M, WHITE, x=M if right_calm else None)
+        offer_sticker(c, W - M - 116 if right_calm else M + 116, M + 116, 106, a, angle=10 if right_calm else -10,
+                      side="right" if right_calm else "left")
+    else:
+        wordmark(d, M, WHITE)
+    if kicker and look != "list":
+        put(d, [spaced(kicker)], fk, (232, 205, 150), M, W, x=M)
+    if look in ("versus", "stack"):
+        marked(c, d, hook, fh, M, M + 52, W - 2 * M, WHITE, hl)
+    y = ph_h + 36
+    if look == "list":
+        fh = fit(d0, hook, XB, a.get("hsize", 60), W - 2 * M, 2, 42)
+        if kicker:
+            put(d, [spaced(kicker)], fk, (232, 205, 150), y, W, x=M)
+            y += 44
+        y = marked(c, d, hook, fh, M, y, W - 2 * M, WHITE, hl) + air(SANS(36), fh) + 14
+        fn_, ft = BLACK(54), SANS(36, "SemiBold")
+        for k, p in enumerate(a.get("points") or [], 1):
+            put(d, [str(k)], fn_, (232, 185, 70), y - 6, W, x=M, kind="mark")
+            y = max(put(d, p, ft, ink, y + 8, W - 2 * M - 90, x=M + 76, lh=1.15), y + metrics(fn_)[0]) + 30
+    elif look == "versus":
+        rows = a.get("rows") or []
+        them, us = a.get("them") or "Other bags", a.get("us") or a.get("product_short") or "Ours"
+        cw = (W - 2 * M - 24) // 2
+        fhd, ft = XB(32), SANS(40, "SemiBold")
+        d.rounded_rectangle([M, y, M + cw, y + 72], radius=36, fill=(214, 204, 192))
+        d.rounded_rectangle([M + cw + 24, y, W - M, y + 72], radius=36, fill=RED)
+        d.text((M + cw / 2, y + 36), them.upper(), font=fhd, fill=MUTED, anchor="mm", **FEAT)
+        d.text((M + cw + 24 + cw / 2, y + 36), us.upper(), font=fhd, fill=WHITE, anchor="mm", **FEAT)
+        note("label", (M, y, W - M, y + 72), label="versus heads")
+        y += 72 + 44
+        for bad, good in rows:
+            yl = tick_list(d, [bad], ft, M + 8, y, cw - 8, mark=cross, colour=MUTED)
+            yr = tick_list(d, [good], ft, M + cw + 32, y, cw - 8, mark=lambda d_, cx, cy, r, host=None: tick(d_, cx, cy, r, bg=RED, host=host),
+                           colour=INK)
+            y = max(yl, yr) + 44
+        offer_sticker(c, W - M - 104 if right_calm else M + 104, ph_h - 150, 100, a, angle=10 if right_calm else -10,
+                      side="right" if right_calm else "left")
+    else:                                      # stack: the % huge on the left, what you get on the right
+        pct = a.get("pct")
+        big = f"{int(pct)}%" if pct else (a.get("badge") or {}).get("big") or ""
+        fb = BLACK(190)
+        while width(d, big, fb) > W * 0.42 and fb.size > 100:
+            fb = BLACK(fb.size - 6)
+        bt = put(d, [big], fb, RED, y + 10, W, x=M)
+        put(d, ["OFF"], BLACK(int(fb.size * 0.42)), INK, bt + 30, W, x=M + 6)
+        x2 = int(M + W * 0.45)
+        yy = put(d, [spaced("everything you get")], SANS(24, "SemiBold"), RED, y + 18, W, x=x2) + 26
+        tick_list(d, a.get("points") or [], SANS(34, "SemiBold"), x2, yy, W - M - x2,
+                  mark=lambda d_, cx, cy, r, host=None: tick(d_, cx, cy, r, bg=RED, host=host), colour=INK, gap=22)
+    if rv:
+        line_y = H - M - 34
+        d.line([(M, line_y - 30), (W - M, line_y - 30)], fill=(soft if dark else (214, 204, 192)), width=2)
+        proof_line(d, rv, M, line_y, W - 2 * M, soft)
     return c
 
 

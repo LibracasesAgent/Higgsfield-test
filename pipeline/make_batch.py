@@ -1584,6 +1584,9 @@ def plan(a):
                 try:
                     import footage_index
                     want_ = min(FRAMES_PER_BATCH, max(5, round(0.45 * a.statics) + 1))       # (20 statics: 9 frames; 5 statics: 5)
+                    if sheet is not None:     # (a sheet's real-frame slots: its native statics, the stand-ins of its AI ones, its story statics)
+                        want_ = max(want_, min(12, sum(x_.get("layout") in ("native", "concept", "ad", "story")
+                                                       for x_ in (sheet.get("statics") or [])[:a.statics])))
                     got = footage_index.frame_bank(
                         name_, want_, os.path.join(out, "photos", "frames"), avoid=novelty.recent(pr["name"], "frame_clip"),
                         seed=a.seed + len(novelty.batches(pr["name"])), keep=clip_ok)
@@ -1697,12 +1700,29 @@ def plan(a):
             if camp.get("bundle_any"):
                 seq[4:5] = ["bundle"]
     if sheet is not None and sheet.get("statics"):      # the sheet's own order; an AI studio scene's stand-in is a real footage frame
-        seq = [("native" if x["layout"] in ("concept", "ad") else x["layout"]) for x in sheet["statics"]]
+        seq = [("native" if x["layout"] in ("concept", "ad", "story") else x["layout"]) for x in sheet["statics"]]
     if not clean_mode and a.statics and lifestyle():
         warnings.append(f"only {len(s_packs)} clean packshot(s): statics use the client's lifestyle photos and framed photo "
                         f"cards")
     s_pct, s_gift = deal_of(pr["offer"])
     s_v = offer_vars(pr)
+
+    def story_spec(x_, base_):
+        """The spec of a sheet's `story` static (brand_statics.l_story) on base_'s photo (a real footage frame; the AI story scene takes
+        its place when it passes the gate): the sheet's words, the product's % and gift, the slot's name and frame."""
+        d_ = {k_: x_[k_] for k_ in ("look", "hook", "sub", "kicker", "highlight", "points", "rows", "them", "us", "review", "review_text")
+              if x_.get(k_)}
+        d_.update(layout="story", photo=base_["photo"], headline=x_.get("hook") or x_.get("review_text") or "",
+                  name=re.sub(r"(_S\d+_).*$", lambda m_: m_.group(1) + (x_.get("look") or "hook"), base_["name"]),
+                  us=x_.get("us") or pr.get("short") or pr["name"])
+        if s_pct and 5 <= s_pct <= 90:
+            d_["pct"] = s_pct
+        if s_gift:
+            d_["gift"] = re.sub(r"\bmatching\s+", "", s_gift)       # ('+ FREE POUCH WALLET' on the sticker's tag)
+        for k_ in ("frame", "focus", "crop"):
+            if base_.get(k_):
+                d_[k_] = base_[k_]
+        return d_
     star_revs = [n for n in pr["reviews"] if n in revs and bs.snippet(revs[n]["text"])]   # a verbatim snippet to show
     quote_revs = [n for n in star_revs if len(revs[n]["name"].split()[0].rstrip(".")) > 1] or star_revs   # (quotes: not 'X A.')
     pf_ = facts if facts.get("price") else (pr.get("facts") or {})    # no site read: the client's notes' prices
@@ -1927,6 +1947,12 @@ def plan(a):
             if i_ < len(statics) and x_["layout"] in ("studio", "native") and x_.get("headline"):
                 statics[i_].pop("headline", None)
                 statics[i_]["caption"] = x_["headline"]
+            elif i_ < len(statics) and x_["layout"] == "story":
+                if statics[i_].get("layout") in ("native", "lifestyle") and statics[i_].get("photo"):
+                    statics[i_] = story_spec(x_, statics[i_])
+                elif not x_.get("scene"):
+                    warnings.append(f"ideas: {x_.get('id')}: a story static needs a real face-free photo or a scene: none left, the "
+                                    f"real {statics[i_].get('layout')} static stands in its slot")
             elif i_ < len(statics) and x_["layout"] in ("ad", "concept") and statics[i_].get("layout") in ("native", "studio") and \
                     ideas.story_caption(x_) and x_.get("story") != "moment" and (sheet.get("date") or "") >= ideas.STATIC_STORY_FROM:
                 # (the real stand-in of an AI static keeps its story when the AI picture fails: a frame's caption, a packshot's line;
@@ -2507,7 +2533,9 @@ def plan(a):
                                     est_credits=ai_gen.IMG["cost"]))
                 continue
             prompt_ = sc_["prompt"].replace("{", "(").replace("}", ")").strip()
-            moving_ = bool(x_.get("motion")) and len(motion_) < ai_gen.MAX_MOTION   # a motion still: a square still, its clip loops on it
+            if x_["layout"] == "story":       # (the look keeps its words off the bag: the composition it needs)
+                prompt_ += " " + ai_gen.STORY_COMPOSE.get(x_.get("look") or "hook", "")
+            moving_ = bool(x_.get("motion")) and x_["layout"] == "concept" and len(motion_) < ai_gen.MAX_MOTION   # a motion still: its clip loops
             asp_ = "1:1" if moving_ else "4:5"
             pr_ = ai_gen.build_prompt(lib_, dict(kind=sc_["kind"], prompt=prompt_ + " " + (ideas.NO_PEOPLE if sc_["kind"] == "object" else
                                                                      "No other person is in the picture.")), ai_gen.noun_of(pr["name"]),
@@ -2515,7 +2543,7 @@ def plan(a):
             if moving_:
                 pr_ = pr_.replace("Portrait 4:5 composition", "Square 1:1 composition")
             stills_.append(dict(id=f"AS{k_ + 1:02d}", use="static", scene=f"{x_.get('project', 'P00')}_{x_['id']}".lower(), kind=sc_["kind"],
-                                colour=ref_.get("colour"), layout="concept", ref=ref_["file"], aspect=asp_, file=f"ai/AS{k_ + 1:02d}.png",
+                                colour=ref_.get("colour"), layout=x_["layout"], ref=ref_["file"], aspect=asp_, file=f"ai/AS{k_ + 1:02d}.png",
                                 model=ai_gen.IMG["model"], params=dict(ai_gen.IMG["params"], aspect_ratio=asp_), slot=i_,
                                 prompt=pr_, est_credits=ai_gen.IMG["cost"]))
             if moving_:
@@ -2585,6 +2613,12 @@ def plan(a):
             statics[i_] = dict(layout="ad", photo=s_["file"], format=s_["format"], words=s_["words"], headline=ideas.ad_headline(x_),
                                name=re.sub(r"(_S\d+_).*$", lambda m_: m_.group(1) + s_["tag"], orig_["name"]),
                                ai=dict(id=s_["id"], scene=s_["scene"], colour=s_.get("colour"), format=s_["format"]), fallback=orig_)
+            continue
+        if s_["layout"] == "story":       # the story static on its AI scene; the same static on the real frame is its fallback
+            base_ = orig_ if orig_.get("layout") == "story" else story_spec(x_, dict(orig_, photo=s_["file"]))
+            statics[i_] = dict(base_, photo=s_["file"], ai=dict(id=s_["id"], scene=s_["scene"], colour=s_.get("colour")), fallback=orig_)
+            for k_ in ("frame", "focus", "crop"):
+                statics[i_].pop(k_, None)
             continue
         d_ = dict(layout="concept", photo=s_["file"], **{k_: x_[k_] for k_ in ("kicker", "headline", "sub", "where", "tone") if x_.get(k_)})
         if x_.get("pill") and s_pct:

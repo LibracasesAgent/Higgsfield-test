@@ -712,6 +712,25 @@ revenue, verdict, notes; grey formulas: hook rate, CTR, CPA, ROAS), Summary (by 
 - **Fix by hand:** `python3 pipeline/tracker.py sync --batch B045` (or `--all` to refresh every batch's file details); `show` counts.
 - B001's files sit in the Outputs folder "oct 3 test" (`folder_overrides`), whose subfolder of B012 statics is skipped.
 
+### 4o. Top-tier story statics: the full anatomy, layout `story` (the team 2026-11-04)
+
+The team on the story + offer samples (4n): "these are good but very basic and not top tier: check how actual fb ads look with story".
+Research (docs/research/2026-11-story-statics.md): the statics that keep running carry 5-6 layers (a hook naming the friction in
+'you' words, the picture of that moment, ONE promise, visible proof: stars + a verbatim review with a name, the offer stack, a small
+brand mark); ours carried 2-3 (picture, one line, the % sticker). What changed:
+- Layout `story` (brand_statics.l_story): our renderer sets every layer in exact type over the photo of the moment in five looks of
+  the formats that keep running: `hook` (problem-solution), `quote` (testimonial done properly: the customer's words as the
+  headline), `list` (3 numbered reasons), `versus` (a generic open tote vs ours, crosses / ticks), `stack` (the % huge + what you get).
+  The review is always a verbatim reviews.json review of the product (the packet lists them), the % and the gift tag are the product's.
+- `ideas.py check`: look, hook (3-10 words; highlight words in it), the answer line, points / rows, a review of this product and a
+  verbatim review_text, no real brand on the "them" side, no first person; a `scene` is optional (an AI story scene whose prompt gets
+  the composition the look needs: `ai_gen.STORY_COMPOSE`), without one a real footage frame is the photo. A story static whose AI
+  scene fails the gate keeps its look on the real frame. Plan pulls enough real frames for the sheet's frame slots now.
+- Mix: about half `ad`, about a third `story` (each look at most twice), the rest real.
+- Tested 4 Nov (6 credits): five of six story scenes passed (the keys-at-the-zip scene failed the face check with no face in it:
+  its static went to its real frame), all seven rendered with every layer, nothing overlapping; the LIBRA CASES mark gets a soft top
+  shade on bright photos.
+
 ### 4n. Every static tells a story next to the offer (the team 2026-11-04)
 
 Wouter on the 9 offer-led samples (4m): "Yeah could work". The team: "story is not enough": "50% OFF" + "Early Black Friday" or
