@@ -1105,13 +1105,6 @@
    "batches": [
     {
      "clips": [],
-     "date": "2026-10-09",
-     "name": "earlier batch 1 (before the novelty log: the client's three delivered batches)",
-     "statics": [],
-     "videos": []
-    },
-    {
-     "clips": [],
      "date": "2026-10-14",
      "name": "earlier batch 2 (before the novelty log: the client's three delivered batches)",
      "statics": [],
@@ -3748,6 +3741,172 @@
       }
      ],
      "videos": []
+    },
+    {
+     "clips": [],
+     "date": "2026-11-04",
+     "name": "B037 – 2026-11-04 – Hobo Bag BlackFriday – 25 statics",
+     "statics": [
+      {
+       "caption": "Shoulder, hand or crossbody.",
+       "colour": "Galaxy Black",
+       "format": "giant_numerals",
+       "layout": "ad",
+       "scene": "p00_s01_giant_numerals"
+      },
+      {
+       "caption": "Digging for your keys at the front door?",
+       "colour": "Galaxy Black",
+       "layout": "story",
+       "scene": "p00_s02"
+      },
+      {
+       "caption": "Her gift, with a free pouch wallet.",
+       "colour": "Burgundy",
+       "format": "swing_tag",
+       "layout": "ad",
+       "scene": "p00_s03_swing_tag"
+      },
+      {
+       "caption": "Rainy day? Water-resistant leather.",
+       "colour": "Dark Sienna",
+       "layout": "concept",
+       "scene": "p00_s04"
+      },
+      {
+       "caption": "Phone in reach, not at the bottom.",
+       "colour": "Grey",
+       "format": "sticker_burst",
+       "layout": "ad",
+       "scene": "p00_s05_sticker_burst"
+      },
+      {
+       "caption": "Got this bag for my daughter for Christmas and she adores it.",
+       "colour": "Burgundy",
+       "layout": "story",
+       "scene": "p00_s06"
+      },
+      {
+       "caption": "Keys, phone, cards: each in its place.",
+       "colour": "Dark Sienna",
+       "format": "colour_split",
+       "layout": "ad",
+       "scene": "p00_s07_colour_split"
+      },
+      {
+       "caption": "Bag + free pouch wallet, half price.",
+       "layout": "studio",
+       "photo": "hobo_bag_colour_red.jpg"
+      },
+      {
+       "caption": "Gold Side Zips.",
+       "frame_clip": "1Ni2LrpV6gsxH-smicF6r01i4SlwQkmeH",
+       "layout": "native",
+       "photo": "F_1Ni2LrpV6g_0049.jpg"
+      },
+      {
+       "caption": "3 reasons it goes everywhere with you",
+       "colour": "Galaxy Black",
+       "layout": "story",
+       "scene": "p00_s10"
+      },
+      {
+       "caption": "Bag + free pouch wallet.",
+       "colour": "Dark Sienna",
+       "format": "shop_window_decal",
+       "layout": "ad",
+       "scene": "p00_s11_shop_window_decal"
+      },
+      {
+       "caption": "Phone ringing at the bottom?",
+       "colour": "Red",
+       "format": "taped_question",
+       "layout": "ad",
+       "scene": "p00_s12_taped_question"
+      },
+      {
+       "caption": "Shoulder, hand or crossbody: you pick.",
+       "frame_clip": "1f7uQE4ewrad8utPEPVYK5qDEafvfBD7n",
+       "layout": "native",
+       "photo": "F_1f7uQE4ewr_0009.jpg"
+      },
+      {
+       "caption": "Packed train? Your cards stay right against you.",
+       "colour": "Red",
+       "layout": "story",
+       "scene": "p00_s14"
+      },
+      {
+       "caption": "Free US shipping. Free pouch wallet.",
+       "colour": "Galaxy Black",
+       "format": "rubber_stamp",
+       "layout": "ad",
+       "scene": "p00_s15_rubber_stamp"
+      },
+      {
+       "caption": "Ready for under the tree.",
+       "colour": "Grey",
+       "format": "ribbon_banner",
+       "layout": "ad",
+       "scene": "p00_s16_ribbon_banner"
+      },
+      {
+       "caption": "Your old tote vs the Hobo Bag",
+       "colour": "Grey",
+       "layout": "story",
+       "scene": "p00_s17"
+      },
+      {
+       "caption": "Errands, desk, dinner: one bag.",
+       "colour": "Burgundy",
+       "format": "paper_shopping_bag",
+       "layout": "ad",
+       "scene": "p00_s18_paper_shopping_bag"
+      },
+      {
+       "caption": "Under the tree, ready for every day.",
+       "colour": "Red",
+       "layout": "concept",
+       "scene": "p00_s19"
+      },
+      {
+       "caption": "A matching pouch wallet, free with the bag.",
+       "frame_clip": "1Y2oMC5e85phr54mvZG21xJhEj0dTaI2J",
+       "layout": "native",
+       "photo": "F_1Y2oMC5e85_0071.jpg"
+      },
+      {
+       "caption": "It's spacious, lightweight, and super functional with lots of pockets.",
+       "frame_clip": "1uD0qy0zejwR5ivs-GDmykUYJAyeQEiJf",
+       "layout": "story",
+       "photo": "F_1uD0qy0zej_0003.jpg"
+      },
+      {
+       "caption": "Cold morning. Everything zipped in.",
+       "colour": "Grey",
+       "format": "window_frost",
+       "layout": "ad",
+       "scene": "p00_s22_window_frost"
+      },
+      {
+       "caption": "Keys left, phone right. Gold side zips.",
+       "layout": "studio",
+       "photo": "hobo_bag_colour_grey.jpg"
+      },
+      {
+       "caption": "Everything you get for half price",
+       "colour": "Blue",
+       "layout": "story",
+       "scene": "p00_s24"
+      },
+      {
+       "caption": "Soft leather that only gets better.",
+       "frame_clip": "12Ec7mfUk6Ys9vxFA04eGQpmpcsLiPcbS",
+       "layout": "native",
+       "photo": "F_12Ec7mfUk6_0025.jpg"
+      }
+     ],
+     "videos": []
     }
    ]
   },
@@ -4300,6 +4459,172 @@
        "structure": "night_before"
       }
      ]
+    },
+    {
+     "clips": [],
+     "date": "2026-11-04",
+     "name": "B038 – 2026-11-04 – Hobo Bag 3-Piece Set BlackFriday – 25 statics",
+     "statics": [
+      {
+       "caption": "3 bags. 1 set.",
+       "colour": "Red",
+       "format": "set_lineup",
+       "layout": "ad",
+       "scene": "p00_s01_set_lineup"
+      },
+      {
+       "caption": "Busy shops this Christmas? Keep it all secure.",
+       "colour": "Black",
+       "layout": "story",
+       "scene": "p00_s02"
+      },
+      {
+       "caption": "THREE BAGS FOR EVERY KIND OF DAY",
+       "colour": "Black",
+       "format": "magazine_cover",
+       "layout": "ad",
+       "scene": "p00_s03_magazine_cover"
+      },
+      {
+       "caption": "Three pieces. 60% OFF.",
+       "colour": "Grey",
+       "format": "feature_diagram",
+       "layout": "ad",
+       "scene": "p00_s04_feature_diagram"
+      },
+      {
+       "caption": "A hobo, a crossbody and a pouch.",
+       "layout": "studio",
+       "photo": "3_piece_set_colour_blue.jpg"
+      },
+      {
+       "caption": "The whole set, not just the bag.",
+       "colour": "Red",
+       "format": "bold_poster",
+       "layout": "ad",
+       "scene": "p00_s06_bold_poster"
+      },
+      {
+       "caption": "POV: crossbody on, apples in both arms",
+       "colour": "Blue",
+       "format": "pov_behind",
+       "layout": "ad",
+       "scene": "p00_s07_pov_behind"
+      },
+      {
+       "caption": "Cosy days. One set for all of them.",
+       "colour": "Purple Red",
+       "layout": "concept",
+       "scene": "p00_s08"
+      },
+      {
+       "caption": "Cards and cash? The matching pouch.",
+       "colour": "Blue",
+       "format": "sticker_burst",
+       "layout": "ad",
+       "scene": "p00_s09_sticker_burst"
+      },
+      {
+       "caption": "It's really stylish and versatile.  Love all the compartments too!",
+       "colour": "Purple Red",
+       "layout": "story",
+       "scene": "p00_s10"
+      },
+      {
+       "caption": "The hobo by day, the crossbody by night.",
+       "colour": "Black",
+       "format": "colour_split",
+       "layout": "ad",
+       "scene": "p00_s11_colour_split"
+      },
+      {
+       "caption": "Three matching pieces.",
+       "colour": "Grey",
+       "format": "shop_window_decal",
+       "layout": "ad",
+       "scene": "p00_s12_shop_window_decal"
+      },
+      {
+       "caption": "Scratch-proof leather, season after season.",
+       "layout": "hero",
+       "photo": "3_piece_set_colour_red.jpg"
+      },
+      {
+       "caption": "Water-resistant and scratch-proof.",
+       "colour": "Black",
+       "format": "rubber_stamp",
+       "layout": "ad",
+       "scene": "p00_s14_rubber_stamp"
+      },
+      {
+       "caption": "3 pieces, each with its own job",
+       "colour": "Grey",
+       "layout": "story",
+       "scene": "p00_s15"
+      },
+      {
+       "caption": "CHRISTMAS · 60% OFF",
+       "colour": "Red",
+       "format": "ribbon_banner",
+       "layout": "ad",
+       "scene": "p00_s16_ribbon_banner"
+      },
+      {
+       "caption": "Office · Errands · Dinner",
+       "colour": "Grey",
+       "format": "day_strip",
+       "layout": "ad",
+       "scene": "p00_s17_day_strip"
+      },
+      {
+       "caption": "Three pieces under one bow.",
+       "colour": "Red",
+       "layout": "concept",
+       "scene": "p00_s18"
+      },
+      {
+       "caption": "For Mum",
+       "colour": "Purple Red",
+       "format": "gift_moment",
+       "layout": "ad",
+       "scene": "p00_s19_gift_moment"
+      },
+      {
+       "caption": "Which colour are you?",
+       "layout": "colours"
+      },
+      {
+       "caption": "Mum's Christmas list: done.",
+       "colour": "Blue",
+       "format": "note_card",
+       "layout": "ad",
+       "scene": "p00_s21_note_card"
+      },
+      {
+       "caption": "Everything in the set, 60% off",
+       "colour": "Blue",
+       "layout": "story",
+       "scene": "p00_s22"
+      },
+      {
+       "caption": "TODAY'S SPECIAL",
+       "colour": "Black",
+       "format": "chalk_special",
+       "layout": "ad",
+       "scene": "p00_s23_chalk_special"
+      },
+      {
+       "caption": "Cards and cash, in the matching pouch.",
+       "layout": "hero",
+       "photo": "3_piece_set_colour_black.jpg"
+      },
+      {
+       "caption": "The crossbody, for the days you go light.",
+       "layout": "hero",
+       "photo": "3_piece_set_colour_blue.jpg"
+      }
+     ],
+     "videos": []
     }
    ]
   },

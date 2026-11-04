@@ -1,0 +1,391 @@
+{
+ "product": "Hobo Bag 3-Piece Set",
+ "theme": "black friday",
+ "date": "2026-11-04",
+ "research": [
+  "docs/research/2026-11-story-statics.md: the long-running statics carry 5-6 layers; 4 story statics (hook, quote, list, stack: one per review the set has) carry them in our own type",
+  "Wouter 2026-11-04: every static shows the 60% offer; the offer-led formats (set lineup, sticker, stamp, ribbon, window decal, colour split) and the owner's favourites, each once; one format of our own (the cafe chalkboard special)",
+  "The team 2026-11-04: 'story is not enough': each static names its story and one line that says why (the set's three jobs, the gift for Mum, what 60% off buys, the crossbody hands-free)",
+  "Owner 2026-10-26: sell the set (the 'Best Value' upgrade): every static is the whole set, never one bag; 2 concept scenes also ship as motion stills (snow and steam, firelight)"
+ ],
+ "projects": [],
+ "statics": [
+  {
+   "layout": "ad",
+   "id": "S01",
+   "format": "set_lineup",
+   "story": "value",
+   "idea": "All three pieces on one plinth, the offer above them, the value below.",
+   "words": [
+    "60% OFF",
+    "3 bags. 1 set."
+   ],
+   "scene": {
+    "colour": "Red",
+    "prompt": "The three pieces of the red set, the hobo bag, the crossbody and the pouch, standing in a row on a long oak plinth on a seamless deep forest-green backdrop, crisp studio light, soft shadows."
+   }
+  },
+  {
+   "layout": "story",
+   "id": "S02",
+   "look": "hook",
+   "story": "problem_fix",
+   "feature": "ANTI-THEFT DESIGN",
+   "idea": "The busy Christmas street as the friction; the set's anti-theft design as the answer.",
+   "kicker": "EARLY BLACK FRIDAY",
+   "hook": "Busy shops this Christmas? Keep it all secure.",
+   "highlight": [
+    "secure"
+   ],
+   "sub": "Smart compartments and an anti-theft design.",
+   "review": 6,
+   "scene": {
+    "kind": "worn",
+    "colour": "Black",
+    "prompt": "A woman cropped at the shoulders walking along a busy shopping street at dusk with warm Christmas lights, the black crossbody from the set worn across her coat, shoppers blurred and turned away in the background."
+   }
+  },
+  {
+   "layout": "ad",
+   "id": "S03",
+   "format": "magazine_cover",
+   "story": "ways",
+   "feature": "HOBO + CROSSBODY",
+   "idea": "A LIBRA cover story on one set for every kind of day.",
+   "words": [
+    "LIBRA",
+    "THREE BAGS FOR EVERY KIND OF DAY",
+    "EARLY BLACK FRIDAY: 60% OFF"
+   ],
+   "scene": {
+    "colour": "Black",
+    "prompt": "An editorial fashion cover photo: the black hobo bag, crossbody and pouch arranged on a cream boucle armchair in a bright apartment, soft window light, real textures, calm space at the top for the masthead."
+   }
+  },
+  {
+   "layout": "ad",
+   "id": "S04",
+   "format": "feature_diagram",
+   "story": "proof",
+   "feature": "3 BAGS, 1 PRICE",
+   "idea": "A catalogue diagram: each piece of the set labelled with its job.",
+   "words": [
+    "Three pieces. 60% OFF.",
+    "Hobo: every day",
+    "Crossbody: go light",
+    "Pouch: cards and cash"
+   ],
+   "scene": {
+    "colour": "Grey",
+    "prompt": "The grey hobo bag, crossbody and pouch photographed straight-on side by side on a plain light grey backdrop, centred and large, lots of white space around them."
+   }
+  },
+  {
+   "id": "S05",
+   "layout": "studio",
+   "story": "value",
+   "idea": "The real set packshot with the value in one line.",
+   "headline": "A hobo, a crossbody and a pouch."
+  },
+  {
+   "layout": "ad",
+   "id": "S06",
+   "format": "bold_poster",
+   "story": "value",
+   "idea": "One colour, one huge offer, one line: the whole set is on sale, not just one bag.",
+   "words": [
+    "60% OFF.",
+    "The whole set, not just the bag."
+   ],
+   "scene": {
+    "colour": "Red",
+    "prompt": "The red set, hobo bag, crossbody and pouch, photographed as a clean cut-out with a soft natural drop shadow on a flat deep cobalt background, very large type above them."
+   }
+  },
+  {
+   "layout": "ad",
+   "id": "S07",
+   "format": "pov_behind",
+   "story": "moment",
+   "feature": "HOBO + CROSSBODY",
+   "idea": "POV from behind at the market: the crossbody from the set on, both hands free.",
+   "words": [
+    "POV: crossbody on, apples in both arms",
+    "60% OFF"
+   ],
+   "scene": {
+    "colour": "Blue",
+    "prompt": "A sunny weekend farmers market, she walks away from the camera between the stalls holding a paper bag of apples, the blue crossbody from the set worn across her back towards the camera, shoppers blurred and turned away."
+   }
+  },
+  {
+   "id": "S08",
+   "layout": "concept",
+   "story": "value",
+   "idea": "A snowy morning at the cafe: the whole set on the table, hot chocolate steaming.",
+   "kicker": "EARLY BLACK FRIDAY",
+   "headline": "Cosy days. One set for all of them.",
+   "pill": true,
+   "where": "bottom",
+   "motion": "snow drifts down softly outside the window and steam curls up from the hot chocolate",
+   "scene": {
+    "kind": "object",
+    "colour": "Purple Red",
+    "prompt": "The purple red hobo bag, crossbody and pouch together on a wooden cafe table by a frosted window with snow falling outside, a mug of hot chocolate beside them, warm interior light, the lower part of the frame a calm empty table top."
+   }
+  },
+  {
+   "layout": "ad",
+   "id": "S09",
+   "format": "sticker_burst",
+   "story": "problem_fix",
+   "feature": "MATCHING POUCH",
+   "idea": "Loose cards and cash, answered by the pouch, with a glossy sale sticker.",
+   "words": [
+    "Cards and cash? The matching pouch.",
+    "60% OFF"
+   ],
+   "scene": {
+    "colour": "Blue",
+    "prompt": "The blue set standing on a seamless pale pink backdrop, the matching pouch in front of the hobo bag, soft studio light, a gentle floor shadow, calm space above for the headline."
+   }
+  },
+  {
+   "layout": "story",
+   "id": "S10",
+   "look": "quote",
+   "story": "proof",
+   "feature": "ANTI-THEFT DESIGN",
+   "idea": "A customer's words about style and compartments as the headline over the set at home.",
+   "kicker": "Stylish and versatile",
+   "review": 9,
+   "review_text": "It's really stylish and versatile.  Love all the compartments too!",
+   "scene": {
+    "kind": "object",
+    "colour": "Purple Red",
+    "prompt": "The purple red hobo bag, crossbody and pouch on a velvet armchair by a tall window in warm late-afternoon light, a soft throw over the arm, the floor in front a calm darker shadow."
+   }
+  },
+  {
+   "layout": "ad",
+   "id": "S11",
+   "format": "colour_split",
+   "story": "ways",
+   "feature": "HOBO + CROSSBODY",
+   "idea": "A diagonal split: the offer on black, the two bags by day and by night on the other side.",
+   "words": [
+    "60% OFF",
+    "The hobo by day, the crossbody by night."
+   ],
+   "scene": {
+    "colour": "Black",
+    "prompt": "One half a flat glossy black panel with the words, the other half a real photo of the black hobo bag and crossbody hanging on a wooden coat stand by a front door in soft daylight."
+   }
+  },
+  {
+   "layout": "ad",
+   "id": "S12",
+   "format": "shop_window_decal",
+   "story": "value",
+   "idea": "Window lettering for the sale and the three matching pieces on display.",
+   "words": [
+    "BLACK FRIDAY",
+    "60% OFF",
+    "Three matching pieces."
+   ],
+   "scene": {
+    "colour": "Grey",
+    "prompt": "A boutique shop window at dusk, the grey hobo bag, crossbody and pouch displayed together on a pale stone plinth behind the glass, warm interior light, a faint reflection of street lights on the glass."
+   }
+  },
+  {
+   "id": "S13",
+   "layout": "studio",
+   "story": "proof",
+   "feature": "SCRATCH-PROOF LEATHER",
+   "idea": "The real packshot with the leather as the one line.",
+   "headline": "Scratch-proof leather, season after season."
+  },
+  {
+   "layout": "ad",
+   "id": "S14",
+   "format": "rubber_stamp",
+   "story": "proof",
+   "feature": "SCRATCH-PROOF LEATHER",
+   "idea": "A red stamp of the offer beside the set on kraft paper: the leather line in typewriter type.",
+   "words": [
+    "60% OFF",
+    "Water-resistant and scratch-proof."
+   ],
+   "scene": {
+    "colour": "Black",
+    "prompt": "The black hobo bag, crossbody and pouch lying flat and closed on a sheet of thick kraft paper, a pen and a twist of twine at the edges, soft daylight, the huge red stamp beside the bags."
+   }
+  },
+  {
+   "layout": "story",
+   "id": "S15",
+   "look": "list",
+   "story": "proof",
+   "feature": "3 BAGS, 1 PRICE",
+   "idea": "A numbered list of the three jobs the set does.",
+   "hook": "3 pieces, each with its own job",
+   "highlight": [
+    "own",
+    "job"
+   ],
+   "points": [
+    "The hobo for every day",
+    "The crossbody for going light",
+    "The pouch for cards and cash"
+   ],
+   "review": 7,
+   "scene": {
+    "kind": "object",
+    "colour": "Grey",
+    "prompt": "The grey hobo bag, crossbody and pouch on a wooden entryway bench under coat hooks, morning light from a side window, a pair of boots on the floor."
+   }
+  },
+  {
+   "layout": "ad",
+   "id": "S16",
+   "format": "ribbon_banner",
+   "story": "gift",
+   "idea": "A gold satin ribbon behind the red set: one gift, three pieces.",
+   "words": [
+    "CHRISTMAS · 60% OFF",
+    "One gift. Three pieces."
+   ],
+   "scene": {
+    "colour": "Red",
+    "prompt": "The red hobo bag, crossbody and pouch standing in front of a wide gold satin ribbon that runs across the frame and drapes onto a cream surface in soft folds, pine sprigs, soft light, a calm warm backdrop."
+   }
+  },
+  {
+   "layout": "ad",
+   "id": "S17",
+   "format": "day_strip",
+   "story": "moment",
+   "feature": "HOBO + CROSSBODY",
+   "idea": "Three frames of one day, a different piece of the set in each.",
+   "words": [
+    "Office · Errands · Dinner",
+    "The right piece for each.",
+    "60% OFF"
+   ],
+   "scene": {
+    "colour": "Grey",
+    "prompt": "Three frames of one day: the grey hobo bag on an office chair beside a desk, the grey crossbody worn by a woman seen from behind on a busy street, the grey pouch on a candle-lit dinner table."
+   }
+  },
+  {
+   "id": "S18",
+   "layout": "concept",
+   "story": "gift",
+   "idea": "By the fireplace: the whole set under one bow.",
+   "kicker": "CHRISTMAS GIFTING",
+   "headline": "Three pieces under one bow.",
+   "pill": true,
+   "where": "bottom",
+   "motion": "the fire flickers in the fireplace and the candle flames sway gently",
+   "scene": {
+    "kind": "object",
+    "colour": "Red",
+    "prompt": "The red hobo bag, crossbody and pouch on a rug by a fireplace with a pine garland and lit candles on the mantel, a gold ribbon around the hobo bag's handle, warm firelight, the lower part of the frame a calm empty rug."
+   }
+  },
+  {
+   "layout": "ad",
+   "id": "S19",
+   "format": "gift_moment",
+   "story": "gift",
+   "idea": "A real living room, a handwritten tag on the set: for Mum.",
+   "words": [
+    "For Mum",
+    "Three pieces to unwrap. 60% OFF."
+   ],
+   "scene": {
+    "colour": "Purple Red",
+    "prompt": "A lived-in living room in soft window light, the purple red hobo bag, crossbody and pouch on a sofa with a throw, a satin ribbon around the hobo's handle and a small kraft tag tied to it, a cup of tea on the side table."
+   }
+  },
+  {
+   "id": "S20",
+   "layout": "colours",
+   "idea": "The set in all six colours side by side, the offer pill."
+  },
+  {
+   "layout": "ad",
+   "id": "S21",
+   "format": "note_card",
+   "story": "gift",
+   "idea": "A big handwritten note by the set on the hallway table: the Christmas list is done.",
+   "words": [
+    "Mum's Christmas list: done.",
+    "60% OFF"
+   ],
+   "scene": {
+    "colour": "Blue",
+    "prompt": "A hallway console in soft morning light with a small plant, the blue hobo bag, crossbody and pouch standing zipped, a large cream note card leaning against them close to the camera, a red paper tag tied to the hobo's handle."
+   }
+  },
+  {
+   "layout": "story",
+   "id": "S22",
+   "look": "stack",
+   "story": "value",
+   "idea": "The offer stack: what 60% off buys, piece by piece.",
+   "hook": "Everything in the set, 60% off",
+   "highlight": [
+    "60%"
+   ],
+   "points": [
+    "The hobo bag",
+    "The crossbody",
+    "The matching pouch",
+    "Free US shipping"
+   ],
+   "review": 8,
+   "scene": {
+    "kind": "object",
+    "colour": "Blue",
+    "prompt": "The blue hobo bag, crossbody and pouch on a white linen bedspread beside a folded knit and a cup of coffee, soft daylight from a window, a calm bedroom."
+   }
+  },
+  {
+   "layout": "ad",
+   "id": "S23",
+   "format": "chalk_special",
+   "format_name": "Cafe chalkboard special",
+   "people": "none",
+   "story": "value",
+   "art": "A real cafe chalkboard menu on a wooden easel on a sunny street-side terrace: hand-chalked lettering with real chalk texture and smudges, the offer chalked big as the day's special and the three pieces listed like menu items, the set sitting on a cafe chair beside the easel, warm daylight, nothing glossy.",
+   "idea": "The cafe's special of the day: the three pieces of the set, 60% off.",
+   "words": [
+    "TODAY'S SPECIAL",
+    "Hobo · Crossbody · Pouch",
+    "60% OFF"
+   ],
+   "scene": {
+    "colour": "Black",
+    "prompt": "A street-side cafe terrace in morning sun, a chalkboard easel beside a small table, the black hobo bag, crossbody and pouch on the cafe chair next to it, nobody at the tables."
+   }
+  },
+  {
+   "id": "S24",
+   "layout": "native",
+   "story": "problem_fix",
+   "feature": "MATCHING POUCH",
+   "idea": "A real footage frame of the set, one caption.",
+   "headline": "Cards and cash, in the matching pouch."
+  },
+  {
+   "id": "S25",
+   "layout": "studio",
+   "story": "ways",
+   "feature": "HOBO + CROSSBODY",
+   "idea": "The real packshot with the crossbody as the one line.",
+   "headline": "The crossbody, for the days you go light."
+  }
+ ]
+}

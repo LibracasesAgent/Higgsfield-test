@@ -1,0 +1,436 @@
+{
+ "ads": [
+  {
+   "layout": "ad",
+   "photo": "ai/AS01.png",
+   "format": "set_lineup",
+   "words": [
+    "60% OFF",
+    "3 bags. 1 set."
+   ],
+   "headline": "3 bags. 1 set.",
+   "name": "LC_261104_HoboBag3PieceSet_BlackFriday_B038_S01_lineup",
+   "ai": {
+    "id": "AS01",
+    "scene": "p00_s01_set_lineup",
+    "colour": "Red",
+    "format": "set_lineup"
+   }
+  },
+  {
+   "look": "hook",
+   "hook": "Busy shops this Christmas? Keep it all secure.",
+   "sub": "Smart compartments and an anti-theft design.",
+   "kicker": "EARLY BLACK FRIDAY",
+   "highlight": [
+    "secure"
+   ],
+   "review": 6,
+   "layout": "story",
+   "photo": "ai/AS02.png",
+   "headline": "Busy shops this Christmas? Keep it all secure.",
+   "name": "LC_261104_HoboBag3PieceSet_BlackFriday_B038_S02_hook",
+   "us": "3-Piece Set",
+   "pct": 60,
+   "ai": {
+    "id": "AS02",
+    "scene": "p00_s02",
+    "colour": "Black"
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS03.png",
+   "format": "magazine_cover",
+   "words": [
+    "LIBRA",
+    "THREE BAGS FOR EVERY KIND OF DAY",
+    "EARLY BLACK FRIDAY: 60% OFF"
+   ],
+   "headline": "THREE BAGS FOR EVERY KIND OF DAY",
+   "name": "LC_261104_HoboBag3PieceSet_BlackFriday_B038_S03_magazine",
+   "ai": {
+    "id": "AS03",
+    "scene": "p00_s03_magazine_cover",
+    "colour": "Black",
+    "format": "magazine_cover"
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS04.png",
+   "format": "feature_diagram",
+   "words": [
+    "Three pieces. 60% OFF.",
+    "Hobo: every day",
+    "Crossbody: go light",
+    "Pouch: cards and cash"
+   ],
+   "headline": "Three pieces. 60% OFF.",
+   "name": "LC_261104_HoboBag3PieceSet_BlackFriday_B038_S04_diagram",
+   "ai": {
+    "id": "AS04",
+    "scene": "p00_s04_feature_diagram",
+    "colour": "Grey",
+    "format": "feature_diagram"
+   }
+  },
+  {
+   "layout": "studio",
+   "photo": "site/3_piece_set_colour_blue.jpg",
+   "pct": 60,
+   "name": "LC_261104_HoboBag3PieceSet_BlackFriday_B038_S05_studio",
+   "caption": "A hobo, a crossbody and a pouch."
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS05.png",
+   "format": "bold_poster",
+   "words": [
+    "60% OFF.",
+    "The whole set, not just the bag."
+   ],
+   "headline": "The whole set, not just the bag.",
+   "name": "LC_261104_HoboBag3PieceSet_BlackFriday_B038_S06_poster",
+   "ai": {
+    "id": "AS05",
+    "scene": "p00_s06_bold_poster",
+    "colour": "Red",
+    "format": "bold_poster"
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS06.png",
+   "format": "pov_behind",
+   "words": [
+    "POV: crossbody on, apples in both arms",
+    "60% OFF"
+   ],
+   "headline": "POV: crossbody on, apples in both arms",
+   "name": "LC_261104_HoboBag3PieceSet_BlackFriday_B038_S07_pov",
+   "ai": {
+    "id": "AS06",
+    "scene": "p00_s07_pov_behind",
+    "colour": "Blue",
+    "format": "pov_behind"
+   }
+  },
+  {
+   "layout": "concept",
+   "photo": "ai/AS07.png",
+   "kicker": "EARLY BLACK FRIDAY",
+   "headline": "Cosy days. One set for all of them.",
+   "where": "bottom",
+   "pct": 60,
+   "name": "LC_261104_HoboBag3PieceSet_BlackFriday_B038_S08_concept",
+   "ai": {
+    "id": "AS07",
+    "scene": "p00_s08",
+    "colour": "Purple Red"
+   },
+   "motion": {
+    "id": "AM01",
+    "file": "ai/clips/AM01_c.mp4",
+    "seconds": 5.0
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS08.png",
+   "format": "sticker_burst",
+   "words": [
+    "Cards and cash? The matching pouch.",
+    "60% OFF"
+   ],
+   "headline": "Cards and cash? The matching pouch.",
+   "name": "LC_261104_HoboBag3PieceSet_BlackFriday_B038_S09_burst",
+   "ai": {
+    "id": "AS08",
+    "scene": "p00_s09_sticker_burst",
+    "colour": "Blue",
+    "format": "sticker_burst"
+   }
+  },
+  {
+   "look": "quote",
+   "kicker": "Stylish and versatile",
+   "review": 9,
+   "review_text": "It's really stylish and versatile.  Love all the compartments too!",
+   "layout": "story",
+   "photo": "ai/AS09.png",
+   "headline": "It's really stylish and versatile.  Love all the compartments too!",
+   "name": "LC_261104_HoboBag3PieceSet_BlackFriday_B038_S10_quote",
+   "us": "3-Piece Set",
+   "pct": 60,
+   "ai": {
+    "id": "AS09",
+    "scene": "p00_s10",
+    "colour": "Purple Red"
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS10.png",
+   "format": "colour_split",
+   "words": [
+    "60% OFF",
+    "The hobo by day, the crossbody by night."
+   ],
+   "headline": "The hobo by day, the crossbody by night.",
+   "name": "LC_261104_HoboBag3PieceSet_BlackFriday_B038_S11_split",
+   "ai": {
+    "id": "AS10",
+    "scene": "p00_s11_colour_split",
+    "colour": "Black",
+    "format": "colour_split"
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS11.png",
+   "format": "shop_window_decal",
+   "words": [
+    "BLACK FRIDAY",
+    "60% OFF",
+    "Three matching pieces."
+   ],
+   "headline": "Three matching pieces.",
+   "name": "LC_261104_HoboBag3PieceSet_BlackFriday_B038_S12_decal",
+   "ai": {
+    "id": "AS11",
+    "scene": "p00_s12_shop_window_decal",
+    "colour": "Grey",
+    "format": "shop_window_decal"
+   }
+  },
+  {
+   "layout": "hero",
+   "photo": "site/3_piece_set_colour_red.jpg",
+   "headline": "Scratch-proof leather, season after season.",
+   "cta": "Get the Black Friday deal",
+   "name": "LC_261104_HoboBag3PieceSet_BlackFriday_B038_S13_hero",
+   "pct": 60
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS12.png",
+   "format": "rubber_stamp",
+   "words": [
+    "60% OFF",
+    "Water-resistant and scratch-proof."
+   ],
+   "headline": "Water-resistant and scratch-proof.",
+   "name": "LC_261104_HoboBag3PieceSet_BlackFriday_B038_S14_stamp",
+   "ai": {
+    "id": "AS12",
+    "scene": "p00_s14_rubber_stamp",
+    "colour": "Black",
+    "format": "rubber_stamp"
+   }
+  },
+  {
+   "look": "list",
+   "hook": "3 pieces, each with its own job",
+   "highlight": [
+    "own",
+    "job"
+   ],
+   "points": [
+    "The hobo for every day",
+    "The crossbody for going light",
+    "The pouch for cards and cash"
+   ],
+   "review": 7,
+   "layout": "story",
+   "photo": "ai/AS13.png",
+   "headline": "3 pieces, each with its own job",
+   "name": "LC_261104_HoboBag3PieceSet_BlackFriday_B038_S15_list",
+   "us": "3-Piece Set",
+   "pct": 60,
+   "ai": {
+    "id": "AS13",
+    "scene": "p00_s15",
+    "colour": "Grey"
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS14.png",
+   "format": "ribbon_banner",
+   "words": [
+    "CHRISTMAS · 60% OFF",
+    "One gift. Three pieces."
+   ],
+   "headline": "CHRISTMAS · 60% OFF",
+   "name": "LC_261104_HoboBag3PieceSet_BlackFriday_B038_S16_ribbon",
+   "ai": {
+    "id": "AS14",
+    "scene": "p00_s16_ribbon_banner",
+    "colour": "Red",
+    "format": "ribbon_banner"
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS15.png",
+   "format": "day_strip",
+   "words": [
+    "Office · Errands · Dinner",
+    "The right piece for each.",
+    "60% OFF"
+   ],
+   "headline": "Office · Errands · Dinner",
+   "name": "LC_261104_HoboBag3PieceSet_BlackFriday_B038_S17_daystrip",
+   "ai": {
+    "id": "AS15",
+    "scene": "p00_s17_day_strip",
+    "colour": "Grey",
+    "format": "day_strip"
+   }
+  },
+  {
+   "layout": "concept",
+   "photo": "ai/AS16.png",
+   "kicker": "CHRISTMAS GIFTING",
+   "headline": "Three pieces under one bow.",
+   "where": "bottom",
+   "pct": 60,
+   "name": "LC_261104_HoboBag3PieceSet_BlackFriday_B038_S18_concept",
+   "ai": {
+    "id": "AS16",
+    "scene": "p00_s18",
+    "colour": "Red"
+   },
+   "motion": {
+    "id": "AM02",
+    "file": "ai/clips/AM02_c.mp4",
+    "seconds": 5.0
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS17.png",
+   "format": "gift_moment",
+   "words": [
+    "For Mum",
+    "Three pieces to unwrap. 60% OFF."
+   ],
+   "headline": "For Mum",
+   "name": "LC_261104_HoboBag3PieceSet_BlackFriday_B038_S19_gifttag",
+   "ai": {
+    "id": "AS17",
+    "scene": "p00_s19_gift_moment",
+    "colour": "Purple Red",
+    "format": "gift_moment"
+   }
+  },
+  {
+   "layout": "colours",
+   "photos": [
+    {
+     "src": "site/3_piece_set_colour_grey.jpg",
+     "name": "Grey"
+    },
+    {
+     "src": "site/3_piece_set_colour_purple_red.jpg",
+     "name": "Purple Red"
+    },
+    {
+     "src": "site/3_piece_set_colour_red.jpg",
+     "name": "Red"
+    },
+    {
+     "src": "site/3_piece_set_colour_black.jpg",
+     "name": "Black"
+    },
+    {
+     "src": "site/3_piece_set_colour_blue.jpg",
+     "name": "Blue"
+    }
+   ],
+   "headline": "Which colour are you?",
+   "sub": "Bag, crossbody and pouch in one set.",
+   "cta": "Get the Black Friday deal",
+   "name": "LC_261104_HoboBag3PieceSet_BlackFriday_B038_S20_colours",
+   "pct": 60
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS18.png",
+   "format": "note_card",
+   "words": [
+    "Mum's Christmas list: done.",
+    "60% OFF"
+   ],
+   "headline": "Mum's Christmas list: done.",
+   "name": "LC_261104_HoboBag3PieceSet_BlackFriday_B038_S21_note",
+   "ai": {
+    "id": "AS18",
+    "scene": "p00_s21_note_card",
+    "colour": "Blue",
+    "format": "note_card"
+   }
+  },
+  {
+   "look": "stack",
+   "hook": "Everything in the set, 60% off",
+   "highlight": [
+    "60%"
+   ],
+   "points": [
+    "The hobo bag",
+    "The crossbody",
+    "The matching pouch",
+    "Free US shipping"
+   ],
+   "review": 8,
+   "layout": "story",
+   "photo": "ai/AS19.png",
+   "headline": "Everything in the set, 60% off",
+   "name": "LC_261104_HoboBag3PieceSet_BlackFriday_B038_S22_stack",
+   "us": "3-Piece Set",
+   "pct": 60,
+   "ai": {
+    "id": "AS19",
+    "scene": "p00_s22",
+    "colour": "Blue"
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS20.png",
+   "format": "chalk_special",
+   "words": [
+    "TODAY'S SPECIAL",
+    "Hobo · Crossbody · Pouch",
+    "60% OFF"
+   ],
+   "headline": "TODAY'S SPECIAL",
+   "name": "LC_261104_HoboBag3PieceSet_BlackFriday_B038_S23_chalkspecial",
+   "ai": {
+    "id": "AS20",
+    "scene": "p00_s23_chalk_special",
+    "colour": "Black",
+    "format": "chalk_special"
+   }
+  },
+  {
+   "layout": "hero",
+   "photo": "site/3_piece_set_colour_black.jpg",
+   "headline": "Cards and cash, in the matching pouch.",
+   "cta": "Get the Black Friday deal",
+   "name": "LC_261104_HoboBag3PieceSet_BlackFriday_B038_S24_hero",
+   "pct": 60
+  },
+  {
+   "layout": "hero",
+   "photo": "site/3_piece_set_colour_blue.jpg",
+   "headline": "The crossbody, for the days you go light.",
+   "cta": "Get the Black Friday deal",
+   "name": "LC_261104_HoboBag3PieceSet_BlackFriday_B038_S25_hero",
+   "pct": 60
+  }
+ ],
+ "card_photos": []
+}

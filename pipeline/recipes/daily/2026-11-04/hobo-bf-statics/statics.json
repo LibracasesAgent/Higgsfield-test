@@ -1,0 +1,440 @@
+{
+ "ads": [
+  {
+   "layout": "ad",
+   "photo": "ai/AS01.png",
+   "format": "giant_numerals",
+   "words": [
+    "50%",
+    "OFF",
+    "Shoulder, hand or crossbody."
+   ],
+   "headline": "Shoulder, hand or crossbody.",
+   "name": "LC_261104_HoboBag_BlackFriday_B037_S01_numerals",
+   "ai": {
+    "id": "AS01",
+    "scene": "p00_s01_giant_numerals",
+    "colour": "Galaxy Black",
+    "format": "giant_numerals"
+   }
+  },
+  {
+   "look": "hook",
+   "hook": "Digging for your keys at the front door?",
+   "sub": "A gold side zip keeps them one pull away.",
+   "kicker": "EARLY BLACK FRIDAY",
+   "highlight": [
+    "keys"
+   ],
+   "review": 10,
+   "layout": "story",
+   "photo": "ai/AS02.png",
+   "headline": "Digging for your keys at the front door?",
+   "name": "LC_261104_HoboBag_BlackFriday_B037_S02_hook",
+   "us": "Hobo Bag",
+   "pct": 50,
+   "gift": "free pouch wallet",
+   "ai": {
+    "id": "AS02",
+    "scene": "p00_s02",
+    "colour": "Galaxy Black"
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS03.png",
+   "format": "swing_tag",
+   "words": [
+    "50% OFF",
+    "Her gift, with a free pouch wallet."
+   ],
+   "headline": "Her gift, with a free pouch wallet.",
+   "name": "LC_261104_HoboBag_BlackFriday_B037_S03_swingtag",
+   "ai": {
+    "id": "AS03",
+    "scene": "p00_s03_swing_tag",
+    "colour": "Burgundy",
+    "format": "swing_tag"
+   }
+  },
+  {
+   "layout": "concept",
+   "photo": "ai/AS04.png",
+   "kicker": "EARLY BLACK FRIDAY",
+   "headline": "Rainy day? Water-resistant leather.",
+   "where": "bottom",
+   "pct": 50,
+   "name": "LC_261104_HoboBag_BlackFriday_B037_S04_concept",
+   "ai": {
+    "id": "AS04",
+    "scene": "p00_s04",
+    "colour": "Dark Sienna"
+   },
+   "motion": {
+    "id": "AM01",
+    "file": "ai/clips/AM01_c.mp4",
+    "seconds": 5.0
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS05.png",
+   "format": "sticker_burst",
+   "words": [
+    "Phone in reach, not at the bottom.",
+    "50% OFF"
+   ],
+   "headline": "Phone in reach, not at the bottom.",
+   "name": "LC_261104_HoboBag_BlackFriday_B037_S05_burst",
+   "ai": {
+    "id": "AS05",
+    "scene": "p00_s05_sticker_burst",
+    "colour": "Grey",
+    "format": "sticker_burst"
+   }
+  },
+  {
+   "look": "quote",
+   "kicker": "Christmas, sorted",
+   "review": 9,
+   "review_text": "Got this bag for my daughter for Christmas and she adores it.",
+   "layout": "story",
+   "photo": "ai/AS06.png",
+   "headline": "Got this bag for my daughter for Christmas and she adores it.",
+   "name": "LC_261104_HoboBag_BlackFriday_B037_S06_quote",
+   "us": "Hobo Bag",
+   "pct": 50,
+   "gift": "free pouch wallet",
+   "ai": {
+    "id": "AS06",
+    "scene": "p00_s06",
+    "colour": "Burgundy"
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS07.png",
+   "format": "colour_split",
+   "words": [
+    "50% OFF",
+    "Keys, phone, cards: each in its place."
+   ],
+   "headline": "Keys, phone, cards: each in its place.",
+   "name": "LC_261104_HoboBag_BlackFriday_B037_S07_split",
+   "ai": {
+    "id": "AS07",
+    "scene": "p00_s07_colour_split",
+    "colour": "Dark Sienna",
+    "format": "colour_split"
+   }
+  },
+  {
+   "layout": "studio",
+   "photo": "site/hobo_bag_colour_red.jpg",
+   "pct": 50,
+   "name": "LC_261104_HoboBag_BlackFriday_B037_S08_studio",
+   "caption": "Bag + free pouch wallet, half price."
+  },
+  {
+   "layout": "native",
+   "photo": "photos/frames/F_1Ni2LrpV6g_0049.jpg",
+   "caption": "Gold Side Zips.",
+   "pct": 50,
+   "name": "LC_261104_HoboBag_BlackFriday_B037_S09_native",
+   "frame": {
+    "clip": "1Ni2LrpV6gsxH-smicF6r01i4SlwQkmeH",
+    "t": 4.92
+   }
+  },
+  {
+   "look": "list",
+   "hook": "3 reasons it goes everywhere with you",
+   "highlight": [
+    "everywhere"
+   ],
+   "points": [
+    "A hidden pocket that sits flat against you",
+    "Two gold side zips for keys and phone",
+    "Two straps: shoulder, hand or crossbody"
+   ],
+   "review": 7,
+   "layout": "story",
+   "photo": "ai/AS09.png",
+   "headline": "3 reasons it goes everywhere with you",
+   "name": "LC_261104_HoboBag_BlackFriday_B037_S10_list",
+   "us": "Hobo Bag",
+   "pct": 50,
+   "gift": "free pouch wallet",
+   "ai": {
+    "id": "AS09",
+    "scene": "p00_s10",
+    "colour": "Galaxy Black"
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS10.png",
+   "format": "shop_window_decal",
+   "words": [
+    "BLACK FRIDAY",
+    "50% OFF",
+    "Bag + free pouch wallet."
+   ],
+   "headline": "Bag + free pouch wallet.",
+   "name": "LC_261104_HoboBag_BlackFriday_B037_S11_decal",
+   "ai": {
+    "id": "AS10",
+    "scene": "p00_s11_shop_window_decal",
+    "colour": "Dark Sienna",
+    "format": "shop_window_decal"
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS11.png",
+   "format": "taped_question",
+   "words": [
+    "Phone ringing at the bottom?",
+    "Side zip. One pull.",
+    "50% OFF"
+   ],
+   "headline": "Phone ringing at the bottom?",
+   "name": "LC_261104_HoboBag_BlackFriday_B037_S12_question",
+   "ai": {
+    "id": "AS11",
+    "scene": "p00_s12_taped_question",
+    "colour": "Red",
+    "format": "taped_question"
+   }
+  },
+  {
+   "layout": "native",
+   "photo": "photos/frames/F_1f7uQE4ewr_0009.jpg",
+   "caption": "Shoulder, hand or crossbody: you pick.",
+   "pct": 50,
+   "name": "LC_261104_HoboBag_BlackFriday_B037_S13_native",
+   "frame": {
+    "clip": "1f7uQE4ewrad8utPEPVYK5qDEafvfBD7n",
+    "t": 0.94
+   }
+  },
+  {
+   "look": "hook",
+   "hook": "Packed train? Your cards stay right against you.",
+   "sub": "The hidden back pocket sits flat against your body.",
+   "highlight": [
+    "cards"
+   ],
+   "review": 6,
+   "layout": "story",
+   "photo": "ai/AS12.png",
+   "headline": "Packed train? Your cards stay right against you.",
+   "name": "LC_261104_HoboBag_BlackFriday_B037_S14_hook",
+   "us": "Hobo Bag",
+   "pct": 50,
+   "gift": "free pouch wallet",
+   "ai": {
+    "id": "AS12",
+    "scene": "p00_s14",
+    "colour": "Red"
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS13.png",
+   "format": "rubber_stamp",
+   "words": [
+    "HALF PRICE",
+    "Free US shipping. Free pouch wallet."
+   ],
+   "headline": "Free US shipping. Free pouch wallet.",
+   "name": "LC_261104_HoboBag_BlackFriday_B037_S15_stamp",
+   "ai": {
+    "id": "AS13",
+    "scene": "p00_s15_rubber_stamp",
+    "colour": "Galaxy Black",
+    "format": "rubber_stamp"
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS14.png",
+   "format": "ribbon_banner",
+   "words": [
+    "EARLY BLACK FRIDAY \u00b7 50% OFF",
+    "Ready for under the tree."
+   ],
+   "headline": "Ready for under the tree.",
+   "name": "LC_261104_HoboBag_BlackFriday_B037_S16_ribbon",
+   "ai": {
+    "id": "AS14",
+    "scene": "p00_s16_ribbon_banner",
+    "colour": "Grey",
+    "format": "ribbon_banner"
+   }
+  },
+  {
+   "look": "versus",
+   "hook": "Your old tote vs the Hobo Bag",
+   "highlight": [
+    "Hobo",
+    "Bag"
+   ],
+   "rows": [
+    [
+     "Open top",
+     "Zips shut"
+    ],
+    [
+     "Everything sinks",
+     "Smart compartments"
+    ],
+    [
+     "One way to carry",
+     "3 ways to wear"
+    ]
+   ],
+   "them": "Open tote",
+   "review": 2,
+   "layout": "story",
+   "photo": "ai/AS15.png",
+   "headline": "Your old tote vs the Hobo Bag",
+   "name": "LC_261104_HoboBag_BlackFriday_B037_S17_versus",
+   "us": "Hobo Bag",
+   "pct": 50,
+   "gift": "free pouch wallet",
+   "ai": {
+    "id": "AS15",
+    "scene": "p00_s17",
+    "colour": "Grey"
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS16.png",
+   "format": "paper_shopping_bag",
+   "words": [
+    "50% OFF",
+    "Errands, desk, dinner: one bag."
+   ],
+   "headline": "Errands, desk, dinner: one bag.",
+   "name": "LC_261104_HoboBag_BlackFriday_B037_S18_shopper",
+   "ai": {
+    "id": "AS16",
+    "scene": "p00_s18_paper_shopping_bag",
+    "colour": "Burgundy",
+    "format": "paper_shopping_bag"
+   }
+  },
+  {
+   "layout": "concept",
+   "photo": "ai/AS17.png",
+   "kicker": "CHRISTMAS GIFTING",
+   "headline": "Under the tree, ready for every day.",
+   "where": "bottom",
+   "pct": 50,
+   "name": "LC_261104_HoboBag_BlackFriday_B037_S19_concept",
+   "ai": {
+    "id": "AS17",
+    "scene": "p00_s19",
+    "colour": "Red"
+   },
+   "motion": {
+    "id": "AM02",
+    "file": "ai/clips/AM02_c.mp4",
+    "seconds": 5.0
+   }
+  },
+  {
+   "layout": "native",
+   "photo": "photos/frames/F_1Y2oMC5e85_0071.jpg",
+   "caption": "A matching pouch wallet, free with the bag.",
+   "pct": 50,
+   "name": "LC_261104_HoboBag_BlackFriday_B037_S20_native",
+   "frame": {
+    "clip": "1Y2oMC5e85phr54mvZG21xJhEj0dTaI2J",
+    "t": 7.1
+   }
+  },
+  {
+   "look": "quote",
+   "kicker": "Lots of pockets",
+   "review": 12,
+   "review_text": "It's spacious, lightweight, and super functional with lots of pockets.",
+   "layout": "story",
+   "photo": "photos/frames/F_1uD0qy0zej_0003.jpg",
+   "headline": "It's spacious, lightweight, and super functional with lots of pockets.",
+   "name": "LC_261104_HoboBag_BlackFriday_B037_S21_quote",
+   "us": "Hobo Bag",
+   "pct": 50,
+   "gift": "free pouch wallet",
+   "frame": {
+    "clip": "1uD0qy0zejwR5ivs-GDmykUYJAyeQEiJf",
+    "t": 0.36
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS19.png",
+   "format": "window_frost",
+   "words": [
+    "50% OFF",
+    "Cold morning. Everything zipped in."
+   ],
+   "headline": "Cold morning. Everything zipped in.",
+   "name": "LC_261104_HoboBag_BlackFriday_B037_S22_windowfrost",
+   "ai": {
+    "id": "AS19",
+    "scene": "p00_s22_window_frost",
+    "colour": "Grey",
+    "format": "window_frost"
+   }
+  },
+  {
+   "layout": "studio",
+   "photo": "site/hobo_bag_colour_grey.jpg",
+   "name": "LC_261104_HoboBag_BlackFriday_B037_S23_studio",
+   "pct": 50,
+   "caption": "Keys left, phone right. Gold side zips."
+  },
+  {
+   "look": "stack",
+   "hook": "Everything you get for half price",
+   "highlight": [
+    "half",
+    "price"
+   ],
+   "points": [
+    "The Hobo Bag",
+    "Matching pouch wallet, free",
+    "Free US shipping",
+    "1-year warranty"
+   ],
+   "review": 8,
+   "layout": "story",
+   "photo": "ai/AS20.png",
+   "headline": "Everything you get for half price",
+   "name": "LC_261104_HoboBag_BlackFriday_B037_S24_stack",
+   "us": "Hobo Bag",
+   "pct": 50,
+   "gift": "free pouch wallet",
+   "ai": {
+    "id": "AS20",
+    "scene": "p00_s24",
+    "colour": "Blue"
+   }
+  },
+  {
+   "layout": "native",
+   "photo": "photos/frames/F_12Ec7mfUk6_0025.jpg",
+   "caption": "Soft leather that only gets better.",
+   "pct": 50,
+   "name": "LC_261104_HoboBag_BlackFriday_B037_S25_native",
+   "frame": {
+    "clip": "12Ec7mfUk6Ys9vxFA04eGQpmpcsLiPcbS",
+    "t": 2.54
+   }
+  }
+ ],
+ "card_photos": []
+}

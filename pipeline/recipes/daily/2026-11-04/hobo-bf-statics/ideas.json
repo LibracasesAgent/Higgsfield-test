@@ -1,0 +1,418 @@
+{
+ "product": "Hobo Bag",
+ "theme": "black friday",
+ "date": "2026-11-04",
+ "research": [
+  "docs/research/2026-11-story-statics.md: the long-running statics carry 5-6 layers; 7 story statics (hook, quote, list, versus, stack) carry them in our own type, each with a verbatim review",
+  "Wouter 2026-11-04: every static shows the offer; the 9 offer-led samples 'could work': the offer-led and story formats, each once, plus one format of our own (the window mist)",
+  "The team 2026-11-04: 'story is not enough': every static names its story (problem_fix 5, moment 4, proof 5, gift 4, value 4, ways 3) and one line that says why",
+  "Five story scenes are the approved sample stills of 4 Nov (same prompts, gated and looked at); 2 concept scenes also ship as motion stills (rain on the window, fairy lights)"
+ ],
+ "projects": [],
+ "statics": [
+  {
+   "layout": "ad",
+   "id": "S01",
+   "format": "giant_numerals",
+   "story": "ways",
+   "feature": "3 WAYS TO WEAR",
+   "idea": "The numerals bigger than the bag, its long strap looped beside it: three ways to carry, half price.",
+   "words": [
+    "50%",
+    "OFF",
+    "Shoulder, hand or crossbody."
+   ],
+   "scene": {
+    "colour": "Galaxy Black",
+    "prompt": "The black bag standing upright with its long crossbody strap laid in a loose loop beside it on a seamless tomato-red backdrop, the huge cream numerals behind it, crisp studio light, a soft floor shadow."
+   }
+  },
+  {
+   "layout": "story",
+   "id": "S02",
+   "look": "hook",
+   "story": "problem_fix",
+   "feature": "GOLD SIDE ZIPS",
+   "idea": "The front-door fumble as the hook, the hand at the side zip as the answer, a review that says the same.",
+   "kicker": "EARLY BLACK FRIDAY",
+   "hook": "Digging for your keys at the front door?",
+   "highlight": [
+    "keys"
+   ],
+   "sub": "A gold side zip keeps them one pull away.",
+   "review": 10,
+   "scene": {
+    "kind": "hand",
+    "colour": "Galaxy Black",
+    "prompt": "A woman's hand cropped at the wrist taking a ring of keys out of the gold side zip of the black bag hanging from her shoulder, in front of a dark green front door at dusk, a warm porch light above."
+   }
+  },
+  {
+   "layout": "ad",
+   "id": "S03",
+   "format": "swing_tag",
+   "story": "gift",
+   "idea": "An oversized tag on the strap carries the deal and the gift that comes with it.",
+   "words": [
+    "50% OFF",
+    "Her gift, with a free pouch wallet."
+   ],
+   "scene": {
+    "colour": "Burgundy",
+    "prompt": "The burgundy bag and its matching pouch wallet on a cream linen tablecloth by a window beside a small wrapped present, an oversized kraft swing tag tied to the strap with cotton string, warm morning light."
+   }
+  },
+  {
+   "id": "S04",
+   "layout": "concept",
+   "story": "problem_fix",
+   "feature": "SOFT LEATHER",
+   "idea": "A rainy morning at the cafe window: the leather that shrugs off the weather.",
+   "kicker": "EARLY BLACK FRIDAY",
+   "headline": "Rainy day? Water-resistant leather.",
+   "pill": true,
+   "where": "bottom",
+   "motion": "raindrops run slowly down the window glass and steam curls up from the latte",
+   "scene": {
+    "kind": "object",
+    "colour": "Dark Sienna",
+    "prompt": "The brown bag standing on a small wooden cafe table beside a rain-streaked window, a latte in a white cup next to it, soft grey daylight, the lower part of the frame a calm empty table top."
+   }
+  },
+  {
+   "layout": "ad",
+   "id": "S05",
+   "format": "sticker_burst",
+   "story": "problem_fix",
+   "feature": "GOLD SIDE ZIPS",
+   "idea": "The phone that sinks to the bottom, fixed by the side zip, with a glossy sale sticker.",
+   "words": [
+    "Phone in reach, not at the bottom.",
+    "50% OFF"
+   ],
+   "scene": {
+    "colour": "Grey",
+    "prompt": "The grey bag standing on a seamless powder-blue backdrop, a phone peeking from its gold side zip, soft studio light, a gentle floor shadow, calm space above for the headline."
+   }
+  },
+  {
+   "layout": "story",
+   "id": "S06",
+   "look": "quote",
+   "story": "gift",
+   "idea": "The customer's own Christmas story as the headline over the gift moment.",
+   "kicker": "Christmas, sorted",
+   "review": 9,
+   "review_text": "Got this bag for my daughter for Christmas and she adores it.",
+   "scene": {
+    "kind": "object",
+    "colour": "Burgundy",
+    "prompt": "The burgundy bag on a cream sofa beside a decorated Christmas tree with warm fairy lights, a cream satin ribbon tied around its handle, an open gift box and folded wrapping paper on the rug below, cosy evening light."
+   }
+  },
+  {
+   "layout": "ad",
+   "id": "S07",
+   "format": "colour_split",
+   "story": "proof",
+   "feature": "SMART COMPARTMENTS",
+   "idea": "A diagonal split: the offer loud on cobalt, the bag on a cafe chair on the other side.",
+   "words": [
+    "50% OFF",
+    "Keys, phone, cards: each in its place."
+   ],
+   "scene": {
+    "colour": "Dark Sienna",
+    "prompt": "One half a flat deep cobalt panel with the words, the other half a real photo of the brown bag hanging on a wooden cafe chair in soft daylight, the bag crossing the split line slightly."
+   }
+  },
+  {
+   "id": "S08",
+   "layout": "studio",
+   "story": "value",
+   "idea": "The real packshot with the deal in one line.",
+   "headline": "Bag + free pouch wallet, half price."
+  },
+  {
+   "layout": "ad",
+   "id": "S09",
+   "format": "neon_offer",
+   "story": "moment",
+   "feature": "HIDDEN BACK POCKET",
+   "idea": "A night out under a neon sale sign: the cards stay in the pocket against you.",
+   "words": [
+    "50% OFF",
+    "Night out. Cards flat against you."
+   ],
+   "scene": {
+    "colour": "Blue",
+    "prompt": "The blue bag standing on a dark wooden bar stool in a moody bar corner, a red neon sign glowing on the brick wall above it, the bag lit by its own soft white spotlight, a little haze."
+   }
+  },
+  {
+   "layout": "story",
+   "id": "S10",
+   "look": "list",
+   "story": "proof",
+   "feature": "HIDDEN BACK POCKET",
+   "idea": "A numbered buyer's list over the bag on the commute.",
+   "hook": "3 reasons it goes everywhere with you",
+   "highlight": [
+    "everywhere"
+   ],
+   "points": [
+    "A hidden pocket that sits flat against you",
+    "Two gold side zips for keys and phone",
+    "Two straps: shoulder, hand or crossbody"
+   ],
+   "review": 7,
+   "scene": {
+    "kind": "worn",
+    "colour": "Galaxy Black",
+    "prompt": "A woman cropped at the shoulders walking through a bright train station concourse, the black bag worn on her shoulder in front of her coat, travellers blurred in the background, morning light through tall windows."
+   }
+  },
+  {
+   "layout": "ad",
+   "id": "S11",
+   "format": "shop_window_decal",
+   "story": "value",
+   "idea": "The boutique window lettering: the sale and what comes with the bag.",
+   "words": [
+    "BLACK FRIDAY",
+    "50% OFF",
+    "Bag + free pouch wallet."
+   ],
+   "scene": {
+    "colour": "Dark Sienna",
+    "prompt": "A boutique shop window at dusk, the brown bag and its pouch wallet displayed alone on a cream stone plinth behind the glass, warm interior light, a faint reflection of the street lights on the glass."
+   }
+  },
+  {
+   "layout": "ad",
+   "id": "S12",
+   "format": "taped_question",
+   "story": "problem_fix",
+   "feature": "GOLD SIDE ZIPS",
+   "idea": "The ringing phone at the bottom of the bag as a taped question, the side zip as the answer.",
+   "words": [
+    "Phone ringing at the bottom?",
+    "Side zip. One pull.",
+    "50% OFF"
+   ],
+   "scene": {
+    "colour": "Red",
+    "prompt": "A woman's hand cropped at the wrist pulling a phone out of the gold side zip of the red bag resting on a cafe bench, warm window light, a coat sleeve visible."
+   }
+  },
+  {
+   "id": "S13",
+   "layout": "native",
+   "story": "ways",
+   "feature": "3 WAYS TO WEAR",
+   "idea": "A real footage frame of the bag worn, one caption.",
+   "headline": "Shoulder, hand or crossbody: you pick."
+  },
+  {
+   "layout": "story",
+   "id": "S14",
+   "look": "hook",
+   "story": "moment",
+   "feature": "HIDDEN BACK POCKET",
+   "idea": "The packed carriage as the moment; the pocket that sits against you as the answer.",
+   "hook": "Packed train? Your cards stay right against you.",
+   "highlight": [
+    "cards"
+   ],
+   "sub": "The hidden back pocket sits flat against your body.",
+   "review": 6,
+   "scene": {
+    "kind": "worn",
+    "colour": "Red",
+    "prompt": "A woman cropped at the shoulders standing in a busy subway carriage holding the overhead rail, the red bag on her shoulder towards the camera, warm carriage light, other commuters blurred and turned away."
+   }
+  },
+  {
+   "layout": "ad",
+   "id": "S15",
+   "format": "rubber_stamp",
+   "story": "value",
+   "idea": "HALF PRICE stamped on kraft paper next to the bag, the free extras in typewriter type.",
+   "words": [
+    "HALF PRICE",
+    "Free US shipping. Free pouch wallet."
+   ],
+   "scene": {
+    "colour": "Galaxy Black",
+    "prompt": "The black bag lying flat and closed beside its pouch wallet on a sheet of warm kraft paper, a fountain pen and a twist of red ribbon at the edges, soft daylight, the huge red stamp beside the bag."
+   }
+  },
+  {
+   "layout": "ad",
+   "id": "S16",
+   "format": "ribbon_banner",
+   "story": "gift",
+   "idea": "A satin sale ribbon behind the bag: ready for under the tree.",
+   "words": [
+    "EARLY BLACK FRIDAY · 50% OFF",
+    "Ready for under the tree."
+   ],
+   "scene": {
+    "colour": "Grey",
+    "prompt": "The grey bag standing in front of a wide deep-red satin ribbon that runs across the frame and drapes onto a cream surface in soft folds, a few pine sprigs, soft directional light, a calm warm backdrop."
+   }
+  },
+  {
+   "layout": "story",
+   "id": "S17",
+   "look": "versus",
+   "story": "problem_fix",
+   "feature": "SMART COMPARTMENTS",
+   "idea": "Us vs them: the open tote everyone carries against the bag that zips shut.",
+   "hook": "Your old tote vs the Hobo Bag",
+   "highlight": [
+    "Hobo",
+    "Bag"
+   ],
+   "them": "Open tote",
+   "rows": [
+    [
+     "Open top",
+     "Zips shut"
+    ],
+    [
+     "Everything sinks",
+     "Smart compartments"
+    ],
+    [
+     "One way to carry",
+     "3 ways to wear"
+    ]
+   ],
+   "review": 2,
+   "scene": {
+    "kind": "object",
+    "colour": "Grey",
+    "prompt": "The grey bag standing zipped on a light oak cafe table by a big window, a latte in a white cup and a phone beside it, soft morning light, a calm blurred street outside."
+   }
+  },
+  {
+   "layout": "ad",
+   "id": "S18",
+   "format": "paper_shopping_bag",
+   "story": "ways",
+   "feature": "3 WAYS TO WEAR",
+   "idea": "A sale shopping bag beside the hobo: one bag from errands to dinner.",
+   "words": [
+    "50% OFF",
+    "Errands, desk, dinner: one bag."
+   ],
+   "scene": {
+    "colour": "Burgundy",
+    "prompt": "The burgundy bag standing in front of a crisp unbranded cream paper shopping bag printed with the offer, folded tissue paper at its top, on a warm wooden shop counter, soft store light."
+   }
+  },
+  {
+   "id": "S19",
+   "layout": "concept",
+   "story": "gift",
+   "idea": "By the tree in the evening: the gift that gets used every day.",
+   "kicker": "CHRISTMAS GIFTING",
+   "headline": "Under the tree, ready for every day.",
+   "pill": true,
+   "where": "bottom",
+   "motion": "the fairy lights on the tree twinkle softly and a candle flame flickers",
+   "scene": {
+    "kind": "object",
+    "colour": "Red",
+    "prompt": "The red bag standing on a wooden console beside a decorated Christmas tree with warm fairy lights and a lit candle in a glass, cosy evening light, the lower part of the frame a calm empty console top."
+   }
+  },
+  {
+   "layout": "ad",
+   "id": "S20",
+   "format": "pov_sticker",
+   "story": "moment",
+   "feature": "HIDDEN BACK POCKET",
+   "idea": "An evening Christmas market from behind, the bag on her shoulder, a sale sticker on the print.",
+   "words": [
+    "Christmas market crowds. Cards stay close.",
+    "50% OFF"
+   ],
+   "scene": {
+    "colour": "Dark Sienna",
+    "prompt": "A busy evening Christmas market with wooden stalls and warm string lights, she walks away from the camera with the brown bag on her shoulder towards the camera, shoppers blurred and turned away, the upper part of the frame dark night sky and lights, calm for the caption."
+   }
+  },
+  {
+   "layout": "story",
+   "id": "S21",
+   "look": "quote",
+   "story": "proof",
+   "feature": "SMART COMPARTMENTS",
+   "idea": "A customer's words about the pockets over a real footage frame.",
+   "kicker": "Lots of pockets",
+   "review": 12,
+   "review_text": "It's spacious, lightweight, and super functional with lots of pockets."
+  },
+  {
+   "layout": "ad",
+   "id": "S22",
+   "format": "window_frost",
+   "format_name": "Fingertip in the window mist",
+   "people": "none",
+   "story": "moment",
+   "feature": "SMART COMPARTMENTS",
+   "art": "A real photo through a cafe window misted with condensation on a cold morning: the offer written large by a fingertip in the mist on the glass, real drips running from the letters, the bag on a table inside behind the glass in warm interior light, a soft reflection of the street; the short story line set in clean white type in a calm corner of the glass.",
+   "idea": "A cold morning: the offer written by a fingertip in the window mist, the bag warm inside.",
+   "words": [
+    "50% OFF",
+    "Cold morning. Everything zipped in."
+   ],
+   "scene": {
+    "colour": "Grey",
+    "prompt": "Seen from the street through a misted cafe window, the grey bag standing zipped on a small round table inside beside a steaming mug, warm amber light inside, cold blue morning outside, nobody in the cafe."
+   }
+  },
+  {
+   "id": "S23",
+   "layout": "studio",
+   "story": "proof",
+   "feature": "GOLD SIDE ZIPS",
+   "idea": "The real packshot with the side zips as the one line.",
+   "headline": "Keys left, phone right. Gold side zips."
+  },
+  {
+   "layout": "story",
+   "id": "S24",
+   "look": "stack",
+   "story": "value",
+   "idea": "The offer stack: what half price buys, laid out plainly.",
+   "hook": "Everything you get for half price",
+   "highlight": [
+    "half",
+    "price"
+   ],
+   "points": [
+    "The Hobo Bag",
+    "Matching pouch wallet, free",
+    "Free US shipping",
+    "1-year warranty"
+   ],
+   "review": 8,
+   "scene": {
+    "kind": "object",
+    "colour": "Blue",
+    "prompt": "The blue bag and its matching pouch wallet on a white linen bedspread beside a folded cream knit and a cup of coffee, soft daylight from a window, a calm bedroom."
+   }
+  },
+  {
+   "id": "S25",
+   "layout": "native",
+   "story": "proof",
+   "feature": "SOFT LEATHER",
+   "idea": "A real footage frame of the leather up close, one caption.",
+   "headline": "Soft leather that only gets better."
+  }
+ ]
+}

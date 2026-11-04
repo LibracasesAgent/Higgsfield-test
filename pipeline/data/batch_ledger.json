@@ -2911,7 +2911,345 @@
      "label": "Passport: back pocket"
     }
    ]
+  },
+  {
+   "id": "B037",
+   "n": 37,
+   "rev": 1,
+   "date": "2026-11-04",
+   "product": "Hobo Bag",
+   "theme": "BlackFriday",
+   "pipeline": "catalog",
+   "request": "25 statics for the Hobo Bag and 25 statics for the Hobo Bag 3-Piece Set, Black Friday, no videos. Top tier: about a third story statics, about half AI-designed offer-led ads with a story line, the rest real. Every static shows the offer big. About 2 motion stills per bag.",
+   "statics": 25,
+   "projects": 0,
+   "hooks": 4,
+   "seed": 1,
+   "status": "uploaded",
+   "folder": "B037 – 2026-11-04 – Hobo Bag BlackFriday – 25 statics",
+   "link": "https://drive.google.com/drive/folders/1ARGPPxDWusSPIMy0RXWRH_-7diEfwvS0",
+   "ads": [
+    {
+     "name": "LC_261104_HoboBag_BlackFriday_B037_S01_numerals",
+     "kind": "static",
+     "fp": "s|ad|AS01.png|shoulder, hand or crossbody.",
+     "label": "Shoulder, hand or crossbody."
+    },
+    {
+     "name": "LC_261104_HoboBag_BlackFriday_B037_S02_hook",
+     "kind": "static",
+     "fp": "s|story|AS02.png|digging for your keys at the front door?",
+     "label": "Digging for your keys at the front door?"
+    },
+    {
+     "name": "LC_261104_HoboBag_BlackFriday_B037_S03_swingtag",
+     "kind": "static",
+     "fp": "s|ad|AS03.png|her gift, with a free pouch wallet.",
+     "label": "Her gift, with a free pouch wallet."
+    },
+    {
+     "name": "LC_261104_HoboBag_BlackFriday_B037_S04_concept",
+     "kind": "static",
+     "fp": "s|concept|AS04.png|rainy day? water-resistant leather.",
+     "label": "Rainy day? Water-resistant leather."
+    },
+    {
+     "name": "LC_261104_HoboBag_BlackFriday_B037_S05_burst",
+     "kind": "static",
+     "fp": "s|ad|AS05.png|phone in reach, not at the bottom.",
+     "label": "Phone in reach, not at the bottom."
+    },
+    {
+     "name": "LC_261104_HoboBag_BlackFriday_B037_S06_quote",
+     "kind": "static",
+     "fp": "s|story|AS06.png|got this bag for my daughter for christmas and she adores it.",
+     "label": "Got this bag for my daughter for Christmas and she adores it."
+    },
+    {
+     "name": "LC_261104_HoboBag_BlackFriday_B037_S07_split",
+     "kind": "static",
+     "fp": "s|ad|AS07.png|keys, phone, cards: each in its place.",
+     "label": "Keys, phone, cards: each in its place."
+    },
+    {
+     "name": "LC_261104_HoboBag_BlackFriday_B037_S08_studio",
+     "kind": "static",
+     "fp": "s|studio|hobo_bag_colour_red.jpg|bag + free pouch wallet, half price.",
+     "label": "Bag + free pouch wallet, half price."
+    },
+    {
+     "name": "LC_261104_HoboBag_BlackFriday_B037_S09_native",
+     "kind": "static",
+     "fp": "s|native|F_1Ni2LrpV6g_0049.jpg|gold side zips.",
+     "label": "Gold Side Zips."
+    },
+    {
+     "name": "LC_261104_HoboBag_BlackFriday_B037_S10_list",
+     "kind": "static",
+     "fp": "s|story|AS09.png|3 reasons it goes everywhere with you",
+     "label": "3 reasons it goes everywhere with you"
+    },
+    {
+     "name": "LC_261104_HoboBag_BlackFriday_B037_S11_decal",
+     "kind": "static",
+     "fp": "s|ad|AS10.png|bag + free pouch wallet.",
+     "label": "Bag + free pouch wallet."
+    },
+    {
+     "name": "LC_261104_HoboBag_BlackFriday_B037_S12_question",
+     "kind": "static",
+     "fp": "s|ad|AS11.png|phone ringing at the bottom?",
+     "label": "Phone ringing at the bottom?"
+    },
+    {
+     "name": "LC_261104_HoboBag_BlackFriday_B037_S13_native",
+     "kind": "static",
+     "fp": "s|native|F_1f7uQE4ewr_0009.jpg|shoulder, hand or crossbody: you pick.",
+     "label": "Shoulder, hand or crossbody: you pick."
+    },
+    {
+     "name": "LC_261104_HoboBag_BlackFriday_B037_S14_hook",
+     "kind": "static",
+     "fp": "s|story|AS12.png|packed train? your cards stay right against you.",
+     "label": "Packed train? Your cards stay right against you."
+    },
+    {
+     "name": "LC_261104_HoboBag_BlackFriday_B037_S15_stamp",
+     "kind": "static",
+     "fp": "s|ad|AS13.png|free us shipping. free pouch wallet.",
+     "label": "Free US shipping. Free pouch wallet."
+    },
+    {
+     "name": "LC_261104_HoboBag_BlackFriday_B037_S16_ribbon",
+     "kind": "static",
+     "fp": "s|ad|AS14.png|ready for under the tree.",
+     "label": "Ready for under the tree."
+    },
+    {
+     "name": "LC_261104_HoboBag_BlackFriday_B037_S17_versus",
+     "kind": "static",
+     "fp": "s|story|AS15.png|your old tote vs the hobo bag",
+     "label": "Your old tote vs the Hobo Bag"
+    },
+    {
+     "name": "LC_261104_HoboBag_BlackFriday_B037_S18_shopper",
+     "kind": "static",
+     "fp": "s|ad|AS16.png|errands, desk, dinner: one bag.",
+     "label": "Errands, desk, dinner: one bag."
+    },
+    {
+     "name": "LC_261104_HoboBag_BlackFriday_B037_S19_concept",
+     "kind": "static",
+     "fp": "s|concept|AS17.png|under the tree, ready for every day.",
+     "label": "Under the tree, ready for every day."
+    },
+    {
+     "name": "LC_261104_HoboBag_BlackFriday_B037_S20_native",
+     "kind": "static",
+     "fp": "s|native|F_1Y2oMC5e85_0071.jpg|a matching pouch wallet, free with the bag.",
+     "label": "A matching pouch wallet, free with the bag."
+    },
+    {
+     "name": "LC_261104_HoboBag_BlackFriday_B037_S21_quote",
+     "kind": "static",
+     "fp": "s|story|F_1uD0qy0zej_0003.jpg|it's spacious, lightweight, and super functional with lots of pockets.",
+     "label": "It's spacious, lightweight, and super functional with lots of pockets."
+    },
+    {
+     "name": "LC_261104_HoboBag_BlackFriday_B037_S22_windowfrost",
+     "kind": "static",
+     "fp": "s|ad|AS19.png|cold morning. everything zipped in.",
+     "label": "Cold morning. Everything zipped in."
+    },
+    {
+     "name": "LC_261104_HoboBag_BlackFriday_B037_S23_studio",
+     "kind": "static",
+     "fp": "s|studio|hobo_bag_colour_grey.jpg|keys left, phone right. gold side zips.",
+     "label": "Keys left, phone right. Gold side zips."
+    },
+    {
+     "name": "LC_261104_HoboBag_BlackFriday_B037_S24_stack",
+     "kind": "static",
+     "fp": "s|story|AS20.png|everything you get for half price",
+     "label": "Everything you get for half price"
+    },
+    {
+     "name": "LC_261104_HoboBag_BlackFriday_B037_S25_native",
+     "kind": "static",
+     "fp": "s|native|F_12Ec7mfUk6_0025.jpg|soft leather that only gets better.",
+     "label": "Soft leather that only gets better."
+    }
+   ]
+  },
+  {
+   "id": "B038",
+   "n": 38,
+   "rev": 1,
+   "date": "2026-11-04",
+   "product": "Hobo Bag 3-Piece Set",
+   "theme": "BlackFriday",
+   "pipeline": "catalog",
+   "request": "25 statics for the Hobo Bag and 25 statics for the Hobo Bag 3-Piece Set, Black Friday, no videos. Top tier: about a third story statics, about half AI-designed offer-led ads with a story line, the rest real. Every static shows the offer big. About 2 motion stills per bag.",
+   "statics": 25,
+   "projects": 0,
+   "hooks": 4,
+   "seed": 1,
+   "status": "uploaded",
+   "folder": "B038 – 2026-11-04 – Hobo Bag 3-Piece Set BlackFriday – 25 statics",
+   "link": "https://drive.google.com/drive/folders/1rYl7BKLngE019C-wj3wBle5tm01fQb5l",
+   "ads": [
+    {
+     "name": "LC_261104_HoboBag3PieceSet_BlackFriday_B038_S01_lineup",
+     "kind": "static",
+     "fp": "s|ad|AS01.png|3 bags. 1 set.",
+     "label": "3 bags. 1 set."
+    },
+    {
+     "name": "LC_261104_HoboBag3PieceSet_BlackFriday_B038_S02_hook",
+     "kind": "static",
+     "fp": "s|story|AS02.png|busy shops this christmas? keep it all secure.",
+     "label": "Busy shops this Christmas? Keep it all secure."
+    },
+    {
+     "name": "LC_261104_HoboBag3PieceSet_BlackFriday_B038_S03_magazine",
+     "kind": "static",
+     "fp": "s|ad|AS03.png|three bags for every kind of day",
+     "label": "THREE BAGS FOR EVERY KIND OF DAY"
+    },
+    {
+     "name": "LC_261104_HoboBag3PieceSet_BlackFriday_B038_S04_diagram",
+     "kind": "static",
+     "fp": "s|ad|AS04.png|three pieces. 60% off.",
+     "label": "Three pieces. 60% OFF."
+    },
+    {
+     "name": "LC_261104_HoboBag3PieceSet_BlackFriday_B038_S05_studio",
+     "kind": "static",
+     "fp": "s|studio|3_piece_set_colour_blue.jpg|a hobo, a crossbody and a pouch.",
+     "label": "A hobo, a crossbody and a pouch."
+    },
+    {
+     "name": "LC_261104_HoboBag3PieceSet_BlackFriday_B038_S06_poster",
+     "kind": "static",
+     "fp": "s|ad|AS05.png|the whole set, not just the bag.",
+     "label": "The whole set, not just the bag."
+    },
+    {
+     "name": "LC_261104_HoboBag3PieceSet_BlackFriday_B038_S07_pov",
+     "kind": "static",
+     "fp": "s|ad|AS06.png|pov: crossbody on, apples in both arms",
+     "label": "POV: crossbody on, apples in both arms"
+    },
+    {
+     "name": "LC_261104_HoboBag3PieceSet_BlackFriday_B038_S08_concept",
+     "kind": "static",
+     "fp": "s|concept|AS07.png|cosy days. one set for all of them.",
+     "label": "Cosy days. One set for all of them."
+    },
+    {
+     "name": "LC_261104_HoboBag3PieceSet_BlackFriday_B038_S09_burst",
+     "kind": "static",
+     "fp": "s|ad|AS08.png|cards and cash? the matching pouch.",
+     "label": "Cards and cash? The matching pouch."
+    },
+    {
+     "name": "LC_261104_HoboBag3PieceSet_BlackFriday_B038_S10_quote",
+     "kind": "static",
+     "fp": "s|story|AS09.png|it's really stylish and versatile.  love all the compartments too!",
+     "label": "It's really stylish and versatile.  Love all the compartments too!"
+    },
+    {
+     "name": "LC_261104_HoboBag3PieceSet_BlackFriday_B038_S11_split",
+     "kind": "static",
+     "fp": "s|ad|AS10.png|the hobo by day, the crossbody by night.",
+     "label": "The hobo by day, the crossbody by night."
+    },
+    {
+     "name": "LC_261104_HoboBag3PieceSet_BlackFriday_B038_S12_decal",
+     "kind": "static",
+     "fp": "s|ad|AS11.png|three matching pieces.",
+     "label": "Three matching pieces."
+    },
+    {
+     "name": "LC_261104_HoboBag3PieceSet_BlackFriday_B038_S13_hero",
+     "kind": "static",
+     "fp": "s|hero|3_piece_set_colour_red.jpg|scratch-proof leather, season after season.",
+     "label": "Scratch-proof leather, season after season."
+    },
+    {
+     "name": "LC_261104_HoboBag3PieceSet_BlackFriday_B038_S14_stamp",
+     "kind": "static",
+     "fp": "s|ad|AS12.png|water-resistant and scratch-proof.",
+     "label": "Water-resistant and scratch-proof."
+    },
+    {
+     "name": "LC_261104_HoboBag3PieceSet_BlackFriday_B038_S15_list",
+     "kind": "static",
+     "fp": "s|story|AS13.png|3 pieces, each with its own job",
+     "label": "3 pieces, each with its own job"
+    },
+    {
+     "name": "LC_261104_HoboBag3PieceSet_BlackFriday_B038_S16_ribbon",
+     "kind": "static",
+     "fp": "s|ad|AS14.png|christmas · 60% off",
+     "label": "CHRISTMAS · 60% OFF"
+    },
+    {
+     "name": "LC_261104_HoboBag3PieceSet_BlackFriday_B038_S17_daystrip",
+     "kind": "static",
+     "fp": "s|ad|AS15.png|office · errands · dinner",
+     "label": "Office · Errands · Dinner"
+    },
+    {
+     "name": "LC_261104_HoboBag3PieceSet_BlackFriday_B038_S18_concept",
+     "kind": "static",
+     "fp": "s|concept|AS16.png|three pieces under one bow.",
+     "label": "Three pieces under one bow."
+    },
+    {
+     "name": "LC_261104_HoboBag3PieceSet_BlackFriday_B038_S19_gifttag",
+     "kind": "static",
+     "fp": "s|ad|AS17.png|for mum",
+     "label": "For Mum"
+    },
+    {
+     "name": "LC_261104_HoboBag3PieceSet_BlackFriday_B038_S20_colours",
+     "kind": "static",
+     "fp": "s|colours||which colour are you?",
+     "label": "Which colour are you?"
+    },
+    {
+     "name": "LC_261104_HoboBag3PieceSet_BlackFriday_B038_S21_note",
+     "kind": "static",
+     "fp": "s|ad|AS18.png|mum's christmas list: done.",
+     "label": "Mum's Christmas list: done."
+    },
+    {
+     "name": "LC_261104_HoboBag3PieceSet_BlackFriday_B038_S22_stack",
+     "kind": "static",
+     "fp": "s|story|AS19.png|everything in the set, 60% off",
+     "label": "Everything in the set, 60% off"
+    },
+    {
+     "name": "LC_261104_HoboBag3PieceSet_BlackFriday_B038_S23_chalkspecial",
+     "kind": "static",
+     "fp": "s|ad|AS20.png|today's special",
+     "label": "TODAY'S SPECIAL"
+    },
+    {
+     "name": "LC_261104_HoboBag3PieceSet_BlackFriday_B038_S24_hero",
+     "kind": "static",
+     "fp": "s|hero|3_piece_set_colour_black.jpg|cards and cash, in the matching pouch.",
+     "label": "Cards and cash, in the matching pouch."
+    },
+    {
+     "name": "LC_261104_HoboBag3PieceSet_BlackFriday_B038_S25_hero",
+     "kind": "static",
+     "fp": "s|hero|3_piece_set_colour_blue.jpg|the crossbody, for the days you go light.",
+     "label": "The crossbody, for the days you go light."
+    }
+   ]
   }
  ],
- "next": 37
+ "next": 39
 }
