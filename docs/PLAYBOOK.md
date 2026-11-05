@@ -733,6 +733,10 @@ Holiday | Link | Drive | Script | Status | Launched (Meta) | Meta status | Insig
   edit typed during the seconds of a sync can be lost.
 - **Fix by hand:** `python3 pipeline/tracker.py sync --batch B045` (or `--all` to refresh every batch); `show` counts.
 - B001's files sit in the Outputs folder "oct 3 test" (`folder_overrides`), whose subfolder of B012 statics is skipped.
+- **Sharing:** the tracker sheet and the Drive `Outputs` folder are both "anyone with the link can edit" (2026-11-05: Julian could open
+  the sheet but not one file it links to, because Outputs was private to agent@libracases.com; the team chose link sharing with edit).
+  Every batch folder inherits it. Links are not searchable, but anyone who has one can rename, move or delete in Outputs. Drive keeps
+  deleted files 30 days in the owner's trash.
 - The old detailed tabs (Read me, Batches, Ads with spend / impressions / ROAS formulas, Summary, Data Sources) were replaced on
   2026-11-05: nobody had typed in them, and Julian keeps the numbers in Ads Manager.
 
