@@ -120,12 +120,16 @@ CLOSER = ({"zoom": [1.3, 1.36], "focus": [0.5, 0.55]}, {"zoom": [1.6, 1.66], "fo
 FIN = (".", "?", "!")
 TALK = "TALK"                          # a pick that is the presenter on camera (presenter.py: her take is the block's picture and voice)
 TALK_HEAD, TALK_TAIL = 0.10, 0.22      # a take is cut this long before her first word and after her last (s)
-TALK_FRAME = {"zoom": [1.12, 1.18], "focus": [0.5, 0.42]}   # every second shot of her is this closer framing (a jump cut, as creators edit)
-TALK_GAP, TALK_KEEP = 0.30, 0.16       # (Julian 2026-11-04 on B028 P02: "this pause loses momentum"; her takes held 0.6-1.3 s between most
-#                                        sentences, ~15 s of 70) a pause in a take longer than TALK_GAP is cut to TALK_KEEP (talk_prep)
-TALK_ZOOM = 1.08                       # every second piece of a take after such a cut is framed this much closer (a punch-in, not a glitch)
+TALK_FRAME = {}                        # (was a closer framing with a slow push-in on every second shot of her: the team 2026-11-05 on B039,
+#                                        "too many cuts and zoom-ins, really unnatural": she stays in one framing, her shots run on)
+TALK_GAP, TALK_KEEP = 0.60, 0.38       # (Julian 2026-11-04 on B028 P02: "this pause loses momentum": her takes held 0.6-1.4 s at sentence ends)
+#                                        a pause longer than TALK_GAP is cut to TALK_KEEP, a natural breath; shorter ones (a list's commas,
+#                                        0.3-0.5 s) stay (2026-11-05: cutting every pause over 0.3 s to 0.16 s broke her cadence)
+TALK_ZOOM = 1.0                        # (no punch-in at those cuts: 'zoom-ins really unnatural')
+TALK_XFADE = 0.10                      # those cuts are a short dissolve (picture and sound), never a hard jump of her head
+PRES_IDEAL, PRES_LONG = 3.0, 4.6       # a presenter video's shots (make_batch.PRES_IDEAL): a talking head is cut less often
 TALK_DB = -38.0                        # speech edges: the audio stays over this level (dBFS) until the word really ends / begins
-TP_VERSION = 1                         # bump when talk_prep's chain changes: prepared takes are made again
+TP_VERSION = 2                         # bump when talk_prep's chain changes: prepared takes are made again
 PACE_IDEAL = {"slow": 2.4, "fast": 1.6}                     # a story beat's shot length (a block's "pace", the sheet's beat); else SHOT_IDEAL
 PROOF_IDEAL, PROOF_LONG, PROOF_BEAT = 2.8, 3.8, 0.5         # a "proof" block (owner 2026-10-27): its shots held ~2.8 s (up to 3.8), then
 #                                                             PROOF_BEAT s of air after the line: the picture holds, its own sound plays
@@ -230,17 +234,24 @@ def talk_prep(d, name, text=None):
     wh = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries", "stream=width,height", "-of", "csv=p=0", src],
                         capture_output=True, text=True, check=True).stdout.strip().split(",")
     W_, H_ = int(wh[0]), int(wh[1])
-    vf, af, cat = [], [], []
+    vf, af = [], []
     for i, (x, y) in enumerate(spans):
         z = TALK_ZOOM if i % 2 else 1.0
         cw, chh = int(W_ / z) // 2 * 2, int(H_ / z) // 2 * 2
         crop = f",crop={cw}:{chh}:{(W_ - cw) // 2}:{int((H_ - chh) * 0.4)},scale={W_}:{H_}" if z != 1.0 else ""
-        vf.append(f"[0:v]trim=start={x}:end={y},setpts=PTS-STARTPTS{crop},setsar=1[v{i}]")
-        af.append(f"[0:a]atrim=start={x}:end={y},asetpts=PTS-STARTPTS,afade=t=in:d=0.008,afade=t=out:st={max(y - x - 0.008, 0):.3f}:d=0.008[a{i}]")
-        cat.append(f"[v{i}][a{i}]")
-    fc = ";".join(vf + af) + ";" + "".join(cat) + f"concat=n={len(spans)}:v=1:a=1[v][a]"
+        vf.append(f"[0:v]trim=start={x}:end={y},setpts=PTS-STARTPTS{crop},setsar=1,fps=30,format=yuv420p[v{i}]")
+        af.append(f"[0:a]atrim=start={x}:end={y},asetpts=PTS-STARTPTS,aresample=48000[a{i}]")
+    d_ = TALK_XFADE
+    chain, vl, al, off = [], "v0", "a0", 0.0
+    for i in range(1, len(spans)):      # each join a short dissolve: the picture and the voice overlap d_ s
+        off += (spans[i - 1][1] - spans[i - 1][0]) - d_
+        chain.append(f"[{vl}][v{i}]xfade=transition=fade:duration={d_}:offset={off:.3f}[vx{i}]")
+        chain.append(f"[{al}][a{i}]acrossfade=d={d_}:c1=tri:c2=tri[ax{i}]")
+        vl, al = f"vx{i}", f"ax{i}"
+    fc = ";".join(vf + af + chain)          # (len(spans) > 1 here: a take without a long pause was returned as it is above)
+    maps = [f"[{vl}]", f"[{al}]"]
     tmp = f"{p}.{os.getpid()}.mp4"
-    subprocess.run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-i", src, "-filter_complex", fc, "-map", "[v]", "-map", "[a]",
+    subprocess.run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-i", src, "-filter_complex", fc, "-map", maps[0], "-map", maps[1],
                     "-c:v", "libx264", "-preset", "medium", "-crf", "16", "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", "-y", tmp],
                    check=True)
     os.replace(tmp, p)
@@ -633,9 +644,9 @@ def ugc_shots(d, jobs, segs, spare_all, top):
         drop = None if k == 0 else []             # the hook's spare shots are its own; picks the body does not need
         pools = [jb["own"]] if k == 0 else [jb["own"], spare_all]
         proof = bool(blk.get("proof")) and k > 0  # (owner 2026-10-27) the proof shot held longer; a story beat's own pace
-        ideal = PROOF_IDEAL if proof else PACE_IDEAL.get(blk.get("pace"), SHOT_IDEAL)
+        ideal = PROOF_IDEAL if proof else PRES_IDEAL if jb.get("talk") else PACE_IDEAL.get(blk.get("pace"), SHOT_IDEAL)
         got = plan_block(sh, jb["t"], jb["L"], jb["lead"], ws, [list(x) for x in blk["broll"]], pools, drop, jb.get("talk"),
-                         ideal=ideal, long=PROOF_LONG if proof else SHOT_LONG, text=blk.get("text"))
+                         ideal=ideal, long=PROOF_LONG if proof else PRES_LONG if jb.get("talk") else SHOT_LONG, text=blk.get("text"))
         if proof:                                 # its first real clip plays its own sound (natural_sounds)
             tsrc = (jb.get("talk") or {}).get("src")
             first = next((x for x in got if not str(x["src"]).lower().endswith(STILL) and x["src"] != tsrc), None)

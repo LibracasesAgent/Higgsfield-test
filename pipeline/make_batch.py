@@ -147,6 +147,9 @@ UGC_HOOK_PAD = 0.2  # storyboard.UGC_HOOK_PAD
 UGC_END_PAD = 0.6   # storyboard.END_PAD (remix.TAIL + 0.2)
 PRES_WPS = 2.55     # a presenter's words per second (presenter.py: Kling's own voice, at a natural pace)
 PRES_SPEED = round(PRES_WPS / UGC_WPS, 3)   # (ugc_slots counts a take's words at UGC_WPS x this)
+PRES_IDEAL, PRES_LONG = 3.0, 4.6    # a presenter video's shots (storyboard.PRES_IDEAL / PRES_LONG): a talking head is cut less often than a
+#                                     voice-over (Julian 2026-11-04: "B-roll 3-5 s max, talking head can be longer"; the team 2026-11-05 on
+#                                     B039: "too many cuts and zoom-ins, really unnatural")
 PRES_OVERLAY_Y = 960   # (px of 1920) where the label / tag / offer pill sit over a presenter video: under her chin, above the bag
 PRES_EDGE = 0.32    # storyboard.TALK_HEAD + TALK_TAIL: what is kept of a take before her first and after her last word
 
@@ -973,7 +976,7 @@ def hook_type_of(text):
     return "price" if re.search(r"%|\bpercent\b|half price|\bdeals?\b|\bsales?\b|\boff\b|\bprice\b", text or "", re.I) else "promise"
 
 
-def ugc_slots(text, speed=UGC_SPEED, pad=UGC_JOIN):
+def ugc_slots(text, speed=UGC_SPEED, pad=UGC_JOIN, ideal=None, long=None):
     """[(the words, shot pieces)] one entry per shot of a ugc take as storyboard will cut it: the take's words timed at the
     estimated pace, phrase_cuts / shot_groups / ugc_pieces of storyboard (a long group is split into pieces: the 2nd, 3rd ...
     take a spare shot). plan matches the footage to these words and orders a block's picks by them."""
@@ -984,8 +987,8 @@ def ugc_slots(text, speed=UGC_SPEED, pad=UGC_JOIN):
         t += 1 / (UGC_WPS * speed) + (0.07 if w.rstrip("\"')")[-1:] in ".?!" else 0.03 if w[-1:] in ",;:" else 0.0)
     L = t + UGC_TAKE + pad
     out = []
-    for a, b in sb.shot_groups(sb.phrase_cuts(ws, 0.0), L):
-        pts = sb.ugc_pieces(a, b, ws, 0.0)
+    for a, b in sb.shot_groups(sb.phrase_cuts(ws, 0.0), L, ideal or sb.SHOT_IDEAL, long or sb.SHOT_LONG):
+        pts = sb.ugc_pieces(a, b, ws, 0.0, long or sb.SHOT_LONG)
         lo, hi = (a + sb.CUT_LEAD - 0.001 if a > 0 else -1.0), b + sb.CUT_LEAD - 0.001     # (a cut is CUT_LEAD s before its word)
         out.append((" ".join(w["w"] for w in ws if lo <= w["s"] < hi), len(pts) - 1))
     return out or [(text, 1)]
@@ -2890,7 +2893,7 @@ def plan(a):
 
         def framed(i, k):             # the k-th showing of one moment: a closer framing, so it reads as another shot
             x = pick(lib[i]["p"])
-            if not k or not x:
+            if not k or not x or pres:  # (a presenter video: no zoom-ins at all, the team 2026-11-05: "really unnatural")
                 return x
             ex, z = dict(x[3]) if len(x) > 3 else {}, (1.2, 1.32)[(k - 1) % 2]
             if str(x[0]).lower().endswith(STILLS):
@@ -2906,11 +2909,14 @@ def plan(a):
                     for x in sorted(sw, key=lambda x: pos[x[0]])]                                          # it where that name is said
         cterms = {"hook": kw_terms("hero hand")}      # (an opening on hands moves; a bag hanging on a chair does not)
         texts = [("hook", hook)] + [(c["id"], c["text"]) for c in chs]
-        slots = {k_: ugc_slots(t_, PRES_SPEED if pres else ugc_speed, UGC_HOOK_PAD if k_ == "hook" else UGC_JOIN) for k_, t_ in texts}
+        slots = {k_: ugc_slots(t_, PRES_SPEED if pres else ugc_speed, UGC_HOOK_PAD if k_ == "hook" else UGC_JOIN,
+                               *((PRES_IDEAL, PRES_LONG) if pres else ())) for k_, t_ in texts}
 
-        def on_cam(ch, j, n):         # is group j of n of this block the presenter on camera? (a chapter's `cam`; the hook: all of it)
-            cam = "full" if ch is None else (ch.get("cam") or "open")
-            return cam == "full" or (cam in ("open", "both") and j == 0) or (cam in ("close", "both") and j == n - 1)
+        def on_cam(ch, j, n, own=None):   # is group j of n of this block the presenter on camera? The hook and a `cam: full` chapter: all
+            cam = "full" if ch is None else (ch.get("cam") or "open")      # of it; else (2026-11-05, B039 'too many cuts') she stays on camera
+            if cam == "full":                                               # unless the phrase's own words name something to see (the strap,
+                return True                                                 # the clasp, the inside): B-roll only for those
+            return max((own or {}).values() or [0.0]) < shotmatch.SPECIFIC
         main, prev, nsl = {}, None, 0
         for k_, t_ in texts:          # the hook first (its shots are its own), then each chapter's phrases in order
             ch = next((c for c in chs if c["id"] == k_), None)
@@ -2928,7 +2934,7 @@ def plan(a):
             for j in order_:
                 st_ = sl_[j][0]
                 at_ = sum(len(w_.split()) for w_, _ in sl_[:j])          # the word this phrase starts on: render cuts there, on the
-                if pres and on_cam(ch, j, len(sl_)):                     # voice's real timing (Julian 2026-11-04: the coffee shot came
+                if pres and on_cam(ch, j, len(sl_), own_w[j]):           # voice's real timing (Julian 2026-11-04: the coffee shot came
                     got_[j] = ["TALK", 0, 1.0, {"at": at_}]              # a phrase late)
                     continue
                 nb_ = got_.get(j - 1) or got_.get(j + 1)
