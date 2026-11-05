@@ -435,8 +435,8 @@ python3 pipeline/make_batch.py plan <flags> --ideas $OUT/ideas.json --request "<
 5. **Upload:** `python3 pipeline/make_batch.py upload --out $OUT` (no `--name`: the folder is `B045 – <date> – <product> – N statics + M
    projects`, made from the plan) → prints the Drive folder link (`drive_path`: where it landed), the batch id and the uploaded ads; once
    the whole batch is in Drive it also writes `<prefix>_ads.csv` there (one row per ad, an empty `launched` column for the media buyer)
-   and adds the batch and its ads to the ad tracker sheet (`pipeline/tracker.py`, `tracker` in the output; it keeps everything the team
-   typed there). The run report says `ad tracker NOT updated` when it failed: run `python3 pipeline/tracker.py sync --batch B045`.
+   and adds the batch to the ad tracker sheet (`pipeline/tracker.py`, `tracker` in the output: one tab in the media buyer's format, a
+   banner per batch, a row per static / video project, Status `🔍 Review` until the team sets `✅ Ready`; it keeps everything typed there). The run report says `ad tracker NOT updated` when it failed: run `python3 pipeline/tracker.py sync --batch B045`.
    Higgsfield `balance` again.
 6. **Reply** (one short message, the pipeline's format above): **batch id (B045) and Drive folder link** · the ad tracker link · any `repeat:` warning (an ad
    an earlier batch already had: say which) · statics one line each · videos

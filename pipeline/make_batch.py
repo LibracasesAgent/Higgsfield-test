@@ -4329,14 +4329,14 @@ def upload(a):
     except Exception as e:  # noqa: BLE001 - the ads are in Drive: a log that can't be written must not stop the run report
         print(f"WARNING novelty log not updated: {type(e).__name__}: {e}", file=sys.stderr)
     tracked = None
-    if lbt.get("id") and uploaded:   # the ad tracker sheet (tracker.py): this batch's row and one row per ad, by itself
+    if lbt.get("id") and uploaded:   # the ad tracker sheet (tracker.py): this batch's banner and a row per static / video project
         try:
             import tracker
             held = [re.sub(r"^.*_B\d{3}(?:r\d+)?_", "", s_["name"]) for s_ in skipped]      # 'S13_native'
             tnote = (f"Not uploaded: {', '.join(held)} (QA)." if held else "") + \
                     (f" Not rendered yet: {', '.join(pending)}." if pending else "")
             tracked = tracker.sync([lbt["id"]], notes={lbt["id"]: tnote.strip()}, quiet=True)
-            notes.append(f"ad tracker updated ({len(tracked['batches_added'])} batch row(s), {tracked['ads_added']} ad row(s) added): "
+            notes.append(f"ad tracker updated ({len(tracked['batches_added'])} batch(es), {tracked['ads_added']} row(s) added): "
                          f"{tracked['link']}")
         except Exception as e:  # noqa: BLE001 - the ads are in Drive: the tracker can be synced later (tracker.py sync)
             notes.append(f"ad tracker NOT updated ({type(e).__name__}: {e}): python3 pipeline/tracker.py sync --batch {lbt['id']}")

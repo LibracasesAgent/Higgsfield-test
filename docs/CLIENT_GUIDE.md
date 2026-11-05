@@ -129,10 +129,12 @@ better: two batches of one bag made at the same time can't see each other's hook
 
 ## The ad tracker
 
-Every batch and every ad is listed in the Google Sheet [Libra Cases – Ad Tracker](https://docs.google.com/spreadsheets/d/1jznf-Vq_AFWulDGjHFhVZUFuK6iF8qLHsvD6g-WGX7c/edit)
-(Drive, Ad Creative Pipeline), with links to the files. Each new batch adds itself when it is uploaded. Fill in the yellow columns
-(launched, spend, purchases, revenue, verdict, what worked) from Ads Manager; hook rate, CTR, CPA and ROAS work themselves out, and
-the Batches and Summary tabs add them up. You can add your own columns and tabs; the updates keep them (not hand-made cell colours).
+Every batch is listed in the Google Sheet [Libra Cases – Ad Tracker](https://docs.google.com/spreadsheets/d/1jznf-Vq_AFWulDGjHFhVZUFuK6iF8qLHsvD6g-WGX7c/edit)
+(Drive, Ad Creative Pipeline), one tab, newest batch on top: **Date | Project | Holiday | Link | Drive | Script | Status | Launched
+(Meta) | Meta status | Insights**. Under each batch's blue banner there is one row per static and one per video project (its 4 hook
+versions in one folder). Each new batch adds itself when it is uploaded, with Status `🔍 Review`: look at it, then set `✅ Ready`
+(or `🛠 Needs fix` / `⛔ Skip`); Ready means it may go live. The media buyer fills Launched (Meta), Meta status and Insights. You can
+add your own columns, rows and tabs; the updates keep them (not hand-made cell colours).
 
 ## The Hobo 2.0: one bag, two straps
 

@@ -696,21 +696,28 @@ The owner on B017: "the bag is not in the correct dimensions. It's not the corre
   photos and the footage show two different bags: the client should know.
 - **A new product with two looks:** add it to `designs.json` (`site`, `library`, `bank_sections`, `designs`), tag the clips.
 
-### 4h. The ad tracker sheet (owner 2026-10-25: "keep track of everything ... add columns to give insights on what did well")
+### 4h. The ad tracker sheet (owner 2026-10-25; one simple tab in the media buyer's format, Julian 2026-11-04)
 
-`pipeline/tracker.py`, `data/tracker.json`: the Google Sheet "Libra Cases – Ad Tracker" in Drive / Ad Creative Pipeline. Tabs: Batches
-(one row per batch: date, product, theme, pipeline, what was asked, folder link, notes, status, results added up), Ads (one row per
-image / video file with its link; yellow columns the team fills in: launched, spend, impressions, 3-sec plays, clicks, purchases,
-revenue, verdict, notes; grey formulas: hook rate, CTR, CPA, ROAS), Summary (by product and type), Data Sources.
+`pipeline/tracker.py`, `data/tracker.json`: the Google Sheet "Libra Cases – Ad Tracker" in Drive / Ad Creative Pipeline. Since
+2026-11-05 ONE tab, `Tracker`, in Julian's own format ("more like this, a bit more easy, not too many columns"): **Date | Project |
+Holiday | Link | Drive | Script | Status | Launched (Meta) | Meta status | Insights** (+ a hidden `Key`).
+- A blue banner row per batch, the newest on top ("B037 · 04 Nov · Hobo Bag · Black Friday · 25 statics"), then one row per static
+  (Link = its file, Script = its words), one per motion still's video, one per video project (Link = the project folder with its 4 hook
+  versions: the ad set Julian launches; Script = the batch's strategy sheet) and one per single video.
+- **Ours:** Date to Script and **Status**: `🔍 Review` for a new batch (Julian 2026-11-04: both sides look at it before launch), `✅
+  Ready` when it may go live, `🛠 Needs fix`, `⛔ Skip`. Batches delivered before 2026-11-05 start as Ready (they were launched).
+  **Julian's:** Launched (Meta) (`✅ Launched` / `Not launched`), Meta status (`✅ Winner`, `⏸ Winner (paused)`, `🔵 Promising`, `▶
+  Running`, `❌ No hit`, `⚪ No delivery`; free text allowed) and Insights.
 - **Updated by itself:** `make_batch.py upload` calls `tracker.sync` after the ledger (and re-lists the last 3 days' batches, so a
-  re-render lands too); a sync also adds every B-numbered folder in
-  Outputs (Winners/ and New Products/ too) the sheet lacks, so a Slack run on an unmerged branch still lands there.
-- **Drive scope only** (the Sheets API is off in the login's Cloud project 883081366864): a sync exports the sheet, keeps every row,
-  every typed value, people's own columns (where they put them) and their own tabs, refreshes the file details of the synced
-  batches, appends new rows, rebuilds formulas and formats, and replaces the content (same link). Hand-made cell colours and comments
-  are not kept; an edit typed during the seconds of a sync can be lost. With the Sheets API on, it could append in place instead.
-- **Fix by hand:** `python3 pipeline/tracker.py sync --batch B045` (or `--all` to refresh every batch's file details); `show` counts.
+  re-render lands too); a sync also adds every B-numbered folder in Outputs (Winners/ and New Products/ too) the sheet lacks.
+- **Drive scope only** (the Sheets API is off in the login's Cloud project 883081366864): a sync exports the sheet, keeps every typed
+  value (by the hidden Key), columns people added, rows added by hand (under an "Added by hand" banner) and their own tabs, refreshes
+  the file details of the synced batches and replaces the content (same link). Hand-made cell colours and comments are not kept; an
+  edit typed during the seconds of a sync can be lost.
+- **Fix by hand:** `python3 pipeline/tracker.py sync --batch B045` (or `--all` to refresh every batch); `show` counts.
 - B001's files sit in the Outputs folder "oct 3 test" (`folder_overrides`), whose subfolder of B012 statics is skipped.
+- The old detailed tabs (Read me, Batches, Ads with spend / impressions / ROAS formulas, Summary, Data Sources) were replaced on
+  2026-11-05: nobody had typed in them, and Julian keeps the numbers in Ads Manager.
 
 ### 4o. Top-tier story statics: the full anatomy, layout `story` (the team 2026-11-04)
 
