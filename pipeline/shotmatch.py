@@ -75,7 +75,8 @@ def wants(text, feature=None, show=()):
     """{tag: weight} the picture of this phrase should show: the tags its words ask for, the chapter's feature tag and its `show` tags
     (a strategist's own cue: ['snap', 'hand']) at CHAPTER_SHARE of their weight. A phrase with 'open' or 'close' only counts them with a
     zip / snap word nearby (a bag 'opens' everywhere)."""
-    w = {t: WANT[t][1] for t, rx in _RE.items() if rx.search(text or "")}
+    text = re.sub(r"\bblack friday\b|\bcyber monday\b", " ", text or "", flags=re.I)   # ('Black Friday' is no colour)
+    w = {t: WANT[t][1] for t, rx in _RE.items() if rx.search(text)}
     if not ({"zip", "side_zip", "snap", "pocket"} & set(w)):
         w.pop("zip_hand", None)
     if "snap" in w and not re.search(r"snap|clasp|click|magnet|buckle|fasten|one[- ]hand\W+(?:\w+\W+){0,4}(?:shut|close|closes|closed)|"

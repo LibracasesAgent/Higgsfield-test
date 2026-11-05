@@ -248,10 +248,54 @@ def sheet_items(sheet):
     return groups
 
 
+OFFER_RX = re.compile(r"\d+\s?%|\bpercent\b|\bhalf[- ]price\b|\bhalf off\b", re.I)
+LIST_RX = re.compile(r"^\W*\w+(?:\s\w+)?(?:\s*[,+&/]\s*\w+(?:\s\w+)?){2,}\W*$")      # 'Keys, side zip, cards, back pocket.'
+
+
+def static_problems(sheet, pr):
+    """(problems, warnings) of the statics' words (Julian 2026-11-05): the offer said once per static (big; 'too many times 60% off');
+    a headline that sells a benefit, never a bare feature name ('hidden pocket doesn't say much: Looks expensive, works three ways is
+    already better') or a list of features ('key, side zip, cards, back pocket ... it's not enough')."""
+    P, W = [], []
+    feat = set()
+    for f in pr.get("features") or []:
+        feat |= content_words(str(f[1]) if isinstance(f, (list, tuple)) and len(f) > 1 else str(f))      # (the tags: HIDDEN BACK POCKET)
+    feat |= content_words(pr.get("name") or "") | {"bag", "bags", "hobo", "zip", "zips", "pocket", "pockets", "strap", "straps", "crossbody", "pouch",
+                                                       "gold", "side", "back", "hidden", "lockable", "zippers"}
+    R = rules()
+    kw = (R.get("statics") or {}).get("keep_winners") or {}
+    sts = sheet.get("statics") or []
+    if kw and len(sts) >= int(kw.get("min_statics", 6)):
+        have = {st.get("layout") for st in sts}
+        miss = [l_ for l_ in kw.get("layouts") or [] if l_ not in have and not (l_ == "colours" and len(pr.get("colours") or []) < 3)]
+        if miss:
+            W.append(f"playbook keep_winners: no {' / '.join(miss)} static in this batch: {kw.get('why')}")
+    for st in sts:
+        sid = st.get("id") or "?"
+        lines = [st.get(k) for k in ("kicker", "headline", "hook", "sub") if st.get(k)] + list(st.get("words") or []) + list(st.get("points") or [])
+        n_off = sum(1 for x in lines if OFFER_RX.search(str(x)))
+        if n_off > 1:
+            P.append(f"playbook offer_once: {sid}: the offer is said in {n_off} lines ({'; '.join(str(x) for x in lines if OFFER_RX.search(str(x)))}): "
+                     f"say it once, big (Julian 2026-11-05: 'too many times 60% off ... if we have it here big, I would not put it in the headline')")
+        for k in ("headline", "hook"):
+            t = st.get(k)
+            if not t:
+                continue
+            cw = content_words(t)
+            if cw and cw <= feat and len(cw) <= 4:
+                P.append(f"playbook feature_name_headline: {sid} {k}: {t!r} only names a feature: sell what it does for her (Julian "
+                         f"2026-11-05: 'hidden pocket doesn't say much ... be catchy: Looks expensive, works three ways')")
+            elif LIST_RX.match(t):
+                P.append(f"playbook feature_list_headline: {sid} {k}: {t!r} is a list of features: one punchy benefit instead (Julian "
+                         f"2026-11-05 on the post-it static: 'it's not enough, be more aggressive with the text')")
+    return P, W
+
+
 def sheet_problems(sheet, pr, ctx=None, exclude=None, log=None):
     """(problems, warnings) of a whole sheet: ideas.check calls it."""
     old = old_hooks_of(pr.get("name"), log=log, exclude=exclude)
-    P, W, seen = [], [], []
+    P, W = static_problems(sheet, pr)
+    seen = []
     for its, p in sheet_items(sheet):
         hooks_here = [i for i in its if i["role"] == "hook"]
         p_, w_ = lint(its, ctx=ctx, old_hooks=old + seen, structure=(p or {}).get("structure"),
@@ -326,6 +370,12 @@ def packet_section(pr=None):
         it = (R.get(k) or {}).get("items") or []
         if it:
             L += [f"\n{head}:\n"] + [f"- {x['rule']} ({x.get('evidence', '')})" for x in it]
+    stx = (R.get("statics") or {}).get("art") or []
+    if stx:
+        L += ["\nStatics, how they must look (media buyer's review of B036-B038):\n"] + [f"- {x}" for x in stx]
+    pn = (R.get("presenter") or {}).get("notes") or []
+    if pn:
+        L += ["\nPresenter videos:\n"] + [f"- {x}" for x in pn]
     perf = os.path.join(HERE, "data", "performance.json")
     if os.path.exists(perf):
         try:

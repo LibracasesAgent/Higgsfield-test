@@ -37,6 +37,8 @@ CAP = 1000.0                   # credits a presenter batch may plan for stills +
 MATCH = 0.82                   # the least a take's heard words must match the script (difflib ratio)
 TAIL_MIN = 0.08                # least silence after her last word (s) before it counts as cut off: Kling often ends the clip right after the last word
 TAIL_SOFT = 0.3                # under this a note only: the cut then ends with the clip
+PAUSE_LOOK, PAUSE_MAX = 0.6, 1.0   # a silence between her words over PAUSE_LOOK s is noted, over PAUSE_MAX s the take fails (Julian 2026-11-05:
+#                                   "this pause here is a bit useless ... it loses momentum"): remake it once (presenter.py reject)
 
 
 class NoPresenter(Exception):
@@ -276,6 +278,13 @@ def gate_take(path, text, want_s):
         r["problems"].append(f"she says other words (match {r['match']}): {heard[:120]!r}")
     if ws:
         r["first"], r["last"] = round(ws[0]["s"], 2), round(ws[-1]["e"], 2)
+        gaps = [(round(b["s"] - a["e"], 2), a["w"]) for a, b in zip(ws, ws[1:])]
+        g, after = max(gaps, default=(0.0, ""))
+        if g > PAUSE_MAX:
+            r["ok"] = False
+            r["problems"].append(f"a {g} s pause after {after!r}: it loses momentum (Julian 2026-11-05); remake the take")
+        elif g > PAUSE_LOOK:
+            r["problems"].append(f"look: a {g} s pause after {after!r} (over {PAUSE_LOOK} s loses momentum)")
         if r["first"] > 1.8:
             r["problems"].append(f"look: she starts late ({r['first']} s; the cut trims it)")
         if pr["dur"] - r["last"] < TAIL_MIN:

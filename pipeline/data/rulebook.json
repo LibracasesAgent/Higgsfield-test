@@ -6,16 +6,17 @@
     "hook_rate": {
       "target": [
         0.4,
-        0.45
+        0.5
       ],
       "good": 0.4,
       "floor": 0.25,
-      "why": "owner 2026-11-05: 40-45% is a really good hook rate; vendor data puts the Meta baseline at 25-30% (docs/research/2026-10-black-friday-and-bag-ads.md)"
+      "why": "Julian 2026-11-05: 'hook rate would be amazing if it's like 45%. 40 to 45 to 50% even would be crazy good'; = 3-s plays / impressions"
     },
     "hold_rate": {
-      "good": 0.3,
-      "floor": 0.15,
-      "why": "ThruPlay / 3-s plays: does the body keep the people the hook won"
+      "good": 0.1,
+      "great": 0.15,
+      "floor": 0.05,
+      "why": "Julian 2026-11-05: 'hold rate is good if it's around 10, 15%' = ThruPlays / impressions ('of 1,000 people ... 12% watched the entire ad')"
     },
     "ctr": {
       "good": 0.05,
@@ -23,17 +24,26 @@
       "why": "the creator winners run 4.7-10.5% CTR (docs/research/2026-11-all-time-best-ad.md section 1)"
     },
     "roas": {
-      "good": 2.4,
+      "good": 2.1,
+      "scale": 2.5,
       "floor": 1.8,
-      "why": "account average 2.39 (Sept brief week); our best AI ad set B017 P04 versus 2.97"
+      "why": "Julian 2026-11-05: 'ROAS would be ideal 2.1 or above'; 2.5 = 'really performing well, we can increase budgets'"
     },
     "cpa": {
       "good": 30.0,
-      "ceiling": 40.0,
-      "why": "creator winners $22-31; our AI ads $39.63 (18-26 Oct)"
+      "ceiling": 30.0,
+      "currency": "AUD",
+      "why": "Julian 2026-11-05: 'cost per result should be around 30 max' (the ad account reports in AUD)"
     },
     "min_impressions": 1000,
-    "min_spend": 20
+    "min_spend": 20,
+    "cpm": {
+      "note": "Not a creative KPI (Julian 2026-11-05): Q4 / Black Friday lifts it, Vintage runs ~90-100 AUD vs Hobo ~46-78; only a very high CPM hints that Meta dislikes a claim"
+    }
+  },
+  "batch": {
+    "statics": 12,
+    "why": "Julian 2026-11-05: 'better to have very good 12 ads instead of 25 or 27 that are average ... volume is good only if we can have quality': a batch with no numbers makes 12 statics (+ 5 projects)"
   },
   "hooks": {
     "_help": "Every hook: the 4 spoken openings of a project (ideas.json hooks[].text), the first line of a static's words, primary text 1's first line in ad_copy.csv.",
@@ -311,6 +321,13 @@
         "level": "soft",
         "where": "statics",
         "why": "a static never fakes a button; the CTA is Meta's button ('Tap the link below.' is only the video's last line)"
+      },
+      {
+        "id": "free_us_shipping",
+        "rx": "\\bfree (?:us|u\\.s\\.) shipping\\b",
+        "level": "hard",
+        "where": "all",
+        "why": "Julian 2026-11-05: we target the US, UK and Australia broad; UK ships free too: say 'free shipping'"
       }
     ]
   },
@@ -430,7 +447,41 @@
       "4": 2,
       "5": 3
     },
-    "why": "~225 credits a presenter project; 3 of 5 is ~700, inside presenter.CAP (1000)"
+    "why": "~225 credits a presenter project; 3 of 5 is ~700, inside presenter.CAP (1000)",
+    "hook_label": false,
+    "offer_hook": false,
+    "notes": [
+      "Julian 2026-11-05 on B028 P02 (Vintage, the presenter): 'I like the metrics ... it's just the hook is not really strong' (hook rate 32-33%): make new hooks for it",
+      "no label over her hook: she says it and the caption shows it ('keep either this one or this one, not both, the smaller one is cleaner')",
+      "do not open her video with Black Friday ('a UGC video has to look less aggressive'): the moment first, the sale at the end",
+      "no dead pauses ('this pause is a bit useless ... it loses momentum'): presenter.py gate flags a pause over 0.6 s, fails one over 1.0 s",
+      "a line that names something to see cuts to that footage while it is said ('one hand holds the coffee, but the clip of the coffee comes later')",
+      "b-roll in talking-head videos may run longer; b-roll-only videos 3-5 s max a clip"
+    ]
+  },
+  "statics": {
+    "story_review": false,
+    "art": [
+      "The bag big and in the centre; no empty space ('empty space on statics is always bad'), but not crowded",
+      "The offer once and big: never again in the headline ('too many times 60% off')",
+      "A catchy benefit headline, never a feature name ('hidden pocket doesn't say much'; 'Looks expensive, works three ways' is better)",
+      "Post-it / note statics: make the note look real (not AI) and the text aggressive, not a list of features",
+      "No review card on story statics (only the quote look); Trustpilot reviews later if the site gets them back",
+      "Us vs them: show THEM too, an ordinary tote, grey / a bit green / low quality; ours in warm, rich colour (brand_statics.them_half)",
+      "Words never over the bag or its strap; a shop-window decal sits ON the glass with the bag behind it; nothing tilted by accident",
+      "Show the bag, not only the free pouch: people buy the bag, the pouch is the extra",
+      "3-Piece Set: 60% off (as on the site), never 50%",
+      "'Which colour are you?' / pick-your-colour catalog statics win: make one for every bag with 4+ colours (Vintage next)"
+    ],
+    "why": "Julian 2026-11-05 on the B036-B038 statics",
+    "keep_winners": {
+      "layouts": [
+        "colours",
+        "value"
+      ],
+      "min_statics": 6,
+      "why": "a batch of 6+ statics carries the proven winners' layouts (pick your colour ROAS 2.93; set value 2.57) next to the new formats"
+    }
   },
   "winning_patterns": {
     "_help": "What the account's money says works (docs/research/2026-11-all-time-best-ad.md, the weekly reviews). The strategy packet prints these; weekly_review.py adds to them.",
@@ -469,6 +520,46 @@
         "id": "set_aov",
         "rule": "The 3-Piece Set lifts order value.",
         "evidence": "DEC08 set ads ROAS 2.85-3.34, orders $92-109"
+      },
+      {
+        "id": "colour_catalog",
+        "rule": "Pick-your-colour catalog static ('Which colour are you?'): every colour of the bag, catalog style",
+        "evidence": "S09_pick_your_colour (our first batch, Oct): 2,285 AUD, ROAS 2.93, 76 purchases, CPA 30 AUD: our best ad; Julian 2026-11-05: 'this one has been doing really, really good'"
+      },
+      {
+        "id": "zip_locks_native",
+        "rule": "A real footage frame + one short proof line ('Yes, the zip locks.')",
+        "evidence": "B017 S04 native: 798 AUD, ROAS 2.46, 21 purchases (Oct 6 - Nov 4), our best ad"
+      },
+      {
+        "id": "question_hooks",
+        "rule": "Question hooks about a moment ('Where does everything go when you pack a weekend bag?')",
+        "evidence": "Oct 6 - Nov 4: question hooks 52% hook rate, ROAS 2.45 vs offer hooks 43%, 1.39"
+      },
+      {
+        "id": "crowd_travel_antitheft",
+        "rule": "Anti-theft in crowds: trains, the metro, travel, busy tourist spots (Hobo 2.0 and Hobo Bag, statics and videos)",
+        "evidence": "Julian 2026-11-05: 'this is a good angle ... we should use this also in video ads'"
+      },
+      {
+        "id": "gifting",
+        "rule": "The gifting angle for Christmas and Black Friday",
+        "evidence": "Julian 2026-11-05: 'I like gifting angle for Christmas. It's really good.'"
+      },
+      {
+        "id": "statics_lead",
+        "rule": "Statics drive the results now (and Google Ads needs statics): quality over volume",
+        "evidence": "Oct 6 - Nov 4: our statics ROAS 2.18 vs videos 1.45; Julian: 'the main performance are statics'"
+      },
+      {
+        "id": "set_value_static",
+        "rule": "The 3-Piece Set value static (the three pieces, the set price / 60% off, 'Best Value')",
+        "evidence": "S07_set3_value: 2,638 AUD, ROAS 2.57, 70 purchases; S06_set3_card3 ROAS 4.17 (Oct 6 - Nov 4)"
+      },
+      {
+        "id": "simple_real_statics",
+        "rule": "Simple, real-photo brand statics (colours, value, bold offer, meet-the-bag) outsell the AI-designed formats so far: every batch keeps one or two of the proven layouts next to the new formats",
+        "evidence": "Oct 6 - Nov 4: our first batches (real-photo layouts) 8,162 AUD at ROAS 2.57 (234 purchases) vs B016-B029 (AI concepts / ads) 4,952 AUD at 1.67; the account's other ads 2.06. (The early ads had longer to run.)"
       }
     ]
   },
@@ -493,14 +584,69 @@
         "id": "template_hook",
         "rule": "One hook template across batches ('Black Friday prices are live now, and ...').",
         "evidence": "B030-B034"
+      },
+      {
+        "id": "offer_hooks",
+        "rule": "Hooks that open on the sale ('Black Friday prices are live now', 'Fifty percent off ...')",
+        "evidence": "Oct 6 - Nov 4: 7 offer hooks spent 1,646 AUD at ROAS 1.39; B016 P02 H4 0.32; B028 P02 H4 33% hook rate"
+      },
+      {
+        "id": "footage_late",
+        "rule": "B-roll that arrives after the words ('the coffee clip comes later'), or shows something else (crossbody line over another clip)",
+        "evidence": "Julian 2026-11-05 on B028 and V09"
+      },
+      {
+        "id": "feature_headlines",
+        "rule": "Static headlines that only name a feature ('The hidden back pocket.', 'Lockable zippers.')",
+        "evidence": "Julian 2026-11-05"
+      },
+      {
+        "id": "pouch_not_bag",
+        "rule": "Footage stills that show the pouch more than the bag",
+        "evidence": "Julian 2026-11-05: 'I would not launch this one'"
       }
     ]
+  },
+  "process": {
+    "review_call": "Weekly call with Julian, same time every week, 15:00 Italy time (19:30 IST): bring the ads that got spend; he gives feedback only on those",
+    "pre_launch": "Both sides look at a batch before launch (tracker Status 🔍 Review -> ✅ Ready)",
+    "testing": "Julian tests in CBO now (Meta spreads the budget); ABO ad sets that overspent were killed"
   },
   "changelog": [
     {
       "date": "2026-11-05",
       "who": "owner",
       "change": "rulebook created: hook formulas from Halbert's 349 headlines, banned phrases from B001-B038, hook rate target 40-45%, footage match blocker, presenter in about half the projects"
+    },
+    {
+      "date": "2026-11-05",
+      "who": "Julian (media buyer), call 2026-11-05",
+      "change": "KPIs: hook rate 40-50%, hold rate (ThruPlays / impressions) 10-15%, ROAS 2.1 (scale at 2.5), CPA 30 AUD max; CPM is not a creative KPI"
+    },
+    {
+      "date": "2026-11-05",
+      "who": "Julian (media buyer), call 2026-11-05",
+      "change": "presenter: no hook label, no sale in her hooks, pauses over 1 s fail the take, footage cuts in on the words that name it"
+    },
+    {
+      "date": "2026-11-05",
+      "who": "Julian (media buyer), call 2026-11-05",
+      "change": "statics: 12 a batch by default (quality over volume), the offer once, benefit headlines, no review card on story statics, us-vs-them shows them grey, the bag big"
+    },
+    {
+      "date": "2026-11-05",
+      "who": "Julian (media buyer), call 2026-11-05",
+      "change": "copy: 'free shipping', never 'free US shipping' (UK ships free too)"
+    },
+    {
+      "date": "2026-11-05",
+      "who": "Julian (media buyer), call 2026-11-05",
+      "change": "first numbers (Oct 6 - Nov 4): question hooks 52% vs offer hooks 43%; statics ROAS 2.18 vs videos 1.45; best ad B017 S04 'Yes, the zip locks.' ROAS 2.46"
+    },
+    {
+      "date": "2026-11-05",
+      "who": "weekly review (Oct 6 - Nov 4 export)",
+      "change": "our first batches' real-photo statics are the account's best: S09_pick_your_colour ROAS 2.93 (76 purchases), S07_set3_value 2.57 (70); a batch of 6+ statics keeps a colours and a value static. Question for the owner: S18_selling_fast (ROAS 2.84) says 'selling fast': confirm it is true before it is allowed again"
     }
   ]
 }

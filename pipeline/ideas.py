@@ -258,6 +258,10 @@ def story_problems(p, pid, pr, cov, keys, slib, P, W):
         if m and c.get("kind") != "offer":
             P.append(f"{pid} c{j}: {m.group(0)!r}: the price, the sale and the bundle are said only in the last chapter")
     priced = [k for k, h in enumerate(hooks[:4], 1) if PRICE_WORDS.search(h.get("text") or "") or h.get("type") == "price"]
+    if pres and priced and not (_rules("presenter") or {}).get("offer_hook", False):
+        P.append(f"{pid}: hooks {', '.join(f'H{k}' for k in priced)} open the presenter's video on the sale: a UGC host does not open "
+                 f"with Black Friday or the % (Julian 2026-11-05: 'less aggressive'; B028 P02 H4 'Black Friday prices are live now' had the "
+                 f"project's lowest hook rate, 33%); open on the moment, the sale is the close")
     if len(priced) > 1:
         P.append(f"{pid}: hooks {', '.join(f'H{k}' for k in priced)} open on the price: one price hook at most, the others a moment or a question")
     if not pres:
@@ -582,8 +586,14 @@ def story_static_problems(s, sid, pr, P, W, items):
             P.append(f"{sid}: versus names a real brand: the other side is a generic bag ('Your old tote', 'Open tote')")
     revs = {r["n"]: r for r in json.load(open(os.path.join(HERE, "data", "reviews.json")))["reviews"]}
     n = s.get("review")
+    want_rev = (_rules("statics") or {}).get("story_review", False)     # (Julian 2026-11-05, three statics: "I would not put a review here")
+    if not n and (s.get("look") == "quote" or want_rev):
+        P.append(f"{sid}: review: a reviews.json number of {pr['name']} ({pr.get('reviews')}): the quote look is the customer's words")
+    elif n and s.get("look") != "quote" and not want_rev:
+        W.append(f"{sid}: a review card on a {s.get('look')} story static: Julian 2026-11-05 would leave it out (use the space for the bag); "
+                 f"only the quote look needs one")
     if not n:
-        P.append(f"{sid}: review: the proof every story static carries, a reviews.json number of {pr['name']} ({pr.get('reviews')})")
+        pass
     elif n not in (pr.get("reviews") or []):
         P.append(f"{sid}: review {n} is not one of {pr['name']}'s reviews ({pr.get('reviews')})")
     elif s.get("review_text") and re.sub(r"\s+", " ", s["review_text"]).strip() not in re.sub(r"\s+", " ", revs[n]["text"]):
@@ -968,7 +978,7 @@ def packet(pr, theme, n_projects, n_statics, request=""):
          "scripts and static concepts, check them with `ideas.py check`, then plan with `--ideas`. Format: see `ideas.py --help`.\n",
          "## 1. True facts (the only claims you may make)\n"]
     L += [f"- Offer: {V['P'] or '-'} off ({V['off_sp'] or '-'}), gift: {V['gift'] or 'none'}, price {V['price'] or '-'} (was {V['was'] or '-'}); "
-          f"shipping: {'free US shipping' if ctx['ship'] else 'not stated: do not mention'}; warranty: {V['warranty'] or '-'}; returns: {V['returns'] or '-'}"]
+          f"shipping: {'free shipping (say \'free shipping\', never \'free US shipping\': UK is free too, Julian 2026-11-05)' if ctx['ship'] else 'not stated: do not mention'}; warranty: {V['warranty'] or '-'}; returns: {V['returns'] or '-'}"]
     L += [f"- Feature: **{f[1]}**: {f[0]}" for f in pr.get("features") or []]
     L += [f"- Also true: {x}" for x in pr.get("also") or []]          # (owner facts that are not a feature line of the engine)
     L += [f"- Colours: {', '.join(pr.get('colours') or []) or ((pr.get('facts') or {}).get('colours') and ', '.join(pr['facts']['colours'])) or '-'}",
@@ -1009,7 +1019,7 @@ def packet(pr, theme, n_projects, n_statics, request=""):
           "work.'): every `ad` carries the offer in its words as a HERO element of the design (giant numerals behind the bag, a swing tag on "
           "the strap, a sticker burst, a window decal, neon, a stamp, a ribbon, a sale shopping bag: the offer-led formats of section 5), "
           "every `concept` has `pill: true`, every real static gets the % badge. Lead with the product's own offer stack from the site: "
-          "the Hobo Bag '50% OFF + FREE pouch wallet + free US shipping', the 3-Piece Set '60% OFF, 3 bags, 1 set' (the site's 'Best Value' "
+          "the Hobo Bag '50% OFF + FREE pouch wallet + free shipping', the 3-Piece Set '60% OFF, 3 bags, 1 set' (the site's 'Best Value' "
           "upgrade), the Hobo 2.0 '50% OFF'. The check refuses an ad without it.",
           "- **Scroll-stoppers, studio level, a different design every time** (the owner 2026-11-04: 'offers are nice but the design is the "
           "same every time ... studio level design with offers that increase scroll stopping'): the account's long-running image ads (Meta "

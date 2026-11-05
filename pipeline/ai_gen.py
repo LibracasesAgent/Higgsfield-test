@@ -125,8 +125,10 @@ STORY_COMPOSE = {                    # (ideas.py layout 'story': where its look 
              "floor, table top or soft shadow), for the words.",
     "list": "Composition: the whole bag fits inside the middle half of the frame's height with calm space above and below it (the "
              "top fifth and the bottom third are cropped away), nothing important at the very top or bottom.",
-    "versus": "Composition: the whole bag fits inside the middle half of the frame's height with calm space above and below it (the "
-             "top fifth and the bottom third are cropped away), nothing important at the very top or bottom.",
+    "versus": "Composition: two bags side by side, both inside the middle half of the frame's height with calm space above and below "
+              "(the top fifth and the bottom third are cropped away): on the LEFT third a plain, unbranded, slightly worn canvas tote bag "
+              "slumped open with things spilling at its top, dull flat light; on the RIGHT, larger and sharper, the real bag of the "
+              "reference, closed, in warm light. Nothing written on either bag.",
     "stack": "Composition: the whole bag fits inside the middle half of the frame's height with calm space above and below it (the "
              "top fifth and the bottom third are cropped away), nothing important at the very top or bottom.",
 }

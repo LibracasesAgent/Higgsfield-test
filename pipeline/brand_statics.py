@@ -91,7 +91,7 @@ import os
 import re
 import sys
 
-from PIL import Image, ImageChops, ImageDraw, ImageFilter, ImageFont, ImageOps, ImageStat, features
+from PIL import Image, ImageChops, ImageDraw, ImageEnhance, ImageFilter, ImageFont, ImageOps, ImageStat, features
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 FONTS = os.path.join(HERE, "assets", "fonts")
@@ -2104,6 +2104,24 @@ def proof_line(d, rv, x, y, max_w, ink, size=28):
     return max(put(d, [t], f, ink, y + (s - metrics(f)[0]) / 2, max_w, x=x + 5 * s + 52), y + s)
 
 
+def them_half(ph, share=0.48):
+    """The 'them' side of a versus photo (the scene puts an ordinary tote on the left, ai_gen STORY_COMPOSE): grey, a little green,
+    soft and pixelated, so it reads as the worse bag at a glance; the right side (ours) is left as it is, with a soft seam."""
+    import numpy as np
+    W_, H_ = ph.size
+    w = int(W_ * share)
+    left = ph.crop((0, 0, w, H_)).convert("L").convert("RGB")
+    left = Image.blend(left, Image.new("RGB", left.size, (118, 128, 108)), 0.22)
+    left = left.resize((max(w // 9, 1), max(H_ // 9, 1)), Image.BILINEAR).resize((w, H_), Image.NEAREST)
+    left = ImageEnhance.Brightness(left).enhance(0.86)
+    out = ph.copy()
+    mask = Image.fromarray((np.clip((w - np.arange(W_)) / 40.0, 0, 1)[None, :] * 255 * np.ones((H_, 1))).astype("uint8"))
+    canvas = ph.copy()
+    canvas.paste(left, (0, 0))
+    out.paste(canvas, (0, 0), mask)
+    return out
+
+
 def l_story(a, sd):
     """A story static (ideas.py layout 'story'): `look` one of STORY_LOOKS on a photo of the moment (`photo`: the AI story scene or a
     real footage frame), always with the hook (`hook`, `highlight` words on a marker), the proof (`review` / `review_text`, verbatim),
@@ -2130,7 +2148,7 @@ def l_story(a, sd):
         hook = hook or a.get("headline")
     if look != "quote" and not hook:
         raise ValueError(f"story {look}: needs a hook")
-    if look in ("quote", "hook") and not rv:
+    if look == "quote" and not rv:          # (the hook look's review card is optional since Julian 2026-11-05: "I would not put a review here")
         raise ValueError(f"story {look}: needs a review (reviews.json number)")
     M = SCENE_M
     fk = SANS(24, "SemiBold")
@@ -2162,9 +2180,10 @@ def l_story(a, sd):
             d = ImageDraw.Draw(c)
             r, cw = 108, int(W * 0.52)
             left = calm((0, int(H * 0.66), int(W * 0.6), H)) <= calm((int(W * 0.4), int(H * 0.66), W, H))   # (the card: the calmer side)
-            ch = review_card(None, d0, rv, 0, 0, cw, dry=True)
+            ch = review_card(None, d0, rv, 0, 0, cw, dry=True) if rv else 0
             card_x = M if left else W - M - cw
-            review_card(c, d, rv, card_x, H - M - ch, cw)
+            if rv:
+                review_card(c, d, rv, card_x, H - M - ch, cw)
             sx = W - M - r - 14 if left else M + r + 14
             offer_sticker(c, sx, H - M - ch + r * 0.2 - (40 if a.get("gift") else 0), r, a, angle=-10 if left else 10,
                           side="right" if left else "left")
@@ -2208,6 +2227,8 @@ def l_story(a, sd):
         full = ImageOps.fit(im, (W, int(im.height * W / im.width)), Image.LANCZOS)
         a = dict(a, focus=[0.5, concept_crop_y(full, ph_h)])
     ph = cover_photo(im, a, (W, ph_h), 1.0)
+    if look == "versus" and a.get("scene") and a.get("them_look", True):
+        ph = them_half(ph)                     # (Julian 2026-11-05: 'them' = the old tote, grey, a bit green, low quality; 'us' = ours, warm)
     calm = calm_of(ph)
     dark = look == "list"
     bg = DEEP if dark else CREAM

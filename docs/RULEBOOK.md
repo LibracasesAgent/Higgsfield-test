@@ -14,11 +14,12 @@ footage, its past batches, last weeks' Meta numbers, and this rulebook again as 
 
 | Metric (Meta) | Good | Floor | Why |
 |---|---|---|---|
-| **Hook rate** = 3-s video plays / impressions | **40-45%** | 25% | owner 2026-11-05: 40-45% is a really good number; Meta's baseline is 25-30% |
-| Hold rate = ThruPlays / 3-s plays | 30% | 15% | does the body keep the people the hook won |
+| **Hook rate** = 3-s video plays / impressions | **40-50%** | 25% | Julian 2026-11-05: "45% would be amazing, 40 to 50% crazy good"; ours 44% on average (Oct 6 - Nov 4) |
+| Hold rate = ThruPlays / impressions | 10-15% | 5% | Julian: "of 1,000 people that saw the ad, 12% watched the entire ad" |
+| ROAS | **2.1** (scale at 2.5) | 1.8 | Julian: "ideal 2.1 or above; 2.5 we can increase budgets"; our first batches 2.57, B016-B029 1.67 |
+| CPA (cost per purchase) | **≤ 30 AUD** | 40 | Julian: "cost per result around 30 max" (the account reports in AUD) |
 | CTR (link) | 5% | 2% | creator winners run 4.7-10.5% |
-| ROAS | 2.4 | 1.8 | account average 2.39; our best AI ad set 2.97 (B017 P04 versus) |
-| CPA | < $30 | $40 | creator winners $22-31, our AI ads $39.63 |
+| CPM | not a creative KPI | - | Q4 lifts it (Vintage ~90-100 AUD, Hobo ~46-78); only a very high CPM hints Meta dislikes a claim |
 
 The hook rate is decided in the first three seconds by three things together: **the spoken hook, the first picture, the on-screen
 label.** All three must say the same concrete thing.
@@ -107,6 +108,14 @@ What counts as "shows it": the labelled frame's tags (`clip_index.json` moments 
 or a near equivalent (`shotmatch.ALSO`: the compartments ~ the inner pocket; a lock ~ the zip; the strap ~ the bag worn). Lines about a
 mood, a place or the offer are not judged.
 
+## 5b. What the money says so far (Oct 6 - Nov 4, AUD; `docs/reviews/2026-10-06.md`)
+
+- **Our best ads are simple real-photo statics** from the first batches: `S09_pick_your_colour` ROAS 2.93 (76 purchases, CPA 30),
+  `S07_set3_value` 2.57 (70), `S18_selling_fast` 2.84 (31), B017 `S04_native` "Yes, the zip locks." 2.46 (21). Every batch of 6+ statics
+  keeps a **colours** and a **value** static next to the new formats (`keep_winners`).
+- **Videos hook well but convert worse:** 44% hook rate, ROAS 1.45, CPA 56. The body and the close are the lever, not the opening.
+- **Question hooks beat offer hooks:** 52% hook rate / ROAS 2.45 against 43% / 1.39 for hooks that open on the sale.
+
 ## 6. The presenter: more of it
 
 Owner 2026-11-05: "the presenter UGC videos are good, we need to make more of that." Default (`rulebook.json presenter.per_batch`):
@@ -115,7 +124,24 @@ Owner 2026-11-05: "the presenter UGC videos are good, we need to make more of th
 invented use or result; soft natural phone-photo skin (never "pores / fine lines / unretouched"). Give her the story beats that need a
 face (`cam: full`), and cut footage in where a line describes something the hands do.
 
+Julian 2026-11-05 on B028 P02 (Vintage; good metrics, weak hook at 32-33%):
+- **No sale in her hooks** (the check refuses it): a UGC host "has to look less aggressive"; the moment first, the sale at the end.
+- **No label over her hook**: she says it and the caption shows it ("keep either this one or this one, not both").
+- **The footage comes ON the words**: a phrase that names something to see (coffee, the crossbody, phone and keys inside) cuts to that
+  clip while she says it, never after (`make_batch.shows_thing`).
+- **No dead pauses**: `presenter.py gate` notes a pause over 0.6 s and fails a take with one over 1 s (remake it once).
+
 ## 7. Statics
+
+**Fewer, better:** a batch with no numbers makes **12 statics** (Julian 2026-11-05: "better 12 very good ads instead of 25 average").
+Julian's review of B036-B038 (`rulebook.json statics.art`, printed in every packet):
+- The bag big and centred, no empty space; words never over the bag or its strap.
+- **The offer once and big**, never again in the headline (the check refuses a second %).
+- **A catchy benefit headline, never a feature name** ("hidden pocket doesn't say much"; "Looks expensive, works three ways" is better).
+  The check refuses a headline that is only feature words or a list of them.
+- Post-it statics: a real-looking note and aggressive words. No review card on story statics (only the quote look).
+- **Us vs them shows them**: an ordinary tote, grey, a bit green and low quality (`brand_statics.them_half`), ours in rich colour.
+- Show the bag, not only the free pouch. The 3-Piece Set is 60% off, never 50%. Shop-window decals sit on the glass.
 
 Every static shows the offer (the % as a hero element) **and** tells a story: one 3-8 word line that says why to buy, over the picture
 of that moment. About a third `story` (hook + moment + one promise + a verbatim review with stars + the % sticker + gift + brand mark),
@@ -123,13 +149,18 @@ about half AI `ad` formats (each once a batch, at least one new format), the res
 
 ## 8. Ad copy
 
+Say **"free shipping"**, never "free US shipping" (we target the US, UK and Australia; UK ships free too: Julian 2026-11-05).
 Primary text 1: two lines, ≤125 characters, a hook that obeys section 3 + the product with its offer. Headlines ≤40, description ≤30, no
 em dashes, ≤2 emojis, no prices, no urgency the campaign does not confirm. The template lines that break a rule are skipped by
 `ad_copy.py` itself; a hand edit is judged by `make_batch.py check --out $OUT` (compliance + this rulebook).
 
 ## 9. The weekly review loop (how this rulebook changes)
 
-After each weekly performance meeting (20 minutes, `pipeline/weekly_review.py`):
+The weekly call with Julian: same time every week, **15:00 Italy / 19:30 IST**. He reviews the ads that got spend (not every ad), and
+both sides look at a batch before launch (tracker Status `🔍 Review` → `✅ Ready`). He tests in CBO now (Meta spreads the budget).
+
+After each weekly performance meeting (20 minutes, `pipeline/weekly_review.py`; the Ads Manager export: Ads level, the
+`Weekly review` columns incl. **3-second video plays, ThruPlays and Purchases conversion value**, CSV):
 
 ```
 python3 pipeline/weekly_review.py ingest <Ads Manager export, Ads level>.csv --week <Monday>
@@ -151,3 +182,6 @@ pipeline/tests/test_playbook.py` checks it still reads.
 
 - 2026-11-05: rulebook created (owner): Halbert hook formulas, banned phrases and claim words from B001-B038, hook rate target 40-45%,
   the three-gate footage blocker, presenter in about half the projects, the weekly review loop.
+- 2026-11-05 (Julian's call + the Oct 6 - Nov 4 export): KPIs (hook 40-50%, hold 10-15%, ROAS 2.1 / 2.5, CPA 30 AUD), 12 statics a
+  batch, presenter rules (no sale hook, no label, footage on the words, no pauses), statics rules (offer once, benefit headlines, no
+  review card, us vs them, the bag big), "free shipping", keep the colours + value winners in every batch.

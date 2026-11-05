@@ -38,6 +38,7 @@ RULEBOOK = os.path.join(HERE, "data", "rulebook.json")
 LEDGER = os.path.join(HERE, "data", "batch_ledger.json")
 REVIEWS = os.path.join(ROOT, "docs", "reviews")
 NAME = re.compile(r"LC_(\d{6})_([A-Za-z0-9]+)_([A-Za-z0-9]+)_(B\d{3}(?:r\d+)?)_(?:(S\d\d)|(P\d\d)_(H\d)|(V\d\d))(?:_([A-Za-z0-9]+))?")
+OLD_NAME = re.compile(r"^(S\d\d|V\d\d)_([A-Za-z0-9_]+?)(?:\s*-\s*Copy)?$")    # our first batches (B001-B010, 2-19 Oct): 'S09_pick_your_colour'
 COLS = {             # our field: header words Meta uses (lower case, any one of them)
     "ad": ("ad name",),
     "spend": ("amount spent",),
@@ -47,6 +48,8 @@ COLS = {             # our field: header words Meta uses (lower case, any one of
     "clicks": ("link clicks",),
     "purchases": ("purchases", "website purchases", "results"),
     "revenue": ("purchases conversion value", "website purchases conversion value", "conversion value"),
+    "roas_col": ("purchase roas (return on ad spend)", "purchase roas", "website purchase roas"),
+    "cpm": ("cpm (cost per 1,000 impressions)", "cpm"),
 }
 
 
@@ -116,7 +119,7 @@ def row_of(name, nums, led, sts):
         r["formulas"] = playbook_check.formula_of(r["line"])
     imp = r.get("impressions") or 0
     r["hook_rate"] = round(r["plays3"] / imp, 4) if imp and r.get("plays3") else None
-    r["hold_rate"] = round(r["thruplays"] / r["plays3"], 4) if r.get("plays3") and r.get("thruplays") else None
+    r["hold_rate"] = round(r["thruplays"] / imp, 4) if imp and r.get("thruplays") else None     # (Julian: ThruPlays / impressions)
     r["ctr"] = round(r["clicks"] / imp, 4) if imp and r.get("clicks") else None
     r["roas"] = round(r["revenue"] / r["spend"], 2) if r.get("spend") and r.get("revenue") else (0.0 if r.get("spend") else None)
     r["cpa"] = round(r["spend"] / r["purchases"], 2) if r.get("purchases") else None
@@ -135,12 +138,26 @@ def ingest(path, week, ours_only=True):
     out = []
     for x in data:
         name = x[idx["ad"]].strip() if idx["ad"] < len(x) else ""
-        if not name or (ours_only and not NAME.search(name)):
+        if not name or (ours_only and not NAME.search(name) and not OLD_NAME.match(name)):
             continue
         nums = {k: _num(x[i]) for k, i in idx.items() if k != "ad" and i is not None and i < len(x)}
-        out.append(row_of(name, nums, led, sts))
+        if not nums.get("revenue") and nums.get("roas_col") and nums.get("spend"):     # (an export without the value column)
+            nums["revenue"] = round(nums["roas_col"] * nums["spend"], 2)
+        nums.pop("roas_col", None)
+        r_ = row_of(name, nums, led, sts)
+        r_["ours"] = bool(NAME.search(name) or OLD_NAME.match(name))
+        mo = OLD_NAME.match(name) if not NAME.search(name) else None
+        if mo:                                                   # (before the LC_ names: the batch is unknown, the layout is in the name)
+            kind = mo.group(1)
+            r_.update(batch="pre-LC", angle=mo.group(2).lower(), **({"static": kind} if kind[0] == "S" else {"video": kind}))
+        out.append(r_)
+    others = [r for r in out if not r.get("ours")]
+    bench = _agg(others) if others else None
+    out = [r for r in out if r.get("ours")]          # (the repo keeps our ads; the rest of the account is a benchmark line)
     perf = load()
-    perf["weeks"][week] = dict(source=os.path.basename(path), ingested=datetime.date.today().isoformat(), ads=out)
+    cur = next((m.group(1) for h in head for m in [re.search(r"amount spent \((\w+)\)", h, re.I)] if m), "")
+    perf["weeks"][week] = dict(source=os.path.basename(path), ingested=datetime.date.today().isoformat(), currency=cur, ads=out,
+                               **({"benchmark": {k: (round(v, 4) if isinstance(v, float) else v) for k, v in bench.items()}} if bench else {}))
     json.dump(perf, open(PERF, "w"), indent=1, ensure_ascii=False)
     print(json.dumps(dict(week=week, ads=len(out), file=PERF, missing_columns=[k for k, i in idx.items() if i is None]), indent=1))
     return out
@@ -162,11 +179,12 @@ def rulebook():
 
 def _agg(rows):
     imp = sum(r.get("impressions") or 0 for r in rows)
+    vimp = sum(r.get("impressions") or 0 for r in rows if r.get("plays3"))     # (the hook rate of the videos only: statics have no plays)
     p3 = sum(r.get("plays3") or 0 for r in rows)
     sp = sum(r.get("spend") or 0 for r in rows)
     rev = sum(r.get("revenue") or 0 for r in rows)
     pu = sum(r.get("purchases") or 0 for r in rows)
-    return dict(n=len(rows), impressions=int(imp), hook_rate=(p3 / imp if imp and p3 else None), spend=round(sp, 2),
+    return dict(n=len(rows), impressions=int(imp), hook_rate=(p3 / vimp if vimp and p3 else None), spend=round(sp, 2),
                 roas=(rev / sp if sp else None), purchases=int(pu), cpa=(sp / pu if pu else None))
 
 
@@ -208,7 +226,10 @@ def report(week=None, write=True):
     if not perf["weeks"]:
         sys.exit("no weeks in performance.json yet: weekly_review.py ingest <csv> --week YYYY-MM-DD")
     week = week or sorted(perf["weeks"])[-1]
-    rows = perf["weeks"][week]["ads"]
+    allrows = perf["weeks"][week]["ads"]
+    rows = [r for r in allrows if r.get("ours", True)]
+    others = [r for r in allrows if not r.get("ours", True)]
+    cur = perf["weeks"][week].get("currency") or "$"
     vids = [r for r in rows if r.get("hook") or r.get("video")]
     enough = [r for r in vids if (r.get("impressions") or 0) >= K.get("min_impressions", 1000) and r.get("hook_rate") is not None]
     tot = _agg(rows)
@@ -216,7 +237,12 @@ def report(week=None, write=True):
     L = [f"# Weekly review {week}", "",
          f"Source: {perf['weeks'][week].get('source')} · {len(rows)} of our ads · spend ${tot['spend']:,.0f} · ROAS {_f(tot['roas'])} · "
          f"{tot['purchases']} purchases · CPA ${_f(tot['cpa'])} · hook rate {_pct(tot['hook_rate'])} (target "
-         f"{_pct((hk.get('target') or [0.4])[0])}-{_pct((hk.get('target') or [0.4, 0.45])[-1])}, floor {_pct(hk.get('floor'))})", ""]
+         f"{_pct((hk.get('target') or [0.4])[0])}-{_pct((hk.get('target') or [0.4, 0.45])[-1])}, floor {_pct(hk.get('floor'))}); "
+         f"amounts in {cur}", ""]
+    ob = _agg(others) if others else perf["weeks"][week].get("benchmark")
+    if ob:
+        L += [f"Benchmark, the account's other ads (not ours): {ob['n']} ads · spend {ob['spend']:,.0f} · ROAS {_f(ob['roas'])} · "
+              f"{ob['purchases']} purchases · CPA {_f(ob['cpa'])} · hook rate {_pct(ob['hook_rate'])}", ""]
     if enough:
         srt = sorted(enough, key=lambda r: -r["hook_rate"])
         L += ["## Best hooks (hook rate)", "", "| Ad | Hook line | Formula | Hook rate | Hold | CTR | ROAS | Spend |", "|---|---|---|---|---|---|---|---|"]
@@ -241,6 +267,16 @@ def report(week=None, write=True):
                 elif a["hook_rate"] < hk.get("floor", 0.25):
                     sugg.append(f"weekly_review.py add lose \"{title} '{k}' does not stop the scroll\" --evidence \"{week}: {a['n']} ads, "
                                 f"hook rate {_pct(a['hook_rate'])}\"")
+    st = [r for r in rows if r.get("static")]
+    if st:
+        L += ["", "## Statics by layout (their angle in the name)", "", "| Layout | Ads | ROAS | Spend | Purchases | CPA |", "|---|---|---|---|---|---|"]
+        for k, rs in sorted(groups(st, "angle").items(), key=lambda kv: -_agg(kv[1])["spend"]):
+            a = _agg(rs)
+            if a["spend"] >= 1:
+                L.append(f"| {k} | {a['n']} | {_f(a['roas'])} | {a['spend']:,.0f} | {a['purchases']} | {_f(a['cpa'])} |")
+        v_, s_ = _agg([r for r in rows if not r.get("static")]), _agg(st)
+        L += ["", f"Videos: spend {v_['spend']:,.0f}, ROAS {_f(v_['roas'])}, CPA {_f(v_['cpa'])}, hook rate {_pct(v_['hook_rate'])} · "
+                  f"Statics: spend {s_['spend']:,.0f}, ROAS {_f(s_['roas'])}, CPA {_f(s_['cpa'])}"]
     L += ["", "## Every ad", "", "| Ad | Verdict | Hook rate | Hold | CTR | ROAS | CPA | Spend |", "|---|---|---|---|---|---|---|---|"]
     L += [f"| {r['ad']} | {verdict(r, K)} | {_pct(r.get('hook_rate'))} | {_pct(r.get('hold_rate'))} | {_pct(r.get('ctr'))} | "
           f"{_f(r.get('roas'))} | {_f(r.get('cpa'))} | ${_f(r.get('spend'), 0)} |" for r in sorted(rows, key=lambda r: -(r.get("spend") or 0))]
@@ -256,19 +292,34 @@ def report(week=None, write=True):
 
 
 def packet_lines(perf, product=None, weeks=2):
-    """What the strategist reads in the packet: the newest weeks' best and worst hooks (by hook rate), the product's first."""
+    """What the strategist reads in the packet: the newest weeks' hooks (the product's first, judged by the rulebook's hook-rate
+    target) and the statics that sold (ROAS at or over the KPI with 5+ purchases)."""
     R = rulebook()
     K = R.get("kpi") or {}
-    rows = [r for w in sorted(perf.get("weeks") or {})[-weeks:] for r in perf["weeks"][w]["ads"]
-            if r.get("hook_rate") is not None and (r.get("impressions") or 0) >= K.get("min_impressions", 1000) and r.get("line")]
-    if not rows:
-        return ""
-    mine = [r for r in rows if product and (r.get("product") or "").lower() == product.lower()] or rows
-    srt = sorted(mine, key=lambda r: -r["hook_rate"])
-    L = [f"### Last weeks in Meta (weekly_review.py; hook rate = 3-s plays / impressions; {len(mine)} hooks)\n"]
-    L += [f"- WON {_pct(r['hook_rate'])} (ROAS {_f(r.get('roas'))}): \"{r['line']}\" ({r['ad']})" for r in srt[:4]]
-    L += [f"- LOST {_pct(r['hook_rate'])}: \"{r['line']}\" ({r['ad']})" for r in srt[-3:][::-1] if r not in srt[:4]]
-    return "\n".join(L)
+    hk = K.get("hook_rate") or {}
+    good, floor = (hk.get("target") or [0.4])[0], hk.get("floor", 0.25)
+    allr = [r for w in sorted(perf.get("weeks") or {})[-weeks:] for r in perf["weeks"][w]["ads"] if r.get("ours", True)]
+    rows = [r for r in allr if r.get("hook_rate") is not None and (r.get("impressions") or 0) >= K.get("min_impressions", 1000) and r.get("line")]
+    mine = [r for r in rows if product and (r.get("product") or "").lower() == product.lower()]
+    L = [f"### Last weeks in Meta (weekly_review.py; hook rate = 3-s plays / impressions, target {good:.0%}+)\n"]
+    for title, rs in (("this product's hooks", mine), ("all our hooks", rows)):
+        if not rs:
+            continue
+        srt = sorted(rs, key=lambda r: -r["hook_rate"])
+        pick = srt[:4] + [r for r in srt[-3:] if r not in srt[:4]]
+        L.append(f"{title}:")
+        L += [f"- {'WON' if r['hook_rate'] >= good else 'LOST' if r['hook_rate'] < floor else 'below target'} {_pct(r['hook_rate'])} "
+              f"(ROAS {_f(r.get('roas'))}): \"{r['line']}\" ({r['ad']})" for r in pick]
+        if rs is mine and len(mine) >= 4:
+            break
+    roas_ok = (K.get("roas") or {}).get("good", 2.1)
+    sold = sorted([r for r in allr if r.get("static") and (r.get("purchases") or 0) >= 5 and (r.get("roas") or 0) >= roas_ok],
+                  key=lambda r: -(r.get("purchases") or 0))[:6]
+    if sold:
+        L += ["statics that sold (copy what they do, not their words):"]
+        L += [f"- {r['ad']}: ROAS {_f(r.get('roas'))}, {int(r.get('purchases') or 0)} purchases" + (f" (\"{r['line']}\")" if r.get("line") else "")
+              for r in sold]
+    return "\n".join(L) if len(L) > 1 else ""
 
 
 def _log(R, who, change):

@@ -158,6 +158,11 @@ def pres_secs(text):
 VOICE_FILE = os.path.join(HERE, "data", "voice.json")   # optional {"voice_type", "voice_id", "speed"}: the lead's choice of voice
 PIPELINES = ("catalog", "winners", "new-product")
 BATCH = dict(statics=20, projects=5)   # the owner (2026-10-13): no numbers = 20 statics + 5 projects x 4 hooks = 20 videos
+try:                                    # Julian 2026-11-05: "better 12 very good ads instead of 25 average": rulebook.json batch
+    BATCH.update({k: int(v) for k, v in (json.load(open(os.path.join(HERE, "data", "rulebook.json"))).get("batch") or {}).items()
+                  if k in BATCH})
+except (OSError, ValueError):
+    pass
 FIT_CLIP = "auto"   # product-file clips not shot 9:16: recut picks a flat backdrop (light studio border) or a blur
 CLOSE_FIT_Y = 0.30  # a framed square under the close: y 36-1116, above the end card band (1120-1510)
 STORY_WORDS = re.compile(r"\bstor(?:y|ies|ytelling)\b|\blong(?:er)?[- ](?:video|ad|form|version)s?\b|"
@@ -1858,7 +1863,7 @@ def plan(a):
             if price_ok and hv % 2 == 0:
                 d_.update(price=f"${s_price:.2f}", was=f"${s_was:.2f}")
             elif pr["source"] == "built-in" and (getattr(a, "classic", False) or not s_gift):   # (a gift label under the bag is the one small line: calmer)
-                d_["sub"] = "Free US shipping"           # store-wide (PLAYBOOK section 1)
+                d_["sub"] = "Free shipping"           # store-wide (PLAYBOOK section 1)
             return {k: x for k, x in d_.items() if x not in (None, "")}
         if lay == "stars":            # 2 cards usually fit: the next one starts after them; reviews not shown yet first
             sq, c_ = rot(star_revs, hv * 2), revs_shown()
@@ -2907,8 +2912,10 @@ def plan(a):
         texts = [("hook", hook)] + [(c["id"], c["text"]) for c in chs]
         slots = {k_: ugc_slots(t_, PRES_SPEED if pres else ugc_speed, UGC_HOOK_PAD if k_ == "hook" else UGC_JOIN) for k_, t_ in texts}
 
-        def on_cam(ch, j, n):         # is group j of n of this block the presenter on camera? (a chapter's `cam`; the hook: all of it)
+        def on_cam(ch, j, n, phrase=""):   # is group j of n of this block the presenter on camera? (a chapter's `cam`; the hook: all of it)
             cam = "full" if ch is None else (ch.get("cam") or "open")
+            if cam != "full" and shows_thing(phrase):   # (Julian 2026-11-05: "one hand holds the coffee, but the clip of the coffee
+                return False                             # comes later": a phrase that names something to see is the footage, at once)
             return cam == "full" or (cam in ("open", "both") and j == 0) or (cam in ("close", "both") and j == n - 1)
         main, prev, nsl = {}, None, 0
         for k_, t_ in texts:          # the hook first (its shots are its own), then each chapter's phrases in order
@@ -2919,7 +2926,7 @@ def plan(a):
             ps = swatches_of(t_) if colour else []       # (however many phrases the voice makes: a shot per colour named)
             recent.clear()
             for j, (st_, _) in enumerate(() if colour else slots[k_]):
-                if pres and on_cam(ch, j, len(slots[k_])):
+                if pres and on_cam(ch, j, len(slots[k_]), st_):
                     ps.append(["TALK", 0, 1.0])
                     continue
                 last_slot = ch is not None and ch is chs[-1] and j == len(slots[k_]) - 1
@@ -2974,7 +2981,10 @@ def plan(a):
             sys.exit(f"{pr['name']}: no footage or photo to show under the voiceover (product has no clips, no clean "
                      f"photos and no site page). Add clips/photos to its Drive folder and re-run the intake.")
         oy = {"y": PRES_OVERLAY_Y} if pres else {}      # (a presenter's face fills the upper half: the words sit under her chin)
-        blocks, ovl = [], [dict(type="label", text=hk["label"], block=0, at=0.1, dur=1.8, **oy)]
+        # (Julian 2026-11-05 on the presenter video: "keep either this one or this one, not both": she says the hook and the caption
+        # shows it, so a presenter's hook carries no label on top; rulebook.json presenter.hook_label)
+        blocks, ovl = [], ([] if pres and not (rules_of("presenter") or {}).get("hook_label", False) else
+                           [dict(type="label", text=hk["label"], block=0, at=0.1, dur=1.8, **oy)])
         for k_, t_ in texts:
             ch = next((c for c in chs if c["id"] == k_), None)
             if pres:                  # her take: a file the presenter step makes (presenter.py needed), the words are the script's
@@ -3567,6 +3577,16 @@ def footage_match(out, v):
     except OSError:
         pass
     return hard, soft, rows
+
+
+VISUAL_SKIP = {"hero", "home", "office", "outdoor", "door"}     # wants a talking host may say over her own face (a mood, a place)
+
+
+def shows_thing(phrase):
+    """Does a phrase name something the picture should show (a zip, the pocket, the strap, coffee, keys, a crowd ...), so a presenter
+    project cuts to footage while it is said instead of after it (shotmatch wants of weight >= 3, the generic place words left out)?"""
+    w = shotmatch.wants(phrase or "")
+    return any(v >= 3 and t not in VISUAL_SKIP for t, v in w.items())
 
 
 def rules_of(section):

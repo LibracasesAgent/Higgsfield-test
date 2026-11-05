@@ -72,7 +72,7 @@ def test_claim_words_need_facts():
 def test_the_rulebook_reads_and_every_regex_compiles():
     R = pc.rules()
     assert R["_banned"] and R["_formulas"] and R["_claims"]
-    assert (R["kpi"]["hook_rate"]["target"][0], R["kpi"]["hook_rate"]["target"][1]) == (0.40, 0.45)
+    assert R["kpi"]["hook_rate"]["target"][0] == 0.40 and R["kpi"]["roas"]["good"] >= 2.0
     for f in R["_formulas"]:
         assert pc.formula_of(f["example"]), f"the example of formula {f['id']} does not match it: {f['example']}"
     assert "Hook formulas" in pc.packet_section()
@@ -127,7 +127,7 @@ def test_weekly_review_round_trip():
                            "LC_261102_HoboBag_BlackFriday_B030_P01_H3_packtonight,40,3000,600,90,60,0,0\n"
                            "Someone else's ad,10,900,10,1,1,0,0\n")
         rows = wr.ingest(f, "2026-11-02")
-        assert len(rows) == 2 and rows[0]["hook_rate"] == 0.45 and rows[0]["hook"] == "H2" and rows[0]["batch"] == "B030"
+        assert len(rows) == 2 and rows[0]["hook_rate"] == 0.45 and rows[0]["hold_rate"] == 0.1 and rows[0]["hook"] == "H2" and rows[0]["batch"] == "B030"
         md = wr.report("2026-11-02")
         assert "hook WINS" in md and "hook loses" in md and os.path.exists(os.path.join(wr.REVIEWS, "2026-11-02.md"))
         wr.add("ban", "treat yourself", why="test", level="soft")

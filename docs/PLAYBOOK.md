@@ -92,6 +92,12 @@ forces `pipeline/make_batch.py` (templates, real photos and footage; AI only as 
    experience; a first-person switch may exist but is off by default and is not built), length 55-80 s, and the new format
    becomes the default storyboard video. What was built: section 12.
 
+13. **Julian (media buyer), call 2026-11-05** (with the Oct 6 - Nov 4 export; `docs/reviews/2026-11-05-julian-call.md`): the AI campaign
+   dipped, he kills what misses KPIs and now tests in CBO; statics carry the results (and Google Ads needs them); KPIs hook rate 40-50%,
+   hold 10-15%, ROAS 2.1 (2.5 to scale), CPA 30; footage must land ON the words; presenter videos less aggressive (no Black Friday
+   opener, no double heading, no pauses); fewer, better statics (12 > 25); "free shipping", not "free US shipping"; weekly call 15:00
+   Italy. All of it is in `pipeline/data/rulebook.json` (changelog 2026-11-05) and enforced: see section 4p.
+
 ## 3. The 2026-10-02 test run (reference for every format)
 
 Specs: `pipeline/recipes/daily/2026-10-02/` (`statics.json`, `V01..V20_*.json`, `ads_meta.json` = angle per ad).

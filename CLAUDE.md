@@ -150,8 +150,9 @@ Drive folder fills while the next bag renders; 9 projects + 15 statics keep a se
 ~10 GB of disk: the clip cache trims itself (`recut.trim_cache`, 4.5 GB), and after each bag's upload delete its local videos
 (`find $OUT/videos -name '*.mp4' -delete`, never anything in Drive); `df -h /home` says how much is left.
 
-**Size, every pipeline:** no numbers in the message = a **batch**: 20 statics + 5 projects × 4 hooks (H1-H4) =
-20 videos (winners and new products do this by themselves; catalog needs `--batch`). Numbers given = exactly
+**Size, every pipeline:** no numbers in the message = a **batch**: 12 statics + 5 projects × 4 hooks (H1-H4) =
+20 videos (Julian 2026-11-05: "better 12 very good ads instead of 25 average": `rulebook.json batch.statics`; winners and new products
+do this by themselves; catalog needs `--batch`). Numbers given = exactly
 those, and a count not named is 0 ("6 statics" = 6 statics and no videos). "N videos" = "N projects" =
 `--projects N` (4N files; `--hooks 1`: N single videos).
 
@@ -288,7 +289,7 @@ then `--product "<key>"`. No folder, no photos, not on the site: make nothing an
 | Request says | `make_batch.py plan` flags |
 |---|---|
 | "N statics and M videos" (or "M projects") | `--statics N --projects M` → M projects × 4 hook versions (winners: `--videos M` = M winner projects too; catalog: `--videos M` / `--winner-videos M` still work) |
-| no numbers | nothing (winners, new products) / `--batch` (catalog): 20 statics + 5 projects |
+| no numbers | nothing (winners, new products) / `--batch` (catalog): 12 statics + 5 projects |
 | "single videos" / "no hook versions" | add `--hooks 1` (V01, V02 … as before, winners too) |
 | a product (catalog) | `--product "<name>"`: Hobo Bag (default), Hobo 2.0, 3-piece set, vintage, slouchy, or any product file in `pipeline/data/products/` |
 | a theme | `--theme "<words>"`: black friday, cyber monday, christmas, gift, mother's day, travel are built in; any other theme: `--theme "<words>"` plus your own short lines with `--lines` (keys `hero`, `bold`, `colours`, `P01_hook` / `V01_hook`, `P01_close` …) |
