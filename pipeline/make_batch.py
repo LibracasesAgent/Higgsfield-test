@@ -2705,6 +2705,19 @@ def plan(a):
         n = min(cap, int((dur - 3.0) // 4.0) + 1)
         return [round(0.5 + k * ((dur - 3.5) / max(n - 1, 1) if n > 1 else 0), 1) for k in range(n)]
 
+    lab_cache = {}
+
+    def lab_moments():
+        """{clip id: labelled moments} of the client's library (clip_index.json), read once."""
+        if not lab_cache:
+            try:
+                rows_ = json.load(open(os.path.join(HERE, "data", "clip_index.json")))
+                rows_ = rows_ if isinstance(rows_, list) else rows_.get("clips") or list(rows_.values())
+                lab_cache.update({r["id"]: r["moments"] for r in rows_ if isinstance(r, dict) and r.get("id") and r.get("moments")})
+            except (OSError, ValueError):
+                lab_cache["_"] = []
+        return lab_cache
+
     def ugc_lib():
         """The product's footage as matchable shots [{p, kw, tag, kind, src, pen, only, hook, long}]: its feature picks and their other vetted
         moments (tag = the feature), B-roll and hook clips, every other clip of its clip_bank sections (the vetted moments, else
@@ -2732,9 +2745,19 @@ def plan(a):
                 return float(c.get("dur") or 0) >= 60
             return float(((b.get(p[0]) or {}).get(p[1]) or {}).get("dur") or 0) >= 60
 
+        def labelled(p):              # a curated clip (clip_bank) that the library labels too: what its frames SHOW near p's second
+            e_ = (b.get(p[0]) or {}).get(p[1]) if p and p[0] in b else None    # (the Vintage Bag's 'clasp snapping' clip shows the
+            ms_ = lab_moments().get((e_ or {}).get("id")) if isinstance(e_, dict) else None     # strap's clip hook in every frame)
+            if not ms_ or not isinstance(p[2], (int, float)):
+                return None
+            m_ = min(ms_, key=lambda m: abs(float(m.get("t", 0)) - (float(p[2]) + 1.0)))
+            return set(m_.get("tags") or []) | shotmatch.desc_tags(m_.get("desc")), m_.get("q") or "good"
+
         def add(p, extra=(), tag=None, kind="clip", pen=0.0, only=(), hook=False, tags=None, q="good", own_kw=None):
             if not p or unfit(p) or has_person(p) or any(near(p, e["p"]) for e in ulib):    # (a clip whose notes say a woman / customer /
                 return                                                                      # model is in it: faces, and never what the words say)
+            if tags is None and (lb_ := labelled(p)):
+                tags, q = lb_
             x = pick(p)
             if x:                   # once: a photo of kind 'other' (a product page's diagram with its words) is shown whole, one time
                 f_ = photo_file(p) if p[0] == "photo" else None
@@ -2779,7 +2802,8 @@ def plan(a):
                 if mom_:             # labelled (footage_index label-merge): one shot at each frame that shows the bag, that frame inside it
                     for m_ in sorted((m for m in mom_ if m.get("q") != "bad"), key=lambda m: (m.get("q") != "good", m["t"])):
                         add(["drive", id_, round(min(max(m_["t"] - 1.0, 0.3), max(dur_ - 2.6, 0.3)), 2)], (), None, "clip",
-                            pen_ + (0.0 if m_.get("q") == "good" else 0.5), tags=m_.get("tags") or [], q=m_.get("q") or "good",
+                            pen_ + (0.0 if m_.get("q") == "good" else 0.5), q=m_.get("q") or "good",
+                            tags=set(m_.get("tags") or []) | shotmatch.desc_tags(m_.get("desc")),    # ('hand with coffee': coffee)
                             own_kw=kw_terms(m_.get("desc") or "") | shotmatch.fold(m_.get("tags") or ()))
                     continue
                 for g in gen_moments(dur_, 5):
@@ -2841,7 +2865,7 @@ def plan(a):
                 if (e["only"] and not e["only"] & (terms | cterms)) or (kinds and e["kind"] not in kinds) or (e["once"] and use.get(i)):
                     continue
                 sem = shotmatch.score(e.get("tags"), wants, e.get("q", "good")) if (wants or e.get("q") == "weak") and e["p"][0] != "photo" else 0.0
-                s = 3.0 * len(e["kw"] & terms) + 1.5 * len(e["kw"] & cterms) + (6.0 if feat and e["tag"] == feat and not (wants and sem < 0) else 0.0) \
+                s = 3.0 * len(e["kw"] & terms) + 1.5 * len(e["kw"] & cterms) + (6.0 if feat and e["tag"] == feat and not (wants and (sem < 0 or shotmatch.misses(e.get("tags"), wants))) else 0.0) \
                     + (4.0 if hook and e["hook"] and not sc.get("from_sheet") else 0.0) + (2.5 * bool(e["kw"] & HOOK_MOVE) - 2.5 * ("hang" in e["kw"]) if hook else 0.0) - e["pen"] - 6.0 * (prev is not None and e["src"] == prev and not e["long"]) \
                     - 5.0 * recent.count(e["src"]) * (not e["long"]) - 0.01 * ((i * 7 + jit) % 13)
                 s += sem + (CLIP_ECON if e["p"][0] == "drive" and e["src"] in batch_srcs else 0.0)
@@ -2895,21 +2919,33 @@ def plan(a):
             colour = ch is not None and len(sw) >= 3 and "colour" in kw_terms(" ".join(ch["shot_kw"])) and ch["kind"] != "offer"
             ps = swatches_of(t_) if colour else []       # (however many phrases the voice makes: a shot per colour named)
             recent.clear()
-            for j, (st_, _) in enumerate(() if colour else slots[k_]):
-                if pres and on_cam(ch, j, len(slots[k_])):
-                    ps.append(["TALK", 0, 1.0])
+            sl_ = [] if colour else slots[k_]
+            own_w = [shotmatch.wants(st_) for st_, _ in sl_]          # what each phrase's OWN words ask for (no chapter cues)
+            # the most specific phrase picks first ('One hand holds a coffee' before 'Here's a test every bag should pass': the generic
+            # line took the coffee clip, Julian 2026-11-04); ties keep the reading order
+            order_ = sorted(range(len(sl_)), key=lambda j: (-max(own_w[j].values() or [0.0]), j))
+            got_ = {}
+            for j in order_:
+                st_ = sl_[j][0]
+                at_ = sum(len(w_.split()) for w_, _ in sl_[:j])          # the word this phrase starts on: render cuts there, on the
+                if pres and on_cam(ch, j, len(sl_)):                     # voice's real timing (Julian 2026-11-04: the coffee shot came
+                    got_[j] = ["TALK", 0, 1.0, {"at": at_}]              # a phrase late)
                     continue
-                last_slot = ch is not None and ch is chs[-1] and j == len(slots[k_]) - 1
-                c_ = choose({"packshot", "hero"}, {"hero"}, None, prev, uses, {"photo"}) if last_slot and packs else None
-                c_ = c_ or choose(kw_terms(st_), ct, feat, prev, uses, hook=ch is None, opening=ch is None and j == 0,
+                nb_ = got_.get(j - 1) or got_.get(j + 1)
+                prev_ = str(nb_[0]) if nb_ and nb_[0] != "TALK" else (prev if j == 0 else None)
+                last_slot = ch is not None and ch is chs[-1] and j == len(sl_) - 1
+                c_ = choose({"packshot", "hero"}, {"hero"}, None, prev_, uses, {"photo"}) if last_slot and packs else None
+                c_ = c_ or choose(kw_terms(st_), ct, feat, prev_, uses, hook=ch is None, opening=ch is None and j == 0,
                                   wants=shotmatch.wants(st_, (ch or {}).get("tag") or hk.get("feature"), (ch or hk).get("show") or ()),
                                   sound=bool(ch and ch.get("proof")) and j == 0)
                 x_ = framed(*c_) if c_ else None
                 if x_:
                     if last_slot and len(x_) > 3 and x_[3].get("fit"):
                         x_ = x_[:3] + [dict(x_[3], fit_y=CLOSE_FIT_Y)]    # (above the end card band, as the classic close)
-                    ps.append(x_)
-                    prev = str(x_[0])
+                    got_[j] = list(x_[:3]) + [dict(x_[3] if len(x_) > 3 else {}, at=at_)]
+            ps += [got_[j] for j in range(len(sl_)) if j in got_]
+            if ps and ps[-1][0] != "TALK":
+                prev = str(ps[-1][0])
             main[k_] = ps
             nsl += len(ps)
             for x_ in ps:          # (shown now: the batch's next videos pay BATCH_REUSE for the same moment)

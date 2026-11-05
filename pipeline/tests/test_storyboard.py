@@ -265,6 +265,34 @@ def test_named_picks(sb, d):
     assert seen[0] in ("s0.jpg", "s1.jpg") and "s2.jpg" in seen[1:] or "s3.jpg" in seen[1:], seen
 
 
+def test_anchored_picks_land_on_their_words(sb, d):
+    """(Julian 2026-11-04: 'one hand holds the coffee' showed the coffee a phrase later.) Picks that carry the word their phrase starts
+    on ({"at": i}) cut CUT_LEAD s before that word on the voice's REAL timing, whatever pace plan estimated: pick i is on screen while
+    its own words are said; a pick whose word comes under SHOT_MIN after the cut before shares that shot and goes to the spares."""
+    text = "Here's a test every bag should pass. One hand holds a coffee. The other has to find your things and shut the bag again."
+    toks = text.split()
+    ws, t = [], 0.1                       # a slow start, then fast: plan's even pace would put every cut in the wrong place
+    for i, w in enumerate(toks):
+        step = 0.42 if i < 7 else 0.28
+        ws.append(dict(w=w, s=round(t, 3), e=round(t + step * 0.8, 3)))
+        t += step
+    L = round(t + 0.3, 3)
+    still = {"zoom": [1.0, 1.06]}
+    at = [0, 7, 12, 14]                   # 'Here's', 'One', 'The', 'find'
+    picks = [[f"s{k}.jpg", 0, 1.0, dict(still, at=a)] for k, a in enumerate(at)]
+    drop = []
+    got = sb.plan_block(sb.Shots(d), 0.0, L, 0.0, ws, picks, [[["s3.jpg", 0, 1.0, {}]]], drop)
+    starts = {g["src"]: round(sum(x["dur"] for x in got[:i]), 3) for i, g in enumerate(got) if g["src"] not in [y["src"] for y in got[:i]]}
+    assert starts["s1.jpg"] == round(ws[7]["s"] - sb.CUT_LEAD, 3), (starts, ws[7])       # the coffee shot starts on 'One'
+    assert starts["s2.jpg"] == round(ws[12]["s"] - sb.CUT_LEAD, 3), starts               # 'The other has to find ...'
+    assert all("at" not in g for g in got)
+    assert drop == [["s3.jpg", 0, 1.0, dict(still, at=14)]], drop                         # 'find' 0.56 s after 'The': no shot
+    assert abs(sum(g["dur"] for g in got) - L) < 0.01
+    ws2 = [dict(w=w, s=round(0.1 + i * 0.3, 3), e=round(0.3 + i * 0.3, 3)) for i, w in enumerate(toks)]
+    old = sb.plan_block(sb.Shots(d), 0.0, L, 0.0, ws2, [p[:3] for p in picks], [], [])     # (no anchors: the old grouping)
+    assert old and all("at" not in g for g in old)
+
+
 def test_hook_does_not_change_body(sb, d):
     """The hook is planned after the body: another hook (other length, other shots) leaves the body's shots as they are."""
     def body(board):
@@ -360,7 +388,7 @@ def test_master(sb, d):
 
 
 TESTS = [test_classic_build_unchanged, test_voice_prep, test_phrases, test_shot_groups, test_ugc_build, test_no_repeat_within_10s,
-         test_repeat_gets_another_shot, test_one_clip_cuts_are_visible, test_named_picks, test_hook_does_not_change_body, test_chapter_number_caption, test_proof_block_holds_and_plays_its_own_sound, test_master]
+         test_repeat_gets_another_shot, test_one_clip_cuts_are_visible, test_named_picks, test_anchored_picks_land_on_their_words, test_hook_does_not_change_body, test_chapter_number_caption, test_proof_block_holds_and_plays_its_own_sound, test_master]
 
 
 def main():

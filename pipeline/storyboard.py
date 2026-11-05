@@ -270,7 +270,7 @@ class Shots:
     def mk(self, src, st, ex, L):
         """The shot dict of the pick (src, st, extra) for L s: as broll_segs makes it (the start moved back or a slower
         speed when the clip runs out; a still gets a slow punch-in)."""
-        ex = {k: v for k, v in (ex or {}).items() if k != "say"}
+        ex = {k: v for k, v in (ex or {}).items() if k not in ("say", "at")}
         if not str(src).lower().endswith(STILL):
             st, sp = fit(self.d, src, st, L)
             if sp != 1.0:
@@ -347,17 +347,60 @@ def talk_seg(talk, x, y, n):
     return s
 
 
-def plan_block(sh, t0, L, lead, ws, picks, pools, drop=None, talk=None, ideal=SHOT_IDEAL, long=SHOT_LONG):
+def anchor(p):
+    """The script word a pick's phrase starts on ({"at": 7}: plan chose the pick for the words from the 8th on), or None."""
+    return (p[3] or {}).get("at") if p and len(p) > 3 and isinstance(p[3], dict) else None
+
+
+def anchored_groups(ws, picks, lead, L, text=None):
+    """The shot groups of a block whose picks all carry their phrase's first word (anchor): [(a, b)] one per pick, a = CUT_LEAD s
+    before that word on the voice's real timing (Julian 2026-11-04: 'one hand holds the coffee' must show the coffee then, not a
+    phrase later; plan's slots are timed at an estimated pace, so filling the real voice's own groups in order drifts). A pick
+    whose word comes under SHOT_MIN after the previous cut shares that shot (None in its place). ws = the script's words on the
+    voice's seconds (script_words: one per word of the text, '50%' for 'fifty percent'), text = the script (to map the indices
+    when the two differ in length). -> (groups, the picks kept, the picks skipped) or None when an anchor is missing."""
+    if not picks or any(anchor(p) is None for p in picks):
+        return None
+    idx = list(range(len(ws)))
+    toks = (text or "").split()
+    if toks and len(toks) != len(ws):             # ('fifty percent' -> one word '50%'): the script's indices onto ws
+        import difflib
+        a_, b_ = [norm(x) for x in toks], [norm(w["w"]) for w in ws]
+        idx, j_ = [None] * len(toks), 0
+        for tag, i1, i2, j1, j2 in difflib.SequenceMatcher(None, a_, b_, autojunk=False).get_opcodes():
+            for q in range(i1, i2):
+                idx[q] = min(j1 + (q - i1) if tag == "equal" else j1 + round((q - i1) * (j2 - j1) / max(i2 - i1, 1)), len(ws) - 1)
+        idx = [x if x is not None else len(ws) - 1 for x in idx]
+    cuts, kept = [], []
+    for p in picks:
+        i = min(int(anchor(p)), len(idx) - 1) if idx else 0
+        c = 0.0 if not cuts else round(lead + ws[idx[i]]["s"] - CUT_LEAD, 3) if ws else 0.0
+        if cuts and (c < cuts[-1] + SHOT_MIN or c > L - SHOT_MIN):
+            kept.append(None)                     # (too close to the cut before, or to the block's end: no shot of its own)
+            continue
+        cuts.append(c)
+        kept.append(p)
+    groups = list(zip(cuts, cuts[1:] + [L]))
+    return groups, [p for p in kept if p is not None], [p for p, k in zip(picks, kept) if k is None]
+
+
+def plan_block(sh, t0, L, lead, ws, picks, pools, drop=None, talk=None, ideal=SHOT_IDEAL, long=SHOT_LONG, text=None):
     """The shots of one ugc voice block (ad second t0, L s long, the voice starting `lead` s in; words ws on the voice's
     seconds): shot_groups of its phrases; the picks fill the groups in order, further groups and the parts of a long
     group take spares (Shots.place). Picks left over go to `drop` (the later blocks' spares). A presenter's block (talk:
     {src, a}): a pick [TALK, 0, 1.0] is her on camera for that group (all its shots, in sync with her words); a last pick
     that is TALK is the block's last group however many groups the timings make."""
-    cuts = phrase_cuts(ws, lead)
-    groups = shot_groups(cuts, L, ideal, long)
     is_t = lambda p: bool(p) and p[0] == TALK                       # noqa: E731
     named = bool(picks) and all(len(p) > 3 and (p[3] or {}).get("say") for p in picks)     # {"say": "beige"}: a colour swatch
-    tail_talk = bool(talk) and len(picks) > 1 and is_t(picks[-1])
+    anc = None if named else anchored_groups(ws, picks, lead, L, text)
+    if anc:                       # every pick on the word its phrase starts on (the real timing): pick i fills group i
+        groups, picks, skipped = anc
+        if drop is not None:
+            drop += [p for p in skipped if not is_t(p)]
+        tail_talk = False
+    else:
+        groups = shot_groups(phrase_cuts(ws, lead), L, ideal, long)
+        tail_talk = bool(talk) and len(picks) > 1 and is_t(picks[-1])
     body = picks[:-1] if tail_talk else picks
     left, out, gi, nt = list(body), [], 0, 0
     for a, b in groups:
@@ -504,7 +547,7 @@ def ugc_shots(d, jobs, segs, spare_all, top):
         proof = bool(blk.get("proof")) and k > 0  # (owner 2026-10-27) the proof shot held longer; a story beat's own pace
         ideal = PROOF_IDEAL if proof else PACE_IDEAL.get(blk.get("pace"), SHOT_IDEAL)
         got = plan_block(sh, jb["t"], jb["L"], jb["lead"], ws, [list(x) for x in blk["broll"]], pools, drop, jb.get("talk"),
-                         ideal=ideal, long=PROOF_LONG if proof else SHOT_LONG)
+                         ideal=ideal, long=PROOF_LONG if proof else SHOT_LONG, text=blk.get("text"))
         if proof:                                 # its first real clip plays its own sound (natural_sounds)
             tsrc = (jb.get("talk") or {}).get("src")
             first = next((x for x in got if not str(x["src"]).lower().endswith(STILL) and x["src"] != tsrc), None)

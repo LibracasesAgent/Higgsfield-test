@@ -16,10 +16,21 @@ import shotmatch as sm  # noqa: E402
 
 def test_phrase_wants():
     w = sm.wants("Snap the clasp shut with one hand.")
-    assert w == {"snap": 5}, w
+    assert w == {"snap": 5, "closing": 4}, w                                            # the clasp, and a hand closing it
     w = sm.wants("Keys go in one gold side zip, phone in the other.")
     assert {"side_zip", "zip", "packing"} <= set(w) and "leather" not in w, w          # ('gold' is the zip here, not the leather)
-    assert "snap" not in sm.wants("Open it, close it, move on.")                       # ('close' alone is not the clasp)
+    w = sm.wants("Open it, close it, move on.")                                         # ('close' alone is not the clasp: a hand closing
+    assert w["closing"] == 4 and w["snap"] == w["zip"] == 2.0, w                        # it, on whatever closes the bag)
+    assert "closing" not in sm.wants("Up close, the leather is soft.")
+    assert sm.wants("One hand holds a coffee.") == {"cafe": 3, "coffee": 4}             # (Julian 2026-11-04: the cup, not the clasp)
+    w = sm.wants("The other has to find your things and shut the bag again,")
+    assert w["search"] == 4 and w["closing"] == 4 and w["snap"] == w["zip"] == 2.0 and w["inside"] > 0, w
+    assert sm.desc_tags("black crossbody bag on hip, hand with coffee, stairs") >= {"coffee", "worn", "walking"}
+    assert sm.desc_tags("hands press brass snap closed on brown bag") == {"closing"}
+    assert "closing" not in sm.desc_tags("hands close in on inner zip, arm covers bag")
+    assert sm.wants("This one has a clasp that snaps shut with one hand.") == {"snap": 5, "closing": 4}
+    assert sm.desc_tags("close-up of black and brown bag snap tabs") == set()           # (a close-up is not the clasp closing)
+    assert sm.desc_tags("hand reaches into open black bag, satin lining") == {"search", "inside"}
     assert "zip_hand" not in sm.wants("Open the app.")                                  # 'open' counts only with a zip / snap / pocket word
     w = sm.wants("Out the door in a hurry?", feature="HIDDEN BACK POCKET")
     assert w["pocket"] == 4 * sm.CHAPTER_SHARE and w["door"] == 2, w                    # the chapter's feature rides along at a share
@@ -33,6 +44,9 @@ def test_score_prefers_what_is_said():
     assert sm.score(strap, want) < 0                                                    # a specific line and a shot that shows none of it
     assert sm.score(clasp, want, "weak") < sm.score(clasp, want, "good")
     assert sm.score(strap, {}) == 0.0                                                   # nothing asked: any good shot
+    shut = sm.wants("and shut the bag again,", "ONE-HAND CLASP")
+    assert sm.score({"snap", "closing", "handheld"}, shut) > sm.score({"snap", "worn"}, shut) + 3     # a hand closing it, not the clasp
+    assert sm.misses({"snap", "worn"}, shut) == 1 and sm.misses({"snap", "closing"}, shut) == 0     # merely visible
 
 
 def test_label_merge_writes_moments_with_frame_times():

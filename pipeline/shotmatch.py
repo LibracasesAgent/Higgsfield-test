@@ -32,6 +32,10 @@ WANT = {
     "pouch": (r"pouch\w*|matching", 4),
     "colours": (r"colou?rs?|shades?|red|brown|black|blue|gr[ae]y|burgundy|beige|ginger|chocolate", 3),
     "cafe": (r"caf[eé]|coffee|latte|your table", 3),
+    "coffee": (r"coffees?|lattes?|cups?|tumblers?|takeaway|to-go", 4),           # (Julian 2026-11-04: 'one hand holds the coffee' shows the cup)
+    "closing": (r"shut\w*|clos(?:e|es|ing)|press(?:es|ed)?|clicks? (?:shut|closed)|fasten\w*", 4),       # the act of closing it (a hand
+    #                                                       at the clasp / zip), not a frame where the clasp is merely visible ('snap')
+    "search": (r"find\w*|search\w*|dig\w*|rummag\w*|look\w* for|reach\w* (?:in|into)|grab\w*|takes? out|pull\w* out|fish\w* (?:out|for)", 4),
     "street": (r"streets?|walk\w*|market|city|town", 2),
     "stairs": (r"stairs?", 3),
     "home": (r"home|morning|bedroom|kitchen|living room", 2),
@@ -56,8 +60,25 @@ FEATURE = [
     (r"colou?r", ("colours",)),
     (r"zip", ("zip", "zip_hand")),
 ]
+# what a labelled moment's free description (footage_index label-merge `desc`) adds to its tags: the things the fixed vocabulary has no
+# tag for or that labellers left out ('hand with coffee', 'hand reaches into open bag', 'hands press brass snap closed': closing), read
+# narrowly (a 'close-up' is not the clasp closing; 'hands close in on' is not closing)
+DESC = {
+    "coffee": r"coffees?|lattes?|cups?|tumblers?|takeaway",
+    "search": r"reach\w* (?:in|into)|dig\w*|rummag\w*|search\w*|pulls? (?:\w+ )?out|takes? (?:\w+ )?out|grab\w*|fish\w*|looks? (?:in|for)|finds?",
+    "closing": r"press\w* (?:\w+ ){0,3}(?:snap|clasp|tab|button|flap|shut|closed)|snaps? (?:it |the \w+ )?(?:shut|closed)|"
+               r"clos(?:es|ing) (?:the |its |her )?(?:\w+ )?(?:flap|snap|clasp|bag|zip)|hands? close (?!in\b)(?:the |its |her )?\w+|"
+               r"(?:flap|snap|clasp|zip|pocket) (?:is )?(?:pressed|clicked|closed|shut)|zips? (?:it |the \w+ )?(?:up|shut|closed)|fasten\w*",
+    "inside": r"inside|interior|lining|open bag|bag (?:held )?open|top view",
+    "worn": r"worn|crossbody|cross-body|on (?:her |the )?shoulder|on (?:her |the )?hip",
+    "strap": r"crossbody|cross-body|strap",
+    "walking": r"walk\w*|steps?|stairs",
+}
+_DESC = {t: re.compile(r"(?<![a-z])(?:%s)(?![a-z])" % rx, re.I) for t, rx in DESC.items()}
 CHAPTER_SHARE = 0.6          # a chapter's own wants weigh this much of a phrase's (the phrase says more than the chapter)
 MISS = -4.0                  # a phrase that names a specific feature (weight >= 4) and a moment that shows none of its wants
+UNMET = -2.0                 # each specific thing the phrase names that the moment does not show, when it shows something else asked
+#                              ('shut the bag again' and a frame where the clasp is only visible: the chapter's clasp cue is no excuse)
 WEAK = -2.5                  # a soft / partly hidden frame
 SPECIFIC = 4
 
@@ -66,7 +87,7 @@ FOLD = {"snap": {"snap", "clasp", "close"}, "zip": {"zip"}, "zip_hand": {"zip", 
         "pocket": {"pocket"}, "inside": {"inside"}, "packing": {"pack", "item", "hand"}, "strap": {"strap"}, "tie": {"strap", "hang"},
         "worn": {"wear", "shoulder"}, "walking": {"walk"}, "handheld": {"hand"}, "placed": {"table", "hang"}, "hero": {"hero"},
         "leather": {"leather", "detail"}, "pouch": {"pouch"}, "colours": {"colour"}, "cafe": {"cafe", "coffee"}, "street": {"walk"},
-        "stairs": {"stairs"}, "home": {"room"}, "office": {"table"}, "car": {"car"}, "shop": {"shop"}, "crowd": {"walk"}, "door": {"door"}}
+        "stairs": {"stairs"}, "coffee": {"coffee", "cafe"}, "search": {"inside", "hand"}, "closing": {"close", "hand"}, "home": {"room"}, "office": {"table"}, "car": {"car"}, "shop": {"shop"}, "crowd": {"walk"}, "door": {"door"}}
 
 
 def wants(text, feature=None, show=()):
@@ -76,8 +97,15 @@ def wants(text, feature=None, show=()):
     w = {t: WANT[t][1] for t, rx in _RE.items() if rx.search(text or "")}
     if not ({"zip", "side_zip", "snap", "pocket"} & set(w)):
         w.pop("zip_hand", None)
-    if "snap" in w and not re.search(r"snap|clasp|click|magnet|buckle|fasten|one[- ]hand", text or "", re.I):
-        w.pop("snap")                                   # ('close' alone is the zip or the offer, not the clasp)
+    if "closing" in w and (re.search(r"close (?:up|to|by)|up close", text or "", re.I) or not re.search(
+            r"(?<![a-z])(?:shut\w*|clos(?:e|es|ing)|press(?:es|ed)?|clicks? (?:shut|closed)|fasten\w*)(?![a-z-])", text or "", re.I)):
+        w.pop("closing")          # ('up close' is near, not closing)
+    if "snap" in w and not re.search(r"snap|clasp|click|magnet|buckle|fasten", text or "", re.I):
+        w.pop("snap")             # ('close' alone is not the clasp; 'one hand holds a coffee' is the cup: Julian 2026-11-04)
+    if "closing" in w and not ({"snap", "zip", "side_zip"} & set(w)):   # ('shut the bag again', 'close it': a hand closing it, on the
+        w["snap"] = w["zip"] = 2.0                                      # clasp or the zip: the bag's own footage decides)
+    if "search" in w:                                   # (a hand finding things is a hand in the open bag)
+        w["inside"] = max(w.get("inside", 0.0), WANT["inside"][1] * CHAPTER_SHARE)
     for t in list(show) + [x for rx, ts in FEATURE if feature and re.search(rx, feature, re.I) for x in ts]:
         if t in WANT:
             w[t] = max(w.get(t, 0.0), WANT[t][1] * CHAPTER_SHARE)
@@ -91,8 +119,20 @@ def score(tags, want, q="good"):
         return 0.0 if q == "good" else WEAK
     tags = set(tags or ())
     hit = sum(w for t, w in want.items() if t in tags)
-    s = hit + (MISS if hit == 0 and max(want.values()) >= SPECIFIC else 0.0)
+    s = hit + (MISS if hit == 0 and max(want.values()) >= SPECIFIC else UNMET * misses(tags, want) if hit else 0.0)
     return s + (WEAK if q == "weak" else 0.0)
+
+
+def misses(tags, want):
+    """How many specific things (weight >= SPECIFIC) the phrase names that the moment does not show."""
+    tags = set(tags or ())
+    return sum(1 for t, w in (want or {}).items() if w >= SPECIFIC and t not in tags)
+
+
+def desc_tags(desc):
+    """The tags a labelled moment's description adds (DESC): 'hand with coffee' -> coffee, 'hand reaches into open black bag' ->
+    search + inside, 'hands press brass snap closed' -> snap."""
+    return {t for t, rx in _DESC.items() if rx.search(desc or "")}
 
 
 def tags_of_text(text):
