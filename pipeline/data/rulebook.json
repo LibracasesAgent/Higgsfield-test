@@ -1,0 +1,506 @@
+{
+  "_help": "The machine half of docs/RULEBOOK.md: what pipeline/playbook_check.py enforces on every hook, spoken line, static's words and ad copy line, and the targets the weekly review measures against. EDIT THIS FILE after a weekly performance review (or run `python3 pipeline/weekly_review.py add ...`): a new banned phrase, a phrase that won, a changed target. Every rule has `why` (who said it, when, the evidence) and `level`: `hard` stops `ideas.py check` / `plan` (exit 2), `soft` is a warning in the plan output and the run report. Patterns are case-insensitive Python regexes matched on whole words. Keep the change log at the bottom: one line per meeting.",
+  "version": "2026-11-05",
+  "kpi": {
+    "_help": "Targets the weekly review (weekly_review.py report) compares every ad against. Hook rate = 3-second video plays / impressions; hold rate = ThruPlays / 3-second plays; Meta's own columns.",
+    "hook_rate": {
+      "target": [
+        0.4,
+        0.45
+      ],
+      "good": 0.4,
+      "floor": 0.25,
+      "why": "owner 2026-11-05: 40-45% is a really good hook rate; vendor data puts the Meta baseline at 25-30% (docs/research/2026-10-black-friday-and-bag-ads.md)"
+    },
+    "hold_rate": {
+      "good": 0.3,
+      "floor": 0.15,
+      "why": "ThruPlay / 3-s plays: does the body keep the people the hook won"
+    },
+    "ctr": {
+      "good": 0.05,
+      "floor": 0.02,
+      "why": "the creator winners run 4.7-10.5% CTR (docs/research/2026-11-all-time-best-ad.md section 1)"
+    },
+    "roas": {
+      "good": 2.4,
+      "floor": 1.8,
+      "why": "account average 2.39 (Sept brief week); our best AI ad set B017 P04 versus 2.97"
+    },
+    "cpa": {
+      "good": 30.0,
+      "ceiling": 40.0,
+      "why": "creator winners $22-31; our AI ads $39.63 (18-26 Oct)"
+    },
+    "min_impressions": 1000,
+    "min_spend": 20
+  },
+  "hooks": {
+    "_help": "Every hook: the 4 spoken openings of a project (ideas.json hooks[].text), the first line of a static's words, primary text 1's first line in ad_copy.csv.",
+    "min_words": 4,
+    "max_words": 14,
+    "must_be_concrete": {
+      "level": "hard",
+      "why": "A hook that names nothing the viewer can SEE (keys, a zip, a train, a crowd: shotmatch.py's footage words) or a number AND follows none of the formulas below is hard (hook_generic): a statement nobody stops for. Concrete but formula-less, or a formula with nothing to see, is a warning. Halbert: a headline flags its reader with self-interest; our feature-list losers opened on vague lines."
+    },
+    "opener_reuse": {
+      "words": 4,
+      "last_batches": 8,
+      "level": "hard",
+      "why": "B030-B034 opened 5 projects with 'Black Friday prices are live now, and ...': Meta groups ads with the same look and story as one (Meta, Dec 2025). The first 4 words of a hook may not repeat a hook of the product's last 8 batches or another hook of this sheet."
+    },
+    "third_person": {
+      "level": "soft",
+      "why": "The viewer is 'you'. 'Her keys are at the bottom of the bag again' (B032 P02 H3) speaks about a stranger; only a gift / friend structure talks about 'her'.",
+      "allowed_structures": [
+        "gift_reveal",
+        "friend_advice"
+      ]
+    },
+    "formula_needed": {
+      "level": "soft",
+      "why": "Each hook should follow one of the proven formulas below (Halbert's 349 headlines + our winners); a hook that matches none is usually a statement nobody stops for."
+    },
+    "formulas": [
+      {
+        "id": "how_to",
+        "name": "How to ...",
+        "rx": "^how (?:to|do you|does|can you)\\b",
+        "example": "How to carry your cards through a crowd without checking your bag.",
+        "source": "Halbert: 'How To Make A Fortune Today Starting From Scratch'"
+      },
+      {
+        "id": "question",
+        "name": "A question only the target answers yes to",
+        "rx": "\\?\\s*$",
+        "example": "Still digging for your keys at the front door?",
+        "source": "Halbert: 'Are You Ever Tongue-Tied At A Party?'; winners 158-H2, C9_V2"
+      },
+      {
+        "id": "number",
+        "name": "A number of specific things",
+        "rx": "^(?:\\d+|one|two|three|four|five|six|seven)\\b|\\b(?:\\d+|two|three|four|five) (?:things|reasons|ways|mistakes|signs|places|pockets|zips|seconds)\\b",
+        "example": "Three things this bag does that yours doesn't.",
+        "source": "Halbert: '7 Ways To Collect Your Unpaid Bills'; winners MAX-33-H5 ('3 reasons'), 139-H4 ('4 reasons')"
+      },
+      {
+        "id": "mistakes",
+        "name": "Do you make these mistakes / the costly mistake",
+        "rx": "\\bmistakes?\\b|\\bwrong\\b|\\bstop (?:\\w+ing)\\b",
+        "example": "The mistake that leaves your phone at the bottom of your bag.",
+        "source": "Halbert: 'The 5 Most Costly Mistakes In Business - How Many Are You Making?'"
+      },
+      {
+        "id": "warning",
+        "name": "Before you buy / a warning",
+        "rx": "^(?:before you|don't buy|do not buy|warning|careful)\\b|\\bbefore you buy\\b",
+        "example": "Before you buy another handbag, look at its back.",
+        "source": "winner 158-H2 ('Before you buy one of my bags, I need to warn you'); Halbert: 'Using A Lawyer May Be Dangerous To Your Wealth'"
+      },
+      {
+        "id": "contrast",
+        "name": "Ordinary vs this / then vs now",
+        "rx": "\\b(?:vs\\.?|versus|instead of|not like|unlike|ordinary|most bags|other bags|your old)\\b",
+        "example": "Most bags hang open in a crowd. Watch this one.",
+        "source": "our only AI winner B017 P04 'ordinary bag vs the Hobo 2.0' (ROAS 2.97); Halbert: 'Don't Try This With Any Other Copier'"
+      },
+      {
+        "id": "watch",
+        "name": "A command to watch a demo",
+        "rx": "^(?:watch|look|see|try|listen)\\b|\\bwatch (?:this|what|how)\\b",
+        "example": "Watch what one pull of this zip does.",
+        "source": "Halbert: 'Throw Away Your Oars!'; the proof shot of every story video"
+      },
+      {
+        "id": "scene",
+        "name": "A specific moment (time, place)",
+        "rx": "\\b(?:\\d{1,2}:\\d\\d|\\d{1,2} ?(?:am|pm)|monday|morning|tonight|packed|crowded|rush hour|platform|train|airport|checkout|queue|line at|front door|cafe|market)\\b",
+        "example": "Packed train, both hands on the rail. Where's your phone?",
+        "source": "Halbert: 'Suppose This Happened On Your Wedding Day!'; story statics 2026-11-04"
+      },
+      {
+        "id": "news",
+        "name": "At last / finally / new",
+        "rx": "^(?:at last|finally|new|now)\\b",
+        "example": "At last, a soft bag that zips all the way shut.",
+        "source": "Halbert: 'At Last ...', 'New ...'"
+      },
+      {
+        "id": "truth",
+        "name": "The truth / what nobody tells you",
+        "rx": "\\b(?:truth about|nobody tells you|what everybody ought to know|the real reason|here's why|the reason)\\b",
+        "example": "The truth about big bags: they swallow your phone.",
+        "source": "Halbert: 'The Truth About Getting Rich', 'What Everybody Ought To Know About ...'"
+      },
+      {
+        "id": "imagine",
+        "name": "Imagine / what if",
+        "rx": "^(?:imagine|what if|picture this|suppose)\\b",
+        "example": "What if your keys had their own place in your bag?",
+        "source": "Halbert: 'Imagine Working Until 4:00 A.M. - And Loving Every Minute Of It!'"
+      },
+      {
+        "id": "if_you",
+        "name": "If you can X, you can Y / if you X",
+        "rx": "^(?:if you|if your)\\b",
+        "example": "If you can snap a clasp, you can close this bag one-handed.",
+        "source": "Halbert: 'If You Can Lick A Stamp - You Can Lick Your Weight Problem'"
+      },
+      {
+        "id": "who_else",
+        "name": "Who else / for the woman who",
+        "rx": "^(?:who else|for (?:the )?(?:woman|women|anyone|everyone) who|to (?:the )?(?:woman|women) who)\\b",
+        "example": "For the woman who changes bags before every plan.",
+        "source": "Halbert: 'For The Woman Who Is Older Than She Looks', 'To Men Who Want To Quit Work Someday'"
+      },
+      {
+        "id": "hidden",
+        "name": "The hidden / the one place",
+        "rx": "\\b(?:hidden|secret pocket|the one place|nobody (?:behind you )?(?:can|sees))\\b",
+        "example": "The pocket nobody behind you can reach.",
+        "source": "Halbert: 'Profits That Lie Hidden In Your Farm' (only a literal hidden feature: never 'the secret to')"
+      },
+      {
+        "id": "offer",
+        "name": "The offer as news (one hook a project at most)",
+        "rx": "\\b(?:\\d+ ?%|percent|half price|black friday|cyber monday|for the price of)\\b",
+        "example": "Three bags for the price of one this Black Friday.",
+        "source": "Halbert: 'Take Any 3 Of These Kitchen Appliances - For Only $8.95'; ideas.check allows one price hook a project"
+      }
+    ],
+    "attention_words": {
+      "_help": "From Halbert's 152 Attention Grabber Words, the ones that fit a handbag brand and Meta's rules. Use them; they are not required.",
+      "use": [
+        "at last",
+        "finally",
+        "new",
+        "now",
+        "watch",
+        "imagine",
+        "the truth about",
+        "buyer's guide",
+        "test drive",
+        "show me",
+        "unlock",
+        "remarkable",
+        "timely",
+        "just in time",
+        "last minute",
+        "allure",
+        "heritage",
+        "nostalgic",
+        "masterpiece",
+        "upscale",
+        "affordable",
+        "savvy",
+        "shrewd",
+        "insider",
+        "spotlight",
+        "revisited",
+        "word of mouth",
+        "measure up",
+        "stash",
+        "flex",
+        "endurance",
+        "longevity",
+        "liberated"
+      ],
+      "avoid": [
+        "miracle",
+        "breakthrough",
+        "revolution",
+        "guaranteed",
+        "sure fire",
+        "bonanza",
+        "mania",
+        "doomsday",
+        "epidemic",
+        "obsession",
+        "secret to",
+        "amazing",
+        "incredible",
+        "unbelievable",
+        "shocking"
+      ]
+    },
+    "spoken_3s_words": 12
+  },
+  "banned": {
+    "_help": "Phrases that may not appear in any hook, spoken line, static's words or ad copy line we write (the client's RAW audio and verbatim reviews are exempt: compliance.py checks those). level hard = stops the plan.",
+    "rules": [
+      {
+        "id": "template_opener",
+        "rx": "black friday prices are live(?: now)?",
+        "level": "soft",
+        "where": "hook",
+        "why": "the owner's own line (campaign.json client_ideas), but B030-B034 opened 14 hooks with it: Meta reads one template as one ad. Allowed, a warning; opener_reuse (hard) refuses it once the last 8 batches have it"
+      },
+      {
+        "id": "meet_intro",
+        "rx": "^(?:meet|introducing|say hello to|check out|presenting|here is|here's) (?:the|our|this|your)\\b",
+        "level": "hard",
+        "where": "hook",
+        "why": "a name-the-product opener: no reader is flagged, nothing happens (Halbert: the headline must flag the reader with self-interest)"
+      },
+      {
+        "id": "name_only",
+        "rx": "^(?:the|this|our|your) (?:everyday |perfect |ultimate |new )?(?:hobo|bag|handbag|set|tote|purse|crossbody)\\b[^?]{0,20}$",
+        "level": "hard",
+        "where": "hook",
+        "why": "a line that only names the bag (the team 2026-11-04: 'The everyday hobo.' is not a story)"
+      },
+      {
+        "id": "hype",
+        "rx": "\\b(?:game[- ]?changer|must[- ]have|obsessed|holy grail|life[- ]?changing|you won't believe|you need this|look no further|elevate your|level up|next level|insane|viral|tiktok made me)\\b",
+        "level": "hard",
+        "where": "all",
+        "why": "influencer filler: says nothing the picture can show; reads as AI copy"
+      },
+      {
+        "id": "hype_soft",
+        "rx": "\\b(?:amazing|incredible|unbelievable|stunning|gorgeous|perfect|ultimate|best ever|one of a kind|revolutionary|miracle)\\b",
+        "level": "soft",
+        "where": "all",
+        "why": "Halbert's hype words date the copy and Meta's ranking reads them as low quality; show the thing instead"
+      },
+      {
+        "id": "social_proof_invented",
+        "rx": "\\b(?:everyone(?:'s| is) (?:talking|buying|obsessed)|everyone won't stop|thousands of (?:women|customers|people)|\\d[\\d,]* (?:women|customers|people|orders|happy)|best[- ]?sell\\w*|#1|number one bag|most popular|the bag everyone)\\b",
+        "level": "hard",
+        "where": "all",
+        "why": "invented social proof (PLAYBOOK section 9: no invented numbers or claims)"
+      },
+      {
+        "id": "scarcity_invented",
+        "rx": "\\b(?:selling (?:out|fast)|sold out|almost gone|only \\d+ left|low stock|limited stock|while (?:they|it|stocks?) lasts?|final hours|hurry|don't miss out|before it's gone|before they're gone|going fast)\\b",
+        "level": "hard",
+        "where": "all",
+        "why": "no stock claim or countdown nobody confirmed (CLAUDE.md section S). The dated campaign words ('last chance' from 20 Nov, 'ends tonight' on 30 Nov) are judged by campaign.json's own rules"
+      },
+      {
+        "id": "absolute_security",
+        "rx": "\\b(?:theft[- ]?proof|pickpocket[- ]?proof|unstealable|impossible to (?:steal|open|cut)|can't be (?:stolen|opened|cut)|100% (?:safe|secure))\\b",
+        "level": "hard",
+        "where": "all",
+        "why": "an absolute the facts don't back ('anti-theft' and 'lockable' are fine; 'theft-proof' never)"
+      },
+      {
+        "id": "waterproof",
+        "rx": "\\bwater[- ]?proof\\b",
+        "level": "hard",
+        "where": "all",
+        "why": "the facts say water-resistant"
+      },
+      {
+        "id": "biggest_sale",
+        "rx": "\\b(?:biggest|best|lowest) (?:sale|price|discount|deal)s?(?: ever| of the year)?\\b",
+        "level": "hard",
+        "where": "all",
+        "why": "the same % runs all year (site banner): unprovable (PLAYBOOK section 5)"
+      },
+      {
+        "id": "first_person_narrator",
+        "rx": "\\b(?:i (?:bought|love|got|use|carry|own)|my (?:bag|sister|mom|mum|daughter|husband|friend)|i've been|i was)\\b",
+        "level": "hard",
+        "where": "all",
+        "why": "the brand voice and the presenter talk in 'you' form, never as a customer (CLAUDE.md rule 1, PLAYBOOK section 9)"
+      },
+      {
+        "id": "fake_ui",
+        "rx": "\\b(?:tap here|click here|swipe up|link in bio)\\b",
+        "level": "soft",
+        "where": "statics",
+        "why": "a static never fakes a button; the CTA is Meta's button ('Tap the link below.' is only the video's last line)"
+      }
+    ]
+  },
+  "claims": {
+    "_help": "Property words a line may use only when the product's facts (compliance.context corpus: the site, PLAYBOOK section 1, the product file) say them. `fact` = the words that must be in the facts (default: the matched words). compliance.py already covers waterproof, leather grades, best-seller, star ratings, theft-proof.",
+    "rules": [
+      {
+        "id": "rfid",
+        "rx": "rfid|blocks? (?:card )?scanners?|card[- ]scanner\\w*|skimm\\w*",
+        "fact": "rfid",
+        "level": "hard",
+        "why": "only the Hobo 2.0 has an RFID lining"
+      },
+      {
+        "id": "lockable",
+        "rx": "lockable|locks? (?:shut|closed)|lock (?:the|your|its) zip\\w*|zips? (?:that )?lock",
+        "fact": "lockable",
+        "level": "hard",
+        "why": "only a bag with lockable zippers may say it locks"
+      },
+      {
+        "id": "cut_resistant",
+        "rx": "cut[- ]resistant|slash[- ]proof|can't be cut|cannot be cut",
+        "fact": "cut resistant",
+        "level": "hard",
+        "why": "only the Hobo 2.0 strap is cut-resistant"
+      },
+      {
+        "id": "lightweight",
+        "rx": "light ?weight|feather[- ]light|weighs (?:almost )?nothing|super light",
+        "fact": "light",
+        "level": "hard",
+        "why": "no product fact gives the weight"
+      },
+      {
+        "id": "fits_device",
+        "rx": "fits? (?:a|an|your) (?:laptop|ipad|tablet|macbook|water bottle|umbrella|a4)|(?:laptop|ipad|tablet|macbook) fits",
+        "fact": "laptop",
+        "level": "hard",
+        "why": "no product fact says what device fits; name what the facts list (phone, wallet, keys)"
+      },
+      {
+        "id": "holds_everything",
+        "rx": "holds? everything|fits everything|room for everything|everything you (?:own|need)",
+        "fact": "everything",
+        "level": "soft",
+        "why": "an absolute; say what fits"
+      },
+      {
+        "id": "vegan",
+        "rx": "vegan|cruelty[- ]free|eco[- ]friendly|sustainable|recycled",
+        "fact": "vegan",
+        "level": "hard",
+        "why": "no material claim the facts don't make"
+      },
+      {
+        "id": "genuine_leather",
+        "rx": "genuine leather|real leather|full[- ]grain|top[- ]grain|cowhide|italian leather",
+        "fact": "genuine leather",
+        "level": "hard",
+        "why": "the facts say 'leather' / 'leather-look' only (research 2026-11: the word leather needs the owner)"
+      },
+      {
+        "id": "handmade",
+        "rx": "hand[- ]?made|hand[- ]?stitched|hand[- ]?crafted|artisan\\w*",
+        "fact": "handmade",
+        "level": "hard",
+        "why": "never handmade unless the facts say so (the RAW story is the client's own)"
+      },
+      {
+        "id": "durability",
+        "rx": "lasts? (?:for )?(?:years|a lifetime|forever)|lifetime (?:bag|quality|warranty)|built to last|never wears? out|indestructible",
+        "fact": "lifetime",
+        "level": "hard",
+        "why": "the facts give a 1-year warranty, no lifetime"
+      },
+      {
+        "id": "warranty_years",
+        "rx": "(?:two|three|five|2|3|5)[- ]year warranty",
+        "fact": "2 year warranty",
+        "level": "hard",
+        "why": "the warranty is 1 year (C9_V2's RAW said two)"
+      },
+      {
+        "id": "free_returns",
+        "rx": "free returns?|easy returns?|money[- ]back|no[- ]questions[- ]asked",
+        "fact": "easy return",
+        "level": "hard",
+        "why": "Black Friday items are final sale; only when the facts say it"
+      }
+    ]
+  },
+  "copy": {
+    "_help": "ad_copy.csv limits (Meta). The checker also runs the banned rules and the hook rules on primary text 1's first line.",
+    "primary_text_1_max": 125,
+    "headline_max": 40,
+    "description_max": 30,
+    "max_emoji": 2,
+    "em_dash": {
+      "level": "soft",
+      "why": "Wouter / PLAYBOOK section 10: no em dashes (reads as AI copy)"
+    }
+  },
+  "footage": {
+    "_help": "The b-roll must show what the line says (Julian 2026-10-21; owner 2026-11-05: 'it should not happen'). shotmatch.py scores the moment a shot plays against the words said over it.",
+    "min_moments_for_show_tag": 4,
+    "low_coverage_level": "hard",
+    "why": "plan (ideas.check): a chapter whose `show` tag has fewer good footage moments than min_moments_for_show_tag for the product is refused (low_coverage_level). Render (storyboard.plan_block): a shot under words that name a feature (shotmatch.SPECIFIC) that shows none of them is swapped for a later pick or a spare that does. After render (make_batch.footage_match): any shot still showing none of what is said is 'shot mismatch' (mismatch_level hard: upload skips that version; qa/<id>_footage.json lists each shot).",
+    "mismatch_level": "hard"
+  },
+  "presenter": {
+    "_help": "How many projects of a batch carry the presenter (owner 2026-11-05: 'the presenter UGC videos are good, we need to make more of that'). Key = projects in the batch (the highest key not above it applies). The request's own number or 'no presenter' always wins.",
+    "per_batch": {
+      "1": 0,
+      "2": 1,
+      "3": 2,
+      "4": 2,
+      "5": 3
+    },
+    "why": "~225 credits a presenter project; 3 of 5 is ~700, inside presenter.CAP (1000)"
+  },
+  "winning_patterns": {
+    "_help": "What the account's money says works (docs/research/2026-11-all-time-best-ad.md, the weekly reviews). The strategy packet prints these; weekly_review.py adds to them.",
+    "items": [
+      {
+        "id": "contrast",
+        "rule": "Contrast beats lists: an ordinary bag vs this one, shown side by side.",
+        "evidence": "B017 P04 versus ROAS 2.97 ($256); B017 statics 'Yes, the zip locks.' 2.91"
+      },
+      {
+        "id": "one_idea",
+        "rule": "One idea per video, shown not told; at most 3 features.",
+        "evidence": "the engine's 'n things' / 'stop' feature lists: ROAS 1.69-2.21"
+      },
+      {
+        "id": "open_loop",
+        "rule": "The first sentence opens a loop the body closes (a warning, a question, a doubt said out loud).",
+        "evidence": "creator winners 158-H2, 139-H4, C9_V2: CTR 4.7-9%"
+      },
+      {
+        "id": "numbered_reasons",
+        "rule": "3-5 numbered reasons, each a feature the hands show.",
+        "evidence": "MAX-33-H5 (3 reasons) ROAS 2.85; 94-H4 (5 reasons) 3.84"
+      },
+      {
+        "id": "doubt",
+        "rule": "Say the doubt out loud, then answer it ('a secure bag doesn't have to look tactical').",
+        "evidence": "the creator winners' transcripts"
+      },
+      {
+        "id": "person",
+        "rule": "A person on camera beats a faceless voiceover: the presenter project of every batch, the bag worn in 2+ chapters.",
+        "evidence": "creator winners CPA $22-31; owner 2026-11-05 'the presenter UGC videos are good'"
+      },
+      {
+        "id": "set_aov",
+        "rule": "The 3-Piece Set lifts order value.",
+        "evidence": "DEC08 set ads ROAS 2.85-3.34, orders $92-109"
+      }
+    ]
+  },
+  "losing_patterns": {
+    "items": [
+      {
+        "id": "feature_list",
+        "rule": "Five features in 7-8 chapters under a different frame.",
+        "evidence": "B025 / B027 (PLAYBOOK 4k)"
+      },
+      {
+        "id": "discount_open",
+        "rule": "Hooks that open on the discount (more than one a project).",
+        "evidence": "B025 / B027; one price hook a project since 2026-10-27"
+      },
+      {
+        "id": "still_open",
+        "rule": "Opening on the bag just sitting there (hero / placed).",
+        "evidence": "B025 / B027 most used shot tags"
+      },
+      {
+        "id": "template_hook",
+        "rule": "One hook template across batches ('Black Friday prices are live now, and ...').",
+        "evidence": "B030-B034"
+      }
+    ]
+  },
+  "changelog": [
+    {
+      "date": "2026-11-05",
+      "who": "owner",
+      "change": "rulebook created: hook formulas from Halbert's 349 headlines, banned phrases from B001-B038, hook rate target 40-45%, footage match blocker, presenter in about half the projects"
+    }
+  ]
+}

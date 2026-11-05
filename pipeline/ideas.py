@@ -406,6 +406,49 @@ def coverage(pr):
     return out
 
 
+def _rules(section):
+    try:
+        return json.load(open(os.path.join(HERE, "data", "rulebook.json"))).get(section) or {}
+    except (OSError, ValueError):
+        return {}
+
+
+FOOTAGE_RULES = _rules("footage")
+
+
+PLAYBOOK_FROM = "2026-11-05"          # the rulebook's hard rules (playbook_check.py) check sheets from this day on (older: warnings)
+
+
+def presenters_wanted(n_projects, day=None):
+    """How many projects of a batch carry the presenter: rulebook.json presenter.per_batch (the highest key not above n), one per
+    batch of 2+ for sheets before the rulebook."""
+    import datetime
+    if (day or datetime.date.today().isoformat()) < PLAYBOOK_FROM:
+        return 1 if n_projects >= 2 else 0
+    tab = {int(k): int(v) for k, v in ((_rules("presenter") or {}).get("per_batch") or {}).items() if str(k).isdigit()}
+    if not tab:
+        return 1 if n_projects >= 2 else 0
+    ks = [k for k in tab if k <= n_projects]
+    return min(tab[max(ks)], n_projects) if ks else 0
+
+
+def footage_problem(text, tag, cov, pr):
+    """Why the library cannot show what this line names (None: it can): every feature the words name (shotmatch.specific_wants, with
+    what else shows it: shotmatch.ALSO) has fewer good labelled moments for the product than the rulebook's minimum. Then the video
+    would put a stand-in under the line (owner 2026-11-05: footage that does not match the captions must never happen)."""
+    import shotmatch
+    sp = shotmatch.specific_wants(text, tag)
+    if not sp:
+        return None
+    need = int(FOOTAGE_RULES.get("min_moments_for_show_tag", MIN_MOMENTS))
+    best = {t: max([cov.get(t, [0])[0]] + [cov.get(x, [0])[0] for x in shotmatch.ALSO.get(t, ())]) for t in sp}
+    if any(n >= need for n in best.values()):
+        return None
+    return (f"the words name {', '.join(sorted(sp))} but {pr['name']}'s labelled footage has only "
+            f"{', '.join(f'{n} {t}' for t, n in sorted(best.items()))} good moment(s) (need {need}): the picture would not match the "
+            f"caption. Say what the footage shows (the packet's footage tags) or drop the line")
+
+
 # ------------------------------------------------------------------ the check
 def ad_problems(s, sid, lib, P, W, items):
     """The checks of one `ad` static (the AI designs the whole ad): its format, the exact words, the picture, Meta's rules."""
@@ -688,6 +731,10 @@ def check(sheet, pr, n_projects=None, n_statics=None, exclude=None, day=None):
                     P.append(f"{cw}: show tag {tg!r} is not in the vocabulary")
                 elif cov and cov.get(tg, [0])[0] < MIN_MOMENTS and c.get("kind") != "offer":
                     W.append(f"{cw}: only {cov.get(tg, [0])[0]} good footage moments show '{tg}' for {pr['name']}: the picture may not match")
+            if cov and c.get("kind") != "offer" and c.get("cam") != "full":   # the footage / caption blocker at plan (rulebook.json footage)
+                fp = footage_problem(t, c.get("tag"), cov, pr)
+                if fp:
+                    (P if FOOTAGE_RULES.get("low_coverage_level", "hard") == "hard" else W).append(f"{cw}: {fp}")
             items += [dict(where=cw, text=t, source="ours")] + ([dict(where=f"{cw} tag", text=c["tag"], source="ours")] if c.get("tag") else [])
         if chs and (chs[-1].get("kind") != "offer" or "Tap the link below." not in (chs[-1].get("text") or "")):
             P.append(f"{where}: the last chapter must be kind offer and end with 'Tap the link below.'")
@@ -708,11 +755,25 @@ def check(sheet, pr, n_projects=None, n_statics=None, exclude=None, day=None):
             if p.get("structure") in last:
                 P.append(f"{p.get('id')}: the structure {p['structure']!r} was in {pr['name']}'s last batch: pick another or invent one")
         n_pres = sum(1 for p in projs if p.get("presenter"))
-        if len(projs) >= 2 and not n_pres and not sheet.get("no_presenter"):
-            P.append("videos: one project of a batch of 2+ carries the presenter (owner 2026-10-27, about 225 credits); when the request says "
-                     "no presenter, set \"no_presenter\": \"<its words>\"")
-        elif n_pres > 1:
-            W.append(f"videos: {n_pres} presenter projects (about 225 credits each): only when the request names that many")
+        want_pres = presenters_wanted(len(projs), sheet.get("date") or day)
+        if n_pres < want_pres and not sheet.get("no_presenter") and not sheet.get("presenter_count"):
+            P.append(f"videos: {want_pres} project(s) of a batch of {len(projs)} carry the presenter (rulebook.json presenter.per_batch; owner "
+                     f"2026-11-05: 'the presenter UGC videos are good, we need to make more of that'; about 225 credits each); a request "
+                     f"that names another number: \"presenter_count\": <n> in the sheet; one that says no presenter: \"no_presenter\": \"<its words>\"")
+        elif sheet.get("presenter_count") is not None and n_pres != int(sheet["presenter_count"]) and not sheet.get("no_presenter"):
+            P.append(f"videos: the sheet's presenter_count is {sheet['presenter_count']}, {n_pres} projects carry the presenter")
+        elif n_pres > max(want_pres, int(sheet.get("presenter_count") or 0)):
+            W.append(f"videos: {n_pres} presenter projects (about 225 credits each, more than the rulebook's {want_pres})")
+    try:                         # the craft rules (docs/RULEBOOK.md, data/rulebook.json): hooks, banned phrases, claim words, counts
+        import playbook_check
+        p_, w_ = playbook_check.sheet_problems(sheet, pr, ctx=compliance.context(pr), exclude=exclude, log=nl)
+        if (sheet.get("date") or day or datetime.date.today().isoformat()) >= PLAYBOOK_FROM:
+            P += p_
+        else:
+            W += p_
+        W += w_
+    except Exception as e:  # noqa: BLE001 - a broken rulebook must say so, not hide
+        P.append(f"playbook check could not run ({type(e).__name__}: {e}): fix pipeline/data/rulebook.json")
     allowed = sorted({(int(m.group(1)) if m.group(1).isdigit() else compliance.ONES[m.group(1).lower()])
                       for i_ in items for m in compliance.COUNT_WORD.finditer(i_["text"])})      # ('Five things ...': a count the video shows, not a stat)
     pct = product_pct(pr)
@@ -926,6 +987,11 @@ def packet(pr, theme, n_projects, n_statics, request=""):
         L += [f"- {x}" for x in camp["facts"]]
         L += [f"- Gift: {g['name']} (worth ${g['worth']:.2f}) with {g['with']}{'+' if g['with'] > 2 else ''} bags" for g in camp["gifts"]]
         L += [f"- What the client wants now: {camp.get('client_ideas') or '-'}"]
+    try:
+        import playbook_check
+        L += ["\n" + playbook_check.packet_section(pr)]
+    except Exception as e:  # noqa: BLE001
+        L += [f"\n(the rulebook could not be read: {e})"]
     L += ["\n### What converts for Libra (owner + data, 2026-10-26: read before you write)\n",
           "- The account's money comes from people telling a true story to camera (the ACH creator winners: 123-H4 205 orders, 147-H1 183, "
           "CTR 5-10%); faceless voice-over-b-roll videos mostly lose. Prefer the presenter (a host, never a customer) or a person in the "
@@ -976,8 +1042,9 @@ def packet(pr, theme, n_projects, n_statics, request=""):
     last_s = NV.recent(pr["name"], "structure", last=1)
     L += ["\n### The videos are stories (owner 2026-10-27: 'go ahead'; B025 / B027 were feature lists in costumes: every project walked "
           "through the same five features)\n"] + [f"- {x}" for x in sl["rules"]] + [
-          f"- One project of a batch of 2+ carries the presenter (owner 2026-10-27: one a batch, about 225 credits); the request saying "
-          f"no presenter: \"no_presenter\": \"<its words>\" in the sheet.",
+          f"- {presenters_wanted(n_projects)} of this batch's {n_projects} project(s) carry the presenter (rulebook.json presenter.per_batch; owner "
+          f"2026-11-05: 'the presenter UGC videos are good, we need to make more of that'; about 225 credits each); a request naming "
+          f"another number: \"presenter_count\": <n>; one saying no presenter: \"no_presenter\": \"<its words>\" in the sheet.",
           f"- Structures the product's last batch used (not this batch): {', '.join(last_s) or 'none'}. Invent one when none fits "
           f"(structure id of your own, structure_name, shape).",
           "\nThe story structures (data/story_structures.json; each chapter names its `beat`, the beats in this order):\n"]
@@ -991,7 +1058,7 @@ def packet(pr, theme, n_projects, n_statics, request=""):
         L.append(f"- `{tag}`: {n}" + (f"  (e.g. {'; '.join(ex)})" if ex else ""))
     if not cov:
         L.append("(no labelled footage for this product: its videos use its photos and its few clips)")
-    L += ["\nA tag with fewer than 4 moments is thin: build the line on something the footage shows more of, or the picture will not match.",
+    L += ["\nA tag with fewer than 4 moments is thin: build the line on something the footage shows more of. The check REFUSES a line that names a feature (a zip, the clasp, the pocket, the strap ...) the footage has under 4 good moments of: the picture would not match the caption (rulebook footage).",
           "\n## 3. What earlier batches did (do not repeat their ideas, hooks, lines, scenes)\n", past(pr),
           "\n## 4. Research notes (read them: docs/research/*.md; the facts above beat them)\n"]
     rd = os.path.join(os.path.dirname(HERE), "docs", "research")

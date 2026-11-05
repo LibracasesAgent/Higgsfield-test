@@ -73,6 +73,7 @@ import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
+import shotmatch  # noqa: E402
 from remix import (MAX_SHOT, STILL, TAIL, cadence, caption_opts, clip_dur, dur, fit, loc, mix_audio, script_words,  # noqa: E402
                    vo_text, words)
 
@@ -347,6 +348,33 @@ def talk_seg(talk, x, y, n):
     return s
 
 
+def _said(ws, lead, x, y):
+    """The script words heard between block seconds x and y (ws on the voice's seconds, the voice starting `lead` s in)."""
+    return " ".join(w["w"] for w in ws if lead + w["s"] < y - 0.08 and lead + w["e"] > x + 0.08)
+
+
+def _verdict(pick, words, L):
+    """shotmatch.verify of a pick [src, start, ...] played for L s under these words: ok / mismatch / unverified."""
+    if not pick or pick[0] == TALK or not words:
+        return "ok"
+    return shotmatch.verify(shotmatch.shows(pick[0], pick[1], L), words)[0]
+
+
+def match_pick(gp, words, L, cands):
+    """The footage / caption blocker at render (owner 2026-11-05): when the pick planned for this group shows none of what its words
+    name (the picks were chosen for estimated phrases; the real voice groups them differently), the first candidate (the block's
+    later picks, then its spares) whose labelled picture answers the words, else one without labels, else the pick itself.
+    Returns (pick, the list it came from or None)."""
+    if _verdict(gp, words, L) != "mismatch":
+        return gp, None
+    for want in ("ok", "unverified"):
+        for lst in cands:
+            for x in lst:
+                if x is not gp and x and x[0] != TALK and _verdict(x, words, L) == want and shotmatch.specific_wants(words):
+                    return x, lst
+    return gp, None
+
+
 def plan_block(sh, t0, L, lead, ws, picks, pools, drop=None, talk=None, ideal=SHOT_IDEAL, long=SHOT_LONG):
     """The shots of one ugc voice block (ad second t0, L s long, the voice starting `lead` s in; words ws on the voice's
     seconds): shot_groups of its phrases; the picks fill the groups in order, further groups and the parts of a long
@@ -374,10 +402,32 @@ def plan_block(sh, t0, L, lead, ws, picks, pools, drop=None, talk=None, ideal=SH
                 left = [p for p in left if p is not pick]
             else:
                 pick = gp if j == 0 else None
-            out.append(sh.place(t0 + x, y - x, pick, pools, out[-1] if out else sh.last))
+                words_ = _said(ws, lead, x, y)
+                if shotmatch.specific_wants(words_):           # a line that names a feature: the picture must show it
+                    later = body[gi + 1:]
+                    alt, src_l = match_pick(pick, words_, y - x, [later] + list(pools))
+                    if src_l is later:                         # a later pick of this block fits these words: the two swap places
+                        k_ = gi + 1 + next(i for i, z in enumerate(later) if z is alt)
+                        body[k_], body[gi], pick = pick, alt, alt
+                    elif src_l is not None:                    # a spare fits: it is used here (taken out of its pool)
+                        src_l.remove(alt)
+                        if pick is not None and pools:
+                            pools[0].insert(0, pick)           # (the planned pick stays a spare of this block)
+                        pick = alt
+                    if pick is None and pools:                 # a part of a long group: a spare that fits first
+                        alt, src_l = match_pick(["", 0], words_, y - x, list(pools))
+                        if src_l is not None:
+                            src_l.remove(alt)
+                            pick = alt
+            seg = sh.place(t0 + x, y - x, pick, pools, out[-1] if out else sh.last)
+            if not (talk and is_t(gp)) and not named:
+                w_ = _said(ws, lead, x, y)
+                if w_ and _verdict([seg["src"], seg["start"]], w_, float(seg["dur"]) * float(seg.get("speed", 1.0) or 1.0)) == "mismatch":
+                    print(f"shot plan: {t0 + x:.1f}s '{w_[:50]}' still has no matching shot ({shotmatch.src_key(seg['src'])[:12]})", file=sys.stderr)
+            out.append(seg)
         gi += 1
     if drop is not None and not named:
-        drop += [p for p in body[gi:] if not is_t(p)]
+        drop += [p for p in body[gi:] if p and not is_t(p)]
     return out
 
 
