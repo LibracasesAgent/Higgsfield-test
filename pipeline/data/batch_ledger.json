@@ -3263,9 +3263,9 @@
    "projects": 1,
    "hooks": 3,
    "seed": 1,
-   "status": "planned",
-   "folder": "B039 – 2026-11-05 – Vintage Bag BlackFriday – 1 projects",
-   "link": "https://drive.google.com/drive/folders/1DbicpdYbw3_tDGfdBdFCn1iYjJfTvqD9",
+   "status": "uploaded",
+   "folder": "B039r2 – 2026-11-05 – Vintage Bag BlackFriday – 1 projects",
+   "link": "https://drive.google.com/drive/folders/1AUk7XaaxlI3fjsaTEVNyOYEBxVv7-FKu",
    "ads": [
     {
      "name": "LC_261105_VintageBag_BlackFriday_B039_P01_H1_saturdayadvice",
@@ -3281,6 +3281,24 @@
     },
     {
      "name": "LC_261105_VintageBag_BlackFriday_B039_P01_H3_saturdayadvice",
+     "kind": "video",
+     "fp": "v|picking a day-out bag? don't pick one that only works one way.|",
+     "label": "Picking a day-out bag? Don't pick one that only works one way."
+    },
+    {
+     "name": "LC_261105_VintageBag_BlackFriday_B039r2_P01_H1_saturdayadvice",
+     "kind": "video",
+     "fp": "v|your friend asks which bag to take for a long saturday? tell her this.|",
+     "label": "Your friend asks which bag to take for a long Saturday? Tell her this."
+    },
+    {
+     "name": "LC_261105_VintageBag_BlackFriday_B039r2_P01_H2_saturdayadvice",
+     "kind": "video",
+     "fp": "v|can one bag really do brunch, errands and the walk home?|",
+     "label": "Can one bag really do brunch, errands and the walk home?"
+    },
+    {
+     "name": "LC_261105_VintageBag_BlackFriday_B039r2_P01_H3_saturdayadvice",
      "kind": "video",
      "fp": "v|picking a day-out bag? don't pick one that only works one way.|",
      "label": "Picking a day-out bag? Don't pick one that only works one way."

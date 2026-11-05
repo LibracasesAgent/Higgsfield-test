@@ -6001,6 +6001,110 @@
        "structure": "friend_advice"
       }
      ]
+    },
+    {
+     "clips": [
+      {
+       "clip_id": "1u_BcAe6ont2BTbyK5uSi7-QFbgZ8sgML"
+      },
+      {
+       "clip_id": "1xWaBIVn543CxSr0WmqHEuasUJJGPcb55"
+      },
+      {
+       "clip_id": "1HNUEQK0mMmDiVbvsG41nEmwlON-IFoU9"
+      },
+      {
+       "clip_id": "1jgkCse4uMTSToBBDAFFpF0gx_6qI4Zo6"
+      },
+      {
+       "clip_id": "1ml9ieq6QXkIFoXgJTzrA0k05fB1qg_gf"
+      },
+      {
+       "clip_id": "1qNOv5frbrbN4JAtBuqHDqxjXb15gEeuc"
+      },
+      {
+       "clip_id": "1n_iVN9Lf1dKnL9Mo1ixhZiHX-MBBv7gp"
+      },
+      {
+       "clip_id": "1kNKilVM2fhJyXsNhW96QlPFEoaXiLJ0B"
+      },
+      {
+       "clip_id": "1RBVau1xzNnxVDMq1vJDP_lojDjV9UgYJ"
+      },
+      {
+       "clip_id": "1jOeA-YhiSvgn7lf8YhKR87RNvSOGrTWT"
+      },
+      {
+       "clip_id": "1IK-BMAv3pIGvwccmmPtRGxuAvTltpiwx"
+      },
+      {
+       "clip_id": "1R252UTrxdvK5bBTBSgBNWv04zCDUs5KK"
+      },
+      {
+       "clip_id": "1LyryrXa2Haxk8f1x29x3jDkEn8Y3Dh-A"
+      },
+      {
+       "clip_id": "1aJoixN_KNw1NiTQ8YYlPlWFzVv5aKnVn"
+      },
+      {
+       "clip_id": "1QjuuSmdJghJjax9FAFoC7_FOql87OB0A"
+      },
+      {
+       "clip_id": "17IANSBGhFFCg5SQhFlzuG63ONmYPJppj"
+      },
+      {
+       "clip_id": "1m1IT7G__icZ8VzWV8Rb1jQyVs8rwiANk"
+      },
+      {
+       "clip_id": "1Vmnc83ejq0iUAhhxmKpOq0gn8OnvM0W6"
+      },
+      {
+       "clip_id": "1Jub1xsMnp0KU2mn2DcXsjsWre74Xj2XN"
+      },
+      {
+       "clip_id": "1Im3c7RctJNdALDL9vXI8Vzqwiy_BHXh_"
+      },
+      {
+       "clip_id": "195deHD_NpwLsKGYpFQBlO3Nlqd9nvt4E"
+      },
+      {
+       "clip_id": "17pDJceUeFQwkPdvcEbyheppSWHKA7lrx"
+      }
+     ],
+     "date": "2026-11-05",
+     "name": "B039r2 – 2026-11-05 – Vintage Bag BlackFriday – 1 projects",
+     "statics": [],
+     "videos": [
+      {
+       "angle": "saturdayadvice",
+       "chapters": [
+        "Your best friend has a long Saturday coming up. Brunch, errands, a long walk, then dinner out. And she wants one bag for all of it.",
+        "Tell her to look for an adjustable strap. Short, she carries it as a handbag at brunch. Long, it goes crossbody for the walk.",
+        "So the strap does the work. Same bag, same things inside, just worn another way.",
+        "Then tell her to pick a bag that shuts properly. This clasp snaps shut with one hand, so the coffee in her other hand stays put.",
+        "And inside, her phone, wallet and keys each get their own spot. Nothing sinks to the bottom, so she never digs for them.",
+        "Right now the Vintage Bag is fifty percent off in the Early Black Friday sale, with free shipping. Send it to her, or keep one for yourself. Tap the link below."
+       ],
+       "hook": "Your friend asks which bag to take for a long Saturday? Tell her this.",
+       "hook_type": "promise",
+       "script": "U01",
+       "structure": "friend_advice"
+      },
+      {
+       "angle": "saturdayadvice",
+       "hook": "Can one bag really do brunch, errands and the walk home?",
+       "hook_type": "promise",
+       "script": "U01",
+       "structure": "friend_advice"
+      },
+      {
+       "angle": "saturdayadvice",
+       "hook": "Picking a day-out bag? Don't pick one that only works one way.",
+       "hook_type": "promise",
+       "script": "U01",
+       "structure": "friend_advice"
+      }
+     ]
     }
    ]
   }
