@@ -59,7 +59,7 @@ OFFER_LINE = {
     "gifting": ["[It arrives with {gift_sp}, and ]it's {P} off right now.", "Now {P} off[, with {gift_sp} in the box]."],
     "default": ["Now {P} off[, with {gift_sp}].", "It's {P} off right now[, with {gift_sp}]."],
     "gift_only": ["It comes with {gift_sp}.", "Every order comes with {gift_sp}."],
-    "none": ["Free US shipping.", "Available in {N} colours."],
+    "none": ["Free shipping.", "Available in {N} colours."],
 }
 SHORT_OFFER = {
     "sale": ["{TH}: {P} off the {short}[ + {gift_w}].", "{TH} deal: the {short} is {P} off[ + {gift_w}]."],
@@ -89,11 +89,11 @@ HEADLINES = {
 }
 DESCRIPTIONS = {
     "sale": ["{TH}: {P} off", "{TH} deal: {P} off"],
-    "offer": ["{P} off + free US shipping", "Now {P} off"],
+    "offer": ["{P} off + free shipping", "Now {P} off"],
     "gift_item": ["{Gift_s}", "{Gift_s} included"],
-    "colours": ["{N} colours + free US shipping", "{N} colours to choose from"],
-    "trust": ["1-year warranty + easy returns", "Free US shipping"],
-    "generic": ["Free US shipping", "Shop the {short}", "Meet the {short}", "Tap the link to see it"],
+    "colours": ["{N} colours + free shipping", "{N} colours to choose from"],
+    "trust": ["1-year warranty + easy returns", "Free shipping"],
+    "generic": ["Free shipping", "Shop the {short}", "Meet the {short}", "Tap the link to see it"],
 }
 # angle -> preferred hook types for the first line (hooks.json types; 'theme' = THEMES hooks, 'hero' = THEMES hero line)
 HOOK_PREFS = {

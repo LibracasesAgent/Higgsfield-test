@@ -19,7 +19,7 @@ forces `pipeline/make_batch.py` (templates, real photos and footage; AI only as 
 - **Products and facts (from the site, 2026-10):**
   | Product | Price (was) | Colours | Key claims |
   |---|---|---|---|
-  | Luxury Leather Hobo Anti-Theft Handbag ("Hobo Bag") | $54.95 ($109.90) since 2026-10-27 (the owner's price change: ads made before it that print a price are out of date) | Brown, Black, Blue, Grey, Burgundy, Red | hidden anti-theft back pocket, smart compartments, soft water-resistant scratch-proof leather, 2 adjustable straps (handbag / shoulder / crossbody), free matching pouch wallet, free US shipping, 1-year warranty, easy returns |
+  | Luxury Leather Hobo Anti-Theft Handbag ("Hobo Bag") | $54.95 ($109.90) since 2026-10-27 (the owner's price change: ads made before it that print a price are out of date) | Brown, Black, Blue, Grey, Burgundy, Red | hidden anti-theft back pocket, smart compartments, soft water-resistant scratch-proof leather, 2 adjustable straps (handbag / shoulder / crossbody), free matching pouch wallet, free shipping, 1-year warranty, easy returns |
   | Hobo 2.0 "6-Layer Security Edition" | $79.95 ($159.90) | Black, Brown, Beige (Beige was sold out in early Oct, back on the site by 10-09; `plan` reads the colours from the site) | RFID protection, lockable zippers, cut-resistant strap, hidden pockets, smart compartments, table security strap, 2 straps: a handbag strap and a crossbody strap (owner 2026-10-26) |
   | Hobo Bag 3-Piece Set | $69.95 | Brown, Black, Blue, Grey, Purple Red, Red | hobo + crossbody + matching pouch |
   | Slouchy Soft 3-Piece Set | $69.95 | | |
@@ -28,7 +28,8 @@ forces `pipeline/make_batch.py` (templates, real photos and footage; AI only as 
   the exception: their price, offer, colours and features come only from the client's folder notes (section 11).
 - **Offer (per product, 2026-10):** Hobo Bag 50% off + free matching pouch wallet; Hobo 2.0 50% off + free pouch
   wallet; Vintage 50% off (no gift); Hobo 3-Piece Set and Slouchy Set 60% off ($69.95 vs $174.88; the pouch is one of
-  the three pieces, not a gift). Free US shipping store-wide (the built-in bags; a Drive-only new product's ads
+  the three pieces, not a gift). Free shipping store-wide on every order, US, UK and Australia (libracases.com shipping policy,
+  checked 2026-11-05: say "free shipping", never "free US shipping", Julian 2026-11-04: the ads reach the UK and Australia too) (the built-in bags; a Drive-only new product's ads
   say it only when its notes do: `compliance.drive_only`). Site banner: "FINAL CLEARANCE SALE ENDS TODAY 50% OFF +
   FREE SHIPPING". `make_batch.py plan` reads the % and the gift from the site on every run.
 - **Black Friday Sale 2026 (Wouter, 2026-10-23; `data/campaign.json`, section 4f):** live 23 October - 30 November (Cyber
@@ -372,7 +373,7 @@ offer and end cards), `ad_copy.csv` and the RAW audio of every winner version, w
 - **Reviews:** verbatim review text and a brand-voice line that names the customer and adds nothing ("Carol calls it
   the best bag she has ever bought.") are allowed; a review that mentions a gift the product doesn't have is not.
 - **Not a problem:** "anti-theft", pickpockets, crowds, Christmas / Mother's Day themes (built in, the client asked
-  for them), "Free US shipping" (store-wide, section 1).
+  for them), "Free shipping" (store-wide, every order: section 1).
 - **A problem:** reword the line (or drop the ad) and re-run; never upload a creative or copy with a problem. Read the
   `allowed` list once per batch: it is what a human would want to glance at (RAW story words, review superlatives).
 

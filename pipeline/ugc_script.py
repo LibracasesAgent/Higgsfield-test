@@ -172,10 +172,11 @@ def context(pr):
     notes = f.get("notes") or pr.get("notes") or ""
     price, was = money(f.get("price")), money(f.get("compare_at"))
     priced = bool(price and was and was >= price * 1.1 and not builtin and not pr.get("site") and f.get("price_source") in (None, "notes"))
-    store = not C.drive_only(pr)        # built-ins (and site products): PLAYBOOK's store-wide 'free US shipping', warranty, returns
+    store = not C.drive_only(pr)        # built-ins (and site products): PLAYBOOK's store-wide free shipping, warranty, returns
     m = SHIPPING.search(notes)
     neg = bool(m and re.search(r"\b(?:no|not|without)\b[^.\n]{0,20}$", notes[max(0, m.start() - 30):m.start()], re.I))
-    ship = "US" if store else ("US" if m.group(1) else "-") if m and not neg else ""     # "-": shipping, no region
+    ship = "-" if store else ("US" if m.group(1) else "-") if m and not neg else ""      # "-": shipping, no region (the site: free
+    #                                     shipping on every order, US, UK and Australia: "free shipping", not "free US shipping", Julian 2026-11-04)
     src = (" | ".join(C.playbook_row(pr["name"], C.playbook()[0])) if store else "") + " " + notes
     mw = re.search(r"(\d+|\w+)[- ]years? warranty", src, re.I)
     mr = None if (C._CAMPAIGN[0] or {}).get("final_sale") else re.search(r"\b(easy|free) returns?\b", src, re.I)   # (final sale: none)
@@ -444,7 +445,7 @@ def objection_chapter(ctx, rng, used, reviews_used=()):
 
 
 def ship_phrase(ctx, rng, used):
-    """'Free US shipping too.' (a variant per script; '' when the product's facts don't say it)."""
+    """'Free shipping too.' (a variant per script; '' when the product's facts don't say it)."""
     if not ctx["ship"]:
         return ""
     x = "" if ctx["ship"] == "-" else ctx["ship"]
