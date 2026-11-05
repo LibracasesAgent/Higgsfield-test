@@ -627,6 +627,22 @@ allowed avatars when a story needs them. `pipeline/presenter.py`, `data/presente
   `presenters.json` with `look`, `voice`, `soul_job` (the job id used as the first image reference) -> a character sheet and an
   expression sheet with `gpt_image_2_5` from the master for the owner.
 
+- **The edit (Julian 2026-11-04 on B028 P02, the team 2026-11-05 on B039: "voice cadence and flow not there ... too many cuts and
+  zoom-ins, really unnatural"; B039r2 is the fixed version):**
+  - **Her pauses:** `storyboard.talk_prep` trims only pauses over 0.6 s (sentence ends) to 0.38 s, as a 0.1 s dissolve. Comma and
+    list pauses stay (cutting every pause over 0.3 s to 0.16 s made her sound rushed).
+  - **Take edges:** each take is trimmed to her voice's real edges (on the level, not whisper's early word ends), 0.12 s of air
+    each side, so two takes join with ~0.3 s: a breath, not 0.8-1.5 s.
+  - **No zooms on her:** no push-ins, no punch-ins, and her back-to-back shots run on as one shot. No closer re-framing of B-roll
+    either.
+  - **B-roll only where her own words name something to see** (the strap, the clasp, the inside, the coffee: a shotmatch want of
+    4+). She stays on camera for the rest, and a `cam: full` chapter is all her. Shots of ~3 s (up to 4.6 s).
+  - **No label over her opening:** her words and the captions say it.
+  - **Openings never on the sale** (`ideas.SOFT_OPEN_FROM`).
+  - **Result:** B039 H1 had 27 shots in 62 s and 6 zooms; B039r2 H1 has 14 shots in 63 s and none. The real silence between her
+    lines is 0.2-0.5 s.
+  - **A batch replaced by a new version:** `python3 pipeline/tracker.py sync --batch B039 --status "⛔ Skip"`.
+
 ### 4f. Store-wide sale campaigns: the Black Friday Sale 2026 (owner 2026-10-23, revised 2026-10-26)
 
 **Revised 2026-10-26 (Wouter, after a drop in performance):** the free gifts and the extra cart discount are gone ("not coming back");
