@@ -2112,7 +2112,8 @@ def them_half(ph, share=0.48):
     w = int(W_ * share)
     left = ph.crop((0, 0, w, H_)).convert("L").convert("RGB")
     left = Image.blend(left, Image.new("RGB", left.size, (118, 128, 108)), 0.22)
-    left = left.resize((max(w // 9, 1), max(H_ // 9, 1)), Image.BILINEAR).resize((w, H_), Image.NEAREST)
+    left = left.resize((max(w // 3, 1), max(H_ // 3, 1)), Image.BILINEAR).resize((w, H_), Image.BILINEAR)   # (soft, low-res: still a tote)
+    left = left.filter(ImageFilter.GaussianBlur(0.8))
     left = ImageEnhance.Brightness(left).enhance(0.86)
     out = ph.copy()
     mask = Image.fromarray((np.clip((w - np.arange(W_)) / 40.0, 0, 1)[None, :] * 255 * np.ones((H_, 1))).astype("uint8"))
@@ -2170,6 +2171,8 @@ def l_story(a, sd):
             sh_ = put(d0, sub, fs, WHITE, 0, W - 2 * M, x=0, dry=True) if sub else 0
             top_h = M + 56 + hh + (air(fs, fh) + sh_ if sub else 0)
             scrim(c, 0, int(top_h + 260), 0.90, rise=False)
+            if sub:                                    # (the answer line reads on a bright photo too: B042 S03 on a cream sweater)
+                scrim(c, 0, int(top_h + 160), 0.8, rise=False)
             if kicker:
                 put(d, [spaced(kicker)], fk, (232, 205, 150), M, W, x=M)
             wordmark(d, M, WHITE)
@@ -2184,9 +2187,12 @@ def l_story(a, sd):
             card_x = M if left else W - M - cw
             if rv:
                 review_card(c, d, rv, card_x, H - M - ch, cw)
-            sx = W - M - r - 14 if left else M + r + 14
-            offer_sticker(c, sx, H - M - ch + r * 0.2 - (40 if a.get("gift") else 0), r, a, angle=-10 if left else 10,
-                          side="right" if left else "left")
+            if rv:
+                sx, sy = (W - M - r - 14 if left else M + r + 14), H - M - ch + r * 0.2 - (40 if a.get("gift") else 0)
+            else:                                  # (no review card: the sticker takes the calmer lower corner itself)
+                sx, sy = (M + r + 14 if left else W - M - r - 14), H - M - r * 1.35 - (60 if a.get("gift") else 0)
+            offer_sticker(c, sx, sy, r, a, angle=-10 if left else 10,
+                          side="right" if (left == bool(rv)) else "left")
         else:
             text, name, verified = rv
             QSERIF = lambda z: font("CormorantGaramond.ttf", z, "Bold")  # noqa: E731
@@ -2227,8 +2233,8 @@ def l_story(a, sd):
         full = ImageOps.fit(im, (W, int(im.height * W / im.width)), Image.LANCZOS)
         a = dict(a, focus=[0.5, concept_crop_y(full, ph_h)])
     ph = cover_photo(im, a, (W, ph_h), 1.0)
-    if look == "versus" and a.get("scene") and a.get("them_look", True):
-        ph = them_half(ph)                     # (Julian 2026-11-05: 'them' = the old tote, grey, a bit green, low quality; 'us' = ours, warm)
+    if look == "versus" and (a.get("scene") or a.get("ai")) and a.get("them_look", True):
+        ph = them_half(ph, float(a.get("them_share", 0.48)))   # (Julian 2026-11-05: 'them' = the old tote, grey, a bit green, low quality; 'us' = ours, warm)
     calm = calm_of(ph)
     dark = look == "list"
     bg = DEEP if dark else CREAM

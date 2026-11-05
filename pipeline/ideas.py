@@ -351,6 +351,14 @@ def story_line(s):
     return max(ok, key=nwords) if ok else None      # (the longest: 'One bag, all day.' over the labels 'Morning · Desk · Dinner')
 
 
+def moment_tail(line):
+    """A moment's line without its place ('Saturday market. Keys one zip away.' -> 'Keys one zip away.'): what a stand-in frame of
+    another place can still carry (the B042 market still failed and the frame of a car seat had captioned 'The Hobo Bag.'); None
+    when the line has one sentence."""
+    ss = [x.strip() for x in re.split(r"(?<=[.!?])\s+", line or "") if x.strip()]
+    return ss[-1] if len(ss) > 1 and len(ss[-1].split()) >= 3 else None
+
+
 def story_caption(s):
     """The caption a real-photo stand-in of this static carries when its AI picture fails the gate (the story stays, the picture is a real
     one): its story line, with the answer after a question ('Keys at the bottom again? Two gold side zips.'); None without a story."""

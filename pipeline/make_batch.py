@@ -1981,10 +1981,12 @@ def plan(a):
                     warnings.append(f"ideas: {x_.get('id')}: a story static needs a real face-free photo or a scene: none left, the "
                                     f"real {statics[i_].get('layout')} static stands in its slot")
             elif i_ < len(statics) and x_["layout"] in ("ad", "concept") and statics[i_].get("layout") in ("native", "studio") and \
-                    ideas.story_caption(x_) and x_.get("story") != "moment" and (sheet.get("date") or "") >= ideas.STATIC_STORY_FROM:
+                    ideas.story_caption(x_) and (x_.get("story") != "moment" or ideas.moment_tail(ideas.story_caption(x_))) and \
+                    (sheet.get("date") or "") >= ideas.STATIC_STORY_FROM:
                 # (the real stand-in of an AI static keeps its story when the AI picture fails: a frame's caption, a packshot's line;
                 # not a `moment`: 'Packed train.' over a stand-in frame of a lawn is wrong, the frame keeps its own feature caption)
-                statics[i_].update({"caption": ideas.story_caption(x_)} if statics[i_]["layout"] == "native" else {"headline": ideas.story_caption(x_)})
+                cap_ = ideas.story_caption(x_) if x_.get("story") != "moment" else ideas.moment_tail(ideas.story_caption(x_))
+                statics[i_].update({"caption": cap_} if statics[i_]["layout"] == "native" else {"headline": cap_})
                 if statics[i_]["layout"] == "native":
                     statics[i_].pop("headline", None)
                 else:
