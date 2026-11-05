@@ -979,10 +979,8 @@ def expand(out, hooks=4, seed=1, only=None, budget=None, quiet=False):
                     s = copy.deepcopy(spec)
                     s["blocks"][0] = dict(talk=f, text=c["text"], scene=c.get("scene") or blocks[0].get("scene"), broll=[["TALK", 0, 1.0]],
                                           **({"pad": blocks[0]["pad"]} if "pad" in blocks[0] else {}))
-                    if lab_i is not None:
-                        s["overlays"][lab_i] = dict(s["overlays"][lab_i], text=c["label"])
-                    else:
-                        s["overlays"].insert(0, dict(type="label", text=c["label"], block=0, at=0.1, dur=1.8))
+                    if lab_i is not None:             # (a presenter's hook: her words and their captions, no label on top: Julian 2026-11-04)
+                        del s["overlays"][lab_i]
                     est = round((v.get("est_seconds") or 0) - mb().pres_secs(h1_text) + mb().pres_secs(c["text"]), 1)
                     hooks_out.append((hid, s, dict(hook_text=c["text"], hook_label=c["label"], hook_type=c["type"],
                                                    opening_shot=None, est_seconds=est, hook_source=c["source"])))

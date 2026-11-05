@@ -3249,7 +3249,118 @@
      "label": "The crossbody, for the days you go light."
     }
    ]
+  },
+  {
+   "id": "B039",
+   "n": 39,
+   "rev": 2,
+   "date": "2026-11-05",
+   "product": "Vintage Bag",
+   "theme": "BlackFriday",
+   "pipeline": "catalog",
+   "request": "Variations of the B028 presenter video (Advice for a long Saturday, Vintage Bag) for Julian to review: the same story with his fixes (pauses cut, one headline, footage on the word, a softer opening, free shipping), 3 different openings.",
+   "statics": 0,
+   "projects": 1,
+   "hooks": 3,
+   "seed": 1,
+   "status": "uploaded",
+   "folder": "B039r2 – 2026-11-05 – Vintage Bag BlackFriday – 1 projects",
+   "link": "https://drive.google.com/drive/folders/1AUk7XaaxlI3fjsaTEVNyOYEBxVv7-FKu",
+   "ads": [
+    {
+     "name": "LC_261105_VintageBag_BlackFriday_B039_P01_H1_saturdayadvice",
+     "kind": "video",
+     "fp": "v|your friend asks which bag to take for a long saturday? tell her this.|",
+     "label": "Your friend asks which bag to take for a long Saturday? Tell her this."
+    },
+    {
+     "name": "LC_261105_VintageBag_BlackFriday_B039_P01_H2_saturdayadvice",
+     "kind": "video",
+     "fp": "v|can one bag really do brunch, errands and the walk home?|",
+     "label": "Can one bag really do brunch, errands and the walk home?"
+    },
+    {
+     "name": "LC_261105_VintageBag_BlackFriday_B039_P01_H3_saturdayadvice",
+     "kind": "video",
+     "fp": "v|picking a day-out bag? don't pick one that only works one way.|",
+     "label": "Picking a day-out bag? Don't pick one that only works one way."
+    },
+    {
+     "name": "LC_261105_VintageBag_BlackFriday_B039r2_P01_H1_saturdayadvice",
+     "kind": "video",
+     "fp": "v|your friend asks which bag to take for a long saturday? tell her this.|",
+     "label": "Your friend asks which bag to take for a long Saturday? Tell her this."
+    },
+    {
+     "name": "LC_261105_VintageBag_BlackFriday_B039r2_P01_H2_saturdayadvice",
+     "kind": "video",
+     "fp": "v|can one bag really do brunch, errands and the walk home?|",
+     "label": "Can one bag really do brunch, errands and the walk home?"
+    },
+    {
+     "name": "LC_261105_VintageBag_BlackFriday_B039r2_P01_H3_saturdayadvice",
+     "kind": "video",
+     "fp": "v|picking a day-out bag? don't pick one that only works one way.|",
+     "label": "Picking a day-out bag? Don't pick one that only works one way."
+    }
+   ]
+  },
+  {
+   "id": "B040",
+   "n": 40,
+   "rev": 1,
+   "date": "2026-11-05",
+   "product": "Vintage Bag",
+   "theme": "BlackFriday",
+   "pipeline": "catalog",
+   "request": "2 new story videos of the Vintage Bag for Julian to review, single videos, voiceover (no presenter: the presenter story is its own batch), footage that matches every word, hooks that open on the story.",
+   "statics": 0,
+   "projects": 2,
+   "hooks": 1,
+   "seed": 1,
+   "status": "uploaded",
+   "folder": "B040 – 2026-11-05 – Vintage Bag BlackFriday – 2 videos",
+   "link": "https://drive.google.com/drive/folders/1A-5Hq8tiyyqu9vdEy6hgToQ7SG22dcF0",
+   "ads": [
+    {
+     "name": "LC_261105_VintageBag_BlackFriday_B040_V01_povoutthedoor",
+     "kind": "video",
+     "fp": "v||",
+     "label": ""
+    },
+    {
+     "name": "LC_261105_VintageBag_BlackFriday_B040_V02_fourplaces",
+     "kind": "video",
+     "fp": "v||",
+     "label": ""
+    }
+   ]
+  },
+  {
+   "id": "B041",
+   "n": 41,
+   "rev": 1,
+   "date": "2026-11-05",
+   "product": "Hobo Bag",
+   "theme": "BlackFriday",
+   "pipeline": "catalog",
+   "request": "1 new story video of the Hobo Bag for Julian to review: the anti-theft angle (trains, the metro, crowded tourist spots), a single video, voiceover (no presenter), footage that matches every word.",
+   "statics": 0,
+   "projects": 1,
+   "hooks": 1,
+   "seed": 1,
+   "status": "uploaded",
+   "folder": "B041 – 2026-11-05 – Hobo Bag BlackFriday – 1 videos",
+   "link": "https://drive.google.com/drive/folders/1o0Jq0MOOTjO8c-pcaOojaVHds8flObf5",
+   "ads": [
+    {
+     "name": "LC_261105_HoboBag_BlackFriday_B041_V01_packedmarket",
+     "kind": "video",
+     "fp": "v||",
+     "label": ""
+    }
+   ]
   }
  ],
- "next": 39
+ "next": 42
 }

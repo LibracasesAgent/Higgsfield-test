@@ -147,6 +147,9 @@ UGC_HOOK_PAD = 0.2  # storyboard.UGC_HOOK_PAD
 UGC_END_PAD = 0.6   # storyboard.END_PAD (remix.TAIL + 0.2)
 PRES_WPS = 2.55     # a presenter's words per second (presenter.py: Kling's own voice, at a natural pace)
 PRES_SPEED = round(PRES_WPS / UGC_WPS, 3)   # (ugc_slots counts a take's words at UGC_WPS x this)
+PRES_IDEAL, PRES_LONG = 3.0, 4.6    # a presenter video's shots (storyboard.PRES_IDEAL / PRES_LONG): a talking head is cut less often than a
+#                                     voice-over (Julian 2026-11-04: "B-roll 3-5 s max, talking head can be longer"; the team 2026-11-05 on
+#                                     B039: "too many cuts and zoom-ins, really unnatural")
 PRES_OVERLAY_Y = 960   # (px of 1920) where the label / tag / offer pill sit over a presenter video: under her chin, above the bag
 PRES_EDGE = 0.32    # storyboard.TALK_HEAD + TALK_TAIL: what is kept of a take before her first and after her last word
 
@@ -978,7 +981,7 @@ def hook_type_of(text):
     return "price" if re.search(r"%|\bpercent\b|half price|\bdeals?\b|\bsales?\b|\boff\b|\bprice\b", text or "", re.I) else "promise"
 
 
-def ugc_slots(text, speed=UGC_SPEED, pad=UGC_JOIN):
+def ugc_slots(text, speed=UGC_SPEED, pad=UGC_JOIN, ideal=None, long=None):
     """[(the words, shot pieces)] one entry per shot of a ugc take as storyboard will cut it: the take's words timed at the
     estimated pace, phrase_cuts / shot_groups / ugc_pieces of storyboard (a long group is split into pieces: the 2nd, 3rd ...
     take a spare shot). plan matches the footage to these words and orders a block's picks by them."""
@@ -989,8 +992,8 @@ def ugc_slots(text, speed=UGC_SPEED, pad=UGC_JOIN):
         t += 1 / (UGC_WPS * speed) + (0.07 if w.rstrip("\"')")[-1:] in ".?!" else 0.03 if w[-1:] in ",;:" else 0.0)
     L = t + UGC_TAKE + pad
     out = []
-    for a, b in sb.shot_groups(sb.phrase_cuts(ws, 0.0), L):
-        pts = sb.ugc_pieces(a, b, ws, 0.0)
+    for a, b in sb.shot_groups(sb.phrase_cuts(ws, 0.0), L, ideal or sb.SHOT_IDEAL, long or sb.SHOT_LONG):
+        pts = sb.ugc_pieces(a, b, ws, 0.0, long or sb.SHOT_LONG)
         lo, hi = (a + sb.CUT_LEAD - 0.001 if a > 0 else -1.0), b + sb.CUT_LEAD - 0.001     # (a cut is CUT_LEAD s before its word)
         out.append((" ".join(w["w"] for w in ws if lo <= w["s"] < hi), len(pts) - 1))
     return out or [(text, 1)]
@@ -1863,7 +1866,7 @@ def plan(a):
             if price_ok and hv % 2 == 0:
                 d_.update(price=f"${s_price:.2f}", was=f"${s_was:.2f}")
             elif pr["source"] == "built-in" and (getattr(a, "classic", False) or not s_gift):   # (a gift label under the bag is the one small line: calmer)
-                d_["sub"] = "Free shipping"           # store-wide (PLAYBOOK section 1)
+                d_["sub"] = "Free shipping"              # store-wide, every order (PLAYBOOK section 1)
             return {k: x for k, x in d_.items() if x not in (None, "")}
         if lay == "stars":            # 2 cards usually fit: the next one starts after them; reviews not shown yet first
             sq, c_ = rot(star_revs, hv * 2), revs_shown()
@@ -2725,6 +2728,19 @@ def plan(a):
         n = min(cap, int((dur - 3.0) // 4.0) + 1)
         return [round(0.5 + k * ((dur - 3.5) / max(n - 1, 1) if n > 1 else 0), 1) for k in range(n)]
 
+    lab_cache = {}
+
+    def lab_moments():
+        """{clip id: labelled moments} of the client's library (clip_index.json), read once."""
+        if not lab_cache:
+            try:
+                rows_ = json.load(open(os.path.join(HERE, "data", "clip_index.json")))
+                rows_ = rows_ if isinstance(rows_, list) else rows_.get("clips") or list(rows_.values())
+                lab_cache.update({r["id"]: r["moments"] for r in rows_ if isinstance(r, dict) and r.get("id") and r.get("moments")})
+            except (OSError, ValueError):
+                lab_cache["_"] = []
+        return lab_cache
+
     def ugc_lib():
         """The product's footage as matchable shots [{p, kw, tag, kind, src, pen, only, hook, long}]: its feature picks and their other vetted
         moments (tag = the feature), B-roll and hook clips, every other clip of its clip_bank sections (the vetted moments, else
@@ -2752,9 +2768,19 @@ def plan(a):
                 return float(c.get("dur") or 0) >= 60
             return float(((b.get(p[0]) or {}).get(p[1]) or {}).get("dur") or 0) >= 60
 
+        def labelled(p):              # a curated clip (clip_bank) that the library labels too: what its frames SHOW near p's second
+            e_ = (b.get(p[0]) or {}).get(p[1]) if p and p[0] in b else None    # (the Vintage Bag's 'clasp snapping' clip shows the
+            ms_ = lab_moments().get((e_ or {}).get("id")) if isinstance(e_, dict) else None     # strap's clip hook in every frame)
+            if not ms_ or not isinstance(p[2], (int, float)):
+                return None
+            m_ = min(ms_, key=lambda m: abs(float(m.get("t", 0)) - (float(p[2]) + 1.0)))
+            return set(m_.get("tags") or []) | shotmatch.desc_tags(m_.get("desc")), m_.get("q") or "good"
+
         def add(p, extra=(), tag=None, kind="clip", pen=0.0, only=(), hook=False, tags=None, q="good", own_kw=None):
             if not p or unfit(p) or has_person(p) or any(near(p, e["p"]) for e in ulib):    # (a clip whose notes say a woman / customer /
                 return                                                                      # model is in it: faces, and never what the words say)
+            if tags is None and (lb_ := labelled(p)):
+                tags, q = lb_
             x = pick(p)
             if x:                   # once: a photo of kind 'other' (a product page's diagram with its words) is shown whole, one time
                 f_ = photo_file(p) if p[0] == "photo" else None
@@ -2799,7 +2825,8 @@ def plan(a):
                 if mom_:             # labelled (footage_index label-merge): one shot at each frame that shows the bag, that frame inside it
                     for m_ in sorted((m for m in mom_ if m.get("q") != "bad"), key=lambda m: (m.get("q") != "good", m["t"])):
                         add(["drive", id_, round(min(max(m_["t"] - 1.0, 0.3), max(dur_ - 2.6, 0.3)), 2)], (), None, "clip",
-                            pen_ + (0.0 if m_.get("q") == "good" else 0.5), tags=m_.get("tags") or [], q=m_.get("q") or "good",
+                            pen_ + (0.0 if m_.get("q") == "good" else 0.5), q=m_.get("q") or "good",
+                            tags=set(m_.get("tags") or []) | shotmatch.desc_tags(m_.get("desc")),    # ('hand with coffee': coffee)
                             own_kw=kw_terms(m_.get("desc") or "") | shotmatch.fold(m_.get("tags") or ()))
                     continue
                 for g in gen_moments(dur_, 5):
@@ -2869,7 +2896,7 @@ def plan(a):
                 if (e["only"] and not e["only"] & (terms | cterms)) or (kinds and e["kind"] not in kinds) or (e["once"] and use.get(i)):
                     continue
                 sem = shotmatch.score(e.get("tags"), wants, e.get("q", "good")) if (wants or e.get("q") == "weak") and e["p"][0] != "photo" else 0.0
-                s = 3.0 * len(e["kw"] & terms) + 1.5 * len(e["kw"] & cterms) + (6.0 if feat and e["tag"] == feat and not (wants and sem < 0) else 0.0) \
+                s = 3.0 * len(e["kw"] & terms) + 1.5 * len(e["kw"] & cterms) + (6.0 if feat and e["tag"] == feat and not (wants and (sem < 0 or shotmatch.misses(e.get("tags"), wants))) else 0.0) \
                     + (4.0 if hook and e["hook"] and not sc.get("from_sheet") else 0.0) + (2.5 * bool(e["kw"] & HOOK_MOVE) - 2.5 * ("hang" in e["kw"]) if hook else 0.0) - e["pen"] - 6.0 * (prev is not None and e["src"] == prev and not e["long"]) \
                     - 5.0 * recent.count(e["src"]) * (not e["long"]) - 0.01 * ((i * 7 + jit) % 13)
                 s += sem + (CLIP_ECON if e["p"][0] == "drive" and e["src"] in batch_srcs else 0.0)
@@ -2894,7 +2921,7 @@ def plan(a):
 
         def framed(i, k):             # the k-th showing of one moment: a closer framing, so it reads as another shot
             x = pick(lib[i]["p"])
-            if not k or not x:
+            if not k or not x or pres:  # (a presenter video: no zoom-ins at all, the team 2026-11-05: "really unnatural")
                 return x
             ex, z = dict(x[3]) if len(x) > 3 else {}, (1.2, 1.32)[(k - 1) % 2]
             if str(x[0]).lower().endswith(STILLS):
@@ -2910,13 +2937,14 @@ def plan(a):
                     for x in sorted(sw, key=lambda x: pos[x[0]])]                                          # it where that name is said
         cterms = {"hook": kw_terms("hero hand")}      # (an opening on hands moves; a bag hanging on a chair does not)
         texts = [("hook", hook)] + [(c["id"], c["text"]) for c in chs]
-        slots = {k_: ugc_slots(t_, PRES_SPEED if pres else ugc_speed, UGC_HOOK_PAD if k_ == "hook" else UGC_JOIN) for k_, t_ in texts}
+        slots = {k_: ugc_slots(t_, PRES_SPEED if pres else ugc_speed, UGC_HOOK_PAD if k_ == "hook" else UGC_JOIN,
+                               *((PRES_IDEAL, PRES_LONG) if pres else ())) for k_, t_ in texts}
 
-        def on_cam(ch, j, n, phrase=""):   # is group j of n of this block the presenter on camera? (a chapter's `cam`; the hook: all of it)
-            cam = "full" if ch is None else (ch.get("cam") or "open")
-            if cam != "full" and shows_thing(phrase):   # (Julian 2026-11-05: "one hand holds the coffee, but the clip of the coffee
-                return False                             # comes later": a phrase that names something to see is the footage, at once)
-            return cam == "full" or (cam in ("open", "both") and j == 0) or (cam in ("close", "both") and j == n - 1)
+        def on_cam(ch, j, n, own=None):   # is group j of n of this block the presenter on camera? The hook and a `cam: full` chapter: all
+            cam = "full" if ch is None else (ch.get("cam") or "open")      # of it; else (2026-11-05, B039 'too many cuts') she stays on camera
+            if cam == "full":                                               # unless the phrase's own words name something to see (the strap,
+                return True                                                 # the clasp, the inside): B-roll only for those
+            return max((own or {}).values() or [0.0]) < shotmatch.SPECIFIC
         main, prev, nsl = {}, None, 0
         for k_, t_ in texts:          # the hook first (its shots are its own), then each chapter's phrases in order
             ch = next((c for c in chs if c["id"] == k_), None)
@@ -2925,21 +2953,33 @@ def plan(a):
             colour = ch is not None and len(sw) >= 3 and "colour" in kw_terms(" ".join(ch["shot_kw"])) and ch["kind"] != "offer"
             ps = swatches_of(t_) if colour else []       # (however many phrases the voice makes: a shot per colour named)
             recent.clear()
-            for j, (st_, _) in enumerate(() if colour else slots[k_]):
-                if pres and on_cam(ch, j, len(slots[k_]), st_):
-                    ps.append(["TALK", 0, 1.0])
+            sl_ = [] if colour else slots[k_]
+            own_w = [shotmatch.wants(st_) for st_, _ in sl_]          # what each phrase's OWN words ask for (no chapter cues)
+            # the most specific phrase picks first ('One hand holds a coffee' before 'Here's a test every bag should pass': the generic
+            # line took the coffee clip, Julian 2026-11-04); ties keep the reading order
+            order_ = sorted(range(len(sl_)), key=lambda j: (-max(own_w[j].values() or [0.0]), j))
+            got_ = {}
+            for j in order_:
+                st_ = sl_[j][0]
+                at_ = sum(len(w_.split()) for w_, _ in sl_[:j])          # the word this phrase starts on: render cuts there, on the
+                if pres and on_cam(ch, j, len(sl_), own_w[j]):           # voice's real timing (Julian 2026-11-04: the coffee shot came
+                    got_[j] = ["TALK", 0, 1.0, {"at": at_}]              # a phrase late)
                     continue
-                last_slot = ch is not None and ch is chs[-1] and j == len(slots[k_]) - 1
-                c_ = choose({"packshot", "hero"}, {"hero"}, None, prev, uses, {"photo"}) if last_slot and packs else None
-                c_ = c_ or choose(kw_terms(st_), ct, feat, prev, uses, hook=ch is None, opening=ch is None and j == 0,
+                nb_ = got_.get(j - 1) or got_.get(j + 1)
+                prev_ = str(nb_[0]) if nb_ and nb_[0] != "TALK" else (prev if j == 0 else None)
+                last_slot = ch is not None and ch is chs[-1] and j == len(sl_) - 1
+                c_ = choose({"packshot", "hero"}, {"hero"}, None, prev_, uses, {"photo"}) if last_slot and packs else None
+                c_ = c_ or choose(kw_terms(st_), ct, feat, prev_, uses, hook=ch is None, opening=ch is None and j == 0,
                                   wants=shotmatch.wants(st_, (ch or {}).get("tag") or hk.get("feature"), (ch or hk).get("show") or ()),
                                   sound=bool(ch and ch.get("proof")) and j == 0)
                 x_ = framed(*c_) if c_ else None
                 if x_:
                     if last_slot and len(x_) > 3 and x_[3].get("fit"):
                         x_ = x_[:3] + [dict(x_[3], fit_y=CLOSE_FIT_Y)]    # (above the end card band, as the classic close)
-                    ps.append(x_)
-                    prev = str(x_[0])
+                    got_[j] = list(x_[:3]) + [dict(x_[3] if len(x_) > 3 else {}, at=at_)]
+            ps += [got_[j] for j in range(len(sl_)) if j in got_]
+            if ps and ps[-1][0] != "TALK":
+                prev = str(ps[-1][0])
             main[k_] = ps
             nsl += len(ps)
             for x_ in ps:          # (shown now: the batch's next videos pay BATCH_REUSE for the same moment)
@@ -2981,10 +3021,9 @@ def plan(a):
             sys.exit(f"{pr['name']}: no footage or photo to show under the voiceover (product has no clips, no clean "
                      f"photos and no site page). Add clips/photos to its Drive folder and re-run the intake.")
         oy = {"y": PRES_OVERLAY_Y} if pres else {}      # (a presenter's face fills the upper half: the words sit under her chin)
-        # (Julian 2026-11-05 on the presenter video: "keep either this one or this one, not both": she says the hook and the caption
-        # shows it, so a presenter's hook carries no label on top; rulebook.json presenter.hook_label)
-        blocks, ovl = [], ([] if pres and not (rules_of("presenter") or {}).get("hook_label", False) else
-                           [dict(type="label", text=hk["label"], block=0, at=0.1, dur=1.8, **oy)])
+        # (Julian 2026-11-04 on B028 P02: "she's saying it and we also have it in the captions: keep one of the two, not both" -> a
+        # presenter's hook has no label on top of her words and their captions)
+        blocks, ovl = [], ([] if pres else [dict(type="label", text=hk["label"], block=0, at=0.1, dur=1.8, **oy)])
         for k_, t_ in texts:
             ch = next((c for c in chs if c["id"] == k_), None)
             if pres:                  # her take: a file the presenter step makes (presenter.py needed), the words are the script's
@@ -3577,16 +3616,6 @@ def footage_match(out, v):
     except OSError:
         pass
     return hard, soft, rows
-
-
-VISUAL_SKIP = {"hero", "home", "office", "outdoor", "door"}     # wants a talking host may say over her own face (a mood, a place)
-
-
-def shows_thing(phrase):
-    """Does a phrase name something the picture should show (a zip, the pocket, the strap, coffee, keys, a crowd ...), so a presenter
-    project cuts to footage while it is said instead of after it (shotmatch wants of weight >= 3, the generic place words left out)?"""
-    w = shotmatch.wants(phrase or "")
-    return any(v >= 3 and t not in VISUAL_SKIP for t, v in w.items())
 
 
 def rules_of(section):

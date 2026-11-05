@@ -1,0 +1,243 @@
+{
+ "product": "Vintage Bag",
+ "theme": "black friday",
+ "date": "2026-11-05",
+ "no_presenter": "voiceover (no presenter: the presenter story is its own batch)",
+ "research": [
+  "Julian (call 2026-11-04): the B028 one-hand-test video got spend with good hold and CTR but a 32% hook rate (target 40-50%), and its coffee shot came a phrase late: these two stories keep what worked (a real moment with a coffee, a hand on the clasp) and open on the moment itself, never the sale.",
+  "docs/research/2026-11-headline-swipe.md: openings that name the situation then the benefit ('If you can hold a coffee, you can close this bag'), questions about a habit, and plain facts with the twist last.",
+  "Earlier Vintage stories: live test, friend advice, night before (B028), myth vs fact, gift reveal, swap (B033): these two are a POV and four places, neither told before.",
+  "Footage: snap 223 (61 frames of a hand closing it), strap 209, home 112, worn 54 (37 crossbody), inside 30 (5 hands reaching in), car 20, cafe 14 + 12 coffee frames, street 18: every line names one of those pictures."
+ ],
+ "projects": [
+  {
+   "id": "P01",
+   "slug": "povoutthedoor",
+   "title": "POV: out the door, coffee in hand",
+   "structure": "pov",
+   "big_idea": "POV: you are leaving the house with a coffee in one hand, and the bag still has to close, go on, and come with you down the street.",
+   "why_new": "No Vintage video put the viewer inside the moment (POV); it opens on the coffee and the hand at the clasp, the moment the B028 test proved, told as a scene you step into.",
+   "hooks": [
+    {
+     "text": "If you can hold a coffee, you can close this bag.",
+     "type": "promise",
+     "label": "ONE HAND",
+     "show": [
+      "snap",
+      "handheld"
+     ]
+    },
+    {
+     "text": "How often do you put your coffee down just to close your bag?",
+     "type": "question",
+     "label": "COFFEE DOWN?",
+     "show": [
+      "handheld",
+      "snap"
+     ]
+    },
+    {
+     "text": "Coffee in one hand, keys in the other, bag still open.",
+     "type": "problem",
+     "label": "HANDS FULL",
+     "show": [
+      "worn",
+      "walking"
+     ]
+    },
+    {
+     "text": "Fifty percent off, and it closes with the one hand you have left.",
+     "type": "price",
+     "label": "50% OFF",
+     "show": [
+      "strap",
+      "worn"
+     ]
+    }
+   ],
+   "chapters": [
+    {
+     "kind": "point",
+     "beat": "pov_setup",
+     "text": "POV: you're heading out the door. Coffee in one hand, keys in the other, and your bag is still hanging open. You're already a little late.",
+     "tag": null,
+     "show": [
+      "handheld",
+      "home"
+     ]
+    },
+    {
+     "kind": "proof",
+     "beat": "beat_1",
+     "proof_shot": true,
+     "text": "So you don't put anything down. Your fingers find the clasp, one press, and it snaps shut. That's the whole trick.",
+     "tag": "ONE-HAND CLASP",
+     "show": [
+      "snap",
+      "handheld"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "beat_2",
+     "text": "Then the strap. Lengthen it, slip it over your head, and the bag sits at your hip as a crossbody, out of the way of the coffee.",
+     "tag": "ADJUSTABLE STRAP",
+     "show": [
+      "strap",
+      "worn"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "beat_2",
+     "text": "Your phone, your wallet and your keys already have their own spots inside, so nothing rattles around at the bottom while you walk.",
+     "tag": null,
+     "show": [
+      "inside",
+      "packing"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "beat_2",
+     "text": "At the corner your phone buzzes. Open the flap, the phone is right there in its spot, and one press shuts the bag again.",
+     "tag": null,
+     "show": [
+      "inside",
+      "snap"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "resolve",
+     "text": "Down the street, coffee still full, your phone in the other hand, and the bag shut the whole way to the car.",
+     "tag": null,
+     "show": [
+      "worn",
+      "walking"
+     ]
+    },
+    {
+     "kind": "offer",
+     "beat": "offer",
+     "text": "The Vintage Bag is fifty percent off right now in the Early Black Friday sale, with free shipping. Tap the link below.",
+     "tag": null,
+     "show": [
+      "hero",
+      "placed"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "P02",
+   "slug": "fourplaces",
+   "title": "One bag, four places",
+   "structure": "four_places",
+   "big_idea": "One ordinary day in four short places (the car, the cafe, the errands, dinner), and in each one the bag does one small thing right.",
+   "why_new": "The first Vintage video told across four places; it leads with what is inside (no digging), where the earlier stories led with the clasp or the strap.",
+   "hooks": [
+    {
+     "text": "Car, cafe, errands, dinner: watch what you never have to dig for.",
+     "type": "promise",
+     "label": "NO DIGGING",
+     "show": [
+      "inside",
+      "packing"
+     ]
+    },
+    {
+     "text": "Do you dig for your keys every time you get out of the car?",
+     "type": "question",
+     "label": "KEYS AGAIN?",
+     "show": [
+      "handheld",
+      "car"
+     ]
+    },
+    {
+     "text": "Four places in one day, and one bag that keeps up.",
+     "type": "promise",
+     "label": "FOUR PLACES",
+     "show": [
+      "worn",
+      "street"
+     ]
+    },
+    {
+     "text": "Half price, and your phone, wallet and keys each get their own spot.",
+     "type": "price",
+     "label": "HALF PRICE",
+     "show": [
+      "packing",
+      "inside"
+     ]
+    }
+   ],
+   "chapters": [
+    {
+     "kind": "point",
+     "beat": "place_1",
+     "text": "Morning, the car. The bag rides on the seat beside you with the flap shut. When you park, you open it, and your keys are exactly where you put them.",
+     "tag": null,
+     "show": [
+      "car",
+      "handheld"
+     ]
+    },
+    {
+     "kind": "proof",
+     "beat": "place_2",
+     "proof_shot": true,
+     "text": "Mid-morning, the cafe queue. Open the flap, and your phone, wallet and keys each have their own spot inside. No digging at the counter while people wait behind you.",
+     "tag": "ROOM FOR EVERYTHING",
+     "show": [
+      "inside",
+      "packing"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "place_3",
+     "text": "Afternoon, the errands. Lengthen the strap and wear it crossbody, so both your hands are open for the shopping bags and the doors. The bag just stays at your hip.",
+     "tag": "ADJUSTABLE STRAP",
+     "show": [
+      "strap",
+      "worn"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "place_4",
+     "text": "Evening, dinner. Shorten the strap again and it's a handbag on the table, shut with one press of the clasp. It looks like you planned the whole day around it.",
+     "tag": "ONE-HAND CLASP",
+     "show": [
+      "snap",
+      "placed"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "place_4",
+     "text": "Four places, one bag, and not once did you turn it upside down to find something. Your keys, your phone and your wallet were waiting in their spots all day.",
+     "tag": null,
+     "show": [
+      "worn",
+      "street"
+     ]
+    },
+    {
+     "kind": "offer",
+     "beat": "offer",
+     "text": "The Vintage Bag is fifty percent off right now in the Early Black Friday sale, with free shipping. Tap the link below.",
+     "tag": null,
+     "show": [
+      "hero",
+      "placed"
+     ]
+    }
+   ]
+  }
+ ],
+ "statics": []
+}

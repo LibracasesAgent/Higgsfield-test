@@ -1,0 +1,57 @@
+{
+ "ok": true,
+ "created": "2026-11-05",
+ "product": "Vintage Bag",
+ "theme": "black friday",
+ "theme_name": "BlackFriday",
+ "offer": "50% off",
+ "seed": 1,
+ "cta": "Get Offer",
+ "rows": 3,
+ "csv": "/tmp/claude-0/-home-user-Higgsfield-test/dc62c400-d540-5f8d-8967-810c690f0a81/scratchpad/run2/vpres2/ad_copy.csv",
+ "statics": [],
+ "projects": [
+  {
+   "id": "P01",
+   "angle": "saturdayadvice",
+   "engine": "storyboard",
+   "product": "Vintage Bag",
+   "winner": null,
+   "primary_text_1": "Black Friday came early.\nThe Vintage Bag: 50% off.",
+   "primary_text_2": "Classic on the outside. Organised on the inside.\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nA clasp that snaps shut with one hand.\nBlack Friday Sale: up to 60% off. 🖤\nTap Get Offer to claim the deal.",
+   "headline_1": "Early Black Friday: 50% Off",
+   "headline_2": "Up to 60% Off Bundles",
+   "description": "50% off + free shipping",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER",
+   "versions": [
+    {
+     "hook": "H1",
+     "id": "P01H1",
+     "ad_name": "LC_261105_VintageBag_BlackFriday_B039r2_P01_H1_saturdayadvice",
+     "hook_text": "Your friend asks which bag to take for a long Saturday? Tell her this.",
+     "hook_first_line": "Your friend asks which bag to take for a long Saturday? Tell her this.",
+     "primary_text_2_hook": "Your friend asks which bag to take for a long Saturday? Tell her this.\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nA clasp that snaps shut with one hand.\nBlack Friday Sale: up to 60% off. 🖤\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H2",
+     "id": "P01H2",
+     "ad_name": "LC_261105_VintageBag_BlackFriday_B039r2_P01_H2_saturdayadvice",
+     "hook_text": "Can one bag really do brunch, errands and the walk home?",
+     "hook_first_line": "Can one bag really do brunch, errands and the walk home?",
+     "primary_text_2_hook": "Can one bag really do brunch, errands and the walk home?\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nA clasp that snaps shut with one hand.\nBlack Friday Sale: up to 60% off. 🖤\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H3",
+     "id": "P01H3",
+     "ad_name": "LC_261105_VintageBag_BlackFriday_B039r2_P01_H3_saturdayadvice",
+     "hook_text": "Picking a day-out bag? Don't pick one that only works one way.",
+     "hook_first_line": "Picking a day-out bag? Don't pick one that only works one way.",
+     "primary_text_2_hook": "Picking a day-out bag? Don't pick one that only works one way.\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nA clasp that snaps shut with one hand.\nBlack Friday Sale: up to 60% off. 🖤\nTap Get Offer to claim the deal."
+    }
+   ]
+  }
+ ],
+ "notes": [],
+ "problems": []
+}

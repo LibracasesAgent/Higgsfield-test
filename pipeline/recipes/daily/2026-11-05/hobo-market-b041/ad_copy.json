@@ -1,0 +1,41 @@
+{
+ "ok": true,
+ "created": "2026-11-05",
+ "product": "Hobo Bag",
+ "theme": "black friday",
+ "theme_name": "BlackFriday",
+ "offer": "50% off + free matching pouch wallet",
+ "seed": 1,
+ "cta": "Get Offer",
+ "rows": 1,
+ "csv": "/tmp/claude-0/-home-user-Higgsfield-test/dc62c400-d540-5f8d-8967-810c690f0a81/scratchpad/run2/hobo/ad_copy.csv",
+ "statics": [],
+ "projects": [
+  {
+   "id": "V01",
+   "angle": "packedmarket",
+   "engine": "storyboard",
+   "product": "Hobo Bag",
+   "winner": null,
+   "primary_text_1": "Black Friday came early.\nThe Hobo Bag: 50% off + free wallet.",
+   "primary_text_2": "Take a closer look at the Hobo Bag. 🖤\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nTwo gold side zips, one on each side, for your keys and phone.\nBlack Friday Sale: up to 60% off. 🎁\nTap Get Offer to claim the deal.",
+   "headline_1": "Early Black Friday: 50% Off",
+   "headline_2": "Up to 60% Off Bundles",
+   "description": "50% off + free shipping",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER",
+   "versions": [
+    {
+     "hook": "",
+     "id": "V01",
+     "ad_name": "LC_261105_HoboBag_BlackFriday_B041_V01_packedmarket",
+     "hook_text": "Heading somewhere crowded this weekend? Here's where your cards should go.",
+     "hook_first_line": "Heading somewhere crowded this weekend? Here's where your cards should go.",
+     "primary_text_2_hook": "Heading somewhere crowded this weekend? Here's where your cards should go.\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nTwo gold side zips, one on each side, for your keys and phone.\nBlack Friday Sale: up to 60% off. 🎁\nTap Get Offer to claim the deal."
+    }
+   ]
+  }
+ ],
+ "notes": [],
+ "problems": []
+}

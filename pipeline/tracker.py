@@ -336,9 +336,10 @@ def replace(du, tok, sid, wb):
 
 
 # ---------------------------------------------------------------- sync
-def sync(batches=(), refresh_all=False, notes=None, dry=False, quiet=False):
+def sync(batches=(), refresh_all=False, notes=None, dry=False, quiet=False, status=None):
     """Add / refresh the given batch ids (and every batch folder in Drive the sheet lacks) -> summary dict. (notes: accepted for
-    the callers of the old format; the run report carries them.)"""
+    the callers of the old format; the run report carries them.) status = {batch: Status} sets our Status column of every row of that
+    batch (a batch replaced by a new version: '⛔ Skip')."""
     say = (lambda *x: None) if quiet else (lambda *x: print(*x, file=sys.stderr))
     cfg = load_cfg()
     du, tok = token()
@@ -395,6 +396,9 @@ def sync(batches=(), refresh_all=False, notes=None, dry=False, quiet=False):
                     if kind.get(h) == "d" and v not in (None, ""):
                         o[h] = v
                 refreshed += 1
+    for k, row in keyed.items():               # (our Status column, set for a whole batch: a replaced batch is 'Skip')
+        if (status or {}).get(k.split("|", 1)[0]):
+            row["Status"] = status[k.split("|", 1)[0]]
     groups = []
     for bid in sorted({k.split("|", 1)[0] for k in keyed}, key=batch_order, reverse=True):     # the newest batch on top
         meta = metas.get(bid) or batch_meta(bid, led, dfold.get(bid))
@@ -420,6 +424,8 @@ def main():
     s.add_argument("--batch", action="append", default=[], help="a batch id to add / refresh (repeatable)")
     s.add_argument("--all", action="store_true", help="refresh the file details of every batch")
     s.add_argument("--dry-run", action="store_true")
+    s.add_argument("--status", help="set our Status column of every row of the --batch batches (e.g. '⛔ Skip' for a batch a new version "
+                   "replaces): " + ", ".join(STATUS))
     sub.add_parser("show")
     a = ap.parse_args()
     if a.cmd == "show":
@@ -430,7 +436,8 @@ def main():
         print(json.dumps(dict(link=cfg["link"], batches=len({k.split("|", 1)[0] for k in keyed}), rows=len(keyed), by_hand=len(hand),
                               tabs=wb.sheetnames), indent=1))
         return 0
-    print(json.dumps(sync([x.upper() for x in a.batch], refresh_all=a.all, dry=a.dry_run), indent=1, default=str))
+    st = {x.upper(): a.status for x in a.batch} if a.status else None
+    print(json.dumps(sync([x.upper() for x in a.batch], refresh_all=a.all, dry=a.dry_run, status=st), indent=1, default=str))
     return 0
 
 

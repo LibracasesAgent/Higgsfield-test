@@ -1,0 +1,34 @@
+# Strategy sheet: Vintage Bag · black friday · 2026-11-05
+
+## Research and what it changed
+
+- Julian's review of B028 P02 H4 (call 2026-11-04): he likes the concept (a host giving a friend advice, no brand name up front) and the avatar looks natural; fixes: no Black Friday opening (a UGC video is less aggressive), one headline (no label on top of her line and its captions), cut the pauses (the B028 cut held 0.6-1.3 s between most sentences, ~15 s of 70), no unnatural cut, the crossbody line shows the crossbody shot, the coffee line the coffee, the inside line the inside, 'free shipping' not 'free US shipping'. This batch keeps the story and fixes all of it (the pipeline now cuts her pauses, drops the label and puts every shot on its word).
+- docs/research/2026-11-headline-swipe.md (Julian's swipe file): openings that name the situation then the benefit, and the 'three things' list the video delivers; none opens on the sale.
+- Footage for the Vintage Bag: strap 209, snap 223 (61 frames of a hand closing it), handheld 121, worn 54 (37 crossbody), inside 30 (5 hands reaching in), cafe 14 + 12 coffee frames: every B-roll line is built on those.
+- Three openings (H1-H3) on one body: the friend-advice situation, a question, and the mistake to avoid; the 4th is a spare. No sale or price in any opening (presenter rule from 2026-11-05).
+
+## P01 · Advice for a long Saturday, tightened
+**Big idea:** A host tells you what to say to a friend who wants one bag for brunch, errands, a walk and dinner: a strap that adjusts, a clasp that shuts with one hand, a spot for everything.
+**Why it is new:** The B028 friend-advice video got spend and Julian liked the concept: this is its fixed version (no sale opening, one headline, pauses cut, every shot on its word) with three new openings, none of them about the sale.
+
+**Hooks (4 versions, same body):**
+- H1 [promise] `ONE BAG`: Your friend asks which bag to take for a long Saturday? Tell her this.  _(picture: worn, walking)_
+- H2 [question] `BRUNCH TO WALK`: Can one bag really do brunch, errands and the walk home?  _(picture: strap, worn)_
+- H3 [problem] `TWO WAYS`: Picking a day-out bag? Don't pick one that only works one way.  _(picture: strap, handheld)_
+- H4 [promise] `THREE THINGS`: Three things to tell your friend before she picks her next bag.  _(picture: snap, handheld)_
+
+**Presenter (maya, a generated host, never a customer):** cafe: She sits at a small round table in a sunny cafe, a latte in a white cup in front of her, warm daylight from the window beside her, a softly blurred cafe behind.; sofa: She sits on a cream sofa in a bright living room, a green plant and a knitted blanket beside her, soft daylight from a window, a softly blurred room behind.
+
+**Script:**
+
+| # | Said by the presenter | On camera | Picture it needs | On screen |
+|---|---|---|---|---|
+| 1 | Your best friend has a long Saturday coming up. Brunch, errands, a long walk, then dinner out. And she wants one bag for all of it. | full | walking, worn |  |
+| 2 | Tell her to look for an adjustable strap. Short, she carries it as a handbag at brunch. Long, it goes crossbody for the walk. | open | strap, worn | ADJUSTABLE STRAP |
+| 3 | So the strap does the work. Same bag, same things inside, just worn another way. | open | strap, handheld |  |
+| 4 | Then tell her to pick a bag that shuts properly. This clasp snaps shut with one hand, so the coffee in her other hand stays put. | open | snap, handheld | ONE-HAND CLASP |
+| 5 | And inside, her phone, wallet and keys each get their own spot. Nothing sinks to the bottom, so she never digs for them. | open | inside, packing |  |
+| 6 | Right now the Vintage Bag is fifty percent off in the Early Black Friday sale, with free shipping. Send it to her, or keep one for yourself. Tap the link below. | both | hero, placed |  |
+
+_159 words, about 62 s._
+

@@ -19,7 +19,7 @@ forces `pipeline/make_batch.py` (templates, real photos and footage; AI only as 
 - **Products and facts (from the site, 2026-10):**
   | Product | Price (was) | Colours | Key claims |
   |---|---|---|---|
-  | Luxury Leather Hobo Anti-Theft Handbag ("Hobo Bag") | $54.95 ($109.90) since 2026-10-27 (the owner's price change: ads made before it that print a price are out of date) | Brown, Black, Blue, Grey, Burgundy, Red | hidden anti-theft back pocket, smart compartments, soft water-resistant scratch-proof leather, 2 adjustable straps (handbag / shoulder / crossbody), free matching pouch wallet, free US shipping, 1-year warranty, easy returns |
+  | Luxury Leather Hobo Anti-Theft Handbag ("Hobo Bag") | $54.95 ($109.90) since 2026-10-27 (the owner's price change: ads made before it that print a price are out of date) | Brown, Black, Blue, Grey, Burgundy, Red | hidden anti-theft back pocket, smart compartments, soft water-resistant scratch-proof leather, 2 adjustable straps (handbag / shoulder / crossbody), free matching pouch wallet, free shipping, 1-year warranty, easy returns |
   | Hobo 2.0 "6-Layer Security Edition" | $79.95 ($159.90) | Black, Brown, Beige (Beige was sold out in early Oct, back on the site by 10-09; `plan` reads the colours from the site) | RFID protection, lockable zippers, cut-resistant strap, hidden pockets, smart compartments, table security strap, 2 straps: a handbag strap and a crossbody strap (owner 2026-10-26) |
   | Hobo Bag 3-Piece Set | $69.95 | Brown, Black, Blue, Grey, Purple Red, Red | hobo + crossbody + matching pouch |
   | Slouchy Soft 3-Piece Set | $69.95 | | |
@@ -28,7 +28,8 @@ forces `pipeline/make_batch.py` (templates, real photos and footage; AI only as 
   the exception: their price, offer, colours and features come only from the client's folder notes (section 11).
 - **Offer (per product, 2026-10):** Hobo Bag 50% off + free matching pouch wallet; Hobo 2.0 50% off + free pouch
   wallet; Vintage 50% off (no gift); Hobo 3-Piece Set and Slouchy Set 60% off ($69.95 vs $174.88; the pouch is one of
-  the three pieces, not a gift). Free US shipping store-wide (the built-in bags; a Drive-only new product's ads
+  the three pieces, not a gift). Free shipping store-wide on every order, US, UK and Australia (libracases.com shipping policy,
+  checked 2026-11-05: say "free shipping", never "free US shipping", Julian 2026-11-04: the ads reach the UK and Australia too) (the built-in bags; a Drive-only new product's ads
   say it only when its notes do: `compliance.drive_only`). Site banner: "FINAL CLEARANCE SALE ENDS TODAY 50% OFF +
   FREE SHIPPING". `make_batch.py plan` reads the % and the gift from the site on every run.
 - **Black Friday Sale 2026 (Wouter, 2026-10-23; `data/campaign.json`, section 4f):** live 23 October - 30 November (Cyber
@@ -378,7 +379,7 @@ offer and end cards), `ad_copy.csv` and the RAW audio of every winner version, w
 - **Reviews:** verbatim review text and a brand-voice line that names the customer and adds nothing ("Carol calls it
   the best bag she has ever bought.") are allowed; a review that mentions a gift the product doesn't have is not.
 - **Not a problem:** "anti-theft", pickpockets, crowds, Christmas / Mother's Day themes (built in, the client asked
-  for them), "Free US shipping" (store-wide, section 1).
+  for them), "Free shipping" (store-wide, every order: section 1).
 - **A problem:** reword the line (or drop the ad) and re-run; never upload a creative or copy with a problem. Read the
   `allowed` list once per batch: it is what a human would want to glance at (RAW story words, review superlatives).
 
@@ -631,6 +632,22 @@ allowed avatars when a story needs them. `pipeline/presenter.py`, `data/presente
 - **Making a new host:** `soul_2` candidates (original faces; the prompt wording above) -> pick -> `assets/presenter/<id>.jpg` -> a row in
   `presenters.json` with `look`, `voice`, `soul_job` (the job id used as the first image reference) -> a character sheet and an
   expression sheet with `gpt_image_2_5` from the master for the owner.
+
+- **The edit (Julian 2026-11-04 on B028 P02, the team 2026-11-05 on B039: "voice cadence and flow not there ... too many cuts and
+  zoom-ins, really unnatural"; B039r2 is the fixed version):**
+  - **Her pauses:** `storyboard.talk_prep` trims only pauses over 0.6 s (sentence ends) to 0.38 s, as a 0.1 s dissolve. Comma and
+    list pauses stay (cutting every pause over 0.3 s to 0.16 s made her sound rushed).
+  - **Take edges:** each take is trimmed to her voice's real edges (on the level, not whisper's early word ends), 0.12 s of air
+    each side, so two takes join with ~0.3 s: a breath, not 0.8-1.5 s.
+  - **No zooms on her:** no push-ins, no punch-ins, and her back-to-back shots run on as one shot. No closer re-framing of B-roll
+    either.
+  - **B-roll only where her own words name something to see** (the strap, the clasp, the inside, the coffee: a shotmatch want of
+    4+). She stays on camera for the rest, and a `cam: full` chapter is all her. Shots of ~3 s (up to 4.6 s).
+  - **No label over her opening:** her words and the captions say it.
+  - **Openings never on the sale** (`ideas.SOFT_OPEN_FROM`).
+  - **Result:** B039 H1 had 27 shots in 62 s and 6 zooms; B039r2 H1 has 14 shots in 63 s and none. The real silence between her
+    lines is 0.2-0.5 s.
+  - **A batch replaced by a new version:** `python3 pipeline/tracker.py sync --batch B039 --status "⛔ Skip"`.
 
 ### 4f. Store-wide sale campaigns: the Black Friday Sale 2026 (owner 2026-10-23, revised 2026-10-26)
 

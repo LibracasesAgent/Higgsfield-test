@@ -265,6 +265,67 @@ def test_named_picks(sb, d):
     assert seen[0] in ("s0.jpg", "s1.jpg") and "s2.jpg" in seen[1:] or "s3.jpg" in seen[1:], seen
 
 
+def test_anchored_picks_land_on_their_words(sb, d):
+    """(Julian 2026-11-04: 'one hand holds the coffee' showed the coffee a phrase later.) Picks that carry the word their phrase starts
+    on ({"at": i}) cut CUT_LEAD s before that word on the voice's REAL timing, whatever pace plan estimated: pick i is on screen while
+    its own words are said; a pick whose word comes under SHOT_MIN after the cut before shares that shot and goes to the spares."""
+    text = "Here's a test every bag should pass. One hand holds a coffee. The other has to find your things and shut the bag again."
+    toks = text.split()
+    ws, t = [], 0.1                       # a slow start, then fast: plan's even pace would put every cut in the wrong place
+    for i, w in enumerate(toks):
+        step = 0.42 if i < 7 else 0.28
+        ws.append(dict(w=w, s=round(t, 3), e=round(t + step * 0.8, 3)))
+        t += step
+    L = round(t + 0.3, 3)
+    still = {"zoom": [1.0, 1.06]}
+    at = [0, 7, 12, 14]                   # 'Here's', 'One', 'The', 'find'
+    picks = [[f"s{k}.jpg", 0, 1.0, dict(still, at=a)] for k, a in enumerate(at)]
+    drop = []
+    got = sb.plan_block(sb.Shots(d), 0.0, L, 0.0, ws, picks, [[["s3.jpg", 0, 1.0, {}]]], drop)
+    starts = {g["src"]: round(sum(x["dur"] for x in got[:i]), 3) for i, g in enumerate(got) if g["src"] not in [y["src"] for y in got[:i]]}
+    assert starts["s1.jpg"] == round(ws[7]["s"] - sb.CUT_LEAD, 3), (starts, ws[7])       # the coffee shot starts on 'One'
+    assert starts["s2.jpg"] == round(ws[12]["s"] - sb.CUT_LEAD, 3), starts               # 'The other has to find ...'
+    assert all("at" not in g for g in got)
+    assert drop == [["s3.jpg", 0, 1.0, dict(still, at=14)]], drop                         # 'find' 0.56 s after 'The': no shot
+    assert abs(sum(g["dur"] for g in got) - L) < 0.01
+    ws2 = [dict(w=w, s=round(0.1 + i * 0.3, 3), e=round(0.3 + i * 0.3, 3)) for i, w in enumerate(toks)]
+    old = sb.plan_block(sb.Shots(d), 0.0, L, 0.0, ws2, [p[:3] for p in picks], [], [])     # (no anchors: the old grouping)
+    assert old and all("at" not in g for g in old)
+
+
+def test_talk_prep_cuts_the_long_pauses(sb, d):
+    """(Julian 2026-11-04 on B028 P02: 'this pause loses momentum'.) A presenter take with a 1.2 s pause between two sentences comes back
+    with it cut to TALK_KEEP; the short gap inside a sentence stays; the end of a word whisper marks early is found on the level."""
+    src = os.path.join(d, "take.mp4")
+    ff("-f", "lavfi", "-i", "color=c=gray:s=360x640:r=30:d=5", "-f", "lavfi", "-i",
+       "aevalsrc='0.4*sin(2*PI*300*t)*(between(t,0.2,1.3)+between(t,2.5,3.4)+between(t,3.55,4.5))':s=48000:d=5",
+       "-c:v", "libx264", "-pix_fmt", "yuv420p", "-c:a", "aac", "-shortest", src)
+    ws = [dict(w="Hello", s=0.2, e=1.0), dict(w="there.", s=1.0, e=1.1), dict(w="Next", s=2.5, e=3.4), dict(w="line.", s=3.55, e=4.5)]
+    real = sb.words
+    sb.words = lambda path: ws if path == src else real(path)
+    try:
+        out = sb.talk_prep(d, "take.mp4")
+    finally:
+        sb.words = real
+    assert out.startswith("_tp_"), out
+    got = sb.dur(os.path.join(d, out))
+    assert 3.3 < got < 3.9, got                     # 5 s - (1.2 s pause - TALK_KEEP) - the take's silent head / tail
+    raw = subprocess.run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-i", os.path.join(d, out), "-ac", "1", "-ar", "16000",
+                          "-f", "f32le", "-"], capture_output=True, check=True).stdout
+    import numpy as np
+    a = np.abs(np.frombuffer(raw, dtype=np.float32))
+    first_sound_end = next(i for i in range(int(0.3 * 16000), len(a), 160) if a[i:i + 800].max() < 0.01) / 16000
+    assert first_sound_end > 1.0, first_sound_end   # the tone runs to 1.3 s in the take: the word's real end is kept (whisper said 1.1)
+    one = os.path.join(d, "take1.mp4")
+    ff("-i", src, "-t", "1.4", "-c", "copy", one)
+    sb.words = lambda path: ws[:2] if path == one else real(path)
+    try:
+        one_out = sb.talk_prep(d, "take1.mp4")                 # no long pause: only trimmed to her voice's edges (TALK_EDGE of air,
+        assert one_out.startswith("_tp_") and 1.2 < sb.dur(os.path.join(d, one_out)) < 1.4    # so two takes join with a breath)
+    finally:
+        sb.words = real
+
+
 def test_hook_does_not_change_body(sb, d):
     """The hook is planned after the body: another hook (other length, other shots) leaves the body's shots as they are."""
     def body(board):
@@ -360,7 +421,7 @@ def test_master(sb, d):
 
 
 TESTS = [test_classic_build_unchanged, test_voice_prep, test_phrases, test_shot_groups, test_ugc_build, test_no_repeat_within_10s,
-         test_repeat_gets_another_shot, test_one_clip_cuts_are_visible, test_named_picks, test_hook_does_not_change_body, test_chapter_number_caption, test_proof_block_holds_and_plays_its_own_sound, test_master]
+         test_repeat_gets_another_shot, test_one_clip_cuts_are_visible, test_named_picks, test_anchored_picks_land_on_their_words, test_talk_prep_cuts_the_long_pauses, test_hook_does_not_change_body, test_chapter_number_caption, test_proof_block_holds_and_plays_its_own_sound, test_master]
 
 
 def main():

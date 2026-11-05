@@ -128,7 +128,7 @@ Julian 2026-11-05 on B028 P02 (Vintage; good metrics, weak hook at 32-33%):
 - **No sale in her hooks** (the check refuses it): a UGC host "has to look less aggressive"; the moment first, the sale at the end.
 - **No label over her hook**: she says it and the caption shows it ("keep either this one or this one, not both").
 - **The footage comes ON the words**: a phrase that names something to see (coffee, the crossbody, phone and keys inside) cuts to that
-  clip while she says it, never after (`make_batch.shows_thing`).
+  clip while she says it, never after (`make_batch.ugc_board.on_cam`: a phrase naming a feature is footage; picks anchored on their first word).
 - **No dead pauses**: `presenter.py gate` notes a pause over 0.6 s and fails a take with one over 1 s (remake it once).
 
 ## 7. Statics

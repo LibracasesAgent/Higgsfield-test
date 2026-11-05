@@ -1,0 +1,65 @@
+{
+ "ok": true,
+ "created": "2026-11-05",
+ "product": "Vintage Bag",
+ "theme": "black friday",
+ "theme_name": "BlackFriday",
+ "offer": "50% off",
+ "seed": 1,
+ "cta": "Get Offer",
+ "rows": 2,
+ "csv": "/tmp/claude-0/-home-user-Higgsfield-test/dc62c400-d540-5f8d-8967-810c690f0a81/scratchpad/run2/vstory/ad_copy.csv",
+ "statics": [],
+ "projects": [
+  {
+   "id": "V01",
+   "angle": "povoutthedoor",
+   "engine": "storyboard",
+   "product": "Vintage Bag",
+   "winner": null,
+   "primary_text_1": "Black Friday came early.\nThe Vintage Bag: 50% off.",
+   "primary_text_2": "Classic on the outside. Organised on the inside.\nA clasp that snaps shut with one hand.\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nBlack Friday Sale: up to 60% off. 🖤\nTap Get Offer to claim the deal.",
+   "headline_1": "Early Black Friday: 50% Off",
+   "headline_2": "Up to 60% Off Bundles",
+   "description": "50% off + free shipping",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER",
+   "versions": [
+    {
+     "hook": "",
+     "id": "V01",
+     "ad_name": "LC_261105_VintageBag_BlackFriday_B040_V01_povoutthedoor",
+     "hook_text": "If you can hold a coffee, you can close this bag.",
+     "hook_first_line": "If you can hold a coffee, you can close this bag.",
+     "primary_text_2_hook": "If you can hold a coffee, you can close this bag.\nA clasp that snaps shut with one hand.\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nBlack Friday Sale: up to 60% off. 🖤\nTap Get Offer to claim the deal."
+    }
+   ]
+  },
+  {
+   "id": "V02",
+   "angle": "fourplaces",
+   "engine": "storyboard",
+   "product": "Vintage Bag",
+   "winner": null,
+   "primary_text_1": "This is the Black Friday deal you've been waiting for.\nThe Vintage Bag: 50% off.",
+   "primary_text_2": "Take a closer look at the Vintage Bag.\nOpen it up and there's room for your phone, wallet and keys, all in their own spot.\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nBlack Friday: 50% off. 🖤\nTap Get Offer to claim the deal.",
+   "headline_1": "Black Friday Prices Are Live",
+   "headline_2": "Vintage Bag: 50% Off",
+   "description": "Up to 60% off",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER",
+   "versions": [
+    {
+     "hook": "",
+     "id": "V02",
+     "ad_name": "LC_261105_VintageBag_BlackFriday_B040_V02_fourplaces",
+     "hook_text": "Car, cafe, errands, dinner: watch what you never have to dig for.",
+     "hook_first_line": "Car, cafe, errands, dinner: watch what you never have to dig for.",
+     "primary_text_2_hook": "Car, cafe, errands, dinner: watch what you never have to dig for.\nOpen it up and there's room for your phone, wallet and keys, all in their own spot.\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nBlack Friday: 50% off. 🖤\nTap Get Offer to claim the deal."
+    }
+   ]
+  }
+ ],
+ "notes": [],
+ "problems": []
+}

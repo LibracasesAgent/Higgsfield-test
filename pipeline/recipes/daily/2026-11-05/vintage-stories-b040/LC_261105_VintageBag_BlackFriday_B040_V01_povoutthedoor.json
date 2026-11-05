@@ -1,0 +1,429 @@
+{
+ "mode": "ugc",
+ "voice_speed": 1.12,
+ "blocks": [
+  {
+   "vo": "V01_hook.mp3",
+   "broll": [
+    [
+     "1o0-jgBxYaVJ_m91gUA9pJPEw1bEHnxkp",
+     0.3,
+     1.0,
+     {
+      "at": 0
+     }
+    ],
+    [
+     "1R252UTrxdvK5bBTBSgBNWv04zCDUs5KK",
+     9.6,
+     1.0,
+     {
+      "at": 6
+     }
+    ]
+   ],
+   "spare": [
+    [
+     "1PqOCKXPzIB5F2F_GE0pGM34NXUDiS3au",
+     0.3,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V01_c1.mp3",
+   "broll": [
+    [
+     "18DAFSqkzMMUEnbSdL5eeRhvxDTkAq80k",
+     8.53,
+     1.0,
+     {
+      "at": 0
+     }
+    ],
+    [
+     "1R252UTrxdvK5bBTBSgBNWv04zCDUs5KK",
+     6.62,
+     1.0,
+     {
+      "at": 6
+     }
+    ],
+    [
+     "1jOeA-YhiSvgn7lf8YhKR87RNvSOGrTWT",
+     5.59,
+     1.0,
+     {
+      "at": 14
+     }
+    ],
+    [
+     "156yw4fhlcKn3WYbzwjndnYzsDh9xw5TI",
+     0.3,
+     1.0,
+     {
+      "at": 21
+     }
+    ]
+   ],
+   "spare": [
+    [
+     "1m1IT7G__icZ8VzWV8Rb1jQyVs8rwiANk",
+     18.51,
+     1.0
+    ],
+    [
+     "1jOeA-YhiSvgn7lf8YhKR87RNvSOGrTWT",
+     18.77,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V01_c2.mp3",
+   "broll": [
+    [
+     "1gNLpeLxuXf79Ne9igUZ74zW3Tax6KT2k",
+     6.81,
+     1.0,
+     {
+      "at": 0
+     }
+    ],
+    [
+     "1jOeA-YhiSvgn7lf8YhKR87RNvSOGrTWT",
+     31.94,
+     1.0,
+     {
+      "at": 6
+     }
+    ],
+    [
+     "1n_iVN9Lf1dKnL9Mo1ixhZiHX-MBBv7gp",
+     9.12,
+     1.0,
+     {
+      "at": 11
+     }
+    ],
+    [
+     "1zWksUIjdI39dANvjXlGZoTaY11CJrBRZ",
+     0.0,
+     1.0,
+     {
+      "at": 17
+     }
+    ]
+   ],
+   "spare": [
+    [
+     "1HNUEQK0mMmDiVbvsG41nEmwlON-IFoU9",
+     10.54,
+     1.0
+    ],
+    [
+     "1nCg9ulE1ZcwawGVIaGZvkMOcrZi_CrAG",
+     15.54,
+     1.0
+    ]
+   ],
+   "proof": true
+  },
+  {
+   "vo": "V01_c3.mp3",
+   "broll": [
+    [
+     "1ni45Zrqs01boihMG9jmX7TP95mIh9WvJ",
+     0.3,
+     1.0,
+     {
+      "at": 0
+     }
+    ],
+    [
+     "1LyryrXa2Haxk8f1x29x3jDkEn8Y3Dh-A",
+     0.3,
+     1.0,
+     {
+      "at": 20
+     }
+    ]
+   ],
+   "spare": [
+    [
+     "1R252UTrxdvK5bBTBSgBNWv04zCDUs5KK",
+     0.52,
+     1.0
+    ],
+    [
+     "1ViQ_U6AhkuQz8RRi2q8Q0Bg_2X_oifXE",
+     7.44,
+     1.0
+    ],
+    [
+     "1qNOv5frbrbN4JAtBuqHDqxjXb15gEeuc",
+     0.81,
+     1.0
+    ],
+    [
+     "1n_iVN9Lf1dKnL9Mo1ixhZiHX-MBBv7gp",
+     13.17,
+     1.0
+    ]
+   ],
+   "pace": "fast"
+  },
+  {
+   "vo": "V01_c4.mp3",
+   "broll": [
+    [
+     "10aSieQA3Lb3YEflOG3dXN2sIgckqMv4f",
+     9.3,
+     1.0,
+     {
+      "at": 0
+     }
+    ],
+    [
+     "1qNOv5frbrbN4JAtBuqHDqxjXb15gEeuc",
+     4.44,
+     1.0,
+     {
+      "at": 13
+     }
+    ]
+   ],
+   "spare": [
+    [
+     "1R252UTrxdvK5bBTBSgBNWv04zCDUs5KK",
+     3.57,
+     1.0
+    ],
+    [
+     "1nCg9ulE1ZcwawGVIaGZvkMOcrZi_CrAG",
+     10.81,
+     1.0
+    ],
+    [
+     "1jOeA-YhiSvgn7lf8YhKR87RNvSOGrTWT",
+     45.12,
+     1.0
+    ],
+    [
+     "1VYOz6vWCsY5iQ6DuiIrqaCkR7HsDLrM6",
+     0.3,
+     1.0
+    ]
+   ],
+   "pace": "fast"
+  },
+  {
+   "vo": "V01_c5.mp3",
+   "broll": [
+    [
+     "1SBRzm0fRWJXbrCIPZ4sgGku8WfO72vRp",
+     22.62,
+     1.0,
+     {
+      "at": 0
+     }
+    ],
+    [
+     "10aSieQA3Lb3YEflOG3dXN2sIgckqMv4f",
+     6.6,
+     1.0,
+     {
+      "at": 9
+     }
+    ],
+    [
+     "17iFr-T6Hmi4mhwk5ZAaeEt3rIeZ1G1Rj",
+     7.56,
+     1.0,
+     {
+      "at": 17
+     }
+    ]
+   ],
+   "spare": [
+    [
+     "1gNLpeLxuXf79Ne9igUZ74zW3Tax6KT2k",
+     17.22,
+     1.0
+    ],
+    [
+     "17iFr-T6Hmi4mhwk5ZAaeEt3rIeZ1G1Rj",
+     4.13,
+     1.0
+    ]
+   ],
+   "pace": "fast"
+  },
+  {
+   "vo": "V01_c6.mp3",
+   "broll": [
+    [
+     "1LyryrXa2Haxk8f1x29x3jDkEn8Y3Dh-A",
+     2.86,
+     1.0,
+     {
+      "at": 0
+     }
+    ],
+    [
+     "1m1IT7G__icZ8VzWV8Rb1jQyVs8rwiANk",
+     12.94,
+     1.0,
+     {
+      "at": 6
+     }
+    ],
+    [
+     "1qNOv5frbrbN4JAtBuqHDqxjXb15gEeuc",
+     8.06,
+     1.0,
+     {
+      "at": 12
+     }
+    ]
+   ],
+   "spare": [
+    [
+     "1qNOv5frbrbN4JAtBuqHDqxjXb15gEeuc",
+     11.69,
+     1.0
+    ],
+    [
+     "1n_iVN9Lf1dKnL9Mo1ixhZiHX-MBBv7gp",
+     1.02,
+     1.0
+    ],
+    [
+     "1yjKHIr6LOVpOrPFMQHasYMjttUsFd2uW",
+     4.96,
+     1.0
+    ]
+   ],
+   "pace": "slow"
+  },
+  {
+   "vo": "V01_c7.mp3",
+   "broll": [
+    [
+     "18DAFSqkzMMUEnbSdL5eeRhvxDTkAq80k",
+     0.39,
+     1.0,
+     {
+      "at": 0
+     }
+    ],
+    [
+     "site/vintage_colour_chocolate.jpg",
+     0,
+     1.0,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ],
+      "at": 15
+     }
+    ]
+   ],
+   "spare": [
+    [
+     "17iFr-T6Hmi4mhwk5ZAaeEt3rIeZ1G1Rj",
+     10.98,
+     1.0
+    ],
+    [
+     "18DAFSqkzMMUEnbSdL5eeRhvxDTkAq80k",
+     5.96,
+     1.0
+    ],
+    [
+     "10scnHfhEYwRVQs7OZmemUkahLF4dDt8U",
+     3.2,
+     1.0
+    ]
+   ]
+  }
+ ],
+ "overlays": [
+  {
+   "type": "label",
+   "text": "ONE HAND",
+   "block": 0,
+   "at": 0.1,
+   "dur": 1.8
+  },
+  {
+   "type": "tag",
+   "text": "ONE-HAND CLASP",
+   "block": 2,
+   "at": 0.15,
+   "dur": 2.6
+  },
+  {
+   "type": "tag",
+   "text": "ADJUSTABLE STRAP",
+   "block": 3,
+   "at": 0.15,
+   "dur": 2.6
+  }
+ ],
+ "end_title": "Black Friday Sale",
+ "offer": {
+  "block": 7,
+  "word": "50",
+  "title": "BLACK FRIDAY 50% OFF",
+  "sub": ""
+ },
+ "end_photo": "site/vintage_colour_chocolate.jpg",
+ "end_offer": "UP TO 60% OFF",
+ "keywords": [
+  "50%",
+  "gift",
+  "gifts",
+  "hidden",
+  "pocket",
+  "leather",
+  "black",
+  "friday"
+ ],
+ "spare_broll": [
+  [
+   "1SBRzm0fRWJXbrCIPZ4sgGku8WfO72vRp",
+   9.12,
+   1.0
+  ],
+  [
+   "17d10LbskjU22G5XWKiZuz5ibKfc35D18",
+   0.3,
+   1.0
+  ],
+  [
+   "1AdAOhcydiFs0YyuazrwDdcwv1kybqPgA",
+   0.3,
+   1.0
+  ],
+  [
+   "1D4E7XWSZLSRqsrzK9KkWxSXmzg7s2xcm",
+   0.3,
+   1.0
+  ],
+  [
+   "1VYOz6vWCsY5iQ6DuiIrqaCkR7HsDLrM6",
+   4.41,
+   1.0
+  ],
+  [
+   "1m1IT7G__icZ8VzWV8Rb1jQyVs8rwiANk",
+   7.36,
+   1.0
+  ]
+ ],
+ "music": {
+  "seed": 1
+ }
+}

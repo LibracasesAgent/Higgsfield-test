@@ -220,7 +220,12 @@ def offer_word_ok(text, pr):
     return bool(re.search(rf"\b{pct}\s?%|\b{pct} percent|\b{sp}\b", (text or "").lower()))
 
 
-def story_problems(p, pid, pr, cov, keys, slib, P, W):
+SOFT_OPEN_FROM = "2026-11-05"    # (Julian 2026-11-04 on B028 P02: "I would not introduce with Black Friday immediately ... a UGC video has to look
+#                                  less aggressive") sheets from this day: the lead hook (H1, the version a single video keeps) and every hook
+#                                  of a presenter project open on the story, never the sale or the price
+
+
+def story_problems(p, pid, pr, cov, keys, slib, P, W, date=""):
     """The story rules of one project (owner 2026-10-27): its structure and beats, at most 3 features, the price only at the end,
     hooks that open on four different pictures of the bag doing something, one or two proof shots, people in the footage.
     Returns the project's lead feature (the first one it talks about) or None."""
@@ -264,6 +269,12 @@ def story_problems(p, pid, pr, cov, keys, slib, P, W):
                  f"project's lowest hook rate, 33%); open on the moment, the sale is the close")
     if len(priced) > 1:
         P.append(f"{pid}: hooks {', '.join(f'H{k}' for k in priced)} open on the price: one price hook at most, the others a moment or a question")
+    if (date or "") >= SOFT_OPEN_FROM:
+        soft = priced if pres else [k for k in priced if k == 1]
+        if soft:
+            P.append(f"{pid}: {'hooks ' + ', '.join(f'H{k}' for k in soft) if pres else 'H1'} open on the sale or the price: "
+                     f"{'a presenter video' if pres else 'the lead hook'} opens on the story (Julian 2026-11-04: not Black Friday first, "
+                     f"a UGC video is less aggressive); the offer comes in the last chapter")
     if not pres:
         firsts = []
         for k, h in enumerate(hooks[:4], 1):
@@ -653,7 +664,7 @@ def check(sheet, pr, n_projects=None, n_statics=None, exclude=None, day=None):
         pid = p.get("id") or "?"
         where = f"{pid}"
         if story:
-            lead = story_problems(p, pid, pr, cov, keys, slib, P, W)
+            lead = story_problems(p, pid, pr, cov, keys, slib, P, W, sheet.get("date") or "")
             if lead:
                 leads.setdefault(lead, []).append(pid)
         pres = p.get("presenter")
@@ -978,7 +989,7 @@ def packet(pr, theme, n_projects, n_statics, request=""):
          "scripts and static concepts, check them with `ideas.py check`, then plan with `--ideas`. Format: see `ideas.py --help`.\n",
          "## 1. True facts (the only claims you may make)\n"]
     L += [f"- Offer: {V['P'] or '-'} off ({V['off_sp'] or '-'}), gift: {V['gift'] or 'none'}, price {V['price'] or '-'} (was {V['was'] or '-'}); "
-          f"shipping: {'free shipping (say \'free shipping\', never \'free US shipping\': UK is free too, Julian 2026-11-05)' if ctx['ship'] else 'not stated: do not mention'}; warranty: {V['warranty'] or '-'}; returns: {V['returns'] or '-'}"]
+          f"shipping: {'free shipping (every order: US, UK and Australia; say free shipping, never free US shipping)' if ctx['ship'] else 'not stated: do not mention'}; warranty: {V['warranty'] or '-'}; returns: {V['returns'] or '-'}"]
     L += [f"- Feature: **{f[1]}**: {f[0]}" for f in pr.get("features") or []]
     L += [f"- Also true: {x}" for x in pr.get("also") or []]          # (owner facts that are not a feature line of the engine)
     L += [f"- Colours: {', '.join(pr.get('colours') or []) or ((pr.get('facts') or {}).get('colours') and ', '.join(pr['facts']['colours'])) or '-'}",

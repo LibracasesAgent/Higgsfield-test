@@ -121,7 +121,19 @@ CLOSER = ({"zoom": [1.3, 1.36], "focus": [0.5, 0.55]}, {"zoom": [1.6, 1.66], "fo
 FIN = (".", "?", "!")
 TALK = "TALK"                          # a pick that is the presenter on camera (presenter.py: her take is the block's picture and voice)
 TALK_HEAD, TALK_TAIL = 0.10, 0.22      # a take is cut this long before her first word and after her last (s)
-TALK_FRAME = {"zoom": [1.12, 1.18], "focus": [0.5, 0.42]}   # every second shot of her is this closer framing (a jump cut, as creators edit)
+TALK_FRAME = {}                        # (was a closer framing with a slow push-in on every second shot of her: the team 2026-11-05 on B039,
+#                                        "too many cuts and zoom-ins, really unnatural": she stays in one framing, her shots run on)
+TALK_GAP, TALK_KEEP = 0.60, 0.38       # (Julian 2026-11-04 on B028 P02: "this pause loses momentum": her takes held 0.6-1.4 s at sentence ends)
+#                                        a pause longer than TALK_GAP is cut to TALK_KEEP, a natural breath; shorter ones (a list's commas,
+#                                        0.3-0.5 s) stay (2026-11-05: cutting every pause over 0.3 s to 0.16 s broke her cadence)
+TALK_ZOOM = 1.0                        # (no punch-in at those cuts: 'zoom-ins really unnatural')
+TALK_XFADE = 0.10                      # those cuts are a short dissolve (picture and sound), never a hard jump of her head
+TALK_EDGE = 0.12                       # a prepared take starts / ends this long before / after her voice (on the level, not whisper's word
+#                                        times, which end early): two takes join with ~0.3 s between them, a breath, not 0.8-1.5 s of air
+PRES_PROOF_BEAT = 0.2                  # a presenter's proof chapter holds this long after her line (a voice-over's: PROOF_BEAT)
+PRES_IDEAL, PRES_LONG = 3.0, 4.6       # a presenter video's shots (make_batch.PRES_IDEAL): a talking head is cut less often
+TALK_DB = -38.0                        # speech edges: the audio stays over this level (dBFS) until the word really ends / begins
+TP_VERSION = 3                         # bump when talk_prep's chain changes: prepared takes are made again
 PACE_IDEAL = {"slow": 2.4, "fast": 1.6}                     # a story beat's shot length (a block's "pace", the sheet's beat); else SHOT_IDEAL
 PROOF_IDEAL, PROOF_LONG, PROOF_BEAT = 2.8, 3.8, 0.5         # a "proof" block (owner 2026-10-27): its shots held ~2.8 s (up to 3.8), then
 #                                                             PROOF_BEAT s of air after the line: the picture holds, its own sound plays
@@ -157,6 +169,100 @@ def voice_prep(d, name, speed=VOICE_SPEED):
                     f"afade=t=out:st={max(dur(t1) - 0.02, 0):.3f}:d=0.02", "-ar", "48000", "-y", t2], check=True)
     os.remove(t1)
     os.replace(t2, p)
+    return out
+
+
+def speech_runs(ws, gap=TALK_GAP):
+    """[(first word, last word)] of a take: the words split wherever the silence between two words is longer than `gap` s."""
+    runs, cur = [], []
+    for w in ws:
+        if cur and w["s"] - cur[-1]["e"] > gap:
+            runs.append((cur[0], cur[-1]))
+            cur = []
+        cur.append(w)
+    if cur:
+        runs.append((cur[0], cur[-1]))
+    return runs
+
+
+def talk_spans(ws, env, hop, total, gap=TALK_GAP, keep=TALK_KEEP, db=TALK_DB):
+    """The source seconds [(a, b)] of a take to keep: each speech run (speech_runs) from where the voice really starts to where it
+    really ends (the level `env` in dBFS per `hop` s, searched 0.35 s around whisper's word edges, which are often early at the end),
+    keep/2 s of air on each side; the first starts and the last ends with the take's own head / tail air."""
+    def loud(t):
+        i = int(t / hop)
+        return 0 <= i < len(env) and env[i] > db
+    out = []
+    for f, l in speech_runs(ws, gap):
+        a = f["s"]
+        t = a
+        while t > max(f["s"] - 0.35, 0.0) and loud(t - hop):
+            t -= hop
+        a = t
+        e, t = l["e"], l["e"]
+        while t < min(l["e"] + 0.35, total) and loud(t):
+            t += hop
+        e = t
+        out.append([max(a - keep / 2, 0.0), min(e + keep / 2, total)])
+    if out:                                  # (the take's own start and end: TALK_EDGE of air, a breath when two takes join)
+        f0 = speech_runs(ws, gap)[0][0]["s"]
+        out[0][0] = max(min(out[0][0] + keep / 2 - TALK_EDGE, f0), 0.0)
+        out[-1][1] = min(out[-1][1] - keep / 2 + TALK_EDGE, total)
+    for x, y in zip(out, out[1:]):           # (air never overlaps the next run's)
+        if x[1] > y[0]:
+            x[1] = y[0] = round((x[1] + y[0]) / 2, 3)
+    return [(round(a, 3), round(b, 3)) for a, b in out if b - a > 0.05]
+
+
+def talk_prep(d, name, text=None):
+    """A presenter take (presenter.py) with its long pauses cut (talk_spans): '_tp_<hash>.mp4' next to the board, picture and sound cut
+    together, every second piece a little closer (TALK_ZOOM: each cut reads as a punch-in), 8 ms fades at each join. A take with no
+    pause over TALK_GAP is used as it is. -> the file name to use."""
+    src = loc(d, name)
+    h = hashlib.md5(open(src, "rb").read() + f"|{TALK_GAP}|{TALK_KEEP}|{TALK_ZOOM}|{TALK_DB}|{TP_VERSION}".encode()).hexdigest()[:12]
+    out = f"_tp_{h}.mp4"
+    p = os.path.join(d, out)
+    if os.path.exists(p):
+        return out
+    ws = words(src)
+    if text:
+        ws = script_words(text, ws)
+    total = dur(src)
+    import numpy as np
+    raw = subprocess.run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-i", src, "-ac", "1", "-ar", "16000", "-f", "f32le", "-"],
+                         capture_output=True, check=True).stdout
+    a_ = np.frombuffer(raw, dtype=np.float32)
+    hop = 0.01
+    n = int(16000 * hop)
+    fr = a_[: len(a_) // n * n].reshape(-1, n) if len(a_) >= n else np.zeros((1, n), np.float32)
+    env = 20 * np.log10(np.sqrt((fr.astype(np.float64) ** 2).mean(axis=1)) + 1e-9)
+    spans = talk_spans(ws, env, hop, total) if ws else []
+    if not spans:
+        return name
+    wh = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries", "stream=width,height", "-of", "csv=p=0", src],
+                        capture_output=True, text=True, check=True).stdout.strip().split(",")
+    W_, H_ = int(wh[0]), int(wh[1])
+    vf, af = [], []
+    for i, (x, y) in enumerate(spans):
+        z = TALK_ZOOM if i % 2 else 1.0
+        cw, chh = int(W_ / z) // 2 * 2, int(H_ / z) // 2 * 2
+        crop = f",crop={cw}:{chh}:{(W_ - cw) // 2}:{int((H_ - chh) * 0.4)},scale={W_}:{H_}" if z != 1.0 else ""
+        vf.append(f"[0:v]trim=start={x}:end={y},setpts=PTS-STARTPTS{crop},setsar=1,fps=30,format=yuv420p[v{i}]")
+        af.append(f"[0:a]atrim=start={x}:end={y},asetpts=PTS-STARTPTS,aresample=48000[a{i}]")
+    d_ = TALK_XFADE
+    chain, vl, al, off = [], "v0", "a0", 0.0
+    for i in range(1, len(spans)):      # each join a short dissolve: the picture and the voice overlap d_ s
+        off += (spans[i - 1][1] - spans[i - 1][0]) - d_
+        chain.append(f"[{vl}][v{i}]xfade=transition=fade:duration={d_}:offset={off:.3f}[vx{i}]")
+        chain.append(f"[{al}][a{i}]acrossfade=d={d_}:c1=tri:c2=tri[ax{i}]")
+        vl, al = f"vx{i}", f"ax{i}"
+    fc = ";".join(vf + af + chain)          # (one span: the take trimmed to its voice, no join)
+    maps = [f"[{vl}]", f"[{al}]"]
+    tmp = f"{p}.{os.getpid()}.mp4"
+    subprocess.run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-i", src, "-filter_complex", fc, "-map", maps[0], "-map", maps[1],
+                    "-c:v", "libx264", "-preset", "medium", "-crf", "16", "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", "-y", tmp],
+                   check=True)
+    os.replace(tmp, p)
     return out
 
 
@@ -271,7 +377,7 @@ class Shots:
     def mk(self, src, st, ex, L):
         """The shot dict of the pick (src, st, extra) for L s: as broll_segs makes it (the start moved back or a slower
         speed when the clip runs out; a still gets a slow punch-in)."""
-        ex = {k: v for k, v in (ex or {}).items() if k != "say"}
+        ex = {k: v for k, v in (ex or {}).items() if k not in ("say", "at")}
         if not str(src).lower().endswith(STILL):
             st, sp = fit(self.d, src, st, L)
             if sp != 1.0:
@@ -375,17 +481,60 @@ def match_pick(gp, words, L, cands):
     return gp, None
 
 
-def plan_block(sh, t0, L, lead, ws, picks, pools, drop=None, talk=None, ideal=SHOT_IDEAL, long=SHOT_LONG):
+def anchor(p):
+    """The script word a pick's phrase starts on ({"at": 7}: plan chose the pick for the words from the 8th on), or None."""
+    return (p[3] or {}).get("at") if p and len(p) > 3 and isinstance(p[3], dict) else None
+
+
+def anchored_groups(ws, picks, lead, L, text=None):
+    """The shot groups of a block whose picks all carry their phrase's first word (anchor): [(a, b)] one per pick, a = CUT_LEAD s
+    before that word on the voice's real timing (Julian 2026-11-04: 'one hand holds the coffee' must show the coffee then, not a
+    phrase later; plan's slots are timed at an estimated pace, so filling the real voice's own groups in order drifts). A pick
+    whose word comes under SHOT_MIN after the previous cut shares that shot (None in its place). ws = the script's words on the
+    voice's seconds (script_words: one per word of the text, '50%' for 'fifty percent'), text = the script (to map the indices
+    when the two differ in length). -> (groups, the picks kept, the picks skipped) or None when an anchor is missing."""
+    if not picks or any(anchor(p) is None for p in picks):
+        return None
+    idx = list(range(len(ws)))
+    toks = (text or "").split()
+    if toks and len(toks) != len(ws):             # ('fifty percent' -> one word '50%'): the script's indices onto ws
+        import difflib
+        a_, b_ = [norm(x) for x in toks], [norm(w["w"]) for w in ws]
+        idx, j_ = [None] * len(toks), 0
+        for tag, i1, i2, j1, j2 in difflib.SequenceMatcher(None, a_, b_, autojunk=False).get_opcodes():
+            for q in range(i1, i2):
+                idx[q] = min(j1 + (q - i1) if tag == "equal" else j1 + round((q - i1) * (j2 - j1) / max(i2 - i1, 1)), len(ws) - 1)
+        idx = [x if x is not None else len(ws) - 1 for x in idx]
+    cuts, kept = [], []
+    for p in picks:
+        i = min(int(anchor(p)), len(idx) - 1) if idx else 0
+        c = 0.0 if not cuts else round(lead + ws[idx[i]]["s"] - CUT_LEAD, 3) if ws else 0.0
+        if cuts and (c < cuts[-1] + SHOT_MIN or c > L - SHOT_MIN):
+            kept.append(None)                     # (too close to the cut before, or to the block's end: no shot of its own)
+            continue
+        cuts.append(c)
+        kept.append(p)
+    groups = list(zip(cuts, cuts[1:] + [L]))
+    return groups, [p for p in kept if p is not None], [p for p, k in zip(picks, kept) if k is None]
+
+
+def plan_block(sh, t0, L, lead, ws, picks, pools, drop=None, talk=None, ideal=SHOT_IDEAL, long=SHOT_LONG, text=None):
     """The shots of one ugc voice block (ad second t0, L s long, the voice starting `lead` s in; words ws on the voice's
     seconds): shot_groups of its phrases; the picks fill the groups in order, further groups and the parts of a long
     group take spares (Shots.place). Picks left over go to `drop` (the later blocks' spares). A presenter's block (talk:
     {src, a}): a pick [TALK, 0, 1.0] is her on camera for that group (all its shots, in sync with her words); a last pick
     that is TALK is the block's last group however many groups the timings make."""
-    cuts = phrase_cuts(ws, lead)
-    groups = shot_groups(cuts, L, ideal, long)
     is_t = lambda p: bool(p) and p[0] == TALK                       # noqa: E731
     named = bool(picks) and all(len(p) > 3 and (p[3] or {}).get("say") for p in picks)     # {"say": "beige"}: a colour swatch
-    tail_talk = bool(talk) and len(picks) > 1 and is_t(picks[-1])
+    anc = None if named else anchored_groups(ws, picks, lead, L, text)
+    if anc:                       # every pick on the word its phrase starts on (the real timing): pick i fills group i
+        groups, picks, skipped = anc
+        if drop is not None:
+            drop += [p for p in skipped if not is_t(p)]
+        tail_talk = False
+    else:
+        groups = shot_groups(phrase_cuts(ws, lead), L, ideal, long)
+        tail_talk = bool(talk) and len(picks) > 1 and is_t(picks[-1])
     body = picks[:-1] if tail_talk else picks
     left, out, gi, nt = list(body), [], 0, 0
     for a, b in groups:
@@ -404,7 +553,7 @@ def plan_block(sh, t0, L, lead, ws, picks, pools, drop=None, talk=None, ideal=SH
                 pick = gp if j == 0 else None
                 words_ = _said(ws, lead, x, y)
                 if shotmatch.specific_wants(words_):           # a line that names a feature: the picture must show it
-                    later = body[gi + 1:]
+                    later = [] if anc else body[gi + 1:]          # (anchored picks already sit on their own words)
                     alt, src_l = match_pick(pick, words_, y - x, [later] + list(pools))
                     if src_l is later:                         # a later pick of this block fits these words: the two swap places
                         k_ = gi + 1 + next(i for i, z in enumerate(later) if z is alt)
@@ -552,9 +701,9 @@ def ugc_shots(d, jobs, segs, spare_all, top):
         drop = None if k == 0 else []             # the hook's spare shots are its own; picks the body does not need
         pools = [jb["own"]] if k == 0 else [jb["own"], spare_all]
         proof = bool(blk.get("proof")) and k > 0  # (owner 2026-10-27) the proof shot held longer; a story beat's own pace
-        ideal = PROOF_IDEAL if proof else PACE_IDEAL.get(blk.get("pace"), SHOT_IDEAL)
+        ideal = PROOF_IDEAL if proof else PRES_IDEAL if jb.get("talk") else PACE_IDEAL.get(blk.get("pace"), SHOT_IDEAL)
         got = plan_block(sh, jb["t"], jb["L"], jb["lead"], ws, [list(x) for x in blk["broll"]], pools, drop, jb.get("talk"),
-                         ideal=ideal, long=PROOF_LONG if proof else SHOT_LONG)
+                         ideal=ideal, long=PROOF_LONG if proof else PRES_LONG if jb.get("talk") else SHOT_LONG, text=blk.get("text"))
         if proof:                                 # its first real clip plays its own sound (natural_sounds)
             tsrc = (jb.get("talk") or {}).get("src")
             first = next((x for x in got if not str(x["src"]).lower().endswith(STILL) and x["src"] != tsrc), None)
@@ -629,7 +778,7 @@ def build(b, d, info=None):
         if ugc:
             bp = blk.get("pad", b.get("hook_pad", UGC_HOOK_PAD)) if k == 0 and last > 0 else max(bp, END_PAD) if k == last else bp
             if blk.get("proof") and 0 < k < last:     # the proof shot's air: the picture holds and its own sound plays
-                bp += PROOF_BEAT
+                bp += PRES_PROOF_BEAT if "talk" in blk else PROOF_BEAT
         else:
             bp = max(bp, HOOK_PAD) if k == 0 and last > 0 else max(bp, END_PAD) if k == last else bp
         # the hook's extra shots come only from its own spares (its versions differ; the body must stay identical)
@@ -656,12 +805,16 @@ def build(b, d, info=None):
             audio.append(("file", blk["vo"], L - lead))
             spans.append((t, L, blk["vo"], -lead))
         elif "talk" in blk:                       # the presenter's take (presenter.py): her picture and her own voice, B-roll cut in
+            blk = dict(blk, talk=talk_prep(d, blk["talk"], blk.get("text")))   # (its long pauses cut: talk_prep)
             tp = loc(d, blk["talk"])              # over it (planned below with the voice blocks: the TALK picks are her on camera)
             ws_t = words(tp)
             if blk.get("text"):
                 ws_t = script_words(blk["text"], ws_t)
-            a = max(ws_t[0]["s"] - TALK_HEAD, 0.0) if ws_t else 0.0
-            e = min(ws_t[-1]["e"] + TALK_TAIL, dur(tp)) if ws_t else dur(tp)
+            if os.path.basename(tp).startswith("_tp_"):   # (prepared: already cut to her voice's real edges, TALK_EDGE of air)
+                a, e = 0.0, dur(tp)
+            else:
+                a = max(ws_t[0]["s"] - TALK_HEAD, 0.0) if ws_t else 0.0
+                e = min(ws_t[-1]["e"] + TALK_TAIL, dur(tp)) if ws_t else dur(tp)
             L = e - a + bp
             wsr = [dict(w, s=round(w["s"] - a, 3), e=round(w["e"] - a, 3)) for w in ws_t]
             jobs.append(dict(k=k, i=len(segs), t=t, L=L, lead=0.0, blk=blk, own=own, talk=dict(src=tp, a=round(a, 3), ws=wsr)))
