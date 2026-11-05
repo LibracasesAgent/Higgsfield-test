@@ -293,6 +293,38 @@ def test_anchored_picks_land_on_their_words(sb, d):
     assert old and all("at" not in g for g in old)
 
 
+def test_talk_prep_cuts_the_long_pauses(sb, d):
+    """(Julian 2026-11-04 on B028 P02: 'this pause loses momentum'.) A presenter take with a 1.2 s pause between two sentences comes back
+    with it cut to TALK_KEEP; the short gap inside a sentence stays; the end of a word whisper marks early is found on the level."""
+    src = os.path.join(d, "take.mp4")
+    ff("-f", "lavfi", "-i", "color=c=gray:s=360x640:r=30:d=5", "-f", "lavfi", "-i",
+       "aevalsrc='0.4*sin(2*PI*300*t)*(between(t,0.2,1.3)+between(t,2.5,3.4)+between(t,3.55,4.5))':s=48000:d=5",
+       "-c:v", "libx264", "-pix_fmt", "yuv420p", "-c:a", "aac", "-shortest", src)
+    ws = [dict(w="Hello", s=0.2, e=1.0), dict(w="there.", s=1.0, e=1.1), dict(w="Next", s=2.5, e=3.4), dict(w="line.", s=3.55, e=4.5)]
+    real = sb.words
+    sb.words = lambda path: ws if path == src else real(path)
+    try:
+        out = sb.talk_prep(d, "take.mp4")
+    finally:
+        sb.words = real
+    assert out.startswith("_tp_"), out
+    got = sb.dur(os.path.join(d, out))
+    assert 3.3 < got < 3.9, got                     # 5 s - (1.2 s pause - TALK_KEEP) - the take's silent head / tail
+    raw = subprocess.run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-i", os.path.join(d, out), "-ac", "1", "-ar", "16000",
+                          "-f", "f32le", "-"], capture_output=True, check=True).stdout
+    import numpy as np
+    a = np.abs(np.frombuffer(raw, dtype=np.float32))
+    first_sound_end = next(i for i in range(int(0.3 * 16000), len(a), 160) if a[i:i + 800].max() < 0.01) / 16000
+    assert first_sound_end > 1.0, first_sound_end   # the tone runs to 1.3 s in the take: the word's real end is kept (whisper said 1.1)
+    one = os.path.join(d, "take1.mp4")
+    ff("-i", src, "-t", "1.4", "-c", "copy", one)
+    sb.words = lambda path: ws[:2] if path == one else real(path)
+    try:
+        assert sb.talk_prep(d, "take1.mp4") == "take1.mp4"     # no long pause: the take as it is
+    finally:
+        sb.words = real
+
+
 def test_hook_does_not_change_body(sb, d):
     """The hook is planned after the body: another hook (other length, other shots) leaves the body's shots as they are."""
     def body(board):
@@ -388,7 +420,7 @@ def test_master(sb, d):
 
 
 TESTS = [test_classic_build_unchanged, test_voice_prep, test_phrases, test_shot_groups, test_ugc_build, test_no_repeat_within_10s,
-         test_repeat_gets_another_shot, test_one_clip_cuts_are_visible, test_named_picks, test_anchored_picks_land_on_their_words, test_hook_does_not_change_body, test_chapter_number_caption, test_proof_block_holds_and_plays_its_own_sound, test_master]
+         test_repeat_gets_another_shot, test_one_clip_cuts_are_visible, test_named_picks, test_anchored_picks_land_on_their_words, test_talk_prep_cuts_the_long_pauses, test_hook_does_not_change_body, test_chapter_number_caption, test_proof_block_holds_and_plays_its_own_sound, test_master]
 
 
 def main():

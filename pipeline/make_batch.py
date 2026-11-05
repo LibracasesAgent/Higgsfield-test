@@ -1843,7 +1843,7 @@ def plan(a):
             if price_ok and hv % 2 == 0:
                 d_.update(price=f"${s_price:.2f}", was=f"${s_was:.2f}")
             elif pr["source"] == "built-in" and (getattr(a, "classic", False) or not s_gift):   # (a gift label under the bag is the one small line: calmer)
-                d_["sub"] = "Free US shipping"           # store-wide (PLAYBOOK section 1)
+                d_["sub"] = "Free shipping"              # store-wide, every order (PLAYBOOK section 1)
             return {k: x for k, x in d_.items() if x not in (None, "")}
         if lay == "stars":            # 2 cards usually fit: the next one starts after them; reviews not shown yet first
             sq, c_ = rot(star_revs, hv * 2), revs_shown()
@@ -2987,7 +2987,9 @@ def plan(a):
             sys.exit(f"{pr['name']}: no footage or photo to show under the voiceover (product has no clips, no clean "
                      f"photos and no site page). Add clips/photos to its Drive folder and re-run the intake.")
         oy = {"y": PRES_OVERLAY_Y} if pres else {}      # (a presenter's face fills the upper half: the words sit under her chin)
-        blocks, ovl = [], [dict(type="label", text=hk["label"], block=0, at=0.1, dur=1.8, **oy)]
+        # (Julian 2026-11-04 on B028 P02: "she's saying it and we also have it in the captions: keep one of the two, not both" -> a
+        # presenter's hook has no label on top of her words and their captions)
+        blocks, ovl = [], ([] if pres else [dict(type="label", text=hk["label"], block=0, at=0.1, dur=1.8, **oy)])
         for k_, t_ in texts:
             ch = next((c for c in chs if c["id"] == k_), None)
             if pres:                  # her take: a file the presenter step makes (presenter.py needed), the words are the script's

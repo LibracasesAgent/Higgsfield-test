@@ -121,6 +121,11 @@ FIN = (".", "?", "!")
 TALK = "TALK"                          # a pick that is the presenter on camera (presenter.py: her take is the block's picture and voice)
 TALK_HEAD, TALK_TAIL = 0.10, 0.22      # a take is cut this long before her first word and after her last (s)
 TALK_FRAME = {"zoom": [1.12, 1.18], "focus": [0.5, 0.42]}   # every second shot of her is this closer framing (a jump cut, as creators edit)
+TALK_GAP, TALK_KEEP = 0.30, 0.16       # (Julian 2026-11-04 on B028 P02: "this pause loses momentum"; her takes held 0.6-1.3 s between most
+#                                        sentences, ~15 s of 70) a pause in a take longer than TALK_GAP is cut to TALK_KEEP (talk_prep)
+TALK_ZOOM = 1.08                       # every second piece of a take after such a cut is framed this much closer (a punch-in, not a glitch)
+TALK_DB = -38.0                        # speech edges: the audio stays over this level (dBFS) until the word really ends / begins
+TP_VERSION = 1                         # bump when talk_prep's chain changes: prepared takes are made again
 PACE_IDEAL = {"slow": 2.4, "fast": 1.6}                     # a story beat's shot length (a block's "pace", the sheet's beat); else SHOT_IDEAL
 PROOF_IDEAL, PROOF_LONG, PROOF_BEAT = 2.8, 3.8, 0.5         # a "proof" block (owner 2026-10-27): its shots held ~2.8 s (up to 3.8), then
 #                                                             PROOF_BEAT s of air after the line: the picture holds, its own sound plays
@@ -156,6 +161,89 @@ def voice_prep(d, name, speed=VOICE_SPEED):
                     f"afade=t=out:st={max(dur(t1) - 0.02, 0):.3f}:d=0.02", "-ar", "48000", "-y", t2], check=True)
     os.remove(t1)
     os.replace(t2, p)
+    return out
+
+
+def speech_runs(ws, gap=TALK_GAP):
+    """[(first word, last word)] of a take: the words split wherever the silence between two words is longer than `gap` s."""
+    runs, cur = [], []
+    for w in ws:
+        if cur and w["s"] - cur[-1]["e"] > gap:
+            runs.append((cur[0], cur[-1]))
+            cur = []
+        cur.append(w)
+    if cur:
+        runs.append((cur[0], cur[-1]))
+    return runs
+
+
+def talk_spans(ws, env, hop, total, gap=TALK_GAP, keep=TALK_KEEP, db=TALK_DB):
+    """The source seconds [(a, b)] of a take to keep: each speech run (speech_runs) from where the voice really starts to where it
+    really ends (the level `env` in dBFS per `hop` s, searched 0.35 s around whisper's word edges, which are often early at the end),
+    keep/2 s of air on each side; the first starts and the last ends with the take's own head / tail air."""
+    def loud(t):
+        i = int(t / hop)
+        return 0 <= i < len(env) and env[i] > db
+    out = []
+    for f, l in speech_runs(ws, gap):
+        a = f["s"]
+        t = a
+        while t > max(f["s"] - 0.35, 0.0) and loud(t - hop):
+            t -= hop
+        a = t
+        e, t = l["e"], l["e"]
+        while t < min(l["e"] + 0.35, total) and loud(t):
+            t += hop
+        e = t
+        out.append([max(a - keep / 2, 0.0), min(e + keep / 2, total)])
+    for x, y in zip(out, out[1:]):           # (air never overlaps the next run's)
+        if x[1] > y[0]:
+            x[1] = y[0] = round((x[1] + y[0]) / 2, 3)
+    return [(round(a, 3), round(b, 3)) for a, b in out if b - a > 0.05]
+
+
+def talk_prep(d, name, text=None):
+    """A presenter take (presenter.py) with its long pauses cut (talk_spans): '_tp_<hash>.mp4' next to the board, picture and sound cut
+    together, every second piece a little closer (TALK_ZOOM: each cut reads as a punch-in), 8 ms fades at each join. A take with no
+    pause over TALK_GAP is used as it is. -> the file name to use."""
+    src = loc(d, name)
+    h = hashlib.md5(open(src, "rb").read() + f"|{TALK_GAP}|{TALK_KEEP}|{TALK_ZOOM}|{TALK_DB}|{TP_VERSION}".encode()).hexdigest()[:12]
+    out = f"_tp_{h}.mp4"
+    p = os.path.join(d, out)
+    if os.path.exists(p):
+        return out
+    ws = words(src)
+    if text:
+        ws = script_words(text, ws)
+    total = dur(src)
+    import numpy as np
+    raw = subprocess.run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-i", src, "-ac", "1", "-ar", "16000", "-f", "f32le", "-"],
+                         capture_output=True, check=True).stdout
+    a_ = np.frombuffer(raw, dtype=np.float32)
+    hop = 0.01
+    n = int(16000 * hop)
+    fr = a_[: len(a_) // n * n].reshape(-1, n) if len(a_) >= n else np.zeros((1, n), np.float32)
+    env = 20 * np.log10(np.sqrt((fr.astype(np.float64) ** 2).mean(axis=1)) + 1e-9)
+    spans = talk_spans(ws, env, hop, total) if ws else []
+    if len(spans) <= 1:
+        return name
+    wh = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries", "stream=width,height", "-of", "csv=p=0", src],
+                        capture_output=True, text=True, check=True).stdout.strip().split(",")
+    W_, H_ = int(wh[0]), int(wh[1])
+    vf, af, cat = [], [], []
+    for i, (x, y) in enumerate(spans):
+        z = TALK_ZOOM if i % 2 else 1.0
+        cw, chh = int(W_ / z) // 2 * 2, int(H_ / z) // 2 * 2
+        crop = f",crop={cw}:{chh}:{(W_ - cw) // 2}:{int((H_ - chh) * 0.4)},scale={W_}:{H_}" if z != 1.0 else ""
+        vf.append(f"[0:v]trim=start={x}:end={y},setpts=PTS-STARTPTS{crop},setsar=1[v{i}]")
+        af.append(f"[0:a]atrim=start={x}:end={y},asetpts=PTS-STARTPTS,afade=t=in:d=0.008,afade=t=out:st={max(y - x - 0.008, 0):.3f}:d=0.008[a{i}]")
+        cat.append(f"[v{i}][a{i}]")
+    fc = ";".join(vf + af) + ";" + "".join(cat) + f"concat=n={len(spans)}:v=1:a=1[v][a]"
+    tmp = f"{p}.{os.getpid()}.mp4"
+    subprocess.run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-i", src, "-filter_complex", fc, "-map", "[v]", "-map", "[a]",
+                    "-c:v", "libx264", "-preset", "medium", "-crf", "16", "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", "-y", tmp],
+                   check=True)
+    os.replace(tmp, p)
     return out
 
 
@@ -649,6 +737,7 @@ def build(b, d, info=None):
             audio.append(("file", blk["vo"], L - lead))
             spans.append((t, L, blk["vo"], -lead))
         elif "talk" in blk:                       # the presenter's take (presenter.py): her picture and her own voice, B-roll cut in
+            blk = dict(blk, talk=talk_prep(d, blk["talk"], blk.get("text")))   # (its long pauses cut: talk_prep)
             tp = loc(d, blk["talk"])              # over it (planned below with the voice blocks: the TALK picks are her on camera)
             ws_t = words(tp)
             if blk.get("text"):
