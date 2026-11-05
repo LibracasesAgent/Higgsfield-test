@@ -127,9 +127,12 @@ TALK_GAP, TALK_KEEP = 0.60, 0.38       # (Julian 2026-11-04 on B028 P02: "this p
 #                                        0.3-0.5 s) stay (2026-11-05: cutting every pause over 0.3 s to 0.16 s broke her cadence)
 TALK_ZOOM = 1.0                        # (no punch-in at those cuts: 'zoom-ins really unnatural')
 TALK_XFADE = 0.10                      # those cuts are a short dissolve (picture and sound), never a hard jump of her head
+TALK_EDGE = 0.12                       # a prepared take starts / ends this long before / after her voice (on the level, not whisper's word
+#                                        times, which end early): two takes join with ~0.3 s between them, a breath, not 0.8-1.5 s of air
+PRES_PROOF_BEAT = 0.2                  # a presenter's proof chapter holds this long after her line (a voice-over's: PROOF_BEAT)
 PRES_IDEAL, PRES_LONG = 3.0, 4.6       # a presenter video's shots (make_batch.PRES_IDEAL): a talking head is cut less often
 TALK_DB = -38.0                        # speech edges: the audio stays over this level (dBFS) until the word really ends / begins
-TP_VERSION = 2                         # bump when talk_prep's chain changes: prepared takes are made again
+TP_VERSION = 3                         # bump when talk_prep's chain changes: prepared takes are made again
 PACE_IDEAL = {"slow": 2.4, "fast": 1.6}                     # a story beat's shot length (a block's "pace", the sheet's beat); else SHOT_IDEAL
 PROOF_IDEAL, PROOF_LONG, PROOF_BEAT = 2.8, 3.8, 0.5         # a "proof" block (owner 2026-10-27): its shots held ~2.8 s (up to 3.8), then
 #                                                             PROOF_BEAT s of air after the line: the picture holds, its own sound plays
@@ -200,6 +203,10 @@ def talk_spans(ws, env, hop, total, gap=TALK_GAP, keep=TALK_KEEP, db=TALK_DB):
             t += hop
         e = t
         out.append([max(a - keep / 2, 0.0), min(e + keep / 2, total)])
+    if out:                                  # (the take's own start and end: TALK_EDGE of air, a breath when two takes join)
+        f0 = speech_runs(ws, gap)[0][0]["s"]
+        out[0][0] = max(min(out[0][0] + keep / 2 - TALK_EDGE, f0), 0.0)
+        out[-1][1] = min(out[-1][1] - keep / 2 + TALK_EDGE, total)
     for x, y in zip(out, out[1:]):           # (air never overlaps the next run's)
         if x[1] > y[0]:
             x[1] = y[0] = round((x[1] + y[0]) / 2, 3)
@@ -229,7 +236,7 @@ def talk_prep(d, name, text=None):
     fr = a_[: len(a_) // n * n].reshape(-1, n) if len(a_) >= n else np.zeros((1, n), np.float32)
     env = 20 * np.log10(np.sqrt((fr.astype(np.float64) ** 2).mean(axis=1)) + 1e-9)
     spans = talk_spans(ws, env, hop, total) if ws else []
-    if len(spans) <= 1:
+    if not spans:
         return name
     wh = subprocess.run(["ffprobe", "-v", "error", "-select_streams", "v:0", "-show_entries", "stream=width,height", "-of", "csv=p=0", src],
                         capture_output=True, text=True, check=True).stdout.strip().split(",")
@@ -248,7 +255,7 @@ def talk_prep(d, name, text=None):
         chain.append(f"[{vl}][v{i}]xfade=transition=fade:duration={d_}:offset={off:.3f}[vx{i}]")
         chain.append(f"[{al}][a{i}]acrossfade=d={d_}:c1=tri:c2=tri[ax{i}]")
         vl, al = f"vx{i}", f"ax{i}"
-    fc = ";".join(vf + af + chain)          # (len(spans) > 1 here: a take without a long pause was returned as it is above)
+    fc = ";".join(vf + af + chain)          # (one span: the take trimmed to its voice, no join)
     maps = [f"[{vl}]", f"[{al}]"]
     tmp = f"{p}.{os.getpid()}.mp4"
     subprocess.run(["ffmpeg", "-hide_banner", "-loglevel", "error", "-i", src, "-filter_complex", fc, "-map", maps[0], "-map", maps[1],
@@ -721,7 +728,7 @@ def build(b, d, info=None):
         if ugc:
             bp = blk.get("pad", b.get("hook_pad", UGC_HOOK_PAD)) if k == 0 and last > 0 else max(bp, END_PAD) if k == last else bp
             if blk.get("proof") and 0 < k < last:     # the proof shot's air: the picture holds and its own sound plays
-                bp += PROOF_BEAT
+                bp += PRES_PROOF_BEAT if "talk" in blk else PROOF_BEAT
         else:
             bp = max(bp, HOOK_PAD) if k == 0 and last > 0 else max(bp, END_PAD) if k == last else bp
         # the hook's extra shots come only from its own spares (its versions differ; the body must stay identical)
@@ -753,8 +760,11 @@ def build(b, d, info=None):
             ws_t = words(tp)
             if blk.get("text"):
                 ws_t = script_words(blk["text"], ws_t)
-            a = max(ws_t[0]["s"] - TALK_HEAD, 0.0) if ws_t else 0.0
-            e = min(ws_t[-1]["e"] + TALK_TAIL, dur(tp)) if ws_t else dur(tp)
+            if os.path.basename(tp).startswith("_tp_"):   # (prepared: already cut to her voice's real edges, TALK_EDGE of air)
+                a, e = 0.0, dur(tp)
+            else:
+                a = max(ws_t[0]["s"] - TALK_HEAD, 0.0) if ws_t else 0.0
+                e = min(ws_t[-1]["e"] + TALK_TAIL, dur(tp)) if ws_t else dur(tp)
             L = e - a + bp
             wsr = [dict(w, s=round(w["s"] - a, 3), e=round(w["e"] - a, 3)) for w in ws_t]
             jobs.append(dict(k=k, i=len(segs), t=t, L=L, lead=0.0, blk=blk, own=own, talk=dict(src=tp, a=round(a, 3), ws=wsr)))

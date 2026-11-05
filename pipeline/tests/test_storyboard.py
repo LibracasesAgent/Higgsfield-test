@@ -320,7 +320,8 @@ def test_talk_prep_cuts_the_long_pauses(sb, d):
     ff("-i", src, "-t", "1.4", "-c", "copy", one)
     sb.words = lambda path: ws[:2] if path == one else real(path)
     try:
-        assert sb.talk_prep(d, "take1.mp4") == "take1.mp4"     # no long pause: the take as it is
+        one_out = sb.talk_prep(d, "take1.mp4")                 # no long pause: only trimmed to her voice's edges (TALK_EDGE of air,
+        assert one_out.startswith("_tp_") and 1.2 < sb.dur(os.path.join(d, one_out)) < 1.4    # so two takes join with a breath)
     finally:
         sb.words = real
 
