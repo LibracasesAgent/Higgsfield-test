@@ -1104,187 +1104,6 @@
   "hobo-bag": {
    "batches": [
     {
-     "clips": [],
-     "date": "2026-10-16",
-     "name": "earlier batch 3 (before the novelty log: the client's three delivered batches)",
-     "statics": [],
-     "videos": [
-      {
-       "angle": "n_things",
-       "chapters": [
-        "You stop worrying in crowds. The hidden anti-theft pocket on the back sits flat against you, so your passport and cards stay right where you put them. You stop clutching your bag on the train.",
-        "You stop digging for your keys. There's a gold zip on each side of the bag, made for your keys and phone. No more emptying your bag at the checkout.",
-        "Nothing sinks to the bottom anymore. Divided compartments give everything its own spot, so it's all easy to find. Your bag stops feeling like a black hole.",
-        "You wear it your way. Two adjustable straps: carry it as a handbag, throw it over your shoulder, or wear it crossbody. Same bag, three ways.",
-        "On top of that, the leather is soft, water-resistant and scratch-proof. It looks expensive, and it only gets better with time.",
-        "Still not sure? Carol says: best bag I have ever bought. Jenny says: it's spacious, lightweight, and super functional with lots of pockets.",
-        "Think it sounds too good to be true? There's a one-year warranty and easy returns.",
-        "Right now it's fifty percent off, and it comes with a free matching pouch wallet. Free US shipping too. Tap the link below."
-       ],
-       "hook": "Four things you'll notice the first time you carry this bag.",
-       "hook_type": "promise",
-       "script": "U01"
-      },
-      {
-       "angle": "n_things",
-       "hook": "Curious what changes when you swap your everyday bag for this one?",
-       "hook_type": "question",
-       "script": "U01"
-      },
-      {
-       "angle": "n_things",
-       "hook": "This might be the most organized bag you'll see today.",
-       "hook_type": "superlative",
-       "script": "U01"
-      },
-      {
-       "angle": "n_things",
-       "hook": "Ever pat your bag every few minutes just to check it's all there?",
-       "hook_type": "problem",
-       "script": "U01"
-      },
-      {
-       "angle": "demo",
-       "chapters": [
-        "Turn it around. There's a hidden anti-theft pocket on the back. Slide your passport and cards in, and it sits flat against you, out of sight.",
-        "Now the sides. Two gold zips, one on each side. Keys in, phone in, zipped shut, and you can reach them without opening the whole bag.",
-        "Open the top. Divided compartments inside, so everything gets its own spot and nothing sinks to the bottom. Cards here, lip balm there.",
-        "Now the straps. Two adjustable ones, so you can wear it over your shoulder, in your hand like a handbag, or crossbody, hands-free.",
-        "Feel that? Soft leather that's water-resistant and scratch-proof, and it only gets better with time.",
-        "Passport, cards, keys, phone, lip balm: everything has its own place.",
-        "Here's what customers say. Margie says: it holds many things. Felicia says: love all the compartments too.",
-        "Wondering about the risk? You also get a one-year warranty and easy returns.",
-        "That's the Hobo Bag, and right now it's fifty percent off, with a free matching pouch wallet included. Plus free US shipping. Tap the link below."
-       ],
-       "hook": "Watch what this bag does with your phone, keys and passport.",
-       "hook_type": "promise",
-       "script": "U02"
-      },
-      {
-       "angle": "demo",
-       "hook": "Ever wonder where everything in your bag is supposed to go?",
-       "hook_type": "question",
-       "script": "U02"
-      },
-      {
-       "angle": "demo",
-       "hook": "If your bag is one big black hole, watch this.",
-       "hook_type": "problem",
-       "script": "U02"
-      },
-      {
-       "angle": "demo",
-       "hook": "Is this the most practical bag you'll see this week?",
-       "hook_type": "superlative",
-       "script": "U02"
-      },
-      {
-       "angle": "stop_x",
-       "chapters": [
-        "Two gold side zips, one on each side, are made for your keys and phone. Reach in, grab them, done.",
-        "Stop clutching your bag in a crowd. The hidden anti-theft pocket on the back sits flat against you, so your passport and cards stay close and out of sight.",
-        "Stop emptying your bag to find one thing. Divided compartments give everything its own spot, so nothing sinks to the bottom. Your cards stop hiding under your lip balm.",
-        "Stop choosing between shoulder and crossbody. Two adjustable straps let you carry it as a handbag, over your shoulder, or crossbody. Switch whenever you like.",
-        "Stop babying your bag. The soft leather is water-resistant and scratch-proof, and it looks expensive. It only gets better with time.",
-        "So keys and phone go in the side zips, passport and cards in the back pocket, and everything else gets its own compartment.",
-        "Don't believe it? Felicia says: love all the compartments too. Jenny says: I've received so many compliments.",
-        "Still on the fence? You get a one-year warranty and easy returns.",
-        "Right now the Hobo Bag is fifty percent off, and a free matching pouch wallet comes with it. Free US shipping on top. Tap the link below."
-       ],
-       "hook": "Stop digging for your keys at the bottom of your bag.",
-       "hook_type": "problem",
-       "script": "U03"
-      },
-      {
-       "angle": "stop_x",
-       "hook": "How long does it take you to find your keys in there?",
-       "hook_type": "question",
-       "script": "U03"
-      },
-      {
-       "angle": "stop_x",
-       "hook": "Here's a handbag that gives your keys a place of their own.",
-       "hook_type": "promise",
-       "script": "U03"
-      },
-      {
-       "angle": "stop_x",
-       "hook": "This could be the most practical handbag you'll see all year.",
-       "hook_type": "superlative",
-       "script": "U03"
-      },
-      {
-       "angle": "travel",
-       "chapters": [
-        "Passport and cards go in the hidden anti-theft pocket on the back. It sits flat against you, so you're not patting your bag every few minutes. Crowded terminal, packed train: it stays out of sight.",
-        "Keys and phone go in the gold side zips, one on each side. You can grab them without digging through the whole bag, even at security.",
-        "Divided compartments inside keep the rest in order: lip balm, sunglasses, a charger. Nothing sinks to the bottom, so you're not unpacking at the gate.",
-        "Then swing it crossbody and keep your hands clear for your coffee and your boarding pass. Two adjustable straps, so you can switch to shoulder or handbag anytime.",
-        "That's passport and cards in the back pocket, keys and phone in the side zips, and the rest inside.",
-        "Hear it from customers. Mercy says: the best bag for travel and every day use. Carol says: already bought for friends.",
-        "Still thinking? It comes with a one-year warranty and easy returns.",
-        "It's fifty percent off right now, plus a free matching pouch wallet. You also get free US shipping. Tap the link below."
-       ],
-       "hook": "Passport, phone, keys, cards: where does it all go on travel day?",
-       "hook_type": "question",
-       "script": "U04"
-      },
-      {
-       "angle": "travel",
-       "hook": "Travel day is chaos when everything sits at the bottom of your bag.",
-       "hook_type": "problem",
-       "script": "U04"
-      },
-      {
-       "angle": "travel",
-       "hook": "Here's the bag to pack first.",
-       "hook_type": "promise",
-       "script": "U04"
-      },
-      {
-       "angle": "travel",
-       "hook": "This might be the most travel-ready bag you'll see all year.",
-       "hook_type": "superlative",
-       "script": "U04"
-      },
-      {
-       "angle": "value",
-       "chapters": [
-        "Ever dig for your keys at the bottom of your bag? Gold side zips, one on each side, take your keys and phone. Reach in, grab them, go.",
-        "Ever clutch your bag the whole way through a crowd? A hidden anti-theft pocket on the back sits flat against you, for your passport and cards. Out of sight.",
-        "Does everything end up in a pile at the bottom? Divided compartments give everything its own spot. Your bag stops being a black hole.",
-        "Want to switch how you carry it? Two adjustable straps: handbag, shoulder or crossbody. Your call.",
-        "And the leather? Soft, water-resistant and scratch-proof. Looks expensive, and gets better with time.",
-        "Hidden pocket, two gold zips, divided compartments, two straps and soft leather, all in one bag.",
-        "Want proof? Beverly says: looks expensive but price was so nice. One customer says: it fits all my essentials, and the strong strap is super comfortable.",
-        "Worried about the risk? It's covered by a one-year warranty and easy returns.",
-        "So that's the Hobo Bag at fifty percent off, with a free matching pouch wallet. And free US shipping, too. Tap the link below."
-       ],
-       "hook": "Half price, plus a free matching pouch wallet. Here's everything you get.",
-       "hook_type": "price",
-       "script": "U05"
-      },
-      {
-       "angle": "value",
-       "hook": "Look at what the Hobo Bag comes with.",
-       "hook_type": "promise",
-       "script": "U05"
-      },
-      {
-       "angle": "value",
-       "hook": "What should a good everyday bag actually have?",
-       "hook_type": "question",
-       "script": "U05"
-      },
-      {
-       "angle": "value",
-       "hook": "Tired of paying for a bag that's just a bag?",
-       "hook_type": "problem",
-       "script": "U05"
-      }
-     ]
-    },
-    {
      "clips": [
       {
        "clip_id": "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx"
@@ -3833,6 +3652,535 @@
        "hook_type": "question",
        "script": "U01",
        "structure": "one_moment"
+      }
+     ]
+    },
+    {
+     "clips": [
+      {
+       "clip_id": "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx"
+      },
+      {
+       "clip_id": "1XTfJnV-s9YVXmsv30f29mYqy5yV38n96"
+      },
+      {
+       "clip_id": "16bugUA13UINTh8mGcl237pNZ8KnnVjjA"
+      },
+      {
+       "clip_id": "1G-kBGQcUbvDKMV0xB_E8JJDkcfE05n30"
+      },
+      {
+       "clip_id": "12Ec7mfUk6Ys9vxFA04eGQpmpcsLiPcbS"
+      },
+      {
+       "clip_id": "12qiyl7FV85hnSYait8tRRCuxovMyad1L"
+      },
+      {
+       "clip_id": "11CJ79tF3sbQAlDvI8JIsjJIyTbyGdVjm"
+      },
+      {
+       "clip_id": "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X"
+      },
+      {
+       "clip_id": "1JlS7-GlKLkqklk0xTO2jwXZ2VezE4us4"
+      },
+      {
+       "clip_id": "1MtOonVbf-pqmrcU5DUgY6995LObDfwn7"
+      },
+      {
+       "clip_id": "1CcakagPN5oiWEneKORpvJblnPYnQvWHI"
+      },
+      {
+       "clip_id": "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06"
+      },
+      {
+       "clip_id": "1nnsvEIfgqziYdrmeUrrtgL3Qo3YHV7Sw"
+      },
+      {
+       "clip_id": "1EooqFqunZcjv3bAwwktu7RT8uqcYzqfJ"
+      },
+      {
+       "clip_id": "17sZzNvas8SySLaS3BpNjXmKn38qRY8Y1"
+      },
+      {
+       "clip_id": "1f_uobOObpjWFcDK1U8yedlh19SJbAzZB"
+      },
+      {
+       "clip_id": "1LjnCWc5SyUtUqAnV-9nnxMILweyDJdL5"
+      },
+      {
+       "clip_id": "1TeEFWPEZ_jATN9so2DZNeyg-mOPQe8jL"
+      },
+      {
+       "clip_id": "1_usQ_ZJKJqd5EAu5KR1jM-pIjyQf1tWu"
+      },
+      {
+       "clip_id": "1mnZ266w4JTvXOnLeuzhOhtTBQM-8dYiF"
+      },
+      {
+       "clip_id": "1n7DqtmIasEkSdk0PXJqhYF9MJSL7RTiI"
+      },
+      {
+       "clip_id": "1Y9IQ_9h6Aq5xE0RZdX4vIITk49ogFgIM"
+      },
+      {
+       "clip_id": "11mRxJemVgJPYmK8Ha6wKD8KGG95Bq4Rn"
+      },
+      {
+       "clip_id": "1NyzIbBW2CLLzo3Wr2z3co67-jV6V9-Lj"
+      },
+      {
+       "clip_id": "1v8gKfP9ZYsuh7w5yBwlInmv_-U-pY2x_"
+      },
+      {
+       "clip_id": "1cDI6dnwlwz-ARmQQ3PfOahefAEy2JYbx"
+      },
+      {
+       "clip_id": "1YbYGRFkUKLETA74_QwQot7tA-JlrXxHU"
+      },
+      {
+       "clip_id": "177mQyA2s2ACZIjv7BnH4qbMCu0QDQ1qn"
+      },
+      {
+       "clip_id": "1viEJyIzgtQXsEU3C2n3cpY7NUNr6Hrqy"
+      },
+      {
+       "clip_id": "1audN6qYuCaN5d8O42kyq9HQKU7OUprGH"
+      },
+      {
+       "clip_id": "1zg2CRMvlkQjNlfLzjdEzt-hJG5uwdh6s"
+      },
+      {
+       "clip_id": "1_S0UvWZSIsuisD9-virT1ZPzijMaF-08"
+      },
+      {
+       "clip_id": "10m2gHpPZMFdNRw-dvpfU5naaGde5LOCY"
+      },
+      {
+       "clip_id": "1Rj3QE3QSg73kbPB1qCg7qo7az2SvQEPb"
+      },
+      {
+       "clip_id": "1JOPtTWzfttXuNFzJ7KI7ciQyfAKYu4x0"
+      },
+      {
+       "clip_id": "1w_YUX_1q2U8qOkxfWZHWEn2P-xlJRwZe"
+      },
+      {
+       "clip_id": "10AwB1uAdRXbIY2gjhJl1q1pbuip29YJN"
+      },
+      {
+       "clip_id": "1T-dMODm60gHJ4YV1QHowkhXwwQ8mSMs4"
+      },
+      {
+       "clip_id": "19KflxLMLDqPW8uiEwYaV0npPpPWEPnfI"
+      },
+      {
+       "clip_id": "1GQ2ZD0p_Gjpu6vmjXYAxMCOEJqfX1IL-"
+      },
+      {
+       "clip_id": "1SCQdB1Bi9TpZSHUCsI3PLZvoyzXtbxHZ"
+      },
+      {
+       "clip_id": "14S7TK6PLBwvt-erSHTNtyXGLjaYMxF6M"
+      },
+      {
+       "clip_id": "1lJsFt50wgto7Fv61KsjqKZsPVp-Q80UZ"
+      },
+      {
+       "clip_id": "1RDfbLshVfj_-0pZXhC0I46RJ3obq3U3F"
+      },
+      {
+       "clip_id": "18wOkQ9ToI66y133XanUgEZT0I4Q25Ea1"
+      },
+      {
+       "clip_id": "1Hh3iKPWqlovbmfcTAQ8_RsXqyxZhLypi"
+      },
+      {
+       "clip_id": "1XHyroj2cSjTIaPdcN3ChZsYMkRGRtRsG"
+      },
+      {
+       "clip_id": "1lKlKSLwdLa_zcUkZNgvLMib84QUC6op2"
+      },
+      {
+       "clip_id": "1PVkO22H9kksbsI49gtx_m9_qbdmB8S5W"
+      },
+      {
+       "clip_id": "1yFMCtT9SSE0_GMq6orEHoHL1JEKAJ1x9"
+      },
+      {
+       "clip_id": "1TQniUwb0moRuqoiip6okFOIW33_UUXYy"
+      },
+      {
+       "clip_id": "1T9jkUynTVM406VuPbvnj6ZJB5TmECMx2"
+      },
+      {
+       "clip_id": "1Dn5muvqCqBWNV_-hqC8F6OWlzbGJIBoc"
+      },
+      {
+       "clip_id": "1JHZhA2ED91gbFlyzXLo7xEHKvjFPGphi"
+      },
+      {
+       "clip_id": "1urTv7Aoymn68CNFfbHi7mL0kIx14vcnX"
+      },
+      {
+       "clip_id": "1IZyntRG7-VHd01spVJms3AQObclRPzUn"
+      },
+      {
+       "clip_id": "13WPNZDUpQdyDm4VKoJezn1StKDv4ixu4"
+      },
+      {
+       "clip_id": "1rN2wV6XFGLG5felDVgxKP1R_6n_u-eSQ"
+      },
+      {
+       "clip_id": "1J6TLYwW_SOJEzXCD09Doaw7w5n_WDVnx"
+      },
+      {
+       "clip_id": "1gRdQChxJOyp5_CFVQk2w3fF4M9SHYxOD"
+      },
+      {
+       "clip_id": "1UcPs3RM-Iwrzd5rgOIA6Wxii0i3R3xqL"
+      },
+      {
+       "clip_id": "1Xj54eAB-FmwD5BYTrnrZDBHDk1rS7gmB"
+      },
+      {
+       "clip_id": "15q1hE40jrwuLEweI2mKNCM4HSgeGqAOS"
+      },
+      {
+       "clip_id": "1BWNNnVSL__dnRh4_fjj0yEGkGUPyoCQ9"
+      },
+      {
+       "clip_id": "1AUluz7URPC6lpawt-o44jCxvTwO2K03Y"
+      },
+      {
+       "clip_id": "1NuCVbKCrAGKgLyGpaVgNohAbss7I4zMS"
+      },
+      {
+       "clip_id": "1TIc3blFRxaHvZyWpOCe6nGyPxXb88wL2"
+      },
+      {
+       "clip_id": "1EvMG7FM3iHBjj7nonDzWnMoM8bswgjg5"
+      },
+      {
+       "clip_id": "1sGO4rEV07BOte4__RB02jzWQfYr7REsb"
+      },
+      {
+       "clip_id": "1o11HyUwyGEg_VUBSTgygKW8UcjHGnV4e"
+      },
+      {
+       "clip_id": "1H37laFpFlZXnZEBieyhIattc5OOx8_01"
+      },
+      {
+       "clip_id": "18BhL1GgesvH_uyQ5lciQL_JPQise3zca"
+      },
+      {
+       "clip_id": "1uJ8lXpSyvNzOnU4JcyOqEljmj02JPzo_"
+      },
+      {
+       "clip_id": "10ev2Mfet9vPJ-jRrxK4fdn2sr3BmTFTV"
+      },
+      {
+       "clip_id": "1C9xk64VLWK7Z2IDYf2RzvYUZZX5v-JL1"
+      },
+      {
+       "clip_id": "14wUeiCVzT-0GnaUPOqy3L3AMjzRa32Zb"
+      },
+      {
+       "clip_id": "1hUA6R9yjX7w2k7eDhtBKJ--WZikdycEj"
+      },
+      {
+       "clip_id": "11nXYAzAyigFbEf3y1D543JU73p-BBgmu"
+      },
+      {
+       "clip_id": "117P6aO1ank_vR6tSzwyFXsBI_ZpDAHtq"
+      },
+      {
+       "clip_id": "1AriDjPfyIVhLoq87oLqWzhn5iIpwsAQR"
+      },
+      {
+       "clip_id": "10uhhKdeKztcGarl-uoLMO4kJk8phF54N"
+      },
+      {
+       "clip_id": "16ulBkjP0CIwmalGvMlXIE_kTkS5xjMwf"
+      },
+      {
+       "clip_id": "1n_n64uSzJxegasRwW_1cRTo1dYNuzy3G"
+      },
+      {
+       "clip_id": "1mUmRSbAC9euA9r90fBIehdFwmPG1c3wA"
+      },
+      {
+       "clip_id": "1ahsFalFZmPO9qeZgwpTtb6_SBpYoSwSO"
+      },
+      {
+       "clip_id": "1rW8joq7MZKj_AKkX4IJJzjfgqlnMg8ph"
+      },
+      {
+       "clip_id": "19-PoZr5P0ig7n-K8ebaMqOTshi6XbaW9"
+      },
+      {
+       "clip_id": "1gz_F3Jbj8HOxdkymnCZ3Ij0aXIg6QMPw"
+      },
+      {
+       "clip_id": "1iovtE-e43Nm1_WbLDAQFjQrt02s-cHxv"
+      }
+     ],
+     "date": "2026-11-05",
+     "name": "B042r2 – 2026-11-05 – Hobo Bag BlackFriday – 12 statics + 5 projects",
+     "statics": [
+      {
+       "caption": "Open tote or zipped hobo?",
+       "colour": "Dark Sienna",
+       "layout": "story",
+       "scene": "p01_s01"
+      },
+      {
+       "caption": "Your cards: on show or on your side?",
+       "colour": "Galaxy Black",
+       "layout": "story",
+       "scene": "p02_s02"
+      },
+      {
+       "caption": "Still carrying an open tote on the train?",
+       "colour": "Red",
+       "layout": "story",
+       "scene": "p03_s03"
+      },
+      {
+       "caption": "3 reasons to retire the tote",
+       "colour": "Burgundy",
+       "layout": "story",
+       "scene": "p04_s04"
+      },
+      {
+       "caption": "Tote or Hobo?",
+       "colour": "Grey",
+       "format": "split_compare",
+       "layout": "ad",
+       "scene": "p05_s05_split_compare"
+      },
+      {
+       "caption": "Only one of these zips shut.",
+       "colour": "Blue",
+       "format": "bench_pair",
+       "layout": "ad",
+       "scene": "p01_s06_bench_pair"
+      },
+      {
+       "caption": "Handbag today, crossbody tomorrow.",
+       "colour": "Galaxy Black",
+       "format": "tote_retired",
+       "layout": "ad",
+       "scene": "p02_s07_tote_retired"
+      },
+      {
+       "caption": "Rain on the way? Water-resistant leather.",
+       "colour": "Burgundy",
+       "format": "giant_numerals",
+       "layout": "ad",
+       "scene": "p03_s08_giant_numerals"
+      },
+      {
+       "caption": "Room like a tote. Order like a drawer.",
+       "colour": "Grey",
+       "format": "sticker_burst",
+       "layout": "ad",
+       "scene": "p05_s10_sticker_burst"
+      },
+      {
+       "caption": "Skip the tote. Get the wallet too.",
+       "layout": "studio",
+       "photo": "hobo_bag_colour_grey.jpg"
+      },
+      {
+       "caption": "The Hobo Bag",
+       "layout": "value",
+       "photo": "hobo_bag_colour_burgundy.jpg"
+      }
+     ],
+     "videos": [
+      {
+       "angle": "pairbypair",
+       "chapters": [
+        "Put your open tote next to the Hobo Bag and look at the details. They tell you which one to carry. Here they are, one pair at a time.",
+        "The sides. An open tote has one big space, so your keys sink. The Hobo Bag has a gold zip on each side: keys in one, phone in the other.",
+        "The back. A tote gives your cards nowhere to go but the top. Here, a hidden pocket on the back sits flat against you, so your cards stay right there.",
+        "The inside. In a tote, everything ends up in one heap. Inside this bag, divided compartments keep the notebook, the wallet and the glasses apart.",
+        "So you walk out with everything in its place. Keys at the side, cards on your back, the bag on your shoulder, and nothing sliding around.",
+        "Right now the Hobo Bag is fifty percent off in the Early Black Friday sale, with a free matching pouch wallet and free shipping. Tap the link below."
+       ],
+       "hook": "Open tote or zipped hobo: where do your keys end up?",
+       "hook_type": "question",
+       "script": "U01",
+       "structure": "pairs"
+      },
+      {
+       "angle": "pairbypair",
+       "hook": "Keys at the bottom of an open tote, again?",
+       "hook_type": "question",
+       "script": "U01",
+       "structure": "pairs"
+      },
+      {
+       "angle": "pairbypair",
+       "hook": "Watch an open tote lose to one gold side zip.",
+       "hook_type": "question",
+       "script": "U01",
+       "structure": "pairs"
+      },
+      {
+       "angle": "pairbypair",
+       "hook": "Which bag would you carry through a busy market on Saturday?",
+       "hook_type": "question",
+       "script": "U01",
+       "structure": "pairs"
+      },
+      {
+       "angle": "totemyth",
+       "chapters": [
+        "Myth: a big open tote is the easy bag. It holds everything, it goes with everything, so it must be the one for your busy days.",
+        "Fact: it holds everything in one heap. Your phone, your keys and your wallet all slide down into the same dark corner of the bag.",
+        "Now look inside the Hobo Bag. Divided compartments give every small thing its own place, so nothing sinks to the bottom.",
+        "And when your hands are full, the strap goes crossbody. Two straps come with the bag, so you wear it on the shoulder, as a handbag or across your body.",
+        "The gold zip on each side helps too: your keys on one side, your phone on the other, both one pull away.",
+        "So on the next busy day you walk out with the bag on your shoulder, both hands free, and every single thing exactly where you put it this morning.",
+        "The Early Black Friday sale is on: the Hobo Bag is fifty percent off, and a matching pouch wallet comes free. Tap the link below."
+       ],
+       "hook": "Think a big tote is the easy bag for everything?",
+       "hook_type": "question",
+       "script": "U02",
+       "structure": "myth_fact"
+      },
+      {
+       "angle": "totemyth",
+       "hook": "The truth about big totes: your phone sinks to the bottom.",
+       "hook_type": "question",
+       "script": "U02",
+       "structure": "myth_fact"
+      },
+      {
+       "angle": "totemyth",
+       "hook": "Imagine reaching into your bag and finding your phone first time.",
+       "hook_type": "question",
+       "script": "U02",
+       "structure": "myth_fact"
+      },
+      {
+       "angle": "totemyth",
+       "hook": "Look inside: roomy does not have to mean messy.",
+       "hook_type": "question",
+       "script": "U02",
+       "structure": "myth_fact"
+      },
+      {
+       "angle": "markettest",
+       "chapters": [
+        "Here is the test. A busy Saturday market, people on every side, and an open tote on your shoulder with your cards sitting right at the top.",
+        "Now the Hobo Bag. Your cards slide into the hidden pocket on the back, the zip pulls across, and the pocket sits flat against you.",
+        "Walk the whole market, stall after stall. The cards stay right there against your body, and from the outside nobody can tell where they are.",
+        "It is the same bag you carry every day. Two gold side zips hold your keys and your phone, so your hands stay free for the shopping and the bags of fruit.",
+        "The open tote stays at home this time. This one goes on your shoulder in the morning and comes back with everything still in its place.",
+        "It is fifty percent off right now in the Early Black Friday sale, with free shipping and a free matching pouch wallet. Tap the link below."
+       ],
+       "hook": "Busy market, phone in your hand: where do your cards go?",
+       "hook_type": "question",
+       "script": "U03",
+       "structure": "live_test"
+      },
+      {
+       "angle": "markettest",
+       "hook": "An open tote on a packed Saturday market puts your cards on show.",
+       "hook_type": "question",
+       "script": "U03",
+       "structure": "live_test"
+      },
+      {
+       "angle": "markettest",
+       "hook": "Watch where your cards go when the market gets busy.",
+       "hook_type": "question",
+       "script": "U03",
+       "structure": "live_test"
+      },
+      {
+       "angle": "markettest",
+       "hook": "How to carry your cards through a busy market without checking your bag.",
+       "hook_type": "question",
+       "script": "U03",
+       "structure": "live_test"
+      },
+      {
+       "angle": "retiretote",
+       "chapters": [
+        "Right now it is the tote. It goes on one shoulder, it stays on that shoulder, and it slips down every time you reach for something at the counter.",
+        "Switch to the Hobo Bag. It comes with two straps, so you can carry it as a handbag, wear it on the shoulder, or wear it crossbody.",
+        "Clip the long strap on, slide it across your body, and both of your hands are free for the coffee, the phone and the door. That is the whole switch.",
+        "And the soft, water-resistant leather looks expensive, so the same bag works from the morning errands to dinner.",
+        "The tote stays in the cupboard now. The bag on your shoulder has the look, the room inside and three ways to go, wherever the day takes you.",
+        "A handbag for the office, the shoulder for the shops, crossbody for the walk home: the same bag, all day long.",
+        "Retire the tote for less: the Hobo Bag is fifty percent off this Black Friday, with a free matching pouch wallet. Tap the link below."
+       ],
+       "hook": "One tote, one way to carry it, all day long.",
+       "hook_type": "problem",
+       "script": "U04",
+       "structure": "swap"
+      },
+      {
+       "angle": "retiretote",
+       "hook": "What if your bag went from shoulder to crossbody in a minute?",
+       "hook_type": "problem",
+       "script": "U04",
+       "structure": "swap"
+      },
+      {
+       "angle": "retiretote",
+       "hook": "Retire the tote. Watch what one strap switch does.",
+       "hook_type": "problem",
+       "script": "U04",
+       "structure": "swap"
+      },
+      {
+       "angle": "retiretote",
+       "hook": "The tote has one way to carry. This bag has three ways.",
+       "hook_type": "problem",
+       "script": "U04",
+       "structure": "swap"
+      },
+      {
+       "angle": "tellherleather",
+       "chapters": [
+        "Your best friend has a busy week ahead. Work, a birthday dinner, a trip into town on Saturday, and the same canvas tote for all of it.",
+        "Tell her the leather matters. This bag is soft and water-resistant, it looks expensive, and it only gets better the more she carries it.",
+        "Because it is water-resistant, a little rain on the way to dinner is no drama, and the bag still looks good on the back of the chair.",
+        "And it zips shut. A gold zip on each side holds her keys and her phone, so nothing tips out of an open top.",
+        "Then the weekend: the same bag at the market, at brunch and on the walk home, and it still looks good on Sunday night.",
+        "She wears it on her shoulder all week, from the office to the dinner table and back home, and on Friday it still looks like new.",
+        "Send her the link, or get one for yourself: the Hobo Bag is fifty percent off this Black Friday, with a free pouch wallet. Tap the link below."
+       ],
+       "hook": "Your friend carries a canvas tote to work. What do you tell her?",
+       "hook_type": "question",
+       "script": "U05",
+       "structure": "friend_advice"
+      },
+      {
+       "angle": "tellherleather",
+       "hook": "Before you buy her another tote, look at this bag's leather.",
+       "hook_type": "question",
+       "script": "U05",
+       "structure": "friend_advice"
+      },
+      {
+       "angle": "tellherleather",
+       "hook": "If she can carry a tote, she can carry this: three ways.",
+       "hook_type": "question",
+       "script": "U05",
+       "structure": "friend_advice"
+      },
+      {
+       "angle": "tellherleather",
+       "hook": "Which looks better on a dinner chair: a canvas tote or soft leather?",
+       "hook_type": "question",
+       "script": "U05",
+       "structure": "friend_advice"
       }
      ]
     }

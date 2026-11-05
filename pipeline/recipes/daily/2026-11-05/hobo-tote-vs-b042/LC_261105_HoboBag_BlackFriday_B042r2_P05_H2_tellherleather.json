@@ -1,0 +1,438 @@
+{
+ "mode": "ugc",
+ "voice_speed": 1.12,
+ "blocks": [
+  {
+   "vo": "P05H2_hook.mp3",
+   "broll": [
+    [
+     "1f_uobOObpjWFcDK1U8yedlh19SJbAzZB",
+     1.49,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1_S0UvWZSIsuisD9-virT1ZPzijMaF-08",
+     16.24,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V05_c1.mp3",
+   "broll": [
+    [
+     "1Hh3iKPWqlovbmfcTAQ8_RsXqyxZhLypi",
+     6.81,
+     1.0,
+     {
+      "at": 0
+     }
+    ],
+    [
+     "1XnGy8b5SEh634ZaranWYRHLwOQQrtgXd",
+     0.0,
+     1.0,
+     {
+      "at": 8
+     }
+    ],
+    [
+     "1MtOonVbf-pqmrcU5DUgY6995LObDfwn7",
+     12.0,
+     1.0,
+     {
+      "at": 12
+     }
+    ],
+    [
+     "1hUA6R9yjX7w2k7eDhtBKJ--WZikdycEj",
+     19.01,
+     1.0,
+     {
+      "at": 18
+     }
+    ]
+   ],
+   "spare": [
+    [
+     "1MtOonVbf-pqmrcU5DUgY6995LObDfwn7",
+     3.0,
+     1.0
+    ],
+    [
+     "1XHyroj2cSjTIaPdcN3ChZsYMkRGRtRsG",
+     0.3,
+     1.0
+    ]
+   ],
+   "pace": "slow"
+  },
+  {
+   "vo": "V05_c2.mp3",
+   "broll": [
+    [
+     "1CcakagPN5oiWEneKORpvJblnPYnQvWHI",
+     4.0,
+     1.0,
+     {
+      "at": 0
+     }
+    ],
+    [
+     "1nnsvEIfgqziYdrmeUrrtgL3Qo3YHV7Sw",
+     9.0,
+     1.0,
+     {
+      "at": 5
+     }
+    ],
+    [
+     "1GQ2ZD0p_Gjpu6vmjXYAxMCOEJqfX1IL-",
+     2.17,
+     1.0,
+     {
+      "at": 14
+     }
+    ]
+   ],
+   "spare": [
+    [
+     "1nnsvEIfgqziYdrmeUrrtgL3Qo3YHV7Sw",
+     4.0,
+     1.0
+    ],
+    [
+     "19-PoZr5P0ig7n-K8ebaMqOTshi6XbaW9",
+     5.84,
+     1.0
+    ],
+    [
+     "1CcakagPN5oiWEneKORpvJblnPYnQvWHI",
+     0.5,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V05_c3.mp3",
+   "broll": [
+    [
+     "1nnsvEIfgqziYdrmeUrrtgL3Qo3YHV7Sw",
+     15.0,
+     1.0,
+     {
+      "at": 0
+     }
+    ],
+    [
+     "177mQyA2s2ACZIjv7BnH4qbMCu0QDQ1qn",
+     0.3,
+     1.0,
+     {
+      "at": 15
+     }
+    ]
+   ],
+   "spare": [
+    [
+     "1T-dMODm60gHJ4YV1QHowkhXwwQ8mSMs4",
+     7.09,
+     1.0
+    ],
+    [
+     "1Dn5muvqCqBWNV_-hqC8F6OWlzbGJIBoc",
+     11.23,
+     1.0
+    ],
+    [
+     "1EooqFqunZcjv3bAwwktu7RT8uqcYzqfJ",
+     3.96,
+     1.0
+    ],
+    [
+     "16ulBkjP0CIwmalGvMlXIE_kTkS5xjMwf",
+     0.3,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V05_c4.mp3",
+   "broll": [
+    [
+     "10uhhKdeKztcGarl-uoLMO4kJk8phF54N",
+     8.96,
+     1.0,
+     {
+      "at": 0
+     }
+    ],
+    [
+     "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+     2.0,
+     1.0,
+     {
+      "at": 4
+     }
+    ],
+    [
+     "1_usQ_ZJKJqd5EAu5KR1jM-pIjyQf1tWu",
+     7.23,
+     1.0,
+     {
+      "at": 16
+     }
+    ]
+   ],
+   "spare": [
+    [
+     "1TeEFWPEZ_jATN9so2DZNeyg-mOPQe8jL",
+     15.19,
+     1.0
+    ],
+    [
+     "1Y9IQ_9h6Aq5xE0RZdX4vIITk49ogFgIM",
+     10.94,
+     1.0
+    ],
+    [
+     "1SCQdB1Bi9TpZSHUCsI3PLZvoyzXtbxHZ",
+     3.58,
+     1.0
+    ]
+   ],
+   "proof": true
+  },
+  {
+   "vo": "V05_c5.mp3",
+   "broll": [
+    [
+     "117P6aO1ank_vR6tSzwyFXsBI_ZpDAHtq",
+     11.48,
+     1.0,
+     {
+      "at": 0
+     }
+    ],
+    [
+     "1MtOonVbf-pqmrcU5DUgY6995LObDfwn7",
+     8.0,
+     1.0,
+     {
+      "at": 11
+     }
+    ],
+    [
+     "10AwB1uAdRXbIY2gjhJl1q1pbuip29YJN",
+     8.62,
+     1.0,
+     {
+      "at": 16
+     }
+    ]
+   ],
+   "spare": [
+    [
+     "1J6TLYwW_SOJEzXCD09Doaw7w5n_WDVnx",
+     1.43,
+     1.0
+    ],
+    [
+     "1ahsFalFZmPO9qeZgwpTtb6_SBpYoSwSO",
+     0.3,
+     1.0
+    ],
+    [
+     "1mUmRSbAC9euA9r90fBIehdFwmPG1c3wA",
+     0.3,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V05_c6.mp3",
+   "broll": [
+    [
+     "1AriDjPfyIVhLoq87oLqWzhn5iIpwsAQR",
+     9.11,
+     1.0,
+     {
+      "at": 0
+     }
+    ],
+    [
+     "10ev2Mfet9vPJ-jRrxK4fdn2sr3BmTFTV",
+     3.4,
+     1.0,
+     {
+      "at": 8
+     }
+    ],
+    [
+     "1hUA6R9yjX7w2k7eDhtBKJ--WZikdycEj",
+     1.86,
+     1.0,
+     {
+      "at": 15
+     }
+    ]
+   ],
+   "spare": [
+    [
+     "14wUeiCVzT-0GnaUPOqy3L3AMjzRa32Zb",
+     0.3,
+     1.0
+    ],
+    [
+     "17sZzNvas8SySLaS3BpNjXmKn38qRY8Y1",
+     0.3,
+     1.0
+    ],
+    [
+     "1PVkO22H9kksbsI49gtx_m9_qbdmB8S5W",
+     11.8,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V05_c7.mp3",
+   "broll": [
+    [
+     "16bugUA13UINTh8mGcl237pNZ8KnnVjjA",
+     21.2,
+     1.0,
+     {
+      "at": 0
+     }
+    ],
+    [
+     "1TeEFWPEZ_jATN9so2DZNeyg-mOPQe8jL",
+     5.94,
+     1.0,
+     {
+      "at": 19
+     }
+    ],
+    [
+     "site/hobo_bag_colour_blue.jpg",
+     0,
+     1.0,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ],
+      "at": 24
+     }
+    ]
+   ],
+   "spare": [
+    [
+     "1TeEFWPEZ_jATN9so2DZNeyg-mOPQe8jL",
+     1.31,
+     1.0
+    ],
+    [
+     "18wOkQ9ToI66y133XanUgEZT0I4Q25Ea1",
+     0.3,
+     1.0
+    ],
+    [
+     "1v8gKfP9ZYsuh7w5yBwlInmv_-U-pY2x_",
+     6.92,
+     1.0
+    ]
+   ]
+  }
+ ],
+ "overlays": [
+  {
+   "type": "label",
+   "text": "BEFORE YOU BUY",
+   "block": 0,
+   "at": 0.1,
+   "dur": 1.8
+  },
+  {
+   "type": "tag",
+   "text": "SOFT LEATHER",
+   "block": 2,
+   "at": 0.15,
+   "dur": 2.6
+  },
+  {
+   "type": "tag",
+   "text": "SOFT LEATHER",
+   "block": 3,
+   "at": 0.15,
+   "dur": 2.6
+  },
+  {
+   "type": "tag",
+   "text": "GOLD SIDE ZIPS",
+   "block": 4,
+   "at": 0.15,
+   "dur": 2.6
+  }
+ ],
+ "end_title": "Black Friday Sale",
+ "offer": {
+  "block": 7,
+  "word": "50",
+  "title": "BLACK FRIDAY 50% OFF",
+  "sub": "+ FREE MATCHING WALLET"
+ },
+ "end_photo": "site/hobo_bag_colour_galaxy_black.jpg",
+ "end_offer": "UP TO 60% OFF",
+ "keywords": [
+  "50%",
+  "free",
+  "pouch",
+  "wallet",
+  "gift",
+  "gifts",
+  "hidden",
+  "pocket",
+  "leather",
+  "black",
+  "friday"
+ ],
+ "spare_broll": [
+  [
+   "1n_n64uSzJxegasRwW_1cRTo1dYNuzy3G",
+   0.94,
+   1.0
+  ],
+  [
+   "1UcPs3RM-Iwrzd5rgOIA6Wxii0i3R3xqL",
+   5.23,
+   1.0
+  ],
+  [
+   "1RDfbLshVfj_-0pZXhC0I46RJ3obq3U3F",
+   4.67,
+   1.0
+  ],
+  [
+   "11mRxJemVgJPYmK8Ha6wKD8KGG95Bq4Rn",
+   12.71,
+   1.0
+  ],
+  [
+   "1zg2CRMvlkQjNlfLzjdEzt-hJG5uwdh6s",
+   2.99,
+   1.0
+  ],
+  [
+   "1viEJyIzgtQXsEU3C2n3cpY7NUNr6Hrqy",
+   0.59,
+   1.0
+  ]
+ ],
+ "music": {
+  "seed": 5
+ }
+}

@@ -164,7 +164,7 @@ command -v ffmpeg || bash .claude/hooks/session-start.sh        # Slack sessions
 command -v pdftotext || (apt-get update -qq && apt-get install -y -qq poppler-utils)   # PDF notes in a New Products folder (pypdf: fallback)
 command -v tesseract || (apt-get update -qq && apt-get install -y -qq tesseract-ocr)    # ai_gen gate reads the words of the AI ads back
 python3 -c "import faster_whisper, PIL, numpy, cv2, pillow_heif, pypdf, openpyxl" 2>/dev/null || \
-    python3 -m pip install -q faster-whisper pillow numpy pillow-heif opencv-python-headless pypdf openpyxl
+    python3 -m pip install -q faster-whisper "av<19" pillow numpy pillow-heif opencv-python-headless pypdf openpyxl   # (PyAV 19 dropped an argument faster-whisper passes: every video render fails)
 python3 pipeline/drive_upload.py check                          # Drive login ok?
 ```
 

@@ -1,0 +1,16 @@
+{
+ "ok": true,
+ "product": "Hobo Bag",
+ "offer": "50% off + free matching pouch wallet",
+ "checked": 478,
+ "problems": [],
+ "allowed": [],
+ "raw_story": [],
+ "raw_cuts": [],
+ "playbook_warnings": [
+  "LC_261105_HoboBag_BlackFriday_B042r2_P05_H1_tellherleather hook_first_line: hook_third_person: 'Your friend carries a canvas tote to work. What do you tell her?' talks about 'her' / 'him': the viewer is 'you'",
+  "LC_261105_HoboBag_BlackFriday_B042r2_P05_H2_tellherleather hook_first_line: hook_third_person: \"Before you buy her another tote, look at this bag's leather.\" talks about 'her' / 'him': the viewer is 'you'",
+  "LC_261105_HoboBag_BlackFriday_B042r2_P05_H3_tellherleather hook_first_line: hook_third_person: 'If she can carry a tote, she can carry this: three ways.' talks about 'her' / 'him': the viewer is 'you'"
+ ],
+ "report": "/tmp/run/hobo-tote-vs/compliance.json"
+}
