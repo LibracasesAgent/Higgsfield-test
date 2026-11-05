@@ -3253,7 +3253,7 @@
   {
    "id": "B039",
    "n": 39,
-   "rev": 1,
+   "rev": 2,
    "date": "2026-11-05",
    "product": "Vintage Bag",
    "theme": "BlackFriday",
@@ -3263,7 +3263,7 @@
    "projects": 1,
    "hooks": 3,
    "seed": 1,
-   "status": "uploaded",
+   "status": "planned",
    "folder": "B039 – 2026-11-05 – Vintage Bag BlackFriday – 1 projects",
    "link": "https://drive.google.com/drive/folders/1DbicpdYbw3_tDGfdBdFCn1iYjJfTvqD9",
    "ads": [
