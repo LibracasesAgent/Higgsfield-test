@@ -984,7 +984,8 @@ def expand(out, hooks=4, seed=1, only=None, budget=None, quiet=False):
                     est = round((v.get("est_seconds") or 0) - mb().pres_secs(h1_text) + mb().pres_secs(c["text"]), 1)
                     hooks_out.append((hid, s, dict(hook_text=c["text"], hook_label=c["label"], hook_type=c["type"],
                                                    opening_shot=None, est_seconds=est, hook_source=c["source"])))
-        proj = dict(id=pid, from_id=vid, angle=angle_of(v), engine=eng, format=v.get("format"), hooks=[])
+        proj = dict(id=pid, from_id=vid, angle=angle_of(v), engine=eng, format=v.get("format"), hooks=[],
+                    **({"closer": True} if v.get("closer") else {}))
         if eng == "remix":
             proj["winner"] = {x: (v.get("winner") or {}).get(x) for x in ("key", "ad", "brief_name", "roas", "action", "product")}
         for hid, s, fields in hooks_out:
@@ -1001,7 +1002,8 @@ def expand(out, hooks=4, seed=1, only=None, budget=None, quiet=False):
                                       type=fields["hook_type"], **({"cold_open": fields["cold_open"]} if eng == "remix" else
                                                                     {"shot": fields["opening_shot"]}),
                                       est_seconds=fields["est_seconds"]))
-        floor = 15 if eng == "remix" else 60 if v.get("format") == "story" else mb().QA_SECONDS["ugc"][0] if v.get("ugc") else 35
+        floor = 15 if eng == "remix" else 60 if v.get("format") == "story" else mb().QA_SECONDS["closer"][0] if v.get("closer") else \
+            mb().QA_SECONDS["ugc"][0] if v.get("ugc") else 35
         #                                       (make_batch QA_SECONDS: a winner body is as long as it is; the story format runs
         #                                        1.5-2 min; the ugc format 55-80 s: a thin product's script runs shorter)
         short = [(h["hook"], h["est_seconds"]) for h in proj["hooks"] if (h["est_seconds"] or 99) < floor]

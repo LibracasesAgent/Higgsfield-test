@@ -24,7 +24,9 @@ experience, no health / medical claims):
     "id": "P01", "slug": "whatfits", "title": "Pack it for the whole day", "big_idea": "one sentence",
     "why_new": "what no earlier batch did (angle / hook / picture / structure)",
     "structure": "one_moment" (data/story_structures.json) | "<an id of your own>" with "structure_name": "...", "shape": ">= 60 chars",
-    "hooks": [{"text": "<= 14 words", "type": "promise|superlative|question|problem|price", "label": "ON-SCREEN LABEL (<= 3 words)",
+    "format": "closer" (optional: the 25-35 s offer video of the winner 190-H3; 3-6 chapters, 75-120 words, the offer from the first
+              line, how to get it, the sale's real end date; no story structure or presenter; else the 55-80 s story video),
+    "hooks": [{"text": "<= 14 words", "type": "promise|superlative|question|problem|price|warning", "label": "ON-SCREEN LABEL (<= 3 words)",
                "show": ["packing", "inside"]}, ... 4 in all (H1 is the main one, they differ in type and words)],
     "chapters": [{"kind": "point|proof|objection|offer", "text": "1-5 short sentences, one voice take", "tag": "SMART COMPARTMENTS" | null,
                   "number": null | 1, "show": ["inside", "packing"]  (what the picture must SHOW while this is said: footage_index.TAGS),
@@ -116,13 +118,17 @@ def sale_campaign(theme, day=None):
     c = campaign.active(mb().pick_theme(theme or ""), day)
     compliance.use_campaign(c)
     return c
-HOOK_TYPES = ("promise", "superlative", "question", "problem", "price")
+HOOK_TYPES = ("promise", "superlative", "question", "problem", "price", "warning")   # warning: "Don't buy X until ...", "Once this is gone ..."
+#                                                      (the 30-day winners 190 and 198: all ten of their openings are warnings)
 MAX_MOTION = 6                                         # motion stills a batch at most (ai_gen.MAX_MOTION; ~9 credits each)
 MOTION_PEOPLE = re.compile(r"\b(?:woman|women|man|men|person|people|girl|she|he|her|his|hands?|fingers?|face|someone|somebody)\b", re.I)
 MOTION_BAG = re.compile(r"\b(?:bags?|handbags?|hobo|purses?|zips?|zippers?|straps?|pouch)\b", re.I)   # (the motion line never names the bag)
 MAX_HOOK_WORDS = 14
 MAX_CHAPTER_WORDS, MAX_SENTENCES = 70, 5            # (the script engine's own limits are 45 / 3: a strategist's story needs more room)
 WORDS = (170, 285)                                   # the whole script: 55-80 s at 185-215 wpm
+CLOSER_WORDS, CLOSER_CHAPTERS = (75, 120), (3, 6)   # a closer (format "closer"): 25-35 s, the offer from the first line (190-H3, 27 s)
+DEADLINE = re.compile(r"\b(?:30(?:th)?|thirtieth) (?:of )?november\b|\bnovember (?:30|thirtieth)\b|\bcyber monday\b|"
+                      r"\b(?:14(?:th)?|fourteenth) (?:of )?december\b", re.I)   # the sale's real end / the Christmas order-by date
 PRES_WORDS, PRES_CHAPTER_WORDS = (135, 205), 36      # a presenter's script: 55-80 s at her 2.5 words a second; one take of at most 15 s
 CAMS = ("open", "both", "close", "full", "none")
 FACE_WORDS = re.compile(r"\b(face|faces|smil\w+|looking at (?:the )?camera|portrait|selfie|eyes|mouth|lips|mannequin|sunglasses)\b", re.I)
@@ -301,6 +307,51 @@ def story_problems(p, pid, pr, cov, keys, slib, P, W, date=""):
                      f"({', '.join(sorted(PROOF_TAGS))})")
         if pres and c.get("cam") == "full":
             P.append(f"{pid}: a proof shot is footage: its chapter's cam cannot be 'full'")
+    return feats[0] if feats else None
+
+
+def closer_problems(p, pid, pr, cov, keys, P, W):
+    """The rules of a closer (format "closer", the 30-day winner 190-H3: 27 s, $19.9k, 2026-11-06): the offer from the first line, how
+    to get it, the sale's real end date, the bag shown doing something. It replaces the story rules (a closer IS the offer, so the
+    price may be in every chapter and in every hook); it keeps the truth rules (the % said, a real deadline, at most 3 features)."""
+    chs, hooks = p.get("chapters") or [], p.get("hooks") or []
+    body = [c for c in chs if c.get("kind") != "offer"]
+    if p.get("presenter"):
+        P.append(f"{pid}: a closer is a voice over the real bag (190-H3): no presenter")
+    if not any(h.get("type") == "warning" for h in hooks[:4]):
+        W.append(f"{pid}: no warning hook: all ten openings of the winners 190 and 198 are warnings ('Once this is gone ...', "
+                 f"'Do not buy ... until ...')")
+    if not any(DEADLINE.search(c.get("text") or "") for c in chs):
+        P.append(f"{pid}: a closer says when the sale really ends ('the sale ends on the thirtieth of November'; for a gift, 'order by "
+                 f"the fourteenth of December for the best chance before Christmas'): never 'today' or 'tonight' before the last day")
+    feats = []
+    for c in body:
+        for t in features_in(c.get("text"), keys) + ([c["tag"]] if c.get("tag") in {k[0] for k in keys} else []):
+            if t not in feats:
+                feats.append(t)
+    if len(feats) > STORY_MAX_FEATURES:
+        P.append(f"{pid}: {len(feats)} features ({', '.join(feats)}): a closer names at most {STORY_MAX_FEATURES} (190-H3 names none)")
+    firsts = []
+    for k, h in enumerate(hooks[:4], 1):
+        sh = h.get("show") or []
+        if not sh or sh[0] in STILL_TAGS:
+            P.append(f"{pid} H{k}: the hook opens on {sh[0] if sh else 'nothing'!r}: show the bag doing something (a movement or a person: "
+                     f"{', '.join(sorted(PROOF_TAGS | PEOPLE_TAGS))})")
+        firsts.append(sh[0] if sh else None)
+    if len([f for f in firsts if f]) != len({f for f in firsts if f}):
+        P.append(f"{pid}: the hooks open on the same picture ({', '.join(str(f) for f in firsts)}): four hooks, four different first `show` tags")
+    if not any(set(c.get("show") or []) & PEOPLE_TAGS for c in body) and cov and max(cov.get(t, [0])[0] for t in PEOPLE_TAGS) >= MIN_MOMENTS:
+        P.append(f"{pid}: show the bag on a person (worn / walking) in at least one chapter")
+    off = [c for c in chs if c.get("kind") == "offer"]
+    if off and offer_word_ok(off[-1].get("text"), pr) is False:
+        pct = re.sub(r"\D", "", str(pr["offer"]["badge"]["big"]))
+        P.append(f"{pid}: the offer chapter must say the {pct}% ('{pct} percent' or the number in words): the offer card shows when "
+                 f"that word is said")
+    if len([c for c in body if c.get("proof_shot")]) > 1:
+        P.append(f"{pid}: a closer holds one proof shot at most")
+    for c in body:
+        if c.get("proof_shot") and not set(c.get("show") or []) & PROOF_TAGS:
+            P.append(f"{pid}: the proof shot ({(c.get('text') or '')[:30]!r}...) needs a movement ({', '.join(sorted(PROOF_TAGS))})")
     return feats[0] if feats else None
 
 
@@ -610,7 +661,12 @@ def check(sheet, pr, n_projects=None, n_statics=None, exclude=None, day=None):
     for p in projs:
         pid = p.get("id") or "?"
         where = f"{pid}"
-        if story:
+        closer = p.get("format") == "closer"
+        if p.get("format") not in (None, "closer"):
+            P.append(f"{pid}: format {p.get('format')!r} (none = the story video, or \"closer\")")
+        if closer:
+            closer_problems(p, pid, pr, cov, keys, P, W)
+        elif story:
             lead = story_problems(p, pid, pr, cov, keys, slib, P, W, sheet.get("date") or "")
             if lead:
                 leads.setdefault(lead, []).append(pid)
@@ -668,8 +724,9 @@ def check(sheet, pr, n_projects=None, n_statics=None, exclude=None, day=None):
                     P.append(f"{where} H{k}: show tag {tg!r} is not in the vocabulary")
             items += [dict(where=f"{where} H{k}", text=t, source="ours"), dict(where=f"{where} H{k} label", text=label, source="ours")]
         chs = p.get("chapters") or []
-        if not 5 <= len(chs) <= 11:
-            P.append(f"{where}: {len(chs)} chapters (5-11)")
+        nch = CLOSER_CHAPTERS if closer else (5, 11)
+        if not nch[0] <= len(chs) <= nch[1]:
+            P.append(f"{where}: {len(chs)} chapters ({nch[0]}-{nch[1]})")
         words = 0
         for j, c in enumerate(chs, 1):
             t, cw = c.get("text") or "", f"{where} c{j}"
@@ -704,22 +761,24 @@ def check(sheet, pr, n_projects=None, n_statics=None, exclude=None, day=None):
             P.append(f"{where}: the last chapter must be kind offer and end with 'Tap the link below.'")
         if chs and sum(c.get("kind") == "offer" for c in chs) != 1:
             P.append(f"{where}: exactly one offer chapter, the last")
-        wr = PRES_WORDS if pres else WORDS
+        wr = CLOSER_WORDS if closer else PRES_WORDS if pres else WORDS
         if chs and not wr[0] <= words + nwords(hooks[0]["text"] if hooks else "") <= wr[1]:
-            P.append(f"{where}: {words} words in all: a 55-80 s video needs {wr[0]}-{wr[1]} (about {'2.5' if pres else '3.1'} words a second)")
-    if story and projs:          # the batch (owner 2026-10-27): other stories, other lead features, one presenter
+            P.append(f"{where}: {words} words in all: a {'25-35' if closer else '55-80'} s video needs {wr[0]}-{wr[1]} "
+                     f"(about {'2.5' if pres else '3.1'} words a second)")
+    stories = [p for p in projs if p.get("format") != "closer"]     # (closers: the offer videos, 190-H3; the story rules are the stories')
+    if story and stories:        # the batch (owner 2026-10-27): other stories, other lead features, one presenter
         for f, ps in leads.items():
             if len(ps) > 1:
                 P.append(f"videos: {', '.join(ps)} all lead with {f}: each video leads with a different feature")
-        stl = [p.get("structure") for p in projs]
+        stl = [p.get("structure") for p in stories]
         for x in sorted({x for x in stl if x and stl.count(x) > 1}):
             P.append(f"videos: the structure {x!r} is used {stl.count(x)} times: each video a different story shape")
         last = set(novelty.recent(pr["name"], "structure", last=1, log=nl))
-        for p in projs:
+        for p in stories:
             if p.get("structure") in last:
                 P.append(f"{p.get('id')}: the structure {p['structure']!r} was in {pr['name']}'s last batch: pick another or invent one")
-        n_pres = sum(1 for p in projs if p.get("presenter"))
-        if len(projs) >= 2 and not n_pres and not sheet.get("no_presenter"):
+        n_pres = sum(1 for p in stories if p.get("presenter"))
+        if len(stories) >= 2 and not n_pres and not sheet.get("no_presenter"):
             P.append("videos: one project of a batch of 2+ carries the presenter (owner 2026-10-27, about 225 credits); when the request says "
                      "no presenter, set \"no_presenter\": \"<its words>\"")
         elif n_pres > 1:
@@ -861,7 +920,8 @@ def scripts(sheet, pr, hooks=4):
             chs.append(ch)
         sc = U.finish(ctx, dict(id=f"U{i + 1:02d}", index=i, angle=p["slug"], voice="you", product=pr.get("key"), hook=hs[0],
                                 alt_hooks=hs[1:], chapters=chs))
-        sc.update(title=p["title"], idea=p["big_idea"], from_sheet=True, **({"structure": p["structure"]} if p.get("structure") else {}))
+        sc.update(title=p["title"], idea=p["big_idea"], from_sheet=True, **({"structure": p["structure"]} if p.get("structure") else {}),
+                  **({"closer": True} if p.get("format") == "closer" else {}))
         if p.get("presenter"):
             sc["presenter"] = p["presenter"]
         out.append(sc)

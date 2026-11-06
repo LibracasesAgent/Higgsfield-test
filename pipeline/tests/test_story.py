@@ -148,6 +148,30 @@ def test_new_structures_every_batch_and_old_sheets_keep_their_rules():
     assert not has(problems(s, day="2026-10-26"), "proof shot")
 
 
+CLOSER = os.path.join(HERE, "closer_sheet.json")
+
+
+def test_a_closer_is_the_offer_video_with_its_own_rules():
+    """format "closer" (the 30-day winner 190-H3, 27 s): the offer may be in every line and hook, 3-6 chapters of 75-120 words, warning
+    hooks, a real deadline; never today / tonight, never a presenter, the story rules don't apply."""
+    s = json.load(open(CLOSER))
+    assert problems(s, day="2026-11-06") == [], problems(s, day="2026-11-06")
+    sc = ideas.scripts(s, pr(), 4)[0]
+    assert sc.get("closer") and sc["hook"]["type"] == "warning"
+    x = copy.deepcopy(s)
+    x["projects"][0]["chapters"][-1]["text"] = "It's fifty percent off with free shipping. Tap the link below."
+    x["projects"][0]["chapters"][0]["text"] = x["projects"][0]["chapters"][0]["text"].replace("Early Black Friday sale", "sale, ends tonight")
+    assert has(problems(x, day="2026-11-06"), "really ends")
+    x = copy.deepcopy(s)
+    x["projects"][0]["chapters"] += [dict(kind="point", text="One more line about the leather, the straps and the pocket again.",
+                                          show=["worn"])] * 4
+    assert has(problems(x, day="2026-11-06"), "chapters (3-6)")
+    x = copy.deepcopy(s)
+    x["projects"][0].pop("format")            # the same script as a story video: too short, the price in the body
+    P = problems(x, day="2026-11-06")
+    assert has(P, "chapters (5-11)") and has(P, "only in the last chapter")
+
+
 def test_scripts_carry_the_structure_the_proof_and_the_pace():
     sc = ideas.scripts(sheet(), pr(), 4)[0]
     chs = sc["chapters"]

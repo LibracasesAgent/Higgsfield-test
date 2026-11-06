@@ -131,7 +131,7 @@ PLAN_SECONDS = MIN_SECONDS + 2   # plan leaves a storyboard out when it estimate
 #                                  two off the words / 2.7 estimate, and a render under MIN_SECONDS is never uploaded
 QA_SECONDS = {"storyboard": (35, 95), "remix": (15, 110),    # a winner body is as long as it is: RAW + cold open, no
               "story": (60, 130),                             # padding (113-H2 runs ~18 s); never under the floor. story:
-              "ugc": (55, 85)}                                # the classic 1.5-2 min storytelling format (Julian, 2026-10-09);
+              "ugc": (55, 85), "closer": (22, 45)}                                # the classic 1.5-2 min storytelling format (Julian, 2026-10-09);
 FLOOR = {"storyboard": MIN_SECONDS, "remix": 15}                # ugc: the default storyboard format (owner 2026-10-14: 55-80 s)
 UGC_ANGLE = dict(n_things="things", demo="demo", stop_x="stop", travel="travel", value="value", day="day")   # ugc_script angle -> the name part
 BATCH_REUSE = 2.5                # ugc shots: cost of a moment another video of the batch already shows (the projects must not look alike)
@@ -3029,7 +3029,7 @@ def plan(a):
                     keywords=kws, spare_broll=[x for x in gen if x],
                     music=False if getattr(a, "no_music", False) else dict(seed=(a.seed - 1) * 11 + v + 1))
         name = f"{prefix}_{vid}_{UGC_ANGLE.get(sc['angle']) or re.sub(r'[^A-Za-z0-9]', '', sc['angle'])[:14]}"
-        return name, spec, dict(name=name, id=vid, format="ugc", engine="storyboard", hook=hook,
+        return name, spec, dict(name=name, id=vid, format="ugc", engine="storyboard", hook=hook, **({"closer": True} if sc.get("closer") else {}),
                                 ugc=dict(script=sc["id"], angle=sc["angle"], words=sc["words"], **({"structure": sc["structure"]} if sc.get("structure") else {}),
                                          hook=dict(type=hk["type"], label=hk["label"],
                                          feature=hk.get("feature")), alt_hooks=alts, numbers=sc["numbers"],
@@ -3179,7 +3179,7 @@ def plan(a):
     vname = lambda v: ("P" + v["id"][1:]) if pm else v["id"]  # noqa: E731 - how the reply and Drive call this video
     for v in videos:
         v["est_seconds"] = est_seconds(specs[v["name"]], said, rw)
-        lo, hi = QA_SECONDS.get(v.get("format"), QA_SECONDS.get(v["engine"], QA_SECONDS["storyboard"]))
+        lo, hi = qa_range(v)
         if v in keep and not lo <= v["est_seconds"] <= hi and not (pm and v["est_seconds"] < lo):  # (expand: per version)
             fix = ("" if v["engine"] == "remix" or v.get("format") == "ugc" else ": add lines with --lines"
                    if pr["source"] == "built-in" else ": the product file needs more features/clips, or add lines with --lines")
@@ -3565,6 +3565,13 @@ def prefetch(out, videos):
 HARD = ("render failed", "file missing", "face", "too short")       # QA problems that keep a file out of Drive
 
 
+def qa_range(v):
+    """(lo, hi) seconds a video should run: its format's (a closer, the 25-35 s offer video, has its own), else its engine's."""
+    if v.get("closer"):
+        return QA_SECONDS["closer"]
+    return QA_SECONDS.get(v.get("format"), QA_SECONDS.get(v.get("engine", "storyboard"), QA_SECONDS["storyboard"]))
+
+
 SHORTENED = 0.8       # a storyboard that renders under 80% of the plan's estimate was edited shorter after plan (voice noise is ~5%)
 SHORTENED_UGC = 0.7   # ugc: the estimate rests on a words-per-second guess for the voice (the take is sped up, its pauses cut): 70%
 
@@ -3624,7 +3631,7 @@ def render_one(out, v):
     ok = r.returncode == 0 and os.path.exists(f)
     L = contact_sheet(f, os.path.join(out, "qa", v["id"] + ".jpg")) if ok else 0
     problems = [] if ok else ["render failed (see qa/%s.log)" % v["id"]]
-    lo, hi = QA_SECONDS.get(v.get("format"), QA_SECONDS.get(eng, QA_SECONDS["storyboard"]))
+    lo, hi = qa_range(v)
     floor = FLOOR.get(eng, MIN_SECONDS)
     if ok and L < floor:
         problems.append(f"too short: {L:.1f}s (never under {floor}s; want {lo}-{hi}s)")
@@ -3936,6 +3943,7 @@ def run_report(p, report, uploaded, skipped, name, flagged=(), notes=(), pending
                 f"remix of {w.get('brief_name') or w.get('ad') or w.get('key')}" +
                 (f" (ROAS {w['roas']}, {w.get('action') or '-'})" if w.get("roas") is not None else "") +
                 (f", {nrev} narrated reviews" if nrev else ", its proven body intact") if x["engine"] == "remix" else
+                f"closer, {x['angle']} (25-35 s offer video: one voice over the real bag, the offer from the first line)" if x.get("closer") else
                 f"new ugc video, {x['angle']} angle (one voice, numbered chapters, the offer last)" if x.get("format") == "ugc" else
                 f"new storyboard video, {x.get('format') or x['angle']} angle") +
                 f" · {n_up} of its {len(x['hooks'])} versions in this upload")

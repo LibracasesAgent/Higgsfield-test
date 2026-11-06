@@ -713,6 +713,24 @@ The owner on B017: "the bag is not in the correct dimensions. It's not the corre
   photos and the footage show two different bags: the client should know.
 - **A new product with two looks:** add it to `designs.json` (`site`, `library`, `bank_sections`, `designs`), tag the clips.
 
+### 4i. Closers: the 25-35 s offer video (Lalith 2026-11-06, from the 30-day winners)
+
+The account's biggest ad of the last 30 days (Nov 2026) is ACH-SVIT-190-H3: $19.9k, ROAS 2.36, **27 s** (docs/research/2026-11-winners-30d.md).
+It tells no story and names no feature: a warning line ("Once this is gone, I promise you it's gone"), why now, "here's the secret" (how
+to get the offer), the free wallet, why it ends, "don't wait", over real footage of the bag. 113-H2 (16 s, one shot) is the same idea.
+Asked for "3 more like this winner, improved": B043, three closers of the Hobo Bag (`"format": "closer"` in ideas.json):
+- `ideas.closer_problems` replaces the story rules for such a project: 3-6 chapters, 75-120 words (`CLOSER_WORDS`), the price may be in
+  every line and hook, a `warning` hook type (all ten openings of 190 and 198 are warnings), the sale's real end date said (30 November;
+  for a gift the order-by date, 14 December), at most 3 features, the bag on a person once, one proof shot at most, no presenter.
+- make_batch / projects: the version carries `"closer": true`; `qa_range` gives it 22-45 s (the 25 s floor still holds); the report
+  calls it a closer. Everything else is the ugc board (voice, word-anchored B-roll, the label, the offer card, the end card).
+- What the three improve on 190-H3 (each a different lever): **nocode** turns "here's the secret" into a true one (no code: the half
+  price is already on the page, the wallet comes with the bag) and adds a proof shot of the hidden back pocket; **whatyouget** says both
+  prices ($109.90 -> $54.95) and stacks the offer (two straps, pocket, leather, wallet, free shipping, 1-year warranty); **giftby14**
+  gives gift buyers their real deadline (order by 14 December for the best chance before Christmas).
+- Never copied: 190's "today is the absolute last day" said daily (campaign `banned` until 30 Nov), "Susan's closing sale", a returns
+  promise (Black Friday orders are final sale).
+
 ### 4h. The ad tracker sheet (owner 2026-10-25; one simple tab in the media buyer's format, Julian 2026-11-04)
 
 `pipeline/tracker.py`, `data/tracker.json`: the Google Sheet "Libra Cases – Ad Tracker" in Drive / Ad Creative Pipeline. Since

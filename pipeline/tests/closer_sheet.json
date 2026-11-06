@@ -1,0 +1,101 @@
+{
+ "product": "Hobo Bag",
+ "theme": "black friday",
+ "date": "2026-11-06",
+ "research": [
+  "fixture: the P01 closer of B043 (190-H3 made true)"
+ ],
+ "projects": [
+  {
+   "id": "P01",
+   "slug": "nocode",
+   "format": "closer",
+   "structure": "closer",
+   "title": "Here's the secret: no code",
+   "big_idea": "The 190-H3 closer made true: the Hobo Bag is half price right now, there is no code to hunt for, the matching pouch wallet comes with it, and the sale really ends on 30 November.",
+   "why_new": "Our first closer: a 30 s offer video built on the account's biggest ad, with its 'here's the secret' beat turned into a true one (no code, the wallet included) and a proof shot of the hidden back pocket that 190 never shows.",
+   "hooks": [
+    {
+     "text": "Whatever you do, don't scroll past this one.",
+     "type": "warning",
+     "label": "DON'T SCROLL PAST",
+     "show": [
+      "worn",
+      "walking"
+     ]
+    },
+    {
+     "text": "Don't pay full price for a handbag this month.",
+     "type": "warning",
+     "label": "NOT FULL PRICE",
+     "show": [
+      "side_zip",
+      "zip_hand"
+     ]
+    },
+    {
+     "text": "Waiting for Black Friday? The price is already live.",
+     "type": "question",
+     "label": "ALREADY LIVE",
+     "show": [
+      "packing",
+      "inside"
+     ]
+    },
+    {
+     "text": "Half price, and the matching wallet comes with it.",
+     "type": "price",
+     "label": "50% + WALLET",
+     "show": [
+      "pouch",
+      "handheld"
+     ]
+    }
+   ],
+   "chapters": [
+    {
+     "kind": "point",
+     "beat": "why_now",
+     "text": "This is the Hobo Bag, and right now it's half price in the Early Black Friday sale.",
+     "tag": null,
+     "show": [
+      "worn",
+      "walking"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "secret",
+     "text": "Here's the secret. There's no code to find. The half price is already on the page, and the matching pouch wallet comes with the bag.",
+     "tag": "NO CODE NEEDED",
+     "show": [
+      "pouch",
+      "packing"
+     ]
+    },
+    {
+     "kind": "proof",
+     "beat": "proof",
+     "proof_shot": true,
+     "text": "Your cards go in the hidden back pocket, flat against you. Your keys and phone go in the gold side zips.",
+     "tag": "HIDDEN BACK POCKET",
+     "show": [
+      "pocket",
+      "zip_hand"
+     ]
+    },
+    {
+     "kind": "offer",
+     "beat": "offer",
+     "text": "It's fifty percent off with free shipping, and the sale ends on the thirtieth of November. Tap the link below.",
+     "tag": null,
+     "show": [
+      "hero",
+      "placed"
+     ]
+    }
+   ]
+  }
+ ],
+ "statics": []
+}
