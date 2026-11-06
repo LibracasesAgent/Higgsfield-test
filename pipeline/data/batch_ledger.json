@@ -3360,7 +3360,22 @@
      "label": ""
     }
    ]
+  },
+  {
+   "id": "B043",
+   "n": 43,
+   "rev": 1,
+   "date": "2026-11-06",
+   "product": "Hobo Bag",
+   "theme": "BlackFriday",
+   "pipeline": "catalog",
+   "request": "SVIT-190-H3: 3 more video ads like this winner, improved for conversion and ROAS",
+   "statics": 0,
+   "projects": 3,
+   "hooks": 4,
+   "seed": 1,
+   "status": "planned"
   }
  ],
- "next": 42
+ "next": 44
 }
