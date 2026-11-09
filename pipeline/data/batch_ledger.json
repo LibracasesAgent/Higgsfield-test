@@ -3374,7 +3374,83 @@
    "projects": 3,
    "hooks": 4,
    "seed": 1,
-   "status": "planned"
+   "status": "uploaded",
+   "folder": "B043 – 2026-11-06 – Hobo Bag BlackFriday – 3 projects",
+   "link": "https://drive.google.com/drive/folders/1POC5l3DGT8MfARHfRaikjm_RJdwfxHMi",
+   "ads": [
+    {
+     "name": "LC_261106_HoboBag_BlackFriday_B043_P01_H1_nocode",
+     "kind": "video",
+     "fp": "v|whatever you do, don't scroll past this one.|",
+     "label": "Whatever you do, don't scroll past this one."
+    },
+    {
+     "name": "LC_261106_HoboBag_BlackFriday_B043_P01_H2_nocode",
+     "kind": "video",
+     "fp": "v|waiting for black friday? the price is already live.|",
+     "label": "Waiting for Black Friday? The price is already live."
+    },
+    {
+     "name": "LC_261106_HoboBag_BlackFriday_B043_P01_H3_nocode",
+     "kind": "video",
+     "fp": "v|half price, and the matching wallet comes with it.|",
+     "label": "Half price, and the matching wallet comes with it."
+    },
+    {
+     "name": "LC_261106_HoboBag_BlackFriday_B043_P01_H4_nocode",
+     "kind": "video",
+     "fp": "v|don't pay full price for a handbag this month.|",
+     "label": "Don't pay full price for a handbag this month."
+    },
+    {
+     "name": "LC_261106_HoboBag_BlackFriday_B043_P02_H1_whatyouget",
+     "kind": "video",
+     "fp": "v|don't buy another handbag until you've seen this price.|",
+     "label": "Don't buy another handbag until you've seen this price."
+    },
+    {
+     "name": "LC_261106_HoboBag_BlackFriday_B043_P02_H2_whatyouget",
+     "kind": "video",
+     "fp": "v|a $109.90 bag for $54.95, and it ships free.|",
+     "label": "A $109.90 bag for $54.95, and it ships free."
+    },
+    {
+     "name": "LC_261106_HoboBag_BlackFriday_B043_P02_H3_whatyouget",
+     "kind": "video",
+     "fp": "v|what does half price get you this black friday?|",
+     "label": "What does half price get you this Black Friday?"
+    },
+    {
+     "name": "LC_261106_HoboBag_BlackFriday_B043_P02_H4_whatyouget",
+     "kind": "video",
+     "fp": "v|paying full price for a bag that only works one way?|",
+     "label": "Paying full price for a bag that only works one way?"
+    },
+    {
+     "name": "LC_261106_HoboBag_BlackFriday_B043_P03_H1_giftby14",
+     "kind": "video",
+     "fp": "v|don't leave her christmas present until the last week.|",
+     "label": "Don't leave her Christmas present until the last week."
+    },
+    {
+     "name": "LC_261106_HoboBag_BlackFriday_B043_P03_H2_giftby14",
+     "kind": "video",
+     "fp": "v|who on your list is always digging for her keys?|",
+     "label": "Who on your list is always digging for her keys?"
+    },
+    {
+     "name": "LC_261106_HoboBag_BlackFriday_B043_P03_H3_giftby14",
+     "kind": "video",
+     "fp": "v|one gift, two pieces: the bag and its matching wallet.|",
+     "label": "One gift, two pieces: the bag and its matching wallet."
+    },
+    {
+     "name": "LC_261106_HoboBag_BlackFriday_B043_P03_H4_giftby14",
+     "kind": "video",
+     "fp": "v|her gift, half price, and it ships free.|",
+     "label": "Her gift, half price, and it ships free."
+    }
+   ]
   }
  ],
  "next": 44

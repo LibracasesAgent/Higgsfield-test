@@ -1,0 +1,286 @@
+{
+ "mode": "ugc",
+ "voice_speed": 1.12,
+ "blocks": [
+  {
+   "vo": "P02H3_hook.mp3",
+   "broll": [
+    [
+     "1sqN76Sbj7sjx9lm4gh9zOK0eLM-n7l4w",
+     0.68,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V02_c1.mp3",
+   "broll": [
+    [
+     "15q1hE40jrwuLEweI2mKNCM4HSgeGqAOS",
+     5.46,
+     1.0,
+     {
+      "at": 0
+     }
+    ],
+    [
+     "1TQniUwb0moRuqoiip6okFOIW33_UUXYy",
+     10.21,
+     1.0,
+     {
+      "at": 8
+     }
+    ]
+   ],
+   "spare": [
+    [
+     "1AriDjPfyIVhLoq87oLqWzhn5iIpwsAQR",
+     9.11,
+     1.0
+    ],
+    [
+     "1n7DqtmIasEkSdk0PXJqhYF9MJSL7RTiI",
+     0.3,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V02_c2.mp3",
+   "broll": [
+    [
+     "1PVkO22H9kksbsI49gtx_m9_qbdmB8S5W",
+     0.83,
+     1.0,
+     {
+      "at": 0
+     }
+    ],
+    [
+     "10AwB1uAdRXbIY2gjhJl1q1pbuip29YJN",
+     12.47,
+     1.0,
+     {
+      "at": 6
+     }
+    ],
+    [
+     "1AriDjPfyIVhLoq87oLqWzhn5iIpwsAQR",
+     3.39,
+     1.0,
+     {
+      "at": 13
+     }
+    ]
+   ],
+   "spare": [
+    [
+     "1f_uobOObpjWFcDK1U8yedlh19SJbAzZB",
+     16.44,
+     1.0
+    ],
+    [
+     "1PVkO22H9kksbsI49gtx_m9_qbdmB8S5W",
+     4.49,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V02_c3.mp3",
+   "broll": [
+    [
+     "1vxD2_uEmihawSUj2aj3TZHmdJLEM2xCg",
+     158.98,
+     1.0,
+     {
+      "at": 0
+     }
+    ],
+    [
+     "1CcakagPN5oiWEneKORpvJblnPYnQvWHI",
+     4.0,
+     1.0,
+     {
+      "at": 9
+     }
+    ]
+   ],
+   "spare": [
+    [
+     "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+     3.6,
+     1.0
+    ],
+    [
+     "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+     1.0,
+     1.0
+    ]
+   ],
+   "proof": true
+  },
+  {
+   "vo": "V02_c4.mp3",
+   "broll": [
+    [
+     "18BhL1GgesvH_uyQ5lciQL_JPQise3zca",
+     19.44,
+     1.0,
+     {
+      "at": 0
+     }
+    ],
+    [
+     "1TeEFWPEZ_jATN9so2DZNeyg-mOPQe8jL",
+     5.94,
+     1.0,
+     {
+      "at": 5
+     }
+    ]
+   ],
+   "spare": [
+    [
+     "1TeEFWPEZ_jATN9so2DZNeyg-mOPQe8jL",
+     1.31,
+     1.0
+    ],
+    [
+     "1NuCVbKCrAGKgLyGpaVgNohAbss7I4zMS",
+     10.1,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V02_c5.mp3",
+   "broll": [
+    [
+     "1hskk8rPdp8G_F6ZSmzanMuDVG5NxdTkA",
+     12.0,
+     1.0,
+     {
+      "at": 0
+     }
+    ],
+    [
+     "site/hobo_bag_colour_burgundy.jpg",
+     0,
+     1.0,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ],
+      "at": 13
+     }
+    ]
+   ],
+   "spare": [
+    [
+     "11mRxJemVgJPYmK8Ha6wKD8KGG95Bq4Rn",
+     8.79,
+     1.0
+    ],
+    [
+     "1Ni2LrpV6gsxH-smicF6r01i4SlwQkmeH",
+     10.34,
+     1.0
+    ],
+    [
+     "10ev2Mfet9vPJ-jRrxK4fdn2sr3BmTFTV",
+     29.8,
+     1.0
+    ]
+   ]
+  }
+ ],
+ "overlays": [
+  {
+   "type": "label",
+   "text": "WHAT YOU GET",
+   "block": 0,
+   "at": 0.1,
+   "dur": 1.8
+  },
+  {
+   "type": "tag",
+   "text": "3 WAYS TO WEAR",
+   "block": 2,
+   "at": 0.15,
+   "dur": 2.6
+  },
+  {
+   "type": "tag",
+   "text": "HIDDEN BACK POCKET",
+   "block": 3,
+   "at": 0.15,
+   "dur": 2.6
+  },
+  {
+   "type": "tag",
+   "text": "+ FREE POUCH WALLET",
+   "block": 4,
+   "at": 0.15,
+   "dur": 2.6
+  }
+ ],
+ "end_title": "Black Friday Sale",
+ "offer": {
+  "block": 5,
+  "word": "50",
+  "title": "BLACK FRIDAY 50% OFF",
+  "sub": "+ FREE MATCHING WALLET"
+ },
+ "end_photo": "site/hobo_bag_colour_grey.jpg",
+ "end_offer": "UP TO 60% OFF",
+ "keywords": [
+  "50%",
+  "free",
+  "pouch",
+  "wallet",
+  "gift",
+  "gifts",
+  "hidden",
+  "pocket",
+  "leather",
+  "black",
+  "friday"
+ ],
+ "spare_broll": [
+  [
+   "1_S0UvWZSIsuisD9-virT1ZPzijMaF-08",
+   1.46,
+   1.0
+  ],
+  [
+   "1RDfbLshVfj_-0pZXhC0I46RJ3obq3U3F",
+   4.67,
+   1.0
+  ],
+  [
+   "16bugUA13UINTh8mGcl237pNZ8KnnVjjA",
+   21.2,
+   1.0
+  ],
+  [
+   "1zg2CRMvlkQjNlfLzjdEzt-hJG5uwdh6s",
+   2.99,
+   1.0
+  ],
+  [
+   "1n_n64uSzJxegasRwW_1cRTo1dYNuzy3G",
+   0.94,
+   1.0
+  ],
+  [
+   "1viEJyIzgtQXsEU3C2n3cpY7NUNr6Hrqy",
+   0.59,
+   1.0
+  ]
+ ],
+ "music": {
+  "seed": 2
+ }
+}

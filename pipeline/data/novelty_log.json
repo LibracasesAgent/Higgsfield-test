@@ -1104,187 +1104,6 @@
   "hobo-bag": {
    "batches": [
     {
-     "clips": [],
-     "date": "2026-10-16",
-     "name": "earlier batch 3 (before the novelty log: the client's three delivered batches)",
-     "statics": [],
-     "videos": [
-      {
-       "angle": "n_things",
-       "chapters": [
-        "You stop worrying in crowds. The hidden anti-theft pocket on the back sits flat against you, so your passport and cards stay right where you put them. You stop clutching your bag on the train.",
-        "You stop digging for your keys. There's a gold zip on each side of the bag, made for your keys and phone. No more emptying your bag at the checkout.",
-        "Nothing sinks to the bottom anymore. Divided compartments give everything its own spot, so it's all easy to find. Your bag stops feeling like a black hole.",
-        "You wear it your way. Two adjustable straps: carry it as a handbag, throw it over your shoulder, or wear it crossbody. Same bag, three ways.",
-        "On top of that, the leather is soft, water-resistant and scratch-proof. It looks expensive, and it only gets better with time.",
-        "Still not sure? Carol says: best bag I have ever bought. Jenny says: it's spacious, lightweight, and super functional with lots of pockets.",
-        "Think it sounds too good to be true? There's a one-year warranty and easy returns.",
-        "Right now it's fifty percent off, and it comes with a free matching pouch wallet. Free US shipping too. Tap the link below."
-       ],
-       "hook": "Four things you'll notice the first time you carry this bag.",
-       "hook_type": "promise",
-       "script": "U01"
-      },
-      {
-       "angle": "n_things",
-       "hook": "Curious what changes when you swap your everyday bag for this one?",
-       "hook_type": "question",
-       "script": "U01"
-      },
-      {
-       "angle": "n_things",
-       "hook": "This might be the most organized bag you'll see today.",
-       "hook_type": "superlative",
-       "script": "U01"
-      },
-      {
-       "angle": "n_things",
-       "hook": "Ever pat your bag every few minutes just to check it's all there?",
-       "hook_type": "problem",
-       "script": "U01"
-      },
-      {
-       "angle": "demo",
-       "chapters": [
-        "Turn it around. There's a hidden anti-theft pocket on the back. Slide your passport and cards in, and it sits flat against you, out of sight.",
-        "Now the sides. Two gold zips, one on each side. Keys in, phone in, zipped shut, and you can reach them without opening the whole bag.",
-        "Open the top. Divided compartments inside, so everything gets its own spot and nothing sinks to the bottom. Cards here, lip balm there.",
-        "Now the straps. Two adjustable ones, so you can wear it over your shoulder, in your hand like a handbag, or crossbody, hands-free.",
-        "Feel that? Soft leather that's water-resistant and scratch-proof, and it only gets better with time.",
-        "Passport, cards, keys, phone, lip balm: everything has its own place.",
-        "Here's what customers say. Margie says: it holds many things. Felicia says: love all the compartments too.",
-        "Wondering about the risk? You also get a one-year warranty and easy returns.",
-        "That's the Hobo Bag, and right now it's fifty percent off, with a free matching pouch wallet included. Plus free US shipping. Tap the link below."
-       ],
-       "hook": "Watch what this bag does with your phone, keys and passport.",
-       "hook_type": "promise",
-       "script": "U02"
-      },
-      {
-       "angle": "demo",
-       "hook": "Ever wonder where everything in your bag is supposed to go?",
-       "hook_type": "question",
-       "script": "U02"
-      },
-      {
-       "angle": "demo",
-       "hook": "If your bag is one big black hole, watch this.",
-       "hook_type": "problem",
-       "script": "U02"
-      },
-      {
-       "angle": "demo",
-       "hook": "Is this the most practical bag you'll see this week?",
-       "hook_type": "superlative",
-       "script": "U02"
-      },
-      {
-       "angle": "stop_x",
-       "chapters": [
-        "Two gold side zips, one on each side, are made for your keys and phone. Reach in, grab them, done.",
-        "Stop clutching your bag in a crowd. The hidden anti-theft pocket on the back sits flat against you, so your passport and cards stay close and out of sight.",
-        "Stop emptying your bag to find one thing. Divided compartments give everything its own spot, so nothing sinks to the bottom. Your cards stop hiding under your lip balm.",
-        "Stop choosing between shoulder and crossbody. Two adjustable straps let you carry it as a handbag, over your shoulder, or crossbody. Switch whenever you like.",
-        "Stop babying your bag. The soft leather is water-resistant and scratch-proof, and it looks expensive. It only gets better with time.",
-        "So keys and phone go in the side zips, passport and cards in the back pocket, and everything else gets its own compartment.",
-        "Don't believe it? Felicia says: love all the compartments too. Jenny says: I've received so many compliments.",
-        "Still on the fence? You get a one-year warranty and easy returns.",
-        "Right now the Hobo Bag is fifty percent off, and a free matching pouch wallet comes with it. Free US shipping on top. Tap the link below."
-       ],
-       "hook": "Stop digging for your keys at the bottom of your bag.",
-       "hook_type": "problem",
-       "script": "U03"
-      },
-      {
-       "angle": "stop_x",
-       "hook": "How long does it take you to find your keys in there?",
-       "hook_type": "question",
-       "script": "U03"
-      },
-      {
-       "angle": "stop_x",
-       "hook": "Here's a handbag that gives your keys a place of their own.",
-       "hook_type": "promise",
-       "script": "U03"
-      },
-      {
-       "angle": "stop_x",
-       "hook": "This could be the most practical handbag you'll see all year.",
-       "hook_type": "superlative",
-       "script": "U03"
-      },
-      {
-       "angle": "travel",
-       "chapters": [
-        "Passport and cards go in the hidden anti-theft pocket on the back. It sits flat against you, so you're not patting your bag every few minutes. Crowded terminal, packed train: it stays out of sight.",
-        "Keys and phone go in the gold side zips, one on each side. You can grab them without digging through the whole bag, even at security.",
-        "Divided compartments inside keep the rest in order: lip balm, sunglasses, a charger. Nothing sinks to the bottom, so you're not unpacking at the gate.",
-        "Then swing it crossbody and keep your hands clear for your coffee and your boarding pass. Two adjustable straps, so you can switch to shoulder or handbag anytime.",
-        "That's passport and cards in the back pocket, keys and phone in the side zips, and the rest inside.",
-        "Hear it from customers. Mercy says: the best bag for travel and every day use. Carol says: already bought for friends.",
-        "Still thinking? It comes with a one-year warranty and easy returns.",
-        "It's fifty percent off right now, plus a free matching pouch wallet. You also get free US shipping. Tap the link below."
-       ],
-       "hook": "Passport, phone, keys, cards: where does it all go on travel day?",
-       "hook_type": "question",
-       "script": "U04"
-      },
-      {
-       "angle": "travel",
-       "hook": "Travel day is chaos when everything sits at the bottom of your bag.",
-       "hook_type": "problem",
-       "script": "U04"
-      },
-      {
-       "angle": "travel",
-       "hook": "Here's the bag to pack first.",
-       "hook_type": "promise",
-       "script": "U04"
-      },
-      {
-       "angle": "travel",
-       "hook": "This might be the most travel-ready bag you'll see all year.",
-       "hook_type": "superlative",
-       "script": "U04"
-      },
-      {
-       "angle": "value",
-       "chapters": [
-        "Ever dig for your keys at the bottom of your bag? Gold side zips, one on each side, take your keys and phone. Reach in, grab them, go.",
-        "Ever clutch your bag the whole way through a crowd? A hidden anti-theft pocket on the back sits flat against you, for your passport and cards. Out of sight.",
-        "Does everything end up in a pile at the bottom? Divided compartments give everything its own spot. Your bag stops being a black hole.",
-        "Want to switch how you carry it? Two adjustable straps: handbag, shoulder or crossbody. Your call.",
-        "And the leather? Soft, water-resistant and scratch-proof. Looks expensive, and gets better with time.",
-        "Hidden pocket, two gold zips, divided compartments, two straps and soft leather, all in one bag.",
-        "Want proof? Beverly says: looks expensive but price was so nice. One customer says: it fits all my essentials, and the strong strap is super comfortable.",
-        "Worried about the risk? It's covered by a one-year warranty and easy returns.",
-        "So that's the Hobo Bag at fifty percent off, with a free matching pouch wallet. And free US shipping, too. Tap the link below."
-       ],
-       "hook": "Half price, plus a free matching pouch wallet. Here's everything you get.",
-       "hook_type": "price",
-       "script": "U05"
-      },
-      {
-       "angle": "value",
-       "hook": "Look at what the Hobo Bag comes with.",
-       "hook_type": "promise",
-       "script": "U05"
-      },
-      {
-       "angle": "value",
-       "hook": "What should a good everyday bag actually have?",
-       "hook_type": "question",
-       "script": "U05"
-      },
-      {
-       "angle": "value",
-       "hook": "Tired of paying for a bag that's just a bag?",
-       "hook_type": "problem",
-       "script": "U05"
-      }
-     ]
-    },
-    {
      "clips": [
       {
        "clip_id": "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx"
@@ -3833,6 +3652,242 @@
        "hook_type": "question",
        "script": "U01",
        "structure": "one_moment"
+      }
+     ]
+    },
+    {
+     "clips": [
+      {
+       "clip_id": "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx"
+      },
+      {
+       "clip_id": "16bugUA13UINTh8mGcl237pNZ8KnnVjjA"
+      },
+      {
+       "clip_id": "1Ni2LrpV6gsxH-smicF6r01i4SlwQkmeH"
+      },
+      {
+       "clip_id": "1JIEAwHHQq-euKPoS9A91KQSmMEGg7EPj"
+      },
+      {
+       "clip_id": "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X"
+      },
+      {
+       "clip_id": "1JlS7-GlKLkqklk0xTO2jwXZ2VezE4us4"
+      },
+      {
+       "clip_id": "1CcakagPN5oiWEneKORpvJblnPYnQvWHI"
+      },
+      {
+       "clip_id": "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06"
+      },
+      {
+       "clip_id": "1f_uobOObpjWFcDK1U8yedlh19SJbAzZB"
+      },
+      {
+       "clip_id": "1LjnCWc5SyUtUqAnV-9nnxMILweyDJdL5"
+      },
+      {
+       "clip_id": "1TeEFWPEZ_jATN9so2DZNeyg-mOPQe8jL"
+      },
+      {
+       "clip_id": "1_usQ_ZJKJqd5EAu5KR1jM-pIjyQf1tWu"
+      },
+      {
+       "clip_id": "1n7DqtmIasEkSdk0PXJqhYF9MJSL7RTiI"
+      },
+      {
+       "clip_id": "11mRxJemVgJPYmK8Ha6wKD8KGG95Bq4Rn"
+      },
+      {
+       "clip_id": "177mQyA2s2ACZIjv7BnH4qbMCu0QDQ1qn"
+      },
+      {
+       "clip_id": "1viEJyIzgtQXsEU3C2n3cpY7NUNr6Hrqy"
+      },
+      {
+       "clip_id": "1audN6qYuCaN5d8O42kyq9HQKU7OUprGH"
+      },
+      {
+       "clip_id": "1zg2CRMvlkQjNlfLzjdEzt-hJG5uwdh6s"
+      },
+      {
+       "clip_id": "1_S0UvWZSIsuisD9-virT1ZPzijMaF-08"
+      },
+      {
+       "clip_id": "1Rj3QE3QSg73kbPB1qCg7qo7az2SvQEPb"
+      },
+      {
+       "clip_id": "1hskk8rPdp8G_F6ZSmzanMuDVG5NxdTkA"
+      },
+      {
+       "clip_id": "10AwB1uAdRXbIY2gjhJl1q1pbuip29YJN"
+      },
+      {
+       "clip_id": "1RDfbLshVfj_-0pZXhC0I46RJ3obq3U3F"
+      },
+      {
+       "clip_id": "18wOkQ9ToI66y133XanUgEZT0I4Q25Ea1"
+      },
+      {
+       "clip_id": "1PVkO22H9kksbsI49gtx_m9_qbdmB8S5W"
+      },
+      {
+       "clip_id": "1TQniUwb0moRuqoiip6okFOIW33_UUXYy"
+      },
+      {
+       "clip_id": "1T9jkUynTVM406VuPbvnj6ZJB5TmECMx2"
+      },
+      {
+       "clip_id": "1sqN76Sbj7sjx9lm4gh9zOK0eLM-n7l4w"
+      },
+      {
+       "clip_id": "1UcPs3RM-Iwrzd5rgOIA6Wxii0i3R3xqL"
+      },
+      {
+       "clip_id": "15q1hE40jrwuLEweI2mKNCM4HSgeGqAOS"
+      },
+      {
+       "clip_id": "1xLH44ogCItKnvQZPnEeZieVOk9Zlgbs-"
+      },
+      {
+       "clip_id": "1NuCVbKCrAGKgLyGpaVgNohAbss7I4zMS"
+      },
+      {
+       "clip_id": "18BhL1GgesvH_uyQ5lciQL_JPQise3zca"
+      },
+      {
+       "clip_id": "10ev2Mfet9vPJ-jRrxK4fdn2sr3BmTFTV"
+      },
+      {
+       "clip_id": "1vxD2_uEmihawSUj2aj3TZHmdJLEM2xCg"
+      },
+      {
+       "clip_id": "117P6aO1ank_vR6tSzwyFXsBI_ZpDAHtq"
+      },
+      {
+       "clip_id": "1AriDjPfyIVhLoq87oLqWzhn5iIpwsAQR"
+      },
+      {
+       "clip_id": "1n_n64uSzJxegasRwW_1cRTo1dYNuzy3G"
+      },
+      {
+       "clip_id": "1rW8joq7MZKj_AKkX4IJJzjfgqlnMg8ph"
+      },
+      {
+       "clip_id": "1kN9aTYG1h8wpow900J2YMOh1QHuQgBcT"
+      },
+      {
+       "clip_id": "1VtaFz7jQyakUR_5wqqodMvkI-Nu5GbiW"
+      }
+     ],
+     "date": "2026-11-06",
+     "name": "B043 – 2026-11-06 – Hobo Bag BlackFriday – 3 projects",
+     "statics": [],
+     "videos": [
+      {
+       "angle": "nocode",
+       "chapters": [
+        "This is the Hobo Bag, and right now it's half price in the Early Black Friday sale.",
+        "Here's the secret. There's no code to find. The half price is already on the page, and the matching pouch wallet comes with the bag.",
+        "Your cards go in the hidden back pocket, flat against you. Your keys and phone go in the gold side zips.",
+        "It's fifty percent off with free shipping, and the sale ends on the thirtieth of November. Tap the link below."
+       ],
+       "hook": "Whatever you do, don't scroll past this one.",
+       "hook_type": "warning",
+       "script": "U01",
+       "structure": "closer"
+      },
+      {
+       "angle": "nocode",
+       "hook": "Waiting for Black Friday? The price is already live.",
+       "hook_type": "warning",
+       "script": "U01",
+       "structure": "closer"
+      },
+      {
+       "angle": "nocode",
+       "hook": "Half price, and the matching wallet comes with it.",
+       "hook_type": "warning",
+       "script": "U01",
+       "structure": "closer"
+      },
+      {
+       "angle": "nocode",
+       "hook": "Don't pay full price for a handbag this month.",
+       "hook_type": "warning",
+       "script": "U01",
+       "structure": "closer"
+      },
+      {
+       "angle": "whatyouget",
+       "chapters": [
+        "This is the Hobo Bag. It's usually $109.90. In the Early Black Friday sale, it's $54.95.",
+        "For that, you get two straps, so you wear it as a handbag, on your shoulder or crossbody.",
+        "A hidden pocket on the back for your cards, and soft leather that's water-resistant and scratch-proof.",
+        "Plus a matching pouch wallet, free shipping and a one-year warranty.",
+        "That's fifty percent off, and the sale ends on the thirtieth of November. Tap the link below."
+       ],
+       "hook": "Don't buy another handbag until you've seen this price.",
+       "hook_type": "warning",
+       "script": "U02",
+       "structure": "closer"
+      },
+      {
+       "angle": "whatyouget",
+       "hook": "A $109.90 bag for $54.95, and it ships free.",
+       "hook_type": "warning",
+       "script": "U02",
+       "structure": "closer"
+      },
+      {
+       "angle": "whatyouget",
+       "hook": "What does half price get you this Black Friday?",
+       "hook_type": "warning",
+       "script": "U02",
+       "structure": "closer"
+      },
+      {
+       "angle": "whatyouget",
+       "hook": "Paying full price for a bag that only works one way?",
+       "hook_type": "warning",
+       "script": "U02",
+       "structure": "closer"
+      },
+      {
+       "angle": "giftby14",
+       "chapters": [
+        "The Hobo Bag is half price in the Early Black Friday sale, and a matching pouch wallet comes with it. That's a bag and a wallet in one gift.",
+        "Her cards go in the hidden back pocket, her keys in the gold side zips, and nothing sinks to the bottom.",
+        "It comes in six colours, so you can pick hers.",
+        "Order by the fourteenth of December for the best chance of delivery before Christmas.",
+        "Fifty percent off, free shipping, and the sale ends on the thirtieth of November. Tap the link below."
+       ],
+       "hook": "Don't leave her Christmas present until the last week.",
+       "hook_type": "warning",
+       "script": "U03",
+       "structure": "closer"
+      },
+      {
+       "angle": "giftby14",
+       "hook": "Who on your list is always digging for her keys?",
+       "hook_type": "warning",
+       "script": "U03",
+       "structure": "closer"
+      },
+      {
+       "angle": "giftby14",
+       "hook": "One gift, two pieces: the bag and its matching wallet.",
+       "hook_type": "warning",
+       "script": "U03",
+       "structure": "closer"
+      },
+      {
+       "angle": "giftby14",
+       "hook": "Her gift, half price, and it ships free.",
+       "hook_type": "warning",
+       "script": "U03",
+       "structure": "closer"
       }
      ]
     }

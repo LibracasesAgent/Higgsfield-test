@@ -1,0 +1,93 @@
+{
+ "product": "Hobo Bag",
+ "theme": "black friday",
+ "date": "2026-11-06",
+ "research": [
+  "docs/research/2026-11-winners-30d.md: the account's biggest ad of the last 30 days, ACH-SVIT-190-H3 ($19.9k, ROAS 2.36), is a 27 s closer: a warning line, why now, 'here's the secret' (how to get the offer), the free wallet, why it ends, 'don't wait'; real footage of the bag, no features. 113-H2 (16 s, ROAS 2.55) is the same idea in one shot. All ten openings of 190 and 198 are warnings.",
+  "What these three keep: the length (25-35 s), the warning openings, the offer from the first line, 'here's the secret', a picture of the real bag on every line, a voice talking to 'you'.",
+  "What they improve, each a different lever: P01 removes the last doubt at checkout (no code: the half price is already on the page, the wallet comes with the bag) and adds one proof shot (the hidden back pocket, the bag's anti-theft reason to buy); P02 anchors the price ($109.90 -> $54.95) and stacks what you get (two straps, the pocket, the leather, the wallet, free shipping, the 1-year warranty: order value is the ROAS lever); P03 adds a second real deadline for gift buyers (order by 14 December for the best chance before Christmas; 92% of Cyber Weekend buyers bought a gift, docs/research/2026-11-all-time-best-ad.md).",
+  "What they never copy: 190's 'today is the absolute last day' (said daily for weeks: the sale ends on 30 November, PLAYBOOK 2026-10-27) and 'Susan's closing sale' (invented): the deadline here is the real one, and no returns promise (Black Friday orders are final sale)."
+ ],
+ "projects": [
+  {
+   "id": "P01",
+   "slug": "nocode",
+   "format": "closer",
+   "structure": "closer",
+   "title": "Here's the secret: no code",
+   "big_idea": "The 190-H3 closer made true: the Hobo Bag is half price right now, there is no code to hunt for, the matching pouch wallet comes with it, and the sale really ends on 30 November.",
+   "why_new": "Our first closer: a 30 s offer video built on the account's biggest ad, with its 'here's the secret' beat turned into a true one (no code, the wallet included) and a proof shot of the hidden back pocket that 190 never shows.",
+   "hooks": [
+    {"text": "Whatever you do, don't scroll past this one.", "type": "warning", "label": "DON'T SCROLL PAST", "show": ["worn", "walking"]},
+    {"text": "Don't pay full price for a handbag this month.", "type": "warning", "label": "NOT FULL PRICE", "show": ["side_zip", "zip_hand"]},
+    {"text": "Waiting for Black Friday? The price is already live.", "type": "question", "label": "ALREADY LIVE", "show": ["packing", "inside"]},
+    {"text": "Half price, and the matching wallet comes with it.", "type": "price", "label": "50% + WALLET", "show": ["pouch", "handheld"]}
+   ],
+   "chapters": [
+    {"kind": "point", "beat": "why_now", "text": "This is the Hobo Bag, and right now it's half price in the Early Black Friday sale.",
+     "tag": null, "show": ["worn", "walking"]},
+    {"kind": "point", "beat": "secret", "text": "Here's the secret. There's no code to find. The half price is already on the page, and the matching pouch wallet comes with the bag.",
+     "tag": "NO CODE NEEDED", "show": ["pouch", "packing"]},
+    {"kind": "proof", "beat": "proof", "proof_shot": true, "text": "Your cards go in the hidden back pocket, flat against you. Your keys and phone go in the gold side zips.",
+     "tag": "HIDDEN BACK POCKET", "show": ["pocket", "zip_hand"]},
+    {"kind": "offer", "beat": "offer", "text": "It's fifty percent off with free shipping, and the sale ends on the thirtieth of November. Tap the link below.",
+     "tag": null, "show": ["hero", "placed"]}
+   ]
+  },
+  {
+   "id": "P02",
+   "slug": "whatyouget",
+   "format": "closer",
+   "structure": "closer",
+   "title": "What half price gets you",
+   "big_idea": "The price anchor and the stack: a $109.90 bag for $54.95, and everything that comes with it (two straps, the hidden pocket, the leather, the matching wallet, free shipping, a one-year warranty), until 30 November.",
+   "why_new": "No Hobo video ever said both prices or stacked the whole offer in one breath; 190-H3 says 'this insane price' and never the number. The value stack raises what each order feels worth.",
+   "hooks": [
+    {"text": "Don't buy another handbag until you've seen this price.", "type": "warning", "label": "SEE THIS PRICE", "show": ["handheld", "strap"]},
+    {"text": "A $109.90 bag for $54.95, and it ships free.", "type": "price", "label": "HALF PRICE", "show": ["worn", "walking"]},
+    {"text": "What does half price get you this Black Friday?", "type": "question", "label": "WHAT YOU GET", "show": ["packing", "inside"]},
+    {"text": "Paying full price for a bag that only works one way?", "type": "problem", "label": "ONE WAY ONLY?", "show": ["strap", "worn"]}
+   ],
+   "chapters": [
+    {"kind": "point", "beat": "anchor", "text": "This is the Hobo Bag. It's usually $109.90. In the Early Black Friday sale, it's $54.95.",
+     "tag": null, "show": ["worn", "walking"]},
+    {"kind": "point", "beat": "stack", "text": "For that, you get two straps, so you wear it as a handbag, on your shoulder or crossbody.",
+     "tag": "3 WAYS TO WEAR", "show": ["strap", "worn"]},
+    {"kind": "proof", "beat": "stack", "proof_shot": true, "text": "A hidden pocket on the back for your cards, and soft leather that's water-resistant and scratch-proof.",
+     "tag": "HIDDEN BACK POCKET", "show": ["pocket", "zip_hand"]},
+    {"kind": "point", "beat": "stack", "text": "Plus a matching pouch wallet, free shipping and a one-year warranty.",
+     "tag": "+ FREE POUCH WALLET", "show": ["pouch", "packing"]},
+    {"kind": "offer", "beat": "offer", "text": "That's fifty percent off, and the sale ends on the thirtieth of November. Tap the link below.",
+     "tag": null, "show": ["hero", "placed"]}
+   ]
+  },
+  {
+   "id": "P03",
+   "slug": "giftby14",
+   "format": "closer",
+   "structure": "closer",
+   "title": "Her gift, before the rush",
+   "big_idea": "The gift closer: half price now, a matching wallet with it, six colours to pick hers, and two real dates: order by 14 December for the best chance before Christmas, the sale ends 30 November.",
+   "why_new": "No closer and no Hobo video gave the gift buyer her real deadline (order by 14 December for the best chance before Christmas); it sells the bag and the wallet as one gift.",
+   "hooks": [
+    {"text": "Don't leave her Christmas present until the last week.", "type": "warning", "label": "DON'T WAIT", "show": ["worn", "walking"]},
+    {"text": "Who on your list is always digging for her keys?", "type": "question", "label": "ALWAYS DIGGING?", "show": ["inside", "packing"]},
+    {"text": "One gift, two pieces: the bag and its matching wallet.", "type": "promise", "label": "TWO PIECES", "show": ["pouch", "handheld"]},
+    {"text": "Her gift, half price, and it ships free.", "type": "price", "label": "HALF PRICE", "show": ["side_zip", "zip_hand"]}
+   ],
+   "chapters": [
+    {"kind": "point", "beat": "why_now", "text": "The Hobo Bag is half price in the Early Black Friday sale, and a matching pouch wallet comes with it. That's a bag and a wallet in one gift.",
+     "tag": "+ FREE POUCH WALLET", "show": ["worn", "walking"]},
+    {"kind": "proof", "beat": "proof", "proof_shot": true, "text": "Her cards go in the hidden back pocket, her keys in the gold side zips, and nothing sinks to the bottom.",
+     "tag": "HIDDEN BACK POCKET", "show": ["pocket", "side_zip"]},
+    {"kind": "point", "beat": "pick", "text": "It comes in six colours, so you can pick hers.",
+     "tag": null, "show": ["colours", "handheld"]},
+    {"kind": "point", "beat": "deadline", "text": "Order by the fourteenth of December for the best chance of delivery before Christmas.",
+     "tag": "ORDER BY 14 DEC", "show": ["packing", "handheld"]},
+    {"kind": "offer", "beat": "offer", "text": "Fifty percent off, free shipping, and the sale ends on the thirtieth of November. Tap the link below.",
+     "tag": null, "show": ["hero", "placed"]}
+   ]
+  }
+ ],
+ "statics": []
+}

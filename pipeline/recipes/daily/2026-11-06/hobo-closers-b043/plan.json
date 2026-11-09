@@ -1,0 +1,1510 @@
+{
+ "prefix": "LC_261106_HoboBag_BlackFriday_B043",
+ "rev": 1,
+ "batch_id": {
+  "id": "B043",
+  "n": 43,
+  "rev": 1
+ },
+ "created": "2026-11-06",
+ "request": "SVIT-190-H3: 3 more video ads like this winner, improved for conversion and ROAS",
+ "product": "Hobo Bag",
+ "product_key": "hobo bag",
+ "product_source": "built-in",
+ "theme": "black friday",
+ "theme_name": "BlackFriday",
+ "offer": "50% off + free matching pouch wallet",
+ "campaign": {
+  "id": "bf2026",
+  "name": "Black Friday Sale 2026",
+  "theme": "black friday",
+  "banner": "Early Black Friday – 50% off everything, up to 60% off",
+  "until": "2026-11-30",
+  "from": "2026-10-23",
+  "end_title": "Black Friday Sale",
+  "end_pill": "UP TO 60% OFF",
+  "card_sub": "",
+  "close": "The Early Black Friday sale is on now, with up to sixty percent off.",
+  "hooks": [
+   "Black Friday prices are live now. No need to wait.",
+   "Early Black Friday: up to sixty percent off.",
+   "Why wait for Black Friday? The prices are already live."
+  ],
+  "facts": [
+   "Early Black Friday Sale: live now (from 23 October), it runs until 30 November (Cyber Monday). Black Friday is 27 November.",
+   "50% off everything sitewide (each bag's own % is on its offer card: the Hobo Bag is 50% off).",
+   "Up to 60% off: some bundles are 60% off, like the Hobo Bag 3-Piece Set. Say '60% off' only of the 3-Piece Set (or another named bundle), never of a single bag or of 'any 2 bags'.",
+   "No free gifts and no extra cart discount: both were removed by the owner on 26 October.",
+   "The Hobo Bag's product page offers the 3-Piece Set as the 'Best Value' upgrade.",
+   "Black Friday prices are live now: no need to wait.",
+   "Sale items are final sale: they cannot be returned (the site's Black Friday terms); faulty items are still covered and the 1-year warranty still applies. Never say 'easy returns', 'free returns' or 'send it back' in a Black Friday ad.",
+   "Christmas delivery (the site's Black Friday terms, filled in by 27 October): order by 14 December 2026 for the best chance of delivery before Christmas; delivery before Christmas is not guaranteed, so say 'the best chance', never 'guaranteed by Christmas'."
+  ],
+  "bundle_pct": null,
+  "upto_pct": 60,
+  "bundle_any": false,
+  "client_ideas": "Owner 2026-10-26: everything is on sale everywhere, so stand out; the Hobo Bag page upsells the 3-Piece Set ('Best Value'): ads that sell the set raise the order value; 'Black Friday prices are live now, no need to wait'; Christmas gifting (mum, sister, best friend); 2 straps on the Hobo 2.0 (handbag + crossbody); in the last week: Black Friday 27 November, Cyber Monday 30 November, 'last chance'. The AI ads 'seem to be starting to work: keep testing'.",
+  "gifts": [],
+  "gifts_worth": null,
+  "dates": {
+   "black friday": "27 November",
+   "cyber monday": "30 November",
+   "ends": "30 November"
+  },
+  "copy": {
+   "primary": [
+    "Early Black Friday is live: 50% off everything, and up to 60% off bundles like the 3-Piece Set.",
+    "Black Friday prices are live now, no need to wait. 50% off everything, up to 60% off bundles."
+   ],
+   "headline": [
+    "Early Black Friday: 50% Off",
+    "Up to 60% Off Bundles",
+    "Black Friday Prices Are Live"
+   ],
+   "description": "Up to 60% off"
+  },
+  "approved_phrases": [
+   "up to (?:60|sixty) ?(?:%|percent) off(?: bundles?)?",
+   "(?:60|sixty) ?(?:%|percent) off (?:the |our )?(?:hobo (?:bag )?)?3-piece set",
+   "(?:50|fifty) ?(?:%|percent) off everything"
+  ],
+  "approved": "Wouter (owner), 2026-10-23: the Black Friday Sale went live on 23 October and runs until 30 November (Cyber Monday). Up to 50% off sitewide; 60% off bundles (2 or 3 bags bought together at 60% off the regular price); free gifts while stocks last: buy 2 bags, get a free mirrored jewellery box (worth $19.95); buy 3+ bags, get the jewellery box + a free cosmetic bag (together worth $44.90); only bags count, not accessories. The site banner (2026-10-23): 'EARLY BLACK FRIDAY: 50% OFF EVERYTHING | BUY 2 BAGS = 1 FREE GIFT | BUY 3 = 2 FREE GIFTS | ORDER TODAY WHILE STOCKS LAST!' | UPDATE Wouter (owner), 2026-10-26: the free gifts and the extra cart discount on bags are removed ('they're not coming back'); 'It's 50% OFF or you can say up to 60% OFF'; 60% is only on bundles 'like the 3 piece set', not any 2 bags; the site now has Early Black Friday messaging, a countdown in the announcement bar, 'Ships by' and delivery dates, and the 3-Piece Set as a 'Best Value' upgrade on the Hobo Bag page; during Black Friday no returns are accepted (final sale).",
+  "final_sale": true,
+  "terms": "https://libracases.com/pages/terms-and-conditions-black-friday-sale",
+  "banned": [
+   {
+    "rx": "\\bfree gifts?\\b|\\bgifts? with (?:2|two|3|three|every)\\b|\\bfree (?:mirrored )?jewell?e?ry box(?:es)?\\b|\\bfree (?:travel )?cosmetic bags?\\b|\\bjewell?e?ry box\\b|\\bcosmetic bag\\b",
+    "why": "the free gifts were removed by the owner on 26 October (not coming back): say the bag's own free pouch wallet, if it has one"
+   },
+   {
+    "rx": "(?:60|sixty) ?(?:%|percent) off\\b[^.!?]{0,60}\\b(?:(?:2|two) (?:or (?:3|three) )?bags|(?:3|three) bags|(?:2|two) or (?:3|three)|second bag|together)|\\b(?:2|two) or (?:3|three) bags\\b[^.!?]{0,30}(?:60|sixty) ?(?:%|percent)",
+    "why": "60% is only on bundles like the 3-Piece Set, not on any 2 or 3 bags (owner, 26 October): say 'up to 60% off' or '60% off the 3-Piece Set'"
+   },
+   {
+    "rx": "\\b(?:ends?|ending) (?:tonight|today)\\b|\\btoday only\\b|\\bonly today\\b|\\b(?:sale|deal|offer)s? ends? (?:soon|in \\d+ (?:hours?|minutes?|days?))\\b|\\bhours? left\\b",
+    "why": "the sale runs until 30 November (owner 2026-10-23; the site banner's 'ends tonight' is the owner's choice for the site only): before the last day 'ends tonight / today only' is false and Meta flags ads whose deadline differs from the landing page; say 'Black Friday prices are live now' or 'the sale ends on the thirtieth of November'",
+    "except_on": [
+     "2026-11-30"
+    ]
+   },
+   {
+    "rx": "\\blast (?:chance|days?|call)\\b|\\bfinal (?:days?|hours?|chance)\\b",
+    "why": "'last chance' is the last week's message (owner's timeline: last-week content by 20 November, for Black Friday 27 Nov - Cyber Monday 30 Nov): before 20 November it is false urgency",
+    "except_from": "2026-11-20"
+   },
+   {
+    "rx": "\\bguarantee\\w*\\b[^.!?]{0,40}\\bchristmas\\b|\\bchristmas\\b[^.!?]{0,40}\\bguarantee\\w*\\b|\\b(?:arrives?|delivered|get it|gets there|be there|in time for)\\b[^.!?]{0,20}\\b(?:in time for|by|before) christmas\\b|\\bin time for christmas\\b",
+    "why": "the site's terms: delivery before Christmas is not guaranteed; say 'order by 14 December for the best chance of delivery before Christmas'"
+   }
+  ]
+ },
+ "statics": [],
+ "videos": [
+  {
+   "name": "LC_261106_HoboBag_BlackFriday_B043_P01_H1_nocode",
+   "id": "P01H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "closer": true,
+   "ugc": {
+    "script": "U01",
+    "angle": "nocode",
+    "words": 91,
+    "structure": "closer",
+    "hook": {
+     "type": "warning",
+     "label": "DON'T SCROLL PAST",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Don't pay full price for a handbag this month.",
+      "type": "warning",
+      "label": "NOT FULL PRICE",
+      "feature": null,
+      "show": [
+       "side_zip",
+       "zip_hand"
+      ]
+     },
+     {
+      "text": "Waiting for Black Friday? The price is already live.",
+      "type": "question",
+      "label": "ALREADY LIVE",
+      "feature": null,
+      "show": [
+       "packing",
+       "inside"
+      ]
+     },
+     {
+      "text": "Half price, and the matching wallet comes with it.",
+      "type": "price",
+      "label": "50% + WALLET",
+      "feature": null,
+      "show": [
+       "pouch",
+       "handheld"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Don't pay full price for a handbag this month.": [
+      [
+       "16bugUA13UINTh8mGcl237pNZ8KnnVjjA",
+       2.17,
+       1.0
+      ],
+      [
+       "1_usQ_ZJKJqd5EAu5KR1jM-pIjyQf1tWu",
+       7.23,
+       1.0
+      ]
+     ],
+     "Waiting for Black Friday? The price is already live.": [
+      [
+       "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+       12.0,
+       1.0
+      ],
+      [
+       "1sqN76Sbj7sjx9lm4gh9zOK0eLM-n7l4w",
+       7.4,
+       1.0
+      ]
+     ],
+     "Half price, and the matching wallet comes with it.": [
+      [
+       "10AwB1uAdRXbIY2gjhJl1q1pbuip29YJN",
+       4.78,
+       1.0
+      ],
+      [
+       "1TeEFWPEZ_jATN9so2DZNeyg-mOPQe8jL",
+       10.56,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 31.0,
+   "project": "P01",
+   "hook_text": "Whatever you do, don't scroll past this one.",
+   "hook_label": "DON'T SCROLL PAST",
+   "hook_type": "warning",
+   "opening_shot": [
+    "1UcPs3RM-Iwrzd5rgOIA6Wxii0i3R3xqL",
+    0.3
+   ]
+  },
+  {
+   "name": "LC_261106_HoboBag_BlackFriday_B043_P01_H2_nocode",
+   "id": "P01H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "closer": true,
+   "ugc": {
+    "script": "U01",
+    "angle": "nocode",
+    "words": 91,
+    "structure": "closer",
+    "hook": {
+     "type": "warning",
+     "label": "DON'T SCROLL PAST",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Don't pay full price for a handbag this month.",
+      "type": "warning",
+      "label": "NOT FULL PRICE",
+      "feature": null,
+      "show": [
+       "side_zip",
+       "zip_hand"
+      ]
+     },
+     {
+      "text": "Waiting for Black Friday? The price is already live.",
+      "type": "question",
+      "label": "ALREADY LIVE",
+      "feature": null,
+      "show": [
+       "packing",
+       "inside"
+      ]
+     },
+     {
+      "text": "Half price, and the matching wallet comes with it.",
+      "type": "price",
+      "label": "50% + WALLET",
+      "feature": null,
+      "show": [
+       "pouch",
+       "handheld"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Don't pay full price for a handbag this month.": [
+      [
+       "16bugUA13UINTh8mGcl237pNZ8KnnVjjA",
+       2.17,
+       1.0
+      ],
+      [
+       "1_usQ_ZJKJqd5EAu5KR1jM-pIjyQf1tWu",
+       7.23,
+       1.0
+      ]
+     ],
+     "Waiting for Black Friday? The price is already live.": [
+      [
+       "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+       12.0,
+       1.0
+      ],
+      [
+       "1sqN76Sbj7sjx9lm4gh9zOK0eLM-n7l4w",
+       7.4,
+       1.0
+      ]
+     ],
+     "Half price, and the matching wallet comes with it.": [
+      [
+       "10AwB1uAdRXbIY2gjhJl1q1pbuip29YJN",
+       4.78,
+       1.0
+      ],
+      [
+       "1TeEFWPEZ_jATN9so2DZNeyg-mOPQe8jL",
+       10.56,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 31.3,
+   "project": "P01",
+   "hook_text": "Waiting for Black Friday? The price is already live.",
+   "hook_label": "ALREADY LIVE",
+   "hook_type": "question",
+   "opening_shot": [
+    "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+    12.0
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261106_HoboBag_BlackFriday_B043_P01_H3_nocode",
+   "id": "P01H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "closer": true,
+   "ugc": {
+    "script": "U01",
+    "angle": "nocode",
+    "words": 91,
+    "structure": "closer",
+    "hook": {
+     "type": "warning",
+     "label": "DON'T SCROLL PAST",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Don't pay full price for a handbag this month.",
+      "type": "warning",
+      "label": "NOT FULL PRICE",
+      "feature": null,
+      "show": [
+       "side_zip",
+       "zip_hand"
+      ]
+     },
+     {
+      "text": "Waiting for Black Friday? The price is already live.",
+      "type": "question",
+      "label": "ALREADY LIVE",
+      "feature": null,
+      "show": [
+       "packing",
+       "inside"
+      ]
+     },
+     {
+      "text": "Half price, and the matching wallet comes with it.",
+      "type": "price",
+      "label": "50% + WALLET",
+      "feature": null,
+      "show": [
+       "pouch",
+       "handheld"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Don't pay full price for a handbag this month.": [
+      [
+       "16bugUA13UINTh8mGcl237pNZ8KnnVjjA",
+       2.17,
+       1.0
+      ],
+      [
+       "1_usQ_ZJKJqd5EAu5KR1jM-pIjyQf1tWu",
+       7.23,
+       1.0
+      ]
+     ],
+     "Waiting for Black Friday? The price is already live.": [
+      [
+       "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+       12.0,
+       1.0
+      ],
+      [
+       "1sqN76Sbj7sjx9lm4gh9zOK0eLM-n7l4w",
+       7.4,
+       1.0
+      ]
+     ],
+     "Half price, and the matching wallet comes with it.": [
+      [
+       "10AwB1uAdRXbIY2gjhJl1q1pbuip29YJN",
+       4.78,
+       1.0
+      ],
+      [
+       "1TeEFWPEZ_jATN9so2DZNeyg-mOPQe8jL",
+       10.56,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 31.3,
+   "project": "P01",
+   "hook_text": "Half price, and the matching wallet comes with it.",
+   "hook_label": "50% + WALLET",
+   "hook_type": "price",
+   "opening_shot": [
+    "10AwB1uAdRXbIY2gjhJl1q1pbuip29YJN",
+    4.78
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261106_HoboBag_BlackFriday_B043_P01_H4_nocode",
+   "id": "P01H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "closer": true,
+   "ugc": {
+    "script": "U01",
+    "angle": "nocode",
+    "words": 91,
+    "structure": "closer",
+    "hook": {
+     "type": "warning",
+     "label": "DON'T SCROLL PAST",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Don't pay full price for a handbag this month.",
+      "type": "warning",
+      "label": "NOT FULL PRICE",
+      "feature": null,
+      "show": [
+       "side_zip",
+       "zip_hand"
+      ]
+     },
+     {
+      "text": "Waiting for Black Friday? The price is already live.",
+      "type": "question",
+      "label": "ALREADY LIVE",
+      "feature": null,
+      "show": [
+       "packing",
+       "inside"
+      ]
+     },
+     {
+      "text": "Half price, and the matching wallet comes with it.",
+      "type": "price",
+      "label": "50% + WALLET",
+      "feature": null,
+      "show": [
+       "pouch",
+       "handheld"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Don't pay full price for a handbag this month.": [
+      [
+       "16bugUA13UINTh8mGcl237pNZ8KnnVjjA",
+       2.17,
+       1.0
+      ],
+      [
+       "1_usQ_ZJKJqd5EAu5KR1jM-pIjyQf1tWu",
+       7.23,
+       1.0
+      ]
+     ],
+     "Waiting for Black Friday? The price is already live.": [
+      [
+       "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+       12.0,
+       1.0
+      ],
+      [
+       "1sqN76Sbj7sjx9lm4gh9zOK0eLM-n7l4w",
+       7.4,
+       1.0
+      ]
+     ],
+     "Half price, and the matching wallet comes with it.": [
+      [
+       "10AwB1uAdRXbIY2gjhJl1q1pbuip29YJN",
+       4.78,
+       1.0
+      ],
+      [
+       "1TeEFWPEZ_jATN9so2DZNeyg-mOPQe8jL",
+       10.56,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 31.3,
+   "project": "P01",
+   "hook_text": "Don't pay full price for a handbag this month.",
+   "hook_label": "NOT FULL PRICE",
+   "hook_type": "warning",
+   "opening_shot": [
+    "16bugUA13UINTh8mGcl237pNZ8KnnVjjA",
+    2.17
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261106_HoboBag_BlackFriday_B043_P02_H1_whatyouget",
+   "id": "P02H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "closer": true,
+   "ugc": {
+    "script": "U02",
+    "angle": "whatyouget",
+    "words": 87,
+    "structure": "closer",
+    "hook": {
+     "type": "warning",
+     "label": "SEE THIS PRICE",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "A $109.90 bag for $54.95, and it ships free.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null,
+      "show": [
+       "worn",
+       "walking"
+      ]
+     },
+     {
+      "text": "What does half price get you this Black Friday?",
+      "type": "question",
+      "label": "WHAT YOU GET",
+      "feature": null,
+      "show": [
+       "packing",
+       "inside"
+      ]
+     },
+     {
+      "text": "Paying full price for a bag that only works one way?",
+      "type": "problem",
+      "label": "ONE WAY ONLY?",
+      "feature": null,
+      "show": [
+       "strap",
+       "worn"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "A $109.90 bag for $54.95, and it ships free.": [
+      [
+       "117P6aO1ank_vR6tSzwyFXsBI_ZpDAHtq",
+       1.5,
+       1.0
+      ],
+      [
+       "1JlS7-GlKLkqklk0xTO2jwXZ2VezE4us4",
+       0.3,
+       1.0
+      ]
+     ],
+     "What does half price get you this Black Friday?": [
+      [
+       "1sqN76Sbj7sjx9lm4gh9zOK0eLM-n7l4w",
+       0.68,
+       1.0
+      ],
+      [
+       "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+       9.5,
+       1.0
+      ]
+     ],
+     "Paying full price for a bag that only works one way?": [
+      [
+       "1rW8joq7MZKj_AKkX4IJJzjfgqlnMg8ph",
+       2.95,
+       1.0
+      ],
+      [
+       "1LjnCWc5SyUtUqAnV-9nnxMILweyDJdL5",
+       12.42,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 29.8,
+   "project": "P02",
+   "hook_text": "Don't buy another handbag until you've seen this price.",
+   "hook_label": "SEE THIS PRICE",
+   "hook_type": "warning",
+   "opening_shot": [
+    "1f_uobOObpjWFcDK1U8yedlh19SJbAzZB",
+    1.49
+   ]
+  },
+  {
+   "name": "LC_261106_HoboBag_BlackFriday_B043_P02_H2_whatyouget",
+   "id": "P02H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "closer": true,
+   "ugc": {
+    "script": "U02",
+    "angle": "whatyouget",
+    "words": 87,
+    "structure": "closer",
+    "hook": {
+     "type": "warning",
+     "label": "SEE THIS PRICE",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "A $109.90 bag for $54.95, and it ships free.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null,
+      "show": [
+       "worn",
+       "walking"
+      ]
+     },
+     {
+      "text": "What does half price get you this Black Friday?",
+      "type": "question",
+      "label": "WHAT YOU GET",
+      "feature": null,
+      "show": [
+       "packing",
+       "inside"
+      ]
+     },
+     {
+      "text": "Paying full price for a bag that only works one way?",
+      "type": "problem",
+      "label": "ONE WAY ONLY?",
+      "feature": null,
+      "show": [
+       "strap",
+       "worn"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "A $109.90 bag for $54.95, and it ships free.": [
+      [
+       "117P6aO1ank_vR6tSzwyFXsBI_ZpDAHtq",
+       1.5,
+       1.0
+      ],
+      [
+       "1JlS7-GlKLkqklk0xTO2jwXZ2VezE4us4",
+       0.3,
+       1.0
+      ]
+     ],
+     "What does half price get you this Black Friday?": [
+      [
+       "1sqN76Sbj7sjx9lm4gh9zOK0eLM-n7l4w",
+       0.68,
+       1.0
+      ],
+      [
+       "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+       9.5,
+       1.0
+      ]
+     ],
+     "Paying full price for a bag that only works one way?": [
+      [
+       "1rW8joq7MZKj_AKkX4IJJzjfgqlnMg8ph",
+       2.95,
+       1.0
+      ],
+      [
+       "1LjnCWc5SyUtUqAnV-9nnxMILweyDJdL5",
+       12.42,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 29.8,
+   "project": "P02",
+   "hook_text": "A $109.90 bag for $54.95, and it ships free.",
+   "hook_label": "HALF PRICE",
+   "hook_type": "price",
+   "opening_shot": [
+    "117P6aO1ank_vR6tSzwyFXsBI_ZpDAHtq",
+    1.5
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261106_HoboBag_BlackFriday_B043_P02_H3_whatyouget",
+   "id": "P02H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "closer": true,
+   "ugc": {
+    "script": "U02",
+    "angle": "whatyouget",
+    "words": 87,
+    "structure": "closer",
+    "hook": {
+     "type": "warning",
+     "label": "SEE THIS PRICE",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "A $109.90 bag for $54.95, and it ships free.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null,
+      "show": [
+       "worn",
+       "walking"
+      ]
+     },
+     {
+      "text": "What does half price get you this Black Friday?",
+      "type": "question",
+      "label": "WHAT YOU GET",
+      "feature": null,
+      "show": [
+       "packing",
+       "inside"
+      ]
+     },
+     {
+      "text": "Paying full price for a bag that only works one way?",
+      "type": "problem",
+      "label": "ONE WAY ONLY?",
+      "feature": null,
+      "show": [
+       "strap",
+       "worn"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "A $109.90 bag for $54.95, and it ships free.": [
+      [
+       "117P6aO1ank_vR6tSzwyFXsBI_ZpDAHtq",
+       1.5,
+       1.0
+      ],
+      [
+       "1JlS7-GlKLkqklk0xTO2jwXZ2VezE4us4",
+       0.3,
+       1.0
+      ]
+     ],
+     "What does half price get you this Black Friday?": [
+      [
+       "1sqN76Sbj7sjx9lm4gh9zOK0eLM-n7l4w",
+       0.68,
+       1.0
+      ],
+      [
+       "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+       9.5,
+       1.0
+      ]
+     ],
+     "Paying full price for a bag that only works one way?": [
+      [
+       "1rW8joq7MZKj_AKkX4IJJzjfgqlnMg8ph",
+       2.95,
+       1.0
+      ],
+      [
+       "1LjnCWc5SyUtUqAnV-9nnxMILweyDJdL5",
+       12.42,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 29.8,
+   "project": "P02",
+   "hook_text": "What does half price get you this Black Friday?",
+   "hook_label": "WHAT YOU GET",
+   "hook_type": "question",
+   "opening_shot": [
+    "1sqN76Sbj7sjx9lm4gh9zOK0eLM-n7l4w",
+    0.68
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261106_HoboBag_BlackFriday_B043_P02_H4_whatyouget",
+   "id": "P02H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "closer": true,
+   "ugc": {
+    "script": "U02",
+    "angle": "whatyouget",
+    "words": 87,
+    "structure": "closer",
+    "hook": {
+     "type": "warning",
+     "label": "SEE THIS PRICE",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "A $109.90 bag for $54.95, and it ships free.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null,
+      "show": [
+       "worn",
+       "walking"
+      ]
+     },
+     {
+      "text": "What does half price get you this Black Friday?",
+      "type": "question",
+      "label": "WHAT YOU GET",
+      "feature": null,
+      "show": [
+       "packing",
+       "inside"
+      ]
+     },
+     {
+      "text": "Paying full price for a bag that only works one way?",
+      "type": "problem",
+      "label": "ONE WAY ONLY?",
+      "feature": null,
+      "show": [
+       "strap",
+       "worn"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "A $109.90 bag for $54.95, and it ships free.": [
+      [
+       "117P6aO1ank_vR6tSzwyFXsBI_ZpDAHtq",
+       1.5,
+       1.0
+      ],
+      [
+       "1JlS7-GlKLkqklk0xTO2jwXZ2VezE4us4",
+       0.3,
+       1.0
+      ]
+     ],
+     "What does half price get you this Black Friday?": [
+      [
+       "1sqN76Sbj7sjx9lm4gh9zOK0eLM-n7l4w",
+       0.68,
+       1.0
+      ],
+      [
+       "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+       9.5,
+       1.0
+      ]
+     ],
+     "Paying full price for a bag that only works one way?": [
+      [
+       "1rW8joq7MZKj_AKkX4IJJzjfgqlnMg8ph",
+       2.95,
+       1.0
+      ],
+      [
+       "1LjnCWc5SyUtUqAnV-9nnxMILweyDJdL5",
+       12.42,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 30.4,
+   "project": "P02",
+   "hook_text": "Paying full price for a bag that only works one way?",
+   "hook_label": "ONE WAY ONLY?",
+   "hook_type": "problem",
+   "opening_shot": [
+    "1rW8joq7MZKj_AKkX4IJJzjfgqlnMg8ph",
+    2.95
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261106_HoboBag_BlackFriday_B043_P03_H1_giftby14",
+   "id": "P03H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "closer": true,
+   "ugc": {
+    "script": "U03",
+    "angle": "giftby14",
+    "words": 101,
+    "structure": "closer",
+    "hook": {
+     "type": "warning",
+     "label": "DON'T WAIT",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Who on your list is always digging for her keys?",
+      "type": "question",
+      "label": "ALWAYS DIGGING?",
+      "feature": null,
+      "show": [
+       "inside",
+       "packing"
+      ]
+     },
+     {
+      "text": "One gift, two pieces: the bag and its matching wallet.",
+      "type": "promise",
+      "label": "TWO PIECES",
+      "feature": null,
+      "show": [
+       "pouch",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Her gift, half price, and it ships free.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null,
+      "show": [
+       "side_zip",
+       "zip_hand"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Who on your list is always digging for her keys?": [
+      [
+       "1xLH44ogCItKnvQZPnEeZieVOk9Zlgbs-",
+       2.35,
+       1.0
+      ],
+      [
+       "1T9jkUynTVM406VuPbvnj6ZJB5TmECMx2",
+       6.68,
+       1.0
+      ]
+     ],
+     "One gift, two pieces: the bag and its matching wallet.": [
+      [
+       "1TeEFWPEZ_jATN9so2DZNeyg-mOPQe8jL",
+       10.56,
+       1.0
+      ],
+      [
+       "1audN6qYuCaN5d8O42kyq9HQKU7OUprGH",
+       13.91,
+       1.0
+      ]
+     ],
+     "Her gift, half price, and it ships free.": [
+      [
+       "1_usQ_ZJKJqd5EAu5KR1jM-pIjyQf1tWu",
+       7.23,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 34.4,
+   "project": "P03",
+   "hook_text": "Don't leave her Christmas present until the last week.",
+   "hook_label": "DON'T WAIT",
+   "hook_type": "warning",
+   "opening_shot": [
+    "1zg2CRMvlkQjNlfLzjdEzt-hJG5uwdh6s",
+    2.99
+   ]
+  },
+  {
+   "name": "LC_261106_HoboBag_BlackFriday_B043_P03_H2_giftby14",
+   "id": "P03H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "closer": true,
+   "ugc": {
+    "script": "U03",
+    "angle": "giftby14",
+    "words": 101,
+    "structure": "closer",
+    "hook": {
+     "type": "warning",
+     "label": "DON'T WAIT",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Who on your list is always digging for her keys?",
+      "type": "question",
+      "label": "ALWAYS DIGGING?",
+      "feature": null,
+      "show": [
+       "inside",
+       "packing"
+      ]
+     },
+     {
+      "text": "One gift, two pieces: the bag and its matching wallet.",
+      "type": "promise",
+      "label": "TWO PIECES",
+      "feature": null,
+      "show": [
+       "pouch",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Her gift, half price, and it ships free.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null,
+      "show": [
+       "side_zip",
+       "zip_hand"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Who on your list is always digging for her keys?": [
+      [
+       "1xLH44ogCItKnvQZPnEeZieVOk9Zlgbs-",
+       2.35,
+       1.0
+      ],
+      [
+       "1T9jkUynTVM406VuPbvnj6ZJB5TmECMx2",
+       6.68,
+       1.0
+      ]
+     ],
+     "One gift, two pieces: the bag and its matching wallet.": [
+      [
+       "1TeEFWPEZ_jATN9so2DZNeyg-mOPQe8jL",
+       10.56,
+       1.0
+      ],
+      [
+       "1audN6qYuCaN5d8O42kyq9HQKU7OUprGH",
+       13.91,
+       1.0
+      ]
+     ],
+     "Her gift, half price, and it ships free.": [
+      [
+       "1_usQ_ZJKJqd5EAu5KR1jM-pIjyQf1tWu",
+       7.23,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 34.7,
+   "project": "P03",
+   "hook_text": "Who on your list is always digging for her keys?",
+   "hook_label": "ALWAYS DIGGING?",
+   "hook_type": "question",
+   "opening_shot": [
+    "1xLH44ogCItKnvQZPnEeZieVOk9Zlgbs-",
+    2.35
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261106_HoboBag_BlackFriday_B043_P03_H3_giftby14",
+   "id": "P03H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "closer": true,
+   "ugc": {
+    "script": "U03",
+    "angle": "giftby14",
+    "words": 101,
+    "structure": "closer",
+    "hook": {
+     "type": "warning",
+     "label": "DON'T WAIT",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Who on your list is always digging for her keys?",
+      "type": "question",
+      "label": "ALWAYS DIGGING?",
+      "feature": null,
+      "show": [
+       "inside",
+       "packing"
+      ]
+     },
+     {
+      "text": "One gift, two pieces: the bag and its matching wallet.",
+      "type": "promise",
+      "label": "TWO PIECES",
+      "feature": null,
+      "show": [
+       "pouch",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Her gift, half price, and it ships free.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null,
+      "show": [
+       "side_zip",
+       "zip_hand"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Who on your list is always digging for her keys?": [
+      [
+       "1xLH44ogCItKnvQZPnEeZieVOk9Zlgbs-",
+       2.35,
+       1.0
+      ],
+      [
+       "1T9jkUynTVM406VuPbvnj6ZJB5TmECMx2",
+       6.68,
+       1.0
+      ]
+     ],
+     "One gift, two pieces: the bag and its matching wallet.": [
+      [
+       "1TeEFWPEZ_jATN9so2DZNeyg-mOPQe8jL",
+       10.56,
+       1.0
+      ],
+      [
+       "1audN6qYuCaN5d8O42kyq9HQKU7OUprGH",
+       13.91,
+       1.0
+      ]
+     ],
+     "Her gift, half price, and it ships free.": [
+      [
+       "1_usQ_ZJKJqd5EAu5KR1jM-pIjyQf1tWu",
+       7.23,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 34.7,
+   "project": "P03",
+   "hook_text": "One gift, two pieces: the bag and its matching wallet.",
+   "hook_label": "TWO PIECES",
+   "hook_type": "promise",
+   "opening_shot": [
+    "1TeEFWPEZ_jATN9so2DZNeyg-mOPQe8jL",
+    10.56
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261106_HoboBag_BlackFriday_B043_P03_H4_giftby14",
+   "id": "P03H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "closer": true,
+   "ugc": {
+    "script": "U03",
+    "angle": "giftby14",
+    "words": 101,
+    "structure": "closer",
+    "hook": {
+     "type": "warning",
+     "label": "DON'T WAIT",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Who on your list is always digging for her keys?",
+      "type": "question",
+      "label": "ALWAYS DIGGING?",
+      "feature": null,
+      "show": [
+       "inside",
+       "packing"
+      ]
+     },
+     {
+      "text": "One gift, two pieces: the bag and its matching wallet.",
+      "type": "promise",
+      "label": "TWO PIECES",
+      "feature": null,
+      "show": [
+       "pouch",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Her gift, half price, and it ships free.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null,
+      "show": [
+       "side_zip",
+       "zip_hand"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Who on your list is always digging for her keys?": [
+      [
+       "1xLH44ogCItKnvQZPnEeZieVOk9Zlgbs-",
+       2.35,
+       1.0
+      ],
+      [
+       "1T9jkUynTVM406VuPbvnj6ZJB5TmECMx2",
+       6.68,
+       1.0
+      ]
+     ],
+     "One gift, two pieces: the bag and its matching wallet.": [
+      [
+       "1TeEFWPEZ_jATN9so2DZNeyg-mOPQe8jL",
+       10.56,
+       1.0
+      ],
+      [
+       "1audN6qYuCaN5d8O42kyq9HQKU7OUprGH",
+       13.91,
+       1.0
+      ]
+     ],
+     "Her gift, half price, and it ships free.": [
+      [
+       "1_usQ_ZJKJqd5EAu5KR1jM-pIjyQf1tWu",
+       7.23,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 34.1,
+   "project": "P03",
+   "hook_text": "Her gift, half price, and it ships free.",
+   "hook_label": "HALF PRICE",
+   "hook_type": "price",
+   "opening_shot": [
+    "1_usQ_ZJKJqd5EAu5KR1jM-pIjyQf1tWu",
+    7.23
+   ],
+   "hook_source": "script"
+  }
+ ],
+ "tts_lines": 26,
+ "tts_dupes": {},
+ "est_credits": 9.1,
+ "budget": 100.0,
+ "colour_images": {
+  "Dark Sienna": "/tmp/claude-0/-home-user-Higgsfield-test/dc62c400-d540-5f8d-8967-810c690f0a81/scratchpad/run3/closers/site/clean/hobo_bag_colour_dark_sienna_nobadge.jpg",
+  "Galaxy Black": "/tmp/claude-0/-home-user-Higgsfield-test/dc62c400-d540-5f8d-8967-810c690f0a81/scratchpad/run3/closers/site/hobo_bag_colour_galaxy_black.jpg",
+  "Blue": "/tmp/claude-0/-home-user-Higgsfield-test/dc62c400-d540-5f8d-8967-810c690f0a81/scratchpad/run3/closers/site/hobo_bag_colour_blue.jpg",
+  "Grey": "/tmp/claude-0/-home-user-Higgsfield-test/dc62c400-d540-5f8d-8967-810c690f0a81/scratchpad/run3/closers/site/hobo_bag_colour_grey.jpg",
+  "Burgundy": "/tmp/claude-0/-home-user-Higgsfield-test/dc62c400-d540-5f8d-8967-810c690f0a81/scratchpad/run3/closers/site/hobo_bag_colour_burgundy.jpg",
+  "Red": "/tmp/claude-0/-home-user-Higgsfield-test/dc62c400-d540-5f8d-8967-810c690f0a81/scratchpad/run3/closers/site/hobo_bag_colour_red.jpg"
+ },
+ "packshots": [
+  "/tmp/claude-0/-home-user-Higgsfield-test/dc62c400-d540-5f8d-8967-810c690f0a81/scratchpad/run3/closers/site/hobo_bag_colour_galaxy_black.jpg",
+  "/tmp/claude-0/-home-user-Higgsfield-test/dc62c400-d540-5f8d-8967-810c690f0a81/scratchpad/run3/closers/site/hobo_bag_colour_blue.jpg",
+  "/tmp/claude-0/-home-user-Higgsfield-test/dc62c400-d540-5f8d-8967-810c690f0a81/scratchpad/run3/closers/site/hobo_bag_colour_grey.jpg",
+  "/tmp/claude-0/-home-user-Higgsfield-test/dc62c400-d540-5f8d-8967-810c690f0a81/scratchpad/run3/closers/site/hobo_bag_colour_burgundy.jpg",
+  "/tmp/claude-0/-home-user-Higgsfield-test/dc62c400-d540-5f8d-8967-810c690f0a81/scratchpad/run3/closers/site/hobo_bag_colour_red.jpg"
+ ],
+ "brief": null,
+ "winners_source": null,
+ "winners_note": null,
+ "winners_used": [],
+ "unmatched_winners": [],
+ "warnings": [
+  "campaign: Black Friday Sale 2026 (2026-10-23 to 2026-11-30, client-approved): end cards say 'Black Friday Sale' + 'UP TO 60% OFF'; the close and the ad copy name the sale; each bag's own % stays its offer",
+  "Hobo Bag has 12 earlier batch(es) in the novelty log: the statics start 12 step(s) further in their photo / headline cycle (other photos and captions than before)",
+  "P01: hook types repeat (warning, question, price, warning)"
+ ],
+ "winner_reviews": false,
+ "seed": 1,
+ "hooks": 4,
+ "pipeline": "catalog",
+ "video_format": "ugc",
+ "ugc_numbers": [],
+ "voice": {
+  "voice_type": "element",
+  "voice_id": "241459b6-b4e8-4a2a-9868-da8bcdcd0558",
+  "speed": 1.12
+ },
+ "projects": [
+  {
+   "id": "P01",
+   "from_id": "V01",
+   "angle": "nocode",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P01H1",
+     "name": "LC_261106_HoboBag_BlackFriday_B043_P01_H1_nocode",
+     "hook_text": "Whatever you do, don't scroll past this one.",
+     "label": "DON'T SCROLL PAST",
+     "type": "warning",
+     "shot": [
+      "1UcPs3RM-Iwrzd5rgOIA6Wxii0i3R3xqL",
+      0.3
+     ],
+     "est_seconds": 31.0
+    },
+    {
+     "hook": "H2",
+     "id": "P01H2",
+     "name": "LC_261106_HoboBag_BlackFriday_B043_P01_H2_nocode",
+     "hook_text": "Waiting for Black Friday? The price is already live.",
+     "label": "ALREADY LIVE",
+     "type": "question",
+     "shot": [
+      "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+      12.0
+     ],
+     "est_seconds": 31.3
+    },
+    {
+     "hook": "H3",
+     "id": "P01H3",
+     "name": "LC_261106_HoboBag_BlackFriday_B043_P01_H3_nocode",
+     "hook_text": "Half price, and the matching wallet comes with it.",
+     "label": "50% + WALLET",
+     "type": "price",
+     "shot": [
+      "10AwB1uAdRXbIY2gjhJl1q1pbuip29YJN",
+      4.78
+     ],
+     "est_seconds": 31.3
+    },
+    {
+     "hook": "H4",
+     "id": "P01H4",
+     "name": "LC_261106_HoboBag_BlackFriday_B043_P01_H4_nocode",
+     "hook_text": "Don't pay full price for a handbag this month.",
+     "label": "NOT FULL PRICE",
+     "type": "warning",
+     "shot": [
+      "16bugUA13UINTh8mGcl237pNZ8KnnVjjA",
+      2.17
+     ],
+     "est_seconds": 31.3
+    }
+   ],
+   "closer": true
+  },
+  {
+   "id": "P02",
+   "from_id": "V02",
+   "angle": "whatyouget",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P02H1",
+     "name": "LC_261106_HoboBag_BlackFriday_B043_P02_H1_whatyouget",
+     "hook_text": "Don't buy another handbag until you've seen this price.",
+     "label": "SEE THIS PRICE",
+     "type": "warning",
+     "shot": [
+      "1f_uobOObpjWFcDK1U8yedlh19SJbAzZB",
+      1.49
+     ],
+     "est_seconds": 29.8
+    },
+    {
+     "hook": "H2",
+     "id": "P02H2",
+     "name": "LC_261106_HoboBag_BlackFriday_B043_P02_H2_whatyouget",
+     "hook_text": "A $109.90 bag for $54.95, and it ships free.",
+     "label": "HALF PRICE",
+     "type": "price",
+     "shot": [
+      "117P6aO1ank_vR6tSzwyFXsBI_ZpDAHtq",
+      1.5
+     ],
+     "est_seconds": 29.8
+    },
+    {
+     "hook": "H3",
+     "id": "P02H3",
+     "name": "LC_261106_HoboBag_BlackFriday_B043_P02_H3_whatyouget",
+     "hook_text": "What does half price get you this Black Friday?",
+     "label": "WHAT YOU GET",
+     "type": "question",
+     "shot": [
+      "1sqN76Sbj7sjx9lm4gh9zOK0eLM-n7l4w",
+      0.68
+     ],
+     "est_seconds": 29.8
+    },
+    {
+     "hook": "H4",
+     "id": "P02H4",
+     "name": "LC_261106_HoboBag_BlackFriday_B043_P02_H4_whatyouget",
+     "hook_text": "Paying full price for a bag that only works one way?",
+     "label": "ONE WAY ONLY?",
+     "type": "problem",
+     "shot": [
+      "1rW8joq7MZKj_AKkX4IJJzjfgqlnMg8ph",
+      2.95
+     ],
+     "est_seconds": 30.4
+    }
+   ],
+   "closer": true
+  },
+  {
+   "id": "P03",
+   "from_id": "V03",
+   "angle": "giftby14",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P03H1",
+     "name": "LC_261106_HoboBag_BlackFriday_B043_P03_H1_giftby14",
+     "hook_text": "Don't leave her Christmas present until the last week.",
+     "label": "DON'T WAIT",
+     "type": "warning",
+     "shot": [
+      "1zg2CRMvlkQjNlfLzjdEzt-hJG5uwdh6s",
+      2.99
+     ],
+     "est_seconds": 34.4
+    },
+    {
+     "hook": "H2",
+     "id": "P03H2",
+     "name": "LC_261106_HoboBag_BlackFriday_B043_P03_H2_giftby14",
+     "hook_text": "Who on your list is always digging for her keys?",
+     "label": "ALWAYS DIGGING?",
+     "type": "question",
+     "shot": [
+      "1xLH44ogCItKnvQZPnEeZieVOk9Zlgbs-",
+      2.35
+     ],
+     "est_seconds": 34.7
+    },
+    {
+     "hook": "H3",
+     "id": "P03H3",
+     "name": "LC_261106_HoboBag_BlackFriday_B043_P03_H3_giftby14",
+     "hook_text": "One gift, two pieces: the bag and its matching wallet.",
+     "label": "TWO PIECES",
+     "type": "promise",
+     "shot": [
+      "1TeEFWPEZ_jATN9so2DZNeyg-mOPQe8jL",
+      10.56
+     ],
+     "est_seconds": 34.7
+    },
+    {
+     "hook": "H4",
+     "id": "P03H4",
+     "name": "LC_261106_HoboBag_BlackFriday_B043_P03_H4_giftby14",
+     "hook_text": "Her gift, half price, and it ships free.",
+     "label": "HALF PRICE",
+     "type": "price",
+     "shot": [
+      "1_usQ_ZJKJqd5EAu5KR1jM-pIjyQf1tWu",
+      7.23
+     ],
+     "est_seconds": 34.1
+    }
+   ],
+   "closer": true
+  }
+ ],
+ "hooks_seed": 1
+}
