@@ -134,9 +134,9 @@ def test_a_batch_of_two():
     p2.update(id="P02", slug="platform2", title="Another platform story", big_idea="A different story entirely about an evening out at dinner.")
     s["projects"].append(p2)
     P = problems(s)
-    assert has(P, "'one_moment' is used 2 times") and has(P, "lead with HIDDEN BACK POCKET") and has(P, "carries the presenter"), P
+    assert has(P, "'one_moment' is used 2 times") and has(P, "lead with HIDDEN BACK POCKET") and has(P, "carry the presenter"), P
     s["no_presenter"] = "the request says: no presenter"
-    assert not has(problems(s), "carries the presenter")
+    assert not has(problems(s), "carry the presenter")
 
 
 def test_new_structures_every_batch_and_old_sheets_keep_their_rules():

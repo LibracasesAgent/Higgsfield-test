@@ -1,0 +1,2472 @@
+{
+ "prefix": "LC_261105_HoboBag_BlackFriday_B042r2",
+ "rev": 2,
+ "batch_id": {
+  "id": "B042r2",
+  "n": 42,
+  "rev": 2
+ },
+ "created": "2026-11-05",
+ "request": "comparison batch: tote vs Hobo Bag, show them like Julian said (Julian's call 2026-11-05)",
+ "product": "Hobo Bag",
+ "product_key": "hobo bag",
+ "product_source": "built-in",
+ "theme": "black friday",
+ "theme_name": "BlackFriday",
+ "offer": "50% off + free matching pouch wallet",
+ "campaign": {
+  "id": "bf2026",
+  "name": "Black Friday Sale 2026",
+  "theme": "black friday",
+  "banner": "Early Black Friday – 50% off everything, up to 60% off",
+  "until": "2026-11-30",
+  "from": "2026-10-23",
+  "end_title": "Black Friday Sale",
+  "end_pill": "UP TO 60% OFF",
+  "card_sub": "",
+  "close": "The Early Black Friday sale is on now, with up to sixty percent off.",
+  "hooks": [
+   "Black Friday prices are live now. No need to wait.",
+   "Early Black Friday: up to sixty percent off.",
+   "Why wait for Black Friday? The prices are already live."
+  ],
+  "facts": [
+   "Early Black Friday Sale: live now (from 23 October), it runs until 30 November (Cyber Monday). Black Friday is 27 November.",
+   "50% off everything sitewide (each bag's own % is on its offer card: the Hobo Bag is 50% off).",
+   "Up to 60% off: some bundles are 60% off, like the Hobo Bag 3-Piece Set. Say '60% off' only of the 3-Piece Set (or another named bundle), never of a single bag or of 'any 2 bags'.",
+   "No free gifts and no extra cart discount: both were removed by the owner on 26 October.",
+   "The Hobo Bag's product page offers the 3-Piece Set as the 'Best Value' upgrade.",
+   "Black Friday prices are live now: no need to wait.",
+   "Sale items are final sale: they cannot be returned (the site's Black Friday terms); faulty items are still covered and the 1-year warranty still applies. Never say 'easy returns', 'free returns' or 'send it back' in a Black Friday ad.",
+   "Christmas delivery (the site's Black Friday terms, filled in by 27 October): order by 14 December 2026 for the best chance of delivery before Christmas; delivery before Christmas is not guaranteed, so say 'the best chance', never 'guaranteed by Christmas'."
+  ],
+  "bundle_pct": null,
+  "upto_pct": 60,
+  "bundle_any": false,
+  "client_ideas": "Owner 2026-10-26: everything is on sale everywhere, so stand out; the Hobo Bag page upsells the 3-Piece Set ('Best Value'): ads that sell the set raise the order value; 'Black Friday prices are live now, no need to wait'; Christmas gifting (mum, sister, best friend); 2 straps on the Hobo 2.0 (handbag + crossbody); in the last week: Black Friday 27 November, Cyber Monday 30 November, 'last chance'. The AI ads 'seem to be starting to work: keep testing'.",
+  "gifts": [],
+  "gifts_worth": null,
+  "dates": {
+   "black friday": "27 November",
+   "cyber monday": "30 November",
+   "ends": "30 November"
+  },
+  "copy": {
+   "primary": [
+    "Early Black Friday is live: 50% off everything, and up to 60% off bundles like the 3-Piece Set.",
+    "Black Friday prices are live now, no need to wait. 50% off everything, up to 60% off bundles."
+   ],
+   "headline": [
+    "Early Black Friday: 50% Off",
+    "Up to 60% Off Bundles",
+    "Black Friday Prices Are Live"
+   ],
+   "description": "Up to 60% off"
+  },
+  "approved_phrases": [
+   "up to (?:60|sixty) ?(?:%|percent) off(?: bundles?)?",
+   "(?:60|sixty) ?(?:%|percent) off (?:the |our )?(?:hobo (?:bag )?)?3-piece set",
+   "(?:50|fifty) ?(?:%|percent) off everything"
+  ],
+  "approved": "Wouter (owner), 2026-10-23: the Black Friday Sale went live on 23 October and runs until 30 November (Cyber Monday). Up to 50% off sitewide; 60% off bundles (2 or 3 bags bought together at 60% off the regular price); free gifts while stocks last: buy 2 bags, get a free mirrored jewellery box (worth $19.95); buy 3+ bags, get the jewellery box + a free cosmetic bag (together worth $44.90); only bags count, not accessories. The site banner (2026-10-23): 'EARLY BLACK FRIDAY: 50% OFF EVERYTHING | BUY 2 BAGS = 1 FREE GIFT | BUY 3 = 2 FREE GIFTS | ORDER TODAY WHILE STOCKS LAST!' | UPDATE Wouter (owner), 2026-10-26: the free gifts and the extra cart discount on bags are removed ('they're not coming back'); 'It's 50% OFF or you can say up to 60% OFF'; 60% is only on bundles 'like the 3 piece set', not any 2 bags; the site now has Early Black Friday messaging, a countdown in the announcement bar, 'Ships by' and delivery dates, and the 3-Piece Set as a 'Best Value' upgrade on the Hobo Bag page; during Black Friday no returns are accepted (final sale).",
+  "final_sale": true,
+  "terms": "https://libracases.com/pages/terms-and-conditions-black-friday-sale",
+  "banned": [
+   {
+    "rx": "\\bfree gifts?\\b|\\bgifts? with (?:2|two|3|three|every)\\b|\\bfree (?:mirrored )?jewell?e?ry box(?:es)?\\b|\\bfree (?:travel )?cosmetic bags?\\b|\\bjewell?e?ry box\\b|\\bcosmetic bag\\b",
+    "why": "the free gifts were removed by the owner on 26 October (not coming back): say the bag's own free pouch wallet, if it has one"
+   },
+   {
+    "rx": "(?:60|sixty) ?(?:%|percent) off\\b[^.!?]{0,60}\\b(?:(?:2|two) (?:or (?:3|three) )?bags|(?:3|three) bags|(?:2|two) or (?:3|three)|second bag|together)|\\b(?:2|two) or (?:3|three) bags\\b[^.!?]{0,30}(?:60|sixty) ?(?:%|percent)",
+    "why": "60% is only on bundles like the 3-Piece Set, not on any 2 or 3 bags (owner, 26 October): say 'up to 60% off' or '60% off the 3-Piece Set'"
+   },
+   {
+    "rx": "\\b(?:ends?|ending) (?:tonight|today)\\b|\\btoday only\\b|\\bonly today\\b|\\b(?:sale|deal|offer)s? ends? (?:soon|in \\d+ (?:hours?|minutes?|days?))\\b|\\bhours? left\\b",
+    "why": "the sale runs until 30 November (owner 2026-10-23; the site banner's 'ends tonight' is the owner's choice for the site only): before the last day 'ends tonight / today only' is false and Meta flags ads whose deadline differs from the landing page; say 'Black Friday prices are live now' or 'the sale ends on the thirtieth of November'",
+    "except_on": [
+     "2026-11-30"
+    ]
+   },
+   {
+    "rx": "\\blast (?:chance|days?|call)\\b|\\bfinal (?:days?|hours?|chance)\\b",
+    "why": "'last chance' is the last week's message (owner's timeline: last-week content by 20 November, for Black Friday 27 Nov - Cyber Monday 30 Nov): before 20 November it is false urgency",
+    "except_from": "2026-11-20"
+   },
+   {
+    "rx": "\\bguarantee\\w*\\b[^.!?]{0,40}\\bchristmas\\b|\\bchristmas\\b[^.!?]{0,40}\\bguarantee\\w*\\b|\\b(?:arrives?|delivered|get it|gets there|be there|in time for)\\b[^.!?]{0,20}\\b(?:in time for|by|before) christmas\\b|\\bin time for christmas\\b",
+    "why": "the site's terms: delivery before Christmas is not guaranteed; say 'order by 14 December for the best chance of delivery before Christmas'"
+   }
+  ]
+ },
+ "statics": [
+  "LC_261105_HoboBag_BlackFriday_B042r2_S01_versus",
+  "LC_261105_HoboBag_BlackFriday_B042r2_S02_versus",
+  "LC_261105_HoboBag_BlackFriday_B042r2_S03_hook",
+  "LC_261105_HoboBag_BlackFriday_B042r2_S04_list",
+  "LC_261105_HoboBag_BlackFriday_B042r2_S05_compare",
+  "LC_261105_HoboBag_BlackFriday_B042r2_S06_benchpair",
+  "LC_261105_HoboBag_BlackFriday_B042r2_S07_toteretired",
+  "LC_261105_HoboBag_BlackFriday_B042r2_S08_numerals",
+  "LC_261105_HoboBag_BlackFriday_B042r2_S09_native",
+  "LC_261105_HoboBag_BlackFriday_B042r2_S10_burst",
+  "LC_261105_HoboBag_BlackFriday_B042r2_S11_studio",
+  "LC_261105_HoboBag_BlackFriday_B042r2_S12_value"
+ ],
+ "videos": [
+  {
+   "name": "LC_261105_HoboBag_BlackFriday_B042r2_P01_H1_pairbypair",
+   "id": "P01H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "ugc": {
+    "script": "U01",
+    "angle": "pairbypair",
+    "words": 179,
+    "structure": "pairs",
+    "hook": {
+     "type": "question",
+     "label": "TOTE VS HOBO",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Keys at the bottom of an open tote, again?",
+      "type": "problem",
+      "label": "SOUND FAMILIAR?",
+      "feature": null,
+      "show": [
+       "packing",
+       "inside"
+      ]
+     },
+     {
+      "text": "Watch an open tote lose to one gold side zip.",
+      "type": "promise",
+      "label": "WATCH THIS",
+      "feature": null,
+      "show": [
+       "zip",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Which bag would you carry through a busy market on Saturday?",
+      "type": "question",
+      "label": "YOUR PICK",
+      "feature": null,
+      "show": [
+       "worn",
+       "walking"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Keys at the bottom of an open tote, again?": [
+      [
+       "10ev2Mfet9vPJ-jRrxK4fdn2sr3BmTFTV",
+       21.0,
+       1.0
+      ],
+      [
+       "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+       9.5,
+       1.0
+      ]
+     ],
+     "Watch an open tote lose to one gold side zip.": [
+      [
+       "1_usQ_ZJKJqd5EAu5KR1jM-pIjyQf1tWu",
+       7.23,
+       1.0
+      ],
+      [
+       "1mnZ266w4JTvXOnLeuzhOhtTBQM-8dYiF",
+       14.54,
+       1.0
+      ]
+     ],
+     "Which bag would you carry through a busy market on Saturday?": [
+      [
+       "1rW8joq7MZKj_AKkX4IJJzjfgqlnMg8ph",
+       2.95,
+       1.0
+      ],
+      [
+       "1n7DqtmIasEkSdk0PXJqhYF9MJSL7RTiI",
+       0.3,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 59.8,
+   "project": "P01",
+   "hook_text": "Open tote or zipped hobo: where do your keys end up?",
+   "hook_label": "TOTE VS HOBO",
+   "hook_type": "question",
+   "opening_shot": [
+    "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+    1.0
+   ]
+  },
+  {
+   "name": "LC_261105_HoboBag_BlackFriday_B042r2_P01_H2_pairbypair",
+   "id": "P01H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "ugc": {
+    "script": "U01",
+    "angle": "pairbypair",
+    "words": 179,
+    "structure": "pairs",
+    "hook": {
+     "type": "question",
+     "label": "TOTE VS HOBO",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Keys at the bottom of an open tote, again?",
+      "type": "problem",
+      "label": "SOUND FAMILIAR?",
+      "feature": null,
+      "show": [
+       "packing",
+       "inside"
+      ]
+     },
+     {
+      "text": "Watch an open tote lose to one gold side zip.",
+      "type": "promise",
+      "label": "WATCH THIS",
+      "feature": null,
+      "show": [
+       "zip",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Which bag would you carry through a busy market on Saturday?",
+      "type": "question",
+      "label": "YOUR PICK",
+      "feature": null,
+      "show": [
+       "worn",
+       "walking"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Keys at the bottom of an open tote, again?": [
+      [
+       "10ev2Mfet9vPJ-jRrxK4fdn2sr3BmTFTV",
+       21.0,
+       1.0
+      ],
+      [
+       "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+       9.5,
+       1.0
+      ]
+     ],
+     "Watch an open tote lose to one gold side zip.": [
+      [
+       "1_usQ_ZJKJqd5EAu5KR1jM-pIjyQf1tWu",
+       7.23,
+       1.0
+      ],
+      [
+       "1mnZ266w4JTvXOnLeuzhOhtTBQM-8dYiF",
+       14.54,
+       1.0
+      ]
+     ],
+     "Which bag would you carry through a busy market on Saturday?": [
+      [
+       "1rW8joq7MZKj_AKkX4IJJzjfgqlnMg8ph",
+       2.95,
+       1.0
+      ],
+      [
+       "1n7DqtmIasEkSdk0PXJqhYF9MJSL7RTiI",
+       0.3,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 59.2,
+   "project": "P01",
+   "hook_text": "Keys at the bottom of an open tote, again?",
+   "hook_label": "SOUND FAMILIAR?",
+   "hook_type": "problem",
+   "opening_shot": [
+    "10ev2Mfet9vPJ-jRrxK4fdn2sr3BmTFTV",
+    21.0
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261105_HoboBag_BlackFriday_B042r2_P01_H3_pairbypair",
+   "id": "P01H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "ugc": {
+    "script": "U01",
+    "angle": "pairbypair",
+    "words": 179,
+    "structure": "pairs",
+    "hook": {
+     "type": "question",
+     "label": "TOTE VS HOBO",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Keys at the bottom of an open tote, again?",
+      "type": "problem",
+      "label": "SOUND FAMILIAR?",
+      "feature": null,
+      "show": [
+       "packing",
+       "inside"
+      ]
+     },
+     {
+      "text": "Watch an open tote lose to one gold side zip.",
+      "type": "promise",
+      "label": "WATCH THIS",
+      "feature": null,
+      "show": [
+       "zip",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Which bag would you carry through a busy market on Saturday?",
+      "type": "question",
+      "label": "YOUR PICK",
+      "feature": null,
+      "show": [
+       "worn",
+       "walking"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Keys at the bottom of an open tote, again?": [
+      [
+       "10ev2Mfet9vPJ-jRrxK4fdn2sr3BmTFTV",
+       21.0,
+       1.0
+      ],
+      [
+       "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+       9.5,
+       1.0
+      ]
+     ],
+     "Watch an open tote lose to one gold side zip.": [
+      [
+       "1_usQ_ZJKJqd5EAu5KR1jM-pIjyQf1tWu",
+       7.23,
+       1.0
+      ],
+      [
+       "1mnZ266w4JTvXOnLeuzhOhtTBQM-8dYiF",
+       14.54,
+       1.0
+      ]
+     ],
+     "Which bag would you carry through a busy market on Saturday?": [
+      [
+       "1rW8joq7MZKj_AKkX4IJJzjfgqlnMg8ph",
+       2.95,
+       1.0
+      ],
+      [
+       "1n7DqtmIasEkSdk0PXJqhYF9MJSL7RTiI",
+       0.3,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 59.5,
+   "project": "P01",
+   "hook_text": "Watch an open tote lose to one gold side zip.",
+   "hook_label": "WATCH THIS",
+   "hook_type": "promise",
+   "opening_shot": [
+    "1_usQ_ZJKJqd5EAu5KR1jM-pIjyQf1tWu",
+    7.23
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261105_HoboBag_BlackFriday_B042r2_P01_H4_pairbypair",
+   "id": "P01H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "ugc": {
+    "script": "U01",
+    "angle": "pairbypair",
+    "words": 179,
+    "structure": "pairs",
+    "hook": {
+     "type": "question",
+     "label": "TOTE VS HOBO",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Keys at the bottom of an open tote, again?",
+      "type": "problem",
+      "label": "SOUND FAMILIAR?",
+      "feature": null,
+      "show": [
+       "packing",
+       "inside"
+      ]
+     },
+     {
+      "text": "Watch an open tote lose to one gold side zip.",
+      "type": "promise",
+      "label": "WATCH THIS",
+      "feature": null,
+      "show": [
+       "zip",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Which bag would you carry through a busy market on Saturday?",
+      "type": "question",
+      "label": "YOUR PICK",
+      "feature": null,
+      "show": [
+       "worn",
+       "walking"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Keys at the bottom of an open tote, again?": [
+      [
+       "10ev2Mfet9vPJ-jRrxK4fdn2sr3BmTFTV",
+       21.0,
+       1.0
+      ],
+      [
+       "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+       9.5,
+       1.0
+      ]
+     ],
+     "Watch an open tote lose to one gold side zip.": [
+      [
+       "1_usQ_ZJKJqd5EAu5KR1jM-pIjyQf1tWu",
+       7.23,
+       1.0
+      ],
+      [
+       "1mnZ266w4JTvXOnLeuzhOhtTBQM-8dYiF",
+       14.54,
+       1.0
+      ]
+     ],
+     "Which bag would you carry through a busy market on Saturday?": [
+      [
+       "1rW8joq7MZKj_AKkX4IJJzjfgqlnMg8ph",
+       2.95,
+       1.0
+      ],
+      [
+       "1n7DqtmIasEkSdk0PXJqhYF9MJSL7RTiI",
+       0.3,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 59.8,
+   "project": "P01",
+   "hook_text": "Which bag would you carry through a busy market on Saturday?",
+   "hook_label": "YOUR PICK",
+   "hook_type": "question",
+   "opening_shot": [
+    "1rW8joq7MZKj_AKkX4IJJzjfgqlnMg8ph",
+    2.95
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261105_HoboBag_BlackFriday_B042r2_P02_H1_totemyth",
+   "id": "P02H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "ugc": {
+    "script": "U02",
+    "angle": "totemyth",
+    "words": 188,
+    "structure": "myth_fact",
+    "hook": {
+     "type": "question",
+     "label": "MYTH OR FACT?",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "The truth about big totes: your phone sinks to the bottom.",
+      "type": "problem",
+      "label": "THE TRUTH",
+      "feature": null,
+      "show": [
+       "inside",
+       "zip_hand"
+      ]
+     },
+     {
+      "text": "Imagine reaching into your bag and finding your phone first time.",
+      "type": "promise",
+      "label": "FIRST TIME",
+      "feature": null,
+      "show": [
+       "zip_hand",
+       "side_zip"
+      ]
+     },
+     {
+      "text": "Look inside: roomy does not have to mean messy.",
+      "type": "promise",
+      "label": "ROOMY, NOT MESSY",
+      "feature": null,
+      "show": [
+       "strap",
+       "inside"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "The truth about big totes: your phone sinks to the bottom.": [
+      [
+       "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+       12.0,
+       1.0
+      ],
+      [
+       "1H37laFpFlZXnZEBieyhIattc5OOx8_01",
+       29.07,
+       1.0
+      ]
+     ],
+     "Imagine reaching into your bag and finding your phone first time.": [
+      [
+       "1TIc3blFRxaHvZyWpOCe6nGyPxXb88wL2",
+       1.76,
+       1.0
+      ],
+      [
+       "12qiyl7FV85hnSYait8tRRCuxovMyad1L",
+       6.32,
+       1.0
+      ]
+     ],
+     "Look inside: roomy does not have to mean messy.": [
+      [
+       "1BWNNnVSL__dnRh4_fjj0yEGkGUPyoCQ9",
+       0.3,
+       1.0
+      ],
+      [
+       "1uJ8lXpSyvNzOnU4JcyOqEljmj02JPzo_",
+       0.3,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 62.9,
+   "project": "P02",
+   "hook_text": "Think a big tote is the easy bag for everything?",
+   "hook_label": "MYTH OR FACT?",
+   "hook_type": "question",
+   "opening_shot": [
+    "1NuCVbKCrAGKgLyGpaVgNohAbss7I4zMS",
+    10.1
+   ]
+  },
+  {
+   "name": "LC_261105_HoboBag_BlackFriday_B042r2_P02_H2_totemyth",
+   "id": "P02H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "ugc": {
+    "script": "U02",
+    "angle": "totemyth",
+    "words": 188,
+    "structure": "myth_fact",
+    "hook": {
+     "type": "question",
+     "label": "MYTH OR FACT?",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "The truth about big totes: your phone sinks to the bottom.",
+      "type": "problem",
+      "label": "THE TRUTH",
+      "feature": null,
+      "show": [
+       "inside",
+       "zip_hand"
+      ]
+     },
+     {
+      "text": "Imagine reaching into your bag and finding your phone first time.",
+      "type": "promise",
+      "label": "FIRST TIME",
+      "feature": null,
+      "show": [
+       "zip_hand",
+       "side_zip"
+      ]
+     },
+     {
+      "text": "Look inside: roomy does not have to mean messy.",
+      "type": "promise",
+      "label": "ROOMY, NOT MESSY",
+      "feature": null,
+      "show": [
+       "strap",
+       "inside"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "The truth about big totes: your phone sinks to the bottom.": [
+      [
+       "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+       12.0,
+       1.0
+      ],
+      [
+       "1H37laFpFlZXnZEBieyhIattc5OOx8_01",
+       29.07,
+       1.0
+      ]
+     ],
+     "Imagine reaching into your bag and finding your phone first time.": [
+      [
+       "1TIc3blFRxaHvZyWpOCe6nGyPxXb88wL2",
+       1.76,
+       1.0
+      ],
+      [
+       "12qiyl7FV85hnSYait8tRRCuxovMyad1L",
+       6.32,
+       1.0
+      ]
+     ],
+     "Look inside: roomy does not have to mean messy.": [
+      [
+       "1BWNNnVSL__dnRh4_fjj0yEGkGUPyoCQ9",
+       0.3,
+       1.0
+      ],
+      [
+       "1uJ8lXpSyvNzOnU4JcyOqEljmj02JPzo_",
+       0.3,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 63.2,
+   "project": "P02",
+   "hook_text": "The truth about big totes: your phone sinks to the bottom.",
+   "hook_label": "THE TRUTH",
+   "hook_type": "problem",
+   "opening_shot": [
+    "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+    12.0
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261105_HoboBag_BlackFriday_B042r2_P02_H3_totemyth",
+   "id": "P02H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "ugc": {
+    "script": "U02",
+    "angle": "totemyth",
+    "words": 188,
+    "structure": "myth_fact",
+    "hook": {
+     "type": "question",
+     "label": "MYTH OR FACT?",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "The truth about big totes: your phone sinks to the bottom.",
+      "type": "problem",
+      "label": "THE TRUTH",
+      "feature": null,
+      "show": [
+       "inside",
+       "zip_hand"
+      ]
+     },
+     {
+      "text": "Imagine reaching into your bag and finding your phone first time.",
+      "type": "promise",
+      "label": "FIRST TIME",
+      "feature": null,
+      "show": [
+       "zip_hand",
+       "side_zip"
+      ]
+     },
+     {
+      "text": "Look inside: roomy does not have to mean messy.",
+      "type": "promise",
+      "label": "ROOMY, NOT MESSY",
+      "feature": null,
+      "show": [
+       "strap",
+       "inside"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "The truth about big totes: your phone sinks to the bottom.": [
+      [
+       "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+       12.0,
+       1.0
+      ],
+      [
+       "1H37laFpFlZXnZEBieyhIattc5OOx8_01",
+       29.07,
+       1.0
+      ]
+     ],
+     "Imagine reaching into your bag and finding your phone first time.": [
+      [
+       "1TIc3blFRxaHvZyWpOCe6nGyPxXb88wL2",
+       1.76,
+       1.0
+      ],
+      [
+       "12qiyl7FV85hnSYait8tRRCuxovMyad1L",
+       6.32,
+       1.0
+      ]
+     ],
+     "Look inside: roomy does not have to mean messy.": [
+      [
+       "1BWNNnVSL__dnRh4_fjj0yEGkGUPyoCQ9",
+       0.3,
+       1.0
+      ],
+      [
+       "1uJ8lXpSyvNzOnU4JcyOqEljmj02JPzo_",
+       0.3,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 63.2,
+   "project": "P02",
+   "hook_text": "Imagine reaching into your bag and finding your phone first time.",
+   "hook_label": "FIRST TIME",
+   "hook_type": "promise",
+   "opening_shot": [
+    "1TIc3blFRxaHvZyWpOCe6nGyPxXb88wL2",
+    1.76
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261105_HoboBag_BlackFriday_B042r2_P02_H4_totemyth",
+   "id": "P02H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "ugc": {
+    "script": "U02",
+    "angle": "totemyth",
+    "words": 188,
+    "structure": "myth_fact",
+    "hook": {
+     "type": "question",
+     "label": "MYTH OR FACT?",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "The truth about big totes: your phone sinks to the bottom.",
+      "type": "problem",
+      "label": "THE TRUTH",
+      "feature": null,
+      "show": [
+       "inside",
+       "zip_hand"
+      ]
+     },
+     {
+      "text": "Imagine reaching into your bag and finding your phone first time.",
+      "type": "promise",
+      "label": "FIRST TIME",
+      "feature": null,
+      "show": [
+       "zip_hand",
+       "side_zip"
+      ]
+     },
+     {
+      "text": "Look inside: roomy does not have to mean messy.",
+      "type": "promise",
+      "label": "ROOMY, NOT MESSY",
+      "feature": null,
+      "show": [
+       "strap",
+       "inside"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "The truth about big totes: your phone sinks to the bottom.": [
+      [
+       "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+       12.0,
+       1.0
+      ],
+      [
+       "1H37laFpFlZXnZEBieyhIattc5OOx8_01",
+       29.07,
+       1.0
+      ]
+     ],
+     "Imagine reaching into your bag and finding your phone first time.": [
+      [
+       "1TIc3blFRxaHvZyWpOCe6nGyPxXb88wL2",
+       1.76,
+       1.0
+      ],
+      [
+       "12qiyl7FV85hnSYait8tRRCuxovMyad1L",
+       6.32,
+       1.0
+      ]
+     ],
+     "Look inside: roomy does not have to mean messy.": [
+      [
+       "1BWNNnVSL__dnRh4_fjj0yEGkGUPyoCQ9",
+       0.3,
+       1.0
+      ],
+      [
+       "1uJ8lXpSyvNzOnU4JcyOqEljmj02JPzo_",
+       0.3,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 62.6,
+   "project": "P02",
+   "hook_text": "Look inside: roomy does not have to mean messy.",
+   "hook_label": "ROOMY, NOT MESSY",
+   "hook_type": "promise",
+   "opening_shot": [
+    "1BWNNnVSL__dnRh4_fjj0yEGkGUPyoCQ9",
+    0.3
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261105_HoboBag_BlackFriday_B042r2_P03_H1_markettest",
+   "id": "P03H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "ugc": {
+    "script": "U03",
+    "angle": "markettest",
+    "words": 172,
+    "structure": "live_test",
+    "hook": {
+     "type": "question",
+     "label": "THE MARKET TEST",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "An open tote on a packed Saturday market puts your cards on show.",
+      "type": "problem",
+      "label": "WIDE OPEN",
+      "feature": null,
+      "show": [
+       "walking",
+       "street"
+      ]
+     },
+     {
+      "text": "Watch where your cards go when the market gets busy.",
+      "type": "promise",
+      "label": "WATCH",
+      "feature": null,
+      "show": [
+       "zip",
+       "pocket"
+      ]
+     },
+     {
+      "text": "How to carry your cards through a busy market without checking your bag.",
+      "type": "promise",
+      "label": "HOW TO",
+      "feature": null,
+      "show": [
+       "worn",
+       "pocket"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "An open tote on a packed Saturday market puts your cards on show.": [
+      [
+       "14S7TK6PLBwvt-erSHTNtyXGLjaYMxF6M",
+       10.24,
+       1.0
+      ],
+      [
+       "1o11HyUwyGEg_VUBSTgygKW8UcjHGnV4e",
+       10.83,
+       1.0
+      ]
+     ],
+     "Watch where your cards go when the market gets busy.": [
+      [
+       "1_S0UvWZSIsuisD9-virT1ZPzijMaF-08",
+       6.39,
+       1.0
+      ],
+      [
+       "1EvMG7FM3iHBjj7nonDzWnMoM8bswgjg5",
+       0.3,
+       1.0
+      ]
+     ],
+     "How to carry your cards through a busy market without checking your bag.": [
+      [
+       "1AUluz7URPC6lpawt-o44jCxvTwO2K03Y",
+       4.73,
+       1.0
+      ],
+      [
+       "1n_n64uSzJxegasRwW_1cRTo1dYNuzy3G",
+       12.6,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 57.6,
+   "project": "P03",
+   "hook_text": "Busy market, phone in your hand: where do your cards go?",
+   "hook_label": "THE MARKET TEST",
+   "hook_type": "question",
+   "opening_shot": [
+    "1cDI6dnwlwz-ARmQQ3PfOahefAEy2JYbx",
+    0.3
+   ]
+  },
+  {
+   "name": "LC_261105_HoboBag_BlackFriday_B042r2_P03_H2_markettest",
+   "id": "P03H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "ugc": {
+    "script": "U03",
+    "angle": "markettest",
+    "words": 172,
+    "structure": "live_test",
+    "hook": {
+     "type": "question",
+     "label": "THE MARKET TEST",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "An open tote on a packed Saturday market puts your cards on show.",
+      "type": "problem",
+      "label": "WIDE OPEN",
+      "feature": null,
+      "show": [
+       "walking",
+       "street"
+      ]
+     },
+     {
+      "text": "Watch where your cards go when the market gets busy.",
+      "type": "promise",
+      "label": "WATCH",
+      "feature": null,
+      "show": [
+       "zip",
+       "pocket"
+      ]
+     },
+     {
+      "text": "How to carry your cards through a busy market without checking your bag.",
+      "type": "promise",
+      "label": "HOW TO",
+      "feature": null,
+      "show": [
+       "worn",
+       "pocket"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "An open tote on a packed Saturday market puts your cards on show.": [
+      [
+       "14S7TK6PLBwvt-erSHTNtyXGLjaYMxF6M",
+       10.24,
+       1.0
+      ],
+      [
+       "1o11HyUwyGEg_VUBSTgygKW8UcjHGnV4e",
+       10.83,
+       1.0
+      ]
+     ],
+     "Watch where your cards go when the market gets busy.": [
+      [
+       "1_S0UvWZSIsuisD9-virT1ZPzijMaF-08",
+       6.39,
+       1.0
+      ],
+      [
+       "1EvMG7FM3iHBjj7nonDzWnMoM8bswgjg5",
+       0.3,
+       1.0
+      ]
+     ],
+     "How to carry your cards through a busy market without checking your bag.": [
+      [
+       "1AUluz7URPC6lpawt-o44jCxvTwO2K03Y",
+       4.73,
+       1.0
+      ],
+      [
+       "1n_n64uSzJxegasRwW_1cRTo1dYNuzy3G",
+       12.6,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 58.2,
+   "project": "P03",
+   "hook_text": "An open tote on a packed Saturday market puts your cards on show.",
+   "hook_label": "WIDE OPEN",
+   "hook_type": "problem",
+   "opening_shot": [
+    "14S7TK6PLBwvt-erSHTNtyXGLjaYMxF6M",
+    10.24
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261105_HoboBag_BlackFriday_B042r2_P03_H3_markettest",
+   "id": "P03H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "ugc": {
+    "script": "U03",
+    "angle": "markettest",
+    "words": 172,
+    "structure": "live_test",
+    "hook": {
+     "type": "question",
+     "label": "THE MARKET TEST",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "An open tote on a packed Saturday market puts your cards on show.",
+      "type": "problem",
+      "label": "WIDE OPEN",
+      "feature": null,
+      "show": [
+       "walking",
+       "street"
+      ]
+     },
+     {
+      "text": "Watch where your cards go when the market gets busy.",
+      "type": "promise",
+      "label": "WATCH",
+      "feature": null,
+      "show": [
+       "zip",
+       "pocket"
+      ]
+     },
+     {
+      "text": "How to carry your cards through a busy market without checking your bag.",
+      "type": "promise",
+      "label": "HOW TO",
+      "feature": null,
+      "show": [
+       "worn",
+       "pocket"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "An open tote on a packed Saturday market puts your cards on show.": [
+      [
+       "14S7TK6PLBwvt-erSHTNtyXGLjaYMxF6M",
+       10.24,
+       1.0
+      ],
+      [
+       "1o11HyUwyGEg_VUBSTgygKW8UcjHGnV4e",
+       10.83,
+       1.0
+      ]
+     ],
+     "Watch where your cards go when the market gets busy.": [
+      [
+       "1_S0UvWZSIsuisD9-virT1ZPzijMaF-08",
+       6.39,
+       1.0
+      ],
+      [
+       "1EvMG7FM3iHBjj7nonDzWnMoM8bswgjg5",
+       0.3,
+       1.0
+      ]
+     ],
+     "How to carry your cards through a busy market without checking your bag.": [
+      [
+       "1AUluz7URPC6lpawt-o44jCxvTwO2K03Y",
+       4.73,
+       1.0
+      ],
+      [
+       "1n_n64uSzJxegasRwW_1cRTo1dYNuzy3G",
+       12.6,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 57.3,
+   "project": "P03",
+   "hook_text": "Watch where your cards go when the market gets busy.",
+   "hook_label": "WATCH",
+   "hook_type": "promise",
+   "opening_shot": [
+    "1_S0UvWZSIsuisD9-virT1ZPzijMaF-08",
+    6.39
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261105_HoboBag_BlackFriday_B042r2_P03_H4_markettest",
+   "id": "P03H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "ugc": {
+    "script": "U03",
+    "angle": "markettest",
+    "words": 172,
+    "structure": "live_test",
+    "hook": {
+     "type": "question",
+     "label": "THE MARKET TEST",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "An open tote on a packed Saturday market puts your cards on show.",
+      "type": "problem",
+      "label": "WIDE OPEN",
+      "feature": null,
+      "show": [
+       "walking",
+       "street"
+      ]
+     },
+     {
+      "text": "Watch where your cards go when the market gets busy.",
+      "type": "promise",
+      "label": "WATCH",
+      "feature": null,
+      "show": [
+       "zip",
+       "pocket"
+      ]
+     },
+     {
+      "text": "How to carry your cards through a busy market without checking your bag.",
+      "type": "promise",
+      "label": "HOW TO",
+      "feature": null,
+      "show": [
+       "worn",
+       "pocket"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "An open tote on a packed Saturday market puts your cards on show.": [
+      [
+       "14S7TK6PLBwvt-erSHTNtyXGLjaYMxF6M",
+       10.24,
+       1.0
+      ],
+      [
+       "1o11HyUwyGEg_VUBSTgygKW8UcjHGnV4e",
+       10.83,
+       1.0
+      ]
+     ],
+     "Watch where your cards go when the market gets busy.": [
+      [
+       "1_S0UvWZSIsuisD9-virT1ZPzijMaF-08",
+       6.39,
+       1.0
+      ],
+      [
+       "1EvMG7FM3iHBjj7nonDzWnMoM8bswgjg5",
+       0.3,
+       1.0
+      ]
+     ],
+     "How to carry your cards through a busy market without checking your bag.": [
+      [
+       "1AUluz7URPC6lpawt-o44jCxvTwO2K03Y",
+       4.73,
+       1.0
+      ],
+      [
+       "1n_n64uSzJxegasRwW_1cRTo1dYNuzy3G",
+       12.6,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 58.2,
+   "project": "P03",
+   "hook_text": "How to carry your cards through a busy market without checking your bag.",
+   "hook_label": "HOW TO",
+   "hook_type": "promise",
+   "opening_shot": [
+    "1AUluz7URPC6lpawt-o44jCxvTwO2K03Y",
+    4.73
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261105_HoboBag_BlackFriday_B042r2_P04_H1_retiretote",
+   "id": "P04H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "ugc": {
+    "script": "U04",
+    "angle": "retiretote",
+    "words": 188,
+    "structure": "swap",
+    "hook": {
+     "type": "problem",
+     "label": "ONE WAY ONLY",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "What if your bag went from shoulder to crossbody in a minute?",
+      "type": "question",
+      "label": "WHAT IF?",
+      "feature": null,
+      "show": [
+       "strap",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Retire the tote. Watch what one strap switch does.",
+      "type": "promise",
+      "label": "RETIRE THE TOTE",
+      "feature": null,
+      "show": [
+       "walking",
+       "worn"
+      ]
+     },
+     {
+      "text": "The tote has one way to carry. This bag has three ways.",
+      "type": "promise",
+      "label": "THREE WAYS",
+      "feature": null,
+      "show": [
+       "side_zip",
+       "strap"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "What if your bag went from shoulder to crossbody in a minute?": [
+      [
+       "1NyzIbBW2CLLzo3Wr2z3co67-jV6V9-Lj",
+       0.45,
+       1.0
+      ],
+      [
+       "13WPNZDUpQdyDm4VKoJezn1StKDv4ixu4",
+       11.62,
+       1.0
+      ]
+     ],
+     "Retire the tote. Watch what one strap switch does.": [
+      [
+       "1n_n64uSzJxegasRwW_1cRTo1dYNuzy3G",
+       0.94,
+       1.0
+      ],
+      [
+       "12Ec7mfUk6Ys9vxFA04eGQpmpcsLiPcbS",
+       6.92,
+       1.0
+      ]
+     ],
+     "The tote has one way to carry. This bag has three ways.": [
+      [
+       "14wUeiCVzT-0GnaUPOqy3L3AMjzRa32Zb",
+       2.91,
+       1.0
+      ],
+      [
+       "10AwB1uAdRXbIY2gjhJl1q1pbuip29YJN",
+       12.47,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 62.9,
+   "project": "P04",
+   "hook_text": "One tote, one way to carry it, all day long.",
+   "hook_label": "ONE WAY ONLY",
+   "hook_type": "problem",
+   "opening_shot": [
+    "16bugUA13UINTh8mGcl237pNZ8KnnVjjA",
+    2.17
+   ]
+  },
+  {
+   "name": "LC_261105_HoboBag_BlackFriday_B042r2_P04_H2_retiretote",
+   "id": "P04H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "ugc": {
+    "script": "U04",
+    "angle": "retiretote",
+    "words": 188,
+    "structure": "swap",
+    "hook": {
+     "type": "problem",
+     "label": "ONE WAY ONLY",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "What if your bag went from shoulder to crossbody in a minute?",
+      "type": "question",
+      "label": "WHAT IF?",
+      "feature": null,
+      "show": [
+       "strap",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Retire the tote. Watch what one strap switch does.",
+      "type": "promise",
+      "label": "RETIRE THE TOTE",
+      "feature": null,
+      "show": [
+       "walking",
+       "worn"
+      ]
+     },
+     {
+      "text": "The tote has one way to carry. This bag has three ways.",
+      "type": "promise",
+      "label": "THREE WAYS",
+      "feature": null,
+      "show": [
+       "side_zip",
+       "strap"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "What if your bag went from shoulder to crossbody in a minute?": [
+      [
+       "1NyzIbBW2CLLzo3Wr2z3co67-jV6V9-Lj",
+       0.45,
+       1.0
+      ],
+      [
+       "13WPNZDUpQdyDm4VKoJezn1StKDv4ixu4",
+       11.62,
+       1.0
+      ]
+     ],
+     "Retire the tote. Watch what one strap switch does.": [
+      [
+       "1n_n64uSzJxegasRwW_1cRTo1dYNuzy3G",
+       0.94,
+       1.0
+      ],
+      [
+       "12Ec7mfUk6Ys9vxFA04eGQpmpcsLiPcbS",
+       6.92,
+       1.0
+      ]
+     ],
+     "The tote has one way to carry. This bag has three ways.": [
+      [
+       "14wUeiCVzT-0GnaUPOqy3L3AMjzRa32Zb",
+       2.91,
+       1.0
+      ],
+      [
+       "10AwB1uAdRXbIY2gjhJl1q1pbuip29YJN",
+       12.47,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 63.5,
+   "project": "P04",
+   "hook_text": "What if your bag went from shoulder to crossbody in a minute?",
+   "hook_label": "WHAT IF?",
+   "hook_type": "question",
+   "opening_shot": [
+    "1NyzIbBW2CLLzo3Wr2z3co67-jV6V9-Lj",
+    0.45
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261105_HoboBag_BlackFriday_B042r2_P04_H3_retiretote",
+   "id": "P04H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "ugc": {
+    "script": "U04",
+    "angle": "retiretote",
+    "words": 188,
+    "structure": "swap",
+    "hook": {
+     "type": "problem",
+     "label": "ONE WAY ONLY",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "What if your bag went from shoulder to crossbody in a minute?",
+      "type": "question",
+      "label": "WHAT IF?",
+      "feature": null,
+      "show": [
+       "strap",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Retire the tote. Watch what one strap switch does.",
+      "type": "promise",
+      "label": "RETIRE THE TOTE",
+      "feature": null,
+      "show": [
+       "walking",
+       "worn"
+      ]
+     },
+     {
+      "text": "The tote has one way to carry. This bag has three ways.",
+      "type": "promise",
+      "label": "THREE WAYS",
+      "feature": null,
+      "show": [
+       "side_zip",
+       "strap"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "What if your bag went from shoulder to crossbody in a minute?": [
+      [
+       "1NyzIbBW2CLLzo3Wr2z3co67-jV6V9-Lj",
+       0.45,
+       1.0
+      ],
+      [
+       "13WPNZDUpQdyDm4VKoJezn1StKDv4ixu4",
+       11.62,
+       1.0
+      ]
+     ],
+     "Retire the tote. Watch what one strap switch does.": [
+      [
+       "1n_n64uSzJxegasRwW_1cRTo1dYNuzy3G",
+       0.94,
+       1.0
+      ],
+      [
+       "12Ec7mfUk6Ys9vxFA04eGQpmpcsLiPcbS",
+       6.92,
+       1.0
+      ]
+     ],
+     "The tote has one way to carry. This bag has three ways.": [
+      [
+       "14wUeiCVzT-0GnaUPOqy3L3AMjzRa32Zb",
+       2.91,
+       1.0
+      ],
+      [
+       "10AwB1uAdRXbIY2gjhJl1q1pbuip29YJN",
+       12.47,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 62.6,
+   "project": "P04",
+   "hook_text": "Retire the tote. Watch what one strap switch does.",
+   "hook_label": "RETIRE THE TOTE",
+   "hook_type": "promise",
+   "opening_shot": [
+    "1n_n64uSzJxegasRwW_1cRTo1dYNuzy3G",
+    0.94
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261105_HoboBag_BlackFriday_B042r2_P04_H4_retiretote",
+   "id": "P04H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "ugc": {
+    "script": "U04",
+    "angle": "retiretote",
+    "words": 188,
+    "structure": "swap",
+    "hook": {
+     "type": "problem",
+     "label": "ONE WAY ONLY",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "What if your bag went from shoulder to crossbody in a minute?",
+      "type": "question",
+      "label": "WHAT IF?",
+      "feature": null,
+      "show": [
+       "strap",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Retire the tote. Watch what one strap switch does.",
+      "type": "promise",
+      "label": "RETIRE THE TOTE",
+      "feature": null,
+      "show": [
+       "walking",
+       "worn"
+      ]
+     },
+     {
+      "text": "The tote has one way to carry. This bag has three ways.",
+      "type": "promise",
+      "label": "THREE WAYS",
+      "feature": null,
+      "show": [
+       "side_zip",
+       "strap"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "What if your bag went from shoulder to crossbody in a minute?": [
+      [
+       "1NyzIbBW2CLLzo3Wr2z3co67-jV6V9-Lj",
+       0.45,
+       1.0
+      ],
+      [
+       "13WPNZDUpQdyDm4VKoJezn1StKDv4ixu4",
+       11.62,
+       1.0
+      ]
+     ],
+     "Retire the tote. Watch what one strap switch does.": [
+      [
+       "1n_n64uSzJxegasRwW_1cRTo1dYNuzy3G",
+       0.94,
+       1.0
+      ],
+      [
+       "12Ec7mfUk6Ys9vxFA04eGQpmpcsLiPcbS",
+       6.92,
+       1.0
+      ]
+     ],
+     "The tote has one way to carry. This bag has three ways.": [
+      [
+       "14wUeiCVzT-0GnaUPOqy3L3AMjzRa32Zb",
+       2.91,
+       1.0
+      ],
+      [
+       "10AwB1uAdRXbIY2gjhJl1q1pbuip29YJN",
+       12.47,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 63.5,
+   "project": "P04",
+   "hook_text": "The tote has one way to carry. This bag has three ways.",
+   "hook_label": "THREE WAYS",
+   "hook_type": "promise",
+   "opening_shot": [
+    "14wUeiCVzT-0GnaUPOqy3L3AMjzRa32Zb",
+    2.91
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261105_HoboBag_BlackFriday_B042r2_P05_H1_tellherleather",
+   "id": "P05H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "ugc": {
+    "script": "U05",
+    "angle": "tellherleather",
+    "words": 193,
+    "structure": "friend_advice",
+    "hook": {
+     "type": "question",
+     "label": "TELL HER",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Before you buy her another tote, look at this bag's leather.",
+      "type": "problem",
+      "label": "BEFORE YOU BUY",
+      "feature": null,
+      "show": [
+       "strap",
+       "leather"
+      ]
+     },
+     {
+      "text": "If she can carry a tote, she can carry this: three ways.",
+      "type": "promise",
+      "label": "EASY SWITCH",
+      "feature": null,
+      "show": [
+       "walking",
+       "strap"
+      ]
+     },
+     {
+      "text": "Which looks better on a dinner chair: a canvas tote or soft leather?",
+      "type": "question",
+      "label": "TOTE OR LEATHER?",
+      "feature": null,
+      "show": [
+       "side_zip",
+       "zip_hand"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Before you buy her another tote, look at this bag's leather.": [
+      [
+       "1f_uobOObpjWFcDK1U8yedlh19SJbAzZB",
+       1.49,
+       1.0
+      ],
+      [
+       "1_S0UvWZSIsuisD9-virT1ZPzijMaF-08",
+       16.24,
+       1.0
+      ]
+     ],
+     "If she can carry a tote, she can carry this: three ways.": [
+      [
+       "1TQniUwb0moRuqoiip6okFOIW33_UUXYy",
+       10.21,
+       1.0
+      ],
+      [
+       "1UcPs3RM-Iwrzd5rgOIA6Wxii0i3R3xqL",
+       0.3,
+       1.0
+      ]
+     ],
+     "Which looks better on a dinner chair: a canvas tote or soft leather?": [
+      [
+       "1nnsvEIfgqziYdrmeUrrtgL3Qo3YHV7Sw",
+       12.0,
+       1.0
+      ],
+      [
+       "1RDfbLshVfj_-0pZXhC0I46RJ3obq3U3F",
+       0.3,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 64.5,
+   "project": "P05",
+   "hook_text": "Your friend carries a canvas tote to work. What do you tell her?",
+   "hook_label": "TELL HER",
+   "hook_type": "question",
+   "opening_shot": [
+    "1uJ8lXpSyvNzOnU4JcyOqEljmj02JPzo_",
+    0.3
+   ]
+  },
+  {
+   "name": "LC_261105_HoboBag_BlackFriday_B042r2_P05_H2_tellherleather",
+   "id": "P05H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "ugc": {
+    "script": "U05",
+    "angle": "tellherleather",
+    "words": 193,
+    "structure": "friend_advice",
+    "hook": {
+     "type": "question",
+     "label": "TELL HER",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Before you buy her another tote, look at this bag's leather.",
+      "type": "problem",
+      "label": "BEFORE YOU BUY",
+      "feature": null,
+      "show": [
+       "strap",
+       "leather"
+      ]
+     },
+     {
+      "text": "If she can carry a tote, she can carry this: three ways.",
+      "type": "promise",
+      "label": "EASY SWITCH",
+      "feature": null,
+      "show": [
+       "walking",
+       "strap"
+      ]
+     },
+     {
+      "text": "Which looks better on a dinner chair: a canvas tote or soft leather?",
+      "type": "question",
+      "label": "TOTE OR LEATHER?",
+      "feature": null,
+      "show": [
+       "side_zip",
+       "zip_hand"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Before you buy her another tote, look at this bag's leather.": [
+      [
+       "1f_uobOObpjWFcDK1U8yedlh19SJbAzZB",
+       1.49,
+       1.0
+      ],
+      [
+       "1_S0UvWZSIsuisD9-virT1ZPzijMaF-08",
+       16.24,
+       1.0
+      ]
+     ],
+     "If she can carry a tote, she can carry this: three ways.": [
+      [
+       "1TQniUwb0moRuqoiip6okFOIW33_UUXYy",
+       10.21,
+       1.0
+      ],
+      [
+       "1UcPs3RM-Iwrzd5rgOIA6Wxii0i3R3xqL",
+       0.3,
+       1.0
+      ]
+     ],
+     "Which looks better on a dinner chair: a canvas tote or soft leather?": [
+      [
+       "1nnsvEIfgqziYdrmeUrrtgL3Qo3YHV7Sw",
+       12.0,
+       1.0
+      ],
+      [
+       "1RDfbLshVfj_-0pZXhC0I46RJ3obq3U3F",
+       0.3,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 63.9,
+   "project": "P05",
+   "hook_text": "Before you buy her another tote, look at this bag's leather.",
+   "hook_label": "BEFORE YOU BUY",
+   "hook_type": "problem",
+   "opening_shot": [
+    "1f_uobOObpjWFcDK1U8yedlh19SJbAzZB",
+    1.49
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261105_HoboBag_BlackFriday_B042r2_P05_H3_tellherleather",
+   "id": "P05H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "ugc": {
+    "script": "U05",
+    "angle": "tellherleather",
+    "words": 193,
+    "structure": "friend_advice",
+    "hook": {
+     "type": "question",
+     "label": "TELL HER",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Before you buy her another tote, look at this bag's leather.",
+      "type": "problem",
+      "label": "BEFORE YOU BUY",
+      "feature": null,
+      "show": [
+       "strap",
+       "leather"
+      ]
+     },
+     {
+      "text": "If she can carry a tote, she can carry this: three ways.",
+      "type": "promise",
+      "label": "EASY SWITCH",
+      "feature": null,
+      "show": [
+       "walking",
+       "strap"
+      ]
+     },
+     {
+      "text": "Which looks better on a dinner chair: a canvas tote or soft leather?",
+      "type": "question",
+      "label": "TOTE OR LEATHER?",
+      "feature": null,
+      "show": [
+       "side_zip",
+       "zip_hand"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Before you buy her another tote, look at this bag's leather.": [
+      [
+       "1f_uobOObpjWFcDK1U8yedlh19SJbAzZB",
+       1.49,
+       1.0
+      ],
+      [
+       "1_S0UvWZSIsuisD9-virT1ZPzijMaF-08",
+       16.24,
+       1.0
+      ]
+     ],
+     "If she can carry a tote, she can carry this: three ways.": [
+      [
+       "1TQniUwb0moRuqoiip6okFOIW33_UUXYy",
+       10.21,
+       1.0
+      ],
+      [
+       "1UcPs3RM-Iwrzd5rgOIA6Wxii0i3R3xqL",
+       0.3,
+       1.0
+      ]
+     ],
+     "Which looks better on a dinner chair: a canvas tote or soft leather?": [
+      [
+       "1nnsvEIfgqziYdrmeUrrtgL3Qo3YHV7Sw",
+       12.0,
+       1.0
+      ],
+      [
+       "1RDfbLshVfj_-0pZXhC0I46RJ3obq3U3F",
+       0.3,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 64.2,
+   "project": "P05",
+   "hook_text": "If she can carry a tote, she can carry this: three ways.",
+   "hook_label": "EASY SWITCH",
+   "hook_type": "promise",
+   "opening_shot": [
+    "1TQniUwb0moRuqoiip6okFOIW33_UUXYy",
+    10.21
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261105_HoboBag_BlackFriday_B042r2_P05_H4_tellherleather",
+   "id": "P05H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "ugc": {
+    "script": "U05",
+    "angle": "tellherleather",
+    "words": 193,
+    "structure": "friend_advice",
+    "hook": {
+     "type": "question",
+     "label": "TELL HER",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Before you buy her another tote, look at this bag's leather.",
+      "type": "problem",
+      "label": "BEFORE YOU BUY",
+      "feature": null,
+      "show": [
+       "strap",
+       "leather"
+      ]
+     },
+     {
+      "text": "If she can carry a tote, she can carry this: three ways.",
+      "type": "promise",
+      "label": "EASY SWITCH",
+      "feature": null,
+      "show": [
+       "walking",
+       "strap"
+      ]
+     },
+     {
+      "text": "Which looks better on a dinner chair: a canvas tote or soft leather?",
+      "type": "question",
+      "label": "TOTE OR LEATHER?",
+      "feature": null,
+      "show": [
+       "side_zip",
+       "zip_hand"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Before you buy her another tote, look at this bag's leather.": [
+      [
+       "1f_uobOObpjWFcDK1U8yedlh19SJbAzZB",
+       1.49,
+       1.0
+      ],
+      [
+       "1_S0UvWZSIsuisD9-virT1ZPzijMaF-08",
+       16.24,
+       1.0
+      ]
+     ],
+     "If she can carry a tote, she can carry this: three ways.": [
+      [
+       "1TQniUwb0moRuqoiip6okFOIW33_UUXYy",
+       10.21,
+       1.0
+      ],
+      [
+       "1UcPs3RM-Iwrzd5rgOIA6Wxii0i3R3xqL",
+       0.3,
+       1.0
+      ]
+     ],
+     "Which looks better on a dinner chair: a canvas tote or soft leather?": [
+      [
+       "1nnsvEIfgqziYdrmeUrrtgL3Qo3YHV7Sw",
+       12.0,
+       1.0
+      ],
+      [
+       "1RDfbLshVfj_-0pZXhC0I46RJ3obq3U3F",
+       0.3,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 64.5,
+   "project": "P05",
+   "hook_text": "Which looks better on a dinner chair: a canvas tote or soft leather?",
+   "hook_label": "TOTE OR LEATHER?",
+   "hook_type": "question",
+   "opening_shot": [
+    "1nnsvEIfgqziYdrmeUrrtgL3Qo3YHV7Sw",
+    12.0
+   ],
+   "hook_source": "script"
+  }
+ ],
+ "tts_lines": 53,
+ "tts_dupes": {},
+ "est_credits": 18.5,
+ "budget": 100.0,
+ "colour_images": {
+  "Dark Sienna": "/tmp/run/hobo-tote-vs/site/clean/hobo_bag_colour_dark_sienna_nobadge.jpg",
+  "Galaxy Black": "/tmp/run/hobo-tote-vs/site/hobo_bag_colour_galaxy_black.jpg",
+  "Blue": "/tmp/run/hobo-tote-vs/site/hobo_bag_colour_blue.jpg",
+  "Grey": "/tmp/run/hobo-tote-vs/site/hobo_bag_colour_grey.jpg",
+  "Burgundy": "/tmp/run/hobo-tote-vs/site/hobo_bag_colour_burgundy.jpg",
+  "Red": "/tmp/run/hobo-tote-vs/site/hobo_bag_colour_red.jpg"
+ },
+ "packshots": [
+  "/tmp/run/hobo-tote-vs/site/hobo_bag_colour_galaxy_black.jpg",
+  "/tmp/run/hobo-tote-vs/site/hobo_bag_colour_blue.jpg",
+  "/tmp/run/hobo-tote-vs/site/hobo_bag_colour_grey.jpg",
+  "/tmp/run/hobo-tote-vs/site/hobo_bag_colour_burgundy.jpg",
+  "/tmp/run/hobo-tote-vs/site/hobo_bag_colour_red.jpg"
+ ],
+ "brief": null,
+ "ai": {
+  "stills": 10,
+  "clips": 0,
+  "est_credits": 10.0,
+  "budget": {
+   "cap": 100.0,
+   "tts_est": 22.5,
+   "reserve": 8.0
+  },
+  "scenes": [
+   "p01_s01",
+   "p01_s06_bench_pair",
+   "p02_s02",
+   "p02_s07_tote_retired",
+   "p03_s03",
+   "p03_s08_giant_numerals",
+   "p04_s04",
+   "p04_s09_pov_sticker",
+   "p05_s05_split_compare",
+   "p05_s10_sticker_burst"
+  ],
+  "next": "python3 pipeline/ai_gen.py show --out /tmp/run/hobo-tote-vs"
+ },
+ "winners_source": null,
+ "winners_note": null,
+ "winners_used": [],
+ "unmatched_winners": [],
+ "warnings": [
+  "campaign: Black Friday Sale 2026 (2026-10-23 to 2026-11-30, client-approved): end cards say 'Black Friday Sale' + 'UP TO 60% OFF'; the close and the ad copy name the sale; each bag's own % stays its offer",
+  "ideas: playbook hook_3s: P03 H2: 13 words: about 3.9 s spoken; the hook should land inside the first 3 s (about 12 words)",
+  "ideas: playbook hook_3s: P03 H4: 13 words: about 3.9 s spoken; the hook should land inside the first 3 s (about 12 words)",
+  "ideas: playbook hook_3s: P05 H1: 13 words: about 3.9 s spoken; the hook should land inside the first 3 s (about 12 words)",
+  "ideas: playbook hook_3s: P05 H4: 13 words: about 3.9 s spoken; the hook should land inside the first 3 s (about 12 words)",
+  "ideas: 10 AI statics of 12 (6 designed ads, 4 studio scenes; about 10 credits plus retries)",
+  "Hobo Bag has 12 earlier batch(es) in the novelty log: the statics start 12 step(s) further in their photo / headline cycle (other photos and captions than before)",
+  "P01: hook types repeat (question, problem, promise, question)",
+  "P02: hook types repeat (question, problem, promise, promise)",
+  "P03: hook types repeat (question, problem, promise, promise)",
+  "P04: hook types repeat (problem, question, promise, promise)",
+  "P05: hook types repeat (question, problem, promise, question)"
+ ],
+ "winner_reviews": false,
+ "seed": 1,
+ "hooks": 4,
+ "pipeline": "catalog",
+ "video_format": "ugc",
+ "ugc_numbers": [],
+ "voice": {
+  "voice_type": "element",
+  "voice_id": "241459b6-b4e8-4a2a-9868-da8bcdcd0558",
+  "speed": 1.12
+ },
+ "projects": [
+  {
+   "id": "P01",
+   "from_id": "V01",
+   "angle": "pairbypair",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P01H1",
+     "name": "LC_261105_HoboBag_BlackFriday_B042r2_P01_H1_pairbypair",
+     "hook_text": "Open tote or zipped hobo: where do your keys end up?",
+     "label": "TOTE VS HOBO",
+     "type": "question",
+     "shot": [
+      "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+      1.0
+     ],
+     "est_seconds": 59.8
+    },
+    {
+     "hook": "H2",
+     "id": "P01H2",
+     "name": "LC_261105_HoboBag_BlackFriday_B042r2_P01_H2_pairbypair",
+     "hook_text": "Keys at the bottom of an open tote, again?",
+     "label": "SOUND FAMILIAR?",
+     "type": "problem",
+     "shot": [
+      "10ev2Mfet9vPJ-jRrxK4fdn2sr3BmTFTV",
+      21.0
+     ],
+     "est_seconds": 59.2
+    },
+    {
+     "hook": "H3",
+     "id": "P01H3",
+     "name": "LC_261105_HoboBag_BlackFriday_B042r2_P01_H3_pairbypair",
+     "hook_text": "Watch an open tote lose to one gold side zip.",
+     "label": "WATCH THIS",
+     "type": "promise",
+     "shot": [
+      "1_usQ_ZJKJqd5EAu5KR1jM-pIjyQf1tWu",
+      7.23
+     ],
+     "est_seconds": 59.5
+    },
+    {
+     "hook": "H4",
+     "id": "P01H4",
+     "name": "LC_261105_HoboBag_BlackFriday_B042r2_P01_H4_pairbypair",
+     "hook_text": "Which bag would you carry through a busy market on Saturday?",
+     "label": "YOUR PICK",
+     "type": "question",
+     "shot": [
+      "1rW8joq7MZKj_AKkX4IJJzjfgqlnMg8ph",
+      2.95
+     ],
+     "est_seconds": 59.8
+    }
+   ]
+  },
+  {
+   "id": "P02",
+   "from_id": "V02",
+   "angle": "totemyth",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P02H1",
+     "name": "LC_261105_HoboBag_BlackFriday_B042r2_P02_H1_totemyth",
+     "hook_text": "Think a big tote is the easy bag for everything?",
+     "label": "MYTH OR FACT?",
+     "type": "question",
+     "shot": [
+      "1NuCVbKCrAGKgLyGpaVgNohAbss7I4zMS",
+      10.1
+     ],
+     "est_seconds": 62.9
+    },
+    {
+     "hook": "H2",
+     "id": "P02H2",
+     "name": "LC_261105_HoboBag_BlackFriday_B042r2_P02_H2_totemyth",
+     "hook_text": "The truth about big totes: your phone sinks to the bottom.",
+     "label": "THE TRUTH",
+     "type": "problem",
+     "shot": [
+      "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+      12.0
+     ],
+     "est_seconds": 63.2
+    },
+    {
+     "hook": "H3",
+     "id": "P02H3",
+     "name": "LC_261105_HoboBag_BlackFriday_B042r2_P02_H3_totemyth",
+     "hook_text": "Imagine reaching into your bag and finding your phone first time.",
+     "label": "FIRST TIME",
+     "type": "promise",
+     "shot": [
+      "1TIc3blFRxaHvZyWpOCe6nGyPxXb88wL2",
+      1.76
+     ],
+     "est_seconds": 63.2
+    },
+    {
+     "hook": "H4",
+     "id": "P02H4",
+     "name": "LC_261105_HoboBag_BlackFriday_B042r2_P02_H4_totemyth",
+     "hook_text": "Look inside: roomy does not have to mean messy.",
+     "label": "ROOMY, NOT MESSY",
+     "type": "promise",
+     "shot": [
+      "1BWNNnVSL__dnRh4_fjj0yEGkGUPyoCQ9",
+      0.3
+     ],
+     "est_seconds": 62.6
+    }
+   ]
+  },
+  {
+   "id": "P03",
+   "from_id": "V03",
+   "angle": "markettest",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P03H1",
+     "name": "LC_261105_HoboBag_BlackFriday_B042r2_P03_H1_markettest",
+     "hook_text": "Busy market, phone in your hand: where do your cards go?",
+     "label": "THE MARKET TEST",
+     "type": "question",
+     "shot": [
+      "1cDI6dnwlwz-ARmQQ3PfOahefAEy2JYbx",
+      0.3
+     ],
+     "est_seconds": 57.6
+    },
+    {
+     "hook": "H2",
+     "id": "P03H2",
+     "name": "LC_261105_HoboBag_BlackFriday_B042r2_P03_H2_markettest",
+     "hook_text": "An open tote on a packed Saturday market puts your cards on show.",
+     "label": "WIDE OPEN",
+     "type": "problem",
+     "shot": [
+      "14S7TK6PLBwvt-erSHTNtyXGLjaYMxF6M",
+      10.24
+     ],
+     "est_seconds": 58.2
+    },
+    {
+     "hook": "H3",
+     "id": "P03H3",
+     "name": "LC_261105_HoboBag_BlackFriday_B042r2_P03_H3_markettest",
+     "hook_text": "Watch where your cards go when the market gets busy.",
+     "label": "WATCH",
+     "type": "promise",
+     "shot": [
+      "1_S0UvWZSIsuisD9-virT1ZPzijMaF-08",
+      6.39
+     ],
+     "est_seconds": 57.3
+    },
+    {
+     "hook": "H4",
+     "id": "P03H4",
+     "name": "LC_261105_HoboBag_BlackFriday_B042r2_P03_H4_markettest",
+     "hook_text": "How to carry your cards through a busy market without checking your bag.",
+     "label": "HOW TO",
+     "type": "promise",
+     "shot": [
+      "1AUluz7URPC6lpawt-o44jCxvTwO2K03Y",
+      4.73
+     ],
+     "est_seconds": 58.2
+    }
+   ]
+  },
+  {
+   "id": "P04",
+   "from_id": "V04",
+   "angle": "retiretote",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P04H1",
+     "name": "LC_261105_HoboBag_BlackFriday_B042r2_P04_H1_retiretote",
+     "hook_text": "One tote, one way to carry it, all day long.",
+     "label": "ONE WAY ONLY",
+     "type": "problem",
+     "shot": [
+      "16bugUA13UINTh8mGcl237pNZ8KnnVjjA",
+      2.17
+     ],
+     "est_seconds": 62.9
+    },
+    {
+     "hook": "H2",
+     "id": "P04H2",
+     "name": "LC_261105_HoboBag_BlackFriday_B042r2_P04_H2_retiretote",
+     "hook_text": "What if your bag went from shoulder to crossbody in a minute?",
+     "label": "WHAT IF?",
+     "type": "question",
+     "shot": [
+      "1NyzIbBW2CLLzo3Wr2z3co67-jV6V9-Lj",
+      0.45
+     ],
+     "est_seconds": 63.5
+    },
+    {
+     "hook": "H3",
+     "id": "P04H3",
+     "name": "LC_261105_HoboBag_BlackFriday_B042r2_P04_H3_retiretote",
+     "hook_text": "Retire the tote. Watch what one strap switch does.",
+     "label": "RETIRE THE TOTE",
+     "type": "promise",
+     "shot": [
+      "1n_n64uSzJxegasRwW_1cRTo1dYNuzy3G",
+      0.94
+     ],
+     "est_seconds": 62.6
+    },
+    {
+     "hook": "H4",
+     "id": "P04H4",
+     "name": "LC_261105_HoboBag_BlackFriday_B042r2_P04_H4_retiretote",
+     "hook_text": "The tote has one way to carry. This bag has three ways.",
+     "label": "THREE WAYS",
+     "type": "promise",
+     "shot": [
+      "14wUeiCVzT-0GnaUPOqy3L3AMjzRa32Zb",
+      2.91
+     ],
+     "est_seconds": 63.5
+    }
+   ]
+  },
+  {
+   "id": "P05",
+   "from_id": "V05",
+   "angle": "tellherleather",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P05H1",
+     "name": "LC_261105_HoboBag_BlackFriday_B042r2_P05_H1_tellherleather",
+     "hook_text": "Your friend carries a canvas tote to work. What do you tell her?",
+     "label": "TELL HER",
+     "type": "question",
+     "shot": [
+      "1uJ8lXpSyvNzOnU4JcyOqEljmj02JPzo_",
+      0.3
+     ],
+     "est_seconds": 64.5
+    },
+    {
+     "hook": "H2",
+     "id": "P05H2",
+     "name": "LC_261105_HoboBag_BlackFriday_B042r2_P05_H2_tellherleather",
+     "hook_text": "Before you buy her another tote, look at this bag's leather.",
+     "label": "BEFORE YOU BUY",
+     "type": "problem",
+     "shot": [
+      "1f_uobOObpjWFcDK1U8yedlh19SJbAzZB",
+      1.49
+     ],
+     "est_seconds": 63.9
+    },
+    {
+     "hook": "H3",
+     "id": "P05H3",
+     "name": "LC_261105_HoboBag_BlackFriday_B042r2_P05_H3_tellherleather",
+     "hook_text": "If she can carry a tote, she can carry this: three ways.",
+     "label": "EASY SWITCH",
+     "type": "promise",
+     "shot": [
+      "1TQniUwb0moRuqoiip6okFOIW33_UUXYy",
+      10.21
+     ],
+     "est_seconds": 64.2
+    },
+    {
+     "hook": "H4",
+     "id": "P05H4",
+     "name": "LC_261105_HoboBag_BlackFriday_B042r2_P05_H4_tellherleather",
+     "hook_text": "Which looks better on a dinner chair: a canvas tote or soft leather?",
+     "label": "TOTE OR LEATHER?",
+     "type": "question",
+     "shot": [
+      "1nnsvEIfgqziYdrmeUrrtgL3Qo3YHV7Sw",
+      12.0
+     ],
+     "est_seconds": 64.5
+    }
+   ]
+  }
+ ],
+ "hooks_seed": 1
+}

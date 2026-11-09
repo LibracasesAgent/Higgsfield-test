@@ -3362,6 +3362,211 @@
    ]
   },
   {
+   "id": "B042",
+   "n": 42,
+   "rev": 2,
+   "date": "2026-11-05",
+   "product": "Hobo Bag",
+   "theme": "BlackFriday",
+   "pipeline": "catalog",
+   "request": "comparison batch: tote vs Hobo Bag, show them like Julian said (Julian's call 2026-11-05)",
+   "statics": 12,
+   "projects": 5,
+   "hooks": 4,
+   "seed": 1,
+   "status": "uploaded",
+   "folder": "B042r2 – 2026-11-05 – Hobo Bag BlackFriday – 12 statics + 5 projects",
+   "link": "https://drive.google.com/drive/folders/1x05cPP6KzAT0WKurQGB64v8jKijXocWQ",
+   "ads": [
+    {
+     "name": "LC_261105_HoboBag_BlackFriday_B042r2_S01_versus",
+     "kind": "static",
+     "fp": "s|story|AS01.png|open tote or zipped hobo?",
+     "label": "Open tote or zipped hobo?"
+    },
+    {
+     "name": "LC_261105_HoboBag_BlackFriday_B042r2_S02_versus",
+     "kind": "static",
+     "fp": "s|story|AS02.png|your cards: on show or on your side?",
+     "label": "Your cards: on show or on your side?"
+    },
+    {
+     "name": "LC_261105_HoboBag_BlackFriday_B042r2_S03_hook",
+     "kind": "static",
+     "fp": "s|story|AS03.png|still carrying an open tote on the train?",
+     "label": "Still carrying an open tote on the train?"
+    },
+    {
+     "name": "LC_261105_HoboBag_BlackFriday_B042r2_S04_list",
+     "kind": "static",
+     "fp": "s|story|AS04.png|3 reasons to retire the tote",
+     "label": "3 reasons to retire the tote"
+    },
+    {
+     "name": "LC_261105_HoboBag_BlackFriday_B042r2_S05_compare",
+     "kind": "static",
+     "fp": "s|ad|AS05.png|tote or hobo?",
+     "label": "Tote or Hobo?"
+    },
+    {
+     "name": "LC_261105_HoboBag_BlackFriday_B042r2_S06_benchpair",
+     "kind": "static",
+     "fp": "s|ad|AS06.png|only one of these zips shut.",
+     "label": "Only one of these zips shut."
+    },
+    {
+     "name": "LC_261105_HoboBag_BlackFriday_B042r2_S07_toteretired",
+     "kind": "static",
+     "fp": "s|ad|AS07.png|handbag today, crossbody tomorrow.",
+     "label": "Handbag today, crossbody tomorrow."
+    },
+    {
+     "name": "LC_261105_HoboBag_BlackFriday_B042r2_S08_numerals",
+     "kind": "static",
+     "fp": "s|ad|AS08.png|rain on the way? water-resistant leather.",
+     "label": "Rain on the way? Water-resistant leather."
+    },
+    {
+     "name": "LC_261105_HoboBag_BlackFriday_B042r2_S10_burst",
+     "kind": "static",
+     "fp": "s|ad|AS10.png|room like a tote. order like a drawer.",
+     "label": "Room like a tote. Order like a drawer."
+    },
+    {
+     "name": "LC_261105_HoboBag_BlackFriday_B042r2_S11_studio",
+     "kind": "static",
+     "fp": "s|studio|hobo_bag_colour_grey.jpg|skip the tote. get the wallet too.",
+     "label": "Skip the tote. Get the wallet too."
+    },
+    {
+     "name": "LC_261105_HoboBag_BlackFriday_B042r2_S12_value",
+     "kind": "static",
+     "fp": "s|value|hobo_bag_colour_burgundy.jpg|the hobo bag",
+     "label": "The Hobo Bag"
+    },
+    {
+     "name": "LC_261105_HoboBag_BlackFriday_B042r2_P01_H1_pairbypair",
+     "kind": "video",
+     "fp": "v|open tote or zipped hobo: where do your keys end up?|",
+     "label": "Open tote or zipped hobo: where do your keys end up?"
+    },
+    {
+     "name": "LC_261105_HoboBag_BlackFriday_B042r2_P01_H2_pairbypair",
+     "kind": "video",
+     "fp": "v|keys at the bottom of an open tote, again?|",
+     "label": "Keys at the bottom of an open tote, again?"
+    },
+    {
+     "name": "LC_261105_HoboBag_BlackFriday_B042r2_P01_H3_pairbypair",
+     "kind": "video",
+     "fp": "v|watch an open tote lose to one gold side zip.|",
+     "label": "Watch an open tote lose to one gold side zip."
+    },
+    {
+     "name": "LC_261105_HoboBag_BlackFriday_B042r2_P01_H4_pairbypair",
+     "kind": "video",
+     "fp": "v|which bag would you carry through a busy market on saturday?|",
+     "label": "Which bag would you carry through a busy market on Saturday?"
+    },
+    {
+     "name": "LC_261105_HoboBag_BlackFriday_B042r2_P02_H1_totemyth",
+     "kind": "video",
+     "fp": "v|think a big tote is the easy bag for everything?|",
+     "label": "Think a big tote is the easy bag for everything?"
+    },
+    {
+     "name": "LC_261105_HoboBag_BlackFriday_B042r2_P02_H2_totemyth",
+     "kind": "video",
+     "fp": "v|the truth about big totes: your phone sinks to the bottom.|",
+     "label": "The truth about big totes: your phone sinks to the bottom."
+    },
+    {
+     "name": "LC_261105_HoboBag_BlackFriday_B042r2_P02_H3_totemyth",
+     "kind": "video",
+     "fp": "v|imagine reaching into your bag and finding your phone first time.|",
+     "label": "Imagine reaching into your bag and finding your phone first time."
+    },
+    {
+     "name": "LC_261105_HoboBag_BlackFriday_B042r2_P02_H4_totemyth",
+     "kind": "video",
+     "fp": "v|look inside: roomy does not have to mean messy.|",
+     "label": "Look inside: roomy does not have to mean messy."
+    },
+    {
+     "name": "LC_261105_HoboBag_BlackFriday_B042r2_P03_H1_markettest",
+     "kind": "video",
+     "fp": "v|busy market, phone in your hand: where do your cards go?|",
+     "label": "Busy market, phone in your hand: where do your cards go?"
+    },
+    {
+     "name": "LC_261105_HoboBag_BlackFriday_B042r2_P03_H2_markettest",
+     "kind": "video",
+     "fp": "v|an open tote on a packed saturday market puts your cards on show.|",
+     "label": "An open tote on a packed Saturday market puts your cards on show."
+    },
+    {
+     "name": "LC_261105_HoboBag_BlackFriday_B042r2_P03_H3_markettest",
+     "kind": "video",
+     "fp": "v|watch where your cards go when the market gets busy.|",
+     "label": "Watch where your cards go when the market gets busy."
+    },
+    {
+     "name": "LC_261105_HoboBag_BlackFriday_B042r2_P03_H4_markettest",
+     "kind": "video",
+     "fp": "v|how to carry your cards through a busy market without checking your bag.|",
+     "label": "How to carry your cards through a busy market without checking your bag."
+    },
+    {
+     "name": "LC_261105_HoboBag_BlackFriday_B042r2_P04_H1_retiretote",
+     "kind": "video",
+     "fp": "v|one tote, one way to carry it, all day long.|",
+     "label": "One tote, one way to carry it, all day long."
+    },
+    {
+     "name": "LC_261105_HoboBag_BlackFriday_B042r2_P04_H2_retiretote",
+     "kind": "video",
+     "fp": "v|what if your bag went from shoulder to crossbody in a minute?|",
+     "label": "What if your bag went from shoulder to crossbody in a minute?"
+    },
+    {
+     "name": "LC_261105_HoboBag_BlackFriday_B042r2_P04_H3_retiretote",
+     "kind": "video",
+     "fp": "v|retire the tote. watch what one strap switch does.|",
+     "label": "Retire the tote. Watch what one strap switch does."
+    },
+    {
+     "name": "LC_261105_HoboBag_BlackFriday_B042r2_P04_H4_retiretote",
+     "kind": "video",
+     "fp": "v|the tote has one way to carry. this bag has three ways.|",
+     "label": "The tote has one way to carry. This bag has three ways."
+    },
+    {
+     "name": "LC_261105_HoboBag_BlackFriday_B042r2_P05_H1_tellherleather",
+     "kind": "video",
+     "fp": "v|your friend carries a canvas tote to work. what do you tell her?|",
+     "label": "Your friend carries a canvas tote to work. What do you tell her?"
+    },
+    {
+     "name": "LC_261105_HoboBag_BlackFriday_B042r2_P05_H2_tellherleather",
+     "kind": "video",
+     "fp": "v|before you buy her another tote, look at this bag's leather.|",
+     "label": "Before you buy her another tote, look at this bag's leather."
+    },
+    {
+     "name": "LC_261105_HoboBag_BlackFriday_B042r2_P05_H3_tellherleather",
+     "kind": "video",
+     "fp": "v|if she can carry a tote, she can carry this: three ways.|",
+     "label": "If she can carry a tote, she can carry this: three ways."
+    },
+    {
+     "name": "LC_261105_HoboBag_BlackFriday_B042r2_P05_H4_tellherleather",
+     "kind": "video",
+     "fp": "v|which looks better on a dinner chair: a canvas tote or soft leather?|",
+     "label": "Which looks better on a dinner chair: a canvas tote or soft leather?"
+    }
+   ]
+  },
+  {
    "id": "B043",
    "n": 43,
    "rev": 1,

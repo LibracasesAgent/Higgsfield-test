@@ -124,10 +124,11 @@
    "name": "Split-screen comparison",
    "people": "none",
    "words": 14,
-   "art": "A clean split-screen comparison: on the left a plain generic open-top tote bag (no brand, no logo) on a muted grey backdrop, on the right the real bag on a warm tinted backdrop, the same light on both, a short label under each side and one headline across the top.",
+   "art": "A clean split-screen comparison, the left side 'them', the right side 'us': on the LEFT a plain generic open-top canvas tote (no brand, no logo) slumped on a dull grey backdrop, shot flat and desaturated with a faint greenish cast and a soft, slightly grainy low-quality look, like an old phone photo; on the RIGHT the real bag, closed, on a warm rich tinted backdrop in bright studio light, crisp and colourful; a short label under each side and one headline across the top, every word sharp and readable on both sides.",
    "words_hint": "a headline + one 2-3 word label per side (true facts only: 'Open top' vs 'Zips shut')",
    "type": "the headline in a bold sans-serif, the labels in small caps",
-   "bag": "The other bag is a generic plain tote, never a brand, never shown as broken or bad: just different."
+   "bag": "The other bag is a generic plain tote, never a brand or logo; it is shown dull, grey and low quality (the competition), never torn, dirty or broken: the contrast is the light and colour, not damage.",
+   "why": "Julian 2026-11-05: 'put a tote bag with a grey filter ... low quality ... and on the other side the Hobo Bag shown pretty nice, good colours'"
   },
   {
    "id": "street_poster",

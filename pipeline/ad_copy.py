@@ -69,7 +69,7 @@ SHORT_OFFER = {
     "none": ["Meet the {short}.", "Shop the {short} on libracases.com."],
 }
 CTA_LINE = {
-    "Get Offer": ["Tap Get Offer to claim the deal.", "Tap Get Offer before it's gone."],
+    "Get Offer": ["Tap Get Offer to claim the deal.", "Tap Get Offer while the sale is on."],
     "Shop Now": ["Tap Shop Now to get yours.", "Tap Shop Now to find yours."],
     "her": ["Tap Shop Now to get one for her."], "mum": ["Tap Shop Now to get one for mum."],
     "colours": ["Tap Shop Now to pick your colour."],
@@ -291,6 +291,12 @@ class Writer:
             why.append("emoji")
         if field == "primary_text_1" and text.count("\n") > 1:
             why.append("more than 2 lines")
+        if source == "ours":                  # the rulebook's hard rules (playbook_check.py): a template line that breaks one is skipped
+            import playbook_check
+            role = "headline" if field.startswith("headline") else field
+            if role in playbook_check.COPY_ROLES:
+                why += [x.split(": ", 2)[0][len("playbook "):] + ": " + x.split(": ", 2)[-1][:80]
+                        for x in playbook_check.lint([dict(where=field, text=text, role=role)], ctx=prod.ctx)[0]]
         if field == "primary_text_2" and (emojis(text) > 2 or not 3 <= text.count("\n") + 1 <= 5):
             why.append("needs 3-5 lines and at most 2 emojis")
         return why

@@ -1,0 +1,241 @@
+{
+ "ads": [
+  {
+   "look": "versus",
+   "hook": "Open tote or zipped hobo?",
+   "kicker": "EARLY BLACK FRIDAY",
+   "highlight": [
+    "zipped"
+   ],
+   "rows": [
+    [
+     "Open top",
+     "Zips shut"
+    ],
+    [
+     "Keys sink to the bottom",
+     "Gold side zips"
+    ],
+    [
+     "One way to carry",
+     "Three ways to wear"
+    ]
+   ],
+   "them": "Open tote",
+   "us": "Hobo Bag",
+   "layout": "story",
+   "photo": "ai/AS01.png",
+   "headline": "Open tote or zipped hobo?",
+   "name": "LC_261105_HoboBag_BlackFriday_B042r2_S01_versus",
+   "pct": 50,
+   "gift": "free pouch wallet",
+   "ai": {
+    "id": "AS01",
+    "scene": "p01_s01",
+    "colour": "Dark Sienna"
+   },
+   "them_share": 0.26
+  },
+  {
+   "look": "versus",
+   "hook": "Your cards: on show or on your side?",
+   "highlight": [
+    "your",
+    "side"
+   ],
+   "rows": [
+    [
+     "Cards at the top",
+     "Hidden back pocket"
+    ],
+    [
+     "Wide open on the train",
+     "Zipped shut"
+    ],
+    [
+     "Shoulder only",
+     "Shoulder, hand or crossbody"
+    ]
+   ],
+   "them": "Canvas tote",
+   "us": "Hobo Bag",
+   "layout": "story",
+   "photo": "ai/AS02.png",
+   "headline": "Your cards: on show or on your side?",
+   "name": "LC_261105_HoboBag_BlackFriday_B042r2_S02_versus",
+   "pct": 50,
+   "gift": "free pouch wallet",
+   "ai": {
+    "id": "AS02",
+    "scene": "p02_s02",
+    "colour": "Galaxy Black"
+   },
+   "them_share": 0.44
+  },
+  {
+   "look": "hook",
+   "hook": "Still carrying an open tote on the train?",
+   "sub": "This one zips shut. Cards go in the pocket on the back.",
+   "kicker": "EARLY BLACK FRIDAY",
+   "highlight": [
+    "open",
+    "tote"
+   ],
+   "layout": "story",
+   "photo": "ai/AS03.png",
+   "headline": "Still carrying an open tote on the train?",
+   "name": "LC_261105_HoboBag_BlackFriday_B042r2_S03_hook",
+   "us": "Hobo Bag",
+   "pct": 50,
+   "gift": "free pouch wallet",
+   "ai": {
+    "id": "AS03",
+    "scene": "p03_s03",
+    "colour": "Red"
+   }
+  },
+  {
+   "look": "list",
+   "hook": "3 reasons to retire the tote",
+   "highlight": [
+    "retire"
+   ],
+   "points": [
+    "Divided compartments: nothing sinks",
+    "Gold side zips for keys and phone",
+    "A hidden pocket that sits flat against you"
+   ],
+   "layout": "story",
+   "photo": "ai/AS04.png",
+   "headline": "3 reasons to retire the tote",
+   "name": "LC_261105_HoboBag_BlackFriday_B042r2_S04_list",
+   "us": "Hobo Bag",
+   "pct": 50,
+   "gift": "free pouch wallet",
+   "ai": {
+    "id": "AS04",
+    "scene": "p04_s04",
+    "colour": "Burgundy"
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS05.png",
+   "format": "split_compare",
+   "words": [
+    "Tote or Hobo?",
+    "EVERYTHING SINKS",
+    "EVERYTHING IN ITS PLACE",
+    "50% OFF"
+   ],
+   "headline": "Tote or Hobo?",
+   "name": "LC_261105_HoboBag_BlackFriday_B042r2_S05_compare",
+   "ai": {
+    "id": "AS05",
+    "scene": "p05_s05_split_compare",
+    "colour": "Grey",
+    "format": "split_compare"
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS06.png",
+   "format": "bench_pair",
+   "words": [
+    "Only one of these zips shut.",
+    "50% OFF"
+   ],
+   "headline": "Only one of these zips shut.",
+   "name": "LC_261105_HoboBag_BlackFriday_B042r2_S06_benchpair",
+   "ai": {
+    "id": "AS06",
+    "scene": "p01_s06_bench_pair",
+    "colour": "Blue",
+    "format": "bench_pair"
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS07.png",
+   "format": "tote_retired",
+   "words": [
+    "RETIRED",
+    "Handbag today, crossbody tomorrow.",
+    "50% OFF"
+   ],
+   "headline": "Handbag today, crossbody tomorrow.",
+   "name": "LC_261105_HoboBag_BlackFriday_B042r2_S07_toteretired",
+   "ai": {
+    "id": "AS07",
+    "scene": "p02_s07_tote_retired",
+    "colour": "Galaxy Black",
+    "format": "tote_retired"
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS08.png",
+   "format": "giant_numerals",
+   "words": [
+    "50%",
+    "OFF",
+    "Rain on the way? Water-resistant leather."
+   ],
+   "headline": "Rain on the way? Water-resistant leather.",
+   "name": "LC_261105_HoboBag_BlackFriday_B042r2_S08_numerals",
+   "ai": {
+    "id": "AS08",
+    "scene": "p03_s08_giant_numerals",
+    "colour": "Burgundy",
+    "format": "giant_numerals"
+   }
+  },
+  {
+   "layout": "native",
+   "photo": "photos/frames/F_1uaFFQN2BD_0020.jpg",
+   "caption": "Keys one zip away.",
+   "pct": 50,
+   "name": "LC_261105_HoboBag_BlackFriday_B042r2_S09_native",
+   "frame": {
+    "clip": "1uaFFQN2BDs_Mx3G9QUtl2_B2LRLtGd1R",
+    "t": 2.03
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS10.png",
+   "format": "sticker_burst",
+   "words": [
+    "Room like a tote. Order like a drawer.",
+    "50% OFF"
+   ],
+   "headline": "Room like a tote. Order like a drawer.",
+   "name": "LC_261105_HoboBag_BlackFriday_B042r2_S10_burst",
+   "ai": {
+    "id": "AS10",
+    "scene": "p05_s10_sticker_burst",
+    "colour": "Grey",
+    "format": "sticker_burst"
+   }
+  },
+  {
+   "layout": "studio",
+   "photo": "site/hobo_bag_colour_grey.jpg",
+   "pct": 50,
+   "name": "LC_261105_HoboBag_BlackFriday_B042r2_S11_studio",
+   "caption": "Skip the tote. Get the wallet too."
+  },
+  {
+   "layout": "value",
+   "photo": "site/hobo_bag_colour_burgundy.jpg",
+   "price": "$54.95",
+   "was": "$109.90",
+   "pct": 50,
+   "gift": "free matching pouch wallet",
+   "headline": "The Hobo Bag",
+   "cta": "Get the Black Friday deal",
+   "name": "LC_261105_HoboBag_BlackFriday_B042r2_S12_value"
+  }
+ ],
+ "card_photos": []
+}

@@ -269,6 +269,10 @@ def story_problems(p, pid, pr, cov, keys, slib, P, W, date=""):
         if m and c.get("kind") != "offer":
             P.append(f"{pid} c{j}: {m.group(0)!r}: the price, the sale and the bundle are said only in the last chapter")
     priced = [k for k, h in enumerate(hooks[:4], 1) if PRICE_WORDS.search(h.get("text") or "") or h.get("type") == "price"]
+    if pres and priced and not (_rules("presenter") or {}).get("offer_hook", False):
+        P.append(f"{pid}: hooks {', '.join(f'H{k}' for k in priced)} open the presenter's video on the sale: a UGC host does not open "
+                 f"with Black Friday or the % (Julian 2026-11-05: 'less aggressive'; B028 P02 H4 'Black Friday prices are live now' had the "
+                 f"project's lowest hook rate, 33%); open on the moment, the sale is the close")
     if len(priced) > 1:
         P.append(f"{pid}: hooks {', '.join(f'H{k}' for k in priced)} open on the price: one price hook at most, the others a moment or a question")
     if (date or "") >= SOFT_OPEN_FROM:
@@ -398,6 +402,14 @@ def story_line(s):
     return max(ok, key=nwords) if ok else None      # (the longest: 'One bag, all day.' over the labels 'Morning · Desk · Dinner')
 
 
+def moment_tail(line):
+    """A moment's line without its place ('Saturday market. Keys one zip away.' -> 'Keys one zip away.'): what a stand-in frame of
+    another place can still carry (the B042 market still failed and the frame of a car seat had captioned 'The Hobo Bag.'); None
+    when the line has one sentence."""
+    ss = [x.strip() for x in re.split(r"(?<=[.!?])\s+", line or "") if x.strip()]
+    return ss[-1] if len(ss) > 1 and len(ss[-1].split()) >= 3 else None
+
+
 def story_caption(s):
     """The caption a real-photo stand-in of this static carries when its AI picture fails the gate (the story stays, the picture is a real
     one): its story line, with the answer after a question ('Keys at the bottom again? Two gold side zips.'); None without a story."""
@@ -466,6 +478,49 @@ def coverage(pr):
                 if len(e[1]) < 3 and m.get("desc") and len(e[1]) < (e[0] // 40 + 1):
                     e[1].append(m["desc"])
     return out
+
+
+def _rules(section):
+    try:
+        return json.load(open(os.path.join(HERE, "data", "rulebook.json"))).get(section) or {}
+    except (OSError, ValueError):
+        return {}
+
+
+FOOTAGE_RULES = _rules("footage")
+
+
+PLAYBOOK_FROM = "2026-11-05"          # the rulebook's hard rules (playbook_check.py) check sheets from this day on (older: warnings)
+
+
+def presenters_wanted(n_projects, day=None):
+    """How many projects of a batch carry the presenter: rulebook.json presenter.per_batch (the highest key not above n), one per
+    batch of 2+ for sheets before the rulebook."""
+    import datetime
+    if (day or datetime.date.today().isoformat()) < PLAYBOOK_FROM:
+        return 1 if n_projects >= 2 else 0
+    tab = {int(k): int(v) for k, v in ((_rules("presenter") or {}).get("per_batch") or {}).items() if str(k).isdigit()}
+    if not tab:
+        return 1 if n_projects >= 2 else 0
+    ks = [k for k in tab if k <= n_projects]
+    return min(tab[max(ks)], n_projects) if ks else 0
+
+
+def footage_problem(text, tag, cov, pr):
+    """Why the library cannot show what this line names (None: it can): every feature the words name (shotmatch.specific_wants, with
+    what else shows it: shotmatch.ALSO) has fewer good labelled moments for the product than the rulebook's minimum. Then the video
+    would put a stand-in under the line (owner 2026-11-05: footage that does not match the captions must never happen)."""
+    import shotmatch
+    sp = shotmatch.specific_wants(text, tag)
+    if not sp:
+        return None
+    need = int(FOOTAGE_RULES.get("min_moments_for_show_tag", MIN_MOMENTS))
+    best = {t: max([cov.get(t, [0])[0]] + [cov.get(x, [0])[0] for x in shotmatch.ALSO.get(t, ())]) for t in sp}
+    if any(n >= need for n in best.values()):
+        return None
+    return (f"the words name {', '.join(sorted(sp))} but {pr['name']}'s labelled footage has only "
+            f"{', '.join(f'{n} {t}' for t, n in sorted(best.items()))} good moment(s) (need {need}): the picture would not match the "
+            f"caption. Say what the footage shows (the packet's footage tags) or drop the line")
 
 
 # ------------------------------------------------------------------ the check
@@ -601,8 +656,14 @@ def story_static_problems(s, sid, pr, P, W, items):
             P.append(f"{sid}: versus names a real brand: the other side is a generic bag ('Your old tote', 'Open tote')")
     revs = {r["n"]: r for r in json.load(open(os.path.join(HERE, "data", "reviews.json")))["reviews"]}
     n = s.get("review")
+    want_rev = (_rules("statics") or {}).get("story_review", False)     # (Julian 2026-11-05, three statics: "I would not put a review here")
+    if not n and (s.get("look") == "quote" or want_rev):
+        P.append(f"{sid}: review: a reviews.json number of {pr['name']} ({pr.get('reviews')}): the quote look is the customer's words")
+    elif n and s.get("look") != "quote" and not want_rev:
+        W.append(f"{sid}: a review card on a {s.get('look')} story static: Julian 2026-11-05 would leave it out (use the space for the bag); "
+                 f"only the quote look needs one")
     if not n:
-        P.append(f"{sid}: review: the proof every story static carries, a reviews.json number of {pr['name']} ({pr.get('reviews')})")
+        pass
     elif n not in (pr.get("reviews") or []):
         P.append(f"{sid}: review {n} is not one of {pr['name']}'s reviews ({pr.get('reviews')})")
     elif s.get("review_text") and re.sub(r"\s+", " ", s["review_text"]).strip() not in re.sub(r"\s+", " ", revs[n]["text"]):
@@ -756,6 +817,10 @@ def check(sheet, pr, n_projects=None, n_statics=None, exclude=None, day=None):
                     P.append(f"{cw}: show tag {tg!r} is not in the vocabulary")
                 elif cov and cov.get(tg, [0])[0] < MIN_MOMENTS and c.get("kind") != "offer":
                     W.append(f"{cw}: only {cov.get(tg, [0])[0]} good footage moments show '{tg}' for {pr['name']}: the picture may not match")
+            if cov and c.get("kind") != "offer" and c.get("cam") != "full":   # the footage / caption blocker at plan (rulebook.json footage)
+                fp = footage_problem(t, c.get("tag"), cov, pr)
+                if fp:
+                    (P if FOOTAGE_RULES.get("low_coverage_level", "hard") == "hard" else W).append(f"{cw}: {fp}")
             items += [dict(where=cw, text=t, source="ours")] + ([dict(where=f"{cw} tag", text=c["tag"], source="ours")] if c.get("tag") else [])
         if chs and (chs[-1].get("kind") != "offer" or "Tap the link below." not in (chs[-1].get("text") or "")):
             P.append(f"{where}: the last chapter must be kind offer and end with 'Tap the link below.'")
@@ -777,12 +842,26 @@ def check(sheet, pr, n_projects=None, n_statics=None, exclude=None, day=None):
         for p in stories:
             if p.get("structure") in last:
                 P.append(f"{p.get('id')}: the structure {p['structure']!r} was in {pr['name']}'s last batch: pick another or invent one")
-        n_pres = sum(1 for p in stories if p.get("presenter"))
-        if len(stories) >= 2 and not n_pres and not sheet.get("no_presenter"):
-            P.append("videos: one project of a batch of 2+ carries the presenter (owner 2026-10-27, about 225 credits); when the request says "
-                     "no presenter, set \"no_presenter\": \"<its words>\"")
-        elif n_pres > 1:
-            W.append(f"videos: {n_pres} presenter projects (about 225 credits each): only when the request names that many")
+        n_pres = sum(1 for p in stories if p.get("presenter"))   # (closers never carry her)
+        want_pres = presenters_wanted(len(stories), sheet.get("date") or day)
+        if n_pres < want_pres and not sheet.get("no_presenter") and not sheet.get("presenter_count"):
+            P.append(f"videos: {want_pres} project(s) of a batch of {len(stories)} story videos carry the presenter (rulebook.json presenter.per_batch; owner "
+                     f"2026-11-05: 'the presenter UGC videos are good, we need to make more of that'; about 225 credits each); a request "
+                     f"that names another number: \"presenter_count\": <n> in the sheet; one that says no presenter: \"no_presenter\": \"<its words>\"")
+        elif sheet.get("presenter_count") is not None and n_pres != int(sheet["presenter_count"]) and not sheet.get("no_presenter"):
+            P.append(f"videos: the sheet's presenter_count is {sheet['presenter_count']}, {n_pres} projects carry the presenter")
+        elif n_pres > max(want_pres, int(sheet.get("presenter_count") or 0)):
+            W.append(f"videos: {n_pres} presenter projects (about 225 credits each, more than the rulebook's {want_pres})")
+    try:                         # the craft rules (docs/RULEBOOK.md, data/rulebook.json): hooks, banned phrases, claim words, counts
+        import playbook_check
+        p_, w_ = playbook_check.sheet_problems(sheet, pr, ctx=compliance.context(pr), exclude=exclude, log=nl)
+        if (sheet.get("date") or day or datetime.date.today().isoformat()) >= PLAYBOOK_FROM:
+            P += p_
+        else:
+            W += p_
+        W += w_
+    except Exception as e:  # noqa: BLE001 - a broken rulebook must say so, not hide
+        P.append(f"playbook check could not run ({type(e).__name__}: {e}): fix pipeline/data/rulebook.json")
     allowed = sorted({(int(m.group(1)) if m.group(1).isdigit() else compliance.ONES[m.group(1).lower()])
                       for i_ in items for m in compliance.COUNT_WORD.finditer(i_["text"])})      # ('Five things ...': a count the video shows, not a stat)
     pct = product_pct(pr)
@@ -997,6 +1076,11 @@ def packet(pr, theme, n_projects, n_statics, request=""):
         L += [f"- {x}" for x in camp["facts"]]
         L += [f"- Gift: {g['name']} (worth ${g['worth']:.2f}) with {g['with']}{'+' if g['with'] > 2 else ''} bags" for g in camp["gifts"]]
         L += [f"- What the client wants now: {camp.get('client_ideas') or '-'}"]
+    try:
+        import playbook_check
+        L += ["\n" + playbook_check.packet_section(pr)]
+    except Exception as e:  # noqa: BLE001
+        L += [f"\n(the rulebook could not be read: {e})"]
     L += ["\n### What converts for Libra (owner + data, 2026-10-26: read before you write)\n",
           "- The account's money comes from people telling a true story to camera (the ACH creator winners: 123-H4 205 orders, 147-H1 183, "
           "CTR 5-10%); faceless voice-over-b-roll videos mostly lose. Prefer the presenter (a host, never a customer) or a person in the "
@@ -1047,8 +1131,9 @@ def packet(pr, theme, n_projects, n_statics, request=""):
     last_s = NV.recent(pr["name"], "structure", last=1)
     L += ["\n### The videos are stories (owner 2026-10-27: 'go ahead'; B025 / B027 were feature lists in costumes: every project walked "
           "through the same five features)\n"] + [f"- {x}" for x in sl["rules"]] + [
-          f"- One project of a batch of 2+ carries the presenter (owner 2026-10-27: one a batch, about 225 credits); the request saying "
-          f"no presenter: \"no_presenter\": \"<its words>\" in the sheet.",
+          f"- {presenters_wanted(n_projects)} of this batch's {n_projects} project(s) carry the presenter (rulebook.json presenter.per_batch; owner "
+          f"2026-11-05: 'the presenter UGC videos are good, we need to make more of that'; about 225 credits each); a request naming "
+          f"another number: \"presenter_count\": <n>; one saying no presenter: \"no_presenter\": \"<its words>\" in the sheet.",
           f"- Structures the product's last batch used (not this batch): {', '.join(last_s) or 'none'}. Invent one when none fits "
           f"(structure id of your own, structure_name, shape).",
           "\nThe story structures (data/story_structures.json; each chapter names its `beat`, the beats in this order):\n"]
@@ -1062,7 +1147,7 @@ def packet(pr, theme, n_projects, n_statics, request=""):
         L.append(f"- `{tag}`: {n}" + (f"  (e.g. {'; '.join(ex)})" if ex else ""))
     if not cov:
         L.append("(no labelled footage for this product: its videos use its photos and its few clips)")
-    L += ["\nA tag with fewer than 4 moments is thin: build the line on something the footage shows more of, or the picture will not match.",
+    L += ["\nA tag with fewer than 4 moments is thin: build the line on something the footage shows more of. The check REFUSES a line that names a feature (a zip, the clasp, the pocket, the strap ...) the footage has under 4 good moments of: the picture would not match the caption (rulebook footage).",
           "\n## 3. What earlier batches did (do not repeat their ideas, hooks, lines, scenes)\n", past(pr),
           "\n## 4. Research notes (read them: docs/research/*.md; the facts above beat them)\n"]
     rd = os.path.join(os.path.dirname(HERE), "docs", "research")

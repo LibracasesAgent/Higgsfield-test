@@ -5,7 +5,11 @@ Friday") into finished Facebook ads for Libra Cases (handbags) and upload them t
 from a message: there is no daily automatic run. Nobody is watching: never ask follow-up questions, decide sensibly,
 and reply once at the end.
 
-**START HERE, every time: section 0 setup, then the STRATEGIST STEP (section S), then `make_batch.py plan --ideas`, then section 5.**
+**START HERE, every time: section 0 setup, then read `docs/RULEBOOK.md` (the craft rules: hooks, claims, footage, presenter, targets;
+`pipeline/data/rulebook.json` is its enforced half), then the STRATEGIST STEP (section S), then `make_batch.py plan --ideas`, then section 5.**
+The rulebook is the system: `playbook_check.py` runs it inside `ideas.py check`, `ad_copy.py` and `make_batch.py check`, and a weekly
+performance review changes it (`pipeline/weekly_review.py`, section W). When a message names a rule the rulebook does not have yet
+(a meeting's decision), add it with `weekly_review.py add/set` in the same commit as the batch.
 You are the creative strategist of every batch (owner 2026-10-21: "the first step of every batch is the scripts, writing, new ideas,
 full scripts and everything ... each batch should contain something new or unique"): before anything is planned or generated you read the
 strategy packet (`ideas.py packet`: the product's true facts, what the footage library can SHOW, everything the earlier batches
@@ -146,8 +150,9 @@ Drive folder fills while the next bag renders; 9 projects + 15 statics keep a se
 ~10 GB of disk: the clip cache trims itself (`recut.trim_cache`, 4.5 GB), and after each bag's upload delete its local videos
 (`find $OUT/videos -name '*.mp4' -delete`, never anything in Drive); `df -h /home` says how much is left.
 
-**Size, every pipeline:** no numbers in the message = a **batch**: 20 statics + 5 projects × 4 hooks (H1-H4) =
-20 videos (winners and new products do this by themselves; catalog needs `--batch`). Numbers given = exactly
+**Size, every pipeline:** no numbers in the message = a **batch**: 12 statics + 5 projects × 4 hooks (H1-H4) =
+20 videos (Julian 2026-11-05: "better 12 very good ads instead of 25 average": `rulebook.json batch.statics`; winners and new products
+do this by themselves; catalog needs `--batch`). Numbers given = exactly
 those, and a count not named is 0 ("6 statics" = 6 statics and no videos). "N videos" = "N projects" =
 `--projects N` (4N files; `--hooks 1`: N single videos).
 
@@ -159,7 +164,7 @@ command -v ffmpeg || bash .claude/hooks/session-start.sh        # Slack sessions
 command -v pdftotext || (apt-get update -qq && apt-get install -y -qq poppler-utils)   # PDF notes in a New Products folder (pypdf: fallback)
 command -v tesseract || (apt-get update -qq && apt-get install -y -qq tesseract-ocr)    # ai_gen gate reads the words of the AI ads back
 python3 -c "import faster_whisper, PIL, numpy, cv2, pillow_heif, pypdf, openpyxl" 2>/dev/null || \
-    python3 -m pip install -q faster-whisper pillow numpy pillow-heif opencv-python-headless pypdf openpyxl
+    python3 -m pip install -q faster-whisper "av<19" pillow numpy pillow-heif opencv-python-headless pypdf openpyxl   # (PyAV 19 dropped an argument faster-whisper passes: every video render fails)
 python3 pipeline/drive_upload.py check                          # Drive login ok?
 ```
 
@@ -284,14 +289,14 @@ then `--product "<key>"`. No folder, no photos, not on the site: make nothing an
 | Request says | `make_batch.py plan` flags |
 |---|---|
 | "N statics and M videos" (or "M projects") | `--statics N --projects M` → M projects × 4 hook versions (winners: `--videos M` = M winner projects too; catalog: `--videos M` / `--winner-videos M` still work) |
-| no numbers | nothing (winners, new products) / `--batch` (catalog): 20 statics + 5 projects |
+| no numbers | nothing (winners, new products) / `--batch` (catalog): 12 statics + 5 projects |
 | "single videos" / "no hook versions" | add `--hooks 1` (V01, V02 … as before, winners too) |
 | a product (catalog) | `--product "<name>"`: Hobo Bag (default), Hobo 2.0, 3-piece set, vintage, slouchy, or any product file in `pipeline/data/products/` |
 | a theme | `--theme "<words>"`: black friday, cyber monday, christmas, gift, mother's day, travel are built in; any other theme: `--theme "<words>"` plus your own short lines with `--lines` (keys `hero`, `bold`, `colours`, `P01_hook` / `V01_hook`, `P01_close` …) |
 | "Black Friday" / "Cyber Monday" / "Cyber Week" while the sale runs (23 Oct - 30 Nov 2026) | `--theme "black friday"` (or `cyber monday`): plan adds the campaign by itself (`data/campaign.json`, warning `campaign: ...`): end card "Black Friday Sale" + "UP TO 60% OFF", a sale sentence in the close. No free gifts (removed 2026-10-26), "60% off" only of the 3-Piece Set / named bundles, no returns promise (final sale); each bag keeps its own %; PLAYBOOK 4f |
 | "closers" / "short offer videos" / "ads like 190-H3" / "like this winner" naming 190-H3 or 113-H2 | no flag: in the strategist's `ideas.json` those projects carry `"format": "closer"` (the 30-day winner 190-H3, 27 s: a warning hook, the offer from the first line, how to get it, the sale's real end date; 3-6 chapters, 75-120 words, 25-35 s; `ideas.py --help`). Only when the request asks for them: every other video stays 55-80 s (rule 6). Never "today" / "tonight" before the sale's last day; docs/PLAYBOOK.md 4i |
 | "story" / "long video" / "storytelling" | add `--story` (the classic story format, 1.5-2 min where the product has the footage; plan warns when it runs shorter: say so) |
-| "presenter" / "a woman talking" / "someone talking to camera" / "like the mom videos" / "with a model" | no flag: in the strategist's `ideas.json` the named number of projects carry `"presenter": {"id": "maya", ...}` (all of them when no number is named; "mix" = about half, the rest normal ugc voiceover projects, each with a different idea). `plan` prints the `presenter` credits (~2.5 per second of her talking: a presenter project ~225, four ~900; cap 1000). Say the cost in the reply. **No presenter words = one presenter project in every batch of 2+ projects** (owner 2026-10-27), the rest ugc voiceover; "no presenter" / "no model" in the message: none, and the sheet says `"no_presenter": "<the request's words>"` |
+| "presenter" / "a woman talking" / "someone talking to camera" / "like the mom videos" / "with a model" | no flag: in the strategist's `ideas.json` the named number of projects carry `"presenter": {"id": "maya", ...}` (all of them when no number is named; "mix" = about half, the rest normal ugc voiceover projects, each with a different idea). `plan` prints the `presenter` credits (~2.5 per second of her talking: a presenter project ~225, four ~900; cap 1000). Say the cost in the reply. **No presenter words = about half the projects carry the presenter** (owner 2026-11-05: "the presenter UGC videos are good, we need to make more of that"; `rulebook.json presenter.per_batch`: 2 projects → 1, 3-4 → 2, 5 → 3; a named number: `"presenter_count": <n>` in the sheet), the rest ugc voiceover; "no presenter" / "no model" in the message: none, and the sheet says `"no_presenter": "<the request's words>"` |
 | "the old format" / "classic videos" | add `--classic` (the pre-2026-10-14 output: classic video formats showcase / features / reviews / colours, 40-60 s, and the old static cycle). Only when the request asks for it |
 | "winners with reviews" | add `--winner-reviews` (only when asked: by default winner videos keep their proven body untouched) |
 | "no music" | add `--no-music` |
@@ -329,7 +334,7 @@ python3 pipeline/ideas.py packet --product "<name>" [--theme "<words>"] --projec
    price, the %, the sale and the bundle only in the last chapter and in at most one hook; the 4 hooks open on 4 different pictures of
    the bag doing something (first `show` tag a movement or a person, never hero / placed / colours); one or two `"proof_shot": true`
    chapters (a movement the picture proves: the shot is held 2-3 s and plays the clip's own sound, e.g. the zip); the bag on a person
-   (worn / walking) in two chapters of every non-presenter project; one presenter project per batch of 2+ (section 4). **N statics**, **every one showing the offer** (Wouter 2026-11-04 on B036: "Don't have the offer on it": an `ad`'s words include
+   (worn / walking) in two chapters of every non-presenter project; the presenter in about half the projects (`rulebook.json presenter.per_batch`, section 4). **N statics**, **every one showing the offer** (Wouter 2026-11-04 on B036: "Don't have the offer on it": an `ad`'s words include
    the product's % as a HERO element of the design, a `concept` has `pill: true`, real statics get the % badge; the check refuses
    less) and **a different scroll-stopping design each** (the owner: "studio level design with offers"; the offer-led formats:
    giant numerals, swing tag, sticker burst, colour split, neon, shop-window decal, rubber stamp, ribbon, sale shopping bag, set
@@ -355,7 +360,9 @@ python3 pipeline/ideas.py packet --product "<name>" [--theme "<words>"] --projec
    nobody moving: the static then also ships as a 5 s silent loop with the same footer words, `<name>_motion.mp4`), and the rest real: studio / native /
    quotes / value / offer / stars where they fit. Look at every AI ad's contact sheet: read each word, check the bag, `reject` what is off. Only the packet's facts; no first person, no invented customer experience, no countdown
    or sale end date nobody confirmed, no "theft-proof"; counts like "five things" only when the video delivers them.
-3. `python3 pipeline/ideas.py check $OUT/ideas.json --product "<name>" --projects M --statics N`: fix every PROBLEM (warnings: read them),
+3. `python3 pipeline/ideas.py check $OUT/ideas.json --product "<name>" --projects M --statics N`: fix every PROBLEM (warnings: read them;
+   a `playbook <rule>:` line is the rulebook: docs/RULEBOOK.md says why and how to rewrite: a hook on a formula of section 3, a claim word the
+   facts back, a line the footage can show (`the words name ... has only N good moments`: write it around a packet section 2 tag),
    check again. Then `plan --ideas $OUT/ideas.json ...` (section 5); `plan` copies the sheet and makes `strategy_sheet.md/.csv`, which
    `upload` puts in the Drive batch folder.
 4. The reply names the ideas (one line per project: title, structure, why it is new) and links the strategy sheet.
@@ -424,7 +431,11 @@ python3 pipeline/make_batch.py plan <flags> --ideas $OUT/ideas.json --request "<
    backdrop behind them: `"fit"`), never cropped to the middle. Text off-frame, wrong product, black frames, a
    face: fix a hook in its `..._P01_H3_...json` (only to fix a QA problem, never to change the length or format), a body problem in `$OUT/_before_hooks/<V01 spec>.json` then re-run
    `python3 pipeline/projects.py expand --out $OUT` (all 4 versions get it), and `render --only <id>`; or
-   leave it out and say so. A face in a static or a failed render is never uploaded; length/anchor flags and
+   leave it out and say so. **`shot mismatch`** (the footage / caption blocker, docs/RULEBOOK.md section 5): a shot of the finished
+   video shows none of what its caption says; that version is not uploaded: `$OUT/qa/<id>_footage.json` names the second, the words
+   and what the picture shows; put a shot that shows it in the spec (`_before_hooks/<V01 spec>.json` + `projects.py expand`, or the
+   hook's own JSON) and `render --only <id>`; `footage unverified` (an unlabelled source under a feature line) is soft: look at it.
+   A face in a static or a failed render is never uploaded; length/anchor flags and
    `body differs from H1 (body match M …)` (that version's body is not its project's: look at its `qa/P*.jpg`,
    fix it as above or leave it) are uploaded and listed under QA flagged in the run report: mention them in the reply.
    **ugc videos:** `render` prints `scorecard P01H1: 63s · 201 wpm · speech 88% · longest pause 0.41s · shots 2.0s avg · -14.0
@@ -459,6 +470,22 @@ python3 pipeline/make_batch.py plan <flags> --ideas $OUT/ideas.json --request "<
 `pipeline/assets/music/` when there are any, otherwise a generated bed (made by `pipeline/music.py`, nothing to
 license). Winner videos keep their RAW's own sound.
 
+## W. The weekly performance review (the rulebook learns)
+
+A message like "weekly review", "here are this week's numbers" (a CSV attached or in Drive), or a meeting's decision ("Julian: no more
+gift hooks", "hook rate target 42%"):
+```
+python3 pipeline/weekly_review.py ingest <Ads Manager export, Ads level, CSV> --week <Monday YYYY-MM-DD>
+python3 pipeline/weekly_review.py report --week <Monday>        # docs/reviews/<Monday>.md: every ad vs the targets (hook rate 40-45%)
+python3 pipeline/weekly_review.py add win|lose "<rule>" --evidence "<ads + numbers>"
+python3 pipeline/weekly_review.py add ban "<phrase>" --why "<who, when, why>" [--level soft] [--where hook|statics|copy]
+python3 pipeline/weekly_review.py set <dotted.path> <json value> --why "<who, when>"     # e.g. kpi.hook_rate.good 0.42, presenter.per_batch.5 4
+python3 pipeline/tests/test_playbook.py                         # the rulebook still reads
+```
+Run the report's "suggested rulebook changes" only when the message (the meeting) agrees with them; commit `pipeline/data/rulebook.json`,
+`pipeline/data/performance.json` and `docs/reviews/` on the session's branch; reply with the report's summary and the changes made.
+The next strategy packet prints the best / worst hooks of the last two weeks and the newest rulebook lines.
+
 ## Footage library (the client adds clips)
 
 New raw clips in the Drive library (`Raw files/<product>/...`) are not used until indexed: `python3 pipeline/index_library.py` (the
@@ -473,5 +500,5 @@ sheets to labelling agents (one jsonl a clip, see `DIR/README.md`), `label-merge
 
 ## Other references
 
-`docs/PLAYBOOK.md` (memory), `docs/NAMING.md`, `docs/CLIENT_GUIDE.md` (what the client can type),
+`docs/RULEBOOK.md` (the rules, ranked), `docs/AUDIT_2026-11-05.md` (why ads went wrong B011-B038), `docs/PLAYBOOK.md` (memory), `docs/NAMING.md`, `docs/CLIENT_GUIDE.md` (what the client can type),
 `docs/SLACK_SETUP.md` (owner setup), `pipeline/data/products/README.md` (product files).

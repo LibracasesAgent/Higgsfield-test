@@ -161,6 +161,11 @@ def pres_secs(text):
 VOICE_FILE = os.path.join(HERE, "data", "voice.json")   # optional {"voice_type", "voice_id", "speed"}: the lead's choice of voice
 PIPELINES = ("catalog", "winners", "new-product")
 BATCH = dict(statics=20, projects=5)   # the owner (2026-10-13): no numbers = 20 statics + 5 projects x 4 hooks = 20 videos
+try:                                    # Julian 2026-11-05: "better 12 very good ads instead of 25 average": rulebook.json batch
+    BATCH.update({k: int(v) for k, v in (json.load(open(os.path.join(HERE, "data", "rulebook.json"))).get("batch") or {}).items()
+                  if k in BATCH})
+except (OSError, ValueError):
+    pass
 FIT_CLIP = "auto"   # product-file clips not shot 9:16: recut picks a flat backdrop (light studio border) or a blur
 CLOSE_FIT_Y = 0.30  # a framed square under the close: y 36-1116, above the end card band (1120-1510)
 STORY_WORDS = re.compile(r"\bstor(?:y|ies|ytelling)\b|\blong(?:er)?[- ](?:video|ad|form|version)s?\b|"
@@ -183,7 +188,7 @@ THEMES = {
         label="BLACK FRIDAY", hooks=["Black Friday came early.", "This is the Black Friday deal you've been waiting for.",
                                      "Black Friday: the bag everyone asks about is {price_sp}."],
         hero="Black Friday deal.", bold=["BLACK", "FRIDAY."], offer_title="BLACK FRIDAY {P} OFF", offer_sub="[{card}]",
-        close="For Black Friday it's {off_sp}[, plus {gift_sp}]. Tap the link below before it's gone.",
+        close="For Black Friday it's {off_sp}[, plus {gift_sp}]. Tap the link below.",
         sub="{P} off the {short}[ + {gift_w}].", cta="Get the Black Friday deal",   # (never "our biggest sale": the % runs
         #                                           all year; the bold headline already says BLACK FRIDAY: not twice)
         lead="This is our Black Friday deal."),
@@ -995,9 +1000,24 @@ def ugc_slots(text, speed=UGC_SPEED, pad=UGC_JOIN, ideal=None, long=None):
 
 
 def check_out(out):
-    """compliance.check_out (it allows the count a ugc hook says: plan.json 'ugc_numbers')."""
+    """compliance.check_out (it allows the count a ugc hook says: plan.json 'ugc_numbers') + the playbook's hard rules on the ad copy
+    (playbook_check.py: banned phrases, claim words the facts don't back, Meta's lengths, price figures; $OUT/playbook.json): a
+    hand edit of ad_copy.csv is judged by both (make_batch.py check)."""
     import compliance
-    return compliance.check_out(out)
+    cr = compliance.check_out(out)
+    try:
+        import playbook_check
+        p = json.load(open(os.path.join(out, "plan.json")))
+        ctx = compliance.context(p.get("product_key") or p.get("product"), offer=p.get("offer"), out=out)
+        recs = playbook_check.copy_records(out, ctx)
+    except Exception as e:  # noqa: BLE001 - the copy rules are extra: said, never silent
+        cr.setdefault("warnings", []).append(f"playbook check of the ad copy could not run ({type(e).__name__}: {e})")
+        return cr
+    hard = [r for r in recs if r["level"] == "hard"]
+    cr["problems"] = list(cr.get("problems") or []) + [{k: r[k] for k in ("where", "text", "category", "term", "why")} for r in hard]
+    cr["playbook_warnings"] = [f"{r['where']}: {r['term']}: {r['why']}" for r in recs if r["level"] != "hard"]
+    cr["ok"] = cr.get("ok", True) and not hard
+    return cr
 
 
 _SOUND = []
@@ -1961,10 +1981,12 @@ def plan(a):
                     warnings.append(f"ideas: {x_.get('id')}: a story static needs a real face-free photo or a scene: none left, the "
                                     f"real {statics[i_].get('layout')} static stands in its slot")
             elif i_ < len(statics) and x_["layout"] in ("ad", "concept") and statics[i_].get("layout") in ("native", "studio") and \
-                    ideas.story_caption(x_) and x_.get("story") != "moment" and (sheet.get("date") or "") >= ideas.STATIC_STORY_FROM:
+                    ideas.story_caption(x_) and (x_.get("story") != "moment" or ideas.moment_tail(ideas.story_caption(x_))) and \
+                    (sheet.get("date") or "") >= ideas.STATIC_STORY_FROM:
                 # (the real stand-in of an AI static keeps its story when the AI picture fails: a frame's caption, a packshot's line;
                 # not a `moment`: 'Packed train.' over a stand-in frame of a lawn is wrong, the frame keeps its own feature caption)
-                statics[i_].update({"caption": ideas.story_caption(x_)} if statics[i_]["layout"] == "native" else {"headline": ideas.story_caption(x_)})
+                cap_ = ideas.story_caption(x_) if x_.get("story") != "moment" else ideas.moment_tail(ideas.story_caption(x_))
+                statics[i_].update({"caption": cap_} if statics[i_]["layout"] == "native" else {"headline": cap_})
                 if statics[i_]["layout"] == "native":
                     statics[i_].pop("headline", None)
                 else:
@@ -2860,9 +2882,17 @@ def plan(a):
             ids_ = sorted(ai_mine)
             ai_mine = {ids_[(v * 3 + j_) % len(ids_)] for j_ in range(4)}
 
-        def choose(terms, cterms, feat, prev, use, kinds=None, hook=False, wants=None, opening=False, sound=False):
+        def choose(terms, cterms, feat, prev, use, kinds=None, hook=False, wants=None, opening=False, sound=False, strict=True):
+            # strict (the footage / caption blocker, owner 2026-11-05): a phrase that names a feature (a want >= shotmatch.SPECIFIC)
+            # only takes a labelled moment that shows it; when the library has none, the best shot as before (render and the QA
+            # footage check then judge it)
+            spec = strict and bool(wants) and max(wants.values()) >= shotmatch.SPECIFIC
+            if spec and not any(e.get("tags") and shotmatch.answers(e["tags"], wants) for e in lib):
+                spec = False
             best = best_s = None     # sound: a proof shot (owner 2026-10-27) takes the best clip with a sound track whose labels show what
             for i, e in enumerate(lib):     # the line wants (it plays its own sound); none: the best shot, silent
+                if spec and not (e.get("tags") and shotmatch.answers(e["tags"], wants)):
+                    continue
                 if e["p"][0] == "ai" and (ai_n[0] >= AI_SHOTS_MAX or e["p"][1] not in ai_mine):   # (mostly the real footage)
                     continue
                 if (e["only"] and not e["only"] & (terms | cterms)) or (kinds and e["kind"] not in kinds) or (e["once"] and use.get(i)):
@@ -2881,7 +2911,7 @@ def plan(a):
                 if sound and sem > 0 and e["kind"] != "photo" and e["src"] in sound_ids() and (best_s is None or -s < best_s[0]):
                     best_s = (-s, i)
             if best is None:
-                return None
+                return choose(terms, cterms, feat, prev, use, kinds, hook, wants, opening, sound, strict=False) if spec else None
             best = best_s or best
             use[best[1]] = use.get(best[1], 0) + 1
             batch_srcs.add(lib[best[1]]["src"])
@@ -3562,7 +3592,40 @@ def prefetch(out, videos):
         list(ex.map(one, todo))
 
 
-HARD = ("render failed", "file missing", "face", "too short")       # QA problems that keep a file out of Drive
+HARD = ("render failed", "file missing", "face", "too short", "shot mismatch")   # QA problems that keep a file out of Drive
+
+
+def footage_match(out, v):
+    """The footage / caption blocker after render (owner 2026-11-05: "the footage sometimes doesn't match the captions ... it should
+    not happen"): every shot of the finished video under words that name a feature must show one of them at the seconds it plays
+    (shotmatch.audit on _<name>_longform.json: the exact segments and the caption words). ([hard problem], [soft problem], rows):
+    a mismatch is 'shot mismatch: ...' (HARD: upload skips the version; fix the shot in the spec and render --only it), a shot
+    from a source without labels under such words is listed as unverified (look at it on the contact sheet)."""
+    try:
+        import shotmatch
+        lf = json.load(open(os.path.join(out, f"_{v['name']}_longform.json")))
+    except (OSError, ValueError, ImportError):
+        return [], [], []
+    rows = shotmatch.audit(lf)
+    bad, unv = shotmatch.audit_lines(rows)
+    lvl = (rules_of("footage") or {}).get("mismatch_level", "hard")
+    hard = [f"shot mismatch: {len(bad)} shot(s) do not show what is said: " + " | ".join(x.split(": ", 1)[1] for x in bad[:3])
+            + (f" (+{len(bad) - 3} more)" if len(bad) > 3 else "")] if bad and lvl == "hard" else []
+    soft = ([f"footage: {len(bad)} shot(s) do not show what is said (soft by rulebook)"] if bad and lvl != "hard" else []) + \
+        ([f"footage unverified: {len(unv)} shot(s) under a feature line come from unlabelled sources: look at qa/{v['id']}.jpg"] if unv else [])
+    try:
+        json.dump(dict(name=v["name"], rows=rows), open(os.path.join(out, "qa", f"{v['id']}_footage.json"), "w"), indent=1)
+    except OSError:
+        pass
+    return hard, soft, rows
+
+
+def rules_of(section):
+    """A section of pipeline/data/rulebook.json (the weekly review edits it), {} when the file is missing."""
+    try:
+        return json.load(open(os.path.join(HERE, "data", "rulebook.json"))).get(section) or {}
+    except (OSError, ValueError):
+        return {}
 
 
 def qa_range(v):
@@ -3659,6 +3722,9 @@ def render_one(out, v):
             #                                                                  two or more are looked at; the presenter's face is the point)
             problems.append(f"face in the picture: {fc_[0]} sampled frames, first at {fc_[1]:.0f}s: look at qa/{v['id']}.jpg / the "
                             f"footage (library clips are checked on 4 frames each)")
+    if ok and eng == "storyboard":         # the footage / caption blocker on the exact frames used (rulebook.json footage)
+        fh, fs, _ = footage_match(out, v)
+        problems += fh + fs
     return dict(name=v["name"], id=v["id"], engine=eng, format=v.get("format"), seconds=round(L, 1), ok=ok and not problems,
                 problems=problems, hard=[x for x in problems if x.startswith(HARD)], **({"music": mus} if mus else {}),
                 **({"scorecard": card} if card else {}))

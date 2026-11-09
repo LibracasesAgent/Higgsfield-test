@@ -1,0 +1,402 @@
+{
+ "ok": true,
+ "created": "2026-11-05",
+ "product": "Hobo Bag",
+ "theme": "black friday",
+ "theme_name": "BlackFriday",
+ "offer": "50% off + free matching pouch wallet",
+ "seed": 1,
+ "cta": "Get Offer",
+ "rows": 32,
+ "csv": "/tmp/run/hobo-tote-vs/ad_copy.csv",
+ "statics": [
+  {
+   "id": "S01",
+   "ad_name": "LC_261105_HoboBag_BlackFriday_B042r2_S01_versus",
+   "angle": "story",
+   "primary_text_1": "Black Friday came early.\nThe Hobo Bag: 50% off + free wallet.",
+   "primary_text_2": "This bag has a pocket you can't see from the front. 🖤\nDivided compartments, so nothing sinks to the bottom.\nTwo straps, so you can wear it on the shoulder, as a handbag, or crossbody.\nBlack Friday Sale: up to 60% off. 🎁\nTap Get Offer while the sale is on.",
+   "headline_1": "Early Black Friday: 50% Off",
+   "headline_2": "Up to 60% Off Bundles",
+   "description": "50% off + free shipping",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER"
+  },
+  {
+   "id": "S02",
+   "ad_name": "LC_261105_HoboBag_BlackFriday_B042r2_S02_versus",
+   "angle": "story",
+   "primary_text_1": "This is the Black Friday deal you've been waiting for.\n50% off the Hobo Bag + free wallet.",
+   "primary_text_2": "Take a closer look at the Hobo Bag. 🖤\nTwo straps, so you can wear it on the shoulder, as a handbag, or crossbody.\nSoft, water-resistant leather that looks expensive and only gets better with time.\nBlack Friday Sale: up to 60% off. 🎁\nTap Get Offer to claim the deal.",
+   "headline_1": "Black Friday Prices Are Live",
+   "headline_2": "Now 50% Off: The Hobo Bag",
+   "description": "Up to 60% off",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER"
+  },
+  {
+   "id": "S03",
+   "ad_name": "LC_261105_HoboBag_BlackFriday_B042r2_S03_hook",
+   "angle": "story",
+   "primary_text_1": "One bag, three ways to wear it.\nBlack Friday deal: the Hobo Bag is 50% off + free wallet.",
+   "primary_text_2": "Most bags look the same from the front. Turn this one around. 🖤\nTwo gold side zips, one on each side, for your keys and phone.\nDivided compartments, so nothing sinks to the bottom.\nThis Black Friday: 50% off + a free matching pouch wallet. 🎁\nTap Get Offer to claim the deal.",
+   "headline_1": "Black Friday: 50% Off",
+   "headline_2": "Hobo Bag: 50% Off + Free Wallet",
+   "description": "6 colours + free shipping",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER"
+  },
+  {
+   "id": "S04",
+   "ad_name": "LC_261105_HoboBag_BlackFriday_B042r2_S04_list",
+   "angle": "story",
+   "primary_text_1": "Stop digging for your keys at the bottom of your bag.\nBlack Friday: 50% off the Hobo Bag + free wallet.",
+   "primary_text_2": "Soft leather that's water-resistant and scratch-proof. 🖤\nTwo straps, so you can wear it on the shoulder, as a handbag, or crossbody.\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nBlack Friday: 50% off + a free matching pouch wallet. 🎁\nTap Get Offer to claim the deal.",
+   "headline_1": "Black Friday: 50% Off the Hobo Bag",
+   "headline_2": "Free Matching Pouch Wallet Included",
+   "description": "1-year warranty included",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER"
+  },
+  {
+   "id": "S05",
+   "ad_name": "LC_261105_HoboBag_BlackFriday_B042r2_S05_compare",
+   "angle": "split_compare",
+   "primary_text_1": "Where do you keep your cards when you're out?\nThe Hobo Bag: 50% off + free wallet.",
+   "primary_text_2": "If your bag is one big black hole, this is for you. 🖤\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nTwo gold side zips, one on each side, for your keys and phone.\nThis Black Friday: 50% off + a free matching pouch wallet. 🎁\nTap Get Offer while the sale is on.",
+   "headline_1": "Black Friday Deal: 50% Off + Free Wallet",
+   "headline_2": "50% Off the Hobo Bag + Free Wallet",
+   "description": "Free matching pouch wallet",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER"
+  },
+  {
+   "id": "S06",
+   "ad_name": "LC_261105_HoboBag_BlackFriday_B042r2_S06_benchpair",
+   "angle": "ad",
+   "primary_text_1": "Be honest: how long does it take you to find your keys?\nThe Hobo Bag: 50% off + free wallet.",
+   "primary_text_2": "Have you seen the Hobo Bag yet? 🖤\nDivided compartments, so nothing sinks to the bottom.\nTwo straps, so you can wear it on the shoulder, as a handbag, or crossbody.\nBlack Friday Sale: up to 60% off. 🎁\nTap Get Offer to claim the deal.",
+   "headline_1": "Smart Compartments + 3 Ways to Wear",
+   "headline_2": "Meet the Hobo Bag: Smart Compartments",
+   "description": "Black Friday: 50% off",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER"
+  },
+  {
+   "id": "S07",
+   "ad_name": "LC_261105_HoboBag_BlackFriday_B042r2_S07_toteretired",
+   "angle": "ad",
+   "primary_text_1": "Need a gift for someone who carries everything?\nThe Hobo Bag, now 50% off with a free matching pouch wallet.",
+   "primary_text_2": "Looking for a gift? Meet the Hobo Bag. 🖤\nSoft, water-resistant leather that looks expensive and only gets better with time.\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nThis Black Friday: 50% off + a free matching pouch wallet. 🎁\nTap Get Offer to claim the deal.",
+   "headline_1": "Meet the Hobo Bag: Soft Leather",
+   "headline_2": "Soft Leather + Hidden Back Pocket",
+   "description": "Black Friday deal: 50% off",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER"
+  },
+  {
+   "id": "S08",
+   "ad_name": "LC_261105_HoboBag_BlackFriday_B042r2_S08_numerals",
+   "angle": "ad",
+   "primary_text_1": "You reach for your keys and they're right where you left them.\n50% off the Hobo Bag + free wallet.",
+   "primary_text_2": "Travelling soon? Your passport goes in a pocket that sits flat against you. 🖤\nTwo gold side zips, one on each side, for your keys and phone.\nDivided compartments, so nothing sinks to the bottom.\nBlack Friday: 50% off + a free matching pouch wallet. 🎁\nTap Get Offer while the sale is on.",
+   "headline_1": "Meet the Hobo Bag: Hidden Back Pocket",
+   "headline_2": "Hidden Back Pocket + Gold Side Zips",
+   "description": "Now 50% off",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER"
+  },
+  {
+   "id": "S09",
+   "ad_name": "LC_261105_HoboBag_BlackFriday_B042r2_S09_native",
+   "angle": "native",
+   "primary_text_1": "Black Friday came early.\nThe Hobo Bag, now 50% off with a free matching pouch wallet.",
+   "primary_text_2": "This bag has a pocket you can't see from the front. 🖤\nDivided compartments, so nothing sinks to the bottom.\nTwo straps, so you can wear it on the shoulder, as a handbag, or crossbody.\nBlack Friday Sale: up to 60% off. 🎁\nTap Get Offer to claim the deal.",
+   "headline_1": "The Hobo Bag: Smart Compartments",
+   "headline_2": "Early Black Friday: 50% Off",
+   "description": "Free shipping",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER"
+  },
+  {
+   "id": "S10",
+   "ad_name": "LC_261105_HoboBag_BlackFriday_B042r2_S10_burst",
+   "angle": "ad",
+   "primary_text_1": "This is the Black Friday deal you've been waiting for.\nThe Hobo Bag: 50% off + free wallet.",
+   "primary_text_2": "Take a closer look at the Hobo Bag. 🖤\nDivided compartments, so nothing sinks to the bottom.\nTwo straps, so you can wear it on the shoulder, as a handbag, or crossbody.\nBlack Friday: 50% off + a free matching pouch wallet. 🎁\nTap Get Offer to claim the deal.",
+   "headline_1": "Up to 60% Off Bundles",
+   "headline_2": "Black Friday Prices Are Live",
+   "description": "6 colours to choose from",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER"
+  },
+  {
+   "id": "S11",
+   "ad_name": "LC_261105_HoboBag_BlackFriday_B042r2_S11_studio",
+   "angle": "studio",
+   "primary_text_1": "If your bag is one big black hole, this is for you.\nBlack Friday: 50% off the Hobo Bag + free wallet.",
+   "primary_text_2": "Most bags look the same from the front. Turn this one around. 🖤\nDivided compartments, so nothing sinks to the bottom.\nTwo straps, so you can wear it on the shoulder, as a handbag, or crossbody.\nBlack Friday: 50% off + a free matching pouch wallet. 🎁\nTap Get Offer to claim the deal.",
+   "headline_1": "Black Friday Deal: 50% Off + Free Wallet",
+   "headline_2": "Meet the Hobo Bag: Smart Compartments",
+   "description": "Up to 60% off",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER"
+  },
+  {
+   "id": "S12",
+   "ad_name": "LC_261105_HoboBag_BlackFriday_B042r2_S12_value",
+   "angle": "value",
+   "primary_text_1": "One bag, three ways to wear it.\nBlack Friday: 50% off the Hobo Bag + free wallet.",
+   "primary_text_2": "Stop digging for your keys at the bottom of your bag. 🖤\nTwo gold side zips, one on each side, for your keys and phone.\nDivided compartments, so nothing sinks to the bottom.\nBlack Friday Sale: up to 60% off. 🎁\nTap Get Offer to claim the deal.",
+   "headline_1": "Black Friday: 50% Off",
+   "headline_2": "Gold Side Zips + Smart Compartments",
+   "description": "50% off + free shipping",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER"
+  }
+ ],
+ "projects": [
+  {
+   "id": "P01",
+   "angle": "pairbypair",
+   "engine": "storyboard",
+   "product": "Hobo Bag",
+   "winner": null,
+   "primary_text_1": "Be honest: how long does it take you to find your keys?\nBlack Friday deal: the Hobo Bag is 50% off + free wallet.",
+   "primary_text_2": "Soft leather that's water-resistant and scratch-proof. 🖤\nTwo gold side zips, one on each side, for your keys and phone.\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nBlack Friday Sale: up to 60% off. 🎁\nTap Get Offer to claim the deal.",
+   "headline_1": "The Hobo Bag: Gold Side Zips",
+   "headline_2": "Gold Side Zips + Hidden Back Pocket",
+   "description": "Black Friday: 50% off",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER",
+   "versions": [
+    {
+     "hook": "H1",
+     "id": "P01H1",
+     "ad_name": "LC_261105_HoboBag_BlackFriday_B042r2_P01_H1_pairbypair",
+     "hook_text": "Open tote or zipped hobo: where do your keys end up?",
+     "hook_first_line": "Open tote or zipped hobo: where do your keys end up?",
+     "primary_text_2_hook": "Open tote or zipped hobo: where do your keys end up?\nTwo gold side zips, one on each side, for your keys and phone.\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nBlack Friday Sale: up to 60% off. 🎁\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H2",
+     "id": "P01H2",
+     "ad_name": "LC_261105_HoboBag_BlackFriday_B042r2_P01_H2_pairbypair",
+     "hook_text": "Keys at the bottom of an open tote, again?",
+     "hook_first_line": "Keys at the bottom of an open tote, again?",
+     "primary_text_2_hook": "Keys at the bottom of an open tote, again?\nTwo gold side zips, one on each side, for your keys and phone.\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nBlack Friday Sale: up to 60% off. 🎁\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H3",
+     "id": "P01H3",
+     "ad_name": "LC_261105_HoboBag_BlackFriday_B042r2_P01_H3_pairbypair",
+     "hook_text": "Watch an open tote lose to one gold side zip.",
+     "hook_first_line": "Watch an open tote lose to one gold side zip.",
+     "primary_text_2_hook": "Watch an open tote lose to one gold side zip.\nTwo gold side zips, one on each side, for your keys and phone.\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nBlack Friday Sale: up to 60% off. 🎁\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H4",
+     "id": "P01H4",
+     "ad_name": "LC_261105_HoboBag_BlackFriday_B042r2_P01_H4_pairbypair",
+     "hook_text": "Which bag would you carry through a busy market on Saturday?",
+     "hook_first_line": "Which bag would you carry through a busy market on Saturday?",
+     "primary_text_2_hook": "Which bag would you carry through a busy market on Saturday?\nTwo gold side zips, one on each side, for your keys and phone.\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nBlack Friday Sale: up to 60% off. 🎁\nTap Get Offer to claim the deal."
+    }
+   ]
+  },
+  {
+   "id": "P02",
+   "angle": "totemyth",
+   "engine": "storyboard",
+   "product": "Hobo Bag",
+   "winner": null,
+   "primary_text_1": "Need a gift for someone who carries everything?\nBlack Friday deal: the Hobo Bag is 50% off + free wallet.",
+   "primary_text_2": "Where do you keep your cards when you're out? 🖤\nDivided compartments, so nothing sinks to the bottom.\nTwo straps, so you can wear it on the shoulder, as a handbag, or crossbody.\nBlack Friday: 50% off + a free matching pouch wallet. 🎁\nTap Get Offer to claim the deal.",
+   "headline_1": "Black Friday: 50% Off the Hobo Bag",
+   "headline_2": "Free Matching Pouch Wallet Included",
+   "description": "1-year warranty included",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER",
+   "versions": [
+    {
+     "hook": "H1",
+     "id": "P02H1",
+     "ad_name": "LC_261105_HoboBag_BlackFriday_B042r2_P02_H1_totemyth",
+     "hook_text": "Think a big tote is the easy bag for everything?",
+     "hook_first_line": "Think a big tote is the easy bag for everything?",
+     "primary_text_2_hook": "Think a big tote is the easy bag for everything?\nDivided compartments, so nothing sinks to the bottom.\nTwo straps, so you can wear it on the shoulder, as a handbag, or crossbody.\nBlack Friday: 50% off + a free matching pouch wallet. 🎁\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H2",
+     "id": "P02H2",
+     "ad_name": "LC_261105_HoboBag_BlackFriday_B042r2_P02_H2_totemyth",
+     "hook_text": "The truth about big totes: your phone sinks to the bottom.",
+     "hook_first_line": "The truth about big totes: your phone sinks to the bottom.",
+     "primary_text_2_hook": "The truth about big totes: your phone sinks to the bottom.\nDivided compartments, so nothing sinks to the bottom.\nTwo straps, so you can wear it on the shoulder, as a handbag, or crossbody.\nBlack Friday: 50% off + a free matching pouch wallet. 🎁\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H3",
+     "id": "P02H3",
+     "ad_name": "LC_261105_HoboBag_BlackFriday_B042r2_P02_H3_totemyth",
+     "hook_text": "Imagine reaching into your bag and finding your phone first time.",
+     "hook_first_line": "Imagine reaching into your bag and finding your phone first time.",
+     "primary_text_2_hook": "Imagine reaching into your bag and finding your phone first time.\nDivided compartments, so nothing sinks to the bottom.\nTwo straps, so you can wear it on the shoulder, as a handbag, or crossbody.\nBlack Friday: 50% off + a free matching pouch wallet. 🎁\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H4",
+     "id": "P02H4",
+     "ad_name": "LC_261105_HoboBag_BlackFriday_B042r2_P02_H4_totemyth",
+     "hook_text": "Look inside: roomy does not have to mean messy.",
+     "hook_first_line": "Look inside: roomy does not have to mean messy.",
+     "primary_text_2_hook": "Look inside: roomy does not have to mean messy.\nDivided compartments, so nothing sinks to the bottom.\nTwo straps, so you can wear it on the shoulder, as a handbag, or crossbody.\nBlack Friday: 50% off + a free matching pouch wallet. 🎁\nTap Get Offer to claim the deal."
+    }
+   ]
+  },
+  {
+   "id": "P03",
+   "angle": "markettest",
+   "engine": "storyboard",
+   "product": "Hobo Bag",
+   "winner": null,
+   "primary_text_1": "Travelling soon? Your passport goes in a pocket that sits flat against you.\n50% off the Hobo Bag + free wallet.",
+   "primary_text_2": "Have you seen the Hobo Bag yet? 🖤\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nTwo gold side zips, one on each side, for your keys and phone.\nBlack Friday Sale: up to 60% off. 🎁\nTap Get Offer to claim the deal.",
+   "headline_1": "The Hobo Bag: Hidden Back Pocket",
+   "headline_2": "50% Off the Hobo Bag + Free Wallet",
+   "description": "Black Friday deal: 50% off",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER",
+   "versions": [
+    {
+     "hook": "H1",
+     "id": "P03H1",
+     "ad_name": "LC_261105_HoboBag_BlackFriday_B042r2_P03_H1_markettest",
+     "hook_text": "Busy market, phone in your hand: where do your cards go?",
+     "hook_first_line": "Busy market, phone in your hand: where do your cards go?",
+     "primary_text_2_hook": "Busy market, phone in your hand: where do your cards go?\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nTwo gold side zips, one on each side, for your keys and phone.\nBlack Friday Sale: up to 60% off. 🎁\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H2",
+     "id": "P03H2",
+     "ad_name": "LC_261105_HoboBag_BlackFriday_B042r2_P03_H2_markettest",
+     "hook_text": "An open tote on a packed Saturday market puts your cards on show.",
+     "hook_first_line": "An open tote on a packed Saturday market puts your cards on show.",
+     "primary_text_2_hook": "An open tote on a packed Saturday market puts your cards on show.\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nTwo gold side zips, one on each side, for your keys and phone.\nBlack Friday Sale: up to 60% off. 🎁\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H3",
+     "id": "P03H3",
+     "ad_name": "LC_261105_HoboBag_BlackFriday_B042r2_P03_H3_markettest",
+     "hook_text": "Watch where your cards go when the market gets busy.",
+     "hook_first_line": "Watch where your cards go when the market gets busy.",
+     "primary_text_2_hook": "Watch where your cards go when the market gets busy.\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nTwo gold side zips, one on each side, for your keys and phone.\nBlack Friday Sale: up to 60% off. 🎁\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H4",
+     "id": "P03H4",
+     "ad_name": "LC_261105_HoboBag_BlackFriday_B042r2_P03_H4_markettest",
+     "hook_text": "How to carry your cards through a busy market without checking your bag.",
+     "hook_first_line": "How to carry your cards through a busy market without checking your bag.",
+     "primary_text_2_hook": "How to carry your cards through a busy market without checking your bag.\nA hidden pocket on the back. It sits flat against you, so your passport and cards stay right there.\nTwo gold side zips, one on each side, for your keys and phone.\nBlack Friday Sale: up to 60% off. 🎁\nTap Get Offer to claim the deal."
+    }
+   ]
+  },
+  {
+   "id": "P04",
+   "angle": "retiretote",
+   "engine": "storyboard",
+   "product": "Hobo Bag",
+   "winner": null,
+   "primary_text_1": "You reach for your keys and they're right where you left them.\nThe Hobo Bag, now 50% off with a free matching pouch wallet.",
+   "primary_text_2": "Looking for a gift? Meet the Hobo Bag. 🖤\nTwo straps, so you can wear it on the shoulder, as a handbag, or crossbody.\nSoft, water-resistant leather that looks expensive and only gets better with time.\nThis Black Friday: 50% off + a free matching pouch wallet. 🎁\nTap Get Offer to claim the deal.",
+   "headline_1": "3 Ways to Wear + Soft Leather",
+   "headline_2": "Meet the Hobo Bag: 3 Ways to Wear",
+   "description": "Now 50% off",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER",
+   "versions": [
+    {
+     "hook": "H1",
+     "id": "P04H1",
+     "ad_name": "LC_261105_HoboBag_BlackFriday_B042r2_P04_H1_retiretote",
+     "hook_text": "One tote, one way to carry it, all day long.",
+     "hook_first_line": "One tote, one way to carry it, all day long.",
+     "primary_text_2_hook": "One tote, one way to carry it, all day long.\nTwo straps, so you can wear it on the shoulder, as a handbag, or crossbody.\nSoft, water-resistant leather that looks expensive and only gets better with time.\nThis Black Friday: 50% off + a free matching pouch wallet. 🎁\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H2",
+     "id": "P04H2",
+     "ad_name": "LC_261105_HoboBag_BlackFriday_B042r2_P04_H2_retiretote",
+     "hook_text": "What if your bag went from shoulder to crossbody in a minute?",
+     "hook_first_line": "What if your bag went from shoulder to crossbody in a minute?",
+     "primary_text_2_hook": "What if your bag went from shoulder to crossbody in a minute?\nTwo straps, so you can wear it on the shoulder, as a handbag, or crossbody.\nSoft, water-resistant leather that looks expensive and only gets better with time.\nThis Black Friday: 50% off + a free matching pouch wallet. 🎁\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H3",
+     "id": "P04H3",
+     "ad_name": "LC_261105_HoboBag_BlackFriday_B042r2_P04_H3_retiretote",
+     "hook_text": "Retire the tote. Watch what one strap switch does.",
+     "hook_first_line": "Retire the tote. Watch what one strap switch does.",
+     "primary_text_2_hook": "Retire the tote. Watch what one strap switch does.\nTwo straps, so you can wear it on the shoulder, as a handbag, or crossbody.\nSoft, water-resistant leather that looks expensive and only gets better with time.\nThis Black Friday: 50% off + a free matching pouch wallet. 🎁\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H4",
+     "id": "P04H4",
+     "ad_name": "LC_261105_HoboBag_BlackFriday_B042r2_P04_H4_retiretote",
+     "hook_text": "The tote has one way to carry. This bag has three ways.",
+     "hook_first_line": "The tote has one way to carry. This bag has three ways.",
+     "primary_text_2_hook": "The tote has one way to carry. This bag has three ways.\nTwo straps, so you can wear it on the shoulder, as a handbag, or crossbody.\nSoft, water-resistant leather that looks expensive and only gets better with time.\nThis Black Friday: 50% off + a free matching pouch wallet. 🎁\nTap Get Offer to claim the deal."
+    }
+   ]
+  },
+  {
+   "id": "P05",
+   "angle": "tellherleather",
+   "engine": "storyboard",
+   "product": "Hobo Bag",
+   "winner": null,
+   "primary_text_1": "Black Friday came early.\n50% off the Hobo Bag + free wallet.",
+   "primary_text_2": "Most bags look the same from the front. Turn this one around. 🖤\nSoft, water-resistant leather that looks expensive and only gets better with time.\nTwo gold side zips, one on each side, for your keys and phone.\nThis Black Friday: 50% off + a free matching pouch wallet. 🎁\nTap Get Offer to claim the deal.",
+   "headline_1": "The Hobo Bag: Soft Leather",
+   "headline_2": "Soft Leather + Gold Side Zips",
+   "description": "Free shipping",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER",
+   "versions": [
+    {
+     "hook": "H1",
+     "id": "P05H1",
+     "ad_name": "LC_261105_HoboBag_BlackFriday_B042r2_P05_H1_tellherleather",
+     "hook_text": "Your friend carries a canvas tote to work. What do you tell her?",
+     "hook_first_line": "Your friend carries a canvas tote to work. What do you tell her?",
+     "primary_text_2_hook": "Your friend carries a canvas tote to work. What do you tell her?\nSoft, water-resistant leather that looks expensive and only gets better with time.\nTwo gold side zips, one on each side, for your keys and phone.\nThis Black Friday: 50% off + a free matching pouch wallet. 🎁\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H2",
+     "id": "P05H2",
+     "ad_name": "LC_261105_HoboBag_BlackFriday_B042r2_P05_H2_tellherleather",
+     "hook_text": "Before you buy her another tote, look at this bag's leather.",
+     "hook_first_line": "Before you buy her another tote, look at this bag's leather.",
+     "primary_text_2_hook": "Before you buy her another tote, look at this bag's leather.\nSoft, water-resistant leather that looks expensive and only gets better with time.\nTwo gold side zips, one on each side, for your keys and phone.\nThis Black Friday: 50% off + a free matching pouch wallet. 🎁\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H3",
+     "id": "P05H3",
+     "ad_name": "LC_261105_HoboBag_BlackFriday_B042r2_P05_H3_tellherleather",
+     "hook_text": "If she can carry a tote, she can carry this: three ways.",
+     "hook_first_line": "If she can carry a tote, she can carry this: three ways.",
+     "primary_text_2_hook": "If she can carry a tote, she can carry this: three ways.\nSoft, water-resistant leather that looks expensive and only gets better with time.\nTwo gold side zips, one on each side, for your keys and phone.\nThis Black Friday: 50% off + a free matching pouch wallet. 🎁\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H4",
+     "id": "P05H4",
+     "ad_name": "LC_261105_HoboBag_BlackFriday_B042r2_P05_H4_tellherleather",
+     "hook_text": "Which looks better on a dinner chair: a canvas tote or soft leather?",
+     "hook_first_line": "Which looks better on a dinner chair: a canvas tote or soft leather?",
+     "primary_text_2_hook": "Which looks better on a dinner chair: a canvas tote or soft leather?\nSoft, water-resistant leather that looks expensive and only gets better with time.\nTwo gold side zips, one on each side, for your keys and phone.\nThis Black Friday: 50% off + a free matching pouch wallet. 🎁\nTap Get Offer to claim the deal."
+    }
+   ]
+  }
+ ],
+ "notes": [],
+ "problems": []
+}

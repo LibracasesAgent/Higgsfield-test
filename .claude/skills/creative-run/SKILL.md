@@ -5,7 +5,10 @@ description: Libra Cases ad requests from Slack or the Claude app (statics, vide
 
 # Libra Cases ad request
 
-Follow `CLAUDE.md` in the repo root step by step. It is the only valid procedure:
+Follow `CLAUDE.md` in the repo root step by step. It is the only valid procedure. Read `docs/RULEBOOK.md` before writing any
+hook, script, static or ad copy: `playbook_check.py` enforces it at `ideas.py check` (hooks on a proven formula, only claims the facts
+back, no invented proof or urgency, lines the footage can show) and `shot mismatch` keeps a video whose footage does not show its
+captions out of Drive. A weekly-review message ("this week's numbers", a meeting's decision) is CLAUDE.md section W.
 
 - First tell the pipeline from the message (CLAUDE.md "Which pipeline?"): **winners** (`plan --pipeline winners`:
   the newest weekly brief's winning videos), **new products** (`plan --pipeline new-product --new-product

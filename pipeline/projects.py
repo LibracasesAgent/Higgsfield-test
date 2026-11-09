@@ -90,7 +90,7 @@ BANK = os.path.join(HERE, "data", "clip_bank.json")
 TRANS = os.path.join(HERE, "data", "transcripts")
 FONT = os.path.join(HERE, "assets", "fonts", "Montserrat.ttf")
 BK = "_before_hooks"
-TYPES = ("problem", "curiosity", "question", "feature", "offer", "gift", "travel", "POV", "story")
+TYPES = ("problem", "curiosity", "question", "feature", "offer", "gift", "travel", "POV", "story", "warning")   # warning: 190 / 198 openers
 DRIVE_ID = re.compile(r"^[A-Za-z0-9_-]{20,}$")
 STILL = (".png", ".jpg", ".jpeg", ".webp")
 CREDITS_PER_LINE = 0.35            # as make_batch.plan's estimate
@@ -136,12 +136,17 @@ OFFERY = re.compile(r"%|\bpercent\b|half price|\bdeals?\b|\bsales?\b|\boff\b(?! 
                     r"last (?:few|call|chance)|almost gone|sell out|selling", re.I)
 
 
+WARNING = re.compile(r"^(?:before you|don't buy|do not buy|whatever you do|this is your (?:final|last) warning|once (?:this|it)(?:'s| is) gone|don't (?:miss|pay full price|say (?:i|nobody) (?:didn't )?warn))\b|\bbefore you (?:buy|click)\b", re.I)
+
+
 def classify(text):
     """Hook type of a line nobody typed (a theme hook missing from hooks.json, a cold open, a --lines hook)."""
     t = (text or "").strip()
     low = t.lower()
     if low.startswith("pov"):
         return "POV"
+    if WARNING.search(t):          # the 30-day winners 190 / 198: "Once this is gone ...", "Do not buy my ...", "Before you click buy ..."
+        return "warning"
     if re.search(r"\bgift|\bpresent\b|christmas|\bmum\b|\bmom\b|mother", low):
         return "gift"
     if OFFERY.search(t):

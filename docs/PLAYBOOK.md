@@ -93,6 +93,12 @@ forces `pipeline/make_batch.py` (templates, real photos and footage; AI only as 
    experience; a first-person switch may exist but is off by default and is not built), length 55-80 s, and the new format
    becomes the default storyboard video. What was built: section 12.
 
+13. **Julian (media buyer), call 2026-11-05** (with the Oct 6 - Nov 4 export; `docs/reviews/2026-11-05-julian-call.md`): the AI campaign
+   dipped, he kills what misses KPIs and now tests in CBO; statics carry the results (and Google Ads needs them); KPIs hook rate 40-50%,
+   hold 10-15%, ROAS 2.1 (2.5 to scale), CPA 30; footage must land ON the words; presenter videos less aggressive (no Black Friday
+   opener, no double heading, no pauses); fewer, better statics (12 > 25); "free shipping", not "free US shipping"; weekly call 15:00
+   Italy. All of it is in `pipeline/data/rulebook.json` (changelog 2026-11-05) and enforced: see section 4p.
+
 ## 3. The 2026-10-02 test run (reference for every format)
 
 Specs: `pipeline/recipes/daily/2026-10-02/` (`statics.json`, `V01..V20_*.json`, `ads_meta.json` = angle per ad).
@@ -728,6 +734,7 @@ Asked for "3 more like this winner, improved": B043, three closers of the Hobo B
   price is already on the page, the wallet comes with the bag) and adds a proof shot of the hidden back pocket; **whatyouget** says both
   prices ($109.90 -> $54.95) and stacks the offer (two straps, pocket, leather, wallet, free shipping, 1-year warranty); **giftby14**
   gives gift buyers their real deadline (order by 14 December for the best chance before Christmas).
+- The rulebook (docs/RULEBOOK.md, merged 2026-11-09) judges closer hooks like any other: concrete or on a formula (the warning formula holds 190/198's openers), no price figure in a hook (B043 P02 H2 "A $109.90 bag for $54.95" predates it: pause it if the price changes), the question type ends with "?".
 - Never copied: 190's "today is the absolute last day" said daily (campaign `banned` until 30 Nov), "Susan's closing sale", a returns
   promise (Black Friday orders are final sale).
 
@@ -757,6 +764,30 @@ Holiday | Link | Drive | Script | Status | Launched (Meta) | Meta status | Insig
   deleted files 30 days in the owner's trash.
 - The old detailed tabs (Read me, Batches, Ads with spend / impressions / ROAS formulas, Summary, Data Sources) were replaced on
   2026-11-05: nobody had typed in them, and Julian keeps the numbers in Ads Manager.
+
+### 4p. The rulebook, the playbook checker, the footage blocker, the weekly review (owner 2026-11-05)
+
+The owner: the pipeline "hallucinates" copy and hooks although the winning-ads rules were written down; "the footage sometimes doesn't
+match the captions: we need a blocker ... it should not happen"; "the presenter UGC videos are good, we need to make more of that"; the
+hook rate ideal is 40-45%; a proper rulebook from all the data, easy to update after the weekly performance meetings; Halbert's *349
+Great Headlines* (the swipe file the owner uploaded) as the hook system. Audit: `docs/AUDIT_2026-11-05.md`.
+- **Rulebook:** `docs/RULEBOOK.md` (ranked rules for people) + `pipeline/data/rulebook.json` (enforced: KPI targets, 15 hook formulas
+  with Halbert's original and a bag version, attention words, banned phrases, claim words that need a fact, copy limits, footage and
+  presenter settings, what won / lost, a changelog). The strategy packet prints it (`playbook_check.packet_section`).
+- **Checker:** `pipeline/playbook_check.py`. In `ideas.check` (hard for sheets from 2026-11-05, older sheets warn), `ad_copy.Writer.why_not`
+  (a template line that breaks a rule is skipped: "before it's gone" was in our own CTA templates) and `make_batch.check_out` (ad copy
+  hand edits). Calibrated on every committed sheet B014-B038: it flags the 14 "Black Friday prices are live now" openers (opener reuse;
+  the line itself is the owner's own idea, so it is only a warning), "lockable" for the 3-Piece Set, "question" hooks without a question,
+  "The easiest switch you'll make this season."-type generic hooks; a good sheet passes.
+- **Footage blocker (three gates):** plan (`ideas.footage_problem`: a line that names a feature the product's labelled footage has under 4
+  good moments of is refused; `ugc_board.choose` strict: a feature phrase only takes a labelled moment that shows it), render
+  (`storyboard.match_pick`: the real voice regroups phrases, so a pick placed under words it does not show swaps with a later pick or a
+  spare that does: this index shift was the main mismatch cause) and after render (`make_batch.footage_match` = `shotmatch.audit` on
+  `_<name>_longform.json`: `shot mismatch` is HARD, `qa/<id>_footage.json`). Near-equivalents in `shotmatch.ALSO`; "a coffee in one
+  hand" no longer asks for the clasp; `handheld` / `outdoor` joined `shotmatch.WANT`.
+- **Presenter:** `rulebook.json presenter.per_batch` (2 → 1, 3-4 → 2, 5 → 3); `"presenter_count"` in a sheet for a named number.
+- **Weekly review:** `pipeline/weekly_review.py ingest | report | add | set` (CLAUDE.md section W); `data/performance.json`,
+  `docs/reviews/<week>.md`. Tests: `tests/test_playbook.py`.
 
 ### 4o. Top-tier story statics: the full anatomy, layout `story` (the team 2026-11-04)
 
