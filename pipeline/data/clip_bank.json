@@ -137,7 +137,18 @@
      {"range": [9.02, 14.25], "label": "NO MORE SAGGING", "line": "The leather is thick, sturdy, and it actually holds its shape instead of sagging like most bags.", "type": "problem"},
      {"range": [14.38, 16.63], "label": "LOOK INSIDE", "line": "Inside, it's all about these divided sections.", "type": "feature"},
      {"range": [30.34, 33.09], "label": "DON'T MISS YOUR CHANCE", "line": "Don't miss your chance, grab yours before they sell out again.", "type": "offer"}],
-    "offer_sub": "", "review_intro": ["Don't just take her word for it.", "And customers agree.", "Here's what customers are saying."], "min_reviews": 3}}
+    "offer_sub": "", "review_intro": ["Don't just take her word for it.", "And customers agree.", "Here's what customers are saying."], "min_reviews": 3}},
+  "raw198_H5": {"id": "1sb0ZqFuhnHtj57f4WoWbjUngmi52rB_C", "dur": 72.47, "ad": "ACH-SVIT-198-H5", "product": "Hobo Bag", "concept": "198", "hook": "H5",
+   "notes": "Prepared 2026-11-15 from the RAW of ACH-YURA-198-H5 (the brief names it ACH-SVIT-198-H5: ROAS 3.29 / 3.22, 36 + 58 purchases, 26 Oct - 8 Nov). Susan's workshop story (client-approved, PLAYBOOK 1). Body intact (its own warning opener 'Before you click buy'). Cold opens only on sentence ends with a 0.3 s pause (the speaker runs sentences together: 'It actually gets more beautiful', 'Women have carried mine', 'I'm telling you all of this first' have none or a shot change inside the first word).",
+   "edit": {"start": 0.0, "end": null, "cut": [], "insert_at": 66.04, "offer_word": "50", "offer_after": null, "burned_captions": false,
+    "labels": [],
+    "end_title": "The Luxury Hobo Bag",
+    "cold_opens": [
+     {"range": [14.4, 17.72], "label": "WHAT I PROMISE YOU", "line": "So before you spend a dollar, here's what I promise you about mine.", "type": "warning"},
+     {"range": [31.46, 37.07], "label": "SAFE IN ANY CROWD", "line": "There's a hidden pocket in the back flush against your body, so your cash and cards are safe in any crowd.", "type": "problem"},
+     {"range": [39.93, 43.85], "label": "NEVER DIGGING FOR KEYS", "line": "Inside, real divided compartments so you're never digging for your keys again.", "type": "feature"},
+     {"range": [57.9, 60.4], "label": "SAME BAG, EVERY DAY", "line": "Same bag, every day, still going strong.", "type": "curiosity"}],
+    "review_intro": ["Don't just take her word for it.", "And customers agree.", "Here's what customers are saying."], "min_reviews": 2}}
  },
 
  "hobo_bag": {
