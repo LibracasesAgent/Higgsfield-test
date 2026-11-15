@@ -1,0 +1,149 @@
+{
+ "product": "Vintage Bag",
+ "theme": "black friday",
+ "date": "2026-11-15",
+ "research": [
+  "Weekly briefs 26 Oct-8 Nov: Slouchy Vintage Bag best product 26 Oct-1 Nov (ROAS 2.42); its winners MAX-33-H5 and C9_V2 sell the clasp, the compartments and three ways to wear",
+  "Ads Manager export 17 Oct-15 Nov: our B029 Vintage statics ROAS 2.42; AI statics overall 2.54 vs AI videos 1.74",
+  "Rulebook: keep a colours ('Which colour are you?', Vintage next) and a value static; benefit headlines; offer once and big",
+  "Footage library: snap 223, strap 209, worn 54 good moments: the story and native statics use real frames, no AI scene",
+  "Formats never used for Vintage: neon offer, macro detail, rubber stamp, colour split + one new (corkboard instant photo)"
+ ],
+ "projects": [],
+ "statics": [
+  {
+   "id": "S01",
+   "layout": "ad",
+   "format": "neon_offer",
+   "idea": "The offer glowing in neon above a bar counter at night, the red Vintage Bag snapped shut in front: the late-night moment the clasp matters.",
+   "words": [
+    "50% OFF",
+    "Late night out. One snap, shut."
+   ],
+   "headline": "Late night out. One snap, shut.",
+   "story": "moment",
+   "feature": "ONE-HAND CLASP",
+   "scene": {
+    "colour": "Red",
+    "prompt": "The red Vintage Bag closed on a dark wooden bar counter at night, a glass of sparkling water beside it, a warm pink neon sign glowing on the brick wall behind, soft reflections on the wood, a real evening photo."
+   }
+  },
+  {
+   "id": "S02",
+   "layout": "ad",
+   "format": "macro_detail",
+   "idea": "A macro close-up of the brass snap on the flap: the detail that closes the bag with one hand.",
+   "words": [
+    "50% OFF",
+    "Shuts with one hand."
+   ],
+   "headline": "Shuts with one hand.",
+   "story": "proof",
+   "feature": "ONE-HAND CLASP",
+   "scene": {
+    "colour": "Ginger Brown",
+    "prompt": "A macro close-up of the front flap and the brass snap of the ginger brown Vintage Bag, the leather grain sharp, warm side light, a soft cream background."
+   }
+  },
+  {
+   "id": "S03",
+   "layout": "ad",
+   "format": "rubber_stamp",
+   "idea": "A bold red rubber stamp on kraft wrapping paper beside the chocolate Vintage Bag: the Christmas gift, half price.",
+   "words": [
+    "50% OFF",
+    "Her Christmas bag, sorted."
+   ],
+   "headline": "Her Christmas bag, sorted.",
+   "story": "gift",
+   "scene": {
+    "colour": "Chocolate",
+    "prompt": "The chocolate Vintage Bag on a sheet of brown kraft wrapping paper on a wooden table, twine and a pair of scissors beside it, a red rubber-stamp mark on the paper, soft daylight."
+   }
+  },
+  {
+   "id": "S04",
+   "layout": "ad",
+   "format": "colour_split",
+   "idea": "A diagonal colour split: the black Vintage Bag carried as a handbag on one side, the strap long on the other.",
+   "words": [
+    "50% OFF",
+    "Handbag by day. Crossbody by night."
+   ],
+   "headline": "Handbag by day. Crossbody by night.",
+   "story": "ways",
+   "feature": "ADJUSTABLE STRAP",
+   "scene": {
+    "colour": "Black",
+    "prompt": "The black Vintage Bag on a backdrop split diagonally into deep burgundy and warm cream, its strap lying long across the frame, soft studio light."
+   }
+  },
+  {
+   "id": "S05",
+   "layout": "ad",
+   "format": "corkboard_polaroid",
+   "format_name": "Corkboard instant photo",
+   "art": "A real photograph of a cork pinboard on a home office wall: one large instant-film photo pinned in the middle shows the real bag on a cafe table, a paper sale sticker carrying the offer stuck beside it, the story line handwritten big in black marker on a white index card pinned below; a few brass pushpins, soft window light across the cork, real textures and slight shadows; nothing glossy.",
+   "people": "none",
+   "words": [
+    "50% OFF",
+    "Phone, wallet, keys. Each in its spot."
+   ],
+   "headline": "Phone, wallet, keys. Each in its spot.",
+   "story": "problem_fix",
+   "feature": "ROOM FOR EVERYTHING",
+   "scene": {
+    "colour": "Red",
+    "prompt": "A cork pinboard on a home office wall, a large instant photo of the red Vintage Bag on a cafe table pinned in the middle, a paper sale sticker beside it, an index card pinned below, brass pushpins, soft window light."
+   },
+   "idea": "An instant photo of the bag pinned to a cork board with the offer sticker and a handwritten card: everything has its spot."
+  },
+  {
+   "id": "S06",
+   "layout": "story",
+   "look": "hook",
+   "idea": "The everyday dig for keys, answered by the bag's own spots for each thing (a real footage frame).",
+   "kicker": "EARLY BLACK FRIDAY",
+   "hook": "Digging for your keys again?",
+   "highlight": [
+    "keys"
+   ],
+   "sub": "Phone, wallet and keys each get their own spot.",
+   "story": "problem_fix",
+   "feature": "ROOM FOR EVERYTHING"
+  },
+  {
+   "id": "S07",
+   "layout": "story",
+   "look": "quote",
+   "idea": "A customer's own words as the headline over a real frame of the bag.",
+   "story": "proof",
+   "feature": "ROOM FOR EVERYTHING",
+   "review": 9,
+   "review_text": "It's really stylish and versatile.  Love all the compartments too!"
+  },
+  {
+   "id": "S08",
+   "layout": "native",
+   "idea": "A real footage frame of the bag worn crossbody, one line about the strap.",
+   "headline": "Strap long, out the door.",
+   "story": "ways",
+   "feature": "ADJUSTABLE STRAP",
+   "badge": "50% OFF"
+  },
+  {
+   "id": "S09",
+   "layout": "colours",
+   "idea": "Pick your colour: every colour of the Vintage Bag, catalog style (the account's best ad shape, S09; Julian: Vintage next).",
+   "headline": "Which colour are you?",
+   "badge": "50% OFF"
+  },
+  {
+   "id": "S10",
+   "layout": "value",
+   "idea": "The value card: the Vintage Bag at half price.",
+   "headline": "The Vintage Bag, half price.",
+   "story": "value"
+  }
+ ]
+}

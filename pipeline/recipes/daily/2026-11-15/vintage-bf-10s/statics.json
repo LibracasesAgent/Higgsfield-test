@@ -1,0 +1,165 @@
+{
+ "ads": [
+  {
+   "layout": "ad",
+   "photo": "ai/AS01.png",
+   "format": "neon_offer",
+   "words": [
+    "50% OFF",
+    "Late night out. One snap, shut."
+   ],
+   "headline": "Late night out. One snap, shut.",
+   "name": "LC_261115_VintageBag_BlackFriday_B050_S01_neon",
+   "ai": {
+    "id": "AS01",
+    "scene": "p00_s01_neon_offer",
+    "colour": "Red",
+    "format": "neon_offer"
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS02.png",
+   "format": "macro_detail",
+   "words": [
+    "50% OFF",
+    "Shuts with one hand."
+   ],
+   "headline": "Shuts with one hand.",
+   "name": "LC_261115_VintageBag_BlackFriday_B050_S02_macro",
+   "ai": {
+    "id": "AS02",
+    "scene": "p00_s02_macro_detail",
+    "colour": "Ginger Brown",
+    "format": "macro_detail"
+   }
+  },
+  {
+   "layout": "native",
+   "photo": "photos/frames/F_1kNKilVM2f_0009.jpg",
+   "caption": "Her Christmas bag, sorted.",
+   "pct": 50,
+   "name": "LC_261115_VintageBag_BlackFriday_B050_S03_native",
+   "frame": {
+    "clip": "1kNKilVM2fhJyXsNhW96QlPFEoaXiLJ0B",
+    "t": 0.95
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS04.png",
+   "format": "colour_split",
+   "words": [
+    "50% OFF",
+    "Handbag by day. Crossbody by night."
+   ],
+   "headline": "Handbag by day. Crossbody by night.",
+   "name": "LC_261115_VintageBag_BlackFriday_B050_S04_split",
+   "ai": {
+    "id": "AS04",
+    "scene": "p00_s04_colour_split",
+    "colour": "Black",
+    "format": "colour_split"
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS05.png",
+   "format": "corkboard_polaroid",
+   "words": [
+    "50% OFF",
+    "Phone, wallet, keys. Each in its spot."
+   ],
+   "headline": "Phone, wallet, keys. Each in its spot.",
+   "name": "LC_261115_VintageBag_BlackFriday_B050_S05_corkboardpol",
+   "ai": {
+    "id": "AS05",
+    "scene": "p00_s05_corkboard_polaroid",
+    "colour": "Red",
+    "format": "corkboard_polaroid"
+   }
+  },
+  {
+   "look": "hook",
+   "hook": "Digging for your keys again?",
+   "sub": "Phone, wallet and keys each get their own spot.",
+   "kicker": "EARLY BLACK FRIDAY",
+   "highlight": [
+    "keys"
+   ],
+   "layout": "story",
+   "photo": "photos/frames/F_1fB9VSy06W_0040.jpg",
+   "headline": "Digging for your keys again?",
+   "name": "LC_261115_VintageBag_BlackFriday_B050_S06_hook",
+   "us": "Vintage Bag",
+   "pct": 50,
+   "frame": {
+    "clip": "1fB9VSy06WRizmHFdXWLz6Es2apRN7eQI",
+    "t": 4.07
+   }
+  },
+  {
+   "look": "quote",
+   "review": 9,
+   "review_text": "It's really stylish and versatile.  Love all the compartments too!",
+   "layout": "story",
+   "photo": "photos/frames/F_16tPrjwInS_0069.jpg",
+   "headline": "It's really stylish and versatile.  Love all the compartments too!",
+   "name": "LC_261115_VintageBag_BlackFriday_B050_S07_quote",
+   "us": "Vintage Bag",
+   "pct": 50,
+   "frame": {
+    "clip": "16tPrjwInS7Kzcvs17bMHBP4OwEjFc_Yn",
+    "t": 6.96
+   }
+  },
+  {
+   "layout": "native",
+   "photo": "photos/frames/F_1U7takMV_R_0074.jpg",
+   "caption": "Strap long, out the door.",
+   "pct": 50,
+   "name": "LC_261115_VintageBag_BlackFriday_B050_S08_native",
+   "frame": {
+    "clip": "1U7takMV_RL2IwrLVrNXY2DajI6Jx9-1J",
+    "t": 7.43
+   }
+  },
+  {
+   "layout": "colours",
+   "photos": [
+    {
+     "src": "site/vintage_colour_ginger_brown.jpg",
+     "name": "Ginger Brown"
+    },
+    {
+     "src": "site/vintage_colour_black.jpg",
+     "name": "Black"
+    },
+    {
+     "src": "site/vintage_colour_chocolate.jpg",
+     "name": "Chocolate"
+    },
+    {
+     "src": "site/vintage_colour_red.jpg",
+     "name": "Red"
+    }
+   ],
+   "headline": "Which colour are you?",
+   "sub": "Now 50% off.",
+   "cta": "Get the Black Friday deal",
+   "name": "LC_261115_VintageBag_BlackFriday_B050_S09_colours",
+   "pct": 50
+  },
+  {
+   "layout": "value",
+   "photo": "site/vintage_colour_black.jpg",
+   "price": "$44.95",
+   "was": "$89.95",
+   "pct": 50,
+   "headline": "The Vintage Bag",
+   "cta": "Get the Black Friday deal",
+   "name": "LC_261115_VintageBag_BlackFriday_B050_S10_value"
+  }
+ ],
+ "card_photos": []
+}

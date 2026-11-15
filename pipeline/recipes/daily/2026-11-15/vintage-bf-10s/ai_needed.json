@@ -1,0 +1,151 @@
+{
+ "stills": [
+  {
+   "id": "AS01",
+   "use": "static",
+   "scene": "p00_s01_neon_offer",
+   "kind": "object",
+   "colour": "Red",
+   "layout": "ad",
+   "format": "neon_offer",
+   "tag": "neon",
+   "words": [
+    "50% OFF",
+    "Late night out. One snap, shut."
+   ],
+   "ref": "/tmp/run/vintage-bf-10s/site/vintage_colour_red.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS01.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 0,
+   "prompt": "A real night-time boutique corner: warm neon tubes spelling the offer glow on a dark plaster or brick wall, the bag standing on a stool or plinth below the sign, lit by its own soft white spotlight so its true colour reads clearly (the neon only rims it), a little haze, shot on a phone, real reflections, nothing CGI; the story line is set small in clean white print type on the wall below the sign, not in neon. The red Vintage Bag closed on a dark wooden bar counter at night, a glass of sparkling water beside it, a warm pink neon sign glowing on the brick wall behind, soft reflections on the wood, a real evening photo. The exact handbag from the reference image, unchanged: same colour (red), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"50% OFF\" / \"Late night out. One snap, shut.\". Set them as neon tube lettering, warm pink-red or white glow, perfectly spelled, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. The offer \"50% OFF\" is the boldest, largest wording in the picture, read in under a second, with perfectly drawn numerals and percent sign. The line \"Late night out. One snap, shut.\" is the second voice of the ad: smaller than the offer but clearly readable on a phone, never tiny or faint; the picture shows the moment it tells. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS02",
+   "use": "static",
+   "scene": "p00_s02_macro_detail",
+   "kind": "object",
+   "colour": "Ginger Brown",
+   "layout": "ad",
+   "format": "macro_detail",
+   "tag": "macro",
+   "words": [
+    "50% OFF",
+    "Shuts with one hand."
+   ],
+   "ref": "/tmp/run/vintage-bf-10s/site/vintage_colour_ginger_brown.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS02.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 1,
+   "prompt": "An extreme close-up macro photograph of one detail of the bag (the gold zip pull, the pebbled leather grain, the stitching where the handle meets the ring), razor-sharp on the detail with a soft fall-off, warm natural light, the colour of the reference exact, a short line of text in the soft out-of-focus area. A macro close-up of the front flap and the brass snap of the ginger brown Vintage Bag, the leather grain sharp, warm side light, a soft cream background. The exact handbag from the reference image, unchanged: same colour (ginger brown), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. Only a detail the reference image shows clearly. The only words in the image, each exactly once and spelled exactly as written: \"50% OFF\" / \"Shuts with one hand.\". Set them as a clean small sans-serif or serif, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. The offer \"50% OFF\" is the boldest, largest wording in the picture, read in under a second, with perfectly drawn numerals and percent sign. The line \"Shuts with one hand.\" is the second voice of the ad: smaller than the offer but clearly readable on a phone, never tiny or faint; the picture shows the moment it tells. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS03",
+   "use": "static",
+   "scene": "p00_s03_rubber_stamp",
+   "kind": "object",
+   "colour": "Chocolate",
+   "layout": "ad",
+   "format": "rubber_stamp",
+   "tag": "stamp",
+   "words": [
+    "50% OFF",
+    "Her Christmas bag, sorted."
+   ],
+   "ref": "/tmp/run/vintage-bf-10s/site/vintage_colour_chocolate.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS03.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 2,
+   "prompt": "A top-down shot on thick cream or kraft paper: the bag lies flat and closed, and a huge red rubber-stamp impression of the offer sits beside it at a slight angle, real uneven ink texture and paper grain, soft daylight, a couple of small props (a pen, a ribbon) at the edges. The chocolate Vintage Bag on a sheet of brown kraft wrapping paper on a wooden table, twine and a pair of scissors beside it, a red rubber-stamp mark on the paper, soft daylight. The exact handbag from the reference image, unchanged: same colour (chocolate), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"50% OFF\" / \"Her Christmas bag, sorted.\". Set them as a distressed rubber-stamp slab serif in red ink, the small line in a typewriter face, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. The offer \"50% OFF\" is the boldest, largest wording in the picture, read in under a second, with perfectly drawn numerals and percent sign. The line \"Her Christmas bag, sorted.\" is the second voice of the ad: smaller than the offer but clearly readable on a phone, never tiny or faint; the picture shows the moment it tells. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS04",
+   "use": "static",
+   "scene": "p00_s04_colour_split",
+   "kind": "object",
+   "colour": "Black",
+   "layout": "ad",
+   "format": "colour_split",
+   "tag": "split",
+   "words": [
+    "50% OFF",
+    "Handbag by day. Crossbody by night."
+   ],
+   "ref": "/tmp/run/vintage-bf-10s/site/vintage_colour_black.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS04.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 3,
+   "prompt": "A graphic ad split diagonally into two fields: one saturated flat colour field carrying the offer in very large bold type, the other a real photo of the bag in a calm setting; the bag crosses the split line slightly so it feels three-dimensional, clean modern layout, strong contrast that stops the scroll. The black Vintage Bag on a backdrop split diagonally into deep burgundy and warm cream, its strap lying long across the frame, soft studio light. The exact handbag from the reference image, unchanged: same colour (black), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"50% OFF\" / \"Handbag by day. Crossbody by night.\". Set them as a heavy bold grotesque sans-serif, white on the colour field, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. The offer \"50% OFF\" is the boldest, largest wording in the picture, read in under a second, with perfectly drawn numerals and percent sign. The line \"Handbag by day. Crossbody by night.\" is the second voice of the ad: smaller than the offer but clearly readable on a phone, never tiny or faint; the picture shows the moment it tells. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS05",
+   "use": "static",
+   "scene": "p00_s05_corkboard_polaroid",
+   "kind": "object",
+   "colour": "Red",
+   "layout": "ad",
+   "format": "corkboard_polaroid",
+   "tag": "corkboardpol",
+   "words": [
+    "50% OFF",
+    "Phone, wallet, keys. Each in its spot."
+   ],
+   "ref": "/tmp/run/vintage-bf-10s/site/vintage_colour_red.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS05.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 4,
+   "prompt": "A real photograph of a cork pinboard on a home office wall: one large instant-film photo pinned in the middle shows the real bag on a cafe table, a paper sale sticker carrying the offer stuck beside it, the story line handwritten big in black marker on a white index card pinned below; a few brass pushpins, soft window light across the cork, real textures and slight shadows; nothing glossy. A cork pinboard on a home office wall, a large instant photo of the red Vintage Bag on a cafe table pinned in the middle, a paper sale sticker beside it, an index card pinned below, brass pushpins, soft window light. The exact handbag from the reference image, unchanged: same colour (red), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"50% OFF\" / \"Phone, wallet, keys. Each in its spot.\". Set them as clean, legible type, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. The offer \"50% OFF\" is the boldest, largest wording in the picture, read in under a second, with perfectly drawn numerals and percent sign. The line \"Phone, wallet, keys. Each in its spot.\" is the second voice of the ad: smaller than the offer but clearly readable on a phone, never tiny or faint; the picture shows the moment it tells. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  }
+ ],
+ "clips": [],
+ "est_credits": 5.0,
+ "notes": [],
+ "grade_refs": [],
+ "budget": {
+  "cap": 100.0,
+  "tts_est": 0.0,
+  "reserve": 8.0
+ },
+ "steps": [
+  "1. Upload each distinct `ref` once (media_upload, curl PUT, media_confirm); generate every still with generate_image_batch (model/params/prompt as listed, medias [{value: media_id, role: image_references}], max 12 per call); jobs_wait; download each result to $OUT/<file>.",
+  "2. python3 pipeline/ai_gen.py gate --out $OUT ; LOOK at $OUT/qa/ai_stills.jpg (reference | still): reject any still where the bag's shape, colour, handles or hardware differ from the reference, or that looks AI: python3 pipeline/ai_gen.py reject --out $OUT AS03 ...",
+  "3. For every clip whose start still passed: generate_video_batch (start_image = that still's job id, model/params/prompt as listed); jobs_wait; download to $OUT/<file>. Clips of a rejected still are skipped. If a submission comes back with a preset recommendation instead of a job, send it again with `declined_preset_id` = that preset's id (the project never uses presets).",
+  "3b. Motion stills (AM.. clips, `use: motion`): generate_video_batch with medias [{value: <the still's job id>, role: start_image}, {value: <the same job id>, role: end_image}] (the same still first and last, so the loop has no seam), model/params/prompt as listed.",
+  "4. python3 pipeline/ai_gen.py clips --out $OUT ; LOOK at $OUT/qa/ai_clips.jpg; reject morphing / odd-hand clips with `reject` (a motion still where the bag changes shape, opens, or anything morphs: `reject AM02`). Then render as usual (it applies the result; a motion still whose clip failed ships as the still static alone).",
+  "Report: credits before -> after (balance), how many AI assets passed. Never ship a still or clip you would not believe is real."
+ ]
+}

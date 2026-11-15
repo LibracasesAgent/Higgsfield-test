@@ -6793,6 +6793,75 @@
      "name": "B049 – 2026-11-15 – Vintage Bag BlackFriday – 2 projects",
      "statics": [],
      "videos": []
+    },
+    {
+     "clips": [],
+     "date": "2026-11-15",
+     "name": "B050 – 2026-11-15 – Vintage Bag BlackFriday – 10 statics",
+     "statics": [
+      {
+       "caption": "Late night out. One snap, shut.",
+       "colour": "Red",
+       "format": "neon_offer",
+       "layout": "ad",
+       "scene": "p00_s01_neon_offer"
+      },
+      {
+       "caption": "Shuts with one hand.",
+       "colour": "Ginger Brown",
+       "format": "macro_detail",
+       "layout": "ad",
+       "scene": "p00_s02_macro_detail"
+      },
+      {
+       "caption": "Her Christmas bag, sorted.",
+       "frame_clip": "1kNKilVM2fhJyXsNhW96QlPFEoaXiLJ0B",
+       "layout": "native",
+       "photo": "F_1kNKilVM2f_0009.jpg"
+      },
+      {
+       "caption": "Handbag by day. Crossbody by night.",
+       "colour": "Black",
+       "format": "colour_split",
+       "layout": "ad",
+       "scene": "p00_s04_colour_split"
+      },
+      {
+       "caption": "Phone, wallet, keys. Each in its spot.",
+       "colour": "Red",
+       "format": "corkboard_polaroid",
+       "layout": "ad",
+       "scene": "p00_s05_corkboard_polaroid"
+      },
+      {
+       "caption": "Digging for your keys again?",
+       "frame_clip": "1fB9VSy06WRizmHFdXWLz6Es2apRN7eQI",
+       "layout": "story",
+       "photo": "F_1fB9VSy06W_0040.jpg"
+      },
+      {
+       "caption": "It's really stylish and versatile.  Love all the compartments too!",
+       "frame_clip": "16tPrjwInS7Kzcvs17bMHBP4OwEjFc_Yn",
+       "layout": "story",
+       "photo": "F_16tPrjwInS_0069.jpg"
+      },
+      {
+       "caption": "Strap long, out the door.",
+       "frame_clip": "1U7takMV_RL2IwrLVrNXY2DajI6Jx9-1J",
+       "layout": "native",
+       "photo": "F_1U7takMV_R_0074.jpg"
+      },
+      {
+       "caption": "Which colour are you?",
+       "layout": "colours"
+      },
+      {
+       "caption": "The Vintage Bag",
+       "layout": "value",
+       "photo": "vintage_colour_black.jpg"
+      }
+     ],
+     "videos": []
     }
    ]
   }

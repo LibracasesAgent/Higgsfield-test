@@ -1,0 +1,12 @@
+{
+ "ok": true,
+ "product": "Vintage Bag",
+ "offer": "50% off",
+ "checked": 96,
+ "problems": [],
+ "allowed": [],
+ "raw_story": [],
+ "raw_cuts": [],
+ "playbook_warnings": [],
+ "report": "/tmp/run/vintage-bf-10s/compliance.json"
+}

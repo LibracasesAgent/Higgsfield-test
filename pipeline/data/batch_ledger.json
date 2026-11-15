@@ -3862,7 +3862,86 @@
      "label": "Inside, it's all about these divided sections."
     }
    ]
+  },
+  {
+   "id": "B050",
+   "n": 50,
+   "rev": 1,
+   "date": "2026-11-15",
+   "product": "Vintage Bag",
+   "theme": "BlackFriday",
+   "pipeline": "catalog",
+   "request": "10 statics for the Vintage Bag, Black Friday",
+   "statics": 10,
+   "projects": 0,
+   "hooks": 4,
+   "seed": 1,
+   "status": "uploaded",
+   "folder": "B050 – 2026-11-15 – Vintage Bag BlackFriday – 10 statics",
+   "link": "https://drive.google.com/drive/folders/1KH_Mw_DPVEW5YVmVlTo2OJs8gIYKdkO2",
+   "ads": [
+    {
+     "name": "LC_261115_VintageBag_BlackFriday_B050_S01_neon",
+     "kind": "static",
+     "fp": "s|ad|AS01.png|late night out. one snap, shut.",
+     "label": "Late night out. One snap, shut."
+    },
+    {
+     "name": "LC_261115_VintageBag_BlackFriday_B050_S02_macro",
+     "kind": "static",
+     "fp": "s|ad|AS02.png|shuts with one hand.",
+     "label": "Shuts with one hand."
+    },
+    {
+     "name": "LC_261115_VintageBag_BlackFriday_B050_S03_native",
+     "kind": "static",
+     "fp": "s|native|F_1kNKilVM2f_0009.jpg|her christmas bag, sorted.",
+     "label": "Her Christmas bag, sorted."
+    },
+    {
+     "name": "LC_261115_VintageBag_BlackFriday_B050_S04_split",
+     "kind": "static",
+     "fp": "s|ad|AS04.png|handbag by day. crossbody by night.",
+     "label": "Handbag by day. Crossbody by night."
+    },
+    {
+     "name": "LC_261115_VintageBag_BlackFriday_B050_S05_corkboardpol",
+     "kind": "static",
+     "fp": "s|ad|AS05.png|phone, wallet, keys. each in its spot.",
+     "label": "Phone, wallet, keys. Each in its spot."
+    },
+    {
+     "name": "LC_261115_VintageBag_BlackFriday_B050_S06_hook",
+     "kind": "static",
+     "fp": "s|story|F_1fB9VSy06W_0040.jpg|digging for your keys again?",
+     "label": "Digging for your keys again?"
+    },
+    {
+     "name": "LC_261115_VintageBag_BlackFriday_B050_S07_quote",
+     "kind": "static",
+     "fp": "s|story|F_16tPrjwInS_0069.jpg|it's really stylish and versatile.  love all the compartments too!",
+     "label": "It's really stylish and versatile.  Love all the compartments too!"
+    },
+    {
+     "name": "LC_261115_VintageBag_BlackFriday_B050_S08_native",
+     "kind": "static",
+     "fp": "s|native|F_1U7takMV_R_0074.jpg|strap long, out the door.",
+     "label": "Strap long, out the door."
+    },
+    {
+     "name": "LC_261115_VintageBag_BlackFriday_B050_S09_colours",
+     "kind": "static",
+     "fp": "s|colours||which colour are you?",
+     "label": "Which colour are you?"
+    },
+    {
+     "name": "LC_261115_VintageBag_BlackFriday_B050_S10_value",
+     "kind": "static",
+     "fp": "s|value|vintage_colour_black.jpg|the vintage bag",
+     "label": "The Vintage Bag"
+    }
+   ]
   }
  ],
- "next": 50
+ "next": 51
 }
