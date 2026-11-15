@@ -448,6 +448,8 @@ def top_windows(e):
 
 def spot_windows(e, spots):
     """[(t0, t1, centre)] for the shots caption_spots() moved (a segment with "caption_pos" set keeps its own)."""
+    if isinstance(spots, list):                  # caption_spots already gives the windows (shots split at cuts)
+        return spots
     win, t = [], 0.0
     for k, s in enumerate(e["segments"]):
         if k in spots and not s.get("caption_pos"):
@@ -471,13 +473,30 @@ def saliency(gray):
 
 
 SPOTS = [(1380, 0.75), (430, 0.9), (1150, 1.0)]   # caption centres a shot may use: bottom (preferred), top, low-middle
+BUSY, MARGIN = 0.7, 0.9                              # the bottom band is busy at 0.7x the frame's mean saliency; another spot
+#                                                      wins at 0.9x its score (0.8 / 0.8 left captions over the bag in winner RAWs)
+MIN_SHOT = 0.6                                       # a cut closer than this to the last one is not a new shot
+
+
+def scene_cuts(base, thresh=0.3):
+    """Times (s) of the picture cuts inside the rendered base (ffmpeg scene score). A winner RAW is one segment that
+    holds the creator's own edit: without its cuts the whole body would get one caption spot."""
+    out = subprocess.run(["ffmpeg", "-hide_banner", "-i", base, "-vf", f"scale=320:-2,select='gt(scene,{thresh})',showinfo",
+                          "-an", "-f", "null", "-"], capture_output=True, text=True).stderr
+    cuts = []
+    for t in (float(m) for m in re.findall(r"pts_time:([0-9.]+)", out)):
+        if not cuts or t - cuts[-1] >= MIN_SHOT:
+            cuts.append(t)
+    return cuts
 
 
 def caption_spots(base, e, default_y=CAP_Y):
-    """{segment index: caption centre} for shots where the default bottom band would cover something important. Per
-    shot (3 frames a second, majority vote) each spot's band is scored by its saliency (spectral residual: the product,
-    hands, the action) times a preference (bottom 0.75, top 0.9, low-middle 1.0); a band over a face's eyes, nose or
-    mouth (YuNet box below its top quarter) is never used. A shot moves only when another spot is clearly emptier than the bottom (score < 0.8x and the bottom is busy).
+    """[(t0, t1, caption centre)] for shots where the default bottom band would cover something important. A segment is
+    split into shots at the picture cuts inside it (scene_cuts: a winner RAW's own edit), and per shot (3 frames a
+    second, majority vote) each spot's band is scored by its saliency (spectral residual: the product, hands, the
+    action) times a preference (bottom 0.75, top 0.9, low-middle 1.0); a band over a face's eyes, nose or mouth (YuNet
+    box below its top quarter) is never used. A shot moves only when another spot is clearly emptier than the bottom
+    (score < MARGIN x the bottom's and the bottom is busy: BUSY); a segment with "caption_pos" keeps its own.
     Needs opencv; without it nothing moves (captions stay at the bottom)."""
     try:
         import cv2
@@ -494,14 +513,19 @@ def caption_spots(base, e, default_y=CAP_Y):
     det = None
     model = os.path.join(HERE, "assets", "models", "face_detection_yunet_2023mar.onnx")
     if os.path.exists(model) and hasattr(cv2, "FaceDetectorYN"):
-        det = cv2.FaceDetectorYN.create(model, "", (w_, h_), 0.75, 0.3, 50)
+        det = cv2.FaceDetectorYN.create(model, "", (2 * w_, 2 * h_), 0.7, 0.3, 50)   # 2x: a creator's small inset face
     sy = h_ / H
     spots = [(c, b) for c, b in SPOTS if c != default_y] + [(default_y, 0.75)]
     rows = {c: (int((c - 95) * sy), int((c + 95) * sy)) for c, _ in spots}
+    cuts = scene_cuts(base)
     shots, t = [], 0.0
-    for k, sg in enumerate(e["segments"]):
-        shots.append((k, t, float(sg["dur"]), sg.get("src")))
-        t += float(sg["dur"])
+    for sg in e["segments"]:
+        d_ = float(sg["dur"])
+        if not sg.get("caption_pos"):
+            edges = [t] + [c for c in cuts if t + MIN_SHOT <= c <= t + d_ - MIN_SHOT] + [t + d_]
+            for a, b in zip(edges, edges[1:]):
+                shots.append((len(shots), a, b - a, sg.get("src")))
+        t += d_
     pick_of = {}
     for k, t, d_, _ in shots:
         idx = [i for i in range(n) if t + 0.15 <= i / 3.0 < t + d_ - 0.1] or [min(int((t + d_ / 2) * 3), n - 1)]
@@ -510,8 +534,8 @@ def caption_spots(base, e, default_y=CAP_Y):
             fr = frames[i]
             faces = []
             if det is not None:
-                _, fs = det.detect(fr)                       # eyes, nose, mouth: below the top quarter of the box
-                faces = [(f[1] + 0.25 * f[3], f[1] + f[3]) for f in (fs if fs is not None else [])]
+                _, fs = det.detect(cv2.resize(fr, (2 * w_, 2 * h_)))   # eyes, nose, mouth: below the top quarter of the box
+                faces = [((f[1] + 0.25 * f[3]) / 2, (f[1] + f[3]) / 2) for f in (fs if fs is not None else [])]
             sal = saliency(cv2.cvtColor(fr, cv2.COLOR_BGR2GRAY))
             score = {}
             for c, bias in spots:
@@ -523,7 +547,7 @@ def caption_spots(base, e, default_y=CAP_Y):
                 pick = min(score, key=score.get) if score else default_y
             else:
                 best = min(score, key=score.get)
-                pick = best if best != default_y and score[default_y] >= 0.8 and score[best] < 0.8 * score[default_y] \
+                pick = best if best != default_y and score[default_y] >= BUSY and score[best] < MARGIN * score[default_y] \
                     else default_y
             votes[pick] = votes.get(pick, 0) + 1
         c = max(votes, key=votes.get)
@@ -534,7 +558,7 @@ def caption_spots(base, e, default_y=CAP_Y):
         a, b = shots[j - 1], shots[j + 1]
         if pick_of[k] == default_y and d_ < 3.0 and a[3] == src == b[3] and pick_of[a[0]] == pick_of[b[0]] != default_y:
             pick_of[k] = pick_of[a[0]]
-    return {k: c for k, c in pick_of.items() if c != default_y}
+    return [(t, t + d_, pick_of[k]) for k, t, d_, _ in shots if pick_of[k] != default_y]
 
 
 def bare(s):
