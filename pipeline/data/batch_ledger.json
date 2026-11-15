@@ -3656,7 +3656,161 @@
      "label": "Her gift, half price, and it ships free."
     }
    ]
+  },
+  {
+   "id": "B046",
+   "n": 46,
+   "rev": 1,
+   "date": "2026-11-15",
+   "product": "Hobo Bag 3-Piece Set",
+   "theme": "BlackFriday",
+   "pipeline": "catalog",
+   "request": "15 statics for the 3-piece set, Black Friday",
+   "statics": 15,
+   "projects": 0,
+   "hooks": 4,
+   "seed": 1,
+   "status": "uploaded",
+   "folder": "B046 – 2026-11-15 – Hobo Bag 3-Piece Set BlackFriday – 15 statics",
+   "link": "https://drive.google.com/drive/folders/1XkPDoiPuosHK8l1-XOfmF54Bwq3Pl6cy",
+   "ads": [
+    {
+     "name": "LC_261115_HoboBag3PieceSet_BlackFriday_B046_S01_numerals",
+     "kind": "static",
+     "fp": "s|ad|AS01.png|three bags, one checkout.",
+     "label": "Three bags, one checkout."
+    },
+    {
+     "name": "LC_261115_HoboBag3PieceSet_BlackFriday_B046_S02_studio",
+     "kind": "static",
+     "fp": "s|studio|3_piece_set_colour_red.jpg|one gift she uses every day.",
+     "label": "One gift she uses every day."
+    },
+    {
+     "name": "LC_261115_HoboBag3PieceSet_BlackFriday_B046_S03_studio",
+     "kind": "static",
+     "fp": "s|studio|3_piece_set_colour_black.jpg|christmas shopping? wear the crossbody.",
+     "label": "Christmas shopping? Wear the crossbody."
+    },
+    {
+     "name": "LC_261115_HoboBag3PieceSet_BlackFriday_B046_S04_question",
+     "kind": "static",
+     "fp": "s|ad|AS04.png|cards loose in your bag again?",
+     "label": "Cards loose in your bag again?"
+    },
+    {
+     "name": "LC_261115_HoboBag3PieceSet_BlackFriday_B046_S05_coathooktrio",
+     "kind": "static",
+     "fp": "s|ad|AS05.png|a bag for every kind of day.",
+     "label": "A bag for every kind of day."
+    },
+    {
+     "name": "LC_261115_HoboBag3PieceSet_BlackFriday_B046_S06_newsprintad",
+     "kind": "static",
+     "fp": "s|ad|AS06.png|soft leather that shrugs off scratches.",
+     "label": "Soft leather that shrugs off scratches."
+    },
+    {
+     "name": "LC_261115_HoboBag3PieceSet_BlackFriday_B046_S07_compare",
+     "kind": "static",
+     "fp": "s|ad|AS07.png|one bag can't do every day.",
+     "label": "One bag can't do every day."
+    },
+    {
+     "name": "LC_261115_HoboBag3PieceSet_BlackFriday_B046_S08_shopper",
+     "kind": "static",
+     "fp": "s|ad|AS08.png|mum, sister, best friend: sorted.",
+     "label": "Mum, sister, best friend: sorted."
+    },
+    {
+     "name": "LC_261115_HoboBag3PieceSet_BlackFriday_B046_S09_hero",
+     "kind": "static",
+     "fp": "s|hero|3_piece_set_colour_blue.jpg|hobo, crossbody, pouch: one set.",
+     "label": "Hobo, crossbody, pouch: one set."
+    },
+    {
+     "name": "LC_261115_HoboBag3PieceSet_BlackFriday_B046_S10_quote",
+     "kind": "static",
+     "fp": "s|story|AS10.png|looks expensive but price was so nice.",
+     "label": "Looks expensive but price was so nice."
+    },
+    {
+     "name": "LC_261115_HoboBag3PieceSet_BlackFriday_B046_S11_list",
+     "kind": "static",
+     "fp": "s|story|AS11.png|christmas gift for her? three reasons.",
+     "label": "Christmas gift for her? Three reasons."
+    },
+    {
+     "name": "LC_261115_HoboBag3PieceSet_BlackFriday_B046_S12_hero",
+     "kind": "static",
+     "fp": "s|hero|3_piece_set_colour_red.jpg|cards and cash in their own pouch.",
+     "label": "Cards and cash in their own pouch."
+    },
+    {
+     "name": "LC_261115_HoboBag3PieceSet_BlackFriday_B046_S13_stack",
+     "kind": "static",
+     "fp": "s|story|AS13.png|everything in the box.",
+     "label": "Everything in the box."
+    },
+    {
+     "name": "LC_261115_HoboBag3PieceSet_BlackFriday_B046_S14_colours",
+     "kind": "static",
+     "fp": "s|colours||pick your colour.",
+     "label": "Pick your colour."
+    },
+    {
+     "name": "LC_261115_HoboBag3PieceSet_BlackFriday_B046_S15_value",
+     "kind": "static",
+     "fp": "s|value|3_piece_set_colour_grey.jpg|meet the 3-piece set",
+     "label": "Meet the 3-Piece Set"
+    }
+   ]
+  },
+  {
+   "id": "B047",
+   "n": 47,
+   "rev": 1,
+   "date": "2026-11-15",
+   "product": "Hobo Bag",
+   "theme": "Evergreen",
+   "pipeline": "winners",
+   "request": "new batch for the winners, versions of SVIT-198-H5, 255-OLY-H1, ILLIA-229-H2, MAX-33-H5 and C9_V2_HappyWrong",
+   "statics": 0,
+   "projects": 5,
+   "hooks": 4,
+   "seed": 1,
+   "status": "planned"
+  },
+  {
+   "id": "B048",
+   "n": 48,
+   "rev": 2,
+   "date": "2026-11-15",
+   "product": "Vintage Bag",
+   "theme": "Evergreen",
+   "pipeline": "winners",
+   "request": "new batch for the winners, versions of SVIT-198-H5, 255-OLY-H1, ILLIA-229-H2, MAX-33-H5 and C9_V2_HappyWrong",
+   "statics": 0,
+   "projects": 2,
+   "hooks": 4,
+   "seed": 1,
+   "status": "planned"
+  },
+  {
+   "id": "B049",
+   "n": 49,
+   "rev": 1,
+   "date": "2026-11-15",
+   "product": "Vintage Bag",
+   "theme": "BlackFriday",
+   "pipeline": "winners",
+   "request": "new batch for the winners, versions of SVIT-198-H5, 255-OLY-H1, ILLIA-229-H2, MAX-33-H5 and C9_V2_HappyWrong",
+   "statics": 0,
+   "projects": 2,
+   "hooks": 4,
+   "seed": 319,
+   "status": "planned"
   }
  ],
- "next": 44
+ "next": 50
 }

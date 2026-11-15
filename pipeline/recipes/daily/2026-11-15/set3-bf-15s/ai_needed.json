@@ -1,0 +1,333 @@
+{
+ "stills": [
+  {
+   "id": "AS01",
+   "use": "static",
+   "scene": "p00_s01_giant_numerals",
+   "kind": "object",
+   "colour": "Red",
+   "layout": "ad",
+   "format": "giant_numerals",
+   "tag": "numerals",
+   "words": [
+    "60%",
+    "OFF",
+    "Three bags, one checkout."
+   ],
+   "ref": "/tmp/run/set3-bf-15s/site/3_piece_set_colour_red.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS01.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 0,
+   "prompt": "A bold studio ad: the offer's numerals set enormous, filling most of the frame edge to edge on a seamless saturated colour backdrop, and the bag standing in front of them so it overlaps the numbers and casts a soft shadow on the backdrop, real depth, crisp studio light; one short story line below in clean readable type. The numerals are the loudest thing in the picture after the bag. The hobo bag, the crossbody and the small pouch stand side by side on a warm cream studio floor in front of a deep burgundy wall; huge cream numerals behind them; soft directional daylight, a real studio photograph with gentle shadows. The exact bag set from the reference image, unchanged: same colour (red), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The bag set is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"60%\" / \"OFF\" / \"Three bags, one checkout.\". Set them as the numerals in an extra-bold condensed grotesque, the small line in the same family, light weight, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the bag set. No other text anywhere: no logos, no brand names, no labels or writing on the bag set, no watermark. The offer \"60%\" is the boldest, largest wording in the picture, read in under a second, with perfectly drawn numerals and percent sign. The line \"Three bags, one checkout.\" is the second voice of the ad: smaller than the offer but clearly readable on a phone, never tiny or faint; the picture shows the moment it tells. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the bag set large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS02",
+   "use": "static",
+   "scene": "p00_s02_swing_tag",
+   "kind": "object",
+   "colour": "Blue",
+   "layout": "ad",
+   "format": "swing_tag",
+   "tag": "swingtag",
+   "words": [
+    "60% OFF",
+    "One gift she uses every day."
+   ],
+   "ref": "/tmp/run/set3-bf-15s/site/3_piece_set_colour_blue.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS02.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 1,
+   "prompt": "An editorial product photo: an oversized thick paper swing tag tied to the bag's strap with a cotton string, the tag printed with the offer in big bold type, turned towards the camera and fully readable, the bag on a calm surface in soft directional light, real paper texture and a gentle shadow from the tag. The hobo bag with the crossbody and pouch beside it on a wooden table by a window on a winter morning, a few sprigs of pine and a roll of brown paper nearby, an oversized kraft paper swing tag tied to the hobo's strap with red string, soft natural light. The exact bag set from the reference image, unchanged: same colour (blue), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The bag set is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"60% OFF\" / \"One gift she uses every day.\". Set them as the tag's offer in a heavy bold sans-serif, the small line in a refined serif, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the bag set. No other text anywhere: no logos, no brand names, no labels or writing on the bag set, no watermark. The offer \"60% OFF\" is the boldest, largest wording in the picture, read in under a second, with perfectly drawn numerals and percent sign. The line \"One gift she uses every day.\" is the second voice of the ad: smaller than the offer but clearly readable on a phone, never tiny or faint; the picture shows the moment it tells. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the bag set large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS03",
+   "use": "static",
+   "scene": "p00_s03_pov_sticker",
+   "kind": "behind",
+   "colour": "Black",
+   "layout": "ad",
+   "format": "pov_sticker",
+   "tag": "povsticker",
+   "words": [
+    "Christmas market. Cocoa in one hand.",
+    "60% OFF"
+   ],
+   "ref": "/tmp/run/set3-bf-15s/site/3_piece_set_colour_black.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS03.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 2,
+   "prompt": "A candid phone photo taken a few steps behind her in a busy real place (a packed train platform, a street market, an airport queue, a school gate): slightly off-centre, natural mixed light, a little motion blur in the passers-by, real clothes with creases; the bag worn on the shoulder or crossbody towards the camera, zipped. One caption in bold white sans-serif with a soft shadow across the empty upper part, the way people caption a photo, and a round glossy sale sticker slapped on a lower corner as if stuck onto the print. A woman seen from behind walking through an evening Christmas market, the black crossbody worn across her back and hip, a paper cup in one hand and a small paper bag in the other, warm string lights and wooden stalls softly blurred, a real candid phone photo. The exact bag set from the reference image, unchanged: same colour (black), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The bag set is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"Christmas market. Cocoa in one hand.\" / \"60% OFF\". Set them as the caption in a bold white sans-serif with a soft dark shadow, sentence case; the sticker's offer in heavy white type on red, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the bag set. No other text anywhere: no logos, no brand names, no labels or writing on the bag set, no watermark. The offer \"60% OFF\" is the boldest, largest wording in the picture, read in under a second, with perfectly drawn numerals and percent sign. The line \"Christmas market. Cocoa in one hand.\" is the second voice of the ad: smaller than the offer but clearly readable on a phone, never tiny or faint; the picture shows the moment it tells. She is seen only from behind, walking away from the camera, her head turned forward, the bag towards the camera; nobody else faces the camera. No face is visible anywhere: nobody looks at the camera, every other person is far away, blurred and facing away. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the bag set large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS04",
+   "use": "static",
+   "scene": "p00_s04_taped_question",
+   "kind": "hand",
+   "colour": "Blue",
+   "layout": "ad",
+   "format": "taped_question",
+   "tag": "question",
+   "words": [
+    "Cards loose in your bag again?",
+    "The matching pouch.",
+    "60% OFF"
+   ],
+   "ref": "/tmp/run/set3-bf-15s/site/3_piece_set_colour_blue.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS04.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 3,
+   "prompt": "A real everyday photo with a torn strip of white paper taped across its top, a short everyday question written on it in black marker; below it the bag in a real setting that shows the answer (a hand at a gold side zip, the strap across a coat, the bag on a cafe chair), natural window light, real textures; the answer set in clean bold type near the bottom, and the offer on a round red sticker overlapping one corner of the photo. The picture shows only the answer, never a before / after. The blue hobo bag lying on a light oak desk with the matching pouch in front of it, a hand at the edge of the frame setting the pouch down, a strip of white paper tape stuck to the wall behind, soft morning light, a real photo. The exact bag set from the reference image, unchanged: same colour (blue), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The bag set is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"Cards loose in your bag again?\" / \"The matching pouch.\" / \"60% OFF\". Set them as the question in natural black marker handwriting, the answer in a bold clean sans-serif, the sticker's offer in heavy white type on red, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the bag set. No other text anywhere: no logos, no brand names, no labels or writing on the bag set, no watermark. The offer \"60% OFF\" is the boldest, largest wording in the picture, read in under a second, with perfectly drawn numerals and percent sign. The lines \"Cards loose in your bag again?\" / \"The matching pouch.\" are the second voice of the ad: smaller than the offer but clearly readable on a phone, never tiny or faint; the picture shows the moment they tell (a question's answer, never the problem itself). Only hands and forearms are in the frame: no head, no face. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the bag set large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS05",
+   "use": "static",
+   "scene": "p00_s05_coat_hook_trio",
+   "kind": "object",
+   "colour": "Grey",
+   "layout": "ad",
+   "format": "coat_hook_trio",
+   "tag": "coathooktrio",
+   "words": [
+    "60% OFF",
+    "A bag for every kind of day."
+   ],
+   "ref": "/tmp/run/set3-bf-15s/site/3_piece_set_colour_grey.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS05.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 4,
+   "prompt": "A real hallway photograph: three brass coat hooks in a row on a painted wall, each piece of the set hanging from its own hook (the hobo, the crossbody, the pouch), a small hand-painted wooden sign above the hooks carries the offer in bold painted letters, the story line in clean small caps on the wall below; warm daylight from a side window, a wooden bench and a runner rug at the bottom; nothing staged or glossy. Three brass coat hooks on a pale sage hallway wall, the grey hobo bag, the grey crossbody and the grey pouch each hanging from its own hook, a small wooden sign above them, a wooden bench below, soft window light. The exact bag set from the reference image, unchanged: same colour (grey), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The bag set is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"60% OFF\" / \"A bag for every kind of day.\". Set them as clean, legible type, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the bag set. No other text anywhere: no logos, no brand names, no labels or writing on the bag set, no watermark. The offer \"60% OFF\" is the boldest, largest wording in the picture, read in under a second, with perfectly drawn numerals and percent sign. The line \"A bag for every kind of day.\" is the second voice of the ad: smaller than the offer but clearly readable on a phone, never tiny or faint; the picture shows the moment it tells. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the bag set large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS06",
+   "use": "static",
+   "scene": "p00_s06_newsprint_ad",
+   "kind": "object",
+   "colour": "Black",
+   "layout": "ad",
+   "format": "newsprint_ad",
+   "tag": "newsprintad",
+   "words": [
+    "LIBRA",
+    "60% OFF",
+    "Soft leather that shrugs off scratches."
+   ],
+   "ref": "/tmp/run/set3-bf-15s/site/3_piece_set_colour_black.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS06.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 5,
+   "prompt": "A real photograph of a printed full-page newspaper advertisement lying on a marble cafe table: the printed page carries a black-and-white photo of the real set, a huge condensed headline and one line of body copy, the masthead LIBRA at the top of the page; real newsprint texture, slight paper curl, the corner of a coffee cup and morning light across the page; shot at a slight angle like someone photographed it with their phone. A printed newspaper page on a white marble cafe table, the page shows a photo of the hobo bag, the crossbody and the pouch, a cup of coffee at the corner, soft morning window light, phone photo at a slight angle. The exact bag set from the reference image, unchanged: same colour (black), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The bag set is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"LIBRA\" / \"60% OFF\" / \"Soft leather that shrugs off scratches.\". Set them as clean, legible type, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the bag set. No other text anywhere: no logos, no brand names, no labels or writing on the bag set, no watermark. The offer \"60% OFF\" is the boldest, largest wording in the picture, read in under a second, with perfectly drawn numerals and percent sign. The line \"Soft leather that shrugs off scratches.\" is the second voice of the ad: smaller than the offer but clearly readable on a phone, never tiny or faint; the picture shows the moment it tells. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the bag set large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS07",
+   "use": "static",
+   "scene": "p00_s07_split_compare",
+   "kind": "object",
+   "colour": "Purple Red",
+   "layout": "ad",
+   "format": "split_compare",
+   "tag": "compare",
+   "words": [
+    "One bag can't do every day.",
+    "One open tote",
+    "Three pieces, 60% OFF"
+   ],
+   "ref": "/tmp/run/set3-bf-15s/site/3_piece_set_colour_purple_red.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS07.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 6,
+   "prompt": "A clean split-screen comparison, the left side 'them', the right side 'us': on the LEFT a plain generic open-top canvas tote (no brand, no logo) slumped on a dull grey backdrop, shot flat and desaturated with a faint greenish cast and a soft, slightly grainy low-quality look, like an old phone photo; on the RIGHT the real bag, closed, on a warm rich tinted backdrop in bright studio light, crisp and colourful; a short label under each side and one headline across the top, every word sharp and readable on both sides. Split screen: on the left a plain dull grey canvas tote on a grey background in flat light; on the right the purple red hobo bag, crossbody and pouch on a warm cream background in soft golden light. The exact bag set from the reference image, unchanged: same colour (purple red), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The bag set is closed and zipped; its inside is never shown. The other bag is a generic plain tote, never a brand or logo; it is shown dull, grey and low quality (the competition), never torn, dirty or broken: the contrast is the light and colour, not damage. The only words in the image, each exactly once and spelled exactly as written: \"One bag can't do every day.\" / \"One open tote\" / \"Three pieces, 60% OFF\". Set them as the headline in a bold sans-serif, the labels in small caps, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the bag set. No other text anywhere: no logos, no brand names, no labels or writing on the bag set, no watermark. The offer \"Three pieces, 60% OFF\" is the boldest, largest wording in the picture, read in under a second, with perfectly drawn numerals and percent sign. The lines \"One bag can't do every day.\" / \"One open tote\" are the second voice of the ad: smaller than the offer but clearly readable on a phone, never tiny or faint; the picture shows the moment they tell. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the bag set large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS08",
+   "use": "static",
+   "scene": "p00_s08_paper_shopping_bag",
+   "kind": "object",
+   "colour": "Red",
+   "layout": "ad",
+   "format": "paper_shopping_bag",
+   "tag": "shopper",
+   "words": [
+    "60% OFF",
+    "Mum, sister, best friend: sorted."
+   ],
+   "ref": "/tmp/run/set3-bf-15s/site/3_piece_set_colour_red.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS08.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 7,
+   "prompt": "A boutique counter shot: a crisp unbranded paper shopping bag printed with the offer in big type stands beside the handbag, tissue paper peeking out, warm store light, real paper folds and texture, the handbag the hero in front. A large matte paper shopping bag with rope handles on a wooden shop counter, the red hobo bag, crossbody and pouch arranged beside it, tissue paper and a ribbon spool nearby, warm boutique light. The exact bag set from the reference image, unchanged: same colour (red), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The bag set is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"60% OFF\" / \"Mum, sister, best friend: sorted.\". Set them as a heavy bold sans-serif printed on the paper bag, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the bag set. No other text anywhere: no logos, no brand names, no labels or writing on the bag set, no watermark. The offer \"60% OFF\" is the boldest, largest wording in the picture, read in under a second, with perfectly drawn numerals and percent sign. The line \"Mum, sister, best friend: sorted.\" is the second voice of the ad: smaller than the offer but clearly readable on a phone, never tiny or faint; the picture shows the moment it tells. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the bag set large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS09",
+   "use": "static",
+   "scene": "p00_s09",
+   "kind": "worn",
+   "colour": "Purple Red",
+   "layout": "story",
+   "ref": "/tmp/run/set3-bf-15s/site/3_piece_set_colour_purple_red.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS09.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 8,
+   "prompt": "Photorealistic candid lifestyle photograph, natural light, shot on a 35mm lens, shallow depth of field, true-to-life colours, fine film grain, no text, no logos, no watermark. The exact bag set from the reference image, unchanged: same colour (purple red), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. A woman seen from behind on a city shopping street in winter, carrying paper shopping bags in both hands, the purple red crossbody worn across her body, shop windows softly blurred. Composition: the bag large in the middle of the frame; the top third is calm and simple (a plain wall, sky or soft background) and both lower corners are calm, for the words. No other person is in the picture. The picture contains no face at all: nobody is looking at the camera and no eyes, nose or mouth are visible; the top edge of the frame cuts the person off at shoulder height. Portrait 4:5 composition, the bag set clearly visible and large in the frame.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS10",
+   "use": "static",
+   "scene": "p00_s10",
+   "kind": "object",
+   "colour": "Black",
+   "layout": "story",
+   "ref": "/tmp/run/set3-bf-15s/site/3_piece_set_colour_black.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS10.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 9,
+   "prompt": "Photorealistic candid lifestyle photograph, natural light, shot on a 35mm lens, shallow depth of field, true-to-life colours, fine film grain, no text, no logos, no watermark. The exact bag set from the reference image, unchanged: same colour (black), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The black hobo bag, crossbody and pouch arranged on a dark walnut sideboard in a calm living room, a lamp glowing, evening light, the lower part of the frame a darker plain wood surface. Composition: the bag large in the upper half of the frame; the bottom 40% is calm, simple and a little darker (a plain floor, table top or soft shadow), for the words. Nobody is in the picture, not even blurred in the background. Portrait 4:5 composition, the bag set clearly visible and large in the frame.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS11",
+   "use": "static",
+   "scene": "p00_s11",
+   "kind": "object",
+   "colour": "Blue",
+   "layout": "story",
+   "ref": "/tmp/run/set3-bf-15s/site/3_piece_set_colour_blue.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS11.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 10,
+   "prompt": "Photorealistic candid lifestyle photograph, natural light, shot on a 35mm lens, shallow depth of field, true-to-life colours, fine film grain, no text, no logos, no watermark. The exact bag set from the reference image, unchanged: same colour (blue), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The blue hobo bag, crossbody and pouch on a cosy living-room armchair next to a small wrapped present with a satin ribbon, a softly lit Christmas tree blurred behind. Composition: the whole bag fits inside the middle half of the frame's height with calm space above and below it (the top fifth and the bottom third are cropped away), nothing important at the very top or bottom. Nobody is in the picture, not even blurred in the background. Portrait 4:5 composition, the bag set clearly visible and large in the frame.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS12",
+   "use": "static",
+   "scene": "p00_s12",
+   "kind": "object",
+   "colour": "Grey",
+   "layout": "story",
+   "ref": "/tmp/run/set3-bf-15s/site/3_piece_set_colour_grey.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS12.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 11,
+   "prompt": "Photorealistic candid lifestyle photograph, natural light, shot on a 35mm lens, shallow depth of field, true-to-life colours, fine film grain, no text, no logos, no watermark. The exact bag set from the reference image, unchanged: same colour (grey), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The grey hobo bag, crossbody and pouch on a light linen bedspread in soft morning light, a calm bedroom. Composition: two bags side by side, both inside the middle half of the frame's height with calm space above and below (the top fifth and the bottom third are cropped away): on the LEFT third a plain, unbranded, slightly worn canvas tote bag slumped open with things spilling at its top, dull flat light; on the RIGHT, larger and sharper, the real bag of the reference, closed, in warm light. Nothing written on either bag. Nobody is in the picture, not even blurred in the background. Portrait 4:5 composition, the bag set clearly visible and large in the frame.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS13",
+   "use": "static",
+   "scene": "p00_s13",
+   "kind": "object",
+   "colour": "Red",
+   "layout": "story",
+   "ref": "/tmp/run/set3-bf-15s/site/3_piece_set_colour_red.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS13.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 12,
+   "prompt": "Photorealistic candid lifestyle photograph, natural light, shot on a 35mm lens, shallow depth of field, true-to-life colours, fine film grain, no text, no logos, no watermark. The exact bag set from the reference image, unchanged: same colour (red), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The red hobo bag, crossbody and pouch lined up on a white table in front of a soft red wall, clean daylight. Composition: the whole bag fits inside the middle half of the frame's height with calm space above and below it (the top fifth and the bottom third are cropped away), nothing important at the very top or bottom. Nobody is in the picture, not even blurred in the background. Portrait 4:5 composition, the bag set clearly visible and large in the frame.",
+   "est_credits": 1.0
+  }
+ ],
+ "clips": [],
+ "est_credits": 13.0,
+ "notes": [],
+ "grade_refs": [],
+ "budget": {
+  "cap": 100.0,
+  "tts_est": 0.0,
+  "reserve": 8.0
+ },
+ "steps": [
+  "1. Upload each distinct `ref` once (media_upload, curl PUT, media_confirm); generate every still with generate_image_batch (model/params/prompt as listed, medias [{value: media_id, role: image_references}], max 12 per call); jobs_wait; download each result to $OUT/<file>.",
+  "2. python3 pipeline/ai_gen.py gate --out $OUT ; LOOK at $OUT/qa/ai_stills.jpg (reference | still): reject any still where the bag's shape, colour, handles or hardware differ from the reference, or that looks AI: python3 pipeline/ai_gen.py reject --out $OUT AS03 ...",
+  "3. For every clip whose start still passed: generate_video_batch (start_image = that still's job id, model/params/prompt as listed); jobs_wait; download to $OUT/<file>. Clips of a rejected still are skipped. If a submission comes back with a preset recommendation instead of a job, send it again with `declined_preset_id` = that preset's id (the project never uses presets).",
+  "3b. Motion stills (AM.. clips, `use: motion`): generate_video_batch with medias [{value: <the still's job id>, role: start_image}, {value: <the same job id>, role: end_image}] (the same still first and last, so the loop has no seam), model/params/prompt as listed.",
+  "4. python3 pipeline/ai_gen.py clips --out $OUT ; LOOK at $OUT/qa/ai_clips.jpg; reject morphing / odd-hand clips with `reject` (a motion still where the bag changes shape, opens, or anything morphs: `reject AM02`). Then render as usual (it applies the result; a motion still whose clip failed ships as the still static alone).",
+  "Report: credits before -> after (balance), how many AI assets passed. Never ship a still or clip you would not believe is real."
+ ]
+}

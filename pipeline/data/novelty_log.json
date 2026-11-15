@@ -5137,6 +5137,103 @@
       }
      ],
      "videos": []
+    },
+    {
+     "clips": [],
+     "date": "2026-11-15",
+     "name": "B046 – 2026-11-15 – Hobo Bag 3-Piece Set BlackFriday – 15 statics",
+     "statics": [
+      {
+       "caption": "Three bags, one checkout.",
+       "colour": "Red",
+       "format": "giant_numerals",
+       "layout": "ad",
+       "scene": "p00_s01_giant_numerals"
+      },
+      {
+       "caption": "One gift she uses every day.",
+       "layout": "studio",
+       "photo": "3_piece_set_colour_red.jpg"
+      },
+      {
+       "caption": "Christmas shopping? Wear the crossbody.",
+       "layout": "studio",
+       "photo": "3_piece_set_colour_black.jpg"
+      },
+      {
+       "caption": "Cards loose in your bag again?",
+       "colour": "Blue",
+       "format": "taped_question",
+       "layout": "ad",
+       "scene": "p00_s04_taped_question"
+      },
+      {
+       "caption": "A bag for every kind of day.",
+       "colour": "Grey",
+       "format": "coat_hook_trio",
+       "layout": "ad",
+       "scene": "p00_s05_coat_hook_trio"
+      },
+      {
+       "caption": "Soft leather that shrugs off scratches.",
+       "colour": "Black",
+       "format": "newsprint_ad",
+       "layout": "ad",
+       "scene": "p00_s06_newsprint_ad"
+      },
+      {
+       "caption": "One bag can't do every day.",
+       "colour": "Purple Red",
+       "format": "split_compare",
+       "layout": "ad",
+       "scene": "p00_s07_split_compare"
+      },
+      {
+       "caption": "Mum, sister, best friend: sorted.",
+       "colour": "Red",
+       "format": "paper_shopping_bag",
+       "layout": "ad",
+       "scene": "p00_s08_paper_shopping_bag"
+      },
+      {
+       "caption": "Hobo, crossbody, pouch: one set.",
+       "layout": "hero",
+       "photo": "3_piece_set_colour_blue.jpg"
+      },
+      {
+       "caption": "Looks expensive but price was so nice.",
+       "colour": "Black",
+       "layout": "story",
+       "scene": "p00_s10"
+      },
+      {
+       "caption": "Christmas gift for her? Three reasons.",
+       "colour": "Blue",
+       "layout": "story",
+       "scene": "p00_s11"
+      },
+      {
+       "caption": "Cards and cash in their own pouch.",
+       "layout": "hero",
+       "photo": "3_piece_set_colour_red.jpg"
+      },
+      {
+       "caption": "Everything in the box.",
+       "colour": "Red",
+       "layout": "story",
+       "scene": "p00_s13"
+      },
+      {
+       "caption": "Pick your colour.",
+       "layout": "colours"
+      },
+      {
+       "caption": "Meet the 3-Piece Set",
+       "layout": "value",
+       "photo": "3_piece_set_colour_grey.jpg"
+      }
+     ],
+     "videos": []
     }
    ]
   },
