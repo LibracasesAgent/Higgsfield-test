@@ -1,0 +1,27 @@
+{
+ "ok": true,
+ "product": "Vintage Bag",
+ "offer": "50% off",
+ "checked": 91,
+ "problems": [],
+ "allowed": [],
+ "raw_story": [
+  {
+   "where": "P01H1 RAW raw33_H5 50.0-52.1 s, P01H2, P01H3, P01H4",
+   "text": "The arthritis has won after 30 years.",
+   "category": "health",
+   "term": "arthritis",
+   "why": "the client's approved RAW story (PLAYBOOK section 1), heard as is: a human may want to check it against Julian's health rule"
+  }
+ ],
+ "raw_cuts": [],
+ "playbook_warnings": [
+  "LC_261115_VintageBag_BlackFriday_B049_P01_H3_remix33 hook_first_line: hook_concrete: '\"Most bags look worse every month, while the vintage bag looks better every year.\"' names nothing a picture can show and no number: the opening shot cannot prove it",
+  "LC_261115_VintageBag_BlackFriday_B049_P01_H4_remix33 hook_first_line: hook_formula: '\"High quality leather that gets more beautiful with age.\"' follows none of the rulebook's hook formulas (how to, a question, a number, a warning, a contrast, watch, a moment, at last, the truth about, imagine, if you, who else, hidden, the offer)",
+  "LC_261115_VintageBag_BlackFriday_B049_P02_H1_remixc9 hook_first_line: hook_concrete: '\"I\\'ve never been so happy to be wrong.\"' names nothing a picture can show and no number: the opening shot cannot prove it",
+  "LC_261115_VintageBag_BlackFriday_B049_P02_H2_remixc9 hook_first_line: hook_formula: '\"Inside, it\\'s all about these divided sections.\"' follows none of the rulebook's hook formulas (how to, a question, a number, a warning, a contrast, watch, a moment, at last, the truth about, imagine, if you, who else, hidden, the offer)",
+  "LC_261115_VintageBag_BlackFriday_B049_P02_H3_remixc9 hook_first_line: hook_formula: '\"Don\\'t miss your chance, grab yours before they sell out again.\"' follows none of the rulebook's hook formulas (how to, a question, a number, a warning, a contrast, watch, a moment, at last, the truth about, imagine, if you, who else, hidden, the offer)",
+  "LC_261115_VintageBag_BlackFriday_B049_P02_H4_remixc9 hook_first_line: hook_formula: '\"Inside, it\\'s all about these divided sections.\"' follows none of the rulebook's hook formulas (how to, a question, a number, a warning, a contrast, watch, a moment, at last, the truth about, imagine, if you, who else, hidden, the offer)"
+ ],
+ "report": "/tmp/run/winners-1115/compliance.json"
+}

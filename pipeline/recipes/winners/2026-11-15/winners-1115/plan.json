@@ -1,0 +1,533 @@
+{
+ "prefix": "LC_261115_VintageBag_BlackFriday_B049",
+ "rev": 1,
+ "batch_id": {
+  "id": "B049",
+  "n": 49,
+  "rev": 1
+ },
+ "created": "2026-11-15",
+ "request": "new batch for the winners, versions of SVIT-198-H5, 255-OLY-H1, ILLIA-229-H2, MAX-33-H5 and C9_V2_HappyWrong",
+ "product": "Vintage Bag",
+ "product_key": "vintage",
+ "product_source": "built-in",
+ "theme": "black friday",
+ "theme_name": "BlackFriday",
+ "offer": "50% off",
+ "campaign": {
+  "id": "bf2026",
+  "name": "Black Friday Sale 2026",
+  "theme": "black friday",
+  "banner": "Early Black Friday – 50% off everything, up to 60% off",
+  "until": "2026-11-30",
+  "from": "2026-10-23",
+  "end_title": "Black Friday Sale",
+  "end_pill": "UP TO 60% OFF",
+  "card_sub": "",
+  "close": "The Early Black Friday sale is on now, with up to sixty percent off.",
+  "hooks": [
+   "Black Friday prices are live now. No need to wait.",
+   "Early Black Friday: up to sixty percent off.",
+   "Why wait for Black Friday? The prices are already live."
+  ],
+  "facts": [
+   "Early Black Friday Sale: live now (from 23 October), it runs until 30 November (Cyber Monday). Black Friday is 27 November.",
+   "50% off everything sitewide (each bag's own % is on its offer card: the Hobo Bag is 50% off).",
+   "Up to 60% off: some bundles are 60% off, like the Hobo Bag 3-Piece Set. Say '60% off' only of the 3-Piece Set (or another named bundle), never of a single bag or of 'any 2 bags'.",
+   "No free gifts and no extra cart discount: both were removed by the owner on 26 October.",
+   "The Hobo Bag's product page offers the 3-Piece Set as the 'Best Value' upgrade.",
+   "Black Friday prices are live now: no need to wait.",
+   "Sale items are final sale: they cannot be returned (the site's Black Friday terms); faulty items are still covered and the 1-year warranty still applies. Never say 'easy returns', 'free returns' or 'send it back' in a Black Friday ad.",
+   "Christmas delivery (the site's Black Friday terms, filled in by 27 October): order by 14 December 2026 for the best chance of delivery before Christmas; delivery before Christmas is not guaranteed, so say 'the best chance', never 'guaranteed by Christmas'."
+  ],
+  "bundle_pct": null,
+  "upto_pct": 60,
+  "bundle_any": false,
+  "client_ideas": "Owner 2026-10-26: everything is on sale everywhere, so stand out; the Hobo Bag page upsells the 3-Piece Set ('Best Value'): ads that sell the set raise the order value; 'Black Friday prices are live now, no need to wait'; Christmas gifting (mum, sister, best friend); 2 straps on the Hobo 2.0 (handbag + crossbody); in the last week: Black Friday 27 November, Cyber Monday 30 November, 'last chance'. The AI ads 'seem to be starting to work: keep testing'.",
+  "gifts": [],
+  "gifts_worth": null,
+  "dates": {
+   "black friday": "27 November",
+   "cyber monday": "30 November",
+   "ends": "30 November"
+  },
+  "copy": {
+   "primary": [
+    "Early Black Friday is live: 50% off everything, and up to 60% off bundles like the 3-Piece Set.",
+    "Black Friday prices are live now, no need to wait. 50% off everything, up to 60% off bundles."
+   ],
+   "headline": [
+    "Early Black Friday: 50% Off",
+    "Up to 60% Off Bundles",
+    "Black Friday Prices Are Live"
+   ],
+   "description": "Up to 60% off"
+  },
+  "approved_phrases": [
+   "up to (?:60|sixty) ?(?:%|percent) off(?: bundles?)?",
+   "(?:60|sixty) ?(?:%|percent) off (?:the |our )?(?:hobo (?:bag )?)?3-piece set",
+   "(?:50|fifty) ?(?:%|percent) off everything"
+  ],
+  "approved": "Wouter (owner), 2026-10-23: the Black Friday Sale went live on 23 October and runs until 30 November (Cyber Monday). Up to 50% off sitewide; 60% off bundles (2 or 3 bags bought together at 60% off the regular price); free gifts while stocks last: buy 2 bags, get a free mirrored jewellery box (worth $19.95); buy 3+ bags, get the jewellery box + a free cosmetic bag (together worth $44.90); only bags count, not accessories. The site banner (2026-10-23): 'EARLY BLACK FRIDAY: 50% OFF EVERYTHING | BUY 2 BAGS = 1 FREE GIFT | BUY 3 = 2 FREE GIFTS | ORDER TODAY WHILE STOCKS LAST!' | UPDATE Wouter (owner), 2026-10-26: the free gifts and the extra cart discount on bags are removed ('they're not coming back'); 'It's 50% OFF or you can say up to 60% OFF'; 60% is only on bundles 'like the 3 piece set', not any 2 bags; the site now has Early Black Friday messaging, a countdown in the announcement bar, 'Ships by' and delivery dates, and the 3-Piece Set as a 'Best Value' upgrade on the Hobo Bag page; during Black Friday no returns are accepted (final sale).",
+  "final_sale": true,
+  "terms": "https://libracases.com/pages/terms-and-conditions-black-friday-sale",
+  "banned": [
+   {
+    "rx": "\\bfree gifts?\\b|\\bgifts? with (?:2|two|3|three|every)\\b|\\bfree (?:mirrored )?jewell?e?ry box(?:es)?\\b|\\bfree (?:travel )?cosmetic bags?\\b|\\bjewell?e?ry box\\b|\\bcosmetic bag\\b",
+    "why": "the free gifts were removed by the owner on 26 October (not coming back): say the bag's own free pouch wallet, if it has one"
+   },
+   {
+    "rx": "(?:60|sixty) ?(?:%|percent) off\\b[^.!?]{0,60}\\b(?:(?:2|two) (?:or (?:3|three) )?bags|(?:3|three) bags|(?:2|two) or (?:3|three)|second bag|together)|\\b(?:2|two) or (?:3|three) bags\\b[^.!?]{0,30}(?:60|sixty) ?(?:%|percent)",
+    "why": "60% is only on bundles like the 3-Piece Set, not on any 2 or 3 bags (owner, 26 October): say 'up to 60% off' or '60% off the 3-Piece Set'"
+   },
+   {
+    "rx": "\\b(?:ends?|ending) (?:tonight|today)\\b|\\btoday only\\b|\\bonly today\\b|\\b(?:sale|deal|offer)s? ends? (?:soon|in \\d+ (?:hours?|minutes?|days?))\\b|\\bhours? left\\b",
+    "why": "the sale runs until 30 November (owner 2026-10-23; the site banner's 'ends tonight' is the owner's choice for the site only): before the last day 'ends tonight / today only' is false and Meta flags ads whose deadline differs from the landing page; say 'Black Friday prices are live now' or 'the sale ends on the thirtieth of November'",
+    "except_on": [
+     "2026-11-30"
+    ]
+   },
+   {
+    "rx": "\\blast (?:chance|days?|call)\\b|\\bfinal (?:days?|hours?|chance)\\b",
+    "why": "'last chance' is the last week's message (owner's timeline: last-week content by 20 November, for Black Friday 27 Nov - Cyber Monday 30 Nov): before 20 November it is false urgency",
+    "except_from": "2026-11-20"
+   },
+   {
+    "rx": "\\bguarantee\\w*\\b[^.!?]{0,40}\\bchristmas\\b|\\bchristmas\\b[^.!?]{0,40}\\bguarantee\\w*\\b|\\b(?:arrives?|delivered|get it|gets there|be there|in time for)\\b[^.!?]{0,20}\\b(?:in time for|by|before) christmas\\b|\\bin time for christmas\\b",
+    "why": "the site's terms: delivery before Christmas is not guaranteed; say 'order by 14 December for the best chance of delivery before Christmas'"
+   }
+  ]
+ },
+ "statics": [],
+ "videos": [
+  {
+   "name": "LC_261115_VintageBag_BlackFriday_B049_P01_H1_remix33",
+   "id": "P01H1",
+   "format": "remix",
+   "engine": "remix",
+   "hook": "H1",
+   "hook_label": "3 WAYS TO WEAR",
+   "winner": {
+    "key": "raw33_H5",
+    "ad": "MAX-33-H5",
+    "brief_name": "MAX-33-H5",
+    "roas": null,
+    "action": null,
+    "product": "Vintage Bag",
+    "cold_open": [
+     42.18,
+     45.68
+    ],
+    "reviews": [],
+    "intro": null
+   },
+   "est_seconds": 63.7,
+   "project": "P01",
+   "hook_text": "Three ways to wear it. Handbag, shoulder bag, crossbody.",
+   "hook_type": "feature",
+   "cold_open": [
+    42.18,
+    45.68
+   ]
+  },
+  {
+   "name": "LC_261115_VintageBag_BlackFriday_B049_P01_H2_remix33",
+   "id": "P01H2",
+   "format": "remix",
+   "engine": "remix",
+   "hook": "H2",
+   "hook_label": "BEFORE I CLOSE",
+   "winner": {
+    "key": "raw33_H5",
+    "ad": "MAX-33-H5",
+    "brief_name": "MAX-33-H5",
+    "roas": null,
+    "action": null,
+    "product": "Vintage Bag",
+    "cold_open": [
+     55.38,
+     58.9
+    ],
+    "reviews": [],
+    "intro": null
+   },
+   "est_seconds": 63.7,
+   "project": "P01",
+   "hook_text": "This is your last chance to own one before I close my workshop forever.",
+   "hook_type": "offer",
+   "cold_open": [
+    55.38,
+    58.9
+   ]
+  },
+  {
+   "name": "LC_261115_VintageBag_BlackFriday_B049_P01_H3_remix33",
+   "id": "P01H3",
+   "format": "remix",
+   "engine": "remix",
+   "hook": "H3",
+   "hook_label": "BETTER EVERY YEAR",
+   "winner": {
+    "key": "raw33_H5",
+    "ad": "MAX-33-H5",
+    "brief_name": "MAX-33-H5",
+    "roas": null,
+    "action": null,
+    "product": "Vintage Bag",
+    "cold_open": [
+     29.8,
+     33.9
+    ],
+    "reviews": [],
+    "intro": null
+   },
+   "est_seconds": 64.3,
+   "project": "P01",
+   "hook_text": "Most bags look worse every month, while the vintage bag looks better every year.",
+   "hook_type": "curiosity",
+   "cold_open": [
+    29.8,
+    33.9
+   ]
+  },
+  {
+   "name": "LC_261115_VintageBag_BlackFriday_B049_P01_H4_remix33",
+   "id": "P01H4",
+   "format": "remix",
+   "engine": "remix",
+   "hook": "H4",
+   "hook_label": "HIGH QUALITY LEATHER",
+   "winner": {
+    "key": "raw33_H5",
+    "ad": "MAX-33-H5",
+    "brief_name": "MAX-33-H5",
+    "roas": null,
+    "action": null,
+    "product": "Vintage Bag",
+    "cold_open": [
+     21.15,
+     24.05
+    ],
+    "reviews": [],
+    "intro": null
+   },
+   "est_seconds": 63.1,
+   "project": "P01",
+   "hook_text": "High quality leather that gets more beautiful with age.",
+   "hook_type": "feature",
+   "cold_open": [
+    21.15,
+    24.05
+   ]
+  },
+  {
+   "name": "LC_261115_VintageBag_BlackFriday_B049_P02_H1_remixc9",
+   "id": "P02H1",
+   "format": "remix",
+   "engine": "remix",
+   "hook": "H1",
+   "hook_label": "HAPPY TO BE WRONG",
+   "winner": {
+    "key": "c9_V2",
+    "ad": "C9_V2_HappyWrong",
+    "brief_name": "C9_V2_HappyWrong",
+    "roas": null,
+    "action": null,
+    "product": "Vintage Bag",
+    "cold_open": [
+     4.05,
+     6.25
+    ],
+    "reviews": [],
+    "intro": null
+   },
+   "est_seconds": 30.6,
+   "project": "P02",
+   "hook_text": "I've never been so happy to be wrong.",
+   "hook_type": "story",
+   "cold_open": [
+    4.05,
+    6.25
+   ]
+  },
+  {
+   "name": "LC_261115_VintageBag_BlackFriday_B049_P02_H2_remixc9",
+   "id": "P02H2",
+   "format": "remix",
+   "engine": "remix",
+   "hook": "H2",
+   "hook_label": "LOOK INSIDE",
+   "winner": {
+    "key": "c9_V2",
+    "ad": "C9_V2_HappyWrong",
+    "brief_name": "C9_V2_HappyWrong",
+    "roas": null,
+    "action": null,
+    "product": "Vintage Bag",
+    "cold_open": [
+     14.38,
+     16.63
+    ],
+    "reviews": [],
+    "intro": null
+   },
+   "est_seconds": 30.6,
+   "project": "P02",
+   "hook_text": "Inside, it's all about these divided sections.",
+   "hook_type": "feature",
+   "cold_open": [
+    14.38,
+    16.63
+   ]
+  },
+  {
+   "name": "LC_261115_VintageBag_BlackFriday_B049_P02_H3_remixc9",
+   "id": "P02H3",
+   "format": "remix",
+   "engine": "remix",
+   "hook": "H3",
+   "hook_label": "DON'T MISS YOUR CHANCE",
+   "winner": {
+    "key": "c9_V2",
+    "ad": "C9_V2_HappyWrong",
+    "brief_name": "C9_V2_HappyWrong",
+    "roas": null,
+    "action": null,
+    "product": "Vintage Bag",
+    "cold_open": [
+     30.34,
+     33.09
+    ],
+    "reviews": [],
+    "intro": null
+   },
+   "est_seconds": 31.2,
+   "project": "P02",
+   "hook_text": "Don't miss your chance, grab yours before they sell out again.",
+   "hook_type": "warning",
+   "cold_open": [
+    30.34,
+    33.09
+   ]
+  },
+  {
+   "name": "LC_261115_VintageBag_BlackFriday_B049_P02_H4_remixc9",
+   "id": "P02H4",
+   "format": "remix",
+   "engine": "remix",
+   "hook": "H4",
+   "hook_label": "WHAT'S INSIDE?",
+   "winner": {
+    "key": "c9_V2",
+    "ad": "C9_V2_HappyWrong",
+    "brief_name": "C9_V2_HappyWrong",
+    "roas": null,
+    "action": null,
+    "product": "Vintage Bag",
+    "cold_open": [
+     14.38,
+     16.63
+    ],
+    "reviews": [],
+    "intro": null
+   },
+   "est_seconds": 30.6,
+   "project": "P02",
+   "hook_text": "Inside, it's all about these divided sections.",
+   "hook_type": "question",
+   "cold_open": [
+    14.38,
+    16.63
+   ]
+  }
+ ],
+ "tts_lines": 0,
+ "tts_dupes": {},
+ "est_credits": 0.0,
+ "budget": 100.0,
+ "colour_images": {
+  "Ginger Brown": "/tmp/run/winners-1115/site/vintage_colour_ginger_brown.jpg",
+  "Black": "/tmp/run/winners-1115/site/vintage_colour_black.jpg",
+  "Chocolate": "/tmp/run/winners-1115/site/vintage_colour_chocolate.jpg",
+  "Red": "/tmp/run/winners-1115/site/vintage_colour_red.jpg"
+ },
+ "packshots": [
+  "/tmp/run/winners-1115/site/vintage_colour_ginger_brown.jpg",
+  "/tmp/run/winners-1115/site/vintage_colour_black.jpg",
+  "/tmp/run/winners-1115/site/vintage_colour_chocolate.jpg",
+  "/tmp/run/winners-1115/site/vintage_colour_red.jpg"
+ ],
+ "brief": null,
+ "winners_source": "codes",
+ "winners_note": null,
+ "winners_used": [
+  {
+   "key": "raw33_H5",
+   "name": "MAX-33-H5",
+   "roas": null,
+   "action": null
+  },
+  {
+   "key": "c9_V2",
+   "name": "C9_V2_HappyWrong",
+   "roas": null,
+   "action": null
+  }
+ ],
+ "unmatched_winners": [],
+ "warnings": [
+  "campaign: Black Friday Sale 2026 (2026-10-23 to 2026-11-30, client-approved): end cards say 'Black Friday Sale' + 'UP TO 60% OFF'; the close and the ad copy name the sale; each bag's own % stays its offer",
+  "another batch of Vintage Bag is being made right now (B048, not in Drive yet): its hooks and statics are not in the novelty log yet, so the two batches may share some; say so in the reply",
+  "raw33_H5 (MAX-33-H5): needs a human (Julian's health rule): its approved RAW story (PLAYBOOK section 1) plays as is: \"The arthritis has won after 30 years.\"",
+  "c9_V2: the RAW never says the offer: its 'BLACK FRIDAY 50% OFF' card shows just before the end card",
+  "P02 (C9_V2_HappyWrong): H4 differs from H2 by its on-screen hook only (label \"WHAT'S INSIDE?\" over the same opening: cold open 14.38-16.63): c9_V2 has no other clean spoken opening",
+  "winner projects whose versions repeat a hook type (the versions differ in the opening line and label): P01 MAX-33-H5 featurex2+offer+curiosity",
+  "winner versions that open like ads already delivered (pipeline/recipes): P01 MAX-33-H5 H3 (2026-10-02): they differ from those ads only in the offer card and end card (and the review section those had); new openings need new cold opens (python3 pipeline/winner_prep.py)"
+ ],
+ "winner_reviews": false,
+ "seed": 319,
+ "hooks": 4,
+ "pipeline": "winners",
+ "video_format": "classic",
+ "projects": [
+  {
+   "id": "P01",
+   "from_id": "V01",
+   "angle": "remix33",
+   "engine": "remix",
+   "format": "remix",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P01H1",
+     "name": "LC_261115_VintageBag_BlackFriday_B049_P01_H1_remix33",
+     "hook_text": "Three ways to wear it. Handbag, shoulder bag, crossbody.",
+     "label": "3 WAYS TO WEAR",
+     "type": "feature",
+     "cold_open": [
+      42.18,
+      45.68
+     ],
+     "est_seconds": 63.7
+    },
+    {
+     "hook": "H2",
+     "id": "P01H2",
+     "name": "LC_261115_VintageBag_BlackFriday_B049_P01_H2_remix33",
+     "hook_text": "This is your last chance to own one before I close my workshop forever.",
+     "label": "BEFORE I CLOSE",
+     "type": "offer",
+     "cold_open": [
+      55.38,
+      58.9
+     ],
+     "est_seconds": 63.7
+    },
+    {
+     "hook": "H3",
+     "id": "P01H3",
+     "name": "LC_261115_VintageBag_BlackFriday_B049_P01_H3_remix33",
+     "hook_text": "Most bags look worse every month, while the vintage bag looks better every year.",
+     "label": "BETTER EVERY YEAR",
+     "type": "curiosity",
+     "cold_open": [
+      29.8,
+      33.9
+     ],
+     "est_seconds": 64.3
+    },
+    {
+     "hook": "H4",
+     "id": "P01H4",
+     "name": "LC_261115_VintageBag_BlackFriday_B049_P01_H4_remix33",
+     "hook_text": "High quality leather that gets more beautiful with age.",
+     "label": "HIGH QUALITY LEATHER",
+     "type": "feature",
+     "cold_open": [
+      21.15,
+      24.05
+     ],
+     "est_seconds": 63.1
+    }
+   ],
+   "winner": {
+    "key": "raw33_H5",
+    "ad": "MAX-33-H5",
+    "brief_name": "MAX-33-H5",
+    "roas": null,
+    "action": null,
+    "product": "Vintage Bag"
+   }
+  },
+  {
+   "id": "P02",
+   "from_id": "V02",
+   "angle": "remixc9",
+   "engine": "remix",
+   "format": "remix",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P02H1",
+     "name": "LC_261115_VintageBag_BlackFriday_B049_P02_H1_remixc9",
+     "hook_text": "I've never been so happy to be wrong.",
+     "label": "HAPPY TO BE WRONG",
+     "type": "story",
+     "cold_open": [
+      4.05,
+      6.25
+     ],
+     "est_seconds": 30.6
+    },
+    {
+     "hook": "H2",
+     "id": "P02H2",
+     "name": "LC_261115_VintageBag_BlackFriday_B049_P02_H2_remixc9",
+     "hook_text": "Inside, it's all about these divided sections.",
+     "label": "LOOK INSIDE",
+     "type": "feature",
+     "cold_open": [
+      14.38,
+      16.63
+     ],
+     "est_seconds": 30.6
+    },
+    {
+     "hook": "H3",
+     "id": "P02H3",
+     "name": "LC_261115_VintageBag_BlackFriday_B049_P02_H3_remixc9",
+     "hook_text": "Don't miss your chance, grab yours before they sell out again.",
+     "label": "DON'T MISS YOUR CHANCE",
+     "type": "warning",
+     "cold_open": [
+      30.34,
+      33.09
+     ],
+     "est_seconds": 31.2
+    },
+    {
+     "hook": "H4",
+     "id": "P02H4",
+     "name": "LC_261115_VintageBag_BlackFriday_B049_P02_H4_remixc9",
+     "hook_text": "Inside, it's all about these divided sections.",
+     "label": "WHAT'S INSIDE?",
+     "type": "question",
+     "cold_open": [
+      14.38,
+      16.63
+     ],
+     "est_seconds": 30.6
+    }
+   ],
+   "winner": {
+    "key": "c9_V2",
+    "ad": "C9_V2_HappyWrong",
+    "brief_name": "C9_V2_HappyWrong",
+    "roas": null,
+    "action": null,
+    "product": "Vintage Bag"
+   }
+  }
+ ],
+ "hooks_seed": 319
+}

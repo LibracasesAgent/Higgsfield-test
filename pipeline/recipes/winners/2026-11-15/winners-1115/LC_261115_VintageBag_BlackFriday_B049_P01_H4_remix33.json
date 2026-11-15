@@ -1,0 +1,51 @@
+{
+ "raw": "1yvkXUyJ-2BP6c-tK8ofH8tT21oal14pC",
+ "start": 0.0,
+ "end": null,
+ "cut": [],
+ "insert_at": 34.02,
+ "offer_word": "50",
+ "offer_after": null,
+ "burned_captions": false,
+ "labels": [
+  {
+   "text": "REASON 1",
+   "word": "1",
+   "after": 7
+  },
+  {
+   "text": "REASON 2",
+   "word": "2",
+   "after": 7
+  },
+  {
+   "text": "REASON 3",
+   "word": "3",
+   "after": 7
+  }
+ ],
+ "end_title": "Black Friday Sale",
+ "end_offer": "UP TO 60% OFF",
+ "end_photo": "site/vintage_colour_ginger_brown.jpg",
+ "offer_title": "BLACK FRIDAY 50% OFF",
+ "offer_sub": "",
+ "keywords": [
+  "50%",
+  "gift",
+  "gifts",
+  "hidden",
+  "pocket",
+  "leather",
+  "black",
+  "friday"
+ ],
+ "music": {
+  "auto": true,
+  "seed": 3499
+ },
+ "cold_open": [
+  21.15,
+  24.05
+ ],
+ "hook_label": "HIGH QUALITY LEATHER"
+}

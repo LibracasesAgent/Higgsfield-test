@@ -1,0 +1,40 @@
+{
+ "raw": "1xW7W1s-Zv-5UEHNYlSZmlBy3r1A30TVl",
+ "start": 0.0,
+ "end": null,
+ "cut": [
+  [
+   25.3,
+   30.3
+  ]
+ ],
+ "insert_at": 25.3,
+ "offer_word": null,
+ "offer_after": null,
+ "burned_captions": true,
+ "labels": [],
+ "end_title": "Black Friday Sale",
+ "end_offer": "UP TO 60% OFF",
+ "end_photo": "site/vintage_colour_black.jpg",
+ "offer_title": "BLACK FRIDAY 50% OFF",
+ "offer_sub": "",
+ "keywords": [
+  "50%",
+  "gift",
+  "gifts",
+  "hidden",
+  "pocket",
+  "leather",
+  "black",
+  "friday"
+ ],
+ "music": {
+  "auto": true,
+  "seed": 3500
+ },
+ "cold_open": [
+  4.05,
+  6.25
+ ],
+ "hook_label": "HAPPY TO BE WRONG"
+}

@@ -1,0 +1,130 @@
+{
+ "ok": true,
+ "created": "2026-11-15",
+ "product": "Vintage Bag",
+ "theme": "black friday",
+ "theme_name": "BlackFriday",
+ "offer": "50% off",
+ "seed": 319,
+ "cta": "Get Offer",
+ "rows": 8,
+ "csv": "/tmp/run/winners-1115/ad_copy.csv",
+ "statics": [],
+ "projects": [
+  {
+   "id": "P01",
+   "angle": "remix33",
+   "engine": "remix",
+   "product": "Vintage Bag",
+   "winner": {
+    "key": "raw33_H5",
+    "ad": "MAX-33-H5",
+    "brief_name": "MAX-33-H5",
+    "roas": null,
+    "action": null,
+    "product": "Vintage Bag"
+   },
+   "primary_text_1": "Black Friday came early.\nThe Vintage Bag, now 50% off.",
+   "primary_text_2": "Phone, wallet and keys all loose at the bottom of your bag?\nA clasp that snaps shut with one hand.\nThis Black Friday: 50% off. 🖤\nTap Get Offer to claim the deal.",
+   "headline_1": "Early Black Friday: 50% Off",
+   "headline_2": "Up to 60% Off Bundles",
+   "description": "50% off + free shipping",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER",
+   "versions": [
+    {
+     "hook": "H1",
+     "id": "P01H1",
+     "ad_name": "LC_261115_VintageBag_BlackFriday_B049_P01_H1_remix33",
+     "hook_text": "Three ways to wear it. Handbag, shoulder bag, crossbody.",
+     "hook_first_line": "\"Three ways to wear it. Handbag, shoulder bag, crossbody.\"",
+     "primary_text_2_hook": "\"Three ways to wear it. Handbag, shoulder bag, crossbody.\"\nA clasp that snaps shut with one hand.\nThis Black Friday: 50% off. 🖤\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H2",
+     "id": "P01H2",
+     "ad_name": "LC_261115_VintageBag_BlackFriday_B049_P01_H2_remix33",
+     "hook_text": "This is your last chance to own one before I close my workshop forever.",
+     "hook_first_line": "",
+     "primary_text_2_hook": ""
+    },
+    {
+     "hook": "H3",
+     "id": "P01H3",
+     "ad_name": "LC_261115_VintageBag_BlackFriday_B049_P01_H3_remix33",
+     "hook_text": "Most bags look worse every month, while the vintage bag looks better every year.",
+     "hook_first_line": "\"Most bags look worse every month, while the vintage bag looks better every year.\"",
+     "primary_text_2_hook": "\"Most bags look worse every month, while the vintage bag looks better every year.\"\nA clasp that snaps shut with one hand.\nThis Black Friday: 50% off. 🖤\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H4",
+     "id": "P01H4",
+     "ad_name": "LC_261115_VintageBag_BlackFriday_B049_P01_H4_remix33",
+     "hook_text": "High quality leather that gets more beautiful with age.",
+     "hook_first_line": "\"High quality leather that gets more beautiful with age.\"",
+     "primary_text_2_hook": "\"High quality leather that gets more beautiful with age.\"\nA clasp that snaps shut with one hand.\nThis Black Friday: 50% off. 🖤\nTap Get Offer to claim the deal."
+    }
+   ]
+  },
+  {
+   "id": "P02",
+   "angle": "remixc9",
+   "engine": "remix",
+   "product": "Vintage Bag",
+   "winner": {
+    "key": "c9_V2",
+    "ad": "C9_V2_HappyWrong",
+    "brief_name": "C9_V2_HappyWrong",
+    "roas": null,
+    "action": null,
+    "product": "Vintage Bag"
+   },
+   "primary_text_1": "This is the Black Friday deal you've been waiting for.\nThe Vintage Bag: 50% off.",
+   "primary_text_2": "Classic on the outside. Organised on the inside.\nOpen it up and there's room for your phone, wallet and keys, all in their own spot.\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nBlack Friday: 50% off. 🖤\nTap Get Offer to claim the deal.",
+   "headline_1": "Black Friday Prices Are Live",
+   "headline_2": "Vintage Bag: 50% Off",
+   "description": "Up to 60% off",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER",
+   "versions": [
+    {
+     "hook": "H1",
+     "id": "P02H1",
+     "ad_name": "LC_261115_VintageBag_BlackFriday_B049_P02_H1_remixc9",
+     "hook_text": "I've never been so happy to be wrong.",
+     "hook_first_line": "\"I've never been so happy to be wrong.\"",
+     "primary_text_2_hook": "\"I've never been so happy to be wrong.\"\nOpen it up and there's room for your phone, wallet and keys, all in their own spot.\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nBlack Friday: 50% off. 🖤\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H2",
+     "id": "P02H2",
+     "ad_name": "LC_261115_VintageBag_BlackFriday_B049_P02_H2_remixc9",
+     "hook_text": "Inside, it's all about these divided sections.",
+     "hook_first_line": "\"Inside, it's all about these divided sections.\"",
+     "primary_text_2_hook": "\"Inside, it's all about these divided sections.\"\nOpen it up and there's room for your phone, wallet and keys, all in their own spot.\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nBlack Friday: 50% off. 🖤\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H3",
+     "id": "P02H3",
+     "ad_name": "LC_261115_VintageBag_BlackFriday_B049_P02_H3_remixc9",
+     "hook_text": "Don't miss your chance, grab yours before they sell out again.",
+     "hook_first_line": "\"Don't miss your chance, grab yours before they sell out again.\"",
+     "primary_text_2_hook": "\"Don't miss your chance, grab yours before they sell out again.\"\nOpen it up and there's room for your phone, wallet and keys, all in their own spot.\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nBlack Friday: 50% off. 🖤\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H4",
+     "id": "P02H4",
+     "ad_name": "LC_261115_VintageBag_BlackFriday_B049_P02_H4_remixc9",
+     "hook_text": "Inside, it's all about these divided sections.",
+     "hook_first_line": "\"Inside, it's all about these divided sections.\"",
+     "primary_text_2_hook": "\"Inside, it's all about these divided sections.\"\nOpen it up and there's room for your phone, wallet and keys, all in their own spot.\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nBlack Friday: 50% off. 🖤\nTap Get Offer to claim the deal."
+    }
+   ]
+  }
+ ],
+ "notes": [
+  "P01H2: no hook_first_line (offer: last chance): use the shared primary texts",
+  "P02: its RAW names none of Vintage Bag's feature lines: the copy uses them all"
+ ],
+ "problems": []
+}

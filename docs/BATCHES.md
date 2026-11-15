@@ -44,4 +44,4 @@ Made by `pipeline/ledger.py` at every upload; one row per batch. A batch id is i
 | B046 | 2026-11-15 | Hobo Bag 3-Piece Set | BlackFriday | uploaded | 15 statics + 0 projects | 15 ads | B046 – 2026-11-15 – Hobo Bag 3-Piece Set BlackFriday – 15 statics | https://drive.google.com/drive/folders/1XkPDoiPuosHK8l1-XOfmF54Bwq3Pl6cy |
 | B047 | 2026-11-15 | Hobo Bag | Evergreen | planned | 0 statics + 5 projects |  | new batch for the winners, versions of SVIT-198-H5, 255-OLY-H1, ILLIA-229-H2, MAX-33-H5 and C9_V2_HappyWrong |  |
 | B048r2 | 2026-11-15 | Vintage Bag | Evergreen | planned | 0 statics + 2 projects |  | new batch for the winners, versions of SVIT-198-H5, 255-OLY-H1, ILLIA-229-H2, MAX-33-H5 and C9_V2_HappyWrong |  |
-| B049 | 2026-11-15 | Vintage Bag | BlackFriday | planned | 0 statics + 2 projects |  | new batch for the winners, versions of SVIT-198-H5, 255-OLY-H1, ILLIA-229-H2, MAX-33-H5 and C9_V2_HappyWrong |  |
+| B049 | 2026-11-15 | Vintage Bag | BlackFriday | uploaded | 0 statics + 2 projects | 8 ads | B049 – 2026-11-15 – Vintage Bag BlackFriday – 2 projects | https://drive.google.com/drive/folders/1Rb1ayPW5DPAaum0wAGws3rE2PpRzfad0 |

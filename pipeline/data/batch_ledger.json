@@ -3809,7 +3809,59 @@
    "projects": 2,
    "hooks": 4,
    "seed": 319,
-   "status": "planned"
+   "status": "uploaded",
+   "folder": "B049 – 2026-11-15 – Vintage Bag BlackFriday – 2 projects",
+   "link": "https://drive.google.com/drive/folders/1Rb1ayPW5DPAaum0wAGws3rE2PpRzfad0",
+   "ads": [
+    {
+     "name": "LC_261115_VintageBag_BlackFriday_B049_P01_H1_remix33",
+     "kind": "video",
+     "fp": "v|three ways to wear it. handbag, shoulder bag, crossbody.|",
+     "label": "Three ways to wear it. Handbag, shoulder bag, crossbody."
+    },
+    {
+     "name": "LC_261115_VintageBag_BlackFriday_B049_P01_H2_remix33",
+     "kind": "video",
+     "fp": "v|this is your last chance to own one before i close my workshop forever.|",
+     "label": "This is your last chance to own one before I close my workshop forever."
+    },
+    {
+     "name": "LC_261115_VintageBag_BlackFriday_B049_P01_H3_remix33",
+     "kind": "video",
+     "fp": "v|most bags look worse every month, while the vintage bag looks better every year.|",
+     "label": "Most bags look worse every month, while the vintage bag looks better every year."
+    },
+    {
+     "name": "LC_261115_VintageBag_BlackFriday_B049_P01_H4_remix33",
+     "kind": "video",
+     "fp": "v|high quality leather that gets more beautiful with age.|",
+     "label": "High quality leather that gets more beautiful with age."
+    },
+    {
+     "name": "LC_261115_VintageBag_BlackFriday_B049_P02_H1_remixc9",
+     "kind": "video",
+     "fp": "v|i've never been so happy to be wrong.|",
+     "label": "I've never been so happy to be wrong."
+    },
+    {
+     "name": "LC_261115_VintageBag_BlackFriday_B049_P02_H2_remixc9",
+     "kind": "video",
+     "fp": "v|inside, it's all about these divided sections.|",
+     "label": "Inside, it's all about these divided sections."
+    },
+    {
+     "name": "LC_261115_VintageBag_BlackFriday_B049_P02_H3_remixc9",
+     "kind": "video",
+     "fp": "v|don't miss your chance, grab yours before they sell out again.|",
+     "label": "Don't miss your chance, grab yours before they sell out again."
+    },
+    {
+     "name": "LC_261115_VintageBag_BlackFriday_B049_P02_H4_remixc9",
+     "kind": "video",
+     "fp": "v|inside, it's all about these divided sections.|",
+     "label": "Inside, it's all about these divided sections."
+    }
+   ]
   }
  ],
  "next": 50
