@@ -10,7 +10,7 @@ Captions (like the top Reels ads): up to 8 words (9 for a whole sentence) on at 
 sentence ends, commas and pauses (never "hand making these / bags", never "the Black / Friday deal", one word alone only
 as a whole sentence), at least 0.8 s on screen, no dashes or stray symbols. They look like part of the video (white
 text, dark outline, soft shadow, keywords on a red pill; "caption_style": "box" = the older white boxes) and sit in the
-bottom band (centre y 1380, text ~1295-1465: above Stories' UI, inside Feed's 4:5 crop; "caption_zone": "reels" keeps
+bottom band (centre y 1425, text ~1350-1500: above Stories' UI, inside Feed's 4:5 crop; "caption_zone": "reels" keeps
 them above Meta's strict Reels zone, ~1065-1235). A shot whose bottom band shows something important (a face, or the
 product / the action: spectral-residual saliency) gets its captions in the emptiest of the top band or just above the
 product instead (never over a face), for that shot only
@@ -118,16 +118,17 @@ def fix_words(words, fixes):
 
 # Caption layout, like the top Reels ads: low in the 9:16 safe zone (Meta Reels keeps the top ~14 % and the bottom ~35 %
 # clear of text, Stories the bottom ~20 %), fuller phrases on at most two balanced lines, each on screen long enough to read.
-CAP_SIZE, CAP_MAXW, CAP_ONE_LINE = 60, 840, 700   # Montserrat ExtraBold px; max line width; wider phrases take two lines
+CAP_SIZE, CAP_MAXW, CAP_ONE_LINE = 52, 840, 700   # Montserrat ExtraBold px (60 until 2026-11-16: the owner, 'the subtitles are
+#                                                   in the way of the video': smaller and lower); max line width; wider phrases take two lines
 CAP_LINE_H, CAP_GAP = 80, 10                      # one boxed line; gap between the two lines
-CAP_Y, CAP_Y_TOP = 1380, 430                      # default caption centre: the bottom band (2 lines ~1295-1465); "top": upper band
+CAP_Y, CAP_Y_TOP = 1425, 430                      # default caption centre: the bottom band (2 lines ~1350-1500, was 1380); "top": upper band
 SAFE_TOP, SAFE_BOTTOM = 270, 1500                 # caption text stays between these rows (Stories UI: bottom ~20 % = below 1536;
 #                                                   Feed's 4:5 crop keeps rows 285-1635)
 ZONES = {"bottom": (CAP_Y, SAFE_BOTTOM), "reels": (1150, 1250)}   # EDL "caption_zone": "reels" = Meta's strict Reels zone
 #                                                   (its UI covers the bottom ~35 %): captions sit higher, at ~1065-1235
 CAP_MARGIN = 24                                   # clear rows between a caption and an overlay (label, tag, card)
 CAP_WORDS, CAP_MIN_S, CAP_HOLD = 8, 0.8, 0.6      # words per caption; min seconds on screen; hold after the last word
-HOOK_WORDS, HOOK_SIZE = 10, 52                    # the opening line stays one caption up to this many words (at HOOK_SIZE
+HOOK_WORDS, HOOK_SIZE = 10, 46                    # the opening line stays one caption up to this many words (at HOOK_SIZE
 #                                                   px when it is too wide for two lines at CAP_SIZE)
 NO_END = set(("a an the of to for with and or but nor so as than if then plus your my her his its their our these those "
               "in on at by from into onto about over under after before until without through during since across around "
@@ -472,7 +473,7 @@ def saliency(gray):
     return m / (m.mean() + 1e-9)
 
 
-SPOTS = [(1380, 0.75), (430, 0.9), (1150, 1.0)]   # caption centres a shot may use: bottom (preferred), top, low-middle
+SPOTS = [(CAP_Y, 0.75), (430, 0.9), (1150, 1.0)]   # caption centres a shot may use: bottom (preferred), top, low-middle
 BUSY, MARGIN = 0.7, 0.9                              # the bottom band is busy at 0.7x the frame's mean saliency; another spot
 #                                                      wins at 0.9x its score (0.8 / 0.8 left captions over the bag in winner RAWs)
 MIN_SHOT = 0.6                                       # a cut closer than this to the last one is not a new shot
