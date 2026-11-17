@@ -1,0 +1,325 @@
+{
+ "mode": "ugc",
+ "voice_speed": 1.12,
+ "blocks": [
+  {
+   "vo": "P02H2_hook.mp3",
+   "broll": [
+    [
+     "1U5e0VpcAFm07iWXfWFMPe8jiYRd5LmhZ",
+     0.5,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V02_c1.mp3",
+   "broll": [
+    [
+     "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+     12.0,
+     1.0,
+     {
+      "at": 0
+     }
+    ],
+    [
+     "1KrT_V2zVfWbAJ_QciTDEhWMundQHepPY",
+     1.0,
+     1.0,
+     {
+      "at": 6
+     }
+    ],
+    [
+     "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+     9.0,
+     1.0,
+     {
+      "at": 13
+     }
+    ]
+   ],
+   "spare": [
+    [
+     "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+     5.0,
+     1.0
+    ],
+    [
+     "1MtOonVbf-pqmrcU5DUgY6995LObDfwn7",
+     8.0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V02_c2.mp3",
+   "broll": [
+    [
+     "1KrT_V2zVfWbAJ_QciTDEhWMundQHepPY",
+     1.0,
+     1.0,
+     {
+      "zoom": [
+       1.3,
+       1.36
+      ],
+      "focus": [
+       0.5,
+       0.55
+      ],
+      "at": 0
+     }
+    ],
+    [
+     "1Mtx32enLMlOkpIfl_Cr1EYezTdody3E1",
+     3.5,
+     1.0,
+     {
+      "at": 6
+     }
+    ]
+   ],
+   "spare": [
+    [
+     "18all7GUEBLsxxS0JCAl8t-yEOsC6r52T",
+     28.6,
+     1.0
+    ],
+    [
+     "1KrT_V2zVfWbAJ_QciTDEhWMundQHepPY",
+     1.0,
+     1.0,
+     {
+      "zoom": [
+       1.6,
+       1.66
+      ],
+      "focus": [
+       0.5,
+       0.42
+      ]
+     }
+    ]
+   ]
+  },
+  {
+   "vo": "V02_c3.mp3",
+   "broll": [
+    [
+     "1BidTuA7vhnKJ0W923VLBYlXX0LIIueg5",
+     0.0,
+     1.0,
+     {
+      "at": 0
+     }
+    ],
+    [
+     "1Mtx32enLMlOkpIfl_Cr1EYezTdody3E1",
+     1.0,
+     1.0,
+     {
+      "at": 14
+     }
+    ]
+   ],
+   "spare": [
+    [
+     "site/3_piece_set_15.jpg",
+     0,
+     1.0,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ]
+     }
+    ],
+    [
+     "site/3_piece_set_08.jpg",
+     0,
+     1.0,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ]
+     }
+    ],
+    [
+     "site/3_piece_set_colour_black.jpg",
+     0,
+     1.0,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ]
+     }
+    ]
+   ]
+  },
+  {
+   "vo": "V02_c4.mp3",
+   "broll": [
+    [
+     "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+     1.0,
+     1.0,
+     {
+      "at": 0
+     }
+    ],
+    [
+     "site/3_piece_set_09.jpg",
+     0,
+     1.0,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ],
+      "at": 12
+     }
+    ]
+   ],
+   "spare": [
+    [
+     "site/3_piece_set_colour_grey.jpg",
+     0,
+     1.0,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ]
+     }
+    ],
+    [
+     "site/3_piece_set_colour_red.jpg",
+     0,
+     1.0,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ]
+     }
+    ],
+    [
+     "site/3_piece_set_14.jpg",
+     0,
+     1.0,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ]
+     }
+    ]
+   ]
+  }
+ ],
+ "overlays": [
+  {
+   "type": "label",
+   "text": "DON'T WAIT",
+   "block": 0,
+   "at": 0.1,
+   "dur": 1.8
+  },
+  {
+   "type": "tag",
+   "text": "3 BAGS, 1 PRICE",
+   "block": 2,
+   "at": 0.15,
+   "dur": 2.6
+  },
+  {
+   "type": "tag",
+   "text": "ORDER BY 14 DEC",
+   "block": 3,
+   "at": 0.15,
+   "dur": 2.6
+  }
+ ],
+ "end_title": "Black Friday Sale",
+ "offer": {
+  "block": 4,
+  "word": "60",
+  "title": "BLACK FRIDAY 60% OFF",
+  "sub": ""
+ },
+ "end_photo": "site/3_piece_set_colour_grey.jpg",
+ "end_offer": "UP TO 60% OFF",
+ "keywords": [
+  "60%",
+  "gift",
+  "gifts",
+  "hidden",
+  "pocket",
+  "leather",
+  "black",
+  "friday"
+ ],
+ "spare_broll": [
+  [
+   "site/3_piece_set_12.jpg",
+   0,
+   1.0,
+   {
+    "zoom": [
+     1.0,
+     1.06
+    ]
+   }
+  ],
+  [
+   "site/3_piece_set_13.jpg",
+   0,
+   1.0,
+   {
+    "zoom": [
+     1.0,
+     1.06
+    ]
+   }
+  ],
+  [
+   "site/3_piece_set_colour_blue.jpg",
+   0,
+   1.0,
+   {
+    "zoom": [
+     1.0,
+     1.06
+    ]
+   }
+  ],
+  [
+   "site/3_piece_set_colour_purple_red.jpg",
+   0,
+   1.0,
+   {
+    "zoom": [
+     1.0,
+     1.06
+    ]
+   }
+  ],
+  [
+   "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+   9.5,
+   1.0
+  ],
+  [
+   "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+   6.0,
+   1.0
+  ]
+ ],
+ "music": {
+  "seed": 2
+ }
+}

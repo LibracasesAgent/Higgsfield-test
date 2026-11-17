@@ -1,0 +1,21 @@
+{
+ "ok": true,
+ "product": "Hobo Bag 3-Piece Set",
+ "offer": "60% off",
+ "checked": 159,
+ "problems": [],
+ "allowed": [],
+ "raw_story": [],
+ "raw_cuts": [],
+ "playbook_warnings": [
+  "LC_261117_HoboBag3PieceSet_BlackFriday_B052_P01_H2_onecheckout hook_first_line: hook_concrete: 'Why buy one bag when the set is sixty percent off?' names nothing a picture can show and no number: the opening shot cannot prove it",
+  "LC_261117_HoboBag3PieceSet_BlackFriday_B052_P02_H1_giftby14 hook_first_line: hook_formula: 'Shopping for her this Christmas? Start with the set.' follows none of the rulebook's hook formulas (how to, a question, a number, a warning, a contrast, watch, a moment, at last, the truth about, imagine, if you, who else, hidden, the offer)",
+  "LC_261117_HoboBag3PieceSet_BlackFriday_B052_P02_H1_giftby14 hook_first_line: hook_third_person: 'Shopping for her this Christmas? Start with the set.' talks about 'her' / 'him': the viewer is 'you'",
+  "LC_261117_HoboBag3PieceSet_BlackFriday_B052_P02_H2_giftby14 hook_first_line: hook_concrete: \"Don't leave her Christmas gift until December.\" names nothing a picture can show and no number: the opening shot cannot prove it",
+  "LC_261117_HoboBag3PieceSet_BlackFriday_B052_P02_H2_giftby14 hook_first_line: hook_third_person: \"Don't leave her Christmas gift until December.\" talks about 'her' / 'him': the viewer is 'you'",
+  "LC_261117_HoboBag3PieceSet_BlackFriday_B052_P02_H3_giftby14 hook_first_line: hook_concrete: 'Her Christmas gift, sixty percent off.' names nothing a picture can show and no number: the opening shot cannot prove it",
+  "LC_261117_HoboBag3PieceSet_BlackFriday_B052_P02_H3_giftby14 hook_first_line: hook_third_person: 'Her Christmas gift, sixty percent off.' talks about 'her' / 'him': the viewer is 'you'",
+  "LC_261117_HoboBag3PieceSet_BlackFriday_B052_P02_H4_giftby14 hook_first_line: hook_formula: 'Under the tree this year: a hobo, a crossbody, a pouch.' follows none of the rulebook's hook formulas (how to, a question, a number, a warning, a contrast, watch, a moment, at last, the truth about, imagine, if you, who else, hidden, the offer)"
+ ],
+ "report": "/tmp/run/set3-lastweek/compliance.json"
+}

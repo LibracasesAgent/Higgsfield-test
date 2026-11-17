@@ -1,0 +1,1042 @@
+{
+ "prefix": "LC_261117_HoboBag3PieceSet_BlackFriday_B052",
+ "rev": 1,
+ "batch_id": {
+  "id": "B052",
+  "n": 52,
+  "rev": 1
+ },
+ "created": "2026-11-17",
+ "request": "last week batch: 5 statics + 2 closers for the 3-piece set, Black Friday",
+ "product": "Hobo Bag 3-Piece Set",
+ "product_key": "3-piece set",
+ "product_source": "built-in",
+ "theme": "black friday",
+ "theme_name": "BlackFriday",
+ "offer": "60% off",
+ "campaign": {
+  "id": "bf2026",
+  "name": "Black Friday Sale 2026",
+  "theme": "black friday",
+  "banner": "Early Black Friday – 50% off everything, up to 60% off",
+  "until": "2026-11-30",
+  "from": "2026-10-23",
+  "end_title": "Black Friday Sale",
+  "end_pill": "UP TO 60% OFF",
+  "card_sub": "",
+  "close": "The Early Black Friday sale is on now, with up to sixty percent off.",
+  "hooks": [
+   "Black Friday prices are live now. No need to wait.",
+   "Early Black Friday: up to sixty percent off.",
+   "Why wait for Black Friday? The prices are already live."
+  ],
+  "facts": [
+   "Early Black Friday Sale: live now (from 23 October), it runs until 30 November (Cyber Monday). Black Friday is 27 November.",
+   "50% off everything sitewide (each bag's own % is on its offer card: the Hobo Bag is 50% off).",
+   "Up to 60% off: some bundles are 60% off, like the Hobo Bag 3-Piece Set. Say '60% off' only of the 3-Piece Set (or another named bundle), never of a single bag or of 'any 2 bags'.",
+   "No free gifts and no extra cart discount: both were removed by the owner on 26 October.",
+   "The Hobo Bag's product page offers the 3-Piece Set as the 'Best Value' upgrade.",
+   "Black Friday prices are live now: no need to wait.",
+   "Sale items are final sale: they cannot be returned (the site's Black Friday terms); faulty items are still covered and the 1-year warranty still applies. Never say 'easy returns', 'free returns' or 'send it back' in a Black Friday ad.",
+   "Christmas delivery (the site's Black Friday terms, filled in by 27 October): order by 14 December 2026 for the best chance of delivery before Christmas; delivery before Christmas is not guaranteed, so say 'the best chance', never 'guaranteed by Christmas'."
+  ],
+  "bundle_pct": null,
+  "upto_pct": 60,
+  "bundle_any": false,
+  "client_ideas": "Owner 2026-10-26: everything is on sale everywhere, so stand out; the Hobo Bag page upsells the 3-Piece Set ('Best Value'): ads that sell the set raise the order value; 'Black Friday prices are live now, no need to wait'; Christmas gifting (mum, sister, best friend); 2 straps on the Hobo 2.0 (handbag + crossbody); in the last week: Black Friday 27 November, Cyber Monday 30 November, 'last chance'. The AI ads 'seem to be starting to work: keep testing'.",
+  "gifts": [],
+  "gifts_worth": null,
+  "dates": {
+   "black friday": "27 November",
+   "cyber monday": "30 November",
+   "ends": "30 November"
+  },
+  "copy": {
+   "primary": [
+    "Early Black Friday is live: 50% off everything, and up to 60% off bundles like the 3-Piece Set.",
+    "Black Friday prices are live now, no need to wait. 50% off everything, up to 60% off bundles."
+   ],
+   "headline": [
+    "Early Black Friday: 50% Off",
+    "Up to 60% Off Bundles",
+    "Black Friday Prices Are Live"
+   ],
+   "description": "Up to 60% off"
+  },
+  "approved_phrases": [
+   "up to (?:60|sixty) ?(?:%|percent) off(?: bundles?)?",
+   "(?:60|sixty) ?(?:%|percent) off (?:the |our )?(?:hobo (?:bag )?)?3-piece set",
+   "(?:50|fifty) ?(?:%|percent) off everything"
+  ],
+  "approved": "Wouter (owner), 2026-10-23: the Black Friday Sale went live on 23 October and runs until 30 November (Cyber Monday). Up to 50% off sitewide; 60% off bundles (2 or 3 bags bought together at 60% off the regular price); free gifts while stocks last: buy 2 bags, get a free mirrored jewellery box (worth $19.95); buy 3+ bags, get the jewellery box + a free cosmetic bag (together worth $44.90); only bags count, not accessories. The site banner (2026-10-23): 'EARLY BLACK FRIDAY: 50% OFF EVERYTHING | BUY 2 BAGS = 1 FREE GIFT | BUY 3 = 2 FREE GIFTS | ORDER TODAY WHILE STOCKS LAST!' | UPDATE Wouter (owner), 2026-10-26: the free gifts and the extra cart discount on bags are removed ('they're not coming back'); 'It's 50% OFF or you can say up to 60% OFF'; 60% is only on bundles 'like the 3 piece set', not any 2 bags; the site now has Early Black Friday messaging, a countdown in the announcement bar, 'Ships by' and delivery dates, and the 3-Piece Set as a 'Best Value' upgrade on the Hobo Bag page; during Black Friday no returns are accepted (final sale).",
+  "final_sale": true,
+  "terms": "https://libracases.com/pages/terms-and-conditions-black-friday-sale",
+  "banned": [
+   {
+    "rx": "\\bfree gifts?\\b|\\bgifts? with (?:2|two|3|three|every)\\b|\\bfree (?:mirrored )?jewell?e?ry box(?:es)?\\b|\\bfree (?:travel )?cosmetic bags?\\b|\\bjewell?e?ry box\\b|\\bcosmetic bag\\b",
+    "why": "the free gifts were removed by the owner on 26 October (not coming back): say the bag's own free pouch wallet, if it has one"
+   },
+   {
+    "rx": "(?:60|sixty) ?(?:%|percent) off\\b[^.!?]{0,60}\\b(?:(?:2|two) (?:or (?:3|three) )?bags|(?:3|three) bags|(?:2|two) or (?:3|three)|second bag|together)|\\b(?:2|two) or (?:3|three) bags\\b[^.!?]{0,30}(?:60|sixty) ?(?:%|percent)",
+    "why": "60% is only on bundles like the 3-Piece Set, not on any 2 or 3 bags (owner, 26 October): say 'up to 60% off' or '60% off the 3-Piece Set'"
+   },
+   {
+    "rx": "\\b(?:ends?|ending) (?:tonight|today)\\b|\\btoday only\\b|\\bonly today\\b|\\b(?:sale|deal|offer)s? ends? (?:soon|in \\d+ (?:hours?|minutes?|days?))\\b|\\bhours? left\\b",
+    "why": "the sale runs until 30 November (owner 2026-10-23; the site banner's 'ends tonight' is the owner's choice for the site only): before the last day 'ends tonight / today only' is false and Meta flags ads whose deadline differs from the landing page; say 'Black Friday prices are live now' or 'the sale ends on the thirtieth of November'",
+    "except_on": [
+     "2026-11-30"
+    ]
+   },
+   {
+    "rx": "\\blast (?:chance|days?|call)\\b|\\bfinal (?:days?|hours?|chance)\\b",
+    "why": "'last chance' is the last week's message (owner's timeline: last-week content by 20 November, for Black Friday 27 Nov - Cyber Monday 30 Nov): before 20 November it is false urgency",
+    "except_from": "2026-11-20"
+   },
+   {
+    "rx": "\\bguarantee\\w*\\b[^.!?]{0,40}\\bchristmas\\b|\\bchristmas\\b[^.!?]{0,40}\\bguarantee\\w*\\b|\\b(?:arrives?|delivered|get it|gets there|be there|in time for)\\b[^.!?]{0,20}\\b(?:in time for|by|before) christmas\\b|\\bin time for christmas\\b",
+    "why": "the site's terms: delivery before Christmas is not guaranteed; say 'order by 14 December for the best chance of delivery before Christmas'"
+   }
+  ]
+ },
+ "statics": [
+  "LC_261117_HoboBag3PieceSet_BlackFriday_B052_S01_neon",
+  "LC_261117_HoboBag3PieceSet_BlackFriday_B052_S02_studio",
+  "LC_261117_HoboBag3PieceSet_BlackFriday_B052_S03_studio",
+  "LC_261117_HoboBag3PieceSet_BlackFriday_B052_S04_list",
+  "LC_261117_HoboBag3PieceSet_BlackFriday_B052_S05_doorstepparc"
+ ],
+ "videos": [
+  {
+   "name": "LC_261117_HoboBag3PieceSet_BlackFriday_B052_P01_H1_onecheckout",
+   "id": "P01H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "closer": true,
+   "ugc": {
+    "script": "U01",
+    "angle": "onecheckout",
+    "words": 90,
+    "structure": "closer",
+    "hook": {
+     "type": "warning",
+     "label": "LOOK AT THREE",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Why buy one bag when the set is sixty percent off?",
+      "type": "price",
+      "label": "WHY BUY ONE?",
+      "feature": null,
+      "show": [
+       "handheld",
+       "worn"
+      ]
+     },
+     {
+      "text": "Before you check out, add the crossbody and pouch.",
+      "type": "warning",
+      "label": "ADD TWO MORE",
+      "feature": null,
+      "show": [
+       "strap",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Three matching bags, one checkout.",
+      "type": "promise",
+      "label": "THREE BAGS",
+      "feature": null,
+      "show": [
+       "packing",
+       "handheld"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Why buy one bag when the set is sixty percent off?": [
+      [
+       "1MtOonVbf-pqmrcU5DUgY6995LObDfwn7",
+       12.0,
+       1.0
+      ],
+      [
+       "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+       6.0,
+       1.0
+      ]
+     ],
+     "Before you check out, add the crossbody and pouch.": [
+      [
+       "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+       1.0,
+       1.0
+      ],
+      [
+       "1nnsvEIfgqziYdrmeUrrtgL3Qo3YHV7Sw",
+       9.0,
+       1.0
+      ]
+     ],
+     "Three matching bags, one checkout.": [
+      [
+       "1StPro8S4b5_LUICHyivAkrFna1M1k3ao",
+       0.3,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 30.6,
+   "project": "P01",
+   "hook_text": "Before you buy one bag this Black Friday, look at three.",
+   "hook_label": "LOOK AT THREE",
+   "hook_type": "warning",
+   "opening_shot": [
+    "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+    9.5
+   ]
+  },
+  {
+   "name": "LC_261117_HoboBag3PieceSet_BlackFriday_B052_P01_H2_onecheckout",
+   "id": "P01H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "closer": true,
+   "ugc": {
+    "script": "U01",
+    "angle": "onecheckout",
+    "words": 90,
+    "structure": "closer",
+    "hook": {
+     "type": "warning",
+     "label": "LOOK AT THREE",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Why buy one bag when the set is sixty percent off?",
+      "type": "price",
+      "label": "WHY BUY ONE?",
+      "feature": null,
+      "show": [
+       "handheld",
+       "worn"
+      ]
+     },
+     {
+      "text": "Before you check out, add the crossbody and pouch.",
+      "type": "warning",
+      "label": "ADD TWO MORE",
+      "feature": null,
+      "show": [
+       "strap",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Three matching bags, one checkout.",
+      "type": "promise",
+      "label": "THREE BAGS",
+      "feature": null,
+      "show": [
+       "packing",
+       "handheld"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Why buy one bag when the set is sixty percent off?": [
+      [
+       "1MtOonVbf-pqmrcU5DUgY6995LObDfwn7",
+       12.0,
+       1.0
+      ],
+      [
+       "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+       6.0,
+       1.0
+      ]
+     ],
+     "Before you check out, add the crossbody and pouch.": [
+      [
+       "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+       1.0,
+       1.0
+      ],
+      [
+       "1nnsvEIfgqziYdrmeUrrtgL3Qo3YHV7Sw",
+       9.0,
+       1.0
+      ]
+     ],
+     "Three matching bags, one checkout.": [
+      [
+       "1StPro8S4b5_LUICHyivAkrFna1M1k3ao",
+       0.3,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 30.6,
+   "project": "P01",
+   "hook_text": "Why buy one bag when the set is sixty percent off?",
+   "hook_label": "WHY BUY ONE?",
+   "hook_type": "price",
+   "opening_shot": [
+    "1MtOonVbf-pqmrcU5DUgY6995LObDfwn7",
+    12.0
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261117_HoboBag3PieceSet_BlackFriday_B052_P01_H3_onecheckout",
+   "id": "P01H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "closer": true,
+   "ugc": {
+    "script": "U01",
+    "angle": "onecheckout",
+    "words": 90,
+    "structure": "closer",
+    "hook": {
+     "type": "warning",
+     "label": "LOOK AT THREE",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Why buy one bag when the set is sixty percent off?",
+      "type": "price",
+      "label": "WHY BUY ONE?",
+      "feature": null,
+      "show": [
+       "handheld",
+       "worn"
+      ]
+     },
+     {
+      "text": "Before you check out, add the crossbody and pouch.",
+      "type": "warning",
+      "label": "ADD TWO MORE",
+      "feature": null,
+      "show": [
+       "strap",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Three matching bags, one checkout.",
+      "type": "promise",
+      "label": "THREE BAGS",
+      "feature": null,
+      "show": [
+       "packing",
+       "handheld"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Why buy one bag when the set is sixty percent off?": [
+      [
+       "1MtOonVbf-pqmrcU5DUgY6995LObDfwn7",
+       12.0,
+       1.0
+      ],
+      [
+       "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+       6.0,
+       1.0
+      ]
+     ],
+     "Before you check out, add the crossbody and pouch.": [
+      [
+       "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+       1.0,
+       1.0
+      ],
+      [
+       "1nnsvEIfgqziYdrmeUrrtgL3Qo3YHV7Sw",
+       9.0,
+       1.0
+      ]
+     ],
+     "Three matching bags, one checkout.": [
+      [
+       "1StPro8S4b5_LUICHyivAkrFna1M1k3ao",
+       0.3,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 28.7,
+   "project": "P01",
+   "hook_text": "Three matching bags, one checkout.",
+   "hook_label": "THREE BAGS",
+   "hook_type": "promise",
+   "opening_shot": [
+    "1StPro8S4b5_LUICHyivAkrFna1M1k3ao",
+    0.3
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261117_HoboBag3PieceSet_BlackFriday_B052_P01_H4_onecheckout",
+   "id": "P01H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "closer": true,
+   "ugc": {
+    "script": "U01",
+    "angle": "onecheckout",
+    "words": 90,
+    "structure": "closer",
+    "hook": {
+     "type": "warning",
+     "label": "LOOK AT THREE",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Why buy one bag when the set is sixty percent off?",
+      "type": "price",
+      "label": "WHY BUY ONE?",
+      "feature": null,
+      "show": [
+       "handheld",
+       "worn"
+      ]
+     },
+     {
+      "text": "Before you check out, add the crossbody and pouch.",
+      "type": "warning",
+      "label": "ADD TWO MORE",
+      "feature": null,
+      "show": [
+       "strap",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Three matching bags, one checkout.",
+      "type": "promise",
+      "label": "THREE BAGS",
+      "feature": null,
+      "show": [
+       "packing",
+       "handheld"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Why buy one bag when the set is sixty percent off?": [
+      [
+       "1MtOonVbf-pqmrcU5DUgY6995LObDfwn7",
+       12.0,
+       1.0
+      ],
+      [
+       "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+       6.0,
+       1.0
+      ]
+     ],
+     "Before you check out, add the crossbody and pouch.": [
+      [
+       "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+       1.0,
+       1.0
+      ],
+      [
+       "1nnsvEIfgqziYdrmeUrrtgL3Qo3YHV7Sw",
+       9.0,
+       1.0
+      ]
+     ],
+     "Three matching bags, one checkout.": [
+      [
+       "1StPro8S4b5_LUICHyivAkrFna1M1k3ao",
+       0.3,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 30.0,
+   "project": "P01",
+   "hook_text": "Before you check out, add the crossbody and pouch.",
+   "hook_label": "ADD TWO MORE",
+   "hook_type": "warning",
+   "opening_shot": [
+    "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+    1.0
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261117_HoboBag3PieceSet_BlackFriday_B052_P02_H1_giftby14",
+   "id": "P02H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "closer": true,
+   "ugc": {
+    "script": "U02",
+    "angle": "giftby14",
+    "words": 79,
+    "structure": "closer",
+    "hook": {
+     "type": "promise",
+     "label": "START HERE",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Don't leave her Christmas gift until December.",
+      "type": "warning",
+      "label": "DON'T WAIT",
+      "feature": null,
+      "show": [
+       "worn",
+       "strap"
+      ]
+     },
+     {
+      "text": "Under the tree this year: a hobo, a crossbody, a pouch.",
+      "type": "promise",
+      "label": "UNDER THE TREE",
+      "feature": null,
+      "show": [
+       "strap",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Her Christmas gift, sixty percent off.",
+      "type": "price",
+      "label": "60% OFF",
+      "feature": null,
+      "show": [
+       "walking",
+       "handheld"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Don't leave her Christmas gift until December.": [
+      [
+       "1U5e0VpcAFm07iWXfWFMPe8jiYRd5LmhZ",
+       0.5,
+       1.0
+      ]
+     ],
+     "Under the tree this year: a hobo, a crossbody, a pouch.": [
+      [
+       "18all7GUEBLsxxS0JCAl8t-yEOsC6r52T",
+       19.0,
+       1.0
+      ],
+      [
+       "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+       1.0,
+       1.0
+      ]
+     ],
+     "Her Christmas gift, sixty percent off.": [
+      [
+       "1rRkDw8UM4ZlQpO3c6Bv3_gT1_1-n8qYH",
+       30.0,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 27.1,
+   "project": "P02",
+   "hook_text": "Shopping for her this Christmas? Start with the set.",
+   "hook_label": "START HERE",
+   "hook_type": "promise",
+   "opening_shot": [
+    "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+    3.6
+   ]
+  },
+  {
+   "name": "LC_261117_HoboBag3PieceSet_BlackFriday_B052_P02_H2_giftby14",
+   "id": "P02H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "closer": true,
+   "ugc": {
+    "script": "U02",
+    "angle": "giftby14",
+    "words": 79,
+    "structure": "closer",
+    "hook": {
+     "type": "promise",
+     "label": "START HERE",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Don't leave her Christmas gift until December.",
+      "type": "warning",
+      "label": "DON'T WAIT",
+      "feature": null,
+      "show": [
+       "worn",
+       "strap"
+      ]
+     },
+     {
+      "text": "Under the tree this year: a hobo, a crossbody, a pouch.",
+      "type": "promise",
+      "label": "UNDER THE TREE",
+      "feature": null,
+      "show": [
+       "strap",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Her Christmas gift, sixty percent off.",
+      "type": "price",
+      "label": "60% OFF",
+      "feature": null,
+      "show": [
+       "walking",
+       "handheld"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Don't leave her Christmas gift until December.": [
+      [
+       "1U5e0VpcAFm07iWXfWFMPe8jiYRd5LmhZ",
+       0.5,
+       1.0
+      ]
+     ],
+     "Under the tree this year: a hobo, a crossbody, a pouch.": [
+      [
+       "18all7GUEBLsxxS0JCAl8t-yEOsC6r52T",
+       19.0,
+       1.0
+      ],
+      [
+       "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+       1.0,
+       1.0
+      ]
+     ],
+     "Her Christmas gift, sixty percent off.": [
+      [
+       "1rRkDw8UM4ZlQpO3c6Bv3_gT1_1-n8qYH",
+       30.0,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 26.5,
+   "project": "P02",
+   "hook_text": "Don't leave her Christmas gift until December.",
+   "hook_label": "DON'T WAIT",
+   "hook_type": "warning",
+   "opening_shot": [
+    "1U5e0VpcAFm07iWXfWFMPe8jiYRd5LmhZ",
+    0.5
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261117_HoboBag3PieceSet_BlackFriday_B052_P02_H3_giftby14",
+   "id": "P02H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "closer": true,
+   "ugc": {
+    "script": "U02",
+    "angle": "giftby14",
+    "words": 79,
+    "structure": "closer",
+    "hook": {
+     "type": "promise",
+     "label": "START HERE",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Don't leave her Christmas gift until December.",
+      "type": "warning",
+      "label": "DON'T WAIT",
+      "feature": null,
+      "show": [
+       "worn",
+       "strap"
+      ]
+     },
+     {
+      "text": "Under the tree this year: a hobo, a crossbody, a pouch.",
+      "type": "promise",
+      "label": "UNDER THE TREE",
+      "feature": null,
+      "show": [
+       "strap",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Her Christmas gift, sixty percent off.",
+      "type": "price",
+      "label": "60% OFF",
+      "feature": null,
+      "show": [
+       "walking",
+       "handheld"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Don't leave her Christmas gift until December.": [
+      [
+       "1U5e0VpcAFm07iWXfWFMPe8jiYRd5LmhZ",
+       0.5,
+       1.0
+      ]
+     ],
+     "Under the tree this year: a hobo, a crossbody, a pouch.": [
+      [
+       "18all7GUEBLsxxS0JCAl8t-yEOsC6r52T",
+       19.0,
+       1.0
+      ],
+      [
+       "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+       1.0,
+       1.0
+      ]
+     ],
+     "Her Christmas gift, sixty percent off.": [
+      [
+       "1rRkDw8UM4ZlQpO3c6Bv3_gT1_1-n8qYH",
+       30.0,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 26.1,
+   "project": "P02",
+   "hook_text": "Her Christmas gift, sixty percent off.",
+   "hook_label": "60% OFF",
+   "hook_type": "price",
+   "opening_shot": [
+    "1rRkDw8UM4ZlQpO3c6Bv3_gT1_1-n8qYH",
+    30.0
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261117_HoboBag3PieceSet_BlackFriday_B052_P02_H4_giftby14",
+   "id": "P02H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "closer": true,
+   "ugc": {
+    "script": "U02",
+    "angle": "giftby14",
+    "words": 79,
+    "structure": "closer",
+    "hook": {
+     "type": "promise",
+     "label": "START HERE",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Don't leave her Christmas gift until December.",
+      "type": "warning",
+      "label": "DON'T WAIT",
+      "feature": null,
+      "show": [
+       "worn",
+       "strap"
+      ]
+     },
+     {
+      "text": "Under the tree this year: a hobo, a crossbody, a pouch.",
+      "type": "promise",
+      "label": "UNDER THE TREE",
+      "feature": null,
+      "show": [
+       "strap",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Her Christmas gift, sixty percent off.",
+      "type": "price",
+      "label": "60% OFF",
+      "feature": null,
+      "show": [
+       "walking",
+       "handheld"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Don't leave her Christmas gift until December.": [
+      [
+       "1U5e0VpcAFm07iWXfWFMPe8jiYRd5LmhZ",
+       0.5,
+       1.0
+      ]
+     ],
+     "Under the tree this year: a hobo, a crossbody, a pouch.": [
+      [
+       "18all7GUEBLsxxS0JCAl8t-yEOsC6r52T",
+       19.0,
+       1.0
+      ],
+      [
+       "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+       1.0,
+       1.0
+      ]
+     ],
+     "Her Christmas gift, sixty percent off.": [
+      [
+       "1rRkDw8UM4ZlQpO3c6Bv3_gT1_1-n8qYH",
+       30.0,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 27.7,
+   "project": "P02",
+   "hook_text": "Under the tree this year: a hobo, a crossbody, a pouch.",
+   "hook_label": "UNDER THE TREE",
+   "hook_type": "promise",
+   "opening_shot": [
+    "18all7GUEBLsxxS0JCAl8t-yEOsC6r52T",
+    19.0
+   ],
+   "hook_source": "script"
+  }
+ ],
+ "tts_lines": 16,
+ "tts_dupes": {},
+ "est_credits": 5.6,
+ "budget": 100.0,
+ "colour_images": {
+  "Black": "/tmp/run/set3-lastweek/site/3_piece_set_colour_black.jpg",
+  "Blue": "/tmp/run/set3-lastweek/site/3_piece_set_colour_blue.jpg",
+  "Grey": "/tmp/run/set3-lastweek/site/3_piece_set_colour_grey.jpg",
+  "Purple Red": "/tmp/run/set3-lastweek/site/3_piece_set_colour_purple_red.jpg",
+  "Red": "/tmp/run/set3-lastweek/site/3_piece_set_colour_red.jpg"
+ },
+ "packshots": [
+  "/tmp/run/set3-lastweek/site/3_piece_set_colour_black.jpg",
+  "/tmp/run/set3-lastweek/site/3_piece_set_colour_blue.jpg",
+  "/tmp/run/set3-lastweek/site/3_piece_set_colour_grey.jpg",
+  "/tmp/run/set3-lastweek/site/3_piece_set_colour_purple_red.jpg",
+  "/tmp/run/set3-lastweek/site/3_piece_set_colour_red.jpg"
+ ],
+ "brief": null,
+ "ai": {
+  "stills": 5,
+  "clips": 0,
+  "est_credits": 5.0,
+  "budget": {
+   "cap": 100.0,
+   "tts_est": 9.0,
+   "reserve": 8.0
+  },
+  "scenes": [
+   "p01_s01_neon_offer",
+   "p01_s02_swing_tag",
+   "p01_s03_pov_sticker",
+   "p01_s04",
+   "p01_s05_doorstep_parcel"
+  ],
+  "next": "python3 pipeline/ai_gen.py show --out /tmp/run/set3-lastweek"
+ },
+ "winners_source": null,
+ "winners_note": null,
+ "winners_used": [],
+ "unmatched_winners": [],
+ "warnings": [
+  "campaign: Black Friday Sale 2026 (2026-10-23 to 2026-11-30, client-approved): end cards say 'Black Friday Sale' + 'UP TO 60% OFF'; the close and the ad copy name the sale; each bag's own % stays its offer",
+  "ideas: playbook hook_concrete: P01 H2: 'Why buy one bag when the set is sixty percent off?' names nothing a picture can show and no number: the opening shot cannot prove it",
+  "ideas: playbook hook_formula: P02 H1: 'Shopping for her this Christmas? Start with the set.' follows none of the rulebook's hook formulas (how to, a question, a number, a warning, a contrast, watch, a moment, at last, the truth about, imagine, if you, who else, hidden, the offer)",
+  "ideas: playbook hook_third_person: P02 H1: 'Shopping for her this Christmas? Start with the set.' talks about 'her' / 'him': the viewer is 'you'",
+  "ideas: playbook hook_concrete: P02 H2: \"Don't leave her Christmas gift until December.\" names nothing a picture can show and no number: the opening shot cannot prove it",
+  "ideas: playbook hook_third_person: P02 H2: \"Don't leave her Christmas gift until December.\" talks about 'her' / 'him': the viewer is 'you'",
+  "ideas: playbook hook_formula: P02 H3: 'Under the tree this year: a hobo, a crossbody, a pouch.' follows none of the rulebook's hook formulas (how to, a question, a number, a warning, a contrast, watch, a moment, at last, the truth about, imagine, if you, who else, hidden, the offer)",
+  "ideas: playbook hook_concrete: P02 H4: 'Her Christmas gift, sixty percent off.' names nothing a picture can show and no number: the opening shot cannot prove it",
+  "ideas: playbook hook_third_person: P02 H4: 'Her Christmas gift, sixty percent off.' talks about 'her' / 'him': the viewer is 'you'",
+  "ideas: 5 AI statics of 5 (4 designed ads, 1 studio scenes; about 5 credits plus retries)",
+  "Hobo Bag 3-Piece Set has 4 earlier batch(es) in the novelty log: the statics start 4 step(s) further in their photo / headline cycle (other photos and captions than before)",
+  "P01: hook types repeat (warning, price, promise, warning)",
+  "P02: hook types repeat (promise, warning, price, promise)"
+ ],
+ "winner_reviews": false,
+ "seed": 1,
+ "hooks": 4,
+ "pipeline": "catalog",
+ "video_format": "ugc",
+ "ugc_numbers": [],
+ "voice": {
+  "voice_type": "element",
+  "voice_id": "241459b6-b4e8-4a2a-9868-da8bcdcd0558",
+  "speed": 1.12
+ },
+ "projects": [
+  {
+   "id": "P01",
+   "from_id": "V01",
+   "angle": "onecheckout",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P01H1",
+     "name": "LC_261117_HoboBag3PieceSet_BlackFriday_B052_P01_H1_onecheckout",
+     "hook_text": "Before you buy one bag this Black Friday, look at three.",
+     "label": "LOOK AT THREE",
+     "type": "warning",
+     "shot": [
+      "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+      9.5
+     ],
+     "est_seconds": 30.6
+    },
+    {
+     "hook": "H2",
+     "id": "P01H2",
+     "name": "LC_261117_HoboBag3PieceSet_BlackFriday_B052_P01_H2_onecheckout",
+     "hook_text": "Why buy one bag when the set is sixty percent off?",
+     "label": "WHY BUY ONE?",
+     "type": "price",
+     "shot": [
+      "1MtOonVbf-pqmrcU5DUgY6995LObDfwn7",
+      12.0
+     ],
+     "est_seconds": 30.6
+    },
+    {
+     "hook": "H3",
+     "id": "P01H3",
+     "name": "LC_261117_HoboBag3PieceSet_BlackFriday_B052_P01_H3_onecheckout",
+     "hook_text": "Three matching bags, one checkout.",
+     "label": "THREE BAGS",
+     "type": "promise",
+     "shot": [
+      "1StPro8S4b5_LUICHyivAkrFna1M1k3ao",
+      0.3
+     ],
+     "est_seconds": 28.7
+    },
+    {
+     "hook": "H4",
+     "id": "P01H4",
+     "name": "LC_261117_HoboBag3PieceSet_BlackFriday_B052_P01_H4_onecheckout",
+     "hook_text": "Before you check out, add the crossbody and pouch.",
+     "label": "ADD TWO MORE",
+     "type": "warning",
+     "shot": [
+      "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+      1.0
+     ],
+     "est_seconds": 30.0
+    }
+   ],
+   "closer": true
+  },
+  {
+   "id": "P02",
+   "from_id": "V02",
+   "angle": "giftby14",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P02H1",
+     "name": "LC_261117_HoboBag3PieceSet_BlackFriday_B052_P02_H1_giftby14",
+     "hook_text": "Shopping for her this Christmas? Start with the set.",
+     "label": "START HERE",
+     "type": "promise",
+     "shot": [
+      "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+      3.6
+     ],
+     "est_seconds": 27.1
+    },
+    {
+     "hook": "H2",
+     "id": "P02H2",
+     "name": "LC_261117_HoboBag3PieceSet_BlackFriday_B052_P02_H2_giftby14",
+     "hook_text": "Don't leave her Christmas gift until December.",
+     "label": "DON'T WAIT",
+     "type": "warning",
+     "shot": [
+      "1U5e0VpcAFm07iWXfWFMPe8jiYRd5LmhZ",
+      0.5
+     ],
+     "est_seconds": 26.5
+    },
+    {
+     "hook": "H3",
+     "id": "P02H3",
+     "name": "LC_261117_HoboBag3PieceSet_BlackFriday_B052_P02_H3_giftby14",
+     "hook_text": "Her Christmas gift, sixty percent off.",
+     "label": "60% OFF",
+     "type": "price",
+     "shot": [
+      "1rRkDw8UM4ZlQpO3c6Bv3_gT1_1-n8qYH",
+      30.0
+     ],
+     "est_seconds": 26.1
+    },
+    {
+     "hook": "H4",
+     "id": "P02H4",
+     "name": "LC_261117_HoboBag3PieceSet_BlackFriday_B052_P02_H4_giftby14",
+     "hook_text": "Under the tree this year: a hobo, a crossbody, a pouch.",
+     "label": "UNDER THE TREE",
+     "type": "promise",
+     "shot": [
+      "18all7GUEBLsxxS0JCAl8t-yEOsC6r52T",
+      19.0
+     ],
+     "est_seconds": 27.7
+    }
+   ],
+   "closer": true
+  }
+ ],
+ "hooks_seed": 1
+}

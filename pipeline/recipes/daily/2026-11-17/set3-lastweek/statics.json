@@ -1,0 +1,73 @@
+{
+ "ads": [
+  {
+   "layout": "ad",
+   "photo": "ai/AS01.png",
+   "format": "neon_offer",
+   "words": [
+    "60% OFF",
+    "Three bags. Black Friday price, already on."
+   ],
+   "headline": "Three bags. Black Friday price, already on.",
+   "name": "LC_261117_HoboBag3PieceSet_BlackFriday_B052_S01_neon",
+   "ai": {
+    "id": "AS01",
+    "scene": "p01_s01_neon_offer",
+    "colour": "Black",
+    "format": "neon_offer"
+   }
+  },
+  {
+   "layout": "studio",
+   "photo": "site/3_piece_set_colour_black.jpg",
+   "headline": "One gift. Three pieces.",
+   "name": "LC_261117_HoboBag3PieceSet_BlackFriday_B052_S02_studio",
+   "pct": 60
+  },
+  {
+   "layout": "studio",
+   "photo": "site/3_piece_set_colour_blue.jpg",
+   "headline": "Cyber Monday errands. Crossbody on.",
+   "pct": 60,
+   "name": "LC_261117_HoboBag3PieceSet_BlackFriday_B052_S03_studio"
+  },
+  {
+   "look": "list",
+   "hook": "Three reasons it suits winter.",
+   "points": [
+    "Water-resistant leather.",
+    "A scratch-proof finish.",
+    "A bag for every kind of day."
+   ],
+   "layout": "story",
+   "photo": "ai/AS04.png",
+   "headline": "Three reasons it suits winter.",
+   "name": "LC_261117_HoboBag3PieceSet_BlackFriday_B052_S04_list",
+   "us": "3-Piece Set",
+   "pct": 60,
+   "ai": {
+    "id": "AS04",
+    "scene": "p01_s04",
+    "colour": "Blue"
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS05.png",
+   "format": "doorstep_parcel",
+   "words": [
+    "60% OFF",
+    "Three bags. One parcel."
+   ],
+   "headline": "Three bags. One parcel.",
+   "name": "LC_261117_HoboBag3PieceSet_BlackFriday_B052_S05_doorstepparc",
+   "ai": {
+    "id": "AS05",
+    "scene": "p01_s05_doorstep_parcel",
+    "colour": "Purple Red",
+    "format": "doorstep_parcel"
+   }
+  }
+ ],
+ "card_photos": []
+}

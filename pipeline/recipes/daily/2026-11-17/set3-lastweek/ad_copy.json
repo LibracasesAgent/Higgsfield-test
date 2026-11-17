@@ -1,0 +1,174 @@
+{
+ "ok": true,
+ "created": "2026-11-17",
+ "product": "Hobo Bag 3-Piece Set",
+ "theme": "black friday",
+ "theme_name": "BlackFriday",
+ "offer": "60% off",
+ "seed": 1,
+ "cta": "Get Offer",
+ "rows": 13,
+ "csv": "/tmp/run/set3-lastweek/ad_copy.csv",
+ "statics": [
+  {
+   "id": "S01",
+   "ad_name": "LC_261117_HoboBag3PieceSet_BlackFriday_B052_S01_neon",
+   "angle": "ad",
+   "primary_text_1": "Black Friday came early.\nThe 3-Piece Set: 60% off.",
+   "primary_text_2": "This is what a matching three-piece set looks like.\nThe pouch keeps your cards and cash in one place.\nSmart compartments and an anti-theft design keep everything secure.\nBlack Friday Sale: up to 60% off. 🖤\nTap Get Offer while the sale is on.",
+   "headline_1": "Up to 60% Off Bundles",
+   "headline_2": "Black Friday Prices Are Live",
+   "description": "Black Friday: 60% off",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER"
+  },
+  {
+   "id": "S02",
+   "ad_name": "LC_261117_HoboBag3PieceSet_BlackFriday_B052_S02_studio",
+   "angle": "studio",
+   "primary_text_1": "This is the Black Friday deal you've been waiting for.\n60% off the 3-Piece Set.",
+   "primary_text_2": "Take a closer look at the 3-Piece Set.\nSmart compartments and an anti-theft design keep everything secure.\nSoft, water-resistant, scratch-proof leather that looks beautiful season after season.\nBlack Friday Sale: up to 60% off. 🖤\nTap Get Offer to claim the deal.",
+   "headline_1": "Black Friday Deal: 60% Off",
+   "headline_2": "The 3-Piece Set: Anti-Theft Design",
+   "description": "Up to 60% off",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER"
+  },
+  {
+   "id": "S03",
+   "ad_name": "LC_261117_HoboBag3PieceSet_BlackFriday_B052_S03_studio",
+   "angle": "studio",
+   "primary_text_1": "Switching bags shouldn't mean emptying everything out.\nBlack Friday deal: the 3-Piece Set is 60% off.",
+   "primary_text_2": "You don't get one bag here. You get three.\nThe hobo for every day. The crossbody for when you want to go light.\nThe pouch keeps your cards and cash in one place.\nThis Black Friday: 60% off. 🖤\nTap Get Offer to claim the deal.",
+   "headline_1": "Black Friday: 60% Off",
+   "headline_2": "Matching Pouch + Anti-Theft Design",
+   "description": "60% off + free shipping",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER"
+  },
+  {
+   "id": "S04",
+   "ad_name": "LC_261117_HoboBag3PieceSet_BlackFriday_B052_S04_list",
+   "angle": "story",
+   "primary_text_1": "Soft, scratch-proof leather, in a set of three.\nBlack Friday: 60% off the 3-Piece Set.",
+   "primary_text_2": "A hobo for every day, a crossbody for going light, and a matching pouch.\nSmart compartments and an anti-theft design keep everything secure.\nSoft, water-resistant, scratch-proof leather that looks beautiful season after season.\nBlack Friday: 60% off. 🖤\nTap Get Offer to claim the deal.",
+   "headline_1": "Black Friday: 60% Off the 3-Piece Set",
+   "headline_2": "Meet the 3-Piece Set: Anti-Theft Design",
+   "description": "1-year warranty included",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER"
+  },
+  {
+   "id": "S05",
+   "ad_name": "LC_261117_HoboBag3PieceSet_BlackFriday_B052_S05_doorstepparc",
+   "angle": "ad",
+   "primary_text_1": "Which would you carry first: the hobo, the crossbody or the pouch?\nThe 3-Piece Set: 60% off.",
+   "primary_text_2": "Have you seen the 3-Piece Set yet?\nEvery set comes with three pieces: the hobo bag, a crossbody, and a matching pouch.\nThe hobo for every day. The crossbody for when you want to go light.\nThis Black Friday: 60% off. 🖤\nTap Get Offer while the sale is on.",
+   "headline_1": "Meet the 3-Piece Set: Matching Pouch",
+   "headline_2": "Now 60% Off: The 3-Piece Set",
+   "description": "Black Friday deal: 60% off",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER"
+  }
+ ],
+ "projects": [
+  {
+   "id": "P01",
+   "angle": "onecheckout",
+   "engine": "storyboard",
+   "product": "Hobo Bag 3-Piece Set",
+   "winner": null,
+   "primary_text_1": "Travel tip: take the crossbody out, leave the big bag behind.\nBlack Friday deal: the 3-Piece Set is 60% off.",
+   "primary_text_2": "One gift, three matching pieces.\nEvery set comes with three pieces: the hobo bag, a crossbody, and a matching pouch.\nThe hobo for every day. The crossbody for when you want to go light.\nBlack Friday Sale: up to 60% off. 🖤\nTap Get Offer to claim the deal.",
+   "headline_1": "The 3-Piece Set: Matching Pouch",
+   "headline_2": "60% Off the 3-Piece Set",
+   "description": "6 colours + free shipping",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER",
+   "versions": [
+    {
+     "hook": "H1",
+     "id": "P01H1",
+     "ad_name": "LC_261117_HoboBag3PieceSet_BlackFriday_B052_P01_H1_onecheckout",
+     "hook_text": "Before you buy one bag this Black Friday, look at three.",
+     "hook_first_line": "Before you buy one bag this Black Friday, look at three.",
+     "primary_text_2_hook": "Before you buy one bag this Black Friday, look at three.\nEvery set comes with three pieces: the hobo bag, a crossbody, and a matching pouch.\nThe hobo for every day. The crossbody for when you want to go light.\nBlack Friday Sale: up to 60% off. 🖤\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H2",
+     "id": "P01H2",
+     "ad_name": "LC_261117_HoboBag3PieceSet_BlackFriday_B052_P01_H2_onecheckout",
+     "hook_text": "Why buy one bag when the set is sixty percent off?",
+     "hook_first_line": "Why buy one bag when the set is sixty percent off?",
+     "primary_text_2_hook": "Why buy one bag when the set is sixty percent off?\nEvery set comes with three pieces: the hobo bag, a crossbody, and a matching pouch.\nThe hobo for every day. The crossbody for when you want to go light.\nBlack Friday Sale: up to 60% off. 🖤\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H3",
+     "id": "P01H3",
+     "ad_name": "LC_261117_HoboBag3PieceSet_BlackFriday_B052_P01_H3_onecheckout",
+     "hook_text": "Three matching bags, one checkout.",
+     "hook_first_line": "Three matching bags, one checkout.",
+     "primary_text_2_hook": "Three matching bags, one checkout.\nEvery set comes with three pieces: the hobo bag, a crossbody, and a matching pouch.\nThe hobo for every day. The crossbody for when you want to go light.\nBlack Friday Sale: up to 60% off. 🖤\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H4",
+     "id": "P01H4",
+     "ad_name": "LC_261117_HoboBag3PieceSet_BlackFriday_B052_P01_H4_onecheckout",
+     "hook_text": "Before you check out, add the crossbody and pouch.",
+     "hook_first_line": "Before you check out, add the crossbody and pouch.",
+     "primary_text_2_hook": "Before you check out, add the crossbody and pouch.\nEvery set comes with three pieces: the hobo bag, a crossbody, and a matching pouch.\nThe hobo for every day. The crossbody for when you want to go light.\nBlack Friday Sale: up to 60% off. 🖤\nTap Get Offer to claim the deal."
+    }
+   ]
+  },
+  {
+   "id": "P02",
+   "angle": "giftby14",
+   "engine": "storyboard",
+   "product": "Hobo Bag 3-Piece Set",
+   "winner": null,
+   "primary_text_1": "Your hobo, your crossbody and your pouch, all matching.\nBlack Friday deal: the 3-Piece Set is 60% off.",
+   "primary_text_2": "Looking for a gift? Meet the 3-Piece Set.\nEvery set comes with three pieces: the hobo bag, a crossbody, and a matching pouch.\nThe hobo for every day. The crossbody for when you want to go light.\nBlack Friday: 60% off. 🖤\nTap Get Offer to claim the deal.",
+   "headline_1": "Up to 60% Off Bundles",
+   "headline_2": "3-Piece Set: 60% Off",
+   "description": "Free shipping",
+   "cta": "Get Offer",
+   "cta_type": "GET_OFFER",
+   "versions": [
+    {
+     "hook": "H1",
+     "id": "P02H1",
+     "ad_name": "LC_261117_HoboBag3PieceSet_BlackFriday_B052_P02_H1_giftby14",
+     "hook_text": "Shopping for her this Christmas? Start with the set.",
+     "hook_first_line": "Shopping for her this Christmas? Start with the set.",
+     "primary_text_2_hook": "Shopping for her this Christmas? Start with the set.\nEvery set comes with three pieces: the hobo bag, a crossbody, and a matching pouch.\nThe hobo for every day. The crossbody for when you want to go light.\nBlack Friday: 60% off. 🖤\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H2",
+     "id": "P02H2",
+     "ad_name": "LC_261117_HoboBag3PieceSet_BlackFriday_B052_P02_H2_giftby14",
+     "hook_text": "Don't leave her Christmas gift until December.",
+     "hook_first_line": "Don't leave her Christmas gift until December.",
+     "primary_text_2_hook": "Don't leave her Christmas gift until December.\nEvery set comes with three pieces: the hobo bag, a crossbody, and a matching pouch.\nThe hobo for every day. The crossbody for when you want to go light.\nBlack Friday: 60% off. 🖤\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H3",
+     "id": "P02H3",
+     "ad_name": "LC_261117_HoboBag3PieceSet_BlackFriday_B052_P02_H3_giftby14",
+     "hook_text": "Her Christmas gift, sixty percent off.",
+     "hook_first_line": "Her Christmas gift, sixty percent off.",
+     "primary_text_2_hook": "Her Christmas gift, sixty percent off.\nEvery set comes with three pieces: the hobo bag, a crossbody, and a matching pouch.\nThe hobo for every day. The crossbody for when you want to go light.\nBlack Friday: 60% off. 🖤\nTap Get Offer to claim the deal."
+    },
+    {
+     "hook": "H4",
+     "id": "P02H4",
+     "ad_name": "LC_261117_HoboBag3PieceSet_BlackFriday_B052_P02_H4_giftby14",
+     "hook_text": "Under the tree this year: a hobo, a crossbody, a pouch.",
+     "hook_first_line": "Under the tree this year: a hobo, a crossbody, a pouch.",
+     "primary_text_2_hook": "Under the tree this year: a hobo, a crossbody, a pouch.\nEvery set comes with three pieces: the hobo bag, a crossbody, and a matching pouch.\nThe hobo for every day. The crossbody for when you want to go light.\nBlack Friday: 60% off. 🖤\nTap Get Offer to claim the deal."
+    }
+   ]
+  }
+ ],
+ "notes": [],
+ "problems": []
+}

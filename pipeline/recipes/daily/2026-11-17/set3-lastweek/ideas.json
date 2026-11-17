@@ -1,0 +1,283 @@
+{
+ "product": "Hobo Bag 3-Piece Set",
+ "theme": "black friday",
+ "date": "2026-11-17",
+ "research": [
+  "docs/research/2026-11-winners-30d.md: closers (16-27 s offer videos) pair with the story ads; warning openers win",
+  "Weekly brief 2-8 Nov: 3-Piece Set best product (ROAS 2.86); last-week content uses only the real dates: Black Friday 27 Nov, sale ends 30 Nov, order by 14 Dec"
+ ],
+ "projects": [
+  {
+   "id": "P01",
+   "slug": "onecheckout",
+   "format": "closer",
+   "structure": "closer",
+   "title": "Three bags, one checkout",
+   "big_idea": "Why buy one bag when the set of three is sixty percent off right now: the Best Value option, the real end date.",
+   "why_new": "The first 3-Piece closer: the set as the upgrade the Hobo page already offers, said as an offer video.",
+   "hooks": [
+    {
+     "text": "Before you buy one bag this Black Friday, look at three.",
+     "type": "warning",
+     "label": "LOOK AT THREE",
+     "show": [
+      "worn",
+      "handheld"
+     ]
+    },
+    {
+     "text": "Why buy one bag when the set is sixty percent off?",
+     "type": "price",
+     "label": "WHY BUY ONE?",
+     "show": [
+      "handheld",
+      "worn"
+     ]
+    },
+    {
+     "text": "Before you check out, add the crossbody and pouch.",
+     "type": "warning",
+     "label": "ADD TWO MORE",
+     "show": [
+      "strap",
+      "handheld"
+     ]
+    },
+    {
+     "text": "Three matching bags, one checkout.",
+     "type": "promise",
+     "label": "THREE BAGS",
+     "show": [
+      "packing",
+      "handheld"
+     ]
+    }
+   ],
+   "chapters": [
+    {
+     "kind": "point",
+     "beat": "why_now",
+     "text": "The Hobo Bag 3-Piece Set is sixty percent off right now, in the Early Black Friday sale.",
+     "tag": null,
+     "show": [
+      "worn",
+      "handheld"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "what",
+     "text": "You get the hobo bag, the crossbody and the matching pouch, three pieces in one set. It's the Best Value option on the Hobo Bag page.",
+     "tag": "3 BAGS, 1 PRICE",
+     "show": [
+      "hero",
+      "placed"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "why",
+     "text": "The hobo for every day, the crossbody for going light, the pouch for cards and cash.",
+     "tag": "HOBO + CROSSBODY",
+     "show": [
+      "worn",
+      "handheld"
+     ]
+    },
+    {
+     "kind": "offer",
+     "beat": "offer",
+     "text": "It's sixty percent off with free shipping, and the sale ends on the thirtieth of November. Tap the link below.",
+     "tag": null,
+     "show": [
+      "hero",
+      "placed"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "P02",
+   "slug": "giftby14",
+   "format": "closer",
+   "structure": "closer",
+   "title": "Her Christmas set, by the 14th",
+   "big_idea": "A Christmas gift of three matching pieces at sixty percent off, with the real order-by date from the sale terms.",
+   "why_new": "The first 3-Piece gift closer with the true 14 December order-by date, never a delivery guarantee.",
+   "hooks": [
+    {
+     "text": "Shopping for her this Christmas? Start with the set.",
+     "type": "promise",
+     "label": "START HERE",
+     "show": [
+      "handheld",
+      "worn"
+     ]
+    },
+    {
+     "text": "Don't leave her Christmas gift until December.",
+     "type": "warning",
+     "label": "DON'T WAIT",
+     "show": [
+      "worn",
+      "strap"
+     ]
+    },
+    {
+     "text": "Under the tree this year: a hobo, a crossbody, a pouch.",
+     "type": "promise",
+     "label": "UNDER THE TREE",
+     "show": [
+      "strap",
+      "handheld"
+     ]
+    },
+    {
+     "text": "Her Christmas gift, sixty percent off.",
+     "type": "price",
+     "label": "60% OFF",
+     "show": [
+      "walking",
+      "handheld"
+     ]
+    }
+   ],
+   "chapters": [
+    {
+     "kind": "point",
+     "beat": "who",
+     "text": "If she's on your Christmas list, this set covers every kind of day: work, weekends and nights out.",
+     "tag": null,
+     "show": [
+      "worn",
+      "handheld"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "what",
+     "text": "Three matching pieces in one set, the Best Value option on the Hobo Bag page.",
+     "tag": "3 BAGS, 1 PRICE",
+     "show": [
+      "hero",
+      "placed"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "deadline",
+     "text": "Order by the fourteenth of December for the best chance of delivery before Christmas. That date is in the sale terms.",
+     "tag": "ORDER BY 14 DEC",
+     "show": [
+      "placed",
+      "hero"
+     ]
+    },
+    {
+     "kind": "offer",
+     "beat": "offer",
+     "text": "It's sixty percent off with free shipping until the thirtieth of November. Tap the link below.",
+     "tag": null,
+     "show": [
+      "handheld",
+      "hero"
+     ]
+    }
+   ]
+  }
+ ],
+ "statics": [
+  {
+   "id": "S01",
+   "layout": "ad",
+   "format": "neon_offer",
+   "idea": "The offer glowing in neon over the set on a boutique plinth at night: the Black Friday price is already on.",
+   "words": [
+    "60% OFF",
+    "Three bags. Black Friday price, already on."
+   ],
+   "headline": "Three bags. Black Friday price, already on.",
+   "story": "value",
+   "scene": {
+    "colour": "Black",
+    "prompt": "The black hobo bag, crossbody and pouch on a low wooden plinth in a dark boutique corner at night, a warm red neon sign on the brick wall above, soft white spotlight on the bags."
+   },
+   "project": "P01"
+  },
+  {
+   "id": "S02",
+   "layout": "ad",
+   "format": "swing_tag",
+   "idea": "An oversized kraft swing tag on the hobo's strap under the Christmas tree: one gift, three pieces.",
+   "words": [
+    "60% OFF",
+    "One gift. Three pieces."
+   ],
+   "headline": "One gift. Three pieces.",
+   "story": "gift",
+   "scene": {
+    "colour": "Red",
+    "prompt": "The red hobo bag, crossbody and pouch on a wooden floor under a softly lit Christmas tree, an oversized kraft paper swing tag tied to the hobo's strap with twine, warm evening light."
+   },
+   "project": "P01"
+  },
+  {
+   "id": "S03",
+   "layout": "ad",
+   "format": "pov_sticker",
+   "idea": "A candid phone photo from behind on a busy shopping street: the crossbody on, both hands carrying shopping.",
+   "words": [
+    "Cyber Monday errands. Crossbody on.",
+    "60% OFF"
+   ],
+   "headline": "Cyber Monday errands. Crossbody on.",
+   "story": "moment",
+   "feature": "HOBO + CROSSBODY",
+   "scene": {
+    "colour": "Grey",
+    "prompt": "A woman seen from behind on a busy winter shopping street, the grey crossbody worn across her body, paper shopping bags in her hands, shop windows softly blurred, a real candid phone photo."
+   },
+   "project": "P01"
+  },
+  {
+   "id": "S04",
+   "layout": "story",
+   "look": "list",
+   "idea": "Three reasons the set suits winter, over a rainy-day scene.",
+   "hook": "Three reasons it suits winter.",
+   "points": [
+    "Water-resistant leather.",
+    "A scratch-proof finish.",
+    "A bag for every kind of day."
+   ],
+   "story": "proof",
+   "feature": "SCRATCH-PROOF LEATHER",
+   "scene": {
+    "kind": "object",
+    "colour": "Blue",
+    "prompt": "The blue hobo bag, crossbody and pouch on a wooden bench by a rain-streaked window, a folded umbrella beside them, soft grey daylight."
+   },
+   "project": "P01"
+  },
+  {
+   "id": "S05",
+   "layout": "ad",
+   "format": "doorstep_parcel",
+   "format_name": "Doorstep parcel",
+   "art": "A real photograph of a cardboard parcel just delivered on a front doorstep, the lid folded open with crisp tissue paper, the three pieces of the set sitting on the tissue (closed), a doormat and the edge of a front door, soft morning light; the offer printed big on a paper sticker on the box side, the story line in clean type across the top of the photo; nothing glossy.",
+   "people": "none",
+   "idea": "The set arriving on the doorstep in one parcel: three bags, one delivery.",
+   "words": [
+    "60% OFF",
+    "Three bags. One parcel."
+   ],
+   "headline": "Three bags. One parcel.",
+   "story": "value",
+   "scene": {
+    "colour": "Purple Red",
+    "prompt": "An open cardboard parcel on a front doorstep, tissue paper folded back, the purple red hobo bag, crossbody and pouch sitting on the tissue, a doormat and a front door edge, soft morning light."
+   },
+   "project": "P01"
+  }
+ ]
+}

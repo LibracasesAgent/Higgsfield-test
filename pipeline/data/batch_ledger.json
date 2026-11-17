@@ -4046,7 +4046,89 @@
    "projects": 2,
    "hooks": 4,
    "seed": 1,
-   "status": "planned"
+   "status": "uploaded",
+   "folder": "B052 – 2026-11-17 – Hobo Bag 3-Piece Set BlackFriday – 5 statics + 2 projects",
+   "link": "https://drive.google.com/drive/folders/1VyEFa_fV3R3yM47pLs4_xLiHSCare_UZ",
+   "ads": [
+    {
+     "name": "LC_261117_HoboBag3PieceSet_BlackFriday_B052_S01_neon",
+     "kind": "static",
+     "fp": "s|ad|AS01.png|three bags. black friday price, already on.",
+     "label": "Three bags. Black Friday price, already on."
+    },
+    {
+     "name": "LC_261117_HoboBag3PieceSet_BlackFriday_B052_S02_studio",
+     "kind": "static",
+     "fp": "s|studio|3_piece_set_colour_black.jpg|one gift. three pieces.",
+     "label": "One gift. Three pieces."
+    },
+    {
+     "name": "LC_261117_HoboBag3PieceSet_BlackFriday_B052_S03_studio",
+     "kind": "static",
+     "fp": "s|studio|3_piece_set_colour_blue.jpg|cyber monday errands. crossbody on.",
+     "label": "Cyber Monday errands. Crossbody on."
+    },
+    {
+     "name": "LC_261117_HoboBag3PieceSet_BlackFriday_B052_S04_list",
+     "kind": "static",
+     "fp": "s|story|AS04.png|three reasons it suits winter.",
+     "label": "Three reasons it suits winter."
+    },
+    {
+     "name": "LC_261117_HoboBag3PieceSet_BlackFriday_B052_S05_doorstepparc",
+     "kind": "static",
+     "fp": "s|ad|AS05.png|three bags. one parcel.",
+     "label": "Three bags. One parcel."
+    },
+    {
+     "name": "LC_261117_HoboBag3PieceSet_BlackFriday_B052_P01_H1_onecheckout",
+     "kind": "video",
+     "fp": "v|before you buy one bag this black friday, look at three.|",
+     "label": "Before you buy one bag this Black Friday, look at three."
+    },
+    {
+     "name": "LC_261117_HoboBag3PieceSet_BlackFriday_B052_P01_H2_onecheckout",
+     "kind": "video",
+     "fp": "v|why buy one bag when the set is sixty percent off?|",
+     "label": "Why buy one bag when the set is sixty percent off?"
+    },
+    {
+     "name": "LC_261117_HoboBag3PieceSet_BlackFriday_B052_P01_H3_onecheckout",
+     "kind": "video",
+     "fp": "v|three matching bags, one checkout.|",
+     "label": "Three matching bags, one checkout."
+    },
+    {
+     "name": "LC_261117_HoboBag3PieceSet_BlackFriday_B052_P01_H4_onecheckout",
+     "kind": "video",
+     "fp": "v|before you check out, add the crossbody and pouch.|",
+     "label": "Before you check out, add the crossbody and pouch."
+    },
+    {
+     "name": "LC_261117_HoboBag3PieceSet_BlackFriday_B052_P02_H1_giftby14",
+     "kind": "video",
+     "fp": "v|shopping for her this christmas? start with the set.|",
+     "label": "Shopping for her this Christmas? Start with the set."
+    },
+    {
+     "name": "LC_261117_HoboBag3PieceSet_BlackFriday_B052_P02_H2_giftby14",
+     "kind": "video",
+     "fp": "v|don't leave her christmas gift until december.|",
+     "label": "Don't leave her Christmas gift until December."
+    },
+    {
+     "name": "LC_261117_HoboBag3PieceSet_BlackFriday_B052_P02_H3_giftby14",
+     "kind": "video",
+     "fp": "v|her christmas gift, sixty percent off.|",
+     "label": "Her Christmas gift, sixty percent off."
+    },
+    {
+     "name": "LC_261117_HoboBag3PieceSet_BlackFriday_B052_P02_H4_giftby14",
+     "kind": "video",
+     "fp": "v|under the tree this year: a hobo, a crossbody, a pouch.|",
+     "label": "Under the tree this year: a hobo, a crossbody, a pouch."
+    }
+   ]
   },
   {
    "id": "B053",
@@ -4061,7 +4143,41 @@
    "projects": 1,
    "hooks": 4,
    "seed": 1,
-   "status": "planned"
+   "status": "uploaded",
+   "folder": "B053 – 2026-11-17 – Hobo Bag BlackFriday – 5 statics + 1 projects",
+   "link": "https://drive.google.com/drive/folders/14khQ1iHpYko1ugfaDdK2nqU0Gw97OjkU",
+   "ads": [
+    {
+     "name": "LC_261117_HoboBag_BlackFriday_B053_S01_neon",
+     "kind": "static",
+     "fp": "s|ad|AS01.png|late train home. cards on your side.",
+     "label": "Late train home. Cards on your side."
+    },
+    {
+     "name": "LC_261117_HoboBag_BlackFriday_B053_S02_native",
+     "kind": "static",
+     "fp": "s|native|F_1Ud2dhrP5f_0144.jpg|two straps, three looks.",
+     "label": "Two straps, three looks."
+    },
+    {
+     "name": "LC_261117_HoboBag_BlackFriday_B053_S03_native",
+     "kind": "static",
+     "fp": "s|native|F_1tdhK5RpMN_0066.jpg|mum: sorted. wallet included.",
+     "label": "Mum: sorted. Wallet included."
+    },
+    {
+     "name": "LC_261117_HoboBag_BlackFriday_B053_S04_hook",
+     "kind": "static",
+     "fp": "s|story|F_19apT6XvQU_0036.jpg|phone sinking to the bottom again?",
+     "label": "Phone sinking to the bottom again?"
+    },
+    {
+     "name": "LC_261117_HoboBag_BlackFriday_B053_S05_quote",
+     "kind": "static",
+     "fp": "s|story|F_1BHVZu65IF_0067.jpg|has other zipper compartments for other essentials.",
+     "label": "Has other zipper compartments for other essentials."
+    }
+   ]
   }
  ],
  "next": 54

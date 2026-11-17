@@ -1,0 +1,145 @@
+{
+ "stills": [
+  {
+   "id": "AS01",
+   "use": "static",
+   "scene": "p01_s01_neon_offer",
+   "kind": "object",
+   "colour": "Black",
+   "layout": "ad",
+   "format": "neon_offer",
+   "tag": "neon",
+   "words": [
+    "60% OFF",
+    "Three bags. Black Friday price, already on."
+   ],
+   "ref": "/tmp/run/set3-lastweek/site/3_piece_set_colour_black.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS01.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 0,
+   "prompt": "A real night-time boutique corner: warm neon tubes spelling the offer glow on a dark plaster or brick wall, the bag standing on a stool or plinth below the sign, lit by its own soft white spotlight so its true colour reads clearly (the neon only rims it), a little haze, shot on a phone, real reflections, nothing CGI; the story line is set small in clean white print type on the wall below the sign, not in neon. The black hobo bag, crossbody and pouch on a low wooden plinth in a dark boutique corner at night, a warm red neon sign on the brick wall above, soft white spotlight on the bags. The exact bag set from the reference image, unchanged: same colour (black), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The bag set is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"60% OFF\" / \"Three bags. Black Friday price, already on.\". Set them as neon tube lettering, warm pink-red or white glow, perfectly spelled, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the bag set. No other text anywhere: no logos, no brand names, no labels or writing on the bag set, no watermark. The offer \"60% OFF\" is the boldest, largest wording in the picture, read in under a second, with perfectly drawn numerals and percent sign. The line \"Three bags. Black Friday price, already on.\" is the second voice of the ad: smaller than the offer but clearly readable on a phone, never tiny or faint; the picture shows the moment it tells. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the bag set large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS02",
+   "use": "static",
+   "scene": "p01_s02_swing_tag",
+   "kind": "object",
+   "colour": "Red",
+   "layout": "ad",
+   "format": "swing_tag",
+   "tag": "swingtag",
+   "words": [
+    "60% OFF",
+    "One gift. Three pieces."
+   ],
+   "ref": "/tmp/run/set3-lastweek/site/3_piece_set_colour_red.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS02.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 1,
+   "prompt": "An editorial product photo: an oversized thick paper swing tag tied to the bag's strap with a cotton string, the tag printed with the offer in big bold type, turned towards the camera and fully readable, the bag on a calm surface in soft directional light, real paper texture and a gentle shadow from the tag. The red hobo bag, crossbody and pouch on a wooden floor under a softly lit Christmas tree, an oversized kraft paper swing tag tied to the hobo's strap with twine, warm evening light. The exact bag set from the reference image, unchanged: same colour (red), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The bag set is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"60% OFF\" / \"One gift. Three pieces.\". Set them as the tag's offer in a heavy bold sans-serif, the small line in a refined serif, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the bag set. No other text anywhere: no logos, no brand names, no labels or writing on the bag set, no watermark. The offer \"60% OFF\" is the boldest, largest wording in the picture, read in under a second, with perfectly drawn numerals and percent sign. The line \"One gift. Three pieces.\" is the second voice of the ad: smaller than the offer but clearly readable on a phone, never tiny or faint; the picture shows the moment it tells. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the bag set large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS03",
+   "use": "static",
+   "scene": "p01_s03_pov_sticker",
+   "kind": "behind",
+   "colour": "Grey",
+   "layout": "ad",
+   "format": "pov_sticker",
+   "tag": "povsticker",
+   "words": [
+    "Cyber Monday errands. Crossbody on.",
+    "60% OFF"
+   ],
+   "ref": "/tmp/run/set3-lastweek/site/3_piece_set_colour_grey.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS03.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 2,
+   "prompt": "A candid phone photo taken a few steps behind her in a busy real place (a packed train platform, a street market, an airport queue, a school gate): slightly off-centre, natural mixed light, a little motion blur in the passers-by, real clothes with creases; the bag worn on the shoulder or crossbody towards the camera, zipped. One caption in bold white sans-serif with a soft shadow across the empty upper part, the way people caption a photo, and a round glossy sale sticker slapped on a lower corner as if stuck onto the print. A woman seen from behind on a busy winter shopping street, the grey crossbody worn across her body, paper shopping bags in her hands, shop windows softly blurred, a real candid phone photo. The exact bag set from the reference image, unchanged: same colour (grey), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The bag set is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"Cyber Monday errands. Crossbody on.\" / \"60% OFF\". Set them as the caption in a bold white sans-serif with a soft dark shadow, sentence case; the sticker's offer in heavy white type on red, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the bag set. No other text anywhere: no logos, no brand names, no labels or writing on the bag set, no watermark. The offer \"60% OFF\" is the boldest, largest wording in the picture, read in under a second, with perfectly drawn numerals and percent sign. The line \"Cyber Monday errands. Crossbody on.\" is the second voice of the ad: smaller than the offer but clearly readable on a phone, never tiny or faint; the picture shows the moment it tells. She is seen only from behind, walking away from the camera, her head turned forward, the bag towards the camera; nobody else faces the camera. No face is visible anywhere: nobody looks at the camera, every other person is far away, blurred and facing away. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the bag set large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS04",
+   "use": "static",
+   "scene": "p01_s04",
+   "kind": "object",
+   "colour": "Blue",
+   "layout": "story",
+   "ref": "/tmp/run/set3-lastweek/site/3_piece_set_colour_blue.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS04.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 3,
+   "prompt": "Photorealistic candid lifestyle photograph, natural light, shot on a 35mm lens, shallow depth of field, true-to-life colours, fine film grain, no text, no logos, no watermark. The exact bag set from the reference image, unchanged: same colour (blue), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The blue hobo bag, crossbody and pouch on a wooden bench by a rain-streaked window, a folded umbrella beside them, soft grey daylight. Composition: the whole bag fits inside the middle half of the frame's height with calm space above and below it (the top fifth and the bottom third are cropped away), nothing important at the very top or bottom. Nobody is in the picture, not even blurred in the background. Portrait 4:5 composition, the bag set clearly visible and large in the frame.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS05",
+   "use": "static",
+   "scene": "p01_s05_doorstep_parcel",
+   "kind": "object",
+   "colour": "Purple Red",
+   "layout": "ad",
+   "format": "doorstep_parcel",
+   "tag": "doorstepparc",
+   "words": [
+    "60% OFF",
+    "Three bags. One parcel."
+   ],
+   "ref": "/tmp/run/set3-lastweek/site/3_piece_set_colour_purple_red.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS05.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 4,
+   "prompt": "A real photograph of a cardboard parcel just delivered on a front doorstep, the lid folded open with crisp tissue paper, the three pieces of the set sitting on the tissue (closed), a doormat and the edge of a front door, soft morning light; the offer printed big on a paper sticker on the box side, the story line in clean type across the top of the photo; nothing glossy. An open cardboard parcel on a front doorstep, tissue paper folded back, the purple red hobo bag, crossbody and pouch sitting on the tissue, a doormat and a front door edge, soft morning light. The exact bag set from the reference image, unchanged: same colour (purple red), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The bag set is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"60% OFF\" / \"Three bags. One parcel.\". Set them as clean, legible type, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the bag set. No other text anywhere: no logos, no brand names, no labels or writing on the bag set, no watermark. The offer \"60% OFF\" is the boldest, largest wording in the picture, read in under a second, with perfectly drawn numerals and percent sign. The line \"Three bags. One parcel.\" is the second voice of the ad: smaller than the offer but clearly readable on a phone, never tiny or faint; the picture shows the moment it tells. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the bag set large and clearly visible.",
+   "est_credits": 1.0
+  }
+ ],
+ "clips": [],
+ "est_credits": 5.0,
+ "notes": [],
+ "grade_refs": [],
+ "budget": {
+  "cap": 100.0,
+  "tts_est": 9.0,
+  "reserve": 8.0
+ },
+ "steps": [
+  "1. Upload each distinct `ref` once (media_upload, curl PUT, media_confirm); generate every still with generate_image_batch (model/params/prompt as listed, medias [{value: media_id, role: image_references}], max 12 per call); jobs_wait; download each result to $OUT/<file>.",
+  "2. python3 pipeline/ai_gen.py gate --out $OUT ; LOOK at $OUT/qa/ai_stills.jpg (reference | still): reject any still where the bag's shape, colour, handles or hardware differ from the reference, or that looks AI: python3 pipeline/ai_gen.py reject --out $OUT AS03 ...",
+  "3. For every clip whose start still passed: generate_video_batch (start_image = that still's job id, model/params/prompt as listed); jobs_wait; download to $OUT/<file>. Clips of a rejected still are skipped. If a submission comes back with a preset recommendation instead of a job, send it again with `declined_preset_id` = that preset's id (the project never uses presets).",
+  "3b. Motion stills (AM.. clips, `use: motion`): generate_video_batch with medias [{value: <the still's job id>, role: start_image}, {value: <the same job id>, role: end_image}] (the same still first and last, so the loop has no seam), model/params/prompt as listed.",
+  "4. python3 pipeline/ai_gen.py clips --out $OUT ; LOOK at $OUT/qa/ai_clips.jpg; reject morphing / odd-hand clips with `reject` (a motion still where the bag changes shape, opens, or anything morphs: `reject AM02`). Then render as usual (it applies the result; a motion still whose clip failed ships as the still static alone).",
+  "Report: credits before -> after (balance), how many AI assets passed. Never ship a still or clip you would not believe is real."
+ ]
+}
