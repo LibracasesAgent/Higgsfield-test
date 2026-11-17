@@ -46,3 +46,6 @@ Made by `pipeline/ledger.py` at every upload; one row per batch. A batch id is i
 | B048r2 | 2026-11-15 | Vintage Bag | Evergreen | planned | 0 statics + 2 projects |  | new batch for the winners, versions of SVIT-198-H5, 255-OLY-H1, ILLIA-229-H2, MAX-33-H5 and C9_V2_HappyWrong |  |
 | B049 | 2026-11-15 | Vintage Bag | BlackFriday | uploaded | 0 statics + 2 projects | 8 ads | B049 – 2026-11-15 – B049 v2 – 2026-11-16 – Vintage Bag BlackFriday – 2 projects (smaller captions) | https://drive.google.com/drive/folders/1xt6c1ts7KI1TEl1Sk15GiDsc9WmNsftA |
 | B050 | 2026-11-15 | Vintage Bag | BlackFriday | uploaded | 10 statics + 0 projects | 10 ads | B050 – 2026-11-15 – Vintage Bag BlackFriday – 10 statics | https://drive.google.com/drive/folders/1KH_Mw_DPVEW5YVmVlTo2OJs8gIYKdkO2 |
+| B051 | 2026-11-17 | Vintage Bag | BlackFriday | uploaded | 0 statics + 3 projects | 12 ads | B051 – 2026-11-17 – Vintage Bag BlackFriday – 3 projects | https://drive.google.com/drive/folders/1EKgnCKmWED93BzOPVnZKnA-vaV-VqVVe |
+| B052 | 2026-11-17 | Hobo Bag 3-Piece Set | BlackFriday | planned | 5 statics + 2 projects |  | last week batch: 5 statics + 2 closers for the 3-piece set, Black Friday |  |
+| B053 | 2026-11-17 | Hobo Bag | BlackFriday | planned | 5 statics + 1 projects |  | last week batch: 5 statics + 1 closers for the Hobo Bag, Black Friday |  |

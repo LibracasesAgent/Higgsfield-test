@@ -1,0 +1,18 @@
+{
+ "ok": true,
+ "product": "Vintage Bag",
+ "offer": "50% off",
+ "checked": 172,
+ "problems": [],
+ "allowed": [],
+ "raw_story": [],
+ "raw_cuts": [],
+ "playbook_warnings": [
+  "LC_261117_VintageBag_BlackFriday_B051_P01_H1_nocode hook_first_line: hook_concrete: 'Before you buy a small bag this month, read this.' names nothing a picture can show and no number: the opening shot cannot prove it",
+  "LC_261117_VintageBag_BlackFriday_B051_P01_H4_nocode hook_first_line: hook_concrete: \"Whatever you do, don't pay double for this one.\" names nothing a picture can show and no number: the opening shot cannot prove it",
+  "LC_261117_VintageBag_BlackFriday_B051_P02_H1_giftby14 hook_first_line: hook_formula: 'Buying a bag for Christmas? Order by 14 December.' follows none of the rulebook's hook formulas (how to, a question, a number, a warning, a contrast, watch, a moment, at last, the truth about, imagine, if you, who else, hidden, the offer)",
+  "LC_261117_VintageBag_BlackFriday_B051_P02_H3_giftby14 hook_first_line: hook_formula: 'Phone, wallet, keys: a Christmas gift with a spot for each.' follows none of the rulebook's hook formulas (how to, a question, a number, a warning, a contrast, watch, a moment, at last, the truth about, imagine, if you, who else, hidden, the offer)",
+  "LC_261117_VintageBag_BlackFriday_B051_P03_H3_onesnap hook_first_line: hook_concrete: 'Before you buy another big tote, look at this one.' names nothing a picture can show and no number: the opening shot cannot prove it"
+ ],
+ "report": "/tmp/run/vintage-closers/compliance.json"
+}

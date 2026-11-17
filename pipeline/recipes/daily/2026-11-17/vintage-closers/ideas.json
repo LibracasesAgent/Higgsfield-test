@@ -1,0 +1,284 @@
+{
+ "product": "Vintage Bag",
+ "theme": "black friday",
+ "date": "2026-11-17",
+ "research": [
+  "docs/research/2026-11-winners-30d.md: the winners are 60-105 s stories plus 16-27 s closers (190-H3, 113-H2); B049 remixes the Vintage story winners (MAX-33-H5, C9_V2), so these closers are the offer videos that pair with them",
+  "Warning openers win (all ten of 190 / 198): every project has two warning hooks",
+  "Footage: snap 223, strap 209, handheld 121, worn 54 good moments: every line is shown on those",
+  "Sale terms: ends 30 November; order by 14 December for the best chance before Christmas; no code, the % is on the page"
+ ],
+ "projects": [
+  {
+   "id": "P01",
+   "slug": "nocode",
+   "format": "closer",
+   "structure": "closer",
+   "title": "No code, already half price",
+   "big_idea": "The Vintage Bag is half price right now, there is no code to hunt for, and the sale really ends on 30 November.",
+   "why_new": "The first Vintage closer: the 190-H3 offer video made true for the Vintage Bag, with its one-hand snap as the proof shot.",
+   "hooks": [
+    {
+     "text": "Before you buy a small bag this month, read this.",
+     "type": "warning",
+     "label": "READ THIS FIRST",
+     "show": [
+      "snap",
+      "handheld"
+     ]
+    },
+    {
+     "text": "Whatever you do, don't pay double for this one.",
+     "type": "warning",
+     "label": "DON'T PAY DOUBLE",
+     "show": [
+      "worn",
+      "walking"
+     ]
+    },
+    {
+     "text": "Still carrying a bag that won't close with one hand?",
+     "type": "question",
+     "label": "ONE HAND",
+     "show": [
+      "strap",
+      "handheld"
+     ]
+    },
+    {
+     "text": "Half price and free shipping, until the thirtieth.",
+     "type": "price",
+     "label": "HALF PRICE",
+     "show": [
+      "inside",
+      "handheld"
+     ]
+    }
+   ],
+   "chapters": [
+    {
+     "kind": "point",
+     "beat": "why_now",
+     "text": "The Vintage Bag is fifty percent off right now, in the Early Black Friday sale. That's half price on a bag that snaps shut with one hand.",
+     "tag": null,
+     "show": [
+      "worn",
+      "walking"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "secret",
+     "text": "No code needed. The half price is already on the page, with free shipping.",
+     "tag": "NO CODE NEEDED",
+     "show": [
+      "handheld",
+      "strap"
+     ]
+    },
+    {
+     "kind": "proof",
+     "beat": "proof",
+     "proof_shot": true,
+     "text": "One snap and it's shut. Your phone, wallet and keys each get their own spot.",
+     "tag": "ONE-HAND CLASP",
+     "show": [
+      "snap",
+      "handheld"
+     ]
+    },
+    {
+     "kind": "offer",
+     "beat": "offer",
+     "text": "It's fifty percent off with free shipping, and the sale ends on the thirtieth of November. Tap the link below.",
+     "tag": null,
+     "show": [
+      "hero",
+      "placed"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "P02",
+   "slug": "giftby14",
+   "format": "closer",
+   "structure": "closer",
+   "title": "Her Christmas bag, by the 14th",
+   "big_idea": "A Christmas gift at half price, with the real date to order by for the best chance of delivery before Christmas.",
+   "why_new": "The first Vintage gift closer: the offer plus the true order-by date from the sale terms (14 December), never a guarantee.",
+   "hooks": [
+    {
+     "text": "Buying a bag for Christmas? Order by 14 December.",
+     "type": "warning",
+     "label": "GIFT DEADLINE",
+     "show": [
+      "handheld",
+      "strap"
+     ]
+    },
+    {
+     "text": "Who on your list would carry this one every day?",
+     "type": "question",
+     "label": "WHO'S IT FOR?",
+     "show": [
+      "worn",
+      "walking"
+     ]
+    },
+    {
+     "text": "Phone, wallet, keys: a Christmas gift with a spot for each.",
+     "type": "promise",
+     "label": "A SPOT EACH",
+     "show": [
+      "snap",
+      "handheld"
+     ]
+    },
+    {
+     "text": "A Christmas gift you can snap shut, fifty percent off.",
+     "type": "price",
+     "label": "GIFT, 50% OFF",
+     "show": [
+      "strap",
+      "worn"
+     ]
+    }
+   ],
+   "chapters": [
+    {
+     "kind": "point",
+     "beat": "who",
+     "text": "If she loves a small bag that keeps everything in order, this is the one. Room for her phone, wallet and keys, each in its own spot.",
+     "tag": "ROOM FOR EVERYTHING",
+     "show": [
+      "worn",
+      "walking"
+     ]
+    },
+    {
+     "kind": "proof",
+     "beat": "why",
+     "proof_shot": true,
+     "text": "One snap and it's shut, and the strap adjusts, so she can wear it as a handbag or crossbody.",
+     "tag": "ADJUSTABLE STRAP",
+     "show": [
+      "snap",
+      "strap"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "deadline",
+     "text": "Order by the fourteenth of December for the best chance of delivery before Christmas.",
+     "tag": "ORDER BY 14 DEC",
+     "show": [
+      "packing",
+      "handheld"
+     ]
+    },
+    {
+     "kind": "offer",
+     "beat": "offer",
+     "text": "It's fifty percent off with free shipping until the thirtieth of November. Tap the link below.",
+     "tag": null,
+     "show": [
+      "handheld",
+      "hero"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "P03",
+   "slug": "onesnap",
+   "format": "closer",
+   "structure": "closer",
+   "title": "One snap, half price",
+   "big_idea": "Watch the one-hand snap, then the offer: a short demo closer for people who already know the bag.",
+   "why_new": "The first closer that leads with a live demo (the snap held 2-3 s with its own sound) before the offer and the end date.",
+   "hooks": [
+    {
+     "text": "Watch what one snap of this clasp does.",
+     "type": "promise",
+     "label": "ONE SNAP",
+     "show": [
+      "snap",
+      "handheld"
+     ]
+    },
+    {
+     "text": "Want a bag you can close with one hand?",
+     "type": "question",
+     "label": "ONE-HAND CLOSE",
+     "show": [
+      "strap",
+      "handheld"
+     ]
+    },
+    {
+     "text": "Before you buy another big tote, look at this one.",
+     "type": "warning",
+     "label": "LOOK AT THIS",
+     "show": [
+      "worn",
+      "walking"
+     ]
+    },
+    {
+     "text": "Fifty percent off a bag that snaps shut.",
+     "type": "price",
+     "label": "50% OFF",
+     "show": [
+      "handheld",
+      "snap"
+     ]
+    }
+   ],
+   "chapters": [
+    {
+     "kind": "point",
+     "beat": "why_now",
+     "text": "Right now the Vintage Bag is fifty percent off in the Early Black Friday sale. That's half of what it normally costs.",
+     "tag": null,
+     "show": [
+      "handheld",
+      "strap"
+     ]
+    },
+    {
+     "kind": "proof",
+     "beat": "proof",
+     "proof_shot": true,
+     "text": "Watch: one snap with one hand, and it's shut. Inside, your phone, wallet and keys each have their own spot.",
+     "tag": "ONE-HAND CLASP",
+     "show": [
+      "snap",
+      "handheld"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "ways",
+     "text": "Take the strap long for crossbody, or short to carry it as a handbag.",
+     "tag": "ADJUSTABLE STRAP",
+     "show": [
+      "worn",
+      "strap"
+     ]
+    },
+    {
+     "kind": "offer",
+     "beat": "offer",
+     "text": "It's fifty percent off with free shipping, and the sale runs until the thirtieth of November. Tap the link below.",
+     "tag": null,
+     "show": [
+      "handheld",
+      "hero"
+     ]
+    }
+   ]
+  }
+ ],
+ "statics": []
+}
