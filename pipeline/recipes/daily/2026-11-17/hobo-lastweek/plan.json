@@ -1,0 +1,614 @@
+{
+ "prefix": "LC_261117_HoboBag_BlackFriday_B053",
+ "rev": 1,
+ "batch_id": {
+  "id": "B053",
+  "n": 53,
+  "rev": 1
+ },
+ "created": "2026-11-17",
+ "request": "last week batch: 5 statics + 1 closers for the Hobo Bag, Black Friday",
+ "product": "Hobo Bag",
+ "product_key": "hobo bag",
+ "product_source": "built-in",
+ "theme": "black friday",
+ "theme_name": "BlackFriday",
+ "offer": "50% off + free matching pouch wallet",
+ "campaign": {
+  "id": "bf2026",
+  "name": "Black Friday Sale 2026",
+  "theme": "black friday",
+  "banner": "Early Black Friday – 50% off everything, up to 60% off",
+  "until": "2026-11-30",
+  "from": "2026-10-23",
+  "end_title": "Black Friday Sale",
+  "end_pill": "UP TO 60% OFF",
+  "card_sub": "",
+  "close": "The Early Black Friday sale is on now, with up to sixty percent off.",
+  "hooks": [
+   "Black Friday prices are live now. No need to wait.",
+   "Early Black Friday: up to sixty percent off.",
+   "Why wait for Black Friday? The prices are already live."
+  ],
+  "facts": [
+   "Early Black Friday Sale: live now (from 23 October), it runs until 30 November (Cyber Monday). Black Friday is 27 November.",
+   "50% off everything sitewide (each bag's own % is on its offer card: the Hobo Bag is 50% off).",
+   "Up to 60% off: some bundles are 60% off, like the Hobo Bag 3-Piece Set. Say '60% off' only of the 3-Piece Set (or another named bundle), never of a single bag or of 'any 2 bags'.",
+   "No free gifts and no extra cart discount: both were removed by the owner on 26 October.",
+   "The Hobo Bag's product page offers the 3-Piece Set as the 'Best Value' upgrade.",
+   "Black Friday prices are live now: no need to wait.",
+   "Sale items are final sale: they cannot be returned (the site's Black Friday terms); faulty items are still covered and the 1-year warranty still applies. Never say 'easy returns', 'free returns' or 'send it back' in a Black Friday ad.",
+   "Christmas delivery (the site's Black Friday terms, filled in by 27 October): order by 14 December 2026 for the best chance of delivery before Christmas; delivery before Christmas is not guaranteed, so say 'the best chance', never 'guaranteed by Christmas'."
+  ],
+  "bundle_pct": null,
+  "upto_pct": 60,
+  "bundle_any": false,
+  "client_ideas": "Owner 2026-10-26: everything is on sale everywhere, so stand out; the Hobo Bag page upsells the 3-Piece Set ('Best Value'): ads that sell the set raise the order value; 'Black Friday prices are live now, no need to wait'; Christmas gifting (mum, sister, best friend); 2 straps on the Hobo 2.0 (handbag + crossbody); in the last week: Black Friday 27 November, Cyber Monday 30 November, 'last chance'. The AI ads 'seem to be starting to work: keep testing'.",
+  "gifts": [],
+  "gifts_worth": null,
+  "dates": {
+   "black friday": "27 November",
+   "cyber monday": "30 November",
+   "ends": "30 November"
+  },
+  "copy": {
+   "primary": [
+    "Early Black Friday is live: 50% off everything, and up to 60% off bundles like the 3-Piece Set.",
+    "Black Friday prices are live now, no need to wait. 50% off everything, up to 60% off bundles."
+   ],
+   "headline": [
+    "Early Black Friday: 50% Off",
+    "Up to 60% Off Bundles",
+    "Black Friday Prices Are Live"
+   ],
+   "description": "Up to 60% off"
+  },
+  "approved_phrases": [
+   "up to (?:60|sixty) ?(?:%|percent) off(?: bundles?)?",
+   "(?:60|sixty) ?(?:%|percent) off (?:the |our )?(?:hobo (?:bag )?)?3-piece set",
+   "(?:50|fifty) ?(?:%|percent) off everything"
+  ],
+  "approved": "Wouter (owner), 2026-10-23: the Black Friday Sale went live on 23 October and runs until 30 November (Cyber Monday). Up to 50% off sitewide; 60% off bundles (2 or 3 bags bought together at 60% off the regular price); free gifts while stocks last: buy 2 bags, get a free mirrored jewellery box (worth $19.95); buy 3+ bags, get the jewellery box + a free cosmetic bag (together worth $44.90); only bags count, not accessories. The site banner (2026-10-23): 'EARLY BLACK FRIDAY: 50% OFF EVERYTHING | BUY 2 BAGS = 1 FREE GIFT | BUY 3 = 2 FREE GIFTS | ORDER TODAY WHILE STOCKS LAST!' | UPDATE Wouter (owner), 2026-10-26: the free gifts and the extra cart discount on bags are removed ('they're not coming back'); 'It's 50% OFF or you can say up to 60% OFF'; 60% is only on bundles 'like the 3 piece set', not any 2 bags; the site now has Early Black Friday messaging, a countdown in the announcement bar, 'Ships by' and delivery dates, and the 3-Piece Set as a 'Best Value' upgrade on the Hobo Bag page; during Black Friday no returns are accepted (final sale).",
+  "final_sale": true,
+  "terms": "https://libracases.com/pages/terms-and-conditions-black-friday-sale",
+  "banned": [
+   {
+    "rx": "\\bfree gifts?\\b|\\bgifts? with (?:2|two|3|three|every)\\b|\\bfree (?:mirrored )?jewell?e?ry box(?:es)?\\b|\\bfree (?:travel )?cosmetic bags?\\b|\\bjewell?e?ry box\\b|\\bcosmetic bag\\b",
+    "why": "the free gifts were removed by the owner on 26 October (not coming back): say the bag's own free pouch wallet, if it has one"
+   },
+   {
+    "rx": "(?:60|sixty) ?(?:%|percent) off\\b[^.!?]{0,60}\\b(?:(?:2|two) (?:or (?:3|three) )?bags|(?:3|three) bags|(?:2|two) or (?:3|three)|second bag|together)|\\b(?:2|two) or (?:3|three) bags\\b[^.!?]{0,30}(?:60|sixty) ?(?:%|percent)",
+    "why": "60% is only on bundles like the 3-Piece Set, not on any 2 or 3 bags (owner, 26 October): say 'up to 60% off' or '60% off the 3-Piece Set'"
+   },
+   {
+    "rx": "\\b(?:ends?|ending) (?:tonight|today)\\b|\\btoday only\\b|\\bonly today\\b|\\b(?:sale|deal|offer)s? ends? (?:soon|in \\d+ (?:hours?|minutes?|days?))\\b|\\bhours? left\\b",
+    "why": "the sale runs until 30 November (owner 2026-10-23; the site banner's 'ends tonight' is the owner's choice for the site only): before the last day 'ends tonight / today only' is false and Meta flags ads whose deadline differs from the landing page; say 'Black Friday prices are live now' or 'the sale ends on the thirtieth of November'",
+    "except_on": [
+     "2026-11-30"
+    ]
+   },
+   {
+    "rx": "\\blast (?:chance|days?|call)\\b|\\bfinal (?:days?|hours?|chance)\\b",
+    "why": "'last chance' is the last week's message (owner's timeline: last-week content by 20 November, for Black Friday 27 Nov - Cyber Monday 30 Nov): before 20 November it is false urgency",
+    "except_from": "2026-11-20"
+   },
+   {
+    "rx": "\\bguarantee\\w*\\b[^.!?]{0,40}\\bchristmas\\b|\\bchristmas\\b[^.!?]{0,40}\\bguarantee\\w*\\b|\\b(?:arrives?|delivered|get it|gets there|be there|in time for)\\b[^.!?]{0,20}\\b(?:in time for|by|before) christmas\\b|\\bin time for christmas\\b",
+    "why": "the site's terms: delivery before Christmas is not guaranteed; say 'order by 14 December for the best chance of delivery before Christmas'"
+   }
+  ]
+ },
+ "statics": [
+  "LC_261117_HoboBag_BlackFriday_B053_S01_neon",
+  "LC_261117_HoboBag_BlackFriday_B053_S02_native",
+  "LC_261117_HoboBag_BlackFriday_B053_S03_native",
+  "LC_261117_HoboBag_BlackFriday_B053_S04_hook",
+  "LC_261117_HoboBag_BlackFriday_B053_S05_quote"
+ ],
+ "videos": [
+  {
+   "name": "LC_261117_HoboBag_BlackFriday_B053_P01_H1_twostraps",
+   "id": "P01H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "closer": true,
+   "ugc": {
+    "script": "U01",
+    "angle": "twostraps",
+    "words": 90,
+    "structure": "closer",
+    "hook": {
+     "type": "warning",
+     "label": "LOOK FIRST",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Want one bag for the shoulder, the hand and crossbody?",
+      "type": "question",
+      "label": "THREE WAYS?",
+      "feature": null,
+      "show": [
+       "worn",
+       "street"
+      ]
+     },
+     {
+      "text": "Watch one bag change three ways.",
+      "type": "promise",
+      "label": "WATCH THIS",
+      "feature": null,
+      "show": [
+       "handheld",
+       "strap"
+      ]
+     },
+     {
+      "text": "Half price, two straps, and a wallet in the box.",
+      "type": "price",
+      "label": "50% + WALLET",
+      "feature": null,
+      "show": [
+       "side_zip",
+       "worn"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Want one bag for the shoulder, the hand and crossbody?": [
+      [
+       "1J6TLYwW_SOJEzXCD09Doaw7w5n_WDVnx",
+       11.16,
+       1.0
+      ],
+      [
+       "1rW8joq7MZKj_AKkX4IJJzjfgqlnMg8ph",
+       2.95,
+       1.0
+      ]
+     ],
+     "Watch one bag change three ways.": [
+      [
+       "1f_9Fjvv6B2cnF8Z0lFf__xn_RJEvpLQ0",
+       11.25,
+       1.0
+      ]
+     ],
+     "Half price, two straps, and a wallet in the box.": [
+      [
+       "1Rj3QE3QSg73kbPB1qCg7qo7az2SvQEPb",
+       4.6,
+       1.0
+      ],
+      [
+       "1yy0byvJcTJnj-xlvUJlxwUG6g9Md_sv3",
+       3.72,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 30.6,
+   "project": "P01",
+   "hook_text": "Before you buy a crossbody, look at this hobo.",
+   "hook_label": "LOOK FIRST",
+   "hook_type": "warning",
+   "opening_shot": [
+    "1G6B5yfeTUCh6NAy_fq7kc37qoSOgVmKE",
+    2.65
+   ]
+  },
+  {
+   "name": "LC_261117_HoboBag_BlackFriday_B053_P01_H2_twostraps",
+   "id": "P01H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "closer": true,
+   "ugc": {
+    "script": "U01",
+    "angle": "twostraps",
+    "words": 90,
+    "structure": "closer",
+    "hook": {
+     "type": "warning",
+     "label": "LOOK FIRST",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Want one bag for the shoulder, the hand and crossbody?",
+      "type": "question",
+      "label": "THREE WAYS?",
+      "feature": null,
+      "show": [
+       "worn",
+       "street"
+      ]
+     },
+     {
+      "text": "Watch one bag change three ways.",
+      "type": "promise",
+      "label": "WATCH THIS",
+      "feature": null,
+      "show": [
+       "handheld",
+       "strap"
+      ]
+     },
+     {
+      "text": "Half price, two straps, and a wallet in the box.",
+      "type": "price",
+      "label": "50% + WALLET",
+      "feature": null,
+      "show": [
+       "side_zip",
+       "worn"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Want one bag for the shoulder, the hand and crossbody?": [
+      [
+       "1J6TLYwW_SOJEzXCD09Doaw7w5n_WDVnx",
+       11.16,
+       1.0
+      ],
+      [
+       "1rW8joq7MZKj_AKkX4IJJzjfgqlnMg8ph",
+       2.95,
+       1.0
+      ]
+     ],
+     "Watch one bag change three ways.": [
+      [
+       "1f_9Fjvv6B2cnF8Z0lFf__xn_RJEvpLQ0",
+       11.25,
+       1.0
+      ]
+     ],
+     "Half price, two straps, and a wallet in the box.": [
+      [
+       "1Rj3QE3QSg73kbPB1qCg7qo7az2SvQEPb",
+       4.6,
+       1.0
+      ],
+      [
+       "1yy0byvJcTJnj-xlvUJlxwUG6g9Md_sv3",
+       3.72,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 30.9,
+   "project": "P01",
+   "hook_text": "Want one bag for the shoulder, the hand and crossbody?",
+   "hook_label": "THREE WAYS?",
+   "hook_type": "question",
+   "opening_shot": [
+    "1J6TLYwW_SOJEzXCD09Doaw7w5n_WDVnx",
+    11.16
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261117_HoboBag_BlackFriday_B053_P01_H3_twostraps",
+   "id": "P01H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "closer": true,
+   "ugc": {
+    "script": "U01",
+    "angle": "twostraps",
+    "words": 90,
+    "structure": "closer",
+    "hook": {
+     "type": "warning",
+     "label": "LOOK FIRST",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Want one bag for the shoulder, the hand and crossbody?",
+      "type": "question",
+      "label": "THREE WAYS?",
+      "feature": null,
+      "show": [
+       "worn",
+       "street"
+      ]
+     },
+     {
+      "text": "Watch one bag change three ways.",
+      "type": "promise",
+      "label": "WATCH THIS",
+      "feature": null,
+      "show": [
+       "handheld",
+       "strap"
+      ]
+     },
+     {
+      "text": "Half price, two straps, and a wallet in the box.",
+      "type": "price",
+      "label": "50% + WALLET",
+      "feature": null,
+      "show": [
+       "side_zip",
+       "worn"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Want one bag for the shoulder, the hand and crossbody?": [
+      [
+       "1J6TLYwW_SOJEzXCD09Doaw7w5n_WDVnx",
+       11.16,
+       1.0
+      ],
+      [
+       "1rW8joq7MZKj_AKkX4IJJzjfgqlnMg8ph",
+       2.95,
+       1.0
+      ]
+     ],
+     "Watch one bag change three ways.": [
+      [
+       "1f_9Fjvv6B2cnF8Z0lFf__xn_RJEvpLQ0",
+       11.25,
+       1.0
+      ]
+     ],
+     "Half price, two straps, and a wallet in the box.": [
+      [
+       "1Rj3QE3QSg73kbPB1qCg7qo7az2SvQEPb",
+       4.6,
+       1.0
+      ],
+      [
+       "1yy0byvJcTJnj-xlvUJlxwUG6g9Md_sv3",
+       3.72,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 29.6,
+   "project": "P01",
+   "hook_text": "Watch one bag change three ways.",
+   "hook_label": "WATCH THIS",
+   "hook_type": "promise",
+   "opening_shot": [
+    "1f_9Fjvv6B2cnF8Z0lFf__xn_RJEvpLQ0",
+    11.25
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261117_HoboBag_BlackFriday_B053_P01_H4_twostraps",
+   "id": "P01H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "closer": true,
+   "ugc": {
+    "script": "U01",
+    "angle": "twostraps",
+    "words": 90,
+    "structure": "closer",
+    "hook": {
+     "type": "warning",
+     "label": "LOOK FIRST",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Want one bag for the shoulder, the hand and crossbody?",
+      "type": "question",
+      "label": "THREE WAYS?",
+      "feature": null,
+      "show": [
+       "worn",
+       "street"
+      ]
+     },
+     {
+      "text": "Watch one bag change three ways.",
+      "type": "promise",
+      "label": "WATCH THIS",
+      "feature": null,
+      "show": [
+       "handheld",
+       "strap"
+      ]
+     },
+     {
+      "text": "Half price, two straps, and a wallet in the box.",
+      "type": "price",
+      "label": "50% + WALLET",
+      "feature": null,
+      "show": [
+       "side_zip",
+       "worn"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Want one bag for the shoulder, the hand and crossbody?": [
+      [
+       "1J6TLYwW_SOJEzXCD09Doaw7w5n_WDVnx",
+       11.16,
+       1.0
+      ],
+      [
+       "1rW8joq7MZKj_AKkX4IJJzjfgqlnMg8ph",
+       2.95,
+       1.0
+      ]
+     ],
+     "Watch one bag change three ways.": [
+      [
+       "1f_9Fjvv6B2cnF8Z0lFf__xn_RJEvpLQ0",
+       11.25,
+       1.0
+      ]
+     ],
+     "Half price, two straps, and a wallet in the box.": [
+      [
+       "1Rj3QE3QSg73kbPB1qCg7qo7az2SvQEPb",
+       4.6,
+       1.0
+      ],
+      [
+       "1yy0byvJcTJnj-xlvUJlxwUG6g9Md_sv3",
+       3.72,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 30.9,
+   "project": "P01",
+   "hook_text": "Half price, two straps, and a wallet in the box.",
+   "hook_label": "50% + WALLET",
+   "hook_type": "price",
+   "opening_shot": [
+    "1Rj3QE3QSg73kbPB1qCg7qo7az2SvQEPb",
+    4.6
+   ],
+   "hook_source": "script"
+  }
+ ],
+ "tts_lines": 8,
+ "tts_dupes": {},
+ "est_credits": 2.8,
+ "budget": 100.0,
+ "colour_images": {
+  "Dark Sienna": "/tmp/run/hobo-lastweek/site/hobo_bag_colour_dark_sienna.jpg",
+  "Galaxy Black": "/tmp/run/hobo-lastweek/site/hobo_bag_colour_galaxy_black.jpg",
+  "Blue": "/tmp/run/hobo-lastweek/site/hobo_bag_colour_blue.jpg",
+  "Grey": "/tmp/run/hobo-lastweek/site/hobo_bag_colour_grey.jpg",
+  "Burgundy": "/tmp/run/hobo-lastweek/site/hobo_bag_colour_burgundy.jpg",
+  "Red": "/tmp/run/hobo-lastweek/site/hobo_bag_colour_red.jpg"
+ },
+ "packshots": [
+  "/tmp/run/hobo-lastweek/site/hobo_bag_colour_dark_sienna.jpg",
+  "/tmp/run/hobo-lastweek/site/hobo_bag_colour_galaxy_black.jpg",
+  "/tmp/run/hobo-lastweek/site/hobo_bag_colour_blue.jpg",
+  "/tmp/run/hobo-lastweek/site/hobo_bag_colour_grey.jpg",
+  "/tmp/run/hobo-lastweek/site/hobo_bag_colour_burgundy.jpg",
+  "/tmp/run/hobo-lastweek/site/hobo_bag_colour_red.jpg"
+ ],
+ "brief": null,
+ "ai": {
+  "stills": 3,
+  "clips": 0,
+  "est_credits": 3.0,
+  "budget": {
+   "cap": 100.0,
+   "tts_est": 4.5,
+   "reserve": 8.0
+  },
+  "scenes": [
+   "p01_s01_neon_offer",
+   "p01_s02_day_strip",
+   "p01_s03_christmas_list"
+  ],
+  "next": "python3 pipeline/ai_gen.py show --out /tmp/run/hobo-lastweek"
+ },
+ "winners_source": null,
+ "winners_note": null,
+ "winners_used": [],
+ "unmatched_winners": [],
+ "warnings": [
+  "campaign: Black Friday Sale 2026 (2026-10-23 to 2026-11-30, client-approved): end cards say 'Black Friday Sale' + 'UP TO 60% OFF'; the close and the ad copy name the sale; each bag's own % stays its offer",
+  "ideas: P01 c3: an earlier batch already said: 'Your cards go in the hidden back pocket, flat against you.'",
+  "ideas: P01 c4: an earlier batch already said: \"It's fifty percent off with free shipping, and the sale ends on the thirtieth of November.\"",
+  "ideas: 3 AI statics of 5 (3 designed ads, 0 studio scenes; about 3 credits plus retries)",
+  "another batch of Hobo Bag is being made right now (B052, not in Drive yet): its hooks and statics are not in the novelty log yet, so the two batches may share some; say so in the reply",
+  "Hobo Bag has 13 earlier batch(es) in the novelty log: the statics start 13 step(s) further in their photo / headline cycle (other photos and captions than before)"
+ ],
+ "winner_reviews": false,
+ "seed": 1,
+ "hooks": 4,
+ "pipeline": "catalog",
+ "video_format": "ugc",
+ "ugc_numbers": [],
+ "voice": {
+  "voice_type": "element",
+  "voice_id": "241459b6-b4e8-4a2a-9868-da8bcdcd0558",
+  "speed": 1.12
+ },
+ "projects": [
+  {
+   "id": "P01",
+   "from_id": "V01",
+   "angle": "twostraps",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P01H1",
+     "name": "LC_261117_HoboBag_BlackFriday_B053_P01_H1_twostraps",
+     "hook_text": "Before you buy a crossbody, look at this hobo.",
+     "label": "LOOK FIRST",
+     "type": "warning",
+     "shot": [
+      "1G6B5yfeTUCh6NAy_fq7kc37qoSOgVmKE",
+      2.65
+     ],
+     "est_seconds": 30.6
+    },
+    {
+     "hook": "H2",
+     "id": "P01H2",
+     "name": "LC_261117_HoboBag_BlackFriday_B053_P01_H2_twostraps",
+     "hook_text": "Want one bag for the shoulder, the hand and crossbody?",
+     "label": "THREE WAYS?",
+     "type": "question",
+     "shot": [
+      "1J6TLYwW_SOJEzXCD09Doaw7w5n_WDVnx",
+      11.16
+     ],
+     "est_seconds": 30.9
+    },
+    {
+     "hook": "H3",
+     "id": "P01H3",
+     "name": "LC_261117_HoboBag_BlackFriday_B053_P01_H3_twostraps",
+     "hook_text": "Watch one bag change three ways.",
+     "label": "WATCH THIS",
+     "type": "promise",
+     "shot": [
+      "1f_9Fjvv6B2cnF8Z0lFf__xn_RJEvpLQ0",
+      11.25
+     ],
+     "est_seconds": 29.6
+    },
+    {
+     "hook": "H4",
+     "id": "P01H4",
+     "name": "LC_261117_HoboBag_BlackFriday_B053_P01_H4_twostraps",
+     "hook_text": "Half price, two straps, and a wallet in the box.",
+     "label": "50% + WALLET",
+     "type": "price",
+     "shot": [
+      "1Rj3QE3QSg73kbPB1qCg7qo7az2SvQEPb",
+      4.6
+     ],
+     "est_seconds": 30.9
+    }
+   ],
+   "closer": true
+  }
+ ],
+ "hooks_seed": 1
+}

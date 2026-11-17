@@ -1,0 +1,266 @@
+{
+ "mode": "ugc",
+ "voice_speed": 1.12,
+ "blocks": [
+  {
+   "vo": "P01H2_hook.mp3",
+   "broll": [
+    [
+     "1J6TLYwW_SOJEzXCD09Doaw7w5n_WDVnx",
+     11.16,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "1rW8joq7MZKj_AKkX4IJJzjfgqlnMg8ph",
+     2.95,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V01_c1.mp3",
+   "broll": [
+    [
+     "1SFyH5GX8_D2KC-VwVyqsKBOUi39tLaHi",
+     0.3,
+     1.0,
+     {
+      "at": 0
+     }
+    ],
+    [
+     "1Y2oMC5e85phr54mvZG21xJhEj0dTaI2J",
+     1.95,
+     1.0,
+     {
+      "at": 15
+     }
+    ]
+   ],
+   "spare": [
+    [
+     "10AwB1uAdRXbIY2gjhJl1q1pbuip29YJN",
+     5.4,
+     1.0
+    ],
+    [
+     "18wOkQ9ToI66y133XanUgEZT0I4Q25Ea1",
+     4.87,
+     1.0
+    ],
+    [
+     "1VRFPFuAszrbjjnveV-zptaTBqVPxccu0",
+     0.32,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V01_c2.mp3",
+   "broll": [
+    [
+     "1YhwNw7JcsdFLXmpOvCeTDELVraU3Uicm",
+     0.3,
+     1.0,
+     {
+      "at": 0
+     }
+    ],
+    [
+     "1SFyH5GX8_D2KC-VwVyqsKBOUi39tLaHi",
+     3.71,
+     1.0,
+     {
+      "at": 5
+     }
+    ],
+    [
+     "1JlS7-GlKLkqklk0xTO2jwXZ2VezE4us4",
+     3.15,
+     1.0,
+     {
+      "at": 13
+     }
+    ]
+   ],
+   "spare": [
+    [
+     "13WPNZDUpQdyDm4VKoJezn1StKDv4ixu4",
+     4.41,
+     1.0
+    ],
+    [
+     "1JlS7-GlKLkqklk0xTO2jwXZ2VezE4us4",
+     0.3,
+     1.0
+    ]
+   ],
+   "proof": true
+  },
+  {
+   "vo": "V01_c3.mp3",
+   "broll": [
+    [
+     "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+     1.0,
+     1.0,
+     {
+      "at": 0
+     }
+    ],
+    [
+     "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+     6.0,
+     1.0,
+     {
+      "at": 8
+     }
+    ]
+   ],
+   "spare": [
+    [
+     "1Rj3QE3QSg73kbPB1qCg7qo7az2SvQEPb",
+     0.3,
+     1.0
+    ],
+    [
+     "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+     9.0,
+     1.0
+    ],
+    [
+     "10uhhKdeKztcGarl-uoLMO4kJk8phF54N",
+     6.23,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V01_c4.mp3",
+   "broll": [
+    [
+     "1Ud2dhrP5f_E0z2WRMS7yxXJmhTda91-t",
+     2.61,
+     1.0,
+     {
+      "at": 0
+     }
+    ],
+    [
+     "1PTzgnuS7-LGgJAA1oDaBOX7kLLH24v1T",
+     9.97,
+     1.0,
+     {
+      "at": 7
+     }
+    ],
+    [
+     "site/hobo_bag_colour_dark_sienna.jpg",
+     0,
+     1.0,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ],
+      "at": 16
+     }
+    ]
+   ],
+   "spare": [
+    [
+     "1f_9Fjvv6B2cnF8Z0lFf__xn_RJEvpLQ0",
+     0.75,
+     1.0
+    ],
+    [
+     "1PTzgnuS7-LGgJAA1oDaBOX7kLLH24v1T",
+     5.58,
+     1.0
+    ]
+   ]
+  }
+ ],
+ "overlays": [
+  {
+   "type": "label",
+   "text": "THREE WAYS?",
+   "block": 0,
+   "at": 0.1,
+   "dur": 1.8
+  },
+  {
+   "type": "tag",
+   "text": "3 WAYS TO WEAR",
+   "block": 2,
+   "at": 0.15,
+   "dur": 2.6
+  },
+  {
+   "type": "tag",
+   "text": "HIDDEN BACK POCKET",
+   "block": 3,
+   "at": 0.15,
+   "dur": 2.6
+  }
+ ],
+ "end_title": "Black Friday Sale",
+ "offer": {
+  "block": 4,
+  "word": "50",
+  "title": "BLACK FRIDAY 50% OFF",
+  "sub": "+ FREE MATCHING WALLET"
+ },
+ "end_photo": "site/hobo_bag_colour_galaxy_black.jpg",
+ "end_offer": "UP TO 60% OFF",
+ "keywords": [
+  "50%",
+  "free",
+  "pouch",
+  "wallet",
+  "gift",
+  "gifts",
+  "hidden",
+  "pocket",
+  "leather",
+  "black",
+  "friday"
+ ],
+ "spare_broll": [
+  [
+   "1ew4LpLFUTvH1qO52xwOpzLblWLFdr9y4",
+   1.49,
+   1.0
+  ],
+  [
+   "1NfJpAj3lHf0XhhUR3984nRv8rKAy4Lo_",
+   4.13,
+   1.0
+  ],
+  [
+   "1_S0UvWZSIsuisD9-virT1ZPzijMaF-08",
+   1.46,
+   1.0
+  ],
+  [
+   "1RDfbLshVfj_-0pZXhC0I46RJ3obq3U3F",
+   4.67,
+   1.0
+  ],
+  [
+   "10ev2Mfet9vPJ-jRrxK4fdn2sr3BmTFTV",
+   29.8,
+   1.0
+  ],
+  [
+   "1UcPs3RM-Iwrzd5rgOIA6Wxii0i3R3xqL",
+   0.3,
+   1.0
+  ]
+ ],
+ "music": {
+  "seed": 1
+ }
+}

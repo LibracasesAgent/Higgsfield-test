@@ -1,0 +1,80 @@
+{
+ "ads": [
+  {
+   "layout": "ad",
+   "photo": "ai/AS01.png",
+   "format": "neon_offer",
+   "words": [
+    "50% OFF",
+    "Late train home. Cards on your side."
+   ],
+   "headline": "Late train home. Cards on your side.",
+   "name": "LC_261117_HoboBag_BlackFriday_B053_S01_neon",
+   "ai": {
+    "id": "AS01",
+    "scene": "p01_s01_neon_offer",
+    "colour": "Galaxy Black",
+    "format": "neon_offer"
+   }
+  },
+  {
+   "layout": "native",
+   "photo": "photos/frames/F_1Ud2dhrP5f_0144.jpg",
+   "caption": "Two straps, three looks.",
+   "pct": 50,
+   "name": "LC_261117_HoboBag_BlackFriday_B053_S02_native",
+   "frame": {
+    "clip": "1Ud2dhrP5f_E0z2WRMS7yxXJmhTda91-t",
+    "t": 14.44
+   }
+  },
+  {
+   "layout": "native",
+   "photo": "photos/frames/F_1tdhK5RpMN_0066.jpg",
+   "caption": "Mum: sorted. Wallet included.",
+   "pct": 50,
+   "name": "LC_261117_HoboBag_BlackFriday_B053_S03_native",
+   "frame": {
+    "clip": "1tdhK5RpMNQNhGObrdfcRG2jlL5b8s1Pa",
+    "t": 6.67
+   }
+  },
+  {
+   "look": "hook",
+   "hook": "Phone sinking to the bottom again?",
+   "sub": "Two gold side zips keep it in reach.",
+   "kicker": "EARLY BLACK FRIDAY",
+   "highlight": [
+    "phone"
+   ],
+   "layout": "story",
+   "photo": "photos/frames/F_19apT6XvQU_0036.jpg",
+   "headline": "Phone sinking to the bottom again?",
+   "name": "LC_261117_HoboBag_BlackFriday_B053_S04_hook",
+   "us": "Hobo Bag",
+   "pct": 50,
+   "gift": "free pouch wallet",
+   "frame": {
+    "clip": "19apT6XvQUqXbpP9VhGhwQhNiAsSV25MV",
+    "t": 3.68
+   }
+  },
+  {
+   "look": "quote",
+   "review": 10,
+   "review_text": "Has other zipper compartments for other essentials.",
+   "layout": "story",
+   "photo": "photos/frames/F_1BHVZu65IF_0067.jpg",
+   "headline": "Has other zipper compartments for other essentials.",
+   "name": "LC_261117_HoboBag_BlackFriday_B053_S05_quote",
+   "us": "Hobo Bag",
+   "pct": 50,
+   "gift": "free pouch wallet",
+   "frame": {
+    "clip": "1BHVZu65IFUz5QJqtY1EV3Y_4ICbh-1bJ",
+    "t": 6.71
+   }
+  }
+ ],
+ "card_photos": []
+}

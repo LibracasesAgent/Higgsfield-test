@@ -1,0 +1,12 @@
+{
+ "ok": true,
+ "product": "Hobo Bag",
+ "offer": "50% off + free matching pouch wallet",
+ "checked": 109,
+ "problems": [],
+ "allowed": [],
+ "raw_story": [],
+ "raw_cuts": [],
+ "playbook_warnings": [],
+ "report": "/tmp/run/hobo-lastweek/compliance.json"
+}

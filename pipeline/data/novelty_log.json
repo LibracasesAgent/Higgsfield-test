@@ -3793,7 +3793,83 @@
      ]
     },
     {
-     "clips": [],
+     "clips": [
+      {
+       "clip_id": "1G6B5yfeTUCh6NAy_fq7kc37qoSOgVmKE"
+      },
+      {
+       "clip_id": "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X"
+      },
+      {
+       "clip_id": "1JlS7-GlKLkqklk0xTO2jwXZ2VezE4us4"
+      },
+      {
+       "clip_id": "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06"
+      },
+      {
+       "clip_id": "1f_9Fjvv6B2cnF8Z0lFf__xn_RJEvpLQ0"
+      },
+      {
+       "clip_id": "1Ud2dhrP5f_E0z2WRMS7yxXJmhTda91-t"
+      },
+      {
+       "clip_id": "1NfJpAj3lHf0XhhUR3984nRv8rKAy4Lo_"
+      },
+      {
+       "clip_id": "1_S0UvWZSIsuisD9-virT1ZPzijMaF-08"
+      },
+      {
+       "clip_id": "1Rj3QE3QSg73kbPB1qCg7qo7az2SvQEPb"
+      },
+      {
+       "clip_id": "1Y2oMC5e85phr54mvZG21xJhEj0dTaI2J"
+      },
+      {
+       "clip_id": "10AwB1uAdRXbIY2gjhJl1q1pbuip29YJN"
+      },
+      {
+       "clip_id": "1YhwNw7JcsdFLXmpOvCeTDELVraU3Uicm"
+      },
+      {
+       "clip_id": "1VRFPFuAszrbjjnveV-zptaTBqVPxccu0"
+      },
+      {
+       "clip_id": "1RDfbLshVfj_-0pZXhC0I46RJ3obq3U3F"
+      },
+      {
+       "clip_id": "18wOkQ9ToI66y133XanUgEZT0I4Q25Ea1"
+      },
+      {
+       "clip_id": "13WPNZDUpQdyDm4VKoJezn1StKDv4ixu4"
+      },
+      {
+       "clip_id": "1SFyH5GX8_D2KC-VwVyqsKBOUi39tLaHi"
+      },
+      {
+       "clip_id": "1ew4LpLFUTvH1qO52xwOpzLblWLFdr9y4"
+      },
+      {
+       "clip_id": "1J6TLYwW_SOJEzXCD09Doaw7w5n_WDVnx"
+      },
+      {
+       "clip_id": "1UcPs3RM-Iwrzd5rgOIA6Wxii0i3R3xqL"
+      },
+      {
+       "clip_id": "1yy0byvJcTJnj-xlvUJlxwUG6g9Md_sv3"
+      },
+      {
+       "clip_id": "10ev2Mfet9vPJ-jRrxK4fdn2sr3BmTFTV"
+      },
+      {
+       "clip_id": "10uhhKdeKztcGarl-uoLMO4kJk8phF54N"
+      },
+      {
+       "clip_id": "1PTzgnuS7-LGgJAA1oDaBOX7kLLH24v1T"
+      },
+      {
+       "clip_id": "1rW8joq7MZKj_AKkX4IJJzjfgqlnMg8ph"
+      }
+     ],
      "date": "2026-11-17",
      "name": "B053 – 2026-11-17 – Hobo Bag BlackFriday – 5 statics + 1 projects",
      "statics": [
@@ -3829,7 +3905,42 @@
        "photo": "F_1BHVZu65IF_0067.jpg"
       }
      ],
-     "videos": []
+     "videos": [
+      {
+       "angle": "twostraps",
+       "chapters": [
+        "Right now the Hobo Bag is fifty percent off in the Early Black Friday sale, and the matching pouch wallet comes with it.",
+        "Two straps in the box. Clip on the short one for a handbag, the long one for crossbody.",
+        "Your cards go in the hidden back pocket, flat against you. Keys and phone go in the gold side zips.",
+        "It's fifty percent off with free shipping, and the sale ends on the thirtieth of November. Tap the link below."
+       ],
+       "hook": "Before you buy a crossbody, look at this hobo.",
+       "hook_type": "warning",
+       "script": "U01",
+       "structure": "closer"
+      },
+      {
+       "angle": "twostraps",
+       "hook": "Want one bag for the shoulder, the hand and crossbody?",
+       "hook_type": "warning",
+       "script": "U01",
+       "structure": "closer"
+      },
+      {
+       "angle": "twostraps",
+       "hook": "Watch one bag change three ways.",
+       "hook_type": "warning",
+       "script": "U01",
+       "structure": "closer"
+      },
+      {
+       "angle": "twostraps",
+       "hook": "Half price, two straps, and a wallet in the box.",
+       "hook_type": "warning",
+       "script": "U01",
+       "structure": "closer"
+      }
+     ]
     }
    ]
   },
