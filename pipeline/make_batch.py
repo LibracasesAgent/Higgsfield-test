@@ -296,7 +296,7 @@ PRODUCTS = {
              [["hobo_bag", "black_detail", 9.5], ["hobo_bag", "black_detail", 16.0]]),               # customer's clip:
             ("Two straps, so you can wear it on the shoulder, as a handbag, or crossbody.", "3 WAYS TO WEAR",   # she talks
              [["hobo_3piece_set", "brown_room_outside", 21.0], ["hobo_3piece_set", "brown_room_outside", 84.0]]),
-            ("Soft, water-resistant leather that looks expensive and only gets better with time.", "SOFT LEATHER",
+            ("Soft, water-resistant leather that looks expensive.", "SOFT LEATHER",
              [["hobo_bag", "details_macro_4k", 0.5], ["hobo_bag", "metal_details_4k", 4.0]]),
         ],
         customer=[["hobo_bag", "testi_black", 14.16, 25.43], ["hobo_bag", "testi_black", 26.0, 40.57],   # whole sentences
@@ -493,8 +493,12 @@ def product(pk, files, warnings=None):
     w = warnings if warnings is not None else []
     if pk in PRODUCTS and not (pk in files and os.environ.get("LC_PRODUCT_FILE") == pk):
         d = PRODUCTS[pk]["deal"]
+        revs = [n for n in PRODUCTS[pk].get("reviews") or [] if review_of(n, pk)]
+        if revs != list(PRODUCTS[pk].get("reviews") or []):
+            w.append(f"{PRODUCTS[pk]['name']}: reviews {[n for n in PRODUCTS[pk]['reviews'] if n not in revs]} left out: reviews.json "
+                     f"does not say they are about this bag (Julian 2026-11-19: quotes only from reviews of the bag in the ad)")
         return dict(PRODUCTS[pk], key=pk, offer=builtin_offer(d["pct"], d.get("gift"), d), photos=[], clips=[],
-                    source="built-in", status="ready", site_lifestyle=[])
+                    source="built-in", status="ready", site_lifestyle=[], reviews=revs)
     d = files[pk]
     revs = [n for n in d.get("reviews") or [] if new_product.review_about(n, d)]
     if revs != list(d.get("reviews") or []):
@@ -736,6 +740,19 @@ def bank():
 
 def clip(b, sec, key):
     return b[sec][key]["id"]
+
+
+REVIEW_OF = {"hobo bag": "hobo bag", "hobo 2.0": "hobo 2.0", "vintage": "vintage bag", "slouchy": "slouchy bag",
+             "hobo bag 3-piece set": "hobo bag 3-piece set", "slouchy set": "slouchy set"}
+
+
+def review_of(n, pk):
+    """reviews.json review n is about built-in product pk: its 'product' (colour notes in brackets and '- ...' dropped) is exactly the
+    bag. 'any' (a store review with no bag named: 6-10) is about no bag, so no ad quotes it until the owner names its bag (Julian
+    2026-11-19 on B046 S10 / B050 S07 / B053 S05: 'quotes only from reviews of the bag in the ad')."""
+    rp = re.sub(r"\s*\(.*$|\s+-.*$", "", (reviews_by_n().get(n) or {}).get("product") or "").lower().strip()
+    want = REVIEW_OF.get(pk, (PRODUCTS.get(pk) or {}).get("name", pk)).lower()
+    return bool(rp) and rp != "any" and rp == want
 
 
 def reviews_by_n():
@@ -4188,6 +4205,28 @@ def folder_name(p, name_arg="", today=""):
     return f"{lbt['id']} – {date_} – {desc}"
 
 
+def whole_video(f, seconds=None):
+    """[] when the file is a whole video, else the hard problem (2026-11-19: B051 P02 H1 went to Drive at 17.6 MB of ~42 after a
+    worker restart cut its render short): ffprobe must read it to the end, and its length must be the length render reported."""
+    try:
+        r = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", f],
+                           capture_output=True, text=True, timeout=60)
+        dur = float((r.stdout or "").strip().splitlines()[0])
+    except (subprocess.SubprocessError, ValueError, IndexError, OSError):
+        return ["broken file: ffprobe cannot read it (a cut-short render): render it again"]
+    if seconds and dur < 0.97 * float(seconds):
+        return [f"broken file: {dur:.1f} s of the {float(seconds):.1f} s render reported (a cut-short render): render it again"]
+    try:          # a faststart mp4 keeps its full header when the data after it is cut: every frame it lists must be readable
+        r = subprocess.run(["ffprobe", "-v", "quiet", "-count_packets", "-select_streams", "v:0", "-show_entries",
+                            "stream=nb_frames,nb_read_packets", "-of", "csv=p=0", f], capture_output=True, text=True, timeout=180)
+        frames, read = [int(x) for x in r.stdout.strip().splitlines()[0].split(",")[:2]]
+        if read < frames:
+            return [f"broken file: only {read} of its {frames} frames are in the file (a cut-short render or copy): render it again"]
+    except (subprocess.SubprocessError, ValueError, IndexError, OSError):
+        pass
+    return []
+
+
 def upload(a):
     """Uploads the files plan.json lists (never leftovers in the folder). Hard QA failures (render failed, file
     missing, a face in a static, a video under its floor: 25 s storyboard, 15 s winner) stay out; length / anchor /
@@ -4252,6 +4291,8 @@ def upload(a):
             continue
         if not os.path.exists(f):
             hard = hard or ["file missing (not rendered)"]
+        elif kind == "video":
+            hard = hard + whole_video(f, r.get("seconds"))
         if hard and not (a.include_flagged and kind == "video" and os.path.exists(f)):
             skipped.append(dict(name=n, problems=r.get("problems") or hard))
             print(f"skipped (QA hard failure): {n}: {'; '.join(r.get('problems') or hard)}", file=sys.stderr)
@@ -4410,9 +4451,12 @@ def upload(a):
             import ledger
             sads = {x["name"]: x for x in json.load(open(os.path.join(out, "statics.json"))).get("ads") or []}
             vads = {v["name"]: v for v in p["videos"]}
-            ads = [dict(name=n_, kind=k_, fp=ledger.static_fp(sads[n_]), label=sads[n_].get("caption") or sads[n_].get("headline") or "")
+            qa_ = {x["name"]: x["problems"] for x in flagged}      # a QA flag (soft): the tracker lists that ad as '⚠ Check', not Ready
+            ads = [dict(name=n_, kind=k_, fp=ledger.static_fp(sads[n_]), label=sads[n_].get("caption") or sads[n_].get("headline") or "",
+                        flags=qa_.get(n_) or [])
                    for n_, k_, _ in uploaded if k_ == "static" and n_ in sads] + \
-                  [dict(name=n_, kind=k_, fp=ledger.video_fp(vads[n_].get("hook_text") or ""), label=vads[n_].get("hook_text") or "")
+                  [dict(name=n_, kind=k_, fp=ledger.video_fp(vads[n_].get("hook_text") or ""), label=vads[n_].get("hook_text") or "",
+                        flags=qa_.get(n_) or [])
                    for n_, k_, _ in uploaded if k_ == "video" and n_ in vads]
             bt = ledger.uploaded(lbt["n"], name, link, ads)
             if bt:

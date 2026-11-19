@@ -53,7 +53,7 @@ def test_the_library_and_the_fixture():
 def test_a_feature_list_is_refused():
     s = sheet()
     c = s["projects"][0]["chapters"]
-    c.insert(5, dict(kind="point", beat="second_move", text="Inside, divided compartments, and soft leather that only gets better.",
+    c.insert(5, dict(kind="point", beat="second_move", text="Inside, divided compartments, and soft leather that looks expensive.",
                      tag="SMART COMPARTMENTS", show=["inside", "worn"]))
     assert has(problems(s), "features", "at most 3")
 

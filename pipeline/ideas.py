@@ -1089,8 +1089,8 @@ def packet(pr, theme, n_projects, n_statics, request=""):
           "delivery, so four similar videos count as one. Never the same structure twice in a batch.",
           "- Open with a reason to buy this bag in the first 2 seconds, shown not told (a hand that can't reach the back pocket, the zip "
           "closing, what fits, two ways to carry); the sale is the close. Every brand opens with '50% off' in November: our videos don't (the statics do show it, below).",
-          "- Sell the 3-Piece Set where it fits (the Hobo Bag page offers it as the 'Best Value' upgrade; its ads ran at ROAS ~3 with a "
-          "bigger basket): three pieces for one price.",
+          "- Sell the 3-Piece Set where it fits (its ads ran at ROAS ~3 with a bigger basket): three pieces for one price. Never "
+          "'Best Value' (the Hobo Bag page dropped that label: Julian 2026-11-19).",
           "- No exact prices in new lines or statics while the owner tests a price change: say the % ('50% off', 'up to 60% off').",
           "- Statics: one idea each, few words, the bag big; most should be AI ads (the AI ads 'seem to be starting to work': owner): "
           "the `ad` formats of section 5, each batch new ones, realistic, never the same look twice.",
@@ -1098,8 +1098,7 @@ def packet(pr, theme, n_projects, n_statics, request=""):
           "work.'): every `ad` carries the offer in its words as a HERO element of the design (giant numerals behind the bag, a swing tag on "
           "the strap, a sticker burst, a window decal, neon, a stamp, a ribbon, a sale shopping bag: the offer-led formats of section 5), "
           "every `concept` has `pill: true`, every real static gets the % badge. Lead with the product's own offer stack from the site: "
-          "the Hobo Bag '50% OFF + FREE pouch wallet + free shipping', the 3-Piece Set '60% OFF, 3 bags, 1 set' (the site's 'Best Value' "
-          "upgrade), the Hobo 2.0 '50% OFF'. The check refuses an ad without it.",
+          "the Hobo Bag '50% OFF + FREE pouch wallet + free shipping', the 3-Piece Set '60% OFF, 3 bags, 1 set', the Hobo 2.0 '50% OFF'. The check refuses an ad without it.",
           "- **Scroll-stoppers, studio level, a different design every time** (the owner 2026-11-04: 'offers are nice but the design is the "
           "same every time ... studio level design with offers that increase scroll stopping'): the account's long-running image ads (Meta "
           "Ad Library, Libra's own, some live since Sep 2025) all make the offer the loudest words and the set or the bag big, on a "

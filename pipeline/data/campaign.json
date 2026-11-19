@@ -32,7 +32,6 @@
     "50% off everything sitewide (each bag's own % is on its offer card: the Hobo Bag is 50% off).",
     "Up to 60% off: some bundles are 60% off, like the Hobo Bag 3-Piece Set. Say '60% off' only of the 3-Piece Set (or another named bundle), never of a single bag or of 'any 2 bags'.",
     "No free gifts and no extra cart discount: both were removed by the owner on 26 October.",
-    "The Hobo Bag's product page offers the 3-Piece Set as the 'Best Value' upgrade.",
     "Black Friday prices are live now: no need to wait.",
     "Sale items are final sale: they cannot be returned (the site's Black Friday terms); faulty items are still covered and the 1-year warranty still applies. Never say 'easy returns', 'free returns' or 'send it back' in a Black Friday ad.",
     "Christmas delivery (the site's Black Friday terms, filled in by 27 October): order by 14 December 2026 for the best chance of delivery before Christmas; delivery before Christmas is not guaranteed, so say 'the best chance', never 'guaranteed by Christmas'."
@@ -77,8 +76,12 @@
    "terms": "https://libracases.com/pages/terms-and-conditions-black-friday-sale",
    "upto_pct": 60,
    "bundle_any": false,
-   "client_ideas": "Owner 2026-10-26: everything is on sale everywhere, so stand out; the Hobo Bag page upsells the 3-Piece Set ('Best Value'): ads that sell the set raise the order value; 'Black Friday prices are live now, no need to wait'; Christmas gifting (mum, sister, best friend); 2 straps on the Hobo 2.0 (handbag + crossbody); in the last week: Black Friday 27 November, Cyber Monday 30 November, 'last chance'. The AI ads 'seem to be starting to work: keep testing'.",
+   "client_ideas": "Owner 2026-10-26: everything is on sale everywhere, so stand out; ads that sell the 3-Piece Set raise the order value (the Hobo Bag page no longer labels it 'Best Value': checked 2026-11-19, Julian on B052); 'Black Friday prices are live now, no need to wait'; Christmas gifting (mum, sister, best friend); 2 straps on the Hobo 2.0 (handbag + crossbody); in the last week: Black Friday 27 November, Cyber Monday 30 November, 'last chance'. The AI ads 'seem to be starting to work: keep testing'.",
    "banned": [
+    {
+     "rx": "\\bbest[- ]value\\b",
+     "why": "the Hobo Bag page no longer labels the 3-Piece Set 'Best Value' (checked 2026-11-19; Julian held B052 P01 + P02 for it): say what the set is, three matching pieces at 60% off"
+    },
     {
      "rx": "\\bfree gifts?\\b|\\bgifts? with (?:2|two|3|three|every)\\b|\\bfree (?:mirrored )?jewell?e?ry box(?:es)?\\b|\\bfree (?:travel )?cosmetic bags?\\b|\\bjewell?e?ry box\\b|\\bcosmetic bag\\b",
      "why": "the free gifts were removed by the owner on 26 October (not coming back): say the bag's own free pouch wallet, if it has one"

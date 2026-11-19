@@ -38,14 +38,14 @@ def photo(d):
 
 LOOKS = {
     "hook": dict(kicker="EARLY BLACK FRIDAY", hook="Keys at the bottom of your bag again?", highlight=["Keys"],
-                 sub="Two gold side zips keep them in reach.", review=10),
-    "quote": dict(kicker="Christmas, sorted", review=9, review_text="Got this bag for my daughter for Christmas and she adores it."),
-    "list": dict(hook="3 reasons it goes everywhere with you", highlight=["everywhere"], review=7,
+                 sub="Two gold side zips keep them in reach.", review=2),
+    "quote": dict(kicker="Christmas, sorted", review=12, review_text="I love my black Libra Handbag!"),
+    "list": dict(hook="3 reasons it goes everywhere with you", highlight=["everywhere"], review=2,
                  points=["A hidden pocket that sits flat against you", "Two gold side zips for keys and phone",
                          "Two straps: shoulder, hand or crossbody"]),
     "versus": dict(hook="Your old tote vs the Hobo Bag", highlight=["Hobo", "Bag"], them="Open tote", us="Hobo Bag", review=12,
                    rows=[["Open top", "Zips shut"], ["Everything sinks", "Smart compartments"], ["One way to carry", "3 ways to wear"]]),
-    "stack": dict(hook="Everything you get for half price", highlight=["half", "price"], review=8,
+    "stack": dict(hook="Everything you get for half price", highlight=["half", "price"], review=12,
                   points=["The Hobo Bag", "Matching pouch wallet, free", "Free US shipping", "1-year warranty"]),
 }
 
@@ -121,10 +121,10 @@ def good():
 def test_the_sheet_check():
     P, W = problems(good())
     assert P == [], P
-    assert ideas.story_line(good()[1]).startswith("Got this bag")
+    assert ideas.story_line(good()[1]).startswith("I love my black")
     assert [i for i, _ in ideas.concept_scenes(story_sheet(good()))] == [2]       # (only the one with a scene is an AI still)
     cases = {"look": dict(look="poster"), "hook": dict(hook="Keys"), "highlight": dict(highlight=["wallet"]),
-             "review": dict(review=11), "verbatim": dict(review=10, review_text="It holds everything and more."),
+             "review": dict(review=11), "verbatim": dict(review=2, review_text="It holds everything and more."),
              "brand": dict(look="versus", them="Michael Kors", rows=[["Open top", "Zips shut"]] * 3, hook="Your old tote vs ours"),
              "first": dict(hook="I love how my keys stay in reach")}
     want = {"look": "look 'poster'", "hook": "hook:", "highlight": "highlight 'wallet'", "review": "not one of Hobo Bag's reviews",

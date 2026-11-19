@@ -719,6 +719,30 @@ The owner on B017: "the bag is not in the correct dimensions. It's not the corre
   photos and the footage show two different bags: the client should know.
 - **A new product with two looks:** add it to `designs.json` (`site`, `library`, `bank_sections`, `designs`), tag the clips.
 
+### 4q. Julian's review of B046-B053 (2026-11-19): one problem holds the whole batch or project
+
+Julian launched B053 P01, B051 P01, B051 P03 and B049 P02 and held the rest. What each was and the rule it became:
+- **Material claims** (B049 P01, the MAX-33 RAW: "full grain leather", "develops a gorgeous patina", "looks better every year";
+  B053 S02's copy "only gets better with time"): the site's Our Leather page says premium vegan leather, not animal leather. Wouter:
+  "We can say leather". `compliance.MATERIAL` is a HARD category: full / top grain, genuine / real / animal leather, cowhide, patina,
+  "gets better with age / time", "only gets better", "looks better every year", ages beautifully: refused in our lines, labels,
+  reviews and the winner RAW audio (`edit.claim_cuts`). raw33_H5 now cuts 22.12-33.9 ("Reason 2. High quality leather.") and keeps
+  2 clean openings with a second label each.
+- **"Best Value"** (B052 P01 + P02): true on 26 Oct, gone from the Hobo page now. Out of `campaign.json` facts, and banned there.
+- **% only, never $** on statics: `brand_statics.pct_only` drops `price` / `was` from every spec (the value layout shows the % plate)
+  and refuses any other $ figure.
+- **Quotes only from reviews of the bag in the ad**: reviews 6-10 are `"product": "any"` (store reviews): `make_batch.review_of`
+  keeps a built-in bag's review only when reviews.json names that bag. Until Wouter names their bags the Vintage Bag and the 3-Piece
+  Set have no quotable review (no quote statics; the engine's quotes slots take the next layout).
+- **No "Up to 60% Off Bundles" on a single bag's copy** (Hobo, Vintage): `ad_copy.camp_lines(field, prod)` drops the bundle lines
+  for a product that is not a set; the offer line says the bag's own %.
+- **QA flags come in as Check, not Ready**: upload records each ad's soft flags in the ledger (`flags`) and the tracker gives the row
+  `⚠ Check` (never over a status people set).
+- **A cut-short file never uploads** (B051 P02 H1 went up at 17.6 MB of ~42 after a worker restart): `make_batch.whole_video` compares
+  the frames the mp4 header lists with the frames ffprobe can read and the length render reported: a hard failure, upload skips it.
+- My own misses: B052 S03's headline was set by hand over a fallback packshot (the line must describe the picture it is on); B046 S14
+  repeated B025 although `plan` warned `repeat:` (a repeat warning means change or drop the static before render).
+
 ### 4i. Closers: the 25-35 s offer video (Lalith 2026-11-06, from the 30-day winners)
 
 The account's biggest ad of the last 30 days (Nov 2026) is ACH-SVIT-190-H3: $19.9k, ROAS 2.36, **27 s** (docs/research/2026-11-winners-30d.md).

@@ -67,7 +67,7 @@ def test_the_sale_layouts_render():
     gifts = [dict(src=os.path.relpath(os.path.join(os.path.dirname(HERE), "assets", "gifts", f), d), label=lb)       # (the layouts stay
              for f, lb in (("jewellery_box.jpg", "FREE JEWELLERY BOX"), ("cosmetic_bag.jpg", "+ FREE COSMETIC BAG"))]   # for a later sale)
     for spec in (dict(name="g", layout="gifts", photo="bag_a.jpg", kicker="BLACK FRIDAY SALE", headline="Buy 2 bags, get a free gift.",
-                      gifts=gifts, rows=["2 bags: a free mirrored jewellery box (worth $19.95)"], note="Only bags count", cta="Shop now"),
+                      gifts=gifts, rows=["2 bags: a free mirrored jewellery box"], note="Only bags count", cta="Shop now"),
                  dict(name="b", layout="bundle", photos=["bag_a.jpg", "bag_b.jpg"], kicker="BLACK FRIDAY SALE",
                       headline="One for you, one for her.", pill="60% OFF 2 OR 3 BAGS", cta="Shop now")):
         im = bs.render(spec, d)

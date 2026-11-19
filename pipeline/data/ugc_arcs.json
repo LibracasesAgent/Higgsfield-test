@@ -877,10 +877,6 @@
      "t": "It looks expensive.",
      "needs": "expensive"
     },
-    {
-     "t": "It only gets better with time.",
-     "needs": "better with time"
-    },
     "It feels as good as it looks.",
     "You'll want to keep touching it."
    ],
@@ -1251,11 +1247,11 @@
    "SOFT LEATHER": {
     "concept": "leather",
     "fix": [
-     "Soft, water-resistant, scratch-proof leather that looks expensive and only gets better with time.",
-     "The leather is soft, water-resistant and scratch-proof, and it only gets better with time.",
-     "It's soft, water-resistant, scratch-proof leather, and it only gets better with time.",
+     "Soft, water-resistant, scratch-proof leather that looks expensive.",
+     "The leather is soft, water-resistant and scratch-proof, and it looks expensive.",
+     "It's soft, water-resistant, scratch-proof leather, and it looks expensive.",
      "The soft leather is water-resistant and scratch-proof, and it looks expensive.",
-     "Soft, water-resistant, scratch-proof leather that only gets better with time.",
+     "Soft, water-resistant, scratch-proof leather that looks expensive.",
      "The leather is soft, scratch-proof and water-resistant."
     ]
    }

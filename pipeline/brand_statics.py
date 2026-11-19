@@ -2377,9 +2377,25 @@ def render_motion(ad, sd, clip, dest, seconds=None):
         shutil.rmtree(tmp, ignore_errors=True)
 
 
+DOLLAR = re.compile(r"[$€£]\s?\d")
+
+
+def pct_only(ad):
+    """% only, never $ (Julian 2026-11-19 on B046 S15 / B050 S10: the media buyer's rule while prices move): every static drops its
+    price and was price (the value layout then shows the % as its red plate); any other text with a $ figure is refused."""
+    for k in ("price", "was"):          # (in place: the callers read what the layout writes back into the spec)
+        ad.pop(k, None)
+    for k, v in ad.items():
+        for t in ([v] if isinstance(v, str) else v if isinstance(v, list) else []):
+            if isinstance(t, str) and DOLLAR.search(t) and k not in ("photo", "name", "src"):
+                raise ValueError(f"{ad.get('layout')}: '{k}' prints a price ({t!r}): % only, never $ (Julian 2026-11-19)")
+    return ad
+
+
 def render(ad, sd, tries=6):
     """The static as an RGB image, checked for overlaps and off-canvas elements; retried with 5% smaller type while
     anything collides. Raises LayoutError when the last attempt still does."""
+    ad = pct_only(ad)
     TRACK[0] = True
     try:
         for k in range(tries):

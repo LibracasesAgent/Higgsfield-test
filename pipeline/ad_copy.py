@@ -338,11 +338,23 @@ def hook_lines(prod, w, angle, k, avoid=()):
 CAMP = [None]    # the plan's store-wide sale campaign (campaign.py): its offer lines, headlines and description come first
 
 
-def camp_lines(field):
-    """The campaign's own copy for a field (primary / headline / description), [] without a campaign."""
+BUNDLE_WORDS = re.compile(r"\bbundles?\b|\bup to (?:60|sixty)|\b(?:60|sixty) ?(?:%|percent)", re.I)
+
+
+def is_bundle(prod):
+    """A set / bundle product (the 3-Piece Set): the sale's 'up to 60% off bundles' is its own offer."""
+    return bool(re.search(r"\bset\b|\bbundle|piece", f"{getattr(prod, 'pk', '')} {(getattr(prod, 'pr', None) or {}).get('name', '')}", re.I))
+
+
+def camp_lines(field, prod=None):
+    """The campaign's own copy for a field (primary / headline / description), [] without a campaign. A single bag (Hobo Bag,
+    Vintage Bag ...) never gets the bundle lines ('Up to 60% Off Bundles'): its ad sells its own % (Julian 2026-11-19 on B046-B053)."""
     c = CAMP[0] or {}
     x = (c.get("copy") or {}).get(field)
-    return [x] if isinstance(x, str) else list(x or [])
+    out = [x] if isinstance(x, str) else list(x or [])
+    if prod is not None and not is_bundle(prod):
+        out = [y for y in out if not BUNDLE_WORDS.search(y)]
+    return out
 
 
 def offer_lines(prod):
@@ -352,7 +364,8 @@ def offer_lines(prod):
         own = [x for x in (fill(t, v) for t in prod.tpls(OFFER_LINE[key])) if x]
         gift2 = __import__("campaign").gift_line(CAMP[0], 2)
         upto = CAMP[0].get("upto_pct") or CAMP[0].get("bundle_pct")
-        return list(dict.fromkeys([f"{SALE_NAME.get(th, 'Black Friday')} Sale: up to {upto}% off" + (" + free gifts." if CAMP[0].get("gifts") else ".")] +
+        first = f"up to {upto}% off" if is_bundle(prod) or not prod.pct else f"{prod.pct}% off"   # (a single bag: its own %)
+        return list(dict.fromkeys([f"{SALE_NAME.get(th, 'Black Friday')} Sale: {first}" + (" + free gifts." if CAMP[0].get("gifts") else ".")] +
                                   ([f"Buy 2 bags, get {gift2}."] if gift2 else []) + own))
     if prod.pct:
         key = th if th in mb.SALE_THEMES else "gifting" if th in ("christmas", "gift", "mothers day") else "default"
@@ -465,7 +478,7 @@ def copy_set(prod, w, gid, angle, k, tag_order=None, review_n=None, avoid_hooks=
     first_f, second_f = HEADLINE_PREFS[hk]
 
     def heads(fams):
-        out = [x for x in camp_lines("headline") if "sale" in fams or "themed" in fams or "offer" in fams]
+        out = [x for x in camp_lines("headline", prod) if "sale" in fams or "themed" in fams or "offer" in fams]
         for f in fams:
             if f == "themed":
                 f = "sale" if prod.theme in mb.SALE_THEMES and prod.pct else prod.theme if prod.theme in HEADLINES else ""
@@ -482,7 +495,7 @@ def copy_set(prod, w, gid, angle, k, tag_order=None, review_n=None, avoid_hooks=
         (["gift_item"] if prod.gift and prod.theme in ("christmas", "gift", "mothers day") else []) + \
         (["colours"] if fam == "colours" else []) + (["offer"] if prod.pct else []) + \
         rot(["gift_item", "colours", "trust"], num(w.seed, f"d{k}"))
-    descs = [x for x in camp_lines("description") if len(x) <= LIMITS["description"]] + \
+    descs = [x for x in camp_lines("description", prod) if len(x) <= LIMITS["description"]] + \
         [x for f in dfam for x in (fill(t, v) for t in prod.tpls(DESCRIPTIONS[f])) if x]
     if (CAMP[0] or {}).get("final_sale"):     # sale items can't be returned: '1-year warranty' without 'easy returns'
         descs = [re.sub(r"\s*\+\s*easy returns", " included", x) for x in descs]

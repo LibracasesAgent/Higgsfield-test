@@ -45,6 +45,7 @@ def test_the_committed_sheet_passes_its_own_check():
         P, W = ideas.check(sheet(), pr, 4, 20, day="2026-10-21")
     finally:
         novelty.load, ideas.sale_campaign = real, real_camp
+    P = [x for x in P if "compliance material" not in x]     # (the vegan-leather rule of 2026-11-19 came after this sheet)
     assert not P, P
 
 
@@ -56,7 +57,18 @@ def test_the_same_sheet_fails_while_the_sale_is_final_sale():
         P, W = ideas.check(sheet(), ideas.product_of("Hobo Bag"), 4, 20, day="2026-10-25")
     finally:
         novelty.load, ideas.sale_campaign = real, real_camp
+    P = [x for x in P if "compliance material" not in x]     # (2026-11-19's rule, checked in test_compliance_material)
     assert P and all("easy returns" in x for x in P), P
+
+
+def test_compliance_material():
+    """Julian + Wouter 2026-11-19: the bags are premium vegan leather: no leather grade, no ageing claim, whatever the source."""
+    import compliance
+    for bad in ("I use full grain leather, the strongest grade.", "It develops a gorgeous patina the longer you carry it.",
+                "Soft leather that only gets better.", "Quality leather that gets better with age.", "It looks better every year."):
+        assert any(p["category"] == "material" for p in compliance.check(bad, product="Hobo Bag")), bad
+    for ok in ("Soft, water-resistant leather that looks expensive.", "The Hobo Bag in your cart gets better with a second one."):
+        assert not any(p["category"] == "material" for p in compliance.check(ok, product="Hobo Bag")), ok
 
 
 def test_check_stops_a_first_person_script_a_missing_picture_and_a_face():

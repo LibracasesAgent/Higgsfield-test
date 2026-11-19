@@ -44,7 +44,9 @@ LEGACY = ("Read me", "Batches", "Ads", "Summary", "Data Sources")     # the old 
 # (header, kind): d = details we fill (refreshed from Drive / the ledger), in = typed by people (kept), k = the hidden row key
 COLS = [("Date", "d"), ("Project", "d"), ("Holiday", "d"), ("Link", "d"), ("Drive", "d"), ("Script", "d"), ("Status", "in"),
         ("Launched (Meta)", "in"), ("Meta status", "in"), ("Insights", "in"), ("Key", "k")]
-STATUS = {"✅ Ready": "D9EAD3", "🔍 Review": "FFF2CC", "🛠 Needs fix": "F4CCCC", "⛔ Skip": "E7E6E6"}
+STATUS = {"✅ Ready": "D9EAD3", "🔍 Review": "FFF2CC", "⚠ Check": "FCE5CD", "🛠 Needs fix": "F4CCCC", "⛔ Skip": "E7E6E6"}
+CHECK = "⚠ Check"               # an ad with a QA flag (render's soft flags: scorecard, footage unverified ...): Julian 2026-11-19,
+#                                 "QA flags come in as Check not Ready": never Ready by default, look at it first
 LAUNCHED = {"✅ Launched": "D9EAD3", "Not launched": "E7E6E6"}
 META = {"✅ Winner": "D9EAD3", "⏸ Winner (paused)": "D9EAD3", "🔵 Promising": "CFE2F3", "▶ Running": "FFF2CC", "❌ No hit": "F4CCCC",
         "⚪ No delivery": "EFEFEF"}
@@ -275,7 +277,7 @@ def build(head, groups, hand, other_tabs, synced_at):
     ws.row_dimensions[1].height = 30
     ws["B1"].comment = Comment(
         "One row per static and per video project (its 4 hook versions), under its batch. We fill Date to Script and Status "
-        "(🔍 Review = look at it first, ✅ Ready = may go live, 🛠 Needs fix, ⛔ Skip). You fill Launched (Meta), Meta status and Insights: "
+        "(🔍 Review = look at it first, ⚠ Check = it has a QA flag (the run report says which), ✅ Ready = may go live, 🛠 Needs fix, ⛔ Skip). You fill Launched (Meta), Meta status and Insights: "
         f"kept at every update. Updated by the pipeline (tracker.py) at each batch upload; last update {synced_at}.", "Claude")
     r = 2
     for title, rows in list(groups) + ([(HAND, hand)] if hand else []):
@@ -357,6 +359,7 @@ def sync(batches=(), refresh_all=False, notes=None, dry=False, quiet=False, stat
     import ledger
     led = {ledger.bid(b["n"], b.get("rev")): b for b in ledger.load()["batches"]}
     labels = {a["name"]: a.get("label") or "" for b in led.values() for a in b.get("ads") or []}
+    flags = {a["name"] for b in led.values() for a in b.get("ads") or [] if a.get("flags")}
     dfold = drive_batches(du, tok, outputs)
     have = {k.split("|", 1)[0] for k in keyed}
     today = datetime.date.today()
@@ -388,10 +391,16 @@ def sync(batches=(), refresh_all=False, notes=None, dry=False, quiet=False, stat
         day = meta.get("Delivered")
         for k, x in new.items():
             o = keyed.get(k)
+            ad = k.split("|", 1)[1]
+            flagged = ad in flags
+            flagged = flagged or bool(re.fullmatch(r"P\d+", ad) and any(re.search(rf"_{bid}_{ad}_H\d", f) for f in flags))
             if o is None:
-                keyed[k] = dict(x, Key=k, Status="🔍 Review" if day and day.isoformat() >= REVIEW_FROM else "✅ Ready")
+                keyed[k] = dict(x, Key=k, Status=CHECK if flagged else "🔍 Review" if day and day.isoformat() >= REVIEW_FROM
+                                else "✅ Ready")
                 added += 1
             else:
+                if flagged and (o.get("Status") or "🔍 Review") == "🔍 Review":   # never over a status people set
+                    o["Status"] = CHECK
                 for h, v in x.items():
                     if kind.get(h) == "d" and v not in (None, ""):
                         o[h] = v

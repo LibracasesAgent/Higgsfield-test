@@ -28,7 +28,8 @@ What is ours and what is approved material:
   bullet, the product's data (features, product-file facts). Our own hook lines (hooks.json) are checked, never evidence.
   A Drive-only new product (a product file with no libracases.com page) has only its own file (the client's notes and
   the features from them): no store-wide 'free US shipping' unless its notes say it.
-Drugs, politics, religion, blood/violence and profanity are problems whatever the source.
+Drugs, politics, religion, blood/violence, profanity and leather grade / ageing claims (full grain, patina, 'gets better with
+age': the bags are premium vegan leather) are problems whatever the source.
 
   python3 pipeline/compliance.py --out $OUT          after make_batch.py plan (and ad_copy.py): scans every spoken line
       in tts_needed.json, every visible text in statics.json and the video specs, and ad_copy.csv when it is there;
@@ -107,14 +108,30 @@ PROFANITY = _words(
     r"fuck\w*", r"f[*#@]+k\w*", r"shit\w*", r"sh[*#@]+t", r"damn(?:ed|it)?", r"dammit", r"goddamn\w*", r"hell",
     r"bitch\w*", r"bastards?", r"crap(?:py)?", r"ass", r"asses", r"asshole\w*", r"badass", r"arse", r"piss(?:ed)?",
     r"wtf", r"stfu", r"dick", r"cock", r"pussy", r"slut", r"whore", r"bollocks")
+# the bags are premium vegan leather (libracases.com 'Our Leather': "not animal leather"): no leather grade, no ageing claim.
+# Julian + Wouter 2026-11-19 (B049 P01 held: the MAX-33 RAW says 'full grain leather' and 'develops a gorgeous patina'); 'leather'
+# itself is fine (Wouter: "We can say leather"). A problem whatever the source: our lines, reviews, labels and the RAW audio (cut it:
+# clip_bank edit.claim_cuts)
+MATERIAL = _words(
+    r"full[- ]?grain", r"top[- ]?grain", r"genuine leather", r"real leather", r"animal leather", r"natural leather",
+    r"cow ?hide", r"calf ?skin", r"lamb ?skin", r"italian leather", r"patinas?", r"develops? a \w+ patina",
+    r"(?:only |just )?(?:gets?|getting|grows?|becomes?) (?:even |only )?(?:better|more beautiful|nicer|softer|lovelier)"
+    r"(?: and \w+)? (?:with|over) (?:age|time|the years|every year|use|wear|each wear)",
+    r"(?:only|just) gets? better", r"gets? better and better",
+    r"gets? better the more (?:you|she|they) (?:carry|carries|use|uses|wear|wears) it",
+    r"(?:looks?|gets?) (?:better|more beautiful) every year", r"ages? (?:beautifully|well|gracefully|like \w+ wine)",
+    r"better with age", r"more beautiful with age")
 CATEGORIES = [("health", HEALTH, "a health / medical word: never in creatives or copy (no health claims)"),
               ("drugs", DRUGS, "drugs / prescription medicine: never in creatives or copy"),
               ("politics", POLITICS, "politics: never in creatives or copy"),
               ("religion", RELIGION, "religion: never in creatives or copy"),
               ("violence", VIOLENCE, "blood / violence: never in creatives or copy (not even a drop of blood)"),
               ("crime", CRIME, "violent crime: not in new lines or copy (only a label repeating the client's RAW story)"),
-              ("profanity", PROFANITY, "profanity: never in creatives or copy")]
-HARD = {"drugs", "politics", "religion", "violence", "profanity"}     # problems whatever the source
+              ("profanity", PROFANITY, "profanity: never in creatives or copy"),
+              ("material", MATERIAL, "a leather grade or ageing claim: the bags are premium vegan leather (site 'Our Leather': not "
+                                     "animal leather); say 'leather' / 'soft leather', never full grain, patina or 'gets better with "
+                                     "age / time' (Julian + Wouter 2026-11-19)")]
+HARD = {"drugs", "politics", "religion", "violence", "profanity", "material"}     # problems whatever the source
 STORY = {"health", "crime"}       # the RAW's approved story (heard as is in its audio, listed for a human)
 LABEL_STORY = {"crime"}           # allowed in an on-screen label that repeats the RAW ('HER SISTER WAS ROBBED'); a label
 #                                   never names a health condition, not even the RAW's ('THE ARTHRITIS HAS WON': no)
