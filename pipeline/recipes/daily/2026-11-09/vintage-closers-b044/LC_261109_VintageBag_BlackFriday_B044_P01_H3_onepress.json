@@ -1,0 +1,267 @@
+{
+ "mode": "ugc",
+ "voice_speed": 1.12,
+ "blocks": [
+  {
+   "vo": "P01H3_hook.mp3",
+   "broll": [
+    [
+     "1xWaBIVn543CxSr0WmqHEuasUJJGPcb55",
+     23.97,
+     1.0
+    ]
+   ],
+   "spare": [
+    [
+     "17pDJceUeFQwkPdvcEbyheppSWHKA7lrx",
+     0.53,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V01_c1.mp3",
+   "broll": [
+    [
+     "1ViQ_U6AhkuQz8RRi2q8Q0Bg_2X_oifXE",
+     7.44,
+     1.0,
+     {
+      "at": 0
+     }
+    ],
+    [
+     "1HNUEQK0mMmDiVbvsG41nEmwlON-IFoU9",
+     5.92,
+     1.0,
+     {
+      "at": 5
+     }
+    ]
+   ],
+   "spare": [
+    [
+     "1ni45Zrqs01boihMG9jmX7TP95mIh9WvJ",
+     4.06,
+     1.0
+    ],
+    [
+     "1qNOv5frbrbN4JAtBuqHDqxjXb15gEeuc",
+     0.81,
+     1.0
+    ],
+    [
+     "1n_iVN9Lf1dKnL9Mo1ixhZiHX-MBBv7gp",
+     1.02,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V01_c2.mp3",
+   "broll": [
+    [
+     "1PqOCKXPzIB5F2F_GE0pGM34NXUDiS3au",
+     0.3,
+     1.0,
+     {
+      "at": 0
+     }
+    ],
+    [
+     "12R_5x3r6xr7pbM8CY0xYyLVlY9pOojDJ",
+     34.14,
+     1.0,
+     {
+      "at": 4
+     }
+    ],
+    [
+     "1n_iVN9Lf1dKnL9Mo1ixhZiHX-MBBv7gp",
+     9.12,
+     1.0,
+     {
+      "at": 9
+     }
+    ],
+    [
+     "1zWksUIjdI39dANvjXlGZoTaY11CJrBRZ",
+     0.0,
+     1.0,
+     {
+      "at": 14
+     }
+    ]
+   ],
+   "spare": [
+    [
+     "1R252UTrxdvK5bBTBSgBNWv04zCDUs5KK",
+     9.6,
+     1.0
+    ],
+    [
+     "17iFr-T6Hmi4mhwk5ZAaeEt3rIeZ1G1Rj",
+     7.56,
+     1.0
+    ]
+   ],
+   "proof": true
+  },
+  {
+   "vo": "V01_c3.mp3",
+   "broll": [
+    [
+     "1VYOz6vWCsY5iQ6DuiIrqaCkR7HsDLrM6",
+     0.3,
+     1.0,
+     {
+      "at": 0
+     }
+    ],
+    [
+     "10aSieQA3Lb3YEflOG3dXN2sIgckqMv4f",
+     9.3,
+     1.0,
+     {
+      "at": 4
+     }
+    ],
+    [
+     "1MvdPIZHiVIGTM7oedtSmDPBNcj7zMq2y",
+     19.72,
+     1.0,
+     {
+      "at": 11
+     }
+    ]
+   ],
+   "spare": [
+    [
+     "1R252UTrxdvK5bBTBSgBNWv04zCDUs5KK",
+     6.62,
+     1.0
+    ],
+    [
+     "1qNOv5frbrbN4JAtBuqHDqxjXb15gEeuc",
+     4.44,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V01_c4.mp3",
+   "broll": [
+    [
+     "18DAFSqkzMMUEnbSdL5eeRhvxDTkAq80k",
+     3.17,
+     1.0,
+     {
+      "at": 0
+     }
+    ],
+    [
+     "1IzBZcPzXuJPCUrAv_rq3QVtbVnQIIBK-",
+     0.3,
+     1.0,
+     {
+      "at": 6
+     }
+    ],
+    [
+     "site/vintage_colour_chocolate.jpg",
+     0,
+     1.0,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ],
+      "at": 15
+     }
+    ]
+   ],
+   "spare": [
+    [
+     "18DAFSqkzMMUEnbSdL5eeRhvxDTkAq80k",
+     0.39,
+     1.0
+    ],
+    [
+     "1RnPV6uP7TLH9N-_A9Q15XeJLpOaeCUU4",
+     0.84,
+     1.0
+    ]
+   ]
+  }
+ ],
+ "overlays": [
+  {
+   "type": "label",
+   "text": "50% OFF",
+   "block": 0,
+   "at": 0.1,
+   "dur": 1.8
+  },
+  {
+   "type": "tag",
+   "text": "ONE-HAND CLASP",
+   "block": 2,
+   "at": 0.15,
+   "dur": 2.6
+  }
+ ],
+ "end_title": "Black Friday Sale",
+ "offer": {
+  "block": 4,
+  "word": "50",
+  "title": "BLACK FRIDAY 50% OFF",
+  "sub": ""
+ },
+ "end_photo": "site/vintage_colour_chocolate.jpg",
+ "end_offer": "UP TO 60% OFF",
+ "keywords": [
+  "50%",
+  "gift",
+  "gifts",
+  "hidden",
+  "pocket",
+  "leather",
+  "black",
+  "friday"
+ ],
+ "spare_broll": [
+  [
+   "17iFr-T6Hmi4mhwk5ZAaeEt3rIeZ1G1Rj",
+   10.98,
+   1.0
+  ],
+  [
+   "1kvkyYZCu3c60QKlGQNEDDbrMp_gzaf40",
+   11.95,
+   1.0
+  ],
+  [
+   "1VTuBxxeM0kgk0zBmK93Vn8XJFiMOCLQU",
+   0.3,
+   1.0
+  ],
+  [
+   "16tPrjwInS7Kzcvs17bMHBP4OwEjFc_Yn",
+   23.35,
+   1.0
+  ],
+  [
+   "1u_BcAe6ont2BTbyK5uSi7-QFbgZ8sgML",
+   8.63,
+   1.0
+  ],
+  [
+   "1aJoixN_KNw1NiTQ8YYlPlWFzVv5aKnVn",
+   6.43,
+   1.0
+  ]
+ ],
+ "music": {
+  "seed": 1
+ }
+}

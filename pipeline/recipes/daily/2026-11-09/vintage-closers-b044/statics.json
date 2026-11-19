@@ -1,0 +1,209 @@
+{
+ "ads": [
+  {
+   "layout": "colours",
+   "photos": [
+    {
+     "src": "site/vintage_colour_red.jpg",
+     "name": "Red"
+    },
+    {
+     "src": "site/clean/vintage_colour_ginger_brown_nobadge.jpg",
+     "name": "Ginger Brown"
+    },
+    {
+     "src": "site/vintage_colour_black.jpg",
+     "name": "Black"
+    },
+    {
+     "src": "site/vintage_colour_chocolate.jpg",
+     "name": "Chocolate"
+    }
+   ],
+   "headline": "Which one is yours?",
+   "sub": "Now 50% off.",
+   "cta": "Get the Black Friday deal",
+   "name": "LC_261109_VintageBag_BlackFriday_B044_S01_colours",
+   "pct": 50
+  },
+  {
+   "layout": "value",
+   "photo": "site/vintage_colour_red.jpg",
+   "price": "$44.95",
+   "was": "$89.95",
+   "pct": 50,
+   "headline": "Meet the Vintage Bag",
+   "cta": "Get the Black Friday deal",
+   "name": "LC_261109_VintageBag_BlackFriday_B044_S02_value"
+  },
+  {
+   "layout": "native",
+   "photo": "photos/frames/F_16tPrjwInS_0139.jpg",
+   "caption": "One hand. One press. Shut.",
+   "pct": 50,
+   "name": "LC_261109_VintageBag_BlackFriday_B044_S03_native",
+   "frame": {
+    "clip": "16tPrjwInS7Kzcvs17bMHBP4OwEjFc_Yn",
+    "t": 13.9
+   },
+   "focus": [
+    0.5,
+    1.0
+   ]
+  },
+  {
+   "look": "hook",
+   "hook": "Coffee in one hand?",
+   "sub": "The clasp snaps shut with the other.",
+   "kicker": "EARLY BLACK FRIDAY",
+   "highlight": [
+    "one",
+    "hand"
+   ],
+   "layout": "story",
+   "photo": "ai/AS01.png",
+   "headline": "Coffee in one hand?",
+   "name": "LC_261109_VintageBag_BlackFriday_B044_S04_hook",
+   "us": "Vintage Bag",
+   "pct": 50,
+   "ai": {
+    "id": "AS01",
+    "scene": "p01_s04",
+    "colour": "Ginger Brown"
+   }
+  },
+  {
+   "look": "quote",
+   "review": 9,
+   "review_text": "Got this bag for my daughter for Christmas and she adores it.",
+   "layout": "story",
+   "photo": "ai/AS02.png",
+   "headline": "Got this bag for my daughter for Christmas and she adores it.",
+   "name": "LC_261109_VintageBag_BlackFriday_B044_S05_quote",
+   "us": "Vintage Bag",
+   "pct": 50,
+   "ai": {
+    "id": "AS02",
+    "scene": "p02_s05",
+    "colour": "Red"
+   }
+  },
+  {
+   "look": "list",
+   "hook": "3 reasons it fits every plan",
+   "highlight": [
+    "every",
+    "plan"
+   ],
+   "points": [
+    "Snaps shut with one hand",
+    "Phone, wallet and keys in their own spots",
+    "Handbag or crossbody: your call"
+   ],
+   "layout": "story",
+   "photo": "photos/frames/F_1rXxKGcT4o_0015.jpg",
+   "headline": "3 reasons it fits every plan",
+   "name": "LC_261109_VintageBag_BlackFriday_B044_S06_list",
+   "us": "Vintage Bag",
+   "pct": 50,
+   "frame": {
+    "clip": "1rXxKGcT4oaGiZtqq4NTW_J0xpzu-ThzI",
+    "t": 1.5
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS04.png",
+   "format": "giant_numerals",
+   "words": [
+    "50%",
+    "OFF",
+    "Coffee in one hand. Bag shut."
+   ],
+   "headline": "Coffee in one hand. Bag shut.",
+   "name": "LC_261109_VintageBag_BlackFriday_B044_S07_numerals",
+   "ai": {
+    "id": "AS04",
+    "scene": "p01_s07_giant_numerals",
+    "colour": "Red",
+    "format": "giant_numerals"
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS05.png",
+   "format": "swing_tag",
+   "words": [
+    "50% OFF",
+    "Handbag at lunch. Crossbody by night."
+   ],
+   "headline": "Handbag at lunch. Crossbody by night.",
+   "name": "LC_261109_VintageBag_BlackFriday_B044_S08_swingtag",
+   "ai": {
+    "id": "AS05",
+    "scene": "p03_s08_swing_tag",
+    "colour": "Black",
+    "format": "swing_tag"
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS06.png",
+   "format": "shop_window_decal",
+   "words": [
+    "BLACK FRIDAY",
+    "50% OFF",
+    "For her: a bag that snaps shut."
+   ],
+   "headline": "For her: a bag that snaps shut.",
+   "name": "LC_261109_VintageBag_BlackFriday_B044_S09_decal",
+   "ai": {
+    "id": "AS06",
+    "scene": "p02_s09_shop_window_decal",
+    "colour": "Ginger Brown",
+    "format": "shop_window_decal"
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS07.png",
+   "format": "taped_question",
+   "words": [
+    "Phone at the bottom again?",
+    "Every thing, its own spot.",
+    "50% OFF"
+   ],
+   "headline": "Phone at the bottom again?",
+   "name": "LC_261109_VintageBag_BlackFriday_B044_S10_question",
+   "ai": {
+    "id": "AS07",
+    "scene": "p01_s10_taped_question",
+    "colour": "Chocolate",
+    "format": "taped_question"
+   }
+  },
+  {
+   "layout": "native",
+   "photo": "photos/frames/F_1mA13j2449_0031.jpg",
+   "caption": "SHORT STRAP OR LONG STRAP",
+   "pct": 50,
+   "name": "LC_261109_VintageBag_BlackFriday_B044_S11_native",
+   "frame": {
+    "clip": "1mA13j2449PmvcydF2bI5p1zkI-k-bpTg",
+    "t": 3.11
+   }
+  },
+  {
+   "layout": "native",
+   "photo": "photos/frames/F_12R_5x3r6x_0301.jpg",
+   "caption": "Phone, wallet, keys: each in its spot.",
+   "pct": 50,
+   "name": "LC_261109_VintageBag_BlackFriday_B044_S12_native",
+   "frame": {
+    "clip": "12R_5x3r6xr7pbM8CY0xYyLVlY9pOojDJ",
+    "t": 30.1
+   }
+  }
+ ],
+ "card_photos": []
+}

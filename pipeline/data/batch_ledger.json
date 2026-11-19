@@ -3656,7 +3656,185 @@
      "label": "Her gift, half price, and it ships free."
     }
    ]
+  },
+  {
+   "id": "B044",
+   "n": 44,
+   "rev": 1,
+   "date": "2026-11-09",
+   "product": "Vintage Bag",
+   "theme": "BlackFriday",
+   "pipeline": "catalog",
+   "request": "Week-1 pack for Wouter: 12 statics (pick your colour, Julian) + 3 closers for the Vintage Bag, Black Friday",
+   "statics": 12,
+   "projects": 3,
+   "hooks": 4,
+   "seed": 1,
+   "status": "uploaded",
+   "folder": "B044 – 2026-11-09 – Vintage Bag BlackFriday – 12 statics + 3 projects",
+   "link": "https://drive.google.com/drive/folders/1bWw1ihkpyrGtjfi-QuTN32BARapqj9My",
+   "ads": [
+    {
+     "name": "LC_261109_VintageBag_BlackFriday_B044_S01_colours",
+     "kind": "static",
+     "fp": "s|colours||which one is yours?",
+     "label": "Which one is yours?"
+    },
+    {
+     "name": "LC_261109_VintageBag_BlackFriday_B044_S02_value",
+     "kind": "static",
+     "fp": "s|value|vintage_colour_red.jpg|meet the vintage bag",
+     "label": "Meet the Vintage Bag"
+    },
+    {
+     "name": "LC_261109_VintageBag_BlackFriday_B044_S03_native",
+     "kind": "static",
+     "fp": "s|native|F_16tPrjwInS_0139.jpg|one hand. one press. shut.",
+     "label": "One hand. One press. Shut."
+    },
+    {
+     "name": "LC_261109_VintageBag_BlackFriday_B044_S04_hook",
+     "kind": "static",
+     "fp": "s|story|AS01.png|coffee in one hand?",
+     "label": "Coffee in one hand?"
+    },
+    {
+     "name": "LC_261109_VintageBag_BlackFriday_B044_S05_quote",
+     "kind": "static",
+     "fp": "s|story|AS02.png|got this bag for my daughter for christmas and she adores it.",
+     "label": "Got this bag for my daughter for Christmas and she adores it."
+    },
+    {
+     "name": "LC_261109_VintageBag_BlackFriday_B044_S06_list",
+     "kind": "static",
+     "fp": "s|story|F_1rXxKGcT4o_0015.jpg|3 reasons it fits every plan",
+     "label": "3 reasons it fits every plan"
+    },
+    {
+     "name": "LC_261109_VintageBag_BlackFriday_B044_S07_numerals",
+     "kind": "static",
+     "fp": "s|ad|AS04.png|coffee in one hand. bag shut.",
+     "label": "Coffee in one hand. Bag shut."
+    },
+    {
+     "name": "LC_261109_VintageBag_BlackFriday_B044_S08_swingtag",
+     "kind": "static",
+     "fp": "s|ad|AS05.png|handbag at lunch. crossbody by night.",
+     "label": "Handbag at lunch. Crossbody by night."
+    },
+    {
+     "name": "LC_261109_VintageBag_BlackFriday_B044_S09_decal",
+     "kind": "static",
+     "fp": "s|ad|AS06.png|for her: a bag that snaps shut.",
+     "label": "For her: a bag that snaps shut."
+    },
+    {
+     "name": "LC_261109_VintageBag_BlackFriday_B044_S10_question",
+     "kind": "static",
+     "fp": "s|ad|AS07.png|phone at the bottom again?",
+     "label": "Phone at the bottom again?"
+    },
+    {
+     "name": "LC_261109_VintageBag_BlackFriday_B044_S11_native",
+     "kind": "static",
+     "fp": "s|native|F_1mA13j2449_0031.jpg|short strap or long strap",
+     "label": "SHORT STRAP OR LONG STRAP"
+    },
+    {
+     "name": "LC_261109_VintageBag_BlackFriday_B044_S12_native",
+     "kind": "static",
+     "fp": "s|native|F_12R_5x3r6x_0301.jpg|phone, wallet, keys: each in its spot.",
+     "label": "Phone, wallet, keys: each in its spot."
+    },
+    {
+     "name": "LC_261109_VintageBag_BlackFriday_B044_P01_H1_onepress",
+     "kind": "video",
+     "fp": "v|don't buy a bag you need two hands to close.|",
+     "label": "Don't buy a bag you need two hands to close."
+    },
+    {
+     "name": "LC_261109_VintageBag_BlackFriday_B044_P01_H2_onepress",
+     "kind": "video",
+     "fp": "v|still putting your coffee down to close your bag?|",
+     "label": "Still putting your coffee down to close your bag?"
+    },
+    {
+     "name": "LC_261109_VintageBag_BlackFriday_B044_P01_H3_onepress",
+     "kind": "video",
+     "fp": "v|half price this black friday, and it goes crossbody too.|",
+     "label": "Half price this Black Friday, and it goes crossbody too."
+    },
+    {
+     "name": "LC_261109_VintageBag_BlackFriday_B044_P01_H4_onepress",
+     "kind": "video",
+     "fp": "v|the mistake that leaves your keys loose at the bottom.|",
+     "label": "The mistake that leaves your keys loose at the bottom."
+    },
+    {
+     "name": "LC_261109_VintageBag_BlackFriday_B044_P02_H1_pickhers",
+     "kind": "video",
+     "fp": "v|before you buy her a bag, pick the colour first.|",
+     "label": "Before you buy her a bag, pick the colour first."
+    },
+    {
+     "name": "LC_261109_VintageBag_BlackFriday_B044_P02_H2_pickhers",
+     "kind": "video",
+     "fp": "v|ginger brown, black, chocolate or red: which one is she?|",
+     "label": "Ginger brown, black, chocolate or red: which one is she?"
+    },
+    {
+     "name": "LC_261109_VintageBag_BlackFriday_B044_P02_H3_pickhers",
+     "kind": "video",
+     "fp": "v|four colours, and every one snaps shut with one hand.|",
+     "label": "Four colours, and every one snaps shut with one hand."
+    },
+    {
+     "name": "LC_261109_VintageBag_BlackFriday_B044_P02_H4_pickhers",
+     "kind": "video",
+     "fp": "v|half price, free shipping, and a spot for her phone.|",
+     "label": "Half price, free shipping, and a spot for her phone."
+    },
+    {
+     "name": "LC_261109_VintageBag_BlackFriday_B044_P03_H1_twoways",
+     "kind": "video",
+     "fp": "v|before you buy a crossbody, look at this strap.|",
+     "label": "Before you buy a crossbody, look at this strap."
+    },
+    {
+     "name": "LC_261109_VintageBag_BlackFriday_B044_P03_H2_twoways",
+     "kind": "video",
+     "fp": "v|handbag at lunch, crossbody on the walk home?|",
+     "label": "Handbag at lunch, crossbody on the walk home?"
+    },
+    {
+     "name": "LC_261109_VintageBag_BlackFriday_B044_P03_H3_twoways",
+     "kind": "video",
+     "fp": "v|one press shut, one strap longer, and it's a crossbody.|",
+     "label": "One press shut, one strap longer, and it's a crossbody."
+    },
+    {
+     "name": "LC_261109_VintageBag_BlackFriday_B044_P03_H4_twoways",
+     "kind": "video",
+     "fp": "v|half price on the bag that goes from handbag to crossbody.|",
+     "label": "Half price on the bag that goes from handbag to crossbody."
+    }
+   ]
+  },
+  {
+   "id": "B045",
+   "n": 45,
+   "rev": 1,
+   "date": "2026-11-09",
+   "product": "Hobo 2.0",
+   "theme": "BlackFriday",
+   "pipeline": "catalog",
+   "request": "Week-1 pack for Wouter: 12 statics + 3 closers for the Hobo 2.0, Black Friday, anti-theft in crowds and travel",
+   "statics": 12,
+   "projects": 3,
+   "hooks": 4,
+   "seed": 1,
+   "status": "planned"
   }
  ],
- "next": 44
+ "next": 46
 }

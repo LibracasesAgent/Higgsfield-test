@@ -1,0 +1,487 @@
+{
+ "product": "Vintage Bag",
+ "theme": "black friday",
+ "date": "2026-11-09",
+ "research": [
+  "Our own numbers (docs/reviews/2026-10-06.md, Oct 6 - Nov 4): statics ROAS 2.62 vs videos 1.58; the best ad is the pick-your-colour catalog static (S09, ROAS 2.93, 76 purchases); Julian 2026-11-05: make it for the Vintage Bag (4 colours: Ginger Brown, Black, Chocolate, Red on the site). So this batch is statics-first: 12, with the colours and value statics kept (rulebook keep_winners).",
+  "The account's #1 ad of the last 30 days is a 27 s closer (190-H3, docs/research/2026-11-winners-30d.md): the three videos are closers (format closer), each on a different lever: the one-hand clasp (223 good footage moments), the colours as a gift, the strap's two ways (209 moments). Warning hooks (all ten openings of 190 / 198 are warnings) and questions (52% hook rate in our export).",
+  "Earlier Vintage batches: B028 live test / friend advice / night before, B033 myth / gift / swap, B039-B040 friend advice, POV, four places; statics B029 used magazine_cover, pov_behind, feature_diagram, bold_poster, hang_tag, gift_moment, two_ways, colour_block, entryway_hook, B033 cafe_chair: none of those formats here; two new formats of our own (a felt letter board, a train ticket).",
+  "Facts used: 50% off (no gift), free shipping, the one-hand snap clasp, the organised inside (phone, wallet, keys each in a spot), the adjustable strap (handbag or crossbody), four colours; the sale ends 30 November; order by 14 December for the best chance of Christmas delivery. No warranty or price figures (none in the Vintage facts; the rulebook bans price figures)."
+ ],
+ "projects": [
+  {
+   "id": "P01",
+   "slug": "onepress",
+   "format": "closer",
+   "structure": "closer",
+   "title": "One hand, one press, half price",
+   "big_idea": "The closer on the Vintage Bag's own proof: coffee in one hand, one press of the other and the clasp is shut; half price now, the sale ends 30 November.",
+   "why_new": "The first Vintage closer (25-35 s offer video, the format of the account's biggest ad); it opens on a warning about two-handed bags, never on the sale.",
+   "hooks": [
+    {
+     "text": "Don't buy a bag you need two hands to close.",
+     "type": "warning",
+     "label": "ONE HAND",
+     "show": [
+      "snap",
+      "handheld"
+     ]
+    },
+    {
+     "text": "Still putting your coffee down to close your bag?",
+     "type": "question",
+     "label": "COFFEE DOWN?",
+     "show": [
+      "worn",
+      "handheld"
+     ]
+    },
+    {
+     "text": "Half price this Black Friday, and it goes crossbody too.",
+     "type": "price",
+     "label": "50% OFF",
+     "show": [
+      "strap",
+      "worn"
+     ]
+    },
+    {
+     "text": "The mistake that leaves your keys loose at the bottom.",
+     "type": "problem",
+     "label": "LOOSE KEYS?",
+     "show": [
+      "inside",
+      "packing"
+     ]
+    }
+   ],
+   "chapters": [
+    {
+     "kind": "point",
+     "beat": "why_now",
+     "text": "This is the Vintage Bag, and it's fifty percent off right now in the Early Black Friday sale.",
+     "tag": null,
+     "show": [
+      "worn",
+      "handheld"
+     ]
+    },
+    {
+     "kind": "proof",
+     "beat": "proof",
+     "proof_shot": true,
+     "text": "Coffee in one hand. One press of the other, and the clasp snaps shut. No putting anything down.",
+     "tag": "ONE-HAND CLASP",
+     "show": [
+      "snap",
+      "handheld"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "inside",
+     "text": "Inside, your phone, wallet and keys each get their own spot, so nothing rattles around at the bottom.",
+     "tag": null,
+     "show": [
+      "inside",
+      "packing"
+     ]
+    },
+    {
+     "kind": "offer",
+     "beat": "offer",
+     "text": "Fifty percent off with free shipping, and the sale ends on the thirtieth of November. Tap the link below.",
+     "tag": null,
+     "show": [
+      "hero",
+      "placed"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "P02",
+   "slug": "pickhers",
+   "format": "closer",
+   "structure": "closer",
+   "title": "Pick her colour",
+   "big_idea": "The gift closer in four colours: ginger brown, black, chocolate or red, the one-hand clasp and the two straps whichever you pick, and the two real dates (order by 14 December for Christmas, the sale ends 30 November).",
+   "why_new": "No Vintage video ever sold the colours (Julian: the colour catalog is our best static); it brings the pick-your-colour idea into a video and gives gift buyers their real order-by date.",
+   "hooks": [
+    {
+     "text": "Before you buy her a bag, pick the colour first.",
+     "type": "warning",
+     "label": "PICK HER COLOUR",
+     "show": [
+      "worn",
+      "colours"
+     ]
+    },
+    {
+     "text": "Ginger brown, black, chocolate or red: which one is she?",
+     "type": "question",
+     "label": "WHICH ONE?",
+     "show": [
+      "strap",
+      "colours"
+     ]
+    },
+    {
+     "text": "Four colours, and every one snaps shut with one hand.",
+     "type": "promise",
+     "label": "FOUR COLOURS",
+     "show": [
+      "snap",
+      "colours"
+     ]
+    },
+    {
+     "text": "Half price, free shipping, and a spot for her phone.",
+     "type": "price",
+     "label": "HALF PRICE",
+     "show": [
+      "packing",
+      "inside"
+     ]
+    }
+   ],
+   "chapters": [
+    {
+     "kind": "point",
+     "beat": "why_now",
+     "text": "The Vintage Bag is fifty percent off in the Early Black Friday sale, and it comes in four colours.",
+     "tag": null,
+     "show": [
+      "colours",
+      "handheld"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "pick",
+     "text": "Ginger brown, black, chocolate or red. Pick the one that looks like her.",
+     "tag": "PICK YOUR COLOUR",
+     "show": [
+      "colours",
+      "worn"
+     ]
+    },
+    {
+     "kind": "proof",
+     "beat": "proof",
+     "proof_shot": true,
+     "text": "Whichever you pick, the clasp snaps shut with one hand, and the strap goes from handbag to crossbody.",
+     "tag": "ONE-HAND CLASP",
+     "show": [
+      "snap",
+      "strap"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "deadline",
+     "text": "Order by the fourteenth of December for the best chance of delivery before Christmas.",
+     "tag": "ORDER BY 14 DEC",
+     "show": [
+      "packing",
+      "handheld"
+     ]
+    },
+    {
+     "kind": "offer",
+     "beat": "offer",
+     "text": "It's fifty percent off with free shipping until the thirtieth of November. Tap the link below.",
+     "tag": null,
+     "show": [
+      "hero",
+      "placed"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "P03",
+   "slug": "twoways",
+   "format": "closer",
+   "structure": "closer",
+   "title": "Handbag at lunch, crossbody on the walk home",
+   "big_idea": "The strap closer: short, it's a handbag; let it out, it's a crossbody at your hip; the clasp still shuts with one hand; half price until 30 November.",
+   "why_new": "Leads with the adjustable strap (209 footage moments) as the reason to buy now, in 30 s, where earlier Vintage videos told it inside a day-long story.",
+   "hooks": [
+    {
+     "text": "Before you buy a crossbody, look at this strap.",
+     "type": "warning",
+     "label": "THIS STRAP",
+     "show": [
+      "strap",
+      "handheld"
+     ]
+    },
+    {
+     "text": "Handbag at lunch, crossbody on the walk home?",
+     "type": "question",
+     "label": "TWO WAYS?",
+     "show": [
+      "walking",
+      "worn"
+     ]
+    },
+    {
+     "text": "One press shut, one strap longer, and it's a crossbody.",
+     "type": "promise",
+     "label": "ONE STRAP",
+     "show": [
+      "snap",
+      "strap"
+     ]
+    },
+    {
+     "text": "Half price on the bag that goes from handbag to crossbody.",
+     "type": "price",
+     "label": "50% OFF",
+     "show": [
+      "worn",
+      "strap"
+     ]
+    }
+   ],
+   "chapters": [
+    {
+     "kind": "point",
+     "beat": "why_now",
+     "text": "This is the Vintage Bag, fifty percent off right now in the Early Black Friday sale.",
+     "tag": null,
+     "show": [
+      "worn",
+      "handheld"
+     ]
+    },
+    {
+     "kind": "proof",
+     "beat": "proof",
+     "proof_shot": true,
+     "text": "Short strap, and it's a handbag for lunch. Let the strap out, and it sits at your hip as a crossbody.",
+     "tag": "ADJUSTABLE STRAP",
+     "show": [
+      "strap",
+      "worn"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "clasp",
+     "text": "Either way, the clasp snaps shut with one hand, so your phone and keys stay inside.",
+     "tag": "ONE-HAND CLASP",
+     "show": [
+      "snap",
+      "handheld"
+     ]
+    },
+    {
+     "kind": "offer",
+     "beat": "offer",
+     "text": "Fifty percent off with free shipping, and the sale ends on the thirtieth of November. Tap the link below.",
+     "tag": null,
+     "show": [
+      "hero",
+      "placed"
+     ]
+    }
+   ]
+  }
+ ],
+ "statics": [
+  {
+   "id": "S01",
+   "project": "P02",
+   "layout": "colours",
+   "idea": "Pick your colour: the four Vintage Bags side by side, catalog style (our best static, S09, made for the Vintage Bag as Julian asked).",
+   "headline": "Which colour are you?"
+  },
+  {
+   "id": "S02",
+   "project": "P01",
+   "layout": "value",
+   "idea": "What half price buys: the Vintage Bag at fifty percent off, said plainly (our second-best layout)."
+  },
+  {
+   "id": "S03",
+   "project": "P01",
+   "layout": "native",
+   "story": "proof",
+   "feature": "ONE-HAND CLASP",
+   "idea": "A real footage frame of a hand pressing the clasp shut, one short proof line (the 'Yes, the zip locks.' winner's shape).",
+   "headline": "One hand. One press. Shut."
+  },
+  {
+   "id": "S04",
+   "project": "P01",
+   "layout": "story",
+   "look": "hook",
+   "story": "problem_fix",
+   "feature": "ONE-HAND CLASP",
+   "idea": "The coffee moment as the hook, the clasp as the answer, the bag big; no review card.",
+   "kicker": "EARLY BLACK FRIDAY",
+   "hook": "Coffee in one hand?",
+   "highlight": [
+    "one",
+    "hand"
+   ],
+   "sub": "The clasp snaps shut with the other.",
+   "scene": {
+    "kind": "hand",
+    "colour": "Ginger Brown",
+    "prompt": "A woman cropped at the chest on a sunny city pavement, a takeaway coffee cup in one hand, the ginger brown bag at her hip on its strap, her other hand pressing its clasp shut, warm morning light, a softly blurred street behind."
+   }
+  },
+  {
+   "id": "S05",
+   "project": "P02",
+   "layout": "story",
+   "look": "quote",
+   "story": "gift",
+   "idea": "A customer's own words about a Christmas gift as the headline, over the red bag wrapped with a ribbon.",
+   "review": 9,
+   "review_text": "Got this bag for my daughter for Christmas and she adores it.",
+   "scene": {
+    "kind": "object",
+    "colour": "Red",
+    "prompt": "The red bag standing closed on a warm wooden table beside folded kraft wrapping paper, a wide cream satin ribbon and a small gift tag with no writing, soft window light, a calm darker lower third."
+   }
+  },
+  {
+   "id": "S06",
+   "project": "P03",
+   "layout": "story",
+   "look": "list",
+   "story": "ways",
+   "feature": "ADJUSTABLE STRAP",
+   "idea": "Three reasons it fits every plan, over the bag by the front door with its strap let out.",
+   "hook": "3 reasons it fits every plan",
+   "highlight": [
+    "every",
+    "plan"
+   ],
+   "points": [
+    "Snaps shut with one hand",
+    "Phone, wallet and keys in their own spots",
+    "Handbag or crossbody: your call"
+   ],
+   "scene": {
+    "kind": "object",
+    "colour": "Chocolate",
+    "prompt": "The chocolate bag standing closed on a light oak hallway console, its long strap let out and draped beside it, a folded knit scarf and a set of keys next to it, bright soft daylight."
+   }
+  },
+  {
+   "id": "S07",
+   "project": "P01",
+   "layout": "ad",
+   "format": "giant_numerals",
+   "story": "moment",
+   "feature": "ONE-HAND CLASP",
+   "idea": "The numerals bigger than the bag, a takeaway coffee beside it: the one-hand moment and the offer in one look.",
+   "words": [
+    "50%",
+    "OFF",
+    "Coffee in one hand. Bag shut."
+   ],
+   "scene": {
+    "colour": "Red",
+    "prompt": "The red bag standing closed on a seamless warm cream backdrop beside a takeaway coffee cup, huge deep-red numerals behind it, crisp studio light and a soft floor shadow."
+   }
+  },
+  {
+   "id": "S08",
+   "project": "P03",
+   "layout": "ad",
+   "format": "swing_tag",
+   "story": "ways",
+   "feature": "ADJUSTABLE STRAP",
+   "idea": "An oversized paper swing tag on the strap carries the offer; the line under the bag says its two ways.",
+   "words": [
+    "50% OFF",
+    "Handbag at lunch. Crossbody by night."
+   ],
+   "scene": {
+    "colour": "Black",
+    "prompt": "The black bag standing closed on a dark walnut table, its strap arched above it with an oversized cream paper swing tag tied on with cotton string, warm evening lamp light, a calm dark wall behind."
+   }
+  },
+  {
+   "id": "S09",
+   "project": "P02",
+   "layout": "ad",
+   "format": "shop_window_decal",
+   "story": "gift",
+   "idea": "A boutique window at dusk: the sale lettering on the glass, the bag on a plinth behind it, a gift for her.",
+   "words": [
+    "BLACK FRIDAY",
+    "50% OFF",
+    "For her: a bag that snaps shut."
+   ],
+   "scene": {
+    "colour": "Ginger Brown",
+    "prompt": "A small boutique shop window seen from the street at dusk, the ginger brown bag standing closed on a pale plinth behind the glass, warm shop light inside, the street reflections soft on the glass."
+   }
+  },
+  {
+   "id": "S10",
+   "project": "P01",
+   "layout": "ad",
+   "format": "taped_question",
+   "story": "problem_fix",
+   "feature": "ROOM FOR EVERYTHING",
+   "idea": "A taped strip asks the everyday question; the answer and the sticker sit by the closed bag.",
+   "words": [
+    "Phone at the bottom again?",
+    "Every thing, its own spot.",
+    "50% OFF"
+   ],
+   "scene": {
+    "colour": "Chocolate",
+    "prompt": "The chocolate bag standing closed on a pale wooden desk by a window, a phone, keys and a small wallet laid neatly in a row beside it, soft morning light."
+   }
+  },
+  {
+   "id": "S11",
+   "project": "P03",
+   "layout": "ad",
+   "format": "letter_board",
+   "format_name": "Felt letter board",
+   "art": "A real candid photo of a black felt letter board with white push-in plastic letters, propped on a wooden shelf in a warm living room; the letters spell the offer large on the first rows and one short line under it, all straight and evenly spaced like a real board; the real bag stands closed beside the board in soft daylight; nothing is printed on the bag.",
+   "people": "none",
+   "story": "ways",
+   "feature": "ADJUSTABLE STRAP",
+   "idea": "The letter board says what the strap does; the bag stands next to it, its strap let out.",
+   "words": [
+    "50% OFF",
+    "SHORT STRAP OR LONG STRAP"
+   ],
+   "scene": {
+    "colour": "Ginger Brown",
+    "prompt": "A black felt letter board on a light wooden shelf in a cosy living room, the ginger brown bag standing closed beside it with its long strap let out and draped over the shelf edge, a small plant, soft daylight."
+   }
+  },
+  {
+   "id": "S12",
+   "project": "P02",
+   "layout": "ad",
+   "format": "train_ticket",
+   "format_name": "Vintage train ticket",
+   "art": "A real close photo of the real bag lying closed on a wooden train-carriage table by the window, an oversized vintage cardboard train ticket propped against it with the offer printed boldly on the ticket in old railway type, and one short line in small clean type on the table edge; warm late-afternoon light, countryside softly blurred outside; nothing printed on the bag.",
+   "people": "none",
+   "story": "moment",
+   "feature": "ROOM FOR EVERYTHING",
+   "idea": "A day trip by train: the ticket carries the offer, the line says the bag keeps the small things in their spots.",
+   "words": [
+    "50% OFF",
+    "Ticket, phone, keys: each in its spot."
+   ],
+   "scene": {
+    "colour": "Black",
+    "prompt": "The black bag lying closed on a polished wooden train-carriage table by a window, an oversized vintage cardboard ticket propped against it, a takeaway coffee beside it, warm late-afternoon light, green countryside blurred outside."
+   }
+  }
+ ]
+}

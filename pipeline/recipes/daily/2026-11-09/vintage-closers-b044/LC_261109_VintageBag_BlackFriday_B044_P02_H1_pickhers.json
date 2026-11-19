@@ -1,0 +1,327 @@
+{
+ "mode": "ugc",
+ "voice_speed": 1.12,
+ "blocks": [
+  {
+   "vo": "V02_hook.mp3",
+   "broll": [
+    [
+     "1dKZIPJdzTK5XalUeYccAQqTH-jLEkPt2",
+     15.8,
+     1.0,
+     {
+      "at": 0
+     }
+    ],
+    [
+     "156yw4fhlcKn3WYbzwjndnYzsDh9xw5TI",
+     0.3,
+     1.0,
+     {
+      "at": 6
+     }
+    ]
+   ],
+   "spare": [
+    [
+     "1VYOz6vWCsY5iQ6DuiIrqaCkR7HsDLrM6",
+     4.41,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V02_c1.mp3",
+   "broll": [
+    [
+     "sw/black.jpg",
+     0,
+     1.0,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ],
+      "say": "black"
+     }
+    ],
+    [
+     "sw/ginger_brown.jpg",
+     0,
+     1.0,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ],
+      "say": "ginger brown"
+     }
+    ],
+    [
+     "sw/chocolate.jpg",
+     0,
+     1.0,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ],
+      "say": "chocolate"
+     }
+    ],
+    [
+     "sw/red.jpg",
+     0,
+     1.0,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ],
+      "say": "red"
+     }
+    ]
+   ]
+  },
+  {
+   "vo": "V02_c2.mp3",
+   "broll": [
+    [
+     "sw/ginger_brown.jpg",
+     0,
+     1.0,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ],
+      "say": "ginger brown"
+     }
+    ],
+    [
+     "sw/black.jpg",
+     0,
+     1.0,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ],
+      "say": "black"
+     }
+    ],
+    [
+     "sw/chocolate.jpg",
+     0,
+     1.0,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ],
+      "say": "chocolate"
+     }
+    ],
+    [
+     "sw/red.jpg",
+     0,
+     1.0,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ],
+      "say": "red"
+     }
+    ]
+   ]
+  },
+  {
+   "vo": "V02_c3.mp3",
+   "broll": [
+    [
+     "1LyryrXa2Haxk8f1x29x3jDkEn8Y3Dh-A",
+     0.3,
+     1.0,
+     {
+      "at": 0
+     }
+    ]
+   ],
+   "spare": [
+    [
+     "1nCg9ulE1ZcwawGVIaGZvkMOcrZi_CrAG",
+     15.54,
+     1.0
+    ],
+    [
+     "1xvNFMVbihfFP4c9swMaLYL2avwwmOYy4",
+     0.3,
+     1.0
+    ],
+    [
+     "1jgkCse4uMTSToBBDAFFpF0gx_6qI4Zo6",
+     6.48,
+     1.0
+    ]
+   ],
+   "proof": true
+  },
+  {
+   "vo": "V02_c4.mp3",
+   "broll": [
+    [
+     "1u_BcAe6ont2BTbyK5uSi7-QFbgZ8sgML",
+     15.05,
+     1.0,
+     {
+      "at": 0
+     }
+    ]
+   ],
+   "spare": [
+    [
+     "1nCg9ulE1ZcwawGVIaGZvkMOcrZi_CrAG",
+     10.81,
+     1.0
+    ],
+    [
+     "1LvvnZKxAdkdxoYbD7CWAttjNbFgG_SRF",
+     7.78,
+     1.0
+    ],
+    [
+     "1VYOz6vWCsY5iQ6DuiIrqaCkR7HsDLrM6",
+     0.3,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V02_c5.mp3",
+   "broll": [
+    [
+     "1RnPV6uP7TLH9N-_A9Q15XeJLpOaeCUU4",
+     0.84,
+     1.0,
+     {
+      "at": 0
+     }
+    ],
+    [
+     "site/vintage_10.jpg",
+     0,
+     1.0,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ],
+      "at": 12
+     }
+    ]
+   ],
+   "spare": [
+    [
+     "18DAFSqkzMMUEnbSdL5eeRhvxDTkAq80k",
+     0.39,
+     1.0
+    ],
+    [
+     "1-OV1QVRanQ9JJty6KkJ6fTR9VLXynzk3",
+     3.14,
+     1.0
+    ],
+    [
+     "1hCWf3bEdaFfFGtnfd26IBmq2Er2ezYKx",
+     0.3,
+     1.0
+    ]
+   ]
+  }
+ ],
+ "overlays": [
+  {
+   "type": "label",
+   "text": "PICK HER COLOUR",
+   "block": 0,
+   "at": 0.1,
+   "dur": 1.8
+  },
+  {
+   "type": "tag",
+   "text": "PICK YOUR COLOUR",
+   "block": 2,
+   "at": 0.15,
+   "dur": 2.6
+  },
+  {
+   "type": "tag",
+   "text": "ONE-HAND CLASP",
+   "block": 3,
+   "at": 0.15,
+   "dur": 2.6
+  },
+  {
+   "type": "tag",
+   "text": "ORDER BY 14 DEC",
+   "block": 4,
+   "at": 0.15,
+   "dur": 2.6
+  }
+ ],
+ "end_title": "Black Friday Sale",
+ "offer": {
+  "block": 5,
+  "word": "50",
+  "title": "BLACK FRIDAY 50% OFF",
+  "sub": ""
+ },
+ "end_photo": "site/vintage_colour_red.jpg",
+ "end_offer": "UP TO 60% OFF",
+ "keywords": [
+  "50%",
+  "gift",
+  "gifts",
+  "hidden",
+  "pocket",
+  "leather",
+  "black",
+  "friday"
+ ],
+ "spare_broll": [
+  [
+   "1xWaBIVn543CxSr0WmqHEuasUJJGPcb55",
+   23.97,
+   1.0
+  ],
+  [
+   "1kvkyYZCu3c60QKlGQNEDDbrMp_gzaf40",
+   11.95,
+   1.0
+  ],
+  [
+   "1VTuBxxeM0kgk0zBmK93Vn8XJFiMOCLQU",
+   0.3,
+   1.0
+  ],
+  [
+   "17iFr-T6Hmi4mhwk5ZAaeEt3rIeZ1G1Rj",
+   10.98,
+   1.0
+  ],
+  [
+   "16tPrjwInS7Kzcvs17bMHBP4OwEjFc_Yn",
+   23.35,
+   1.0
+  ],
+  [
+   "1u_BcAe6ont2BTbyK5uSi7-QFbgZ8sgML",
+   8.63,
+   1.0
+  ]
+ ],
+ "music": {
+  "seed": 2
+ }
+}

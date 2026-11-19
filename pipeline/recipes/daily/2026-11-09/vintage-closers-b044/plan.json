@@ -1,0 +1,1588 @@
+{
+ "prefix": "LC_261109_VintageBag_BlackFriday_B044",
+ "rev": 1,
+ "batch_id": {
+  "id": "B044",
+  "n": 44,
+  "rev": 1
+ },
+ "created": "2026-11-09",
+ "request": "Week-1 pack for Wouter: 12 statics (pick your colour, Julian) + 3 closers for the Vintage Bag, Black Friday",
+ "product": "Vintage Bag",
+ "product_key": "vintage",
+ "product_source": "built-in",
+ "theme": "black friday",
+ "theme_name": "BlackFriday",
+ "offer": "50% off",
+ "campaign": {
+  "id": "bf2026",
+  "name": "Black Friday Sale 2026",
+  "theme": "black friday",
+  "banner": "Early Black Friday – 50% off everything, up to 60% off",
+  "until": "2026-11-30",
+  "from": "2026-10-23",
+  "end_title": "Black Friday Sale",
+  "end_pill": "UP TO 60% OFF",
+  "card_sub": "",
+  "close": "The Early Black Friday sale is on now, with up to sixty percent off.",
+  "hooks": [
+   "Black Friday prices are live now. No need to wait.",
+   "Early Black Friday: up to sixty percent off.",
+   "Why wait for Black Friday? The prices are already live."
+  ],
+  "facts": [
+   "Early Black Friday Sale: live now (from 23 October), it runs until 30 November (Cyber Monday). Black Friday is 27 November.",
+   "50% off everything sitewide (each bag's own % is on its offer card: the Hobo Bag is 50% off).",
+   "Up to 60% off: some bundles are 60% off, like the Hobo Bag 3-Piece Set. Say '60% off' only of the 3-Piece Set (or another named bundle), never of a single bag or of 'any 2 bags'.",
+   "No free gifts and no extra cart discount: both were removed by the owner on 26 October.",
+   "The Hobo Bag's product page offers the 3-Piece Set as the 'Best Value' upgrade.",
+   "Black Friday prices are live now: no need to wait.",
+   "Sale items are final sale: they cannot be returned (the site's Black Friday terms); faulty items are still covered and the 1-year warranty still applies. Never say 'easy returns', 'free returns' or 'send it back' in a Black Friday ad.",
+   "Christmas delivery (the site's Black Friday terms, filled in by 27 October): order by 14 December 2026 for the best chance of delivery before Christmas; delivery before Christmas is not guaranteed, so say 'the best chance', never 'guaranteed by Christmas'."
+  ],
+  "bundle_pct": null,
+  "upto_pct": 60,
+  "bundle_any": false,
+  "client_ideas": "Owner 2026-10-26: everything is on sale everywhere, so stand out; the Hobo Bag page upsells the 3-Piece Set ('Best Value'): ads that sell the set raise the order value; 'Black Friday prices are live now, no need to wait'; Christmas gifting (mum, sister, best friend); 2 straps on the Hobo 2.0 (handbag + crossbody); in the last week: Black Friday 27 November, Cyber Monday 30 November, 'last chance'. The AI ads 'seem to be starting to work: keep testing'.",
+  "gifts": [],
+  "gifts_worth": null,
+  "dates": {
+   "black friday": "27 November",
+   "cyber monday": "30 November",
+   "ends": "30 November"
+  },
+  "copy": {
+   "primary": [
+    "Early Black Friday is live: 50% off everything, and up to 60% off bundles like the 3-Piece Set.",
+    "Black Friday prices are live now, no need to wait. 50% off everything, up to 60% off bundles."
+   ],
+   "headline": [
+    "Early Black Friday: 50% Off",
+    "Up to 60% Off Bundles",
+    "Black Friday Prices Are Live"
+   ],
+   "description": "Up to 60% off"
+  },
+  "approved_phrases": [
+   "up to (?:60|sixty) ?(?:%|percent) off(?: bundles?)?",
+   "(?:60|sixty) ?(?:%|percent) off (?:the |our )?(?:hobo (?:bag )?)?3-piece set",
+   "(?:50|fifty) ?(?:%|percent) off everything"
+  ],
+  "approved": "Wouter (owner), 2026-10-23: the Black Friday Sale went live on 23 October and runs until 30 November (Cyber Monday). Up to 50% off sitewide; 60% off bundles (2 or 3 bags bought together at 60% off the regular price); free gifts while stocks last: buy 2 bags, get a free mirrored jewellery box (worth $19.95); buy 3+ bags, get the jewellery box + a free cosmetic bag (together worth $44.90); only bags count, not accessories. The site banner (2026-10-23): 'EARLY BLACK FRIDAY: 50% OFF EVERYTHING | BUY 2 BAGS = 1 FREE GIFT | BUY 3 = 2 FREE GIFTS | ORDER TODAY WHILE STOCKS LAST!' | UPDATE Wouter (owner), 2026-10-26: the free gifts and the extra cart discount on bags are removed ('they're not coming back'); 'It's 50% OFF or you can say up to 60% OFF'; 60% is only on bundles 'like the 3 piece set', not any 2 bags; the site now has Early Black Friday messaging, a countdown in the announcement bar, 'Ships by' and delivery dates, and the 3-Piece Set as a 'Best Value' upgrade on the Hobo Bag page; during Black Friday no returns are accepted (final sale).",
+  "final_sale": true,
+  "terms": "https://libracases.com/pages/terms-and-conditions-black-friday-sale",
+  "banned": [
+   {
+    "rx": "\\bfree gifts?\\b|\\bgifts? with (?:2|two|3|three|every)\\b|\\bfree (?:mirrored )?jewell?e?ry box(?:es)?\\b|\\bfree (?:travel )?cosmetic bags?\\b|\\bjewell?e?ry box\\b|\\bcosmetic bag\\b",
+    "why": "the free gifts were removed by the owner on 26 October (not coming back): say the bag's own free pouch wallet, if it has one"
+   },
+   {
+    "rx": "(?:60|sixty) ?(?:%|percent) off\\b[^.!?]{0,60}\\b(?:(?:2|two) (?:or (?:3|three) )?bags|(?:3|three) bags|(?:2|two) or (?:3|three)|second bag|together)|\\b(?:2|two) or (?:3|three) bags\\b[^.!?]{0,30}(?:60|sixty) ?(?:%|percent)",
+    "why": "60% is only on bundles like the 3-Piece Set, not on any 2 or 3 bags (owner, 26 October): say 'up to 60% off' or '60% off the 3-Piece Set'"
+   },
+   {
+    "rx": "\\b(?:ends?|ending) (?:tonight|today)\\b|\\btoday only\\b|\\bonly today\\b|\\b(?:sale|deal|offer)s? ends? (?:soon|in \\d+ (?:hours?|minutes?|days?))\\b|\\bhours? left\\b",
+    "why": "the sale runs until 30 November (owner 2026-10-23; the site banner's 'ends tonight' is the owner's choice for the site only): before the last day 'ends tonight / today only' is false and Meta flags ads whose deadline differs from the landing page; say 'Black Friday prices are live now' or 'the sale ends on the thirtieth of November'",
+    "except_on": [
+     "2026-11-30"
+    ]
+   },
+   {
+    "rx": "\\blast (?:chance|days?|call)\\b|\\bfinal (?:days?|hours?|chance)\\b",
+    "why": "'last chance' is the last week's message (owner's timeline: last-week content by 20 November, for Black Friday 27 Nov - Cyber Monday 30 Nov): before 20 November it is false urgency",
+    "except_from": "2026-11-20"
+   },
+   {
+    "rx": "\\bguarantee\\w*\\b[^.!?]{0,40}\\bchristmas\\b|\\bchristmas\\b[^.!?]{0,40}\\bguarantee\\w*\\b|\\b(?:arrives?|delivered|get it|gets there|be there|in time for)\\b[^.!?]{0,20}\\b(?:in time for|by|before) christmas\\b|\\bin time for christmas\\b",
+    "why": "the site's terms: delivery before Christmas is not guaranteed; say 'order by 14 December for the best chance of delivery before Christmas'"
+   }
+  ]
+ },
+ "statics": [
+  "LC_261109_VintageBag_BlackFriday_B044_S01_colours",
+  "LC_261109_VintageBag_BlackFriday_B044_S02_value",
+  "LC_261109_VintageBag_BlackFriday_B044_S03_native",
+  "LC_261109_VintageBag_BlackFriday_B044_S04_hook",
+  "LC_261109_VintageBag_BlackFriday_B044_S05_quote",
+  "LC_261109_VintageBag_BlackFriday_B044_S06_list",
+  "LC_261109_VintageBag_BlackFriday_B044_S07_numerals",
+  "LC_261109_VintageBag_BlackFriday_B044_S08_swingtag",
+  "LC_261109_VintageBag_BlackFriday_B044_S09_decal",
+  "LC_261109_VintageBag_BlackFriday_B044_S10_question",
+  "LC_261109_VintageBag_BlackFriday_B044_S11_native",
+  "LC_261109_VintageBag_BlackFriday_B044_S12_native"
+ ],
+ "videos": [
+  {
+   "name": "LC_261109_VintageBag_BlackFriday_B044_P01_H1_onepress",
+   "id": "P01H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "closer": true,
+   "ugc": {
+    "script": "U01",
+    "angle": "onepress",
+    "words": 83,
+    "structure": "closer",
+    "hook": {
+     "type": "warning",
+     "label": "ONE HAND",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Still putting your coffee down to close your bag?",
+      "type": "question",
+      "label": "COFFEE DOWN?",
+      "feature": null,
+      "show": [
+       "worn",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Half price this Black Friday, and it goes crossbody too.",
+      "type": "price",
+      "label": "50% OFF",
+      "feature": null,
+      "show": [
+       "strap",
+       "worn"
+      ]
+     },
+     {
+      "text": "The mistake that leaves your keys loose at the bottom.",
+      "type": "problem",
+      "label": "LOOSE KEYS?",
+      "feature": null,
+      "show": [
+       "inside",
+       "packing"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Still putting your coffee down to close your bag?": [
+      [
+       "1LyryrXa2Haxk8f1x29x3jDkEn8Y3Dh-A",
+       0.3,
+       1.0
+      ],
+      [
+       "1R252UTrxdvK5bBTBSgBNWv04zCDUs5KK",
+       9.6,
+       1.0,
+       {
+        "zoom": [
+         1.3,
+         1.36
+        ],
+        "focus": [
+         0.5,
+         0.55
+        ]
+       }
+      ]
+     ],
+     "Half price this Black Friday, and it goes crossbody too.": [
+      [
+       "1xWaBIVn543CxSr0WmqHEuasUJJGPcb55",
+       23.97,
+       1.0
+      ],
+      [
+       "17pDJceUeFQwkPdvcEbyheppSWHKA7lrx",
+       0.53,
+       1.0
+      ]
+     ],
+     "The mistake that leaves your keys loose at the bottom.": [
+      [
+       "1R252UTrxdvK5bBTBSgBNWv04zCDUs5KK",
+       3.57,
+       1.0
+      ],
+      [
+       "1u_BcAe6ont2BTbyK5uSi7-QFbgZ8sgML",
+       15.05,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 28.4,
+   "project": "P01",
+   "hook_text": "Don't buy a bag you need two hands to close.",
+   "hook_label": "ONE HAND",
+   "hook_type": "warning",
+   "opening_shot": [
+    "1HNUEQK0mMmDiVbvsG41nEmwlON-IFoU9",
+    10.54
+   ]
+  },
+  {
+   "name": "LC_261109_VintageBag_BlackFriday_B044_P01_H2_onepress",
+   "id": "P01H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "closer": true,
+   "ugc": {
+    "script": "U01",
+    "angle": "onepress",
+    "words": 83,
+    "structure": "closer",
+    "hook": {
+     "type": "warning",
+     "label": "ONE HAND",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Still putting your coffee down to close your bag?",
+      "type": "question",
+      "label": "COFFEE DOWN?",
+      "feature": null,
+      "show": [
+       "worn",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Half price this Black Friday, and it goes crossbody too.",
+      "type": "price",
+      "label": "50% OFF",
+      "feature": null,
+      "show": [
+       "strap",
+       "worn"
+      ]
+     },
+     {
+      "text": "The mistake that leaves your keys loose at the bottom.",
+      "type": "problem",
+      "label": "LOOSE KEYS?",
+      "feature": null,
+      "show": [
+       "inside",
+       "packing"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Still putting your coffee down to close your bag?": [
+      [
+       "1LyryrXa2Haxk8f1x29x3jDkEn8Y3Dh-A",
+       0.3,
+       1.0
+      ],
+      [
+       "1R252UTrxdvK5bBTBSgBNWv04zCDUs5KK",
+       9.6,
+       1.0,
+       {
+        "zoom": [
+         1.3,
+         1.36
+        ],
+        "focus": [
+         0.5,
+         0.55
+        ]
+       }
+      ]
+     ],
+     "Half price this Black Friday, and it goes crossbody too.": [
+      [
+       "1xWaBIVn543CxSr0WmqHEuasUJJGPcb55",
+       23.97,
+       1.0
+      ],
+      [
+       "17pDJceUeFQwkPdvcEbyheppSWHKA7lrx",
+       0.53,
+       1.0
+      ]
+     ],
+     "The mistake that leaves your keys loose at the bottom.": [
+      [
+       "1R252UTrxdvK5bBTBSgBNWv04zCDUs5KK",
+       3.57,
+       1.0
+      ],
+      [
+       "1u_BcAe6ont2BTbyK5uSi7-QFbgZ8sgML",
+       15.05,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 28.1,
+   "project": "P01",
+   "hook_text": "Still putting your coffee down to close your bag?",
+   "hook_label": "COFFEE DOWN?",
+   "hook_type": "question",
+   "opening_shot": [
+    "1LyryrXa2Haxk8f1x29x3jDkEn8Y3Dh-A",
+    0.3
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261109_VintageBag_BlackFriday_B044_P01_H3_onepress",
+   "id": "P01H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "closer": true,
+   "ugc": {
+    "script": "U01",
+    "angle": "onepress",
+    "words": 83,
+    "structure": "closer",
+    "hook": {
+     "type": "warning",
+     "label": "ONE HAND",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Still putting your coffee down to close your bag?",
+      "type": "question",
+      "label": "COFFEE DOWN?",
+      "feature": null,
+      "show": [
+       "worn",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Half price this Black Friday, and it goes crossbody too.",
+      "type": "price",
+      "label": "50% OFF",
+      "feature": null,
+      "show": [
+       "strap",
+       "worn"
+      ]
+     },
+     {
+      "text": "The mistake that leaves your keys loose at the bottom.",
+      "type": "problem",
+      "label": "LOOSE KEYS?",
+      "feature": null,
+      "show": [
+       "inside",
+       "packing"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Still putting your coffee down to close your bag?": [
+      [
+       "1LyryrXa2Haxk8f1x29x3jDkEn8Y3Dh-A",
+       0.3,
+       1.0
+      ],
+      [
+       "1R252UTrxdvK5bBTBSgBNWv04zCDUs5KK",
+       9.6,
+       1.0,
+       {
+        "zoom": [
+         1.3,
+         1.36
+        ],
+        "focus": [
+         0.5,
+         0.55
+        ]
+       }
+      ]
+     ],
+     "Half price this Black Friday, and it goes crossbody too.": [
+      [
+       "1xWaBIVn543CxSr0WmqHEuasUJJGPcb55",
+       23.97,
+       1.0
+      ],
+      [
+       "17pDJceUeFQwkPdvcEbyheppSWHKA7lrx",
+       0.53,
+       1.0
+      ]
+     ],
+     "The mistake that leaves your keys loose at the bottom.": [
+      [
+       "1R252UTrxdvK5bBTBSgBNWv04zCDUs5KK",
+       3.57,
+       1.0
+      ],
+      [
+       "1u_BcAe6ont2BTbyK5uSi7-QFbgZ8sgML",
+       15.05,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 28.4,
+   "project": "P01",
+   "hook_text": "Half price this Black Friday, and it goes crossbody too.",
+   "hook_label": "50% OFF",
+   "hook_type": "price",
+   "opening_shot": [
+    "1xWaBIVn543CxSr0WmqHEuasUJJGPcb55",
+    23.97
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261109_VintageBag_BlackFriday_B044_P01_H4_onepress",
+   "id": "P01H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "closer": true,
+   "ugc": {
+    "script": "U01",
+    "angle": "onepress",
+    "words": 83,
+    "structure": "closer",
+    "hook": {
+     "type": "warning",
+     "label": "ONE HAND",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Still putting your coffee down to close your bag?",
+      "type": "question",
+      "label": "COFFEE DOWN?",
+      "feature": null,
+      "show": [
+       "worn",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Half price this Black Friday, and it goes crossbody too.",
+      "type": "price",
+      "label": "50% OFF",
+      "feature": null,
+      "show": [
+       "strap",
+       "worn"
+      ]
+     },
+     {
+      "text": "The mistake that leaves your keys loose at the bottom.",
+      "type": "problem",
+      "label": "LOOSE KEYS?",
+      "feature": null,
+      "show": [
+       "inside",
+       "packing"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Still putting your coffee down to close your bag?": [
+      [
+       "1LyryrXa2Haxk8f1x29x3jDkEn8Y3Dh-A",
+       0.3,
+       1.0
+      ],
+      [
+       "1R252UTrxdvK5bBTBSgBNWv04zCDUs5KK",
+       9.6,
+       1.0,
+       {
+        "zoom": [
+         1.3,
+         1.36
+        ],
+        "focus": [
+         0.5,
+         0.55
+        ]
+       }
+      ]
+     ],
+     "Half price this Black Friday, and it goes crossbody too.": [
+      [
+       "1xWaBIVn543CxSr0WmqHEuasUJJGPcb55",
+       23.97,
+       1.0
+      ],
+      [
+       "17pDJceUeFQwkPdvcEbyheppSWHKA7lrx",
+       0.53,
+       1.0
+      ]
+     ],
+     "The mistake that leaves your keys loose at the bottom.": [
+      [
+       "1R252UTrxdvK5bBTBSgBNWv04zCDUs5KK",
+       3.57,
+       1.0
+      ],
+      [
+       "1u_BcAe6ont2BTbyK5uSi7-QFbgZ8sgML",
+       15.05,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 28.4,
+   "project": "P01",
+   "hook_text": "The mistake that leaves your keys loose at the bottom.",
+   "hook_label": "LOOSE KEYS?",
+   "hook_type": "problem",
+   "opening_shot": [
+    "1R252UTrxdvK5bBTBSgBNWv04zCDUs5KK",
+    3.57
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261109_VintageBag_BlackFriday_B044_P02_H1_pickhers",
+   "id": "P02H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "closer": true,
+   "ugc": {
+    "script": "U02",
+    "angle": "pickhers",
+    "words": 90,
+    "structure": "closer",
+    "hook": {
+     "type": "warning",
+     "label": "PICK HER COLOUR",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Ginger brown, black, chocolate or red: which one is she?",
+      "type": "question",
+      "label": "WHICH ONE?",
+      "feature": null,
+      "show": [
+       "strap",
+       "colours"
+      ]
+     },
+     {
+      "text": "Four colours, and every one snaps shut with one hand.",
+      "type": "promise",
+      "label": "FOUR COLOURS",
+      "feature": null,
+      "show": [
+       "snap",
+       "colours"
+      ]
+     },
+     {
+      "text": "Half price, free shipping, and a spot for her phone.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null,
+      "show": [
+       "packing",
+       "inside"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Ginger brown, black, chocolate or red: which one is she?": [
+      [
+       "17NS2UkififrDzubGafZAFDCII3K88Y34",
+       0.3,
+       1.0
+      ],
+      [
+       "1eNxj6EENheI3Xup2YsPtao1BeR6KcHr1",
+       0.3,
+       1.0
+      ]
+     ],
+     "Four colours, and every one snaps shut with one hand.": [
+      [
+       "1n_iVN9Lf1dKnL9Mo1ixhZiHX-MBBv7gp",
+       9.12,
+       1.0
+      ],
+      [
+       "1R252UTrxdvK5bBTBSgBNWv04zCDUs5KK",
+       9.6,
+       1.0
+      ]
+     ],
+     "Half price, free shipping, and a spot for her phone.": [
+      [
+       "1qNOv5frbrbN4JAtBuqHDqxjXb15gEeuc",
+       4.44,
+       1.0
+      ],
+      [
+       "1m1IT7G__icZ8VzWV8Rb1jQyVs8rwiANk",
+       12.94,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 30.8,
+   "project": "P02",
+   "hook_text": "Before you buy her a bag, pick the colour first.",
+   "hook_label": "PICK HER COLOUR",
+   "hook_type": "warning",
+   "opening_shot": [
+    "1dKZIPJdzTK5XalUeYccAQqTH-jLEkPt2",
+    15.8
+   ]
+  },
+  {
+   "name": "LC_261109_VintageBag_BlackFriday_B044_P02_H2_pickhers",
+   "id": "P02H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "closer": true,
+   "ugc": {
+    "script": "U02",
+    "angle": "pickhers",
+    "words": 90,
+    "structure": "closer",
+    "hook": {
+     "type": "warning",
+     "label": "PICK HER COLOUR",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Ginger brown, black, chocolate or red: which one is she?",
+      "type": "question",
+      "label": "WHICH ONE?",
+      "feature": null,
+      "show": [
+       "strap",
+       "colours"
+      ]
+     },
+     {
+      "text": "Four colours, and every one snaps shut with one hand.",
+      "type": "promise",
+      "label": "FOUR COLOURS",
+      "feature": null,
+      "show": [
+       "snap",
+       "colours"
+      ]
+     },
+     {
+      "text": "Half price, free shipping, and a spot for her phone.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null,
+      "show": [
+       "packing",
+       "inside"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Ginger brown, black, chocolate or red: which one is she?": [
+      [
+       "17NS2UkififrDzubGafZAFDCII3K88Y34",
+       0.3,
+       1.0
+      ],
+      [
+       "1eNxj6EENheI3Xup2YsPtao1BeR6KcHr1",
+       0.3,
+       1.0
+      ]
+     ],
+     "Four colours, and every one snaps shut with one hand.": [
+      [
+       "1n_iVN9Lf1dKnL9Mo1ixhZiHX-MBBv7gp",
+       9.12,
+       1.0
+      ],
+      [
+       "1R252UTrxdvK5bBTBSgBNWv04zCDUs5KK",
+       9.6,
+       1.0
+      ]
+     ],
+     "Half price, free shipping, and a spot for her phone.": [
+      [
+       "1qNOv5frbrbN4JAtBuqHDqxjXb15gEeuc",
+       4.44,
+       1.0
+      ],
+      [
+       "1m1IT7G__icZ8VzWV8Rb1jQyVs8rwiANk",
+       12.94,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 30.8,
+   "project": "P02",
+   "hook_text": "Ginger brown, black, chocolate or red: which one is she?",
+   "hook_label": "WHICH ONE?",
+   "hook_type": "question",
+   "opening_shot": [
+    "17NS2UkififrDzubGafZAFDCII3K88Y34",
+    0.3
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261109_VintageBag_BlackFriday_B044_P02_H3_pickhers",
+   "id": "P02H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "closer": true,
+   "ugc": {
+    "script": "U02",
+    "angle": "pickhers",
+    "words": 90,
+    "structure": "closer",
+    "hook": {
+     "type": "warning",
+     "label": "PICK HER COLOUR",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Ginger brown, black, chocolate or red: which one is she?",
+      "type": "question",
+      "label": "WHICH ONE?",
+      "feature": null,
+      "show": [
+       "strap",
+       "colours"
+      ]
+     },
+     {
+      "text": "Four colours, and every one snaps shut with one hand.",
+      "type": "promise",
+      "label": "FOUR COLOURS",
+      "feature": null,
+      "show": [
+       "snap",
+       "colours"
+      ]
+     },
+     {
+      "text": "Half price, free shipping, and a spot for her phone.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null,
+      "show": [
+       "packing",
+       "inside"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Ginger brown, black, chocolate or red: which one is she?": [
+      [
+       "17NS2UkififrDzubGafZAFDCII3K88Y34",
+       0.3,
+       1.0
+      ],
+      [
+       "1eNxj6EENheI3Xup2YsPtao1BeR6KcHr1",
+       0.3,
+       1.0
+      ]
+     ],
+     "Four colours, and every one snaps shut with one hand.": [
+      [
+       "1n_iVN9Lf1dKnL9Mo1ixhZiHX-MBBv7gp",
+       9.12,
+       1.0
+      ],
+      [
+       "1R252UTrxdvK5bBTBSgBNWv04zCDUs5KK",
+       9.6,
+       1.0
+      ]
+     ],
+     "Half price, free shipping, and a spot for her phone.": [
+      [
+       "1qNOv5frbrbN4JAtBuqHDqxjXb15gEeuc",
+       4.44,
+       1.0
+      ],
+      [
+       "1m1IT7G__icZ8VzWV8Rb1jQyVs8rwiANk",
+       12.94,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 30.8,
+   "project": "P02",
+   "hook_text": "Four colours, and every one snaps shut with one hand.",
+   "hook_label": "FOUR COLOURS",
+   "hook_type": "promise",
+   "opening_shot": [
+    "1n_iVN9Lf1dKnL9Mo1ixhZiHX-MBBv7gp",
+    9.12
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261109_VintageBag_BlackFriday_B044_P02_H4_pickhers",
+   "id": "P02H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "closer": true,
+   "ugc": {
+    "script": "U02",
+    "angle": "pickhers",
+    "words": 90,
+    "structure": "closer",
+    "hook": {
+     "type": "warning",
+     "label": "PICK HER COLOUR",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Ginger brown, black, chocolate or red: which one is she?",
+      "type": "question",
+      "label": "WHICH ONE?",
+      "feature": null,
+      "show": [
+       "strap",
+       "colours"
+      ]
+     },
+     {
+      "text": "Four colours, and every one snaps shut with one hand.",
+      "type": "promise",
+      "label": "FOUR COLOURS",
+      "feature": null,
+      "show": [
+       "snap",
+       "colours"
+      ]
+     },
+     {
+      "text": "Half price, free shipping, and a spot for her phone.",
+      "type": "price",
+      "label": "HALF PRICE",
+      "feature": null,
+      "show": [
+       "packing",
+       "inside"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Ginger brown, black, chocolate or red: which one is she?": [
+      [
+       "17NS2UkififrDzubGafZAFDCII3K88Y34",
+       0.3,
+       1.0
+      ],
+      [
+       "1eNxj6EENheI3Xup2YsPtao1BeR6KcHr1",
+       0.3,
+       1.0
+      ]
+     ],
+     "Four colours, and every one snaps shut with one hand.": [
+      [
+       "1n_iVN9Lf1dKnL9Mo1ixhZiHX-MBBv7gp",
+       9.12,
+       1.0
+      ],
+      [
+       "1R252UTrxdvK5bBTBSgBNWv04zCDUs5KK",
+       9.6,
+       1.0
+      ]
+     ],
+     "Half price, free shipping, and a spot for her phone.": [
+      [
+       "1qNOv5frbrbN4JAtBuqHDqxjXb15gEeuc",
+       4.44,
+       1.0
+      ],
+      [
+       "1m1IT7G__icZ8VzWV8Rb1jQyVs8rwiANk",
+       12.94,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 30.8,
+   "project": "P02",
+   "hook_text": "Half price, free shipping, and a spot for her phone.",
+   "hook_label": "HALF PRICE",
+   "hook_type": "price",
+   "opening_shot": [
+    "1qNOv5frbrbN4JAtBuqHDqxjXb15gEeuc",
+    4.44
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261109_VintageBag_BlackFriday_B044_P03_H1_twoways",
+   "id": "P03H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "closer": true,
+   "ugc": {
+    "script": "U03",
+    "angle": "twoways",
+    "words": 81,
+    "structure": "closer",
+    "hook": {
+     "type": "warning",
+     "label": "THIS STRAP",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Handbag at lunch, crossbody on the walk home?",
+      "type": "question",
+      "label": "TWO WAYS?",
+      "feature": null,
+      "show": [
+       "walking",
+       "worn"
+      ]
+     },
+     {
+      "text": "One press shut, one strap longer, and it's a crossbody.",
+      "type": "promise",
+      "label": "ONE STRAP",
+      "feature": null,
+      "show": [
+       "snap",
+       "strap"
+      ]
+     },
+     {
+      "text": "Half price on the bag that goes from handbag to crossbody.",
+      "type": "price",
+      "label": "50% OFF",
+      "feature": null,
+      "show": [
+       "worn",
+       "strap"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Handbag at lunch, crossbody on the walk home?": [
+      [
+       "195deHD_NpwLsKGYpFQBlO3Nlqd9nvt4E",
+       0.3,
+       1.0
+      ]
+     ],
+     "One press shut, one strap longer, and it's a crossbody.": [
+      [
+       "1jgkCse4uMTSToBBDAFFpF0gx_6qI4Zo6",
+       6.48,
+       1.0
+      ],
+      [
+       "1Vmnc83ejq0iUAhhxmKpOq0gn8OnvM0W6",
+       7.44,
+       1.0
+      ]
+     ],
+     "Half price on the bag that goes from handbag to crossbody.": [
+      [
+       "1m1IT7G__icZ8VzWV8Rb1jQyVs8rwiANk",
+       18.51,
+       1.0
+      ],
+      [
+       "1Vmnc83ejq0iUAhhxmKpOq0gn8OnvM0W6",
+       4.06,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 27.7,
+   "project": "P03",
+   "hook_text": "Before you buy a crossbody, look at this strap.",
+   "hook_label": "THIS STRAP",
+   "hook_type": "warning",
+   "opening_shot": [
+    "1ni45Zrqs01boihMG9jmX7TP95mIh9WvJ",
+    4.06
+   ]
+  },
+  {
+   "name": "LC_261109_VintageBag_BlackFriday_B044_P03_H2_twoways",
+   "id": "P03H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "closer": true,
+   "ugc": {
+    "script": "U03",
+    "angle": "twoways",
+    "words": 81,
+    "structure": "closer",
+    "hook": {
+     "type": "warning",
+     "label": "THIS STRAP",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Handbag at lunch, crossbody on the walk home?",
+      "type": "question",
+      "label": "TWO WAYS?",
+      "feature": null,
+      "show": [
+       "walking",
+       "worn"
+      ]
+     },
+     {
+      "text": "One press shut, one strap longer, and it's a crossbody.",
+      "type": "promise",
+      "label": "ONE STRAP",
+      "feature": null,
+      "show": [
+       "snap",
+       "strap"
+      ]
+     },
+     {
+      "text": "Half price on the bag that goes from handbag to crossbody.",
+      "type": "price",
+      "label": "50% OFF",
+      "feature": null,
+      "show": [
+       "worn",
+       "strap"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Handbag at lunch, crossbody on the walk home?": [
+      [
+       "195deHD_NpwLsKGYpFQBlO3Nlqd9nvt4E",
+       0.3,
+       1.0
+      ]
+     ],
+     "One press shut, one strap longer, and it's a crossbody.": [
+      [
+       "1jgkCse4uMTSToBBDAFFpF0gx_6qI4Zo6",
+       6.48,
+       1.0
+      ],
+      [
+       "1Vmnc83ejq0iUAhhxmKpOq0gn8OnvM0W6",
+       7.44,
+       1.0
+      ]
+     ],
+     "Half price on the bag that goes from handbag to crossbody.": [
+      [
+       "1m1IT7G__icZ8VzWV8Rb1jQyVs8rwiANk",
+       18.51,
+       1.0
+      ],
+      [
+       "1Vmnc83ejq0iUAhhxmKpOq0gn8OnvM0W6",
+       4.06,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 27.4,
+   "project": "P03",
+   "hook_text": "Handbag at lunch, crossbody on the walk home?",
+   "hook_label": "TWO WAYS?",
+   "hook_type": "question",
+   "opening_shot": [
+    "195deHD_NpwLsKGYpFQBlO3Nlqd9nvt4E",
+    0.3
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261109_VintageBag_BlackFriday_B044_P03_H3_twoways",
+   "id": "P03H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "closer": true,
+   "ugc": {
+    "script": "U03",
+    "angle": "twoways",
+    "words": 81,
+    "structure": "closer",
+    "hook": {
+     "type": "warning",
+     "label": "THIS STRAP",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Handbag at lunch, crossbody on the walk home?",
+      "type": "question",
+      "label": "TWO WAYS?",
+      "feature": null,
+      "show": [
+       "walking",
+       "worn"
+      ]
+     },
+     {
+      "text": "One press shut, one strap longer, and it's a crossbody.",
+      "type": "promise",
+      "label": "ONE STRAP",
+      "feature": null,
+      "show": [
+       "snap",
+       "strap"
+      ]
+     },
+     {
+      "text": "Half price on the bag that goes from handbag to crossbody.",
+      "type": "price",
+      "label": "50% OFF",
+      "feature": null,
+      "show": [
+       "worn",
+       "strap"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Handbag at lunch, crossbody on the walk home?": [
+      [
+       "195deHD_NpwLsKGYpFQBlO3Nlqd9nvt4E",
+       0.3,
+       1.0
+      ]
+     ],
+     "One press shut, one strap longer, and it's a crossbody.": [
+      [
+       "1jgkCse4uMTSToBBDAFFpF0gx_6qI4Zo6",
+       6.48,
+       1.0
+      ],
+      [
+       "1Vmnc83ejq0iUAhhxmKpOq0gn8OnvM0W6",
+       7.44,
+       1.0
+      ]
+     ],
+     "Half price on the bag that goes from handbag to crossbody.": [
+      [
+       "1m1IT7G__icZ8VzWV8Rb1jQyVs8rwiANk",
+       18.51,
+       1.0
+      ],
+      [
+       "1Vmnc83ejq0iUAhhxmKpOq0gn8OnvM0W6",
+       4.06,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 28.0,
+   "project": "P03",
+   "hook_text": "One press shut, one strap longer, and it's a crossbody.",
+   "hook_label": "ONE STRAP",
+   "hook_type": "promise",
+   "opening_shot": [
+    "1jgkCse4uMTSToBBDAFFpF0gx_6qI4Zo6",
+    6.48
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261109_VintageBag_BlackFriday_B044_P03_H4_twoways",
+   "id": "P03H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "closer": true,
+   "ugc": {
+    "script": "U03",
+    "angle": "twoways",
+    "words": 81,
+    "structure": "closer",
+    "hook": {
+     "type": "warning",
+     "label": "THIS STRAP",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Handbag at lunch, crossbody on the walk home?",
+      "type": "question",
+      "label": "TWO WAYS?",
+      "feature": null,
+      "show": [
+       "walking",
+       "worn"
+      ]
+     },
+     {
+      "text": "One press shut, one strap longer, and it's a crossbody.",
+      "type": "promise",
+      "label": "ONE STRAP",
+      "feature": null,
+      "show": [
+       "snap",
+       "strap"
+      ]
+     },
+     {
+      "text": "Half price on the bag that goes from handbag to crossbody.",
+      "type": "price",
+      "label": "50% OFF",
+      "feature": null,
+      "show": [
+       "worn",
+       "strap"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Handbag at lunch, crossbody on the walk home?": [
+      [
+       "195deHD_NpwLsKGYpFQBlO3Nlqd9nvt4E",
+       0.3,
+       1.0
+      ]
+     ],
+     "One press shut, one strap longer, and it's a crossbody.": [
+      [
+       "1jgkCse4uMTSToBBDAFFpF0gx_6qI4Zo6",
+       6.48,
+       1.0
+      ],
+      [
+       "1Vmnc83ejq0iUAhhxmKpOq0gn8OnvM0W6",
+       7.44,
+       1.0
+      ]
+     ],
+     "Half price on the bag that goes from handbag to crossbody.": [
+      [
+       "1m1IT7G__icZ8VzWV8Rb1jQyVs8rwiANk",
+       18.51,
+       1.0
+      ],
+      [
+       "1Vmnc83ejq0iUAhhxmKpOq0gn8OnvM0W6",
+       4.06,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 28.3,
+   "project": "P03",
+   "hook_text": "Half price on the bag that goes from handbag to crossbody.",
+   "hook_label": "50% OFF",
+   "hook_type": "price",
+   "opening_shot": [
+    "1m1IT7G__icZ8VzWV8Rb1jQyVs8rwiANk",
+    18.51
+   ],
+   "hook_source": "script"
+  }
+ ],
+ "tts_lines": 24,
+ "tts_dupes": {
+  "V03_c4.mp3": "V01_c4.mp3"
+ },
+ "est_credits": 8.4,
+ "budget": 100.0,
+ "colour_images": {
+  "Ginger Brown": "/tmp/claude-0/-home-user-Higgsfield-test/dc62c400-d540-5f8d-8967-810c690f0a81/scratchpad/run4/vintage/site/clean/vintage_colour_ginger_brown_nobadge.jpg",
+  "Black": "/tmp/claude-0/-home-user-Higgsfield-test/dc62c400-d540-5f8d-8967-810c690f0a81/scratchpad/run4/vintage/site/vintage_colour_black.jpg",
+  "Chocolate": "/tmp/claude-0/-home-user-Higgsfield-test/dc62c400-d540-5f8d-8967-810c690f0a81/scratchpad/run4/vintage/site/vintage_colour_chocolate.jpg",
+  "Red": "/tmp/claude-0/-home-user-Higgsfield-test/dc62c400-d540-5f8d-8967-810c690f0a81/scratchpad/run4/vintage/site/vintage_colour_red.jpg"
+ },
+ "packshots": [
+  "/tmp/claude-0/-home-user-Higgsfield-test/dc62c400-d540-5f8d-8967-810c690f0a81/scratchpad/run4/vintage/site/vintage_colour_black.jpg",
+  "/tmp/claude-0/-home-user-Higgsfield-test/dc62c400-d540-5f8d-8967-810c690f0a81/scratchpad/run4/vintage/site/vintage_colour_chocolate.jpg",
+  "/tmp/claude-0/-home-user-Higgsfield-test/dc62c400-d540-5f8d-8967-810c690f0a81/scratchpad/run4/vintage/site/vintage_colour_red.jpg"
+ ],
+ "brief": null,
+ "ai": {
+  "stills": 9,
+  "clips": 0,
+  "est_credits": 9.0,
+  "budget": {
+   "cap": 100.0,
+   "tts_est": 13.5,
+   "reserve": 8.0
+  },
+  "scenes": [
+   "p01_s04",
+   "p01_s07_giant_numerals",
+   "p01_s10_taped_question",
+   "p02_s05",
+   "p02_s09_shop_window_decal",
+   "p02_s12_train_ticket",
+   "p03_s06",
+   "p03_s08_swing_tag",
+   "p03_s11_letter_board"
+  ],
+  "next": "python3 pipeline/ai_gen.py show --out /tmp/claude-0/-home-user-Higgsfield-test/dc62c400-d540-5f8d-8967-810c690f0a81/scratchpad/run4/vintage"
+ },
+ "winners_source": null,
+ "winners_note": null,
+ "winners_used": [],
+ "unmatched_winners": [],
+ "warnings": [
+  "campaign: Black Friday Sale 2026 (2026-10-23 to 2026-11-30, client-approved): end cards say 'Black Friday Sale' + 'UP TO 60% OFF'; the close and the ad copy name the sale; each bag's own % stays its offer",
+  "ideas: P02 c4: an earlier batch already said: 'Order by the fourteenth of December for the best chance of delivery before Christmas.'",
+  "ideas: playbook hook_third_person: P02 H1: 'Before you buy her a bag, pick the colour first.' talks about 'her' / 'him': the viewer is 'you'",
+  "ideas: playbook hook_third_person: P02 H2: 'Ginger brown, black, chocolate or red: which one is she?' talks about 'her' / 'him': the viewer is 'you'",
+  "ideas: playbook hook_third_person: P02 H4: 'Half price, free shipping, and a spot for her phone.' talks about 'her' / 'him': the viewer is 'you'",
+  "ideas: 9 AI statics of 12 (6 designed ads, 3 studio scenes; about 9 credits plus retries)",
+  "re-plan: keeps batch number B044 (planned in this --out, not uploaded yet)",
+  "Vintage Bag has 7 earlier batch(es) in the novelty log: the statics start 7 step(s) further in their photo / headline cycle (other photos and captions than before)"
+ ],
+ "winner_reviews": false,
+ "seed": 1,
+ "hooks": 4,
+ "pipeline": "catalog",
+ "video_format": "ugc",
+ "ugc_numbers": [],
+ "voice": {
+  "voice_type": "element",
+  "voice_id": "241459b6-b4e8-4a2a-9868-da8bcdcd0558",
+  "speed": 1.12
+ },
+ "projects": [
+  {
+   "id": "P01",
+   "from_id": "V01",
+   "angle": "onepress",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P01H1",
+     "name": "LC_261109_VintageBag_BlackFriday_B044_P01_H1_onepress",
+     "hook_text": "Don't buy a bag you need two hands to close.",
+     "label": "ONE HAND",
+     "type": "warning",
+     "shot": [
+      "1HNUEQK0mMmDiVbvsG41nEmwlON-IFoU9",
+      10.54
+     ],
+     "est_seconds": 28.4
+    },
+    {
+     "hook": "H2",
+     "id": "P01H2",
+     "name": "LC_261109_VintageBag_BlackFriday_B044_P01_H2_onepress",
+     "hook_text": "Still putting your coffee down to close your bag?",
+     "label": "COFFEE DOWN?",
+     "type": "question",
+     "shot": [
+      "1LyryrXa2Haxk8f1x29x3jDkEn8Y3Dh-A",
+      0.3
+     ],
+     "est_seconds": 28.1
+    },
+    {
+     "hook": "H3",
+     "id": "P01H3",
+     "name": "LC_261109_VintageBag_BlackFriday_B044_P01_H3_onepress",
+     "hook_text": "Half price this Black Friday, and it goes crossbody too.",
+     "label": "50% OFF",
+     "type": "price",
+     "shot": [
+      "1xWaBIVn543CxSr0WmqHEuasUJJGPcb55",
+      23.97
+     ],
+     "est_seconds": 28.4
+    },
+    {
+     "hook": "H4",
+     "id": "P01H4",
+     "name": "LC_261109_VintageBag_BlackFriday_B044_P01_H4_onepress",
+     "hook_text": "The mistake that leaves your keys loose at the bottom.",
+     "label": "LOOSE KEYS?",
+     "type": "problem",
+     "shot": [
+      "1R252UTrxdvK5bBTBSgBNWv04zCDUs5KK",
+      3.57
+     ],
+     "est_seconds": 28.4
+    }
+   ],
+   "closer": true
+  },
+  {
+   "id": "P02",
+   "from_id": "V02",
+   "angle": "pickhers",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P02H1",
+     "name": "LC_261109_VintageBag_BlackFriday_B044_P02_H1_pickhers",
+     "hook_text": "Before you buy her a bag, pick the colour first.",
+     "label": "PICK HER COLOUR",
+     "type": "warning",
+     "shot": [
+      "1dKZIPJdzTK5XalUeYccAQqTH-jLEkPt2",
+      15.8
+     ],
+     "est_seconds": 30.8
+    },
+    {
+     "hook": "H2",
+     "id": "P02H2",
+     "name": "LC_261109_VintageBag_BlackFriday_B044_P02_H2_pickhers",
+     "hook_text": "Ginger brown, black, chocolate or red: which one is she?",
+     "label": "WHICH ONE?",
+     "type": "question",
+     "shot": [
+      "17NS2UkififrDzubGafZAFDCII3K88Y34",
+      0.3
+     ],
+     "est_seconds": 30.8
+    },
+    {
+     "hook": "H3",
+     "id": "P02H3",
+     "name": "LC_261109_VintageBag_BlackFriday_B044_P02_H3_pickhers",
+     "hook_text": "Four colours, and every one snaps shut with one hand.",
+     "label": "FOUR COLOURS",
+     "type": "promise",
+     "shot": [
+      "1n_iVN9Lf1dKnL9Mo1ixhZiHX-MBBv7gp",
+      9.12
+     ],
+     "est_seconds": 30.8
+    },
+    {
+     "hook": "H4",
+     "id": "P02H4",
+     "name": "LC_261109_VintageBag_BlackFriday_B044_P02_H4_pickhers",
+     "hook_text": "Half price, free shipping, and a spot for her phone.",
+     "label": "HALF PRICE",
+     "type": "price",
+     "shot": [
+      "1qNOv5frbrbN4JAtBuqHDqxjXb15gEeuc",
+      4.44
+     ],
+     "est_seconds": 30.8
+    }
+   ],
+   "closer": true
+  },
+  {
+   "id": "P03",
+   "from_id": "V03",
+   "angle": "twoways",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P03H1",
+     "name": "LC_261109_VintageBag_BlackFriday_B044_P03_H1_twoways",
+     "hook_text": "Before you buy a crossbody, look at this strap.",
+     "label": "THIS STRAP",
+     "type": "warning",
+     "shot": [
+      "1ni45Zrqs01boihMG9jmX7TP95mIh9WvJ",
+      4.06
+     ],
+     "est_seconds": 27.7
+    },
+    {
+     "hook": "H2",
+     "id": "P03H2",
+     "name": "LC_261109_VintageBag_BlackFriday_B044_P03_H2_twoways",
+     "hook_text": "Handbag at lunch, crossbody on the walk home?",
+     "label": "TWO WAYS?",
+     "type": "question",
+     "shot": [
+      "195deHD_NpwLsKGYpFQBlO3Nlqd9nvt4E",
+      0.3
+     ],
+     "est_seconds": 27.4
+    },
+    {
+     "hook": "H3",
+     "id": "P03H3",
+     "name": "LC_261109_VintageBag_BlackFriday_B044_P03_H3_twoways",
+     "hook_text": "One press shut, one strap longer, and it's a crossbody.",
+     "label": "ONE STRAP",
+     "type": "promise",
+     "shot": [
+      "1jgkCse4uMTSToBBDAFFpF0gx_6qI4Zo6",
+      6.48
+     ],
+     "est_seconds": 28.0
+    },
+    {
+     "hook": "H4",
+     "id": "P03H4",
+     "name": "LC_261109_VintageBag_BlackFriday_B044_P03_H4_twoways",
+     "hook_text": "Half price on the bag that goes from handbag to crossbody.",
+     "label": "50% OFF",
+     "type": "price",
+     "shot": [
+      "1m1IT7G__icZ8VzWV8Rb1jQyVs8rwiANk",
+      18.51
+     ],
+     "est_seconds": 28.3
+    }
+   ],
+   "closer": true
+  }
+ ],
+ "hooks_seed": 1
+}

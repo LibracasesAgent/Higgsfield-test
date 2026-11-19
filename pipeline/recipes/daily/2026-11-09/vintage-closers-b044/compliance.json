@@ -1,0 +1,24 @@
+{
+ "ok": true,
+ "product": "Vintage Bag",
+ "offer": "50% off",
+ "checked": 290,
+ "problems": [],
+ "allowed": [
+  {
+   "where": "S05_quote.review_text, S05_quote.headline",
+   "text": "Got this bag for my daughter for Christmas and she adores it.",
+   "category": "testimonial",
+   "term": "my daughter",
+   "why": "a customer review (verbatim, or attributed to the customer by name)"
+  }
+ ],
+ "raw_story": [],
+ "raw_cuts": [],
+ "playbook_warnings": [
+  "LC_261109_VintageBag_BlackFriday_B044_P02_H1_pickhers hook_first_line: hook_third_person: 'Before you buy her a bag, pick the colour first.' talks about 'her' / 'him': the viewer is 'you'",
+  "LC_261109_VintageBag_BlackFriday_B044_P02_H2_pickhers hook_first_line: hook_third_person: 'Ginger brown, black, chocolate or red: which one is she?' talks about 'her' / 'him': the viewer is 'you'",
+  "LC_261109_VintageBag_BlackFriday_B044_P02_H4_pickhers hook_first_line: hook_third_person: 'Half price, free shipping, and a spot for her phone.' talks about 'her' / 'him': the viewer is 'you'"
+ ],
+ "report": "/tmp/claude-0/-home-user-Higgsfield-test/dc62c400-d540-5f8d-8967-810c690f0a81/scratchpad/run4/vintage/compliance.json"
+}
