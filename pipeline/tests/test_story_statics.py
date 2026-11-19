@@ -37,7 +37,7 @@ def photo(d):
 
 
 LOOKS = {
-    "hook": dict(kicker="EARLY BLACK FRIDAY", hook="Keys at the bottom of your bag again?", highlight=["Keys"],
+    "hook": dict(kicker="BLACK FRIDAY SALE", hook="Keys at the bottom of your bag again?", highlight=["Keys"],
                  sub="Two gold side zips keep them in reach.", review=10),
     "quote": dict(kicker="Christmas, sorted", review=9, review_text="Got this bag for my daughter for Christmas and she adores it."),
     "list": dict(hook="3 reasons it goes everywhere with you", highlight=["everywhere"], review=7,

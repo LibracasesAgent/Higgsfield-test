@@ -50,7 +50,7 @@ experience, no health / medical claims):
     "id": "S02", "project": "P02", "layout": "ad", "idea": "...",
     "format": "magazine_cover"  (data/static_formats.json) | "<a new id>" with "format_name": "...", "art": "the art direction (>= 60 chars)",
               "people": "none|behind|cropped"  (a format of your own: invent one every batch),
-    "words": ["LIBRA", "THE BAG THAT ZIPS SHUT", "EARLY BLACK FRIDAY: 50% OFF"]  (the exact words the AI sets in the picture, 1-4 lines),
+    "words": ["LIBRA", "THE BAG THAT ZIPS SHUT", "BLACK FRIDAY: 50% OFF"]  (the exact words the AI sets in the picture, 1-4 lines),
     "headline": "the line the ad copy and the tracker name (default: the first line that is not LIBRA)",
     "scene": {"colour": "Burgundy", "ref": "optional site photo (a back view)", "prompt": "what the picture shows: setting, props, light"}
  }]
@@ -58,7 +58,7 @@ experience, no health / medical claims):
 STORY statics (layout "story", 2026-11-04 "very basic, not top tier"): the layered anatomy of the DTC statics that keep running,
 set by our renderer in exact type over the photo of the moment (brand_statics.l_story):
     {"id": "S03", "layout": "story", "look": "hook|quote|list|versus|stack", "story": "problem_fix", "feature": "GOLD SIDE ZIPS",
-     "idea": "...", "kicker": "EARLY BLACK FRIDAY" (optional), "hook": "Keys at the bottom of your bag again?" (3-10 words),
+     "idea": "...", "kicker": "BLACK FRIDAY SALE" (optional), "hook": "Keys at the bottom of your bag again?" (3-10 words),
      "highlight": ["keys"] (hook words on a marker), "sub": "Two gold side zips keep them in reach." (hook look: the answer),
      "points": ["...", "...", "..."] (list: 3 reasons; stack: 3-4 things you get), "them": "Open tote", "us": "Hobo Bag",
      "rows": [["Open top", "Zips shut"], ...] (versus: 3-4), "review": 12 (one of the product's reviews.json numbers: the proof),

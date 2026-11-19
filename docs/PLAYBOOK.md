@@ -694,6 +694,10 @@ Christmas gifting, BF prices are live now; lots of variations". `pipeline/campai
   print the old price (B014 S05 / S14, B016 S14, B019 S10 / S17, B027 S07). Hobo 2.0: "two straps" is an `also` fact in the packet.
   The terms page is filled in: "order by 14 December 2026 for the best chance of delivery before Christmas" is a campaign fact
   (true urgency for gift ads); "guaranteed / in time for Christmas" is banned (the terms: not guaranteed).
+- **2026-11-19, the last stretch:** the ads made from now on run into the sale's last week, so no new line says "Early Black Friday".
+  `campaign.json` now says "the Black Friday sale" in its banner, close, hooks and copy, and `banned` stops "early black friday".
+  B043 / B044 (made 6-9 Nov) still say "the Early Black Friday sale" in their first chapter: they are fine until 19 Nov. After that,
+  run them only while the site still says "Early"; otherwise use the last-week batches.
 
 ### 4g. One bag per ad: the Hobo 2.0's two looks (owner 2026-10-23, after B017; RESOLVED 2026-10-26)
 

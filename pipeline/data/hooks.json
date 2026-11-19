@@ -26,7 +26,7 @@
   "Here's what makes the {short} different.": {"type": "curiosity", "labels": ["LOOK CLOSER", "WAIT FOR IT"]},
   "Stop carrying a bag that swallows your keys.": {"type": "problem", "labels": ["STOP DIGGING", "SOUND FAMILIAR?"]},
   "This might be the most practical bag you'll see today.": {"type": "curiosity", "labels": ["WAIT FOR IT", "WATCH THIS"]},
-  "Black Friday came early.": {"type": "curiosity", "labels": ["BLACK FRIDAY", "EARLY BLACK FRIDAY"]},
+  "Black Friday came early.": {"type": "curiosity", "labels": ["BLACK FRIDAY"]},
   "This is the Black Friday deal you've been waiting for.": {"type": "offer", "labels": ["BLACK FRIDAY DEAL", "{P} OFF"]},
   "Black Friday: the bag everyone asks about is {price_sp}.": {"type": "offer", "labels": ["{P} OFF", "BLACK FRIDAY DEAL"]},
   "Cyber Monday: last call for {P} off.": {"type": "offer", "labels": ["LAST CALL", "CYBER MONDAY"]},

@@ -160,7 +160,7 @@ def test_a_closer_is_the_offer_video_with_its_own_rules():
     assert sc.get("closer") and sc["hook"]["type"] == "warning"
     x = copy.deepcopy(s)
     x["projects"][0]["chapters"][-1]["text"] = "It's fifty percent off with free shipping. Tap the link below."
-    x["projects"][0]["chapters"][0]["text"] = x["projects"][0]["chapters"][0]["text"].replace("Early Black Friday sale", "sale, ends tonight")
+    x["projects"][0]["chapters"][0]["text"] = x["projects"][0]["chapters"][0]["text"].replace("Black Friday sale", "sale, ends tonight")
     assert has(problems(x, day="2026-11-06"), "really ends")
     x = copy.deepcopy(s)
     x["projects"][0]["chapters"] += [dict(kind="point", text="One more line about the leather, the straps and the pocket again.",

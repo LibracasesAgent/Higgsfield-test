@@ -31,9 +31,10 @@ def test_the_campaign_runs_for_sale_themes_inside_its_dates_only():
 
 
 def test_compliance_accepts_the_sale_words():
-    for t in ["Early Black Friday: up to 60% off.", "Black Friday: up to sixty percent off.", "Up to 60% off bundles.",
-              "Get 60% off the 3-Piece Set.", "Early Black Friday: 50% off everything."]:
+    for t in ["Black Friday: up to 60% off.", "Black Friday: up to sixty percent off.", "Up to 60% off bundles.",
+              "Get 60% off the 3-Piece Set.", "Black Friday: 50% off everything."]:
         assert probs(t) == [], (t, probs(t))
+    assert probs("Early Black Friday: 50% off everything.")      # the sale's last stretch is not 'Early' (ads made from 19 Nov)
 
 
 def test_compliance_catches_what_the_sale_no_longer_says():
