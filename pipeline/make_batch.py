@@ -332,10 +332,10 @@ PRODUCTS = {
             ("The hobo for every day. The crossbody for when you want to go light.", "HOBO + CROSSBODY",
              [["hobo_3piece_set", "brown_room_outside", 21.0], ["hobo_3piece_set", "brown_room_outside", 63.0]]),
             ("And the pouch keeps your cards and cash in one place.", "MATCHING POUCH",
-             [["hobo_bag", "black_gift", 28.6]]),
+             [["hobo_bag", "brown_pouch_counter", 1.0]]),
             ("Smart compartments and an anti-theft design keep everything secure.", "ANTI-THEFT DESIGN",
              [["hobo_3piece_set", "brown_room_outside", 111.0], ["hobo_bag", "back_pocket_4k", 3.6]]),
-            ("Soft, water-resistant, scratch-proof leather that looks beautiful season after season.", "SCRATCH-PROOF LEATHER",
+            ("Soft, water-resistant, scratch-proof leather that looks expensive.", "SCRATCH-PROOF LEATHER",
              [["hobo_3piece_set", "brown_room_outside", 101.5], ["hobo_bag", "details_macro_4k", 2.0]]),
         ],
         customer=[], broll=[["hobo_3piece_set", "brown_room_outside", 31.0], ["hobo_3piece_set", "brown_room_outside", 73.0],
@@ -1071,6 +1071,8 @@ def design_of(name):
 def clip_ok(e, sec=None):
     """False for footage of the other look of the plan's two-look product (DESIGN): a clip_bank entry of one of its bank_sections
     (sec) or a clip_index.json row of it (sec None), whose own "design" (else the product's "library" look) is not the one shown."""
+    if isinstance(e, dict) and e.get("never"):        # a clip_bank clip with a face (or another bag) in frame: never shown
+        return False
     dz = DESIGN[0]
     if not dz or not isinstance(e, dict):
         return True
