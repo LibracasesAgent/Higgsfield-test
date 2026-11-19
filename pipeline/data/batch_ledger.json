@@ -3678,91 +3678,106 @@
      "name": "LC_261115_HoboBag3PieceSet_BlackFriday_B046_S01_numerals",
      "kind": "static",
      "fp": "s|ad|AS01.png|three bags, one checkout.",
-     "label": "Three bags, one checkout."
+     "label": "Three bags, one checkout.",
+     "flags": []
     },
     {
      "name": "LC_261115_HoboBag3PieceSet_BlackFriday_B046_S02_studio",
      "kind": "static",
      "fp": "s|studio|3_piece_set_colour_red.jpg|one gift she uses every day.",
-     "label": "One gift she uses every day."
+     "label": "One gift she uses every day.",
+     "flags": []
     },
     {
      "name": "LC_261115_HoboBag3PieceSet_BlackFriday_B046_S03_studio",
      "kind": "static",
      "fp": "s|studio|3_piece_set_colour_black.jpg|christmas shopping? wear the crossbody.",
-     "label": "Christmas shopping? Wear the crossbody."
+     "label": "Christmas shopping? Wear the crossbody.",
+     "flags": []
     },
     {
      "name": "LC_261115_HoboBag3PieceSet_BlackFriday_B046_S04_question",
      "kind": "static",
      "fp": "s|ad|AS04.png|cards loose in your bag again?",
-     "label": "Cards loose in your bag again?"
+     "label": "Cards loose in your bag again?",
+     "flags": []
     },
     {
      "name": "LC_261115_HoboBag3PieceSet_BlackFriday_B046_S05_coathooktrio",
      "kind": "static",
      "fp": "s|ad|AS05.png|a bag for every kind of day.",
-     "label": "A bag for every kind of day."
+     "label": "A bag for every kind of day.",
+     "flags": []
     },
     {
      "name": "LC_261115_HoboBag3PieceSet_BlackFriday_B046_S06_newsprintad",
      "kind": "static",
      "fp": "s|ad|AS06.png|soft leather that shrugs off scratches.",
-     "label": "Soft leather that shrugs off scratches."
+     "label": "Soft leather that shrugs off scratches.",
+     "flags": []
     },
     {
      "name": "LC_261115_HoboBag3PieceSet_BlackFriday_B046_S07_compare",
      "kind": "static",
      "fp": "s|ad|AS07.png|one bag can't do every day.",
-     "label": "One bag can't do every day."
+     "label": "One bag can't do every day.",
+     "flags": []
     },
     {
      "name": "LC_261115_HoboBag3PieceSet_BlackFriday_B046_S08_shopper",
      "kind": "static",
      "fp": "s|ad|AS08.png|mum, sister, best friend: sorted.",
-     "label": "Mum, sister, best friend: sorted."
+     "label": "Mum, sister, best friend: sorted.",
+     "flags": []
     },
     {
      "name": "LC_261115_HoboBag3PieceSet_BlackFriday_B046_S09_hero",
      "kind": "static",
      "fp": "s|hero|3_piece_set_colour_blue.jpg|hobo, crossbody, pouch: one set.",
-     "label": "Hobo, crossbody, pouch: one set."
+     "label": "Hobo, crossbody, pouch: one set.",
+     "flags": []
     },
     {
      "name": "LC_261115_HoboBag3PieceSet_BlackFriday_B046_S10_quote",
      "kind": "static",
      "fp": "s|story|AS10.png|looks expensive but price was so nice.",
-     "label": "Looks expensive but price was so nice."
+     "label": "Looks expensive but price was so nice.",
+     "flags": []
     },
     {
      "name": "LC_261115_HoboBag3PieceSet_BlackFriday_B046_S11_list",
      "kind": "static",
      "fp": "s|story|AS11.png|christmas gift for her? three reasons.",
-     "label": "Christmas gift for her? Three reasons."
+     "label": "Christmas gift for her? Three reasons.",
+     "flags": []
     },
     {
      "name": "LC_261115_HoboBag3PieceSet_BlackFriday_B046_S12_hero",
      "kind": "static",
      "fp": "s|hero|3_piece_set_colour_red.jpg|cards and cash in their own pouch.",
-     "label": "Cards and cash in their own pouch."
+     "label": "Cards and cash in their own pouch.",
+     "flags": []
     },
     {
      "name": "LC_261115_HoboBag3PieceSet_BlackFriday_B046_S13_stack",
      "kind": "static",
      "fp": "s|story|AS13.png|everything in the box.",
-     "label": "Everything in the box."
+     "label": "Everything in the box.",
+     "flags": []
     },
     {
      "name": "LC_261115_HoboBag3PieceSet_BlackFriday_B046_S14_colours",
      "kind": "static",
      "fp": "s|colours||pick your colour.",
-     "label": "Pick your colour."
+     "label": "Pick your colour.",
+     "flags": []
     },
     {
      "name": "LC_261115_HoboBag3PieceSet_BlackFriday_B046_S15_value",
      "kind": "static",
      "fp": "s|value|3_piece_set_colour_grey.jpg|meet the 3-piece set",
-     "label": "Meet the 3-Piece Set"
+     "label": "Meet the 3-Piece Set",
+     "flags": []
     }
    ]
   },
@@ -3799,7 +3814,7 @@
   {
    "id": "B049",
    "n": 49,
-   "rev": 1,
+   "rev": 3,
    "date": "2026-11-15",
    "product": "Vintage Bag",
    "theme": "BlackFriday",
@@ -3810,56 +3825,94 @@
    "hooks": 4,
    "seed": 319,
    "status": "uploaded",
-   "folder": "B049 – 2026-11-15 – B049 v2 – 2026-11-16 – Vintage Bag BlackFriday – 2 projects (smaller captions)",
-   "link": "https://drive.google.com/drive/folders/1xt6c1ts7KI1TEl1Sk15GiDsc9WmNsftA",
+   "folder": "B049r3 – 2026-11-19 – Vintage Bag BlackFriday – 1 projects",
+   "link": "https://drive.google.com/drive/folders/12-lgVft7NuUnbD3q6cCmAKnGnXLJAdL7",
    "ads": [
     {
      "name": "LC_261115_VintageBag_BlackFriday_B049_P01_H1_remix33",
      "kind": "video",
      "fp": "v|three ways to wear it. handbag, shoulder bag, crossbody.|",
-     "label": "Three ways to wear it. Handbag, shoulder bag, crossbody."
+     "label": "Three ways to wear it. Handbag, shoulder bag, crossbody.",
+     "flags": []
     },
     {
      "name": "LC_261115_VintageBag_BlackFriday_B049_P01_H2_remix33",
      "kind": "video",
      "fp": "v|this is your last chance to own one before i close my workshop forever.|",
-     "label": "This is your last chance to own one before I close my workshop forever."
+     "label": "This is your last chance to own one before I close my workshop forever.",
+     "flags": []
     },
     {
      "name": "LC_261115_VintageBag_BlackFriday_B049_P01_H3_remix33",
      "kind": "video",
      "fp": "v|most bags look worse every month, while the vintage bag looks better every year.|",
-     "label": "Most bags look worse every month, while the vintage bag looks better every year."
+     "label": "Most bags look worse every month, while the vintage bag looks better every year.",
+     "flags": [
+      "body differs from H1 (body match 18.2; under 10 = the same body): look at qa/P01.jpg"
+     ]
     },
     {
      "name": "LC_261115_VintageBag_BlackFriday_B049_P01_H4_remix33",
      "kind": "video",
      "fp": "v|high quality leather that gets more beautiful with age.|",
-     "label": "High quality leather that gets more beautiful with age."
+     "label": "High quality leather that gets more beautiful with age.",
+     "flags": []
     },
     {
      "name": "LC_261115_VintageBag_BlackFriday_B049_P02_H1_remixc9",
      "kind": "video",
      "fp": "v|i've never been so happy to be wrong.|",
-     "label": "I've never been so happy to be wrong."
+     "label": "I've never been so happy to be wrong.",
+     "flags": []
     },
     {
      "name": "LC_261115_VintageBag_BlackFriday_B049_P02_H2_remixc9",
      "kind": "video",
      "fp": "v|inside, it's all about these divided sections.|",
-     "label": "Inside, it's all about these divided sections."
+     "label": "Inside, it's all about these divided sections.",
+     "flags": []
     },
     {
      "name": "LC_261115_VintageBag_BlackFriday_B049_P02_H3_remixc9",
      "kind": "video",
      "fp": "v|don't miss your chance, grab yours before they sell out again.|",
-     "label": "Don't miss your chance, grab yours before they sell out again."
+     "label": "Don't miss your chance, grab yours before they sell out again.",
+     "flags": []
     },
     {
      "name": "LC_261115_VintageBag_BlackFriday_B049_P02_H4_remixc9",
      "kind": "video",
      "fp": "v|inside, it's all about these divided sections.|",
-     "label": "Inside, it's all about these divided sections."
+     "label": "Inside, it's all about these divided sections.",
+     "flags": []
+    },
+    {
+     "name": "LC_261119_VintageBag_BlackFriday_B049r3_P01_H1_remix33",
+     "kind": "video",
+     "fp": "v|three ways to wear it. handbag, shoulder bag, crossbody.|",
+     "label": "Three ways to wear it. Handbag, shoulder bag, crossbody.",
+     "flags": []
+    },
+    {
+     "name": "LC_261119_VintageBag_BlackFriday_B049r3_P01_H2_remix33",
+     "kind": "video",
+     "fp": "v|this is your last chance to own one before i close my workshop forever.|",
+     "label": "This is your last chance to own one before I close my workshop forever.",
+     "flags": []
+    },
+    {
+     "name": "LC_261119_VintageBag_BlackFriday_B049r3_P01_H3_remix33",
+     "kind": "video",
+     "fp": "v|three ways to wear it. handbag, shoulder bag, crossbody.|",
+     "label": "Three ways to wear it. Handbag, shoulder bag, crossbody.",
+     "flags": []
+    },
+    {
+     "name": "LC_261119_VintageBag_BlackFriday_B049r3_P01_H4_remix33",
+     "kind": "video",
+     "fp": "v|this is your last chance to own one before i close my workshop forever.|",
+     "label": "This is your last chance to own one before I close my workshop forever.",
+     "flags": []
     }
    ]
   },
@@ -3884,61 +3937,71 @@
      "name": "LC_261115_VintageBag_BlackFriday_B050_S01_neon",
      "kind": "static",
      "fp": "s|ad|AS01.png|late night out. one snap, shut.",
-     "label": "Late night out. One snap, shut."
+     "label": "Late night out. One snap, shut.",
+     "flags": []
     },
     {
      "name": "LC_261115_VintageBag_BlackFriday_B050_S02_macro",
      "kind": "static",
      "fp": "s|ad|AS02.png|shuts with one hand.",
-     "label": "Shuts with one hand."
+     "label": "Shuts with one hand.",
+     "flags": []
     },
     {
      "name": "LC_261115_VintageBag_BlackFriday_B050_S03_native",
      "kind": "static",
      "fp": "s|native|F_1kNKilVM2f_0009.jpg|her christmas bag, sorted.",
-     "label": "Her Christmas bag, sorted."
+     "label": "Her Christmas bag, sorted.",
+     "flags": []
     },
     {
      "name": "LC_261115_VintageBag_BlackFriday_B050_S04_split",
      "kind": "static",
      "fp": "s|ad|AS04.png|handbag by day. crossbody by night.",
-     "label": "Handbag by day. Crossbody by night."
+     "label": "Handbag by day. Crossbody by night.",
+     "flags": []
     },
     {
      "name": "LC_261115_VintageBag_BlackFriday_B050_S05_corkboardpol",
      "kind": "static",
      "fp": "s|ad|AS05.png|phone, wallet, keys. each in its spot.",
-     "label": "Phone, wallet, keys. Each in its spot."
+     "label": "Phone, wallet, keys. Each in its spot.",
+     "flags": []
     },
     {
      "name": "LC_261115_VintageBag_BlackFriday_B050_S06_hook",
      "kind": "static",
      "fp": "s|story|F_1fB9VSy06W_0040.jpg|digging for your keys again?",
-     "label": "Digging for your keys again?"
+     "label": "Digging for your keys again?",
+     "flags": []
     },
     {
      "name": "LC_261115_VintageBag_BlackFriday_B050_S07_quote",
      "kind": "static",
      "fp": "s|story|F_16tPrjwInS_0069.jpg|it's really stylish and versatile.  love all the compartments too!",
-     "label": "It's really stylish and versatile.  Love all the compartments too!"
+     "label": "It's really stylish and versatile.  Love all the compartments too!",
+     "flags": []
     },
     {
      "name": "LC_261115_VintageBag_BlackFriday_B050_S08_native",
      "kind": "static",
      "fp": "s|native|F_1U7takMV_R_0074.jpg|strap long, out the door.",
-     "label": "Strap long, out the door."
+     "label": "Strap long, out the door.",
+     "flags": []
     },
     {
      "name": "LC_261115_VintageBag_BlackFriday_B050_S09_colours",
      "kind": "static",
      "fp": "s|colours||which colour are you?",
-     "label": "Which colour are you?"
+     "label": "Which colour are you?",
+     "flags": []
     },
     {
      "name": "LC_261115_VintageBag_BlackFriday_B050_S10_value",
      "kind": "static",
      "fp": "s|value|vintage_colour_black.jpg|the vintage bag",
-     "label": "The Vintage Bag"
+     "label": "The Vintage Bag",
+     "flags": []
     }
    ]
   },
@@ -3963,73 +4026,109 @@
      "name": "LC_261117_VintageBag_BlackFriday_B051_P01_H1_nocode",
      "kind": "video",
      "fp": "v|before you buy a small bag this month, read this.|",
-     "label": "Before you buy a small bag this month, read this."
+     "label": "Before you buy a small bag this month, read this.",
+     "flags": [
+      "scorecard: 170 wpm (target 185 to 215); speech 79% (target >= 85%); pause 0.86s (target <= 0.8 s); 1 repeated shots (target <= 0)"
+     ]
     },
     {
      "name": "LC_261117_VintageBag_BlackFriday_B051_P01_H2_nocode",
      "kind": "video",
      "fp": "v|still carrying a bag that won't close with one hand?|",
-     "label": "Still carrying a bag that won't close with one hand?"
+     "label": "Still carrying a bag that won't close with one hand?",
+     "flags": [
+      "scorecard: 171 wpm (target 185 to 215); speech 80% (target >= 85%); pause 0.86s (target <= 0.8 s); 1 repeated shots (target <= 0)"
+     ]
     },
     {
      "name": "LC_261117_VintageBag_BlackFriday_B051_P01_H3_nocode",
      "kind": "video",
      "fp": "v|half price and free shipping, until the thirtieth.|",
-     "label": "Half price and free shipping, until the thirtieth."
+     "label": "Half price and free shipping, until the thirtieth.",
+     "flags": [
+      "scorecard: 168 wpm (target 185 to 215); speech 81% (target >= 85%); pause 0.86s (target <= 0.8 s); 1 repeated shots (target <= 0)"
+     ]
     },
     {
      "name": "LC_261117_VintageBag_BlackFriday_B051_P01_H4_nocode",
      "kind": "video",
      "fp": "v|whatever you do, don't pay double for this one.|",
-     "label": "Whatever you do, don't pay double for this one."
+     "label": "Whatever you do, don't pay double for this one.",
+     "flags": [
+      "scorecard: 171 wpm (target 185 to 215); speech 79% (target >= 85%); pause 0.86s (target <= 0.8 s); 1 repeated shots (target <= 0)"
+     ]
     },
     {
      "name": "LC_261117_VintageBag_BlackFriday_B051_P02_H1_giftby14",
      "kind": "video",
      "fp": "v|buying a bag for christmas? order by 14 december.|",
-     "label": "Buying a bag for Christmas? Order by 14 December."
+     "label": "Buying a bag for Christmas? Order by 14 December.",
+     "flags": [
+      "scorecard: 177 wpm (target 185 to 215); speech 80% (target >= 85%); pause 0.83s (target <= 0.8 s); 1 repeated shots (target <= 0)"
+     ]
     },
     {
      "name": "LC_261117_VintageBag_BlackFriday_B051_P02_H2_giftby14",
      "kind": "video",
      "fp": "v|who on your list would carry this one every day?|",
-     "label": "Who on your list would carry this one every day?"
+     "label": "Who on your list would carry this one every day?",
+     "flags": [
+      "scorecard: 181 wpm (target 185 to 215); speech 81% (target >= 85%); pause 0.83s (target <= 0.8 s); 1 repeated shots (target <= 0)"
+     ]
     },
     {
      "name": "LC_261117_VintageBag_BlackFriday_B051_P02_H3_giftby14",
      "kind": "video",
      "fp": "v|phone, wallet, keys: a christmas gift with a spot for each.|",
-     "label": "Phone, wallet, keys: a Christmas gift with a spot for each."
+     "label": "Phone, wallet, keys: a Christmas gift with a spot for each.",
+     "flags": [
+      "scorecard: 175 wpm (target 185 to 215); speech 77% (target >= 85%); pause 0.83s (target <= 0.8 s); 1 repeated shots (target <= 0)"
+     ]
     },
     {
      "name": "LC_261117_VintageBag_BlackFriday_B051_P02_H4_giftby14",
      "kind": "video",
      "fp": "v|a christmas gift you can snap shut, fifty percent off.|",
-     "label": "A Christmas gift you can snap shut, fifty percent off."
+     "label": "A Christmas gift you can snap shut, fifty percent off.",
+     "flags": [
+      "scorecard: 174 wpm (target 185 to 215); speech 80% (target >= 85%); pause 0.83s (target <= 0.8 s); 1 repeated shots (target <= 0)"
+     ]
     },
     {
      "name": "LC_261117_VintageBag_BlackFriday_B051_P03_H1_onesnap",
      "kind": "video",
      "fp": "v|watch what one snap of this clasp does.|",
-     "label": "Watch what one snap of this clasp does."
+     "label": "Watch what one snap of this clasp does.",
+     "flags": [
+      "render failed (see qa/P03H1.log)"
+     ]
     },
     {
      "name": "LC_261117_VintageBag_BlackFriday_B051_P03_H2_onesnap",
      "kind": "video",
      "fp": "v|want a bag you can close with one hand?|",
-     "label": "Want a bag you can close with one hand?"
+     "label": "Want a bag you can close with one hand?",
+     "flags": [
+      "scorecard: 175 wpm (target 185 to 215); speech 79% (target >= 85%); pause 0.84s (target <= 0.8 s); 1 repeated shots (target <= 0)"
+     ]
     },
     {
      "name": "LC_261117_VintageBag_BlackFriday_B051_P03_H3_onesnap",
      "kind": "video",
      "fp": "v|before you buy another big tote, look at this one.|",
-     "label": "Before you buy another big tote, look at this one."
+     "label": "Before you buy another big tote, look at this one.",
+     "flags": [
+      "scorecard: 169 wpm (target 185 to 215); speech 80% (target >= 85%); pause 0.85s (target <= 0.8 s); 1 repeated shots (target <= 0)"
+     ]
     },
     {
      "name": "LC_261117_VintageBag_BlackFriday_B051_P03_H4_onesnap",
      "kind": "video",
      "fp": "v|fifty percent off a bag that snaps shut.|",
-     "label": "Fifty percent off a bag that snaps shut."
+     "label": "Fifty percent off a bag that snaps shut.",
+     "flags": [
+      "scorecard: 165 wpm (target 185 to 215); speech 80% (target >= 85%); pause 0.84s (target <= 0.8 s); 1 repeated shots (target <= 0)"
+     ]
     }
    ]
   },
@@ -4066,7 +4165,8 @@
      "name": "LC_261117_HoboBag3PieceSet_BlackFriday_B052_S03_studio",
      "kind": "static",
      "fp": "s|studio|3_piece_set_colour_blue.jpg|cyber monday errands. crossbody on.",
-     "label": "Cyber Monday errands. Crossbody on."
+     "label": "Cyber Monday errands. Crossbody on.",
+     "flags": []
     },
     {
      "name": "LC_261117_HoboBag3PieceSet_BlackFriday_B052_S04_list",
@@ -4084,49 +4184,77 @@
      "name": "LC_261117_HoboBag3PieceSet_BlackFriday_B052_P01_H1_onecheckout",
      "kind": "video",
      "fp": "v|before you buy one bag this black friday, look at three.|",
-     "label": "Before you buy one bag this Black Friday, look at three."
+     "label": "Before you buy one bag this Black Friday, look at three.",
+     "flags": [
+      "scorecard: 174 wpm (target 185 to 215); speech 81% (target >= 85%); 1 repeated shots (target <= 0)",
+      "footage unverified: 1 shot(s) under a feature line come from unlabelled sources: look at qa/P01H1.jpg"
+     ]
     },
     {
      "name": "LC_261117_HoboBag3PieceSet_BlackFriday_B052_P01_H2_onecheckout",
      "kind": "video",
      "fp": "v|why buy one bag when the set is sixty percent off?|",
-     "label": "Why buy one bag when the set is sixty percent off?"
+     "label": "Why buy one bag when the set is sixty percent off?",
+     "flags": [
+      "scorecard: 176 wpm (target 185 to 215); speech 82% (target >= 85%); 1 repeated shots (target <= 0)",
+      "footage unverified: 1 shot(s) under a feature line come from unlabelled sources: look at qa/P01H2.jpg"
+     ]
     },
     {
      "name": "LC_261117_HoboBag3PieceSet_BlackFriday_B052_P01_H3_onecheckout",
      "kind": "video",
      "fp": "v|three matching bags, one checkout.|",
-     "label": "Three matching bags, one checkout."
+     "label": "Three matching bags, one checkout.",
+     "flags": [
+      "scorecard: 171 wpm (target 185 to 215); speech 80% (target >= 85%); 1 repeated shots (target <= 0)",
+      "footage unverified: 1 shot(s) under a feature line come from unlabelled sources: look at qa/P01H3.jpg"
+     ]
     },
     {
      "name": "LC_261117_HoboBag3PieceSet_BlackFriday_B052_P01_H4_onecheckout",
      "kind": "video",
      "fp": "v|before you check out, add the crossbody and pouch.|",
-     "label": "Before you check out, add the crossbody and pouch."
+     "label": "Before you check out, add the crossbody and pouch.",
+     "flags": [
+      "scorecard: 175 wpm (target 185 to 215); speech 81% (target >= 85%); 1 repeated shots (target <= 0)",
+      "footage unverified: 1 shot(s) under a feature line come from unlabelled sources: look at qa/P01H4.jpg"
+     ]
     },
     {
      "name": "LC_261117_HoboBag3PieceSet_BlackFriday_B052_P02_H1_giftby14",
      "kind": "video",
      "fp": "v|shopping for her this christmas? start with the set.|",
-     "label": "Shopping for her this Christmas? Start with the set."
+     "label": "Shopping for her this Christmas? Start with the set.",
+     "flags": [
+      "scorecard: 172 wpm (target 185 to 215); speech 80% (target >= 85%); 3 repeated shots (target <= 0)"
+     ]
     },
     {
      "name": "LC_261117_HoboBag3PieceSet_BlackFriday_B052_P02_H2_giftby14",
      "kind": "video",
      "fp": "v|don't leave her christmas gift until december.|",
-     "label": "Don't leave her Christmas gift until December."
+     "label": "Don't leave her Christmas gift until December.",
+     "flags": [
+      "scorecard: 168 wpm (target 185 to 215); speech 81% (target >= 85%); 2 repeated shots (target <= 0)"
+     ]
     },
     {
      "name": "LC_261117_HoboBag3PieceSet_BlackFriday_B052_P02_H3_giftby14",
      "kind": "video",
      "fp": "v|her christmas gift, sixty percent off.|",
-     "label": "Her Christmas gift, sixty percent off."
+     "label": "Her Christmas gift, sixty percent off.",
+     "flags": [
+      "scorecard: 163 wpm (target 185 to 215); speech 80% (target >= 85%); 3 repeated shots (target <= 0)"
+     ]
     },
     {
      "name": "LC_261117_HoboBag3PieceSet_BlackFriday_B052_P02_H4_giftby14",
      "kind": "video",
      "fp": "v|under the tree this year: a hobo, a crossbody, a pouch.|",
-     "label": "Under the tree this year: a hobo, a crossbody, a pouch."
+     "label": "Under the tree this year: a hobo, a crossbody, a pouch.",
+     "flags": [
+      "scorecard: 168 wpm (target 185 to 215); speech 78% (target >= 85%); 2 repeated shots (target <= 0)"
+     ]
     }
    ]
   },
@@ -4151,55 +4279,72 @@
      "name": "LC_261117_HoboBag_BlackFriday_B053_S01_neon",
      "kind": "static",
      "fp": "s|ad|AS01.png|late train home. cards on your side.",
-     "label": "Late train home. Cards on your side."
+     "label": "Late train home. Cards on your side.",
+     "flags": []
     },
     {
      "name": "LC_261117_HoboBag_BlackFriday_B053_S02_native",
      "kind": "static",
      "fp": "s|native|F_1Ud2dhrP5f_0144.jpg|two straps, three looks.",
-     "label": "Two straps, three looks."
+     "label": "Two straps, three looks.",
+     "flags": []
     },
     {
      "name": "LC_261117_HoboBag_BlackFriday_B053_S03_native",
      "kind": "static",
      "fp": "s|native|F_1tdhK5RpMN_0066.jpg|mum: sorted. wallet included.",
-     "label": "Mum: sorted. Wallet included."
+     "label": "Mum: sorted. Wallet included.",
+     "flags": []
     },
     {
      "name": "LC_261117_HoboBag_BlackFriday_B053_S04_hook",
      "kind": "static",
      "fp": "s|story|F_19apT6XvQU_0036.jpg|phone sinking to the bottom again?",
-     "label": "Phone sinking to the bottom again?"
+     "label": "Phone sinking to the bottom again?",
+     "flags": []
     },
     {
      "name": "LC_261117_HoboBag_BlackFriday_B053_S05_quote",
      "kind": "static",
      "fp": "s|story|F_1BHVZu65IF_0067.jpg|has other zipper compartments for other essentials.",
-     "label": "Has other zipper compartments for other essentials."
+     "label": "Has other zipper compartments for other essentials.",
+     "flags": []
     },
     {
      "name": "LC_261117_HoboBag_BlackFriday_B053_P01_H1_twostraps",
      "kind": "video",
      "fp": "v|before you buy a crossbody, look at this hobo.|",
-     "label": "Before you buy a crossbody, look at this hobo."
+     "label": "Before you buy a crossbody, look at this hobo.",
+     "flags": [
+      "scorecard: speech 80% (target >= 85%); 1 repeated shots (target <= 0)"
+     ]
     },
     {
      "name": "LC_261117_HoboBag_BlackFriday_B053_P01_H2_twostraps",
      "kind": "video",
      "fp": "v|want one bag for the shoulder, the hand and crossbody?|",
-     "label": "Want one bag for the shoulder, the hand and crossbody?"
+     "label": "Want one bag for the shoulder, the hand and crossbody?",
+     "flags": [
+      "scorecard: speech 80% (target >= 85%); 1 repeated shots (target <= 0)"
+     ]
     },
     {
      "name": "LC_261117_HoboBag_BlackFriday_B053_P01_H3_twostraps",
      "kind": "video",
      "fp": "v|watch one bag change three ways.|",
-     "label": "Watch one bag change three ways."
+     "label": "Watch one bag change three ways.",
+     "flags": [
+      "scorecard: 185 wpm (target 185 to 215); speech 82% (target >= 85%); 1 repeated shots (target <= 0)"
+     ]
     },
     {
      "name": "LC_261117_HoboBag_BlackFriday_B053_P01_H4_twostraps",
      "kind": "video",
      "fp": "v|half price, two straps, and a wallet in the box.|",
-     "label": "Half price, two straps, and a wallet in the box."
+     "label": "Half price, two straps, and a wallet in the box.",
+     "flags": [
+      "scorecard: speech 80% (target >= 85%); 1 repeated shots (target <= 0)"
+     ]
     }
    ]
   }

@@ -67,7 +67,7 @@
     {
      "kind": "point",
      "beat": "what",
-     "text": "You get the hobo bag, the crossbody and the matching pouch, three pieces in one set. It's the Best Value option on the Hobo Bag page.",
+     "text": "You get the hobo bag, the crossbody and the matching pouch, three pieces in one set. Three bags, one checkout.",
      "tag": "3 BAGS, 1 PRICE",
      "show": [
       "hero",
@@ -156,7 +156,7 @@
     {
      "kind": "point",
      "beat": "what",
-     "text": "Three matching pieces in one set, the Best Value option on the Hobo Bag page.",
+     "text": "Three matching pieces in one set, so she has a bag for every kind of day.",
      "tag": "3 BAGS, 1 PRICE",
      "show": [
       "hero",

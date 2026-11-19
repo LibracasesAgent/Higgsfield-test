@@ -1,0 +1,31 @@
+{
+ "ok": true,
+ "product": "Vintage Bag",
+ "offer": "50% off",
+ "checked": 50,
+ "problems": [],
+ "allowed": [],
+ "raw_story": [
+  {
+   "where": "P01H1 RAW raw33_H5 50.0-52.1 s, P01H2, P01H3, P01H4",
+   "text": "The arthritis has won after 30 years.",
+   "category": "health",
+   "term": "arthritis",
+   "why": "the client's approved RAW story (PLAYBOOK section 1), heard as is: a human may want to check it against Julian's health rule"
+  }
+ ],
+ "raw_cuts": [
+  {
+   "where": "P01H1, P01H2, P01H3, P01H4",
+   "key": "raw33_H5",
+   "range": [
+    22.12,
+    33.9
+   ],
+   "said": "that gets more beautiful with age. I use full grain leather, the strongest grade. It develops a gorgeous patina the longer you carry it. Most bags look worse every month, while the vintage bag looks better every year.",
+   "why": "cut out of the proven body (Julian's health rule): listen once to the line around it"
+  }
+ ],
+ "playbook_warnings": [],
+ "report": "/tmp/run/winners-b049p01/compliance.json"
+}

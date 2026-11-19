@@ -35,7 +35,6 @@
    "50% off everything sitewide (each bag's own % is on its offer card: the Hobo Bag is 50% off).",
    "Up to 60% off: some bundles are 60% off, like the Hobo Bag 3-Piece Set. Say '60% off' only of the 3-Piece Set (or another named bundle), never of a single bag or of 'any 2 bags'.",
    "No free gifts and no extra cart discount: both were removed by the owner on 26 October.",
-   "The Hobo Bag's product page offers the 3-Piece Set as the 'Best Value' upgrade.",
    "Black Friday prices are live now: no need to wait.",
    "Sale items are final sale: they cannot be returned (the site's Black Friday terms); faulty items are still covered and the 1-year warranty still applies. Never say 'easy returns', 'free returns' or 'send it back' in a Black Friday ad.",
    "Christmas delivery (the site's Black Friday terms, filled in by 27 October): order by 14 December 2026 for the best chance of delivery before Christmas; delivery before Christmas is not guaranteed, so say 'the best chance', never 'guaranteed by Christmas'."
@@ -899,7 +898,8 @@
   "ideas: 5 AI statics of 5 (4 designed ads, 1 studio scenes; about 5 credits plus retries)",
   "Hobo Bag 3-Piece Set has 4 earlier batch(es) in the novelty log: the statics start 4 step(s) further in their photo / headline cycle (other photos and captions than before)",
   "P01: hook types repeat (warning, price, promise, warning)",
-  "P02: hook types repeat (promise, warning, price, promise)"
+  "P02: hook types repeat (promise, warning, price, promise)",
+  "P01H3: edited by hand after the last expand; the new versions are built from _before_hooks/ without those edits (copies in _before_hooks/edited/). Body fixes go into _before_hooks/<Vnn spec>.json (then expand again), hook fixes into the P..H.. spec after the last expand"
  ],
  "winner_reviews": false,
  "seed": 1,
