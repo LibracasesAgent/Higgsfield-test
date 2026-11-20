@@ -151,7 +151,9 @@ def crawl(du, tok, folder, skip=()):
         if n not in newest or (f.get("createdTime") or "") > (newest[n].get("createdTime") or ""):
             newest[n] = f
     files = [dict(name=n, path=f["path"], kind="Video" if f["mimeType"].startswith("video") else "Static",
-                  link=f.get("webViewLink") or f"https://drive.google.com/file/d/{f['id']}/view")
+                  link=f.get("webViewLink") or f"https://drive.google.com/file/d/{f['id']}/view",
+                  upd=(re.search(r"_upd(\d{4,6})$", os.path.splitext(f["name"])[0]) or [None, None])[1],
+                  created=(f.get("createdTime") or "")[:10])
              for n, f in sorted(newest.items(), key=lambda kv: (kv[1]["path"].count("/") > 1, kv[0]))]
     return files, folders, docs.get("md") or docs.get("csv") or ""
 
@@ -205,6 +207,26 @@ def hlink(url, label):
     return f'=HYPERLINK("{url}","{str(label).replace(chr(34), chr(39))}")' if url else ""
 
 
+FIXED = "🔧 fixed"
+
+
+def fixed_mark(fs):
+    """' · 🔧 fixed 19 Nov: H1, H2 (use the _upd0355 files)' when files of this row were re-uploaded after a fix (Julian 2026-11-20:
+    the sheet must show where the fixed versions are; the old file stays in Drive next to it), else ''."""
+    up = [f for f in fs if f.get("upd")]
+    if not up:
+        return ""
+    day = max(f.get("created") or "" for f in up)
+    try:
+        when = datetime.date.fromisoformat(day).strftime("%d %b") if day else ""
+    except ValueError:
+        when = ""
+    which = "" if len(up) == len(fs) or len(fs) == 1 else ": " + ", ".join(
+        (re.search(r"_(H\d+)(?:_|$)", f["name"]) or [None, f["name"]])[1] for f in up)
+    tags = sorted({f["upd"] for f in up})
+    return f" · {FIXED} {when}{which} (use the _upd{'/_upd'.join(tags)} file{'s' * (len(up) > 1)})"
+
+
 def rows_of(bid, meta, files, folders, script, labels):
     """The Tracker rows of one batch: a static (or a motion still's video) per file, a video project per P-number (its versions'
     folder), a single video (V01 ...) per file -> {key: row}."""
@@ -222,14 +244,15 @@ def rows_of(bid, meta, files, folders, script, labels):
         motion = kind == "Video" and n.endswith("_motion")
         if motion:
             what = re.sub(r"\s*motion$", "", what) + " · motion video"
-        out[f"{bid}|{n}"] = dict(base, Project=f"{bid} {sm.group(1)} · {what}" if sm else f"{bid} · {n}", Link=hlink(f["link"], "Open"),
+        out[f"{bid}|{n}"] = dict(base, Project=(f"{bid} {sm.group(1)} · {what}" if sm else f"{bid} · {n}") + fixed_mark([f]),
+                                 Link=hlink(f["link"], "Open fixed" if f.get("upd") else "Open"),
                                  Script=labels.get(n) or labels.get(re.sub(r"_motion$", "", n)) or "")
     for pid, fs in projects.items():
         fs = sorted(fs, key=lambda x: x["name"])
         d = os.path.dirname(fs[0]["path"])
         link = folders.get(d) if d and os.path.basename(d).startswith(pid) else fs[0]["link"]
         what = angle_of(fs[0]["name"], fs[0]["path"], "Video")
-        out[f"{bid}|{pid}"] = dict(base, Project=f"{bid} {pid} · {what} · {len(fs)} hook{'s' * (len(fs) > 1)}",
+        out[f"{bid}|{pid}"] = dict(base, Project=f"{bid} {pid} · {what} · {len(fs)} hook{'s' * (len(fs) > 1)}" + fixed_mark(fs),
                                    Link=hlink(link, "Open"), Script=hlink(script, f"Script ({pid})") if script else labels.get(fs[0]["name"], ""))
     return out
 
@@ -401,6 +424,8 @@ def sync(batches=(), refresh_all=False, notes=None, dry=False, quiet=False, stat
             else:
                 if flagged and (o.get("Status") or "🔍 Review") == "🔍 Review":   # never over a status people set
                     o["Status"] = CHECK
+                if FIXED in (x.get("Project") or "") and FIXED not in (o.get("Project") or ""):
+                    o["Status"] = "🔍 Review"         # a fixed version is new: look at it once more (whatever the old status was)
                 for h, v in x.items():
                     if kind.get(h) == "d" and v not in (None, ""):
                         o[h] = v

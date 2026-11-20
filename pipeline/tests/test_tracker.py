@@ -98,7 +98,7 @@ def test_first_sync_builds_the_simple_tab():
     mo = next(r for r in rs if (r["Key"] or "").endswith("_motion"))
     assert mo["Project"] == "B030 S01 · studio · motion video" and mo["Script"] == "Pick your colour."
     p01 = next(r for r in rs if r["Key"] == "B030|P01")
-    assert p01["Project"] == "B030 P01 · giftlist · 2 hooks" and "folders/P30" in p01["Link"] and '"Script (P01)"' in p01["Script"]
+    assert p01["Project"].startswith("B030 P01 · giftlist · 2 hooks · 🔧 fixed") and "H1 (use the _upd0922 file)" in p01["Project"] and "folders/P30" in p01["Link"] and '"Script (P01)"' in p01["Script"]
     order = [r["Key"] or r["Date"] for r in rs]
     assert order.index(s01["Key"]) < order.index(mo["Key"]) < order.index("B030|P01"), order          # statics, motion, projects
     b31 = next(r for r in rs if r["Key"] == "B031|P01")

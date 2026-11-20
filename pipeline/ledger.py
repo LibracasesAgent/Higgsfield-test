@@ -102,8 +102,8 @@ def uploaded(n, folder, link, ads, p=None):
     b.update(status="uploaded", folder=folder, link=link)
     have = {a["name"]: a for a in b.get("ads") or []}
     for a in ads:                       # a re-upload (a fixed render) refreshes the QA flags of an ad the batch already lists
-        if a["name"] in have and "flags" in a:
-            have[a["name"]]["flags"] = a["flags"]
+        if a["name"] in have:                # (a fixed static: its new headline / fingerprint)
+            have[a["name"]].update({k: a[k] for k in ("flags", "label", "fp") if k in a})
     b["ads"] = (b.get("ads") or []) + [a for a in ads if a["name"] not in have]
     save(d, p)
     return b
