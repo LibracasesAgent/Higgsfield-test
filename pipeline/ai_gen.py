@@ -33,6 +33,7 @@ Everything an AI asset cost is in $OUT/ai_needed.json (est_credits); the agent r
 import argparse
 import datetime
 import glob
+import hashlib
 import json
 import os
 import random
@@ -877,8 +878,18 @@ def apply(out):
     files = [f for f in glob.glob(os.path.join(out, "*.json")) + glob.glob(os.path.join(out, "_before_hooks", "*.json"))
              if os.path.basename(f) not in ("plan.json", "statics.json", "ai_needed.json", "compliance.json", "ad_copy.json",
                                             "tts_needed.json", "tts_said.json")]
+    hp = os.path.join(out, PRISTINE, "applied.json")     # md5 of every spec this apply wrote: a spec that differs from it was
+    try:                                                    # hand-edited since (a QA fix, CLAUDE.md 5.4): it becomes the new
+        wrote = json.load(open(hp))                         # pristine copy, so the next render keeps the fix
+    except (OSError, ValueError):
+        wrote = {}
+    md5 = lambda f: hashlib.md5(open(f, "rb").read()).hexdigest()  # noqa: E731
     for f in files:
         rel = os.path.relpath(f, out)
+        pz = os.path.join(out, PRISTINE, rel)
+        if rel in wrote and os.path.exists(pz) and md5(f) != wrote[rel]:
+            shutil.copy(f, pz)
+            rep.setdefault("hand_edited", []).append(rel)
         try:
             spec = json.load(open(_pristine(out, rel)))
         except (OSError, ValueError):
@@ -910,6 +921,10 @@ def apply(out):
         if json.dumps(spec, sort_keys=True) != json.dumps(json.load(open(f)), sort_keys=True):
             json.dump(spec, open(f, "w"), indent=1)
             rep["changed"] = True
+        wrote[rel] = md5(f)
+    if wrote:
+        os.makedirs(os.path.dirname(hp), exist_ok=True)
+        json.dump(wrote, open(hp, "w"), indent=1)
     return rep
 
 

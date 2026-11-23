@@ -742,6 +742,9 @@ Julian launched B053 P01, B051 P01, B051 P03 and B049 P02 and held the rest. Wha
   the frames the mp4 header lists with the frames ffprobe can read and the length render reported: a hard failure, upload skips it.
 - My own misses: B052 S03's headline was set by hand over a fallback packshot (the line must describe the picture it is on); B046 S14
   repeated B025 although `plan` warned `repeat:` (a repeat warning means change or drop the static before render).
+- **A QA fix in a spec survives the next render** (B054 P02, 2026-11-23: a card-pocket line over a snap shot, fixed in `_before_hooks`,
+  came back on every render): `ai_gen.apply` rebuilt the specs from its pristine copy (`_ai_before/`) in a batch with AI clips. It
+  now records what it wrote (`_ai_before/applied.json`); a spec edited since becomes the new pristine copy (`hand_edited` in its report).
 
 ### 4i. Closers: the 25-35 s offer video (Lalith 2026-11-06, from the 30-day winners)
 
