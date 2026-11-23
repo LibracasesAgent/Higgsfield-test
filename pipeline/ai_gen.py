@@ -27,6 +27,8 @@ Everything an AI asset cost is in $OUT/ai_needed.json (est_credits); the agent r
   python3 pipeline/ai_gen.py gate --out $OUT       steps 3
   python3 pipeline/ai_gen.py clips --out $OUT      step 5
   python3 pipeline/ai_gen.py reject --out $OUT AS03 AC02 ...
+  python3 pipeline/ai_gen.py accept --out $OUT AS04 ...    a still the gate failed on a false alarm you LOOKED at, with the
+                                                          requester's OK (dark leather, a wreath read as a face, 50% read as 90%)
 """
 import argparse
 import datetime
@@ -549,6 +551,8 @@ def cmd_gate(out):
         r = gate_still(f, s["ref"], s["kind"], crop=s.get("layout") != "ad", words=s.get("words"))
         if prev.get("rejected"):
             r.update(ok=False, rejected=True, problems=r["problems"] + ["rejected by eye"])
+        elif prev.get("accepted") and prev.get("mtime") == os.path.getmtime(f) and not r["ok"]:
+            r.update(ok=True, accepted=True, mtime=prev["mtime"], problems=r["problems"] + ["passed by eye"])
         g["stills"][s["id"]] = r
         rows.append((f"{s['id']} {s['scene']} ({s['use']}) {'OK' if r['ok'] else 'FAIL ' + '; '.join(r['problems'])}", [s["ref"], f]))
     save_gate(out, g)
@@ -775,6 +779,23 @@ def cmd_reject(out, ids):
     print(f"rejected: {', '.join(ids)}")
 
 
+def cmd_accept(out, ids):
+    """Pass stills the automatic gate failed on a false alarm that the agent LOOKED at on the contact sheet and the person who
+    asked for the batch approved (2026-11-23: the colour check misses dark leather, the face check fires on a wreath or an empty
+    chair, OCR reads 50% as 90%). Only for a still that shows the real bag, the right words and no face; a new file at that id (a
+    remake) is gated afresh. Never for clips."""
+    g = load_gate(out)
+    need = {s["id"]: s for s in (load_needed(out) or {}).get("stills") or []}
+    for i in ids:
+        if i not in need or not os.path.exists(os.path.join(out, need[i]["file"])):
+            sys.exit(f"{i}: no generated still with this id in ai_needed.json (accept is for stills only)")
+        e = g.setdefault("stills", {}).setdefault(i, {})
+        e.update(ok=True, accepted=True, rejected=False, mtime=os.path.getmtime(os.path.join(out, need[i]["file"])))
+        e["problems"] = list(dict.fromkeys((e.get("problems") or []) + ["passed by eye"]))
+    save_gate(out, g)
+    print(f"accepted: {', '.join(ids)}")
+
+
 def available(out, kind, i):
     """True when the AI asset passed its gate and its file exists (clips: the conformed copy)."""
     e = (load_gate(out).get(kind) or {}).get(i) or {}
@@ -902,7 +923,7 @@ def summary(out):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("cmd", choices=["show", "gate", "clips", "reject"])
+    ap.add_argument("cmd", choices=["show", "gate", "clips", "reject", "accept"])
     ap.add_argument("ids", nargs="*")
     ap.add_argument("--out", required=True)
     a = ap.parse_args()
@@ -913,6 +934,8 @@ def main():
         return cmd_clips(out)
     if a.cmd == "reject":
         return cmd_reject(out, a.ids)
+    if a.cmd == "accept":
+        return cmd_accept(out, a.ids)
     need = load_needed(out)
     if not need:
         sys.exit("no ai_needed.json in " + out)
