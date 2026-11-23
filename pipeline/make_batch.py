@@ -2010,8 +2010,10 @@ def plan(a):
                     statics[i_].pop("headline", None)
                 else:
                     statics[i_].pop("sub", None)
-            elif i_ < len(statics) and x_["layout"] == statics[i_].get("layout") in ("gifts", "bundle") and x_.get("headline"):
-                statics[i_]["headline"] = x_["headline"]
+            elif i_ < len(statics) and x_["layout"] == statics[i_].get("layout") in ("gifts", "bundle", "colours", "value") and \
+                    x_.get("headline"):
+                statics[i_]["headline"] = x_["headline"]   # (colours / value too, 2026-11-23: the engine's 'Which colour are you?'
+                #                                              made every batch's colours static the same ad as the last one)
     if no_photo:                      # one warning, not one per static (a clips-only folder)
         bi_ = pr["source"] == "built-in"
         warnings.append(f"{no_photo} of {a.statics} statics left out: {pr['name']} has no photo a static may use (no clean "
@@ -2623,6 +2625,32 @@ def plan(a):
             os.makedirs(os.path.join(out, "ai", "clips"), exist_ok=True)
             json.dump(dict(ai_plan, steps=ai_gen.STEPS), open(os.path.join(out, "ai_needed.json"), "w"), indent=1, ensure_ascii=False)
             sheet_scenes = stills_
+    if sheet is not None and getattr(a, "ai", False) and not getattr(a, "no_ai", False) and a.videos and not story:
+        # --ai with a strategist sheet (2026-11-23, the Christmas batches: 'AI b-roll for this one'): the sheet makes the statics'
+        # stills; the videos get AI b-roll clips too (the theme's scenes first: data/ai_scenes.json "themes"), inside the batch cap
+        refs_c = [dict(file=f_, colour=n_) for n_, f_ in colour_imgs if (f_ in packs or "/clean/" in f_) and f_ not in no_static]
+        refs_c += [dict(file=f_, colour=None) for f_ in packs if f_ not in {r_["file"] for r_ in refs_c} and f_ not in no_static]
+        spent_ = float(ai_plan.get("est_credits") or 0)
+        try:
+            extra_ = ai_gen.plan_ai(name=pr["name"], slug=novelty.slug_of(pr["name"]), refs=refs_c, n_statics=0,
+                                    n_clips=min(ai_gen.MAX_CLIPS, 4 * a.videos), tts_est=4.5 * a.videos + spent_, seed=a.seed, out=out,
+                                    cap=getattr(a, "ai_cap", None), grade_refs=[c_ for c_ in clips if c_][:4],
+                                    theme=getattr(a, "theme", None), write=False)
+        except Exception as e:  # noqa: BLE001 - the batch runs on real footage without them
+            extra_ = dict(stills=[], clips=[], est_credits=0.0, notes=[f"AI b-roll not planned: {type(e).__name__}: {e}"])
+        if extra_.get("clips"):
+            ai_plan = dict(ai_plan, stills=list(ai_plan.get("stills") or []) + extra_["stills"],
+                           clips=list(ai_plan.get("clips") or []) + extra_["clips"],
+                           est_credits=round(spent_ + float(extra_["est_credits"]), 2),
+                           notes=list(ai_plan.get("notes") or []) + list(extra_.get("notes") or []),
+                           grade_refs=extra_.get("grade_refs") or ai_plan.get("grade_refs") or [],
+                           budget=ai_plan.get("budget") or extra_.get("budget"))
+            os.makedirs(os.path.join(out, "ai", "clips"), exist_ok=True)
+            json.dump(dict(ai_plan, steps=ai_gen.STEPS), open(os.path.join(out, "ai_needed.json"), "w"), indent=1, ensure_ascii=False)
+            warnings.append(f"AI b-roll (--ai): {len(extra_['clips'])} clips of the real bag ({', '.join(c_['scene'] for c_ in extra_['clips'])}), "
+                            f"~{extra_['est_credits']:g} credits with their start stills")
+        for n_ in extra_.get("notes") or []:
+            warnings.append(f"AI b-roll: {n_}")
     if sheet is None and need and not getattr(a, "no_ai", False) and not getattr(a, "classic", False) and (a.statics or (a.videos and not story)) \
             and (getattr(a, "ai", False) or not real_rich):
         ai_refs = [dict(file=f_, colour=n_) for n_, f_ in colour_imgs if (f_ in packs or "/clean/" in f_) and f_ not in no_static]
@@ -2634,6 +2662,7 @@ def plan(a):
                     x["layout"] for x in statics).items() if l_ in ("compare", "bold", "promo", "hero", "checklist"))),
                 n_clips=min(ai_gen.MAX_CLIPS, max(3, 2 * a.videos)) if a.videos and not story else 0,
                 tts_est=4.5 * a.videos if not story else 0, seed=a.seed, out=out, cap=getattr(a, "ai_cap", None),
+                theme=getattr(a, "theme", None),
                 grade_refs=[c_ for c_ in clips if c_][:4],
                 static_layouts=["scene", "scene_quote" if clean_mode and quote_revs else "scene", "scene",
                                 "scene_price" if value_ok else "scene", "scene", "scene_quote" if clean_mode and quote_revs else "scene",
@@ -2852,7 +2881,8 @@ def plan(a):
                     continue
                 for g in gen_moments(dur_, 5):
                     add(["drive", id_, g], (), None, "clip", pen_)
-        for c_ in ai_plan["clips"]:    # planned AI clips (ai_gen.py): scenes the client never filmed (a cafe, the street), matched on
+        for c_ in [x_ for x_ in ai_plan["clips"] if x_.get("use") != "motion" and x_.get("tags")]:   # (a motion still loops its static)
+            # planned AI clips (ai_gen.py): scenes the client never filmed (a cafe, the street), matched on
             ulib.append(dict(p=["ai", c_["id"], 0.0], kw=kw_terms(" ".join(c_["tags"])), tag=None, kind="clip",   # their scene words
                              src=ai_gen.clip_file(out, c_["id"]), pen=0.0, only=set(), hook=False, long=False, once=False,
                              tags=shotmatch.tags_of_text(" ".join(c_["tags"])), q="good"))

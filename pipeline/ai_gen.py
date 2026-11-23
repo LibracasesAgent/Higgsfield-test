@@ -78,11 +78,15 @@ def noun_of(name):
 
 
 # ------------------------------------------------------------------ planning
-def pick_scenes(lib, noun, n, kinds, recent, rng):
+def pick_scenes(lib, noun, n, kinds, recent, rng, theme=None):
     """n scene dicts, kinds cycling through `kinds` (object / worn / hand), each scene once. `recent`: the product's earlier
     scenes, newest first (novelty.recent): a scene never shown comes first, then the one shown longest ago, so every batch
-    shows other scenes until the library is used up (22+ scenes, ~16 per batch)."""
-    pool = [s for s in lib["scenes"] if noun in (s.get("nouns") or [noun])]
+    shows other scenes until the library is used up (22+ scenes, ~16 per batch). A themed scene ("themes": ["christmas"]) is only
+    in the pool of a batch of that theme, and there it comes first."""
+    th = (theme or "").lower().strip()
+    pool = [s for s in lib["scenes"] if noun in (s.get("nouns") or [noun]) and (not s.get("themes") or th in s["themes"])]
+    if th and any(th in (s.get("themes") or ()) for s in pool):
+        pool = [s for s in pool if th in (s.get("themes") or ())] + [s for s in pool if th not in (s.get("themes") or ())]
     age = {sid: i for i, sid in enumerate(recent)}                    # 0 = the newest batch's
     out, used = [], set()
     for i in range(n):
@@ -90,6 +94,8 @@ def pick_scenes(lib, noun, n, kinds, recent, rng):
         cand = [s for s in pool if s["id"] not in used and s["kind"] == want] or [s for s in pool if s["id"] not in used]
         if not cand:
             break
+        themed = [c for c in cand if th and th in (c.get("themes") or ())]
+        cand = themed or ([c for c in pool if c["id"] not in used and th and th in (c.get("themes") or ())] if th else []) or cand
         oldest = max(age.get(s["id"], 10 ** 6) for s in cand)
         s = rng.choice([c for c in cand if age.get(c["id"], 10 ** 6) == oldest])
         used.add(s["id"])
@@ -228,7 +234,7 @@ def clip_model_for(scene):
 
 
 def plan_ai(*, name, slug, refs, n_statics, n_clips, tts_est, seed, out, grade_refs=(), cap=None, reserve=RESERVE,
-            static_layouts=None, log_path=None, boost=0):
+            static_layouts=None, log_path=None, boost=0, theme=None, write=True, id_from=1):
     """The AI part of a batch: {"stills": [...], "clips": [...], "est_credits", "budget", "notes"} (also written to
     $OUT/ai_needed.json). refs: [{"file", "colour"}] real packshots (one per colour when the product has them).
     static_layouts: the layouts the AI statics may take (scene / scene_quote / scene_price), in order of use. boost: extra AI
@@ -249,7 +255,7 @@ def plan_ai(*, name, slug, refs, n_statics, n_clips, tts_est, seed, out, grade_r
     def cost(ns, nc):                # statics: a 4:5 still each; clips: a 9:16 start still + the clip
         return ns * IMG["cost"] + nc * IMG["cost"] + sum(CLIP_MODELS[clip_model_for(s)]["cost"] for s in kinds_for_clips[:nc])
     avoid_s = novelty.recent(slug, "scene", last=6, log=novelty.load(log_path))        # newest first
-    kinds_for_clips = pick_scenes(lib, noun, MAX_CLIPS, ["object", "worn", "object", "hand"], avoid_s, rng)
+    kinds_for_clips = pick_scenes(lib, noun, MAX_CLIPS, ["object", "worn", "object", "hand"], avoid_s, rng, theme)
     while n_c > 0 and cost(n_s, n_c) > budget:
         n_c -= 1
     while n_s > 0 and cost(n_s, n_c) > budget:
@@ -263,7 +269,7 @@ def plan_ai(*, name, slug, refs, n_statics, n_clips, tts_est, seed, out, grade_r
     def ref_for(k):
         return refs[order[k % len(order)]]
     stills, clips = [], []
-    s_scenes = pick_scenes(lib, noun, n_s, ["worn", "object", "hand", "object", "worn", "object"], avoid_s, rng)
+    s_scenes = pick_scenes(lib, noun, n_s, ["worn", "object", "hand", "object", "worn", "object"], avoid_s, rng, theme)
     layouts = list(static_layouts or ["scene"])
     for k, sc in enumerate(s_scenes):
         r = ref_for(k)
@@ -272,11 +278,11 @@ def plan_ai(*, name, slug, refs, n_statics, n_clips, tts_est, seed, out, grade_r
                            model=IMG["model"], params=dict(IMG["params"], aspect_ratio="4:5"),
                            prompt=build_prompt(lib, sc, noun, r.get("colour"), False), est_credits=IMG["cost"]))
     avoid_c = [s["scene"] for s in stills] + list(avoid_s)             # (this batch's static scenes count as the newest)
-    c_scenes = pick_scenes(lib, noun, n_c, ["object", "worn", "object", "hand"], avoid_c, rng)
+    c_scenes = pick_scenes(lib, noun, n_c, ["worn", "object", "hand", "worn"], avoid_c, rng, theme)
     for k, sc in enumerate(c_scenes):
         r = ref_for(k + 3)
         cm = CLIP_MODELS[clip_model_for(sc)]
-        sid, cid = f"AV{k + 1:02d}", f"AC{k + 1:02d}"
+        sid, cid = f"AV{k + id_from:02d}", f"AC{k + id_from:02d}"
         stills.append(dict(id=sid, use="clip", scene=sc["id"], kind=sc["kind"], colour=r.get("colour"), ref=r["file"],
                            aspect="9:16", file=f"ai/{sid}.png", model=IMG["model"], params=dict(IMG["params"], aspect_ratio="9:16"),
                            prompt=build_prompt(lib, sc, noun, r.get("colour"), True), est_credits=IMG["cost"]))
@@ -286,7 +292,7 @@ def plan_ai(*, name, slug, refs, n_statics, n_clips, tts_est, seed, out, grade_r
     est = round(sum(x["est_credits"] for x in stills + clips), 2)
     plan = dict(stills=stills, clips=clips, est_credits=est, notes=notes, grade_refs=list(grade_refs),
                 budget=dict(cap=cap, tts_est=round(float(tts_est), 2), reserve=reserve, ai_budget=round(budget, 2)))
-    if stills or clips:
+    if (stills or clips) and write:
         os.makedirs(os.path.join(out, "ai", "clips"), exist_ok=True)
         json.dump(dict(plan, steps=STEPS), open(os.path.join(out, "ai_needed.json"), "w"), indent=1, ensure_ascii=False)
     return plan
