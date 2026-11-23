@@ -4347,7 +4347,52 @@
      ]
     }
    ]
+  },
+  {
+   "id": "B054",
+   "n": 54,
+   "rev": 1,
+   "date": "2026-11-23",
+   "product": "Vintage Bag",
+   "theme": "Christmas",
+   "pipeline": "catalog",
+   "request": "Christmas batch: 10 statics + 2 videos, AI b-roll (one-off), presenter only in the Vintage batch",
+   "statics": 10,
+   "projects": 2,
+   "hooks": 4,
+   "seed": 1,
+   "status": "planned"
+  },
+  {
+   "id": "B055",
+   "n": 55,
+   "rev": 1,
+   "date": "2026-11-23",
+   "product": "Hobo Bag",
+   "theme": "Christmas",
+   "pipeline": "catalog",
+   "request": "Christmas batch: 10 statics + 2 videos, AI b-roll (one-off), presenter only in the Vintage batch",
+   "statics": 10,
+   "projects": 2,
+   "hooks": 4,
+   "seed": 1,
+   "status": "planned"
+  },
+  {
+   "id": "B056",
+   "n": 56,
+   "rev": 1,
+   "date": "2026-11-23",
+   "product": "Hobo Bag 3-Piece Set",
+   "theme": "Christmas",
+   "pipeline": "catalog",
+   "request": "Christmas batch: 10 statics + 2 videos, AI b-roll (one-off), presenter only in the Vintage batch",
+   "statics": 10,
+   "projects": 2,
+   "hooks": 4,
+   "seed": 1,
+   "status": "planned"
   }
  ],
- "next": 54
+ "next": 57
 }
