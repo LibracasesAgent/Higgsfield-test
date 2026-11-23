@@ -72,6 +72,17 @@ def test_label_merge_writes_moments_with_frame_times():
         assert m[0]["tags"] == ["snap"] and m[3]["q"] == "weak"                         # (only the vocabulary; an odd quality is weak)
 
 
+
+def test_bank_clips_are_labelled_from_their_notes():
+    """(Julian 2026-11-20: clips not matching the subtitles; B052's unverified shots were all hand-picked bank clips.)"""
+    import os
+    bm = sm.bank_moments(os.path.join(HERE, "..", "data", "clip_bank.json"))
+    pouch = bm.get("1v8gKfP9ZYsuh7w5yBwlInmv_-U-pY2x_")
+    assert pouch and all("pouch" in t for _, t, _ in pouch), pouch
+    assert "18all7GUEBLsxxS0JCAl8t-yEOsC6r52T" not in bm          # a "never" clip (a face) carries no labels
+    v, _ = sm.verify(sm.shows("1KrT_V2zVfWbAJ_QciTDEhWMundQHepPY", 1.0, 2.4), "You get the hobo bag, the crossbody")
+    assert v == "mismatch", v                                     # a hobo hanging on a hook is not the crossbody
+
 if __name__ == "__main__":
     fails = 0
     tests = [(k, v) for k, v in sorted(globals().items()) if k.startswith("test_") and callable(v)]

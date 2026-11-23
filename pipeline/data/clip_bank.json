@@ -165,7 +165,7 @@
   "black_gift":       {"id": "18all7GUEBLsxxS0JCAl8t-yEOsC6r52T", "dur": 36.0, "never": true, "good": [], "notes": "NEVER: a woman's face is in frame (clip_index faces: full; B052 2026-11-19); gift reveal", "text": "a birthday gift bag printed HAPPY BIRTHDAY fills the lower third (not for the ugc videos: a caption sits on it)"},
   "kate_gift":        {"id": "1U5e0VpcAFm07iWXfWFMPe8jiYRd5LmhZ", "dur": 22.4, "never": true, "good": [], "notes": "NEVER: a woman's face and a Vintage Bag in frame (B052 P02 H2, 2026-11-19); gift reaction"},
   "unbox_novoice":    {"id": "1rRkDw8UM4ZlQpO3c6Bv3_gT1_1-n8qYH", "dur": 66.5, "never": true, "good": [], "notes": "NEVER until re-checked: a man's chin and mouth in frame at 30 s (B052 P02 H3, 2026-11-19); unboxing, no voice"},
-  "unbox_brown":      {"id": "1wE0AQvyBkxmh0-_ftpXmjG4v-pHMMPfG", "dur": 194.9, "notes": "long unboxing brown"},
+  "unbox_brown":      {"id": "1wE0AQvyBkxmh0-_ftpXmjG4v-pHMMPfG", "never": true, "dur": 194.9, "notes": "long unboxing brown"},
   "testi_black":      {"id": "11yX8EI6ZI6Ewyc-Io7PfrwC12vTVUEGY", "dur": 86.3, "notes": "REAL CUSTOMER unboxing, own audio. Ranges (whole sentences, cadence-checked 2026-10-10): 14.16-25.43 (anti-theft, travel, phone in the back zipper), 26.0-40.57 (next to my body, pickpockets, zips both sides, keys), 41.1-52.73 (inside: soft, lots of room), 78.3-82.4 (this is awesome, exactly what I wanted). Silent spans (no word in the transcript, 0.3 s margins): 2.5-10.8 (opening the gift bag) and 82.4-85.8 only; she talks almost all the time from 14 s on (54.0 and 63.3, once listed as silent, are her own words), so make_batch never uses this clip as muted B-roll: it is her scene, introduced by the narrator.", "intros": ["Here's a real customer opening hers.", "Don't just take our word for it. Here's a real customer unboxing hers."]},
   "testi_blue":       {"id": "1B_A8E6o9m6B4sNNiDeSS81TdU_oEeu9i", "dur": 6.2, "notes": "REAL CUSTOMER, own audio 0.6-6.0: 'If you're looking for a thoughtful gift, this is such a beautiful and elegant choice.'", "intros": ["Here's what one customer says about giving it as a gift."]}
  },
@@ -179,8 +179,8 @@
  "slouchy_set": {
   "flatlay":          {"id": "1BQxRGh_Sqno6MqEBabVBpaCT0bLXQ8pw", "dur": 16.4, "notes": "brown slouchy set flatlay"},
   "all3_crossbody":   {"id": "1h2OlHfArKnmuzQRP-gdEeIcVg6vDNLEB", "dur": 12.3, "notes": "pink set, all 3 pieces"},
-  "brown_lifestyle":  {"id": "1JYB-5m6zU71bzzE8KgBeDvr0eEzimWb0", "dur": 19.4, "notes": "brown slouchy worn outdoors"},
-  "coffee_run":       {"id": "1AERMmWiNKyEvkgDEHUXcMvoq8cgQZbdg", "dur": 15.7, "notes": "pink slouchy, street coffee run"}
+  "brown_lifestyle":  {"id": "1JYB-5m6zU71bzzE8KgBeDvr0eEzimWb0", "never": true, "dur": 19.4, "notes": "brown slouchy worn outdoors"},
+  "coffee_run":       {"id": "1AERMmWiNKyEvkgDEHUXcMvoq8cgQZbdg", "never": true, "dur": 15.7, "notes": "pink slouchy, street coffee run"}
  },
 
  "hobo_2_0": {
@@ -195,9 +195,9 @@
   "open_inside_brown": {"id": "10aSieQA3Lb3YEflOG3dXN2sIgckqMv4f", "dur": 15.9, "good": [2.0, 6.6, 9.3], "notes": "opening, interior"},
   "clasp_brown":       {"id": "1zWksUIjdI39dANvjXlGZoTaY11CJrBRZ", "dur": 6.4, "good": [0.0], "notes": "clasp snapping"},
   "details_brown":     {"id": "1RvlXOQ5hCCqLQm-paz6wpMtJaH_gT5FG", "dur": 14.1, "good": [3.5, 4.0], "notes": "hardware details"},
-  "compare_black_brown": {"id": "1MZAWlWRBKJG8JFCvqC_wl8NPm8LyN8ZE", "dur": 4.3, "good": [0.0], "notes": "both colours worn"},
+  "compare_black_brown": {"id": "1MZAWlWRBKJG8JFCvqC_wl8NPm8LyN8ZE", "never": true, "dur": 4.3, "good": [0.0], "notes": "both colours worn"},
   "flatlay":           {"id": "1dth2GGvV8qdLLg4SGXId1S_m09SCj9vw", "dur": 5.9, "good": [1.0], "notes": "black + brown flatlay"},
-  "tryon_brown":       {"id": "1fOAl6lU85JwItepfKYB6gm4m_6S5vXVW", "dur": 16.6, "good": [0.0, 9.6, 12.4], "notes": "try-on, face visible"},
+  "tryon_brown":       {"id": "1fOAl6lU85JwItepfKYB6gm4m_6S5vXVW", "never": true, "dur": 16.6, "good": [0.0, 9.6, 12.4], "notes": "try-on, face visible"},
   "strap_brown":       {"id": "1-rzfYRYKmmUocjp-CfJnrVDnsUBGq_t-", "dur": 6.4, "good": [0.5, 1.0], "notes": "strap adjust"},
   "becky_testimony":   {"id": "1c6sVRtKd9c3J3jtLicNjBoh96EdmGVcb", "dur": 89.1, "transcript": "vin_becky_testimony", "notes": "REAL CUSTOMER Becky (red Vintage bag), own audio. Ranges (whole sentences, cadence-checked 2026-10-10): 4.76-13.3 'So I have this great new purse ... It's become a new go-to.', 15.32-21.5 'It opens up and all of my stuff ... I've got my wallet.', 31.98-38.85 'There is pockets. My keys are in there. Everything fits ... it buttons.', 39.1-47.8 'these come off ... handbag or ... across.' (the old 5.8 / 39.6 starts cut into a sentence, 30.4 cut 'zippers' and 48.6 ran into 'It also').", "intros": ["Here's Becky with her new Vintage Bag.", "Don't just take our word for it. Here's Becky.", "Becky got hers in red. Here's what she thinks."]}
  },

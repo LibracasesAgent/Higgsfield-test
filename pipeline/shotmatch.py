@@ -170,7 +170,35 @@ def moment_index(path=None):
             rows = []
         _IDX[path] = {str(r.get("id")): [(float(m.get("t", 0)), set(m.get("tags") or ()), m.get("q", "good")) for m in r.get("moments") or []]
                       for r in rows if r.get("id") and r.get("moments")}
+        for k, v in bank_moments(os.path.join(os.path.dirname(path), "clip_bank.json")).items():
+            _IDX[path].setdefault(k, v)
     return _IDX[path]
+
+
+def bank_moments(path):
+    """{clip id: [(t, tags, q)]} of the hand-picked clip_bank.json clips, which clip_index.json does not label: the tags their own
+    note and key speak of, at each vetted moment ('good') or spread over the clip. Before this a bank clip under a feature line was
+    always 'unverified' (Julian's call 2026-11-20: 'some clips are not matching the subtitles'; B052's unverified shots were all bank
+    clips). A clip marked "never" (a face in frame) carries no labels: it stays unverified and is never picked anyway."""
+    import json
+    try:
+        bank = json.load(open(path))
+    except (OSError, ValueError):
+        return {}
+    out = {}
+    for sec, d in bank.items():
+        if sec == "winner_raws" or not isinstance(d, dict):
+            continue
+        for key, e in d.items():
+            if not isinstance(e, dict) or not e.get("id") or e.get("never"):
+                continue
+            tags = tags_of_text(f"{e.get('notes') or ''} {key.replace('_', ' ')}")
+            if not tags:
+                continue
+            dur = float(e.get("dur") or 0)
+            ts = [float(t) for t in e.get("good") or []] or [dur * k / 4 for k in range(4)] if dur else [0.0]
+            out[str(e["id"])] = [(t, set(tags), "good") for t in ts]
+    return out
 
 
 def src_key(src):
