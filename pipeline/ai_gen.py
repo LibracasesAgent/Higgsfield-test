@@ -850,6 +850,8 @@ def apply(out):
                 continue
             if ai["id"] in ok_s:
                 rep["statics_ai"].append(ad["name"])
+                if (g.get("stills") or {}).get(ai["id"], {}).get("accepted"):
+                    ai["eye_ok"] = True       # passed by eye (cmd_accept): the static render's face check takes the person's look
                 if fb:
                     rename[fb["name"]] = ad["name"]
                 mo = ad.get("motion")

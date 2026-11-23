@@ -745,6 +745,12 @@ Julian launched B053 P01, B051 P01, B051 P03 and B049 P02 and held the rest. Wha
 - **A QA fix in a spec survives the next render** (B054 P02, 2026-11-23: a card-pocket line over a snap shot, fixed in `_before_hooks`,
   came back on every render): `ai_gen.apply` rebuilt the specs from its pristine copy (`_ai_before/`) in a batch with AI clips. It
   now records what it wrote (`_ai_before/applied.json`); a spec edited since becomes the new pristine copy (`hand_edited` in its report).
+- **A still passed by eye stays passed** (B055 S04: a door wreath the face detector read as a face, `ai_gen accept`ed, then failed the
+  static render's own face check): apply marks it `eye_ok`, the scene layouts skip the second look and `static_qa` lists it as the soft
+  flag `passed by eye: ...` (never hard). Only for stills a person accepted; every other static keeps the hard face check.
+- **Faces the detector missed in the b-roll** (B055 / B056, all caught on the contact sheets): `clip_bank` `brown_room_outside` is a
+  talking head (`never`), `black_door` shows her profile before 0.6 s (`good` 0.7); Hobo clip `1NyzIbBW` turns to camera at 3.3 s.
+  `clip_index` 1PqOCKXP (Vintage in the car) now carries `coffee` (the cup is in every frame; the check called it a mismatch).
 
 ### 4i. Closers: the 25-35 s offer video (Lalith 2026-11-06, from the 30-day winners)
 

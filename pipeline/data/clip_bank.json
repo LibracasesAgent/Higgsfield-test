@@ -171,9 +171,9 @@
  },
 
  "hobo_3piece_set": {
-  "brown_room_outside": {"id": "1DbVATxAeMvr_FnP999-dnJymLQ7pn9H8", "dur": 126.6, "good": [0.5, 21.0, 31.0, 42.0, 52.0, 63.0, 73.0, 84.0, 98.0, 105.0, 113.0], "mute": true, "notes": "woman with brown hobo, porch / street / home; many usable moments"},
+  "brown_room_outside": {"id": "1DbVATxAeMvr_FnP999-dnJymLQ7pn9H8", "dur": 126.6, "good": [0.5, 21.0, 31.0, 42.0, 52.0, 63.0, 73.0, 84.0, 98.0, 105.0, 113.0], "mute": true, "never": true, "notes": "woman with brown hobo, porch / street / home; NEVER as b-roll: a talking head, her face is in every moment (B056 P02 H4, 2026-11-23)"},
   "black_hanging":      {"id": "1KrT_V2zVfWbAJ_QciTDEhWMundQHepPY", "dur": 6.7, "good": [1.0], "notes": "black hobo hanging on a hook"},
-  "black_door":         {"id": "1XnGy8b5SEh634ZaranWYRHLwOQQrtgXd", "dur": 4.6, "good": [0.0], "notes": "walking into a cafe with black set"}
+  "black_door":         {"id": "1XnGy8b5SEh634ZaranWYRHLwOQQrtgXd", "dur": 4.6, "good": [0.7], "notes": "walking into a cafe with black set (her profile shows before 0.6 s)"}
  },
 
  "slouchy_set": {

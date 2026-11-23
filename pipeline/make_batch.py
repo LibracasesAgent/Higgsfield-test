@@ -3819,11 +3819,17 @@ def static_qa(out, names, failed=None):
     failed: {name: reason} from brand_statics' 'FAILED <name>: <reason>' lines (text that would overlap: not drawn)."""
     import new_product
     rep, failed = [], failed or {}
+    try:                                   # AI stills a person passed by eye after a false face alarm (ai_gen accept)
+        eye = {ad["name"] for ad in json.load(open(os.path.join(out, "statics.json"))).get("ads") or []
+               if (ad.get("ai") or {}).get("eye_ok")}
+    except (OSError, ValueError):
+        eye = set()
     for k, n in enumerate(names):
         f = os.path.join(out, "statics", n + ".png")
         faces = new_product.count_faces(f) if os.path.exists(f) else None
         problems = ([f"render failed: {failed[n]} (no PNG)"] if n in failed and not os.path.exists(f) else
                     ["file missing (render failed)"] if not os.path.exists(f) else
+                    [f"passed by eye: the face check had {faces} hit(s) on this AI still (look at it)"] if faces and n in eye else
                     [f"face detected ({faces}): never a face in statics"] if faces else
                     ["render failed: the PNG can't be read (no face check possible): re-render it"] if faces is None else [])
         rep.append(dict(name=n, id=f"S{k + 1:02d}", engine="static", format=n.rsplit("_", 1)[-1], ok=not problems,

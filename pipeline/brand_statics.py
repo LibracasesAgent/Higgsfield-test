@@ -1725,7 +1725,8 @@ def scene_photo(a, sd, who):
     if not os.path.isfile(os.path.join(sd, a["photo"])):
         raise ValueError(f"{who}: photo {a['photo']} not found")
     im = load(sd, a["photo"])
-    no_face(os.path.join(sd, a["photo"]), who, strict=False)
+    if not (a.get("ai") or {}).get("eye_ok"):     # (an AI still a person passed by eye after a false face alarm: ai_gen accept)
+        no_face(os.path.join(sd, a["photo"]), who, strict=False)
     return im
 
 
