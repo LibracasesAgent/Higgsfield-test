@@ -1,0 +1,430 @@
+{
+ "product": "Vintage Bag",
+ "theme": "christmas",
+ "date": "2026-11-23",
+ "research": [
+  "Julian's call 2026-11-20: the next batches are Christmas themed (statics first, a few videos); the Vintage 'things' video (one-hand hook) and the B029 swing-tag static are the account's references: simple, one idea, the bag big",
+  "Julian 2026-11-05: 'I like gifting angle for Christmas. It's really good.'; question hooks 52% hook rate vs offer hooks 43%",
+  "Under the Christmas theme the Black Friday terms (order-by date) are not facts: no delivery date or Christmas-delivery promise in any line",
+  "Footage: snap 223, strap 209, worn 54, inside 30, cafe 14 good moments; AI b-roll (one-off, approved 2026-11-23) fills the Christmas places the library never filmed (market, tree, wrapping)",
+  "Vintage Bag has no attributed review now (reviews 6-10 wait on Wouter): no quote statics"
+ ],
+ "projects": [
+  {
+   "id": "P01",
+   "slug": "hersgift",
+   "title": "The gift for the woman with her hands full",
+   "structure": "gift_reveal",
+   "big_idea": "A host by the Christmas tree unwraps the Vintage Bag as the gift for the woman on your list who always has her hands full, and shows the two reasons it suits her: one hand shuts it, and everything has its own spot.",
+   "why_new": "The first Vintage presenter gift reveal: the host unwraps it by the tree, no sale in any opening, the one-hand clasp as the proof shot (the hook of our best Vintage video), the strap as the Christmas-market reason.",
+   "presenter": {
+    "id": "maya",
+    "scenes": [
+     {
+      "id": "tree",
+      "where": "She sits on a cream sofa in a cosy living room, a decorated Christmas tree with warm fairy lights softly blurred behind her, a knitted blanket beside her, soft evening lamp light.",
+      "outfit": "She wears a soft burgundy knit jumper.",
+      "bag": "resting on her lap",
+      "colour": "Red",
+      "ambience": "Quiet living room ambience"
+     },
+     {
+      "id": "table",
+      "where": "She sits at a wooden kitchen table with rolls of red and gold wrapping paper, twine and a pair of scissors in front of her, warm daylight from a window, a softly blurred kitchen behind.",
+      "outfit": "She wears a cream cable-knit jumper.",
+      "bag": "standing on the table in front of her",
+      "colour": "Red",
+      "ambience": "Quiet kitchen ambience"
+     }
+    ]
+   },
+   "hooks": [
+    {
+     "text": "Know someone whose hands are always full of shopping bags?",
+     "type": "question",
+     "label": "HANDS FULL?",
+     "show": [
+      "worn",
+      "walking"
+     ],
+     "scene": "tree"
+    },
+    {
+     "text": "Watch the clasp on this Christmas gift: one snap, one hand.",
+     "type": "promise",
+     "label": "ONE SNAP",
+     "show": [
+      "snap",
+      "handheld"
+     ],
+     "scene": "table"
+    },
+    {
+     "text": "Before you wrap another scarf for her, look at this gift.",
+     "type": "warning",
+     "label": "NOT A SCARF",
+     "show": [
+      "strap",
+      "handheld"
+     ],
+     "scene": "tree"
+    },
+    {
+     "text": "How to pick a gift for the woman who carries everything.",
+     "type": "promise",
+     "label": "HER GIFT",
+     "show": [
+      "packing",
+      "handheld"
+     ],
+     "scene": "table"
+    }
+   ],
+   "chapters": [
+    {
+     "kind": "point",
+     "beat": "who",
+     "cam": "full",
+     "scene": "tree",
+     "text": "Shopping for the woman on your list who always has her hands full? The wrapping paper, the coffee, the gloves, the keys. Give her a bag that keeps up with all of it.",
+     "tag": null,
+     "show": [
+      "worn",
+      "walking"
+     ]
+    },
+    {
+     "kind": "proof",
+     "beat": "reveal",
+     "cam": "open",
+     "scene": "table",
+     "proof_shot": true,
+     "text": "Here it is, out of the tissue paper. Watch the clasp. One snap with one hand and it's shut, even with a coffee in the other hand.",
+     "tag": "ONE-HAND CLASP",
+     "show": [
+      "snap",
+      "handheld"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "reason",
+     "cam": "open",
+     "scene": "table",
+     "text": "Now open it up. There's a spot for her phone, her wallet and her keys, each in its own place, so nothing ends up lost at the bottom.",
+     "tag": "ROOM FOR EVERYTHING",
+     "show": [
+      "inside",
+      "handheld"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "second_reason",
+     "cam": "open",
+     "scene": "tree",
+     "text": "And the strap adjusts. Short, she carries it as a handbag to Christmas lunch. Long, it goes crossbody for a walk round the Christmas market, both hands on the shopping.",
+     "tag": "ADJUSTABLE STRAP",
+     "show": [
+      "strap",
+      "worn"
+     ]
+    },
+    {
+     "kind": "offer",
+     "beat": "offer",
+     "cam": "both",
+     "scene": "tree",
+     "text": "The Vintage Bag is fifty percent off right now, with free shipping. One gift crossed off your list, and one she can carry every day. Tap the link below.",
+     "tag": null,
+     "show": [
+      "handheld",
+      "snap"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "P02",
+   "slug": "decemberplaces",
+   "title": "Four December places, one bag",
+   "structure": "four_places",
+   "big_idea": "One December Saturday in four places, the Christmas market, a market stall, a crowded cafe and the office party, and the same small bag doing each one: crossbody, one snap, everything in its spot, a handbag again.",
+   "why_new": "The first Vintage four-places story and the first set in December: the strap leads (not the clasp), every place a Christmas moment, the bag worn in the market and party chapters.",
+   "hooks": [
+    {
+     "text": "Christmas market, hot chocolate in one hand. Where's your bag?",
+     "type": "question",
+     "label": "MARKET DAY",
+     "show": [
+      "worn",
+      "walking"
+     ]
+    },
+    {
+     "text": "Can one small bag do the market, lunch and the office party?",
+     "type": "question",
+     "label": "ONE BAG?",
+     "show": [
+      "strap",
+      "worn"
+     ]
+    },
+    {
+     "text": "Watch one hand snap this bag shut at a busy market stall.",
+     "type": "promise",
+     "label": "ONE HAND",
+     "show": [
+      "snap",
+      "handheld"
+     ]
+    },
+    {
+     "text": "Fifty percent off the bag that goes from market to party.",
+     "type": "price",
+     "label": "50% OFF",
+     "show": [
+      "walking",
+      "strap"
+     ]
+    }
+   ],
+   "chapters": [
+    {
+     "kind": "point",
+     "beat": "place_1",
+     "number": 1,
+     "text": "Saturday morning at the Christmas market. Lights everywhere, people everywhere, and your arms already full. Wear the strap long and the bag goes crossbody, so both hands are there for the paper bags and a hot chocolate.",
+     "tag": "ADJUSTABLE STRAP",
+     "show": [
+      "worn",
+      "strap"
+     ]
+    },
+    {
+     "kind": "proof",
+     "beat": "place_2",
+     "number": 2,
+     "proof_shot": true,
+     "text": "At the stall, you pay without putting a thing down. Your card comes out, the flap goes back over, and one snap with one hand shuts it again.",
+     "tag": "ONE-HAND CLASP",
+     "show": [
+      "snap",
+      "handheld"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "place_3",
+     "number": 3,
+     "text": "Lunch in a busy cafe, the table crowded with cups and shopping. Inside the bag, your phone, wallet and keys each sit in their own spot, so nothing sinks to the bottom while you look for them.",
+     "tag": "ROOM FOR EVERYTHING",
+     "show": [
+      "inside",
+      "cafe"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "place_4",
+     "number": 4,
+     "text": "Evening, the office party. Shorten the strap and it's a neat little handbag again, the same bag that did the market this morning. No swapping bags, no keys left behind in the other one.",
+     "tag": null,
+     "show": [
+      "worn",
+      "strap"
+     ]
+    },
+    {
+     "kind": "offer",
+     "beat": "offer",
+     "text": "The Vintage Bag is fifty percent off right now, with free shipping. One bag for every place December takes you, and a lovely one to give, too. Tap the link below.",
+     "tag": null,
+     "show": [
+      "handheld",
+      "snap"
+     ]
+    }
+   ]
+  }
+ ],
+ "statics": [
+  {
+   "id": "S01",
+   "layout": "ad",
+   "format": "ribbon_banner",
+   "idea": "A wide satin ribbon printed with the offer runs across a Christmas table beside the red Vintage Bag: the gift, already half price.",
+   "words": [
+    "50% OFF",
+    "Her Christmas bag, wrapped."
+   ],
+   "headline": "Her Christmas bag, wrapped.",
+   "story": "gift",
+   "scene": {
+    "colour": "Red",
+    "prompt": "The red Vintage Bag closed on a dark green velvet tablecloth, a wide deep red satin ribbon running across the front corner of the frame, a few pine sprigs and gold baubles beside it, warm candle light, a real photo."
+   },
+   "project": "P01"
+  },
+  {
+   "id": "S02",
+   "layout": "ad",
+   "format": "window_display",
+   "idea": "A boutique window at dusk with Christmas lights: the black Vintage Bag on a plinth behind the glass, the offer lettered on the window.",
+   "words": [
+    "50% OFF",
+    "One snap, one hand."
+   ],
+   "headline": "One snap, one hand.",
+   "story": "proof",
+   "feature": "ONE-HAND CLASP",
+   "scene": {
+    "colour": "Black",
+    "prompt": "A small boutique shop window at dusk, warm Christmas string lights around the frame, the black Vintage Bag closed on a cream plinth behind the glass, soft reflections of a winter street on the window."
+   },
+   "project": "P02"
+  },
+  {
+   "id": "S03",
+   "layout": "ad",
+   "format": "note_card",
+   "idea": "A large handwritten card on the kitchen table next to the chocolate Vintage Bag and the wrapping paper: who the gift is for.",
+   "words": [
+    "For Mum, with love.",
+    "50% OFF"
+   ],
+   "headline": "For Mum, with love.",
+   "story": "gift",
+   "scene": {
+    "colour": "Chocolate",
+    "prompt": "The chocolate Vintage Bag closed on a wooden kitchen table, rolls of red and gold wrapping paper and twine beside it, a large cream card propped in front, close to the camera, warm morning window light."
+   },
+   "project": "P01"
+  },
+  {
+   "id": "S04",
+   "layout": "ad",
+   "format": "mantel_morning",
+   "format_name": "Mantel on Christmas morning",
+   "art": "A real photograph of a fireplace mantel on Christmas morning: the real bag hangs closed by its strap from a brass hook on the mantel beside two knitted Christmas stockings, a large paper gift tag on twine carries the offer in big bold letters, the story line set in clean serif type on the calm wall above; warm fairy lights and pine garland along the mantel, soft morning light, real wool and wood textures, nothing glossy.",
+   "people": "none",
+   "words": [
+    "50% OFF",
+    "Hang it by her stocking."
+   ],
+   "headline": "Hang it by her stocking.",
+   "story": "gift",
+   "scene": {
+    "colour": "Ginger Brown",
+    "prompt": "A white fireplace mantel on Christmas morning, the ginger brown Vintage Bag hanging closed by its strap from a brass hook beside two cream knitted stockings, a large paper gift tag on twine, pine garland and warm fairy lights along the mantel."
+   },
+   "project": "P02",
+   "idea": "The real bag hangs from a brass hook on the mantel next to the Christmas stockings, a big paper gift tag carrying the offer: the gift that waits by her stocking."
+  },
+  {
+   "id": "S05",
+   "layout": "ad",
+   "format": "pov_sticker",
+   "idea": "A candid phone photo from behind at an evening Christmas market: the bag worn crossbody, a paper cup in one hand.",
+   "words": [
+    "Christmas market. Crossbody on.",
+    "50% OFF"
+   ],
+   "headline": "Christmas market. Crossbody on.",
+   "story": "moment",
+   "feature": "ADJUSTABLE STRAP",
+   "scene": {
+    "colour": "Ginger Brown",
+    "prompt": "A woman seen from behind walking through an evening Christmas market, the ginger brown Vintage Bag worn crossbody at her hip, a paper cup in one hand, warm string lights and wooden stalls softly blurred, a real candid phone photo."
+   },
+   "project": "P01"
+  },
+  {
+   "id": "S06",
+   "layout": "story",
+   "look": "hook",
+   "idea": "The Christmas shopping moment, arms full: the strap goes long and the bag goes crossbody.",
+   "kicker": "THIS CHRISTMAS",
+   "hook": "Hands full of shopping again?",
+   "highlight": [
+    "Hands"
+   ],
+   "sub": "Strap long, it goes crossbody.",
+   "story": "problem_fix",
+   "feature": "ADJUSTABLE STRAP",
+   "scene": {
+    "kind": "worn",
+    "colour": "Black",
+    "prompt": "A woman seen from behind on a city shopping street in December, paper shopping bags in both hands, the black Vintage Bag worn crossbody, festive shop windows softly blurred."
+   },
+   "project": "P02"
+  },
+  {
+   "id": "S07",
+   "layout": "story",
+   "look": "list",
+   "idea": "A three-reason Christmas gift guide for the Vintage Bag, over the red bag by the tree.",
+   "hook": "Why it makes a good Christmas gift.",
+   "points": [
+    "One snap shuts it, one hand.",
+    "A spot for phone, wallet and keys.",
+    "Handbag or crossbody: her call."
+   ],
+   "story": "proof",
+   "feature": "ROOM FOR EVERYTHING",
+   "scene": {
+    "kind": "object",
+    "colour": "Red",
+    "prompt": "The red Vintage Bag closed on a cosy armchair next to a small wrapped present with a satin ribbon, a softly lit Christmas tree blurred behind."
+   },
+   "project": "P01"
+  },
+  {
+   "id": "S08",
+   "layout": "story",
+   "look": "versus",
+   "idea": "An open grey tote against the Vintage Bag: what she gets when the bag closes with one hand.",
+   "hook": "Big open tote, or this one?",
+   "them": "Open tote",
+   "us": "Vintage Bag",
+   "rows": [
+    [
+     "Open top",
+     "Snaps shut"
+    ],
+    [
+     "One big pocket",
+     "A spot each"
+    ],
+    [
+     "One way to carry",
+     "Handbag or crossbody"
+    ]
+   ],
+   "story": "problem_fix",
+   "feature": "ONE-HAND CLASP",
+   "scene": {
+    "kind": "object",
+    "colour": "Chocolate",
+    "prompt": "The chocolate Vintage Bag closed on a light linen bedspread beside a folded knitted scarf, soft winter morning light, a calm bedroom."
+   },
+   "project": "P02"
+  },
+  {
+   "id": "S09",
+   "layout": "colours",
+   "idea": "Pick her colour: every colour of the Vintage Bag, catalog style (the account's best ad shape).",
+   "headline": "Which colour is hers?",
+   "badge": "50% OFF",
+   "project": "P01"
+  },
+  {
+   "id": "S10",
+   "project": "P02",
+   "layout": "value",
+   "idea": "The value card: the Vintage Bag as her gift, the % as the hero.",
+   "headline": "Her Christmas gift, half price.",
+   "story": "value"
+  }
+ ]
+}

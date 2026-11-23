@@ -1,0 +1,306 @@
+{
+ "stills": [
+  {
+   "id": "AS01",
+   "use": "static",
+   "scene": "p01_s01_ribbon_banner",
+   "kind": "object",
+   "colour": "Red",
+   "layout": "ad",
+   "format": "ribbon_banner",
+   "tag": "ribbon",
+   "words": [
+    "50% OFF",
+    "Her Christmas bag, wrapped."
+   ],
+   "ref": "/tmp/run/xmas-vintage/site/vintage_colour_red.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS01.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 0,
+   "prompt": "A luxe studio still life: a wide satin ribbon printed with the offer runs across the frame behind the base of the bag and drapes onto the surface in soft folds, the bag standing in front of it, soft directional light with real sheen on the satin, a calm tinted backdrop. The red Vintage Bag closed on a dark green velvet tablecloth, a wide deep red satin ribbon running across the front corner of the frame, a few pine sprigs and gold baubles beside it, warm candle light, a real photo. The exact handbag from the reference image, unchanged: same colour (red), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"50% OFF\" / \"Her Christmas bag, wrapped.\". Set them as spaced bold capitals printed on the ribbon, crisp and perfectly spelled, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. The offer \"50% OFF\" is the boldest, largest wording in the picture, read in under a second, with perfectly drawn numerals and percent sign. The line \"Her Christmas bag, wrapped.\" is the second voice of the ad: smaller than the offer but clearly readable on a phone, never tiny or faint; the picture shows the moment it tells. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS02",
+   "use": "static",
+   "scene": "p02_s02_window_display",
+   "kind": "object",
+   "colour": "Black",
+   "layout": "ad",
+   "format": "window_display",
+   "tag": "window",
+   "words": [
+    "50% OFF",
+    "One snap, one hand."
+   ],
+   "ref": "/tmp/run/xmas-vintage/site/vintage_colour_black.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS02.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 1,
+   "prompt": "A photo through the glass of a small boutique window at dusk: the bag displayed on a stand inside, warm interior light, soft street reflections on the glass, a short line of text painted on the window in neat gold sign-writing. A small boutique shop window at dusk, warm Christmas string lights around the frame, the black Vintage Bag closed on a cream plinth behind the glass, soft reflections of a winter street on the window. The exact handbag from the reference image, unchanged: same colour (black), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"50% OFF\" / \"One snap, one hand.\". Set them as gold sign-writing on glass, classic serif, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. The offer \"50% OFF\" is the boldest, largest wording in the picture, read in under a second, with perfectly drawn numerals and percent sign. The line \"One snap, one hand.\" is the second voice of the ad: smaller than the offer but clearly readable on a phone, never tiny or faint; the picture shows the moment it tells. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS03",
+   "use": "static",
+   "scene": "p01_s03_note_card",
+   "kind": "object",
+   "colour": "Chocolate",
+   "layout": "ad",
+   "format": "note_card",
+   "tag": "note",
+   "words": [
+    "For Mum, with love.",
+    "50% OFF"
+   ],
+   "ref": "/tmp/run/xmas-vintage/site/vintage_colour_chocolate.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS03.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 2,
+   "prompt": "A candid close photo of a real home corner in soft daylight (a hallway console with keys and a small plant, a kitchen counter, a desk by a window): the bag standing there zipped, and in the foreground a large cream note card (about a quarter of the frame, close to the camera, facing it squarely) leaning against the bag, its short reminder written by hand in big bold pen strokes that read easily on a phone; the offer printed big on a red paper tag tied to the handle with string. Lived-in, natural colours, nothing glossy, no mirror. The chocolate Vintage Bag closed on a wooden kitchen table, rolls of red and gold wrapping paper and twine beside it, a large cream card propped in front, close to the camera, warm morning window light. The exact handbag from the reference image, unchanged: same colour (chocolate), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"For Mum, with love.\" / \"50% OFF\". Set them as the note in natural handwriting in dark blue ink; the tag's offer in a heavy bold sans-serif, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. The offer \"50% OFF\" is the boldest, largest wording in the picture, read in under a second, with perfectly drawn numerals and percent sign. The line \"For Mum, with love.\" is the second voice of the ad: smaller than the offer but clearly readable on a phone, never tiny or faint; the picture shows the moment it tells. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS04",
+   "use": "static",
+   "scene": "p02_s04_mantel_morning",
+   "kind": "object",
+   "colour": "Ginger Brown",
+   "layout": "ad",
+   "format": "mantel_morning",
+   "tag": "mantelmornin",
+   "words": [
+    "50% OFF",
+    "Hang it by her stocking."
+   ],
+   "ref": "/tmp/run/xmas-vintage/site/vintage_colour_ginger_brown.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS04.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 3,
+   "prompt": "A real photograph of a fireplace mantel on Christmas morning: the real bag hangs closed by its strap from a brass hook on the mantel beside two knitted Christmas stockings, a large paper gift tag on twine carries the offer in big bold letters, the story line set in clean serif type on the calm wall above; warm fairy lights and pine garland along the mantel, soft morning light, real wool and wood textures, nothing glossy. A white fireplace mantel on Christmas morning, the ginger brown Vintage Bag hanging closed by its strap from a brass hook beside two cream knitted stockings, a large paper gift tag on twine, pine garland and warm fairy lights along the mantel. The exact handbag from the reference image, unchanged: same colour (ginger brown), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"50% OFF\" / \"Hang it by her stocking.\". Set them as clean, legible type, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. The offer \"50% OFF\" is the boldest, largest wording in the picture, read in under a second, with perfectly drawn numerals and percent sign. The line \"Hang it by her stocking.\" is the second voice of the ad: smaller than the offer but clearly readable on a phone, never tiny or faint; the picture shows the moment it tells. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS05",
+   "use": "static",
+   "scene": "p01_s05_pov_sticker",
+   "kind": "behind",
+   "colour": "Ginger Brown",
+   "layout": "ad",
+   "format": "pov_sticker",
+   "tag": "povsticker",
+   "words": [
+    "Christmas market. Crossbody on.",
+    "50% OFF"
+   ],
+   "ref": "/tmp/run/xmas-vintage/site/vintage_colour_ginger_brown.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS05.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 4,
+   "prompt": "A candid phone photo taken a few steps behind her in a busy real place (a packed train platform, a street market, an airport queue, a school gate): slightly off-centre, natural mixed light, a little motion blur in the passers-by, real clothes with creases; the bag worn on the shoulder or crossbody towards the camera, zipped. One caption in bold white sans-serif with a soft shadow across the empty upper part, the way people caption a photo, and a round glossy sale sticker slapped on a lower corner as if stuck onto the print. A woman seen from behind walking through an evening Christmas market, the ginger brown Vintage Bag worn crossbody at her hip, a paper cup in one hand, warm string lights and wooden stalls softly blurred, a real candid phone photo. The exact handbag from the reference image, unchanged: same colour (ginger brown), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"Christmas market. Crossbody on.\" / \"50% OFF\". Set them as the caption in a bold white sans-serif with a soft dark shadow, sentence case; the sticker's offer in heavy white type on red, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. The offer \"50% OFF\" is the boldest, largest wording in the picture, read in under a second, with perfectly drawn numerals and percent sign. The line \"Christmas market. Crossbody on.\" is the second voice of the ad: smaller than the offer but clearly readable on a phone, never tiny or faint; the picture shows the moment it tells. She is seen only from behind, walking away from the camera, her head turned forward, the bag towards the camera; nobody else faces the camera. No face is visible anywhere: nobody looks at the camera, every other person is far away, blurred and facing away. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS06",
+   "use": "static",
+   "scene": "p02_s06",
+   "kind": "worn",
+   "colour": "Black",
+   "layout": "story",
+   "ref": "/tmp/run/xmas-vintage/site/vintage_colour_black.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS06.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 5,
+   "prompt": "Photorealistic candid lifestyle photograph, natural light, shot on a 35mm lens, shallow depth of field, true-to-life colours, fine film grain, no text, no logos, no watermark. The exact handbag from the reference image, unchanged: same colour (black), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. A woman seen from behind on a city shopping street in December, paper shopping bags in both hands, the black Vintage Bag worn crossbody, festive shop windows softly blurred. Composition: the bag large in the middle of the frame; the top third is calm and simple (a plain wall, sky or soft background) and both lower corners are calm, for the words. No other person is in the picture. The picture contains no face at all: nobody is looking at the camera and no eyes, nose or mouth are visible; the top edge of the frame cuts the person off at shoulder height. Portrait 4:5 composition, the handbag clearly visible and large in the frame.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS07",
+   "use": "static",
+   "scene": "p01_s07",
+   "kind": "object",
+   "colour": "Red",
+   "layout": "story",
+   "ref": "/tmp/run/xmas-vintage/site/vintage_colour_red.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS07.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 6,
+   "prompt": "Photorealistic candid lifestyle photograph, natural light, shot on a 35mm lens, shallow depth of field, true-to-life colours, fine film grain, no text, no logos, no watermark. The exact handbag from the reference image, unchanged: same colour (red), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The red Vintage Bag closed on a cosy armchair next to a small wrapped present with a satin ribbon, a softly lit Christmas tree blurred behind. Composition: the whole bag fits inside the middle half of the frame's height with calm space above and below it (the top fifth and the bottom third are cropped away), nothing important at the very top or bottom. Nobody is in the picture, not even blurred in the background. Portrait 4:5 composition, the handbag clearly visible and large in the frame.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS08",
+   "use": "static",
+   "scene": "p02_s08",
+   "kind": "object",
+   "colour": "Chocolate",
+   "layout": "story",
+   "ref": "/tmp/run/xmas-vintage/site/vintage_colour_chocolate.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS08.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 7,
+   "prompt": "Photorealistic candid lifestyle photograph, natural light, shot on a 35mm lens, shallow depth of field, true-to-life colours, fine film grain, no text, no logos, no watermark. The exact handbag from the reference image, unchanged: same colour (chocolate), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The chocolate Vintage Bag closed on a light linen bedspread beside a folded knitted scarf, soft winter morning light, a calm bedroom. Composition: two bags side by side, both inside the middle half of the frame's height with calm space above and below (the top fifth and the bottom third are cropped away): on the LEFT third a plain, unbranded, slightly worn canvas tote bag slumped open with things spilling at its top, dull flat light; on the RIGHT, larger and sharper, the real bag of the reference, closed, in warm light. Nothing written on either bag. Nobody is in the picture, not even blurred in the background. Portrait 4:5 composition, the handbag clearly visible and large in the frame.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AV06",
+   "use": "clip",
+   "scene": "xmas_station_walk",
+   "kind": "worn",
+   "colour": "Ginger Brown",
+   "ref": "/tmp/run/xmas-vintage/site/vintage_colour_ginger_brown.jpg",
+   "aspect": "9:16",
+   "file": "ai/AV06.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "9:16"
+   },
+   "prompt": "Photorealistic candid lifestyle photograph, natural light, shot on a 35mm lens, shallow depth of field, true-to-life colours, fine film grain, no text, no logos, no watermark. The exact handbag from the reference image, unchanged: same colour (ginger brown), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. A woman seen from behind on a busy train station platform decorated for Christmas, the handbag on her shoulder, wrapped presents in her arms, warm station lights and a garland softly blurred. The picture contains no face at all: nobody is looking at the camera and no eyes, nose or mouth are visible; the top edge of the frame cuts the person off at shoulder height. Vertical 9:16 composition, the handbag clearly visible, large in the frame, with space around it.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AV07",
+   "use": "clip",
+   "scene": "xmas_market_walk",
+   "kind": "worn",
+   "colour": "Black",
+   "ref": "/tmp/run/xmas-vintage/site/vintage_colour_black.jpg",
+   "aspect": "9:16",
+   "file": "ai/AV07.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "9:16"
+   },
+   "prompt": "Photorealistic candid lifestyle photograph, natural light, shot on a 35mm lens, shallow depth of field, true-to-life colours, fine film grain, no text, no logos, no watermark. The exact handbag from the reference image, unchanged: same colour (black), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. A woman seen from behind walking slowly through an evening Christmas market, the handbag worn at her hip, warm string lights and wooden stalls softly blurred around her. The picture contains no face at all: nobody is looking at the camera and no eyes, nose or mouth are visible; the top edge of the frame cuts the person off at shoulder height. Vertical 9:16 composition, the handbag clearly visible, large in the frame, with space around it.",
+   "est_credits": 1.0
+  }
+ ],
+ "clips": [
+  {
+   "id": "AC06",
+   "scene": "xmas_station_walk",
+   "kind": "worn",
+   "tags": [
+    "christmas",
+    "station",
+    "train",
+    "platform",
+    "crowd",
+    "travel",
+    "walking",
+    "worn",
+    "shoulder",
+    "presents"
+   ],
+   "start": "AV06",
+   "file": "ai/clips/AC06.mp4",
+   "model": "minimax_hailuo",
+   "params": {
+    "variant": "minimax-2.3",
+    "duration": 6,
+    "resolution": "768",
+    "aspect_ratio": "9:16"
+   },
+   "trim": 3.2,
+   "prompt": "Candid footage, steady camera follows the woman as she walks away from the camera, the handbag sways gently on her shoulder, background softly blurred. The handbag stays exactly the same shape, colour and details, no morphing. The frame stays cut at shoulder height: no face visible.",
+   "est_credits": 6.0
+  },
+  {
+   "id": "AC07",
+   "scene": "xmas_market_walk",
+   "kind": "worn",
+   "tags": [
+    "christmas",
+    "market",
+    "stalls",
+    "walking",
+    "worn",
+    "crossbody",
+    "street",
+    "evening",
+    "shopping",
+    "outdoor"
+   ],
+   "start": "AV07",
+   "file": "ai/clips/AC07.mp4",
+   "model": "minimax_hailuo",
+   "params": {
+    "variant": "minimax-2.3",
+    "duration": 6,
+    "resolution": "768",
+    "aspect_ratio": "9:16"
+   },
+   "trim": 3.2,
+   "prompt": "Candid footage, steady camera follows the woman as she walks away from the camera, the handbag sways gently on her shoulder, background softly blurred. The handbag stays exactly the same shape, colour and details, no morphing. The frame stays cut at shoulder height: no face visible.",
+   "est_credits": 6.0
+  }
+ ],
+ "est_credits": 22.0,
+ "notes": [],
+ "grade_refs": [],
+ "budget": {
+  "cap": 100.0,
+  "tts_est": 9.0,
+  "reserve": 8.0
+ },
+ "steps": [
+  "1. Upload each distinct `ref` once (media_upload, curl PUT, media_confirm); generate every still with generate_image_batch (model/params/prompt as listed, medias [{value: media_id, role: image_references}], max 12 per call); jobs_wait; download each result to $OUT/<file>.",
+  "2. python3 pipeline/ai_gen.py gate --out $OUT ; LOOK at $OUT/qa/ai_stills.jpg (reference | still): reject any still where the bag's shape, colour, handles or hardware differ from the reference, or that looks AI: python3 pipeline/ai_gen.py reject --out $OUT AS03 ...",
+  "3. For every clip whose start still passed: generate_video_batch (start_image = that still's job id, model/params/prompt as listed); jobs_wait; download to $OUT/<file>. Clips of a rejected still are skipped. If a submission comes back with a preset recommendation instead of a job, send it again with `declined_preset_id` = that preset's id (the project never uses presets).",
+  "3b. Motion stills (AM.. clips, `use: motion`): generate_video_batch with medias [{value: <the still's job id>, role: start_image}, {value: <the same job id>, role: end_image}] (the same still first and last, so the loop has no seam), model/params/prompt as listed.",
+  "4. python3 pipeline/ai_gen.py clips --out $OUT ; LOOK at $OUT/qa/ai_clips.jpg; reject morphing / odd-hand clips with `reject` (a motion still where the bag changes shape, opens, or anything morphs: `reject AM02`). Then render as usual (it applies the result; a motion still whose clip failed ships as the still static alone).",
+  "Report: credits before -> after (balance), how many AI assets passed. Never ship a still or clip you would not believe is real."
+ ]
+}

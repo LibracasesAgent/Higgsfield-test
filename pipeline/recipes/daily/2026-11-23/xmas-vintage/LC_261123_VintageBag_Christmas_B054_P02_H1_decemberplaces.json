@@ -1,0 +1,394 @@
+{
+ "mode": "ugc",
+ "voice_speed": 1.12,
+ "blocks": [
+  {
+   "vo": "V02_hook.mp3",
+   "broll": [
+    [
+     "ai/clips/AC07_c.mp4",
+     0.0,
+     1.0,
+     {
+      "at": 0
+     }
+    ],
+    [
+     "17IANSBGhFFCg5SQhFlzuG63ONmYPJppj",
+     15.05,
+     1.0,
+     {
+      "at": 7
+     }
+    ]
+   ],
+   "spare": [
+    [
+     "1xWaBIVn543CxSr0WmqHEuasUJJGPcb55",
+     23.97,
+     1.0
+    ]
+   ]
+  },
+  {
+   "vo": "V02_c1.mp3",
+   "broll": [
+    [
+     "ai/clips/AC06_c.mp4",
+     0.0,
+     1.0,
+     {
+      "at": 0
+     }
+    ],
+    [
+     "17pDJceUeFQwkPdvcEbyheppSWHKA7lrx",
+     0.53,
+     1.0,
+     {
+      "at": 6
+     }
+    ],
+    [
+     "1ADfvEWAKMrFQiOui9z0_DXf_SQoGOEzc",
+     0.3,
+     1.0,
+     {
+      "at": 15
+     }
+    ],
+    [
+     "1ni45Zrqs01boihMG9jmX7TP95mIh9WvJ",
+     4.06,
+     1.0,
+     {
+      "at": 24
+     }
+    ],
+    [
+     "1RvlXOQ5hCCqLQm-paz6wpMtJaH_gT5FG",
+     3.5,
+     1.0,
+     {
+      "at": 33
+     }
+    ]
+   ],
+   "spare": [
+    [
+     "1U7takMV_RL2IwrLVrNXY2DajI6Jx9-1J",
+     5.19,
+     1.0
+    ],
+    [
+     "1ViQ_U6AhkuQz8RRi2q8Q0Bg_2X_oifXE",
+     7.44,
+     1.0
+    ]
+   ],
+   "number": 1
+  },
+  {
+   "vo": "V02_c2.mp3",
+   "broll": [
+    [
+     "1gNLpeLxuXf79Ne9igUZ74zW3Tax6KT2k",
+     17.22,
+     1.0,
+     {
+      "at": 0
+     }
+    ],
+    [
+     "17iFr-T6Hmi4mhwk5ZAaeEt3rIeZ1G1Rj",
+     7.56,
+     1.0,
+     {
+      "at": 19
+     }
+    ]
+   ],
+   "spare": [
+    [
+     "1sLYQ_kZRbjFPCQ1AvZZ87Bmtpats2Ynf",
+     10.5,
+     1.0
+    ],
+    [
+     "1R252UTrxdvK5bBTBSgBNWv04zCDUs5KK",
+     9.6,
+     1.0
+    ],
+    [
+     "1gNLpeLxuXf79Ne9igUZ74zW3Tax6KT2k",
+     12.01,
+     1.0
+    ]
+   ],
+   "number": 2,
+   "proof": true
+  },
+  {
+   "vo": "V02_c3.mp3",
+   "broll": [
+    [
+     "1MvdPIZHiVIGTM7oedtSmDPBNcj7zMq2y",
+     19.72,
+     1.0,
+     {
+      "at": 0
+     }
+    ],
+    [
+     "1o0-jgBxYaVJ_m91gUA9pJPEw1bEHnxkp",
+     2.95,
+     1.0,
+     {
+      "at": 5
+     }
+    ],
+    [
+     "10aSieQA3Lb3YEflOG3dXN2sIgckqMv4f",
+     9.3,
+     1.0,
+     {
+      "at": 12
+     }
+    ],
+    [
+     "10aSieQA3Lb3YEflOG3dXN2sIgckqMv4f",
+     6.6,
+     1.0,
+     {
+      "at": 18
+     }
+    ],
+    [
+     "1jOeA-YhiSvgn7lf8YhKR87RNvSOGrTWT",
+     5.59,
+     1.0,
+     {
+      "at": 26
+     }
+    ],
+    [
+     "1R252UTrxdvK5bBTBSgBNWv04zCDUs5KK",
+     3.57,
+     1.0,
+     {
+      "at": 32
+     }
+    ]
+   ],
+   "spare": [
+    [
+     "1jOeA-YhiSvgn7lf8YhKR87RNvSOGrTWT",
+     31.94,
+     1.0
+    ],
+    [
+     "1R252UTrxdvK5bBTBSgBNWv04zCDUs5KK",
+     6.62,
+     1.0
+    ]
+   ],
+   "number": 3
+  },
+  {
+   "vo": "V02_c4.mp3",
+   "broll": [
+    [
+     "1ni45Zrqs01boihMG9jmX7TP95mIh9WvJ",
+     0.3,
+     1.0,
+     {
+      "at": 0
+     }
+    ],
+    [
+     "17pDJceUeFQwkPdvcEbyheppSWHKA7lrx",
+     6.67,
+     1.0,
+     {
+      "at": 7
+     }
+    ],
+    [
+     "1U7takMV_RL2IwrLVrNXY2DajI6Jx9-1J",
+     0.3,
+     1.0,
+     {
+      "at": 14
+     }
+    ],
+    [
+     "1ViQ_U6AhkuQz8RRi2q8Q0Bg_2X_oifXE",
+     1.81,
+     1.0,
+     {
+      "at": 26
+     }
+    ]
+   ],
+   "spare": [
+    [
+     "1m1IT7G__icZ8VzWV8Rb1jQyVs8rwiANk",
+     18.51,
+     1.0
+    ],
+    [
+     "1n_iVN9Lf1dKnL9Mo1ixhZiHX-MBBv7gp",
+     13.17,
+     1.0
+    ],
+    [
+     "1ViQ_U6AhkuQz8RRi2q8Q0Bg_2X_oifXE",
+     18.69,
+     1.0
+    ]
+   ],
+   "number": 4,
+   "pace": "slow"
+  },
+  {
+   "vo": "V02_c5.mp3",
+   "broll": [
+    [
+     "17NS2UkififrDzubGafZAFDCII3K88Y34",
+     0.3,
+     1.0,
+     {
+      "at": 0
+     }
+    ],
+    [
+     "1gNLpeLxuXf79Ne9igUZ74zW3Tax6KT2k",
+     6.81,
+     1.0,
+     {
+      "at": 12
+     }
+    ],
+    [
+     "1xvNFMVbihfFP4c9swMaLYL2avwwmOYy4",
+     0.3,
+     1.0,
+     {
+      "at": 20
+     }
+    ],
+    [
+     "site/vintage_colour_black.jpg",
+     0,
+     1.0,
+     {
+      "zoom": [
+       1.0,
+       1.06
+      ],
+      "at": 27
+     }
+    ]
+   ],
+   "spare": [
+    [
+     "156yw4fhlcKn3WYbzwjndnYzsDh9xw5TI",
+     0.3,
+     1.0
+    ],
+    [
+     "1AdAOhcydiFs0YyuazrwDdcwv1kybqPgA",
+     4.98,
+     1.0
+    ],
+    [
+     "1QjuuSmdJghJjax9FAFoC7_FOql87OB0A",
+     0.3,
+     1.0
+    ]
+   ]
+  }
+ ],
+ "overlays": [
+  {
+   "type": "label",
+   "text": "MARKET DAY",
+   "block": 0,
+   "at": 0.1,
+   "dur": 1.8
+  },
+  {
+   "type": "tag",
+   "text": "ADJUSTABLE STRAP",
+   "block": 1,
+   "at": 0.15,
+   "dur": 2.6
+  },
+  {
+   "type": "tag",
+   "text": "ONE-HAND CLASP",
+   "block": 2,
+   "at": 0.15,
+   "dur": 2.6
+  },
+  {
+   "type": "tag",
+   "text": "ROOM FOR EVERYTHING",
+   "block": 3,
+   "at": 0.15,
+   "dur": 2.6
+  }
+ ],
+ "end_title": "The Vintage Bag",
+ "offer": {
+  "block": 5,
+  "word": "50",
+  "title": "50% OFF",
+  "sub": ""
+ },
+ "end_photo": "site/vintage_colour_chocolate.jpg",
+ "end_offer": "50% OFF",
+ "keywords": [
+  "50%",
+  "hidden",
+  "pocket",
+  "leather",
+  "gift",
+  "christmas"
+ ],
+ "spare_broll": [
+  [
+   "1m1IT7G__icZ8VzWV8Rb1jQyVs8rwiANk",
+   7.36,
+   1.0
+  ],
+  [
+   "1kvkyYZCu3c60QKlGQNEDDbrMp_gzaf40",
+   8.25,
+   1.0
+  ],
+  [
+   "1jgkCse4uMTSToBBDAFFpF0gx_6qI4Zo6",
+   9.37,
+   1.0
+  ],
+  [
+   "16tPrjwInS7Kzcvs17bMHBP4OwEjFc_Yn",
+   2.48,
+   1.0
+  ],
+  [
+   "1SBRzm0fRWJXbrCIPZ4sgGku8WfO72vRp",
+   9.12,
+   1.0
+  ],
+  [
+   "17iFr-T6Hmi4mhwk5ZAaeEt3rIeZ1G1Rj",
+   10.98,
+   1.0
+  ]
+ ],
+ "music": {
+  "seed": 2
+ }
+}

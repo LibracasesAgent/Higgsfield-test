@@ -1,0 +1,391 @@
+{
+ "product": "Hobo Bag 3-Piece Set",
+ "theme": "christmas",
+ "date": "2026-11-23",
+ "no_presenter": "option 2: the presenter only in the Vintage batch",
+ "research": [
+  "Julian's call 2026-11-20: Christmas statics first, a few Christmas videos and evergreen angles; the set lifts order value (DEC08 set ads ROAS 2.85-3.34)",
+  "Julian 2026-11-05: the gifting angle for Christmas is really good",
+  "Under the Christmas theme no Black Friday terms apply: no delivery date, no returns promise; the set's own offer: 60% off + free shipping, no gift",
+  "No labelled footage for the set: its videos use its photos and few clips; AI b-roll (one-off) fills the Christmas moments (the box under the tree, the market)",
+  "Formats never used for the set: swing_tag, window_display, pov_sticker, gift_unbox; one of our own: under_tree; B046 hooks / rows / points not reused"
+ ],
+ "projects": [
+  {
+   "id": "P01",
+   "slug": "threeinone",
+   "title": "One box, three bags",
+   "structure": "gift_reveal",
+   "big_idea": "The gift for the woman who changes bags three times a day: one box under the tree, and inside it the hobo, the crossbody and the matching pouch, one for each part of her day.",
+   "why_new": "The first set gift reveal: the lid coming off is the proof shot, each piece gets one moment of her day, the price only at the end.",
+   "hooks": [
+    {
+     "text": "Buying for someone who changes bags three times a day?",
+     "type": "question",
+     "label": "THREE BAGS",
+     "show": [
+      "worn",
+      "walking"
+     ]
+    },
+    {
+     "text": "Watch one box open into three matching bags.",
+     "type": "promise",
+     "label": "ONE BOX",
+     "show": [
+      "packing",
+      "handheld"
+     ]
+    },
+    {
+     "text": "Before you buy her one bag this Christmas, look at three.",
+     "type": "warning",
+     "label": "LOOK AT THREE",
+     "show": [
+      "strap",
+      "handheld"
+     ]
+    },
+    {
+     "text": "Sixty percent off three matching bags, in one Christmas box.",
+     "type": "price",
+     "label": "60% OFF",
+     "show": [
+      "pouch",
+      "handheld"
+     ]
+    }
+   ],
+   "chapters": [
+    {
+     "kind": "point",
+     "beat": "who",
+     "text": "Buying for the woman who changes bags three times a day? A big one for work, a small one for the evening, and somewhere for her cards in between. This Christmas, give her all three, in one box under the tree.",
+     "tag": null,
+     "show": [
+      "worn",
+      "walking"
+     ]
+    },
+    {
+     "kind": "proof",
+     "beat": "reveal",
+     "proof_shot": true,
+     "text": "Lift the lid and there they are: the hobo bag, a crossbody and a matching pouch, all in the same soft leather and the same colour. Three pieces, and every one of them goes with the others.",
+     "tag": null,
+     "show": [
+      "packing",
+      "handheld"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "reason",
+     "text": "The hobo carries her whole day, work things and all. The crossbody goes on when she wants to go light, a walk, a market, a night out, with both hands on the shopping instead of on her bag.",
+     "tag": "HOBO + CROSSBODY",
+     "show": [
+      "worn",
+      "strap"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "second_reason",
+     "text": "And the pouch keeps her cards and cash in one place, so it moves from the hobo to the crossbody in a second, and nothing gets left behind in the other bag.",
+     "tag": "MATCHING POUCH",
+     "show": [
+      "pouch",
+      "handheld"
+     ]
+    },
+    {
+     "kind": "offer",
+     "beat": "offer",
+     "text": "The Hobo Bag 3-Piece Set is sixty percent off right now, with free shipping. Three bags, one gift, and only one box to wrap. Tap the link below.",
+     "tag": null,
+     "show": [
+      "handheld",
+      "placed"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "P02",
+   "slug": "onetotethree",
+   "title": "One tote, or three pieces?",
+   "structure": "swap",
+   "big_idea": "The one big tote you carry everywhere next to the set: two differences you can see, the compartments that keep things in place and the crossbody with the pouch at the till, then the switch.",
+   "why_new": "The first set swap story and an evergreen angle (Julian: try evergreen videos too): the anti-theft design leads, the zip is the proof shot, a Christmas shopping day only as the setting.",
+   "hooks": [
+    {
+     "text": "Still carrying one big tote to every single plan?",
+     "type": "question",
+     "label": "ONE TOTE?",
+     "show": [
+      "worn",
+      "walking"
+     ]
+    },
+    {
+     "text": "A tote against this set: watch what the zip does.",
+     "type": "promise",
+     "label": "WATCH THE ZIP",
+     "show": [
+      "zip",
+      "handheld"
+     ]
+    },
+    {
+     "text": "Your cards at the bottom of an open tote again?",
+     "type": "problem",
+     "label": "CARDS LOOSE?",
+     "show": [
+      "pouch",
+      "handheld"
+     ]
+    },
+    {
+     "text": "Before you carry that tote to the Christmas shops, see this.",
+     "type": "warning",
+     "label": "SEE THIS",
+     "show": [
+      "strap",
+      "worn"
+     ]
+    }
+   ],
+   "chapters": [
+    {
+     "kind": "point",
+     "beat": "now",
+     "text": "Right now you probably carry one big tote everywhere. Work, errands, dinner, the school gate, the weekend. It's open at the top, it holds a bit of everything, and your cards always end up somewhere near the bottom.",
+     "tag": null,
+     "show": [
+      "worn",
+      "walking"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "switch",
+     "text": "Switch to the 3-Piece Set and you get three matching pieces instead: a big bag, a smaller one and a pouch, all in the same colour, made to go together, so whatever the plan is, one of them fits it.",
+     "tag": null,
+     "show": [
+      "placed",
+      "handheld"
+     ]
+    },
+    {
+     "kind": "proof",
+     "beat": "difference",
+     "proof_shot": true,
+     "text": "First difference. The smart compartments and the anti-theft design keep everything secure and in its place. One pull on the zip, and nothing sits loose at the top of an open bag.",
+     "tag": "ANTI-THEFT DESIGN",
+     "show": [
+      "zip",
+      "inside"
+     ]
+    },
+    {
+     "kind": "point",
+     "beat": "second_difference",
+     "text": "Second difference: the crossbody. On a busy Christmas shopping day it goes across you, the hobo stays home, and the pouch holds your cards and cash, ready at the till.",
+     "tag": "HOBO + CROSSBODY",
+     "show": [
+      "worn",
+      "strap"
+     ]
+    },
+    {
+     "kind": "offer",
+     "beat": "offer",
+     "text": "The 3-Piece Set is sixty percent off right now, with free shipping. Keep the three pieces for yourself, or put them under the tree for someone you love. Tap the link below.",
+     "tag": null,
+     "show": [
+      "handheld",
+      "placed"
+     ]
+    }
+   ]
+  }
+ ],
+ "statics": [
+  {
+   "id": "S01",
+   "project": "P01",
+   "layout": "ad",
+   "format": "swing_tag",
+   "idea": "An oversized kraft swing tag on the hobo's strap carries the offer; the crossbody and pouch beside it on a Christmas table: one gift, three bags.",
+   "words": [
+    "60% OFF",
+    "One gift. Three bags."
+   ],
+   "headline": "One gift. Three bags.",
+   "story": "value",
+   "scene": {
+    "colour": "Red",
+    "prompt": "The red hobo bag, the red crossbody and the red pouch closed side by side on a dark green tablecloth, an oversized kraft paper swing tag tied to the hobo's strap with gold string, pine sprigs and candle light."
+   }
+  },
+  {
+   "id": "S02",
+   "project": "P02",
+   "layout": "ad",
+   "format": "window_display",
+   "idea": "A boutique window at dusk dressed for Christmas: the three pieces on a plinth behind the glass, the offer lettered on the window.",
+   "words": [
+    "60% OFF",
+    "Her whole list, one set."
+   ],
+   "headline": "Her whole list, one set.",
+   "story": "gift",
+   "scene": {
+    "colour": "Black",
+    "prompt": "A small boutique shop window at dusk with warm Christmas string lights around the frame, the black hobo bag, crossbody and pouch closed on a cream plinth behind the glass, soft reflections of a winter street on the window."
+   }
+  },
+  {
+   "id": "S03",
+   "project": "P01",
+   "layout": "ad",
+   "format": "pov_sticker",
+   "idea": "A candid phone photo from behind at an evening Christmas market: the crossbody of the set worn, a paper bag in each hand.",
+   "words": [
+    "Market day: the crossbody goes.",
+    "60% OFF"
+   ],
+   "headline": "Market day: the crossbody goes.",
+   "story": "moment",
+   "feature": "HOBO + CROSSBODY",
+   "scene": {
+    "colour": "Brown",
+    "prompt": "A woman seen from behind walking through an evening Christmas market, the brown crossbody worn across her body, a paper shopping bag in each hand, warm string lights and wooden stalls softly blurred, a real candid phone photo."
+   }
+  },
+  {
+   "id": "S04",
+   "project": "P02",
+   "layout": "ad",
+   "format": "gift_unbox",
+   "idea": "From above, two hands lift tissue paper out of a gift box to show the three pieces inside, closed and neatly set.",
+   "words": [
+    "60% OFF",
+    "Three pieces under the paper."
+   ],
+   "headline": "Three pieces under the paper.",
+   "story": "gift",
+   "scene": {
+    "colour": "Grey",
+    "prompt": "Top-down view of an open white gift box on a wooden floor by a Christmas tree, the grey hobo bag, crossbody and pouch closed inside it on tissue paper, two hands at the edge of the box lifting the paper, warm morning light."
+   }
+  },
+  {
+   "id": "S05",
+   "project": "P01",
+   "layout": "ad",
+   "format": "under_tree",
+   "format_name": "Under the Christmas tree",
+   "art": "A real photograph taken low on the floor under a decorated Christmas tree on Christmas morning: the real set (the hobo bag, the crossbody and the pouch) stands closed among a few wrapped presents, a paper gift tag on a ribbon carries the offer in big bold letters, the story line set in clean serif type on the calm wall or floor area; warm fairy lights glowing above, soft morning light, real textures, nothing glossy.",
+   "people": "none",
+   "words": [
+    "60% OFF",
+    "Three plans. Three bags. One box."
+   ],
+   "headline": "Three plans. Three bags. One box.",
+   "story": "value",
+   "scene": {
+    "colour": "Purple Red",
+    "prompt": "Under a decorated Christmas tree on Christmas morning, the purple red hobo bag, crossbody and pouch standing closed among a few wrapped presents, a paper gift tag on a ribbon, warm fairy lights above, soft morning light, a wooden floor."
+   },
+   "idea": "The set stands closed among wrapped presents under the tree on Christmas morning, a gift tag carrying the offer: three plans, three bags, one box."
+  },
+  {
+   "id": "S06",
+   "project": "P02",
+   "layout": "story",
+   "look": "hook",
+   "idea": "The till moment: cash and cards in one place, the matching pouch.",
+   "kicker": "THIS CHRISTMAS",
+   "hook": "Cash and cards all over your bag?",
+   "highlight": [
+    "cards"
+   ],
+   "sub": "The matching pouch keeps them together.",
+   "story": "problem_fix",
+   "feature": "MATCHING POUCH",
+   "scene": {
+    "kind": "hand",
+    "colour": "Blue",
+    "prompt": "A hand holding the blue pouch above the blue hobo bag on a shop counter in December, festive shelves and fairy lights softly blurred."
+   }
+  },
+  {
+   "id": "S07",
+   "project": "P01",
+   "layout": "story",
+   "look": "list",
+   "idea": "One piece for each part of the day, in three numbered lines, over the set by the tree.",
+   "hook": "One for each part of her day.",
+   "points": [
+    "The hobo for every day.",
+    "The crossbody for going light.",
+    "The pouch for cards and cash."
+   ],
+   "story": "ways",
+   "feature": "HOBO + CROSSBODY",
+   "scene": {
+    "kind": "object",
+    "colour": "Brown",
+    "prompt": "The brown hobo bag, crossbody and pouch closed on a cosy armchair next to a small wrapped present with a satin ribbon, a softly lit Christmas tree blurred behind."
+   }
+  },
+  {
+   "id": "S08",
+   "project": "P02",
+   "layout": "story",
+   "look": "versus",
+   "idea": "A plain grey tote against the set: one look against three, loose cards against the pouch.",
+   "hook": "One tote, or the whole set?",
+   "them": "One tote",
+   "us": "3-Piece Set",
+   "rows": [
+    [
+     "One look",
+     "Hobo or crossbody"
+    ],
+    [
+     "Cards loose",
+     "Pouch for cards"
+    ],
+    [
+     "Scuffs easily",
+     "Scratch-proof leather"
+    ]
+   ],
+   "story": "problem_fix",
+   "feature": "MATCHING POUCH",
+   "scene": {
+    "kind": "object",
+    "colour": "Black",
+    "prompt": "The black hobo bag, crossbody and pouch closed on a light linen bedspread in soft winter morning light, a knitted blanket folded beside them, a calm bedroom."
+   }
+  },
+  {
+   "id": "S09",
+   "project": "P01",
+   "layout": "colours",
+   "idea": "Pick her colour: every colour of the set, catalog style (the account's best ad shape).",
+   "headline": "Which set is hers?",
+   "badge": "60% OFF"
+  },
+  {
+   "id": "S10",
+   "project": "P02",
+   "layout": "value",
+   "idea": "The set's value card (the shape of S07_set3_value, ROAS 2.57): three pieces, one gift, the % as the hero.",
+   "headline": "Three bags. One gift.",
+   "story": "value"
+  }
+ ]
+}

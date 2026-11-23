@@ -1,0 +1,535 @@
+{
+ "stills": [
+  {
+   "id": "AS01",
+   "use": "static",
+   "scene": "p01_s01_swing_tag",
+   "kind": "object",
+   "colour": "Red",
+   "layout": "ad",
+   "format": "swing_tag",
+   "tag": "swingtag",
+   "words": [
+    "60% OFF",
+    "One gift. Three bags."
+   ],
+   "ref": "/tmp/run/xmas-set3/site/3_piece_set_colour_red.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS01.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 0,
+   "prompt": "An editorial product photo: an oversized thick paper swing tag tied to the bag's strap with a cotton string, the tag printed with the offer in big bold type, turned towards the camera and fully readable, the bag on a calm surface in soft directional light, real paper texture and a gentle shadow from the tag. The red hobo bag, the red crossbody and the red pouch closed side by side on a dark green tablecloth, an oversized kraft paper swing tag tied to the hobo's strap with gold string, pine sprigs and candle light. The exact bag set from the reference image, unchanged: same colour (red), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The bag set is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"60% OFF\" / \"One gift. Three bags.\". Set them as the tag's offer in a heavy bold sans-serif, the small line in a refined serif, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the bag set. No other text anywhere: no logos, no brand names, no labels or writing on the bag set, no watermark. The offer \"60% OFF\" is the boldest, largest wording in the picture, read in under a second, with perfectly drawn numerals and percent sign. The line \"One gift. Three bags.\" is the second voice of the ad: smaller than the offer but clearly readable on a phone, never tiny or faint; the picture shows the moment it tells. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the bag set large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS02",
+   "use": "static",
+   "scene": "p02_s02_window_display",
+   "kind": "object",
+   "colour": "Black",
+   "layout": "ad",
+   "format": "window_display",
+   "tag": "window",
+   "words": [
+    "60% OFF",
+    "Her whole list, one set."
+   ],
+   "ref": "/tmp/run/xmas-set3/site/3_piece_set_colour_black.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS02.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 1,
+   "prompt": "A photo through the glass of a small boutique window at dusk: the bag displayed on a stand inside, warm interior light, soft street reflections on the glass, a short line of text painted on the window in neat gold sign-writing. A small boutique shop window at dusk with warm Christmas string lights around the frame, the black hobo bag, crossbody and pouch closed on a cream plinth behind the glass, soft reflections of a winter street on the window. The exact bag set from the reference image, unchanged: same colour (black), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The bag set is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"60% OFF\" / \"Her whole list, one set.\". Set them as gold sign-writing on glass, classic serif, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the bag set. No other text anywhere: no logos, no brand names, no labels or writing on the bag set, no watermark. The offer \"60% OFF\" is the boldest, largest wording in the picture, read in under a second, with perfectly drawn numerals and percent sign. The line \"Her whole list, one set.\" is the second voice of the ad: smaller than the offer but clearly readable on a phone, never tiny or faint; the picture shows the moment it tells. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the bag set large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS03",
+   "use": "static",
+   "scene": "p01_s03_pov_sticker",
+   "kind": "behind",
+   "colour": "Grey",
+   "layout": "ad",
+   "format": "pov_sticker",
+   "tag": "povsticker",
+   "words": [
+    "Market day: the crossbody goes.",
+    "60% OFF"
+   ],
+   "ref": "/tmp/run/xmas-set3/site/3_piece_set_colour_grey.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS03.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 2,
+   "prompt": "A candid phone photo taken a few steps behind her in a busy real place (a packed train platform, a street market, an airport queue, a school gate): slightly off-centre, natural mixed light, a little motion blur in the passers-by, real clothes with creases; the bag worn on the shoulder or crossbody towards the camera, zipped. One caption in bold white sans-serif with a soft shadow across the empty upper part, the way people caption a photo, and a round glossy sale sticker slapped on a lower corner as if stuck onto the print. A woman seen from behind walking through an evening Christmas market, the brown crossbody worn across her body, a paper shopping bag in each hand, warm string lights and wooden stalls softly blurred, a real candid phone photo. The exact bag set from the reference image, unchanged: same colour (grey), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The bag set is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"Market day: the crossbody goes.\" / \"60% OFF\". Set them as the caption in a bold white sans-serif with a soft dark shadow, sentence case; the sticker's offer in heavy white type on red, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the bag set. No other text anywhere: no logos, no brand names, no labels or writing on the bag set, no watermark. The offer \"60% OFF\" is the boldest, largest wording in the picture, read in under a second, with perfectly drawn numerals and percent sign. The line \"Market day: the crossbody goes.\" is the second voice of the ad: smaller than the offer but clearly readable on a phone, never tiny or faint; the picture shows the moment it tells. She is seen only from behind, walking away from the camera, her head turned forward, the bag towards the camera; nobody else faces the camera. No face is visible anywhere: nobody looks at the camera, every other person is far away, blurred and facing away. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the bag set large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS04",
+   "use": "static",
+   "scene": "p02_s04_gift_unbox",
+   "kind": "hand",
+   "colour": "Grey",
+   "layout": "ad",
+   "format": "gift_unbox",
+   "tag": "unbox",
+   "words": [
+    "60% OFF",
+    "Three pieces under the paper."
+   ],
+   "ref": "/tmp/run/xmas-set3/site/3_piece_set_colour_grey.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS04.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 3,
+   "prompt": "A top-down photo of hands lifting the bag out of a plain gift box with tissue paper, on a real table in soft daylight, only the hands and forearms in frame (natural hands, relaxed fingers, no rings or nail art), a short serif line in the empty table area. Top-down view of an open white gift box on a wooden floor by a Christmas tree, the grey hobo bag, crossbody and pouch closed inside it on tissue paper, two hands at the edge of the box lifting the paper, warm morning light. The exact bag set from the reference image, unchanged: same colour (grey), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The bag set is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"60% OFF\" / \"Three pieces under the paper.\". Set them as an elegant serif, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the bag set. No other text anywhere: no logos, no brand names, no labels or writing on the bag set, no watermark. The offer \"60% OFF\" is the boldest, largest wording in the picture, read in under a second, with perfectly drawn numerals and percent sign. The line \"Three pieces under the paper.\" is the second voice of the ad: smaller than the offer but clearly readable on a phone, never tiny or faint; the picture shows the moment it tells. Only hands and forearms are in the frame: no head, no face. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the bag set large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS05",
+   "use": "static",
+   "scene": "p01_s05_under_tree",
+   "kind": "object",
+   "colour": "Purple Red",
+   "layout": "ad",
+   "format": "under_tree",
+   "tag": "undertree",
+   "words": [
+    "60% OFF",
+    "Three plans. Three bags. One box."
+   ],
+   "ref": "/tmp/run/xmas-set3/site/3_piece_set_colour_purple_red.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS05.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 4,
+   "prompt": "A real photograph taken low on the floor under a decorated Christmas tree on Christmas morning: the real set (the hobo bag, the crossbody and the pouch) stands closed among a few wrapped presents, a paper gift tag on a ribbon carries the offer in big bold letters, the story line set in clean serif type on the calm wall or floor area; warm fairy lights glowing above, soft morning light, real textures, nothing glossy. Under a decorated Christmas tree on Christmas morning, the purple red hobo bag, crossbody and pouch standing closed among a few wrapped presents, a paper gift tag on a ribbon, warm fairy lights above, soft morning light, a wooden floor. The exact bag set from the reference image, unchanged: same colour (purple red), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The bag set is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"60% OFF\" / \"Three plans. Three bags. One box.\". Set them as clean, legible type, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the bag set. No other text anywhere: no logos, no brand names, no labels or writing on the bag set, no watermark. The offer \"60% OFF\" is the boldest, largest wording in the picture, read in under a second, with perfectly drawn numerals and percent sign. The line \"Three plans. Three bags. One box.\" is the second voice of the ad: smaller than the offer but clearly readable on a phone, never tiny or faint; the picture shows the moment it tells. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the bag set large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS06",
+   "use": "static",
+   "scene": "p02_s06",
+   "kind": "hand",
+   "colour": "Blue",
+   "layout": "story",
+   "ref": "/tmp/run/xmas-set3/site/3_piece_set_colour_blue.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS06.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 5,
+   "prompt": "Photorealistic candid lifestyle photograph, natural light, shot on a 35mm lens, shallow depth of field, true-to-life colours, fine film grain, no text, no logos, no watermark. The exact bag set from the reference image, unchanged: same colour (blue), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. A hand holding the blue pouch above the blue hobo bag on a shop counter in December, festive shelves and fairy lights softly blurred. Composition: the bag large in the middle of the frame; the top third is calm and simple (a plain wall, sky or soft background) and both lower corners are calm, for the words. No other person is in the picture. The picture contains no face at all: nobody is looking at the camera and no eyes, nose or mouth are visible; the top edge of the frame cuts the person off at shoulder height. Portrait 4:5 composition, the bag set clearly visible and large in the frame.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS07",
+   "use": "static",
+   "scene": "p01_s07",
+   "kind": "object",
+   "colour": "Blue",
+   "layout": "story",
+   "ref": "/tmp/run/xmas-set3/site/3_piece_set_colour_blue.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS07.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 6,
+   "prompt": "Photorealistic candid lifestyle photograph, natural light, shot on a 35mm lens, shallow depth of field, true-to-life colours, fine film grain, no text, no logos, no watermark. The exact bag set from the reference image, unchanged: same colour (blue), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The brown hobo bag, crossbody and pouch closed on a cosy armchair next to a small wrapped present with a satin ribbon, a softly lit Christmas tree blurred behind. Composition: the whole bag fits inside the middle half of the frame's height with calm space above and below it (the top fifth and the bottom third are cropped away), nothing important at the very top or bottom. Nobody is in the picture, not even blurred in the background. Portrait 4:5 composition, the bag set clearly visible and large in the frame.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS08",
+   "use": "static",
+   "scene": "p02_s08",
+   "kind": "object",
+   "colour": "Black",
+   "layout": "story",
+   "ref": "/tmp/run/xmas-set3/site/3_piece_set_colour_black.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS08.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 7,
+   "prompt": "Photorealistic candid lifestyle photograph, natural light, shot on a 35mm lens, shallow depth of field, true-to-life colours, fine film grain, no text, no logos, no watermark. The exact bag set from the reference image, unchanged: same colour (black), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The black hobo bag, crossbody and pouch closed on a light linen bedspread in soft winter morning light, a knitted blanket folded beside them, a calm bedroom. Composition: two bags side by side, both inside the middle half of the frame's height with calm space above and below (the top fifth and the bottom third are cropped away): on the LEFT third a plain, unbranded, slightly worn canvas tote bag slumped open with things spilling at its top, dull flat light; on the RIGHT, larger and sharper, the real bag of the reference, closed, in warm light. Nothing written on either bag. Nobody is in the picture, not even blurred in the background. Portrait 4:5 composition, the bag set clearly visible and large in the frame.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AV01",
+   "use": "clip",
+   "scene": "xmas_party_table",
+   "kind": "object",
+   "colour": "Purple Red",
+   "ref": "/tmp/run/xmas-set3/site/3_piece_set_colour_purple_red.jpg",
+   "aspect": "9:16",
+   "file": "ai/AV01.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "9:16"
+   },
+   "prompt": "Photorealistic candid lifestyle photograph, natural light, shot on a 35mm lens, shallow depth of field, true-to-life colours, fine film grain, no text, no logos, no watermark. The exact bag set from the reference image, unchanged: same colour (purple red), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The bag set rests closed on a chair beside a table set for a Christmas dinner party, candles, crackers and glasses of water softly blurred, warm evening light. No people. Vertical 9:16 composition, the bag set clearly visible, large in the frame, with space around it.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AV02",
+   "use": "clip",
+   "scene": "xmas_shop_street",
+   "kind": "worn",
+   "colour": "Red",
+   "ref": "/tmp/run/xmas-set3/site/3_piece_set_colour_red.jpg",
+   "aspect": "9:16",
+   "file": "ai/AV02.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "9:16"
+   },
+   "prompt": "Photorealistic candid lifestyle photograph, natural light, shot on a 35mm lens, shallow depth of field, true-to-life colours, fine film grain, no text, no logos, no watermark. The exact bag set from the reference image, unchanged: same colour (red), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. A woman seen from behind on a festive high street in December, paper shopping bags in her hand, the bag set worn, shop windows with Christmas lights softly blurred. The picture contains no face at all: nobody is looking at the camera and no eyes, nose or mouth are visible; the top edge of the frame cuts the person off at shoulder height. Vertical 9:16 composition, the bag set clearly visible, large in the frame, with space around it.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AV03",
+   "use": "clip",
+   "scene": "xmas_mantel",
+   "kind": "object",
+   "colour": "Black",
+   "ref": "/tmp/run/xmas-set3/site/3_piece_set_colour_black.jpg",
+   "aspect": "9:16",
+   "file": "ai/AV03.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "9:16"
+   },
+   "prompt": "Photorealistic candid lifestyle photograph, natural light, shot on a 35mm lens, shallow depth of field, true-to-life colours, fine film grain, no text, no logos, no watermark. The exact bag set from the reference image, unchanged: same colour (black), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The bag set hangs closed by its strap from a brass hook on a white fireplace mantel beside knitted Christmas stockings, pine garland and warm fairy lights. No people. Vertical 9:16 composition, the bag set clearly visible, large in the frame, with space around it.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AV04",
+   "use": "clip",
+   "scene": "xmas_wrapping_hand",
+   "kind": "hand",
+   "colour": "Blue",
+   "ref": "/tmp/run/xmas-set3/site/3_piece_set_colour_blue.jpg",
+   "aspect": "9:16",
+   "file": "ai/AV04.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "9:16"
+   },
+   "prompt": "Photorealistic candid lifestyle photograph, natural light, shot on a 35mm lens, shallow depth of field, true-to-life colours, fine film grain, no text, no logos, no watermark. The exact bag set from the reference image, unchanged: same colour (blue), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. Two hands tie a red ribbon on wrapping paper on a wooden table, the bag set closed beside the paper, rolls of red and gold wrapping paper and twine around, warm lamp light. The picture contains no face at all: nobody is looking at the camera and no eyes, nose or mouth are visible; the top edge of the frame cuts the person off at shoulder height. Vertical 9:16 composition, the bag set clearly visible, large in the frame, with space around it.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AV05",
+   "use": "clip",
+   "scene": "xmas_tree_floor",
+   "kind": "object",
+   "colour": "Grey",
+   "ref": "/tmp/run/xmas-set3/site/3_piece_set_colour_grey.jpg",
+   "aspect": "9:16",
+   "file": "ai/AV05.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "9:16"
+   },
+   "prompt": "Photorealistic candid lifestyle photograph, natural light, shot on a 35mm lens, shallow depth of field, true-to-life colours, fine film grain, no text, no logos, no watermark. The exact bag set from the reference image, unchanged: same colour (grey), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The bag set stands closed on a wooden floor under a decorated Christmas tree among a few wrapped presents, warm fairy lights glowing above, soft morning light. No people. Vertical 9:16 composition, the bag set clearly visible, large in the frame, with space around it.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AV06",
+   "use": "clip",
+   "scene": "xmas_market_walk",
+   "kind": "worn",
+   "colour": "Purple Red",
+   "ref": "/tmp/run/xmas-set3/site/3_piece_set_colour_purple_red.jpg",
+   "aspect": "9:16",
+   "file": "ai/AV06.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "9:16"
+   },
+   "prompt": "Photorealistic candid lifestyle photograph, natural light, shot on a 35mm lens, shallow depth of field, true-to-life colours, fine film grain, no text, no logos, no watermark. The exact bag set from the reference image, unchanged: same colour (purple red), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. A woman seen from behind walking slowly through an evening Christmas market, the bag set worn at her hip, warm string lights and wooden stalls softly blurred around her. The picture contains no face at all: nobody is looking at the camera and no eyes, nose or mouth are visible; the top edge of the frame cuts the person off at shoulder height. Vertical 9:16 composition, the bag set clearly visible, large in the frame, with space around it.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AV07",
+   "use": "clip",
+   "scene": "xmas_station_walk",
+   "kind": "worn",
+   "colour": "Red",
+   "ref": "/tmp/run/xmas-set3/site/3_piece_set_colour_red.jpg",
+   "aspect": "9:16",
+   "file": "ai/AV07.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "9:16"
+   },
+   "prompt": "Photorealistic candid lifestyle photograph, natural light, shot on a 35mm lens, shallow depth of field, true-to-life colours, fine film grain, no text, no logos, no watermark. The exact bag set from the reference image, unchanged: same colour (red), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. A woman seen from behind on a busy train station platform decorated for Christmas, the bag set on her shoulder, wrapped presents in her arms, warm station lights and a garland softly blurred. The picture contains no face at all: nobody is looking at the camera and no eyes, nose or mouth are visible; the top edge of the frame cuts the person off at shoulder height. Vertical 9:16 composition, the bag set clearly visible, large in the frame, with space around it.",
+   "est_credits": 1.0
+  }
+ ],
+ "clips": [
+  {
+   "id": "AC01",
+   "scene": "xmas_party_table",
+   "kind": "object",
+   "tags": [
+    "christmas",
+    "party",
+    "dinner",
+    "evening",
+    "table",
+    "handbag",
+    "placed",
+    "office party"
+   ],
+   "start": "AV01",
+   "file": "ai/clips/AC01.mp4",
+   "model": "kling3_0",
+   "params": {
+    "mode": "std",
+    "sound": "off",
+    "duration": 3,
+    "aspect_ratio": "9:16"
+   },
+   "trim": 3.0,
+   "prompt": "Subtle realistic handheld camera, slow gentle push-in toward the bag set, soft natural light shifts a little, small ambient movement in the background. The bag set stays exactly the same shape, colour and details, no morphing. No people.",
+   "est_credits": 4.5
+  },
+  {
+   "id": "AC02",
+   "scene": "xmas_shop_street",
+   "kind": "worn",
+   "tags": [
+    "christmas",
+    "shopping",
+    "street",
+    "shops",
+    "high street",
+    "walking",
+    "worn",
+    "bags",
+    "crowd",
+    "till",
+    "outdoor"
+   ],
+   "start": "AV02",
+   "file": "ai/clips/AC02.mp4",
+   "model": "minimax_hailuo",
+   "params": {
+    "variant": "minimax-2.3",
+    "duration": 6,
+    "resolution": "768",
+    "aspect_ratio": "9:16"
+   },
+   "trim": 3.2,
+   "prompt": "Candid footage, steady camera follows the woman as she walks away from the camera, the bag set sways gently on her shoulder, background softly blurred. The bag set stays exactly the same shape, colour and details, no morphing. The frame stays cut at shoulder height: no face visible.",
+   "est_credits": 6.0
+  },
+  {
+   "id": "AC03",
+   "scene": "xmas_mantel",
+   "kind": "object",
+   "tags": [
+    "christmas",
+    "mantel",
+    "fireplace",
+    "stockings",
+    "home",
+    "hanging",
+    "placed",
+    "morning"
+   ],
+   "start": "AV03",
+   "file": "ai/clips/AC03.mp4",
+   "model": "kling3_0",
+   "params": {
+    "mode": "std",
+    "sound": "off",
+    "duration": 3,
+    "aspect_ratio": "9:16"
+   },
+   "trim": 3.0,
+   "prompt": "Subtle realistic handheld camera, slow gentle push-in toward the bag set, soft natural light shifts a little, small ambient movement in the background. The bag set stays exactly the same shape, colour and details, no morphing. No people.",
+   "est_credits": 4.5
+  },
+  {
+   "id": "AC04",
+   "scene": "xmas_wrapping_hand",
+   "kind": "hand",
+   "tags": [
+    "christmas",
+    "wrapping",
+    "gift",
+    "paper",
+    "ribbon",
+    "table",
+    "home",
+    "hand",
+    "present"
+   ],
+   "start": "AV04",
+   "file": "ai/clips/AC04.mp4",
+   "model": "minimax_hailuo",
+   "params": {
+    "variant": "minimax-2.3",
+    "duration": 6,
+    "resolution": "768",
+    "aspect_ratio": "9:16"
+   },
+   "trim": 3.2,
+   "prompt": "A hand gently lifts and swings the bag set a little by its handles, camera steady with a slight push-in, soft natural light. The bag set stays exactly the same shape, colour and details, no morphing. No face, no head in frame.",
+   "est_credits": 6.0
+  },
+  {
+   "id": "AC05",
+   "scene": "xmas_tree_floor",
+   "kind": "object",
+   "tags": [
+    "christmas",
+    "tree",
+    "gift",
+    "presents",
+    "home",
+    "placed",
+    "under the tree",
+    "morning"
+   ],
+   "start": "AV05",
+   "file": "ai/clips/AC05.mp4",
+   "model": "kling3_0",
+   "params": {
+    "mode": "std",
+    "sound": "off",
+    "duration": 3,
+    "aspect_ratio": "9:16"
+   },
+   "trim": 3.0,
+   "prompt": "Subtle realistic handheld camera, slow gentle push-in toward the bag set, soft natural light shifts a little, small ambient movement in the background. The bag set stays exactly the same shape, colour and details, no morphing. No people.",
+   "est_credits": 4.5
+  },
+  {
+   "id": "AC06",
+   "scene": "xmas_market_walk",
+   "kind": "worn",
+   "tags": [
+    "christmas",
+    "market",
+    "stalls",
+    "walking",
+    "worn",
+    "crossbody",
+    "street",
+    "evening",
+    "shopping",
+    "outdoor"
+   ],
+   "start": "AV06",
+   "file": "ai/clips/AC06.mp4",
+   "model": "minimax_hailuo",
+   "params": {
+    "variant": "minimax-2.3",
+    "duration": 6,
+    "resolution": "768",
+    "aspect_ratio": "9:16"
+   },
+   "trim": 3.2,
+   "prompt": "Candid footage, steady camera follows the woman as she walks away from the camera, the bag set sways gently on her shoulder, background softly blurred. The bag set stays exactly the same shape, colour and details, no morphing. The frame stays cut at shoulder height: no face visible.",
+   "est_credits": 6.0
+  },
+  {
+   "id": "AC07",
+   "scene": "xmas_station_walk",
+   "kind": "worn",
+   "tags": [
+    "christmas",
+    "station",
+    "train",
+    "platform",
+    "crowd",
+    "travel",
+    "walking",
+    "worn",
+    "shoulder",
+    "presents"
+   ],
+   "start": "AV07",
+   "file": "ai/clips/AC07.mp4",
+   "model": "minimax_hailuo",
+   "params": {
+    "variant": "minimax-2.3",
+    "duration": 6,
+    "resolution": "768",
+    "aspect_ratio": "9:16"
+   },
+   "trim": 3.2,
+   "prompt": "Candid footage, steady camera follows the woman as she walks away from the camera, the bag set sways gently on her shoulder, background softly blurred. The bag set stays exactly the same shape, colour and details, no morphing. The frame stays cut at shoulder height: no face visible.",
+   "est_credits": 6.0
+  }
+ ],
+ "est_credits": 52.5,
+ "notes": [],
+ "grade_refs": [],
+ "budget": {
+  "cap": 100.0,
+  "tts_est": 9.0,
+  "reserve": 8.0
+ },
+ "steps": [
+  "1. Upload each distinct `ref` once (media_upload, curl PUT, media_confirm); generate every still with generate_image_batch (model/params/prompt as listed, medias [{value: media_id, role: image_references}], max 12 per call); jobs_wait; download each result to $OUT/<file>.",
+  "2. python3 pipeline/ai_gen.py gate --out $OUT ; LOOK at $OUT/qa/ai_stills.jpg (reference | still): reject any still where the bag's shape, colour, handles or hardware differ from the reference, or that looks AI: python3 pipeline/ai_gen.py reject --out $OUT AS03 ...",
+  "3. For every clip whose start still passed: generate_video_batch (start_image = that still's job id, model/params/prompt as listed); jobs_wait; download to $OUT/<file>. Clips of a rejected still are skipped. If a submission comes back with a preset recommendation instead of a job, send it again with `declined_preset_id` = that preset's id (the project never uses presets).",
+  "3b. Motion stills (AM.. clips, `use: motion`): generate_video_batch with medias [{value: <the still's job id>, role: start_image}, {value: <the same job id>, role: end_image}] (the same still first and last, so the loop has no seam), model/params/prompt as listed.",
+  "4. python3 pipeline/ai_gen.py clips --out $OUT ; LOOK at $OUT/qa/ai_clips.jpg; reject morphing / odd-hand clips with `reject` (a motion still where the bag changes shape, opens, or anything morphs: `reject AM02`). Then render as usual (it applies the result; a motion still whose clip failed ships as the still static alone).",
+  "Report: credits before -> after (balance), how many AI assets passed. Never ship a still or clip you would not believe is real."
+ ]
+}

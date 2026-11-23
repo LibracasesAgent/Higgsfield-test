@@ -1,0 +1,16 @@
+{
+ "ok": true,
+ "product": "Hobo Bag",
+ "offer": "50% off + free matching pouch wallet",
+ "checked": 242,
+ "problems": [],
+ "allowed": [],
+ "raw_story": [],
+ "raw_cuts": [],
+ "playbook_warnings": [
+  "LC_261123_HoboBag_Christmas_B055_S01_note primary_text_2: hype_soft: 'perfect': Halbert's hype words date the copy and Meta's ranking reads them as low quality; show the thing instead",
+  "LC_261123_HoboBag_Christmas_B055_S10_value primary_text_1: hype_soft: 'perfect': Halbert's hype words date the copy and Meta's ranking reads them as low quality; show the thing instead",
+  "LC_261123_HoboBag_Christmas_B055_P02_H2_lastsaturday hook_first_line: hook_formula: 'Shopping bags in both hands? Wear your bag crossbody instead.' follows none of the rulebook's hook formulas (how to, a question, a number, a warning, a contrast, watch, a moment, at last, the truth about, imagine, if you, who else, hidden, the offer)"
+ ],
+ "report": "/tmp/run/xmas-hobo/compliance.json"
+}

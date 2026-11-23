@@ -1,0 +1,16 @@
+{
+ "ok": true,
+ "product": "Hobo Bag 3-Piece Set",
+ "offer": "60% off",
+ "checked": 223,
+ "problems": [],
+ "allowed": [],
+ "raw_story": [],
+ "raw_cuts": [],
+ "playbook_warnings": [
+  "LC_261123_HoboBag3PieceSet_Christmas_B056_S01_swingtag primary_text_2: hype_soft: 'perfect': Halbert's hype words date the copy and Meta's ranking reads them as low quality; show the thing instead",
+  "LC_261123_HoboBag3PieceSet_Christmas_B056_S08_versus primary_text_1: hype_soft: 'perfect': Halbert's hype words date the copy and Meta's ranking reads them as low quality; show the thing instead",
+  "LC_261123_HoboBag3PieceSet_Christmas_B056_P01_H3_threeinone hook_first_line: hook_third_person: 'Before you buy her one bag this Christmas, look at three.' talks about 'her' / 'him': the viewer is 'you'"
+ ],
+ "report": "/tmp/run/xmas-set3/compliance.json"
+}

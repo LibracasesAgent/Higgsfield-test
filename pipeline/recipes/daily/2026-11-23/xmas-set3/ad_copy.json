@@ -1,0 +1,234 @@
+{
+ "ok": true,
+ "created": "2026-11-23",
+ "product": "Hobo Bag 3-Piece Set",
+ "theme": "christmas",
+ "theme_name": "Christmas",
+ "offer": "60% off",
+ "seed": 1,
+ "cta": "Shop Now",
+ "rows": 18,
+ "csv": "/tmp/run/xmas-set3/ad_copy.csv",
+ "statics": [
+  {
+   "id": "S01",
+   "ad_name": "LC_261123_HoboBag3PieceSet_Christmas_B056_S01_swingtag",
+   "angle": "ad",
+   "primary_text_1": "Most gifts end up in a drawer. Not this one.\nThe 3-Piece Set: 60% off.",
+   "primary_text_2": "Still looking for the perfect Christmas gift?\nThe pouch keeps your cards and cash in one place.\nSmart compartments and an anti-theft design keep everything secure.\nIt's 60% off right now. 🎁\nTap Shop Now to get one for her.",
+   "headline_1": "Christmas Gift Sorted: The 3-Piece Set",
+   "headline_2": "Now 60% Off: The 3-Piece Set",
+   "description": "60% off + free shipping",
+   "cta": "Shop Now",
+   "cta_type": "SHOP_NOW"
+  },
+  {
+   "id": "S02",
+   "ad_name": "LC_261123_HoboBag3PieceSet_Christmas_B056_S02_window",
+   "angle": "window_display",
+   "primary_text_1": "You don't get one bag here. You get three.\n60% off the 3-Piece Set.",
+   "primary_text_2": "The gift she'll use every day.\nSmart compartments and an anti-theft design keep everything secure.\nSoft, water-resistant, scratch-proof leather that looks expensive.\nNow 60% off. 🎁\nTap Shop Now to get one for her.",
+   "headline_1": "Christmas Gift Sorted",
+   "headline_2": "The 3-Piece Set: Anti-Theft Design",
+   "description": "Now 60% off",
+   "cta": "Shop Now",
+   "cta_type": "SHOP_NOW"
+  },
+  {
+   "id": "S03",
+   "ad_name": "LC_261123_HoboBag3PieceSet_Christmas_B056_S03_povsticker",
+   "angle": "ad",
+   "primary_text_1": "A hobo for every day, a crossbody for going light, and a matching pouch.\nThe 3-Piece Set: 60% off.",
+   "primary_text_2": "This is what a matching three-piece set looks like.\nThe hobo for every day. The crossbody for when you want to go light.\nThe pouch keeps your cards and cash in one place.\nIt's 60% off right now. 🎁\nTap Shop Now to get one for her.",
+   "headline_1": "The Gift She'll Use Every Day",
+   "headline_2": "3-Piece Set: 60% Off",
+   "description": "6 colours + free shipping",
+   "cta": "Shop Now",
+   "cta_type": "SHOP_NOW"
+  },
+  {
+   "id": "S04",
+   "ad_name": "LC_261123_HoboBag3PieceSet_Christmas_B056_S04_unbox",
+   "angle": "ad",
+   "primary_text_1": "Soft, scratch-proof leather, in a set of three.\n60% off the 3-Piece Set.",
+   "primary_text_2": "Take a closer look at the 3-Piece Set.\nSmart compartments and an anti-theft design keep everything secure.\nSoft, water-resistant, scratch-proof leather that looks expensive.\nIt's 60% off right now. 🎁\nTap Shop Now to get one for her.",
+   "headline_1": "Meet the 3-Piece Set: Anti-Theft Design",
+   "headline_2": "60% Off the 3-Piece Set",
+   "description": "Free shipping",
+   "cta": "Shop Now",
+   "cta_type": "SHOP_NOW"
+  },
+  {
+   "id": "S05",
+   "ad_name": "LC_261123_HoboBag3PieceSet_Christmas_B056_S05_studio",
+   "angle": "studio",
+   "primary_text_1": "Which would you carry first: the hobo, the crossbody or the pouch?\nThe 3-Piece Set, now 60% off.",
+   "primary_text_2": "Switching bags shouldn't mean emptying everything out.\nEvery set comes with three pieces: the hobo bag, a crossbody, and a matching pouch.\nThe hobo for every day. The crossbody for when you want to go light.\nIt's 60% off right now. 🎁\nTap Shop Now to get one for her.",
+   "headline_1": "Christmas Gift Sorted: The 3-Piece Set",
+   "headline_2": "Meet the 3-Piece Set: Matching Pouch",
+   "description": "6 colours to choose from",
+   "cta": "Shop Now",
+   "cta_type": "SHOP_NOW"
+  },
+  {
+   "id": "S06",
+   "ad_name": "LC_261123_HoboBag3PieceSet_Christmas_B056_S06_hook",
+   "angle": "story",
+   "primary_text_1": "One gift, three matching pieces.\n60% off the 3-Piece Set.",
+   "primary_text_2": "Have you seen the 3-Piece Set yet?\nThe pouch keeps your cards and cash in one place.\nSmart compartments and an anti-theft design keep everything secure.\nIt's 60% off right now. 🎁\nTap Shop Now to get one for her.",
+   "headline_1": "Matching Pouch + Anti-Theft Design",
+   "headline_2": "The 3-Piece Set: Matching Pouch",
+   "description": "60% off + free shipping",
+   "cta": "Shop Now",
+   "cta_type": "SHOP_NOW"
+  },
+  {
+   "id": "S07",
+   "ad_name": "LC_261123_HoboBag3PieceSet_Christmas_B056_S07_list",
+   "angle": "story",
+   "primary_text_1": "Travel tip: take the crossbody out, leave the big bag behind.\nThe 3-Piece Set, now 60% off.",
+   "primary_text_2": "Looking for a gift? Meet the 3-Piece Set.\nSoft, water-resistant, scratch-proof leather that looks expensive.\nEvery set comes with three pieces: the hobo bag, a crossbody, and a matching pouch.\nIt's 60% off right now. 🎁\nTap Shop Now to get one for her.",
+   "headline_1": "The 3-Piece Set: Scratch-Proof Leather",
+   "headline_2": "Scratch-Proof Leather + Matching Pouch",
+   "description": "Now 60% off",
+   "cta": "Shop Now",
+   "cta_type": "SHOP_NOW"
+  },
+  {
+   "id": "S08",
+   "ad_name": "LC_261123_HoboBag3PieceSet_Christmas_B056_S08_versus",
+   "angle": "story",
+   "primary_text_1": "Still looking for the perfect Christmas gift?\nThe 3-Piece Set: 60% off.",
+   "primary_text_2": "Your hobo, your crossbody and your pouch, all matching.\nEvery set comes with three pieces: the hobo bag, a crossbody, and a matching pouch.\nThe hobo for every day. The crossbody for when you want to go light.\nNow 60% off. 🎁\nTap Shop Now to get one for her.",
+   "headline_1": "Christmas Gift Sorted",
+   "headline_2": "3-Piece Set: 60% Off",
+   "description": "Free shipping",
+   "cta": "Shop Now",
+   "cta_type": "SHOP_NOW"
+  },
+  {
+   "id": "S09",
+   "ad_name": "LC_261123_HoboBag3PieceSet_Christmas_B056_S09_colours",
+   "angle": "colours",
+   "primary_text_1": "Be honest. Which colour are you?\nThe 3-Piece Set: 60% off.",
+   "primary_text_2": "Which colour would you pick?\nChoose from Brown, Black, Blue, Grey, Purple Red or Red.\nThe pouch keeps your cards and cash in one place.\nNow 60% off. 🎁\nTap Shop Now to pick your colour.",
+   "headline_1": "Which Colour Are You?",
+   "headline_2": "60% Off the 3-Piece Set",
+   "description": "6 colours + free shipping",
+   "cta": "Shop Now",
+   "cta_type": "SHOP_NOW"
+  },
+  {
+   "id": "S10",
+   "ad_name": "LC_261123_HoboBag3PieceSet_Christmas_B056_S10_value",
+   "angle": "value",
+   "primary_text_1": "The gift she'll use every day.\nThe 3-Piece Set, now 60% off.",
+   "primary_text_2": "Most gifts end up in a drawer. Not this one.\nThe pouch keeps your cards and cash in one place.\nSmart compartments and an anti-theft design keep everything secure.\nNow 60% off. 🎁\nTap Shop Now to get one for her.",
+   "headline_1": "The Gift She'll Use Every Day",
+   "headline_2": "Meet the 3-Piece Set: Matching Pouch",
+   "description": "6 colours to choose from",
+   "cta": "Shop Now",
+   "cta_type": "SHOP_NOW"
+  }
+ ],
+ "projects": [
+  {
+   "id": "P01",
+   "angle": "threeinone",
+   "engine": "storyboard",
+   "product": "Hobo Bag 3-Piece Set",
+   "winner": null,
+   "primary_text_1": "You don't get one bag here. You get three.\nThe 3-Piece Set, now 60% off.",
+   "primary_text_2": "Take a closer look at the 3-Piece Set.\nThe hobo for every day. The crossbody for when you want to go light.\nThe pouch keeps your cards and cash in one place.\nIt's 60% off right now. 🎁\nTap Shop Now to get one for her.",
+   "headline_1": "The 3-Piece Set: Matching Pouch",
+   "headline_2": "Now 60% Off: The 3-Piece Set",
+   "description": "60% off + free shipping",
+   "cta": "Shop Now",
+   "cta_type": "SHOP_NOW",
+   "versions": [
+    {
+     "hook": "H1",
+     "id": "P01H1",
+     "ad_name": "LC_261123_HoboBag3PieceSet_Christmas_B056_P01_H1_threeinone",
+     "hook_text": "Buying for someone who changes bags three times a day?",
+     "hook_first_line": "Buying for someone who changes bags three times a day?",
+     "primary_text_2_hook": "Buying for someone who changes bags three times a day?\nThe hobo for every day. The crossbody for when you want to go light.\nThe pouch keeps your cards and cash in one place.\nIt's 60% off right now. 🎁\nTap Shop Now to get one for her."
+    },
+    {
+     "hook": "H2",
+     "id": "P01H2",
+     "ad_name": "LC_261123_HoboBag3PieceSet_Christmas_B056_P01_H2_threeinone",
+     "hook_text": "Watch one box open into three matching bags.",
+     "hook_first_line": "Watch one box open into three matching bags.",
+     "primary_text_2_hook": "Watch one box open into three matching bags.\nThe hobo for every day. The crossbody for when you want to go light.\nThe pouch keeps your cards and cash in one place.\nIt's 60% off right now. 🎁\nTap Shop Now to get one for her."
+    },
+    {
+     "hook": "H3",
+     "id": "P01H3",
+     "ad_name": "LC_261123_HoboBag3PieceSet_Christmas_B056_P01_H3_threeinone",
+     "hook_text": "Before you buy her one bag this Christmas, look at three.",
+     "hook_first_line": "Before you buy her one bag this Christmas, look at three.",
+     "primary_text_2_hook": "Before you buy her one bag this Christmas, look at three.\nThe hobo for every day. The crossbody for when you want to go light.\nThe pouch keeps your cards and cash in one place.\nIt's 60% off right now. 🎁\nTap Shop Now to get one for her."
+    },
+    {
+     "hook": "H4",
+     "id": "P01H4",
+     "ad_name": "LC_261123_HoboBag3PieceSet_Christmas_B056_P01_H4_threeinone",
+     "hook_text": "Sixty percent off three matching bags, in one Christmas box.",
+     "hook_first_line": "Sixty percent off three matching bags, in one Christmas box.",
+     "primary_text_2_hook": "Sixty percent off three matching bags, in one Christmas box.\nThe hobo for every day. The crossbody for when you want to go light.\nThe pouch keeps your cards and cash in one place.\nIt's 60% off right now. 🎁\nTap Shop Now to get one for her."
+    }
+   ]
+  },
+  {
+   "id": "P02",
+   "angle": "onetotethree",
+   "engine": "storyboard",
+   "product": "Hobo Bag 3-Piece Set",
+   "winner": null,
+   "primary_text_1": "A hobo for every day, a crossbody for going light, and a matching pouch.\nThe 3-Piece Set, now 60% off.",
+   "primary_text_2": "This is what a matching three-piece set looks like.\nSmart compartments and an anti-theft design keep everything secure.\nThe hobo for every day. The crossbody for when you want to go light.\nIt's 60% off right now. 🎁\nTap Shop Now to get one for her.",
+   "headline_1": "Anti-Theft Design + Matching Pouch",
+   "headline_2": "Meet the 3-Piece Set: Anti-Theft Design",
+   "description": "Now 60% off",
+   "cta": "Shop Now",
+   "cta_type": "SHOP_NOW",
+   "versions": [
+    {
+     "hook": "H1",
+     "id": "P02H1",
+     "ad_name": "LC_261123_HoboBag3PieceSet_Christmas_B056_P02_H1_onetotethree",
+     "hook_text": "Still carrying one big tote to every single plan?",
+     "hook_first_line": "Still carrying one big tote to every single plan?",
+     "primary_text_2_hook": "Still carrying one big tote to every single plan?\nSmart compartments and an anti-theft design keep everything secure.\nThe hobo for every day. The crossbody for when you want to go light.\nIt's 60% off right now. 🎁\nTap Shop Now to get one for her."
+    },
+    {
+     "hook": "H2",
+     "id": "P02H2",
+     "ad_name": "LC_261123_HoboBag3PieceSet_Christmas_B056_P02_H2_onetotethree",
+     "hook_text": "A tote against this set: watch what the zip does.",
+     "hook_first_line": "A tote against this set: watch what the zip does.",
+     "primary_text_2_hook": "A tote against this set: watch what the zip does.\nSmart compartments and an anti-theft design keep everything secure.\nThe hobo for every day. The crossbody for when you want to go light.\nIt's 60% off right now. 🎁\nTap Shop Now to get one for her."
+    },
+    {
+     "hook": "H3",
+     "id": "P02H3",
+     "ad_name": "LC_261123_HoboBag3PieceSet_Christmas_B056_P02_H3_onetotethree",
+     "hook_text": "Your cards at the bottom of an open tote again?",
+     "hook_first_line": "Your cards at the bottom of an open tote again?",
+     "primary_text_2_hook": "Your cards at the bottom of an open tote again?\nSmart compartments and an anti-theft design keep everything secure.\nThe hobo for every day. The crossbody for when you want to go light.\nIt's 60% off right now. 🎁\nTap Shop Now to get one for her."
+    },
+    {
+     "hook": "H4",
+     "id": "P02H4",
+     "ad_name": "LC_261123_HoboBag3PieceSet_Christmas_B056_P02_H4_onetotethree",
+     "hook_text": "Before you carry that tote to the Christmas shops, see this.",
+     "hook_first_line": "Before you carry that tote to the Christmas shops, see this.",
+     "primary_text_2_hook": "Before you carry that tote to the Christmas shops, see this.\nSmart compartments and an anti-theft design keep everything secure.\nThe hobo for every day. The crossbody for when you want to go light.\nIt's 60% off right now. 🎁\nTap Shop Now to get one for her."
+    }
+   ]
+  }
+ ],
+ "notes": [],
+ "problems": []
+}

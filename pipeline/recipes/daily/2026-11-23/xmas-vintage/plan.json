@@ -1,0 +1,936 @@
+{
+ "prefix": "LC_261123_VintageBag_Christmas_B054",
+ "rev": 1,
+ "batch_id": {
+  "id": "B054",
+  "n": 54,
+  "rev": 1
+ },
+ "created": "2026-11-23",
+ "request": "Christmas batch: 10 statics + 2 videos, AI b-roll (one-off), presenter only in the Vintage batch",
+ "product": "Vintage Bag",
+ "product_key": "vintage",
+ "product_source": "built-in",
+ "theme": "christmas",
+ "theme_name": "Christmas",
+ "offer": "50% off",
+ "statics": [
+  "LC_261123_VintageBag_Christmas_B054_S01_ribbon",
+  "LC_261123_VintageBag_Christmas_B054_S02_window",
+  "LC_261123_VintageBag_Christmas_B054_S03_note",
+  "LC_261123_VintageBag_Christmas_B054_S04_mantelmornin",
+  "LC_261123_VintageBag_Christmas_B054_S05_povsticker",
+  "LC_261123_VintageBag_Christmas_B054_S06_hook",
+  "LC_261123_VintageBag_Christmas_B054_S07_list",
+  "LC_261123_VintageBag_Christmas_B054_S08_versus",
+  "LC_261123_VintageBag_Christmas_B054_S09_colours",
+  "LC_261123_VintageBag_Christmas_B054_S10_value"
+ ],
+ "videos": [
+  {
+   "name": "LC_261123_VintageBag_Christmas_B054_P01_H1_hersgift",
+   "id": "P01H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "ugc": {
+    "script": "U01",
+    "angle": "hersgift",
+    "words": 157,
+    "structure": "gift_reveal",
+    "hook": {
+     "type": "question",
+     "label": "HANDS FULL?",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Watch the clasp on this Christmas gift: one snap, one hand.",
+      "type": "promise",
+      "label": "ONE SNAP",
+      "feature": null,
+      "show": [
+       "snap",
+       "handheld"
+      ],
+      "scene": "table"
+     },
+     {
+      "text": "Before you wrap another scarf for her, look at this gift.",
+      "type": "warning",
+      "label": "NOT A SCARF",
+      "feature": null,
+      "show": [
+       "strap",
+       "handheld"
+      ],
+      "scene": "tree"
+     },
+     {
+      "text": "How to pick a gift for the woman who carries everything.",
+      "type": "promise",
+      "label": "HER GIFT",
+      "feature": null,
+      "show": [
+       "packing",
+       "handheld"
+      ],
+      "scene": "table"
+     }
+    ],
+    "numbers": [],
+    "presenter": {
+     "id": "maya",
+     "scenes": [
+      {
+       "id": "tree",
+       "where": "She sits on a cream sofa in a cosy living room, a decorated Christmas tree with warm fairy lights softly blurred behind her, a knitted blanket beside her, soft evening lamp light.",
+       "outfit": "She wears a soft burgundy knit jumper.",
+       "bag": "resting on her lap",
+       "colour": "Red",
+       "ambience": "Quiet living room ambience"
+      },
+      {
+       "id": "table",
+       "where": "She sits at a wooden kitchen table with rolls of red and gold wrapping paper, twine and a pair of scissors in front of her, warm daylight from a window, a softly blurred kitchen behind.",
+       "outfit": "She wears a cream cable-knit jumper.",
+       "bag": "standing on the table in front of her",
+       "colour": "Red",
+       "ambience": "Quiet kitchen ambience"
+      }
+     ]
+    }
+   },
+   "est_seconds": 64.6,
+   "project": "P01",
+   "hook_text": "Know someone whose hands are always full of shopping bags?",
+   "hook_label": "",
+   "hook_type": "question",
+   "opening_shot": [
+    "TALK",
+    0
+   ]
+  },
+  {
+   "name": "LC_261123_VintageBag_Christmas_B054_P01_H2_hersgift",
+   "id": "P01H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "ugc": {
+    "script": "U01",
+    "angle": "hersgift",
+    "words": 157,
+    "structure": "gift_reveal",
+    "hook": {
+     "type": "question",
+     "label": "HANDS FULL?",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Watch the clasp on this Christmas gift: one snap, one hand.",
+      "type": "promise",
+      "label": "ONE SNAP",
+      "feature": null,
+      "show": [
+       "snap",
+       "handheld"
+      ],
+      "scene": "table"
+     },
+     {
+      "text": "Before you wrap another scarf for her, look at this gift.",
+      "type": "warning",
+      "label": "NOT A SCARF",
+      "feature": null,
+      "show": [
+       "strap",
+       "handheld"
+      ],
+      "scene": "tree"
+     },
+     {
+      "text": "How to pick a gift for the woman who carries everything.",
+      "type": "promise",
+      "label": "HER GIFT",
+      "feature": null,
+      "show": [
+       "packing",
+       "handheld"
+      ],
+      "scene": "table"
+     }
+    ],
+    "numbers": [],
+    "presenter": {
+     "id": "maya",
+     "scenes": [
+      {
+       "id": "tree",
+       "where": "She sits on a cream sofa in a cosy living room, a decorated Christmas tree with warm fairy lights softly blurred behind her, a knitted blanket beside her, soft evening lamp light.",
+       "outfit": "She wears a soft burgundy knit jumper.",
+       "bag": "resting on her lap",
+       "colour": "Red",
+       "ambience": "Quiet living room ambience"
+      },
+      {
+       "id": "table",
+       "where": "She sits at a wooden kitchen table with rolls of red and gold wrapping paper, twine and a pair of scissors in front of her, warm daylight from a window, a softly blurred kitchen behind.",
+       "outfit": "She wears a cream cable-knit jumper.",
+       "bag": "standing on the table in front of her",
+       "colour": "Red",
+       "ambience": "Quiet kitchen ambience"
+      }
+     ]
+    }
+   },
+   "est_seconds": 65.0,
+   "project": "P01",
+   "hook_text": "Watch the clasp on this Christmas gift: one snap, one hand.",
+   "hook_label": "ONE SNAP",
+   "hook_type": "promise",
+   "opening_shot": null,
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261123_VintageBag_Christmas_B054_P01_H3_hersgift",
+   "id": "P01H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "ugc": {
+    "script": "U01",
+    "angle": "hersgift",
+    "words": 157,
+    "structure": "gift_reveal",
+    "hook": {
+     "type": "question",
+     "label": "HANDS FULL?",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Watch the clasp on this Christmas gift: one snap, one hand.",
+      "type": "promise",
+      "label": "ONE SNAP",
+      "feature": null,
+      "show": [
+       "snap",
+       "handheld"
+      ],
+      "scene": "table"
+     },
+     {
+      "text": "Before you wrap another scarf for her, look at this gift.",
+      "type": "warning",
+      "label": "NOT A SCARF",
+      "feature": null,
+      "show": [
+       "strap",
+       "handheld"
+      ],
+      "scene": "tree"
+     },
+     {
+      "text": "How to pick a gift for the woman who carries everything.",
+      "type": "promise",
+      "label": "HER GIFT",
+      "feature": null,
+      "show": [
+       "packing",
+       "handheld"
+      ],
+      "scene": "table"
+     }
+    ],
+    "numbers": [],
+    "presenter": {
+     "id": "maya",
+     "scenes": [
+      {
+       "id": "tree",
+       "where": "She sits on a cream sofa in a cosy living room, a decorated Christmas tree with warm fairy lights softly blurred behind her, a knitted blanket beside her, soft evening lamp light.",
+       "outfit": "She wears a soft burgundy knit jumper.",
+       "bag": "resting on her lap",
+       "colour": "Red",
+       "ambience": "Quiet living room ambience"
+      },
+      {
+       "id": "table",
+       "where": "She sits at a wooden kitchen table with rolls of red and gold wrapping paper, twine and a pair of scissors in front of her, warm daylight from a window, a softly blurred kitchen behind.",
+       "outfit": "She wears a cream cable-knit jumper.",
+       "bag": "standing on the table in front of her",
+       "colour": "Red",
+       "ambience": "Quiet kitchen ambience"
+      }
+     ]
+    }
+   },
+   "est_seconds": 65.0,
+   "project": "P01",
+   "hook_text": "Before you wrap another scarf for her, look at this gift.",
+   "hook_label": "NOT A SCARF",
+   "hook_type": "warning",
+   "opening_shot": null,
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261123_VintageBag_Christmas_B054_P01_H4_hersgift",
+   "id": "P01H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "ugc": {
+    "script": "U01",
+    "angle": "hersgift",
+    "words": 157,
+    "structure": "gift_reveal",
+    "hook": {
+     "type": "question",
+     "label": "HANDS FULL?",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Watch the clasp on this Christmas gift: one snap, one hand.",
+      "type": "promise",
+      "label": "ONE SNAP",
+      "feature": null,
+      "show": [
+       "snap",
+       "handheld"
+      ],
+      "scene": "table"
+     },
+     {
+      "text": "Before you wrap another scarf for her, look at this gift.",
+      "type": "warning",
+      "label": "NOT A SCARF",
+      "feature": null,
+      "show": [
+       "strap",
+       "handheld"
+      ],
+      "scene": "tree"
+     },
+     {
+      "text": "How to pick a gift for the woman who carries everything.",
+      "type": "promise",
+      "label": "HER GIFT",
+      "feature": null,
+      "show": [
+       "packing",
+       "handheld"
+      ],
+      "scene": "table"
+     }
+    ],
+    "numbers": [],
+    "presenter": {
+     "id": "maya",
+     "scenes": [
+      {
+       "id": "tree",
+       "where": "She sits on a cream sofa in a cosy living room, a decorated Christmas tree with warm fairy lights softly blurred behind her, a knitted blanket beside her, soft evening lamp light.",
+       "outfit": "She wears a soft burgundy knit jumper.",
+       "bag": "resting on her lap",
+       "colour": "Red",
+       "ambience": "Quiet living room ambience"
+      },
+      {
+       "id": "table",
+       "where": "She sits at a wooden kitchen table with rolls of red and gold wrapping paper, twine and a pair of scissors in front of her, warm daylight from a window, a softly blurred kitchen behind.",
+       "outfit": "She wears a cream cable-knit jumper.",
+       "bag": "standing on the table in front of her",
+       "colour": "Red",
+       "ambience": "Quiet kitchen ambience"
+      }
+     ]
+    }
+   },
+   "est_seconds": 65.0,
+   "project": "P01",
+   "hook_text": "How to pick a gift for the woman who carries everything.",
+   "hook_label": "HER GIFT",
+   "hook_type": "promise",
+   "opening_shot": null,
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261123_VintageBag_Christmas_B054_P02_H1_decemberplaces",
+   "id": "P02H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "ugc": {
+    "script": "U02",
+    "angle": "decemberplaces",
+    "words": 177,
+    "structure": "four_places",
+    "hook": {
+     "type": "question",
+     "label": "MARKET DAY",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Can one small bag do the market, lunch and the office party?",
+      "type": "question",
+      "label": "ONE BAG?",
+      "feature": null,
+      "show": [
+       "strap",
+       "worn"
+      ]
+     },
+     {
+      "text": "Watch one hand snap this bag shut at a busy market stall.",
+      "type": "promise",
+      "label": "ONE HAND",
+      "feature": null,
+      "show": [
+       "snap",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Fifty percent off the bag that goes from market to party.",
+      "type": "price",
+      "label": "50% OFF",
+      "feature": null,
+      "show": [
+       "walking",
+       "strap"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Can one small bag do the market, lunch and the office party?": [
+      [
+       "1LyryrXa2Haxk8f1x29x3jDkEn8Y3Dh-A",
+       0.3,
+       1.0
+      ],
+      [
+       "1R252UTrxdvK5bBTBSgBNWv04zCDUs5KK",
+       0.52,
+       1.0
+      ]
+     ],
+     "Watch one hand snap this bag shut at a busy market stall.": [
+      [
+       "1n_iVN9Lf1dKnL9Mo1ixhZiHX-MBBv7gp",
+       9.12,
+       1.0
+      ],
+      [
+       "1qNOv5frbrbN4JAtBuqHDqxjXb15gEeuc",
+       8.06,
+       1.0
+      ]
+     ],
+     "Fifty percent off the bag that goes from market to party.": [
+      [
+       "1VTuBxxeM0kgk0zBmK93Vn8XJFiMOCLQU",
+       0.3,
+       1.0
+      ],
+      [
+       "1qNOv5frbrbN4JAtBuqHDqxjXb15gEeuc",
+       0.81,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 59.0,
+   "project": "P02",
+   "hook_text": "Christmas market, hot chocolate in one hand. Where's your bag?",
+   "hook_label": "MARKET DAY",
+   "hook_type": "question",
+   "opening_shot": [
+    "ai/clips/AC07_c.mp4",
+    0.0
+   ]
+  },
+  {
+   "name": "LC_261123_VintageBag_Christmas_B054_P02_H2_decemberplaces",
+   "id": "P02H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "ugc": {
+    "script": "U02",
+    "angle": "decemberplaces",
+    "words": 177,
+    "structure": "four_places",
+    "hook": {
+     "type": "question",
+     "label": "MARKET DAY",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Can one small bag do the market, lunch and the office party?",
+      "type": "question",
+      "label": "ONE BAG?",
+      "feature": null,
+      "show": [
+       "strap",
+       "worn"
+      ]
+     },
+     {
+      "text": "Watch one hand snap this bag shut at a busy market stall.",
+      "type": "promise",
+      "label": "ONE HAND",
+      "feature": null,
+      "show": [
+       "snap",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Fifty percent off the bag that goes from market to party.",
+      "type": "price",
+      "label": "50% OFF",
+      "feature": null,
+      "show": [
+       "walking",
+       "strap"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Can one small bag do the market, lunch and the office party?": [
+      [
+       "1LyryrXa2Haxk8f1x29x3jDkEn8Y3Dh-A",
+       0.3,
+       1.0
+      ],
+      [
+       "1R252UTrxdvK5bBTBSgBNWv04zCDUs5KK",
+       0.52,
+       1.0
+      ]
+     ],
+     "Watch one hand snap this bag shut at a busy market stall.": [
+      [
+       "1n_iVN9Lf1dKnL9Mo1ixhZiHX-MBBv7gp",
+       9.12,
+       1.0
+      ],
+      [
+       "1qNOv5frbrbN4JAtBuqHDqxjXb15gEeuc",
+       8.06,
+       1.0
+      ]
+     ],
+     "Fifty percent off the bag that goes from market to party.": [
+      [
+       "1VTuBxxeM0kgk0zBmK93Vn8XJFiMOCLQU",
+       0.3,
+       1.0
+      ],
+      [
+       "1qNOv5frbrbN4JAtBuqHDqxjXb15gEeuc",
+       0.81,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 59.6,
+   "project": "P02",
+   "hook_text": "Watch one hand snap this bag shut at a busy market stall.",
+   "hook_label": "ONE HAND",
+   "hook_type": "promise",
+   "opening_shot": [
+    "1n_iVN9Lf1dKnL9Mo1ixhZiHX-MBBv7gp",
+    9.12
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261123_VintageBag_Christmas_B054_P02_H3_decemberplaces",
+   "id": "P02H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "ugc": {
+    "script": "U02",
+    "angle": "decemberplaces",
+    "words": 177,
+    "structure": "four_places",
+    "hook": {
+     "type": "question",
+     "label": "MARKET DAY",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Can one small bag do the market, lunch and the office party?",
+      "type": "question",
+      "label": "ONE BAG?",
+      "feature": null,
+      "show": [
+       "strap",
+       "worn"
+      ]
+     },
+     {
+      "text": "Watch one hand snap this bag shut at a busy market stall.",
+      "type": "promise",
+      "label": "ONE HAND",
+      "feature": null,
+      "show": [
+       "snap",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Fifty percent off the bag that goes from market to party.",
+      "type": "price",
+      "label": "50% OFF",
+      "feature": null,
+      "show": [
+       "walking",
+       "strap"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Can one small bag do the market, lunch and the office party?": [
+      [
+       "1LyryrXa2Haxk8f1x29x3jDkEn8Y3Dh-A",
+       0.3,
+       1.0
+      ],
+      [
+       "1R252UTrxdvK5bBTBSgBNWv04zCDUs5KK",
+       0.52,
+       1.0
+      ]
+     ],
+     "Watch one hand snap this bag shut at a busy market stall.": [
+      [
+       "1n_iVN9Lf1dKnL9Mo1ixhZiHX-MBBv7gp",
+       9.12,
+       1.0
+      ],
+      [
+       "1qNOv5frbrbN4JAtBuqHDqxjXb15gEeuc",
+       8.06,
+       1.0
+      ]
+     ],
+     "Fifty percent off the bag that goes from market to party.": [
+      [
+       "1VTuBxxeM0kgk0zBmK93Vn8XJFiMOCLQU",
+       0.3,
+       1.0
+      ],
+      [
+       "1qNOv5frbrbN4JAtBuqHDqxjXb15gEeuc",
+       0.81,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 59.3,
+   "project": "P02",
+   "hook_text": "Fifty percent off the bag that goes from market to party.",
+   "hook_label": "50% OFF",
+   "hook_type": "price",
+   "opening_shot": [
+    "1VTuBxxeM0kgk0zBmK93Vn8XJFiMOCLQU",
+    0.3
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261123_VintageBag_Christmas_B054_P02_H4_decemberplaces",
+   "id": "P02H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "ugc": {
+    "script": "U02",
+    "angle": "decemberplaces",
+    "words": 177,
+    "structure": "four_places",
+    "hook": {
+     "type": "question",
+     "label": "MARKET DAY",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Can one small bag do the market, lunch and the office party?",
+      "type": "question",
+      "label": "ONE BAG?",
+      "feature": null,
+      "show": [
+       "strap",
+       "worn"
+      ]
+     },
+     {
+      "text": "Watch one hand snap this bag shut at a busy market stall.",
+      "type": "promise",
+      "label": "ONE HAND",
+      "feature": null,
+      "show": [
+       "snap",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Fifty percent off the bag that goes from market to party.",
+      "type": "price",
+      "label": "50% OFF",
+      "feature": null,
+      "show": [
+       "walking",
+       "strap"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Can one small bag do the market, lunch and the office party?": [
+      [
+       "1LyryrXa2Haxk8f1x29x3jDkEn8Y3Dh-A",
+       0.3,
+       1.0
+      ],
+      [
+       "1R252UTrxdvK5bBTBSgBNWv04zCDUs5KK",
+       0.52,
+       1.0
+      ]
+     ],
+     "Watch one hand snap this bag shut at a busy market stall.": [
+      [
+       "1n_iVN9Lf1dKnL9Mo1ixhZiHX-MBBv7gp",
+       9.12,
+       1.0
+      ],
+      [
+       "1qNOv5frbrbN4JAtBuqHDqxjXb15gEeuc",
+       8.06,
+       1.0
+      ]
+     ],
+     "Fifty percent off the bag that goes from market to party.": [
+      [
+       "1VTuBxxeM0kgk0zBmK93Vn8XJFiMOCLQU",
+       0.3,
+       1.0
+      ],
+      [
+       "1qNOv5frbrbN4JAtBuqHDqxjXb15gEeuc",
+       0.81,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 59.6,
+   "project": "P02",
+   "hook_text": "Can one small bag do the market, lunch and the office party?",
+   "hook_label": "ONE BAG?",
+   "hook_type": "question",
+   "opening_shot": [
+    "1LyryrXa2Haxk8f1x29x3jDkEn8Y3Dh-A",
+    0.3
+   ],
+   "hook_source": "script"
+  }
+ ],
+ "tts_lines": 9,
+ "tts_dupes": {},
+ "est_credits": 3.1,
+ "budget": 100.0,
+ "colour_images": {
+  "Ginger Brown": "/tmp/run/xmas-vintage/site/vintage_colour_ginger_brown.jpg",
+  "Black": "/tmp/run/xmas-vintage/site/vintage_colour_black.jpg",
+  "Chocolate": "/tmp/run/xmas-vintage/site/vintage_colour_chocolate.jpg",
+  "Red": "/tmp/run/xmas-vintage/site/vintage_colour_red.jpg"
+ },
+ "packshots": [
+  "/tmp/run/xmas-vintage/site/vintage_colour_ginger_brown.jpg",
+  "/tmp/run/xmas-vintage/site/vintage_colour_black.jpg",
+  "/tmp/run/xmas-vintage/site/vintage_colour_chocolate.jpg",
+  "/tmp/run/xmas-vintage/site/vintage_colour_red.jpg"
+ ],
+ "brief": null,
+ "ai": {
+  "stills": 8,
+  "clips": 2,
+  "est_credits": 22.0,
+  "budget": {
+   "cap": 100.0,
+   "tts_est": 9.0,
+   "reserve": 8.0
+  },
+  "scenes": [
+   "p01_s01_ribbon_banner",
+   "p01_s03_note_card",
+   "p01_s05_pov_sticker",
+   "p01_s07",
+   "p02_s02_window_display",
+   "p02_s04_mantel_morning",
+   "p02_s06",
+   "p02_s08",
+   "xmas_market_walk",
+   "xmas_station_walk"
+  ],
+  "next": "python3 pipeline/ai_gen.py show --out /tmp/run/xmas-vintage"
+ },
+ "winners_source": null,
+ "winners_note": null,
+ "winners_used": [],
+ "unmatched_winners": [],
+ "warnings": [
+  "Vintage Bag: reviews [6, 7, 9] left out: reviews.json does not say they are about this bag (Julian 2026-11-19: quotes only from reviews of the bag in the ad)",
+  "ideas: 8 AI statics of 10 (5 designed ads, 3 studio scenes; about 8 credits plus retries)",
+  "re-plan: keeps batch number B054 (planned in this --out, not uploaded yet)",
+  "Vintage Bag has 12 earlier batch(es) in the novelty log: the statics start 12 step(s) further in their photo / headline cycle (other photos and captions than before)",
+  "AI b-roll (--ai): 8 clips of the real bag (xmas_party_table, xmas_shop_street, xmas_mantel, xmas_door_hand, xmas_tree_floor, xmas_station_walk, xmas_market_walk, xmas_wrapping_hand), ~51.5 credits with their start stills",
+  "P01: hook types repeat (question, promise, warning, promise)",
+  "P02: hook types repeat (question, promise, price, question)"
+ ],
+ "winner_reviews": false,
+ "seed": 1,
+ "hooks": 4,
+ "pipeline": "catalog",
+ "video_format": "ugc",
+ "ugc_numbers": [],
+ "voice": {
+  "voice_type": "element",
+  "voice_id": "241459b6-b4e8-4a2a-9868-da8bcdcd0558",
+  "speed": 1.12
+ },
+ "projects": [
+  {
+   "id": "P01",
+   "from_id": "V01",
+   "angle": "hersgift",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P01H1",
+     "name": "LC_261123_VintageBag_Christmas_B054_P01_H1_hersgift",
+     "hook_text": "Know someone whose hands are always full of shopping bags?",
+     "label": "",
+     "type": "question",
+     "shot": [
+      "TALK",
+      0
+     ],
+     "est_seconds": 64.6
+    },
+    {
+     "hook": "H2",
+     "id": "P01H2",
+     "name": "LC_261123_VintageBag_Christmas_B054_P01_H2_hersgift",
+     "hook_text": "Watch the clasp on this Christmas gift: one snap, one hand.",
+     "label": "ONE SNAP",
+     "type": "promise",
+     "shot": null,
+     "est_seconds": 65.0
+    },
+    {
+     "hook": "H3",
+     "id": "P01H3",
+     "name": "LC_261123_VintageBag_Christmas_B054_P01_H3_hersgift",
+     "hook_text": "Before you wrap another scarf for her, look at this gift.",
+     "label": "NOT A SCARF",
+     "type": "warning",
+     "shot": null,
+     "est_seconds": 65.0
+    },
+    {
+     "hook": "H4",
+     "id": "P01H4",
+     "name": "LC_261123_VintageBag_Christmas_B054_P01_H4_hersgift",
+     "hook_text": "How to pick a gift for the woman who carries everything.",
+     "label": "HER GIFT",
+     "type": "promise",
+     "shot": null,
+     "est_seconds": 65.0
+    }
+   ]
+  },
+  {
+   "id": "P02",
+   "from_id": "V02",
+   "angle": "decemberplaces",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P02H1",
+     "name": "LC_261123_VintageBag_Christmas_B054_P02_H1_decemberplaces",
+     "hook_text": "Christmas market, hot chocolate in one hand. Where's your bag?",
+     "label": "MARKET DAY",
+     "type": "question",
+     "shot": [
+      "ai/clips/AC07_c.mp4",
+      0.0
+     ],
+     "est_seconds": 59.0
+    },
+    {
+     "hook": "H2",
+     "id": "P02H2",
+     "name": "LC_261123_VintageBag_Christmas_B054_P02_H2_decemberplaces",
+     "hook_text": "Watch one hand snap this bag shut at a busy market stall.",
+     "label": "ONE HAND",
+     "type": "promise",
+     "shot": [
+      "1n_iVN9Lf1dKnL9Mo1ixhZiHX-MBBv7gp",
+      9.12
+     ],
+     "est_seconds": 59.6
+    },
+    {
+     "hook": "H3",
+     "id": "P02H3",
+     "name": "LC_261123_VintageBag_Christmas_B054_P02_H3_decemberplaces",
+     "hook_text": "Fifty percent off the bag that goes from market to party.",
+     "label": "50% OFF",
+     "type": "price",
+     "shot": [
+      "1VTuBxxeM0kgk0zBmK93Vn8XJFiMOCLQU",
+      0.3
+     ],
+     "est_seconds": 59.3
+    },
+    {
+     "hook": "H4",
+     "id": "P02H4",
+     "name": "LC_261123_VintageBag_Christmas_B054_P02_H4_decemberplaces",
+     "hook_text": "Can one small bag do the market, lunch and the office party?",
+     "label": "ONE BAG?",
+     "type": "question",
+     "shot": [
+      "1LyryrXa2Haxk8f1x29x3jDkEn8Y3Dh-A",
+      0.3
+     ],
+     "est_seconds": 59.6
+    }
+   ]
+  }
+ ],
+ "hooks_seed": 1
+}

@@ -1,0 +1,1227 @@
+{
+ "prefix": "LC_261123_HoboBag3PieceSet_Christmas_B056",
+ "rev": 1,
+ "batch_id": {
+  "id": "B056",
+  "n": 56,
+  "rev": 1
+ },
+ "created": "2026-11-23",
+ "request": "Christmas batch: 10 statics + 2 videos, AI b-roll (one-off), presenter only in the Vintage batch",
+ "product": "Hobo Bag 3-Piece Set",
+ "product_key": "3-piece set",
+ "product_source": "built-in",
+ "theme": "christmas",
+ "theme_name": "Christmas",
+ "offer": "60% off",
+ "statics": [
+  "LC_261123_HoboBag3PieceSet_Christmas_B056_S01_swingtag",
+  "LC_261123_HoboBag3PieceSet_Christmas_B056_S02_window",
+  "LC_261123_HoboBag3PieceSet_Christmas_B056_S03_povsticker",
+  "LC_261123_HoboBag3PieceSet_Christmas_B056_S04_unbox",
+  "LC_261123_HoboBag3PieceSet_Christmas_B056_S05_studio",
+  "LC_261123_HoboBag3PieceSet_Christmas_B056_S06_hook",
+  "LC_261123_HoboBag3PieceSet_Christmas_B056_S07_list",
+  "LC_261123_HoboBag3PieceSet_Christmas_B056_S08_versus",
+  "LC_261123_HoboBag3PieceSet_Christmas_B056_S09_colours",
+  "LC_261123_HoboBag3PieceSet_Christmas_B056_S10_value"
+ ],
+ "videos": [
+  {
+   "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_P01_H1_threeinone",
+   "id": "P01H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "ugc": {
+    "script": "U01",
+    "angle": "threeinone",
+    "words": 186,
+    "structure": "gift_reveal",
+    "hook": {
+     "type": "question",
+     "label": "THREE BAGS",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Watch one box open into three matching bags.",
+      "type": "promise",
+      "label": "ONE BOX",
+      "feature": null,
+      "show": [
+       "packing",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Before you buy her one bag this Christmas, look at three.",
+      "type": "warning",
+      "label": "LOOK AT THREE",
+      "feature": null,
+      "show": [
+       "strap",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Sixty percent off three matching bags, in one Christmas box.",
+      "type": "price",
+      "label": "60% OFF",
+      "feature": null,
+      "show": [
+       "pouch",
+       "handheld"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Watch one box open into three matching bags.": [
+      [
+       "1StPro8S4b5_LUICHyivAkrFna1M1k3ao",
+       8.5,
+       1.0
+      ]
+     ],
+     "Before you buy her one bag this Christmas, look at three.": [
+      [
+       "1StPro8S4b5_LUICHyivAkrFna1M1k3ao",
+       14.0,
+       1.0
+      ],
+      [
+       "site/3_piece_set_colour_black.jpg",
+       0,
+       1.0,
+       {
+        "zoom": [
+         1.0,
+         1.06
+        ]
+       }
+      ]
+     ],
+     "Sixty percent off three matching bags, in one Christmas box.": [
+      [
+       "1v8gKfP9ZYsuh7w5yBwlInmv_-U-pY2x_",
+       4.5,
+       1.0,
+       {
+        "zoom": [
+         1.6,
+         1.66
+        ],
+        "focus": [
+         0.5,
+         0.42
+        ]
+       }
+      ],
+      [
+       "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+       9.0,
+       1.0,
+       {
+        "zoom": [
+         1.3,
+         1.36
+        ],
+        "focus": [
+         0.5,
+         0.55
+        ]
+       }
+      ]
+     ]
+    }
+   },
+   "est_seconds": 62.0,
+   "project": "P01",
+   "hook_text": "Buying for someone who changes bags three times a day?",
+   "hook_label": "THREE BAGS",
+   "hook_type": "question",
+   "opening_shot": [
+    "1MtOonVbf-pqmrcU5DUgY6995LObDfwn7",
+    12.0
+   ]
+  },
+  {
+   "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_P01_H2_threeinone",
+   "id": "P01H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "ugc": {
+    "script": "U01",
+    "angle": "threeinone",
+    "words": 186,
+    "structure": "gift_reveal",
+    "hook": {
+     "type": "question",
+     "label": "THREE BAGS",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Watch one box open into three matching bags.",
+      "type": "promise",
+      "label": "ONE BOX",
+      "feature": null,
+      "show": [
+       "packing",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Before you buy her one bag this Christmas, look at three.",
+      "type": "warning",
+      "label": "LOOK AT THREE",
+      "feature": null,
+      "show": [
+       "strap",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Sixty percent off three matching bags, in one Christmas box.",
+      "type": "price",
+      "label": "60% OFF",
+      "feature": null,
+      "show": [
+       "pouch",
+       "handheld"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Watch one box open into three matching bags.": [
+      [
+       "1StPro8S4b5_LUICHyivAkrFna1M1k3ao",
+       8.5,
+       1.0
+      ]
+     ],
+     "Before you buy her one bag this Christmas, look at three.": [
+      [
+       "1StPro8S4b5_LUICHyivAkrFna1M1k3ao",
+       14.0,
+       1.0
+      ],
+      [
+       "site/3_piece_set_colour_black.jpg",
+       0,
+       1.0,
+       {
+        "zoom": [
+         1.0,
+         1.06
+        ]
+       }
+      ]
+     ],
+     "Sixty percent off three matching bags, in one Christmas box.": [
+      [
+       "1v8gKfP9ZYsuh7w5yBwlInmv_-U-pY2x_",
+       4.5,
+       1.0,
+       {
+        "zoom": [
+         1.6,
+         1.66
+        ],
+        "focus": [
+         0.5,
+         0.42
+        ]
+       }
+      ],
+      [
+       "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+       9.0,
+       1.0,
+       {
+        "zoom": [
+         1.3,
+         1.36
+        ],
+        "focus": [
+         0.5,
+         0.55
+        ]
+       }
+      ]
+     ]
+    }
+   },
+   "est_seconds": 61.4,
+   "project": "P01",
+   "hook_text": "Watch one box open into three matching bags.",
+   "hook_label": "ONE BOX",
+   "hook_type": "promise",
+   "opening_shot": [
+    "1StPro8S4b5_LUICHyivAkrFna1M1k3ao",
+    8.5
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_P01_H3_threeinone",
+   "id": "P01H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "ugc": {
+    "script": "U01",
+    "angle": "threeinone",
+    "words": 186,
+    "structure": "gift_reveal",
+    "hook": {
+     "type": "question",
+     "label": "THREE BAGS",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Watch one box open into three matching bags.",
+      "type": "promise",
+      "label": "ONE BOX",
+      "feature": null,
+      "show": [
+       "packing",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Before you buy her one bag this Christmas, look at three.",
+      "type": "warning",
+      "label": "LOOK AT THREE",
+      "feature": null,
+      "show": [
+       "strap",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Sixty percent off three matching bags, in one Christmas box.",
+      "type": "price",
+      "label": "60% OFF",
+      "feature": null,
+      "show": [
+       "pouch",
+       "handheld"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Watch one box open into three matching bags.": [
+      [
+       "1StPro8S4b5_LUICHyivAkrFna1M1k3ao",
+       8.5,
+       1.0
+      ]
+     ],
+     "Before you buy her one bag this Christmas, look at three.": [
+      [
+       "1StPro8S4b5_LUICHyivAkrFna1M1k3ao",
+       14.0,
+       1.0
+      ],
+      [
+       "site/3_piece_set_colour_black.jpg",
+       0,
+       1.0,
+       {
+        "zoom": [
+         1.0,
+         1.06
+        ]
+       }
+      ]
+     ],
+     "Sixty percent off three matching bags, in one Christmas box.": [
+      [
+       "1v8gKfP9ZYsuh7w5yBwlInmv_-U-pY2x_",
+       4.5,
+       1.0,
+       {
+        "zoom": [
+         1.6,
+         1.66
+        ],
+        "focus": [
+         0.5,
+         0.42
+        ]
+       }
+      ],
+      [
+       "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+       9.0,
+       1.0,
+       {
+        "zoom": [
+         1.3,
+         1.36
+        ],
+        "focus": [
+         0.5,
+         0.55
+        ]
+       }
+      ]
+     ]
+    }
+   },
+   "est_seconds": 62.3,
+   "project": "P01",
+   "hook_text": "Before you buy her one bag this Christmas, look at three.",
+   "hook_label": "LOOK AT THREE",
+   "hook_type": "warning",
+   "opening_shot": [
+    "1StPro8S4b5_LUICHyivAkrFna1M1k3ao",
+    14.0
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_P01_H4_threeinone",
+   "id": "P01H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "ugc": {
+    "script": "U01",
+    "angle": "threeinone",
+    "words": 186,
+    "structure": "gift_reveal",
+    "hook": {
+     "type": "question",
+     "label": "THREE BAGS",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Watch one box open into three matching bags.",
+      "type": "promise",
+      "label": "ONE BOX",
+      "feature": null,
+      "show": [
+       "packing",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Before you buy her one bag this Christmas, look at three.",
+      "type": "warning",
+      "label": "LOOK AT THREE",
+      "feature": null,
+      "show": [
+       "strap",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Sixty percent off three matching bags, in one Christmas box.",
+      "type": "price",
+      "label": "60% OFF",
+      "feature": null,
+      "show": [
+       "pouch",
+       "handheld"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Watch one box open into three matching bags.": [
+      [
+       "1StPro8S4b5_LUICHyivAkrFna1M1k3ao",
+       8.5,
+       1.0
+      ]
+     ],
+     "Before you buy her one bag this Christmas, look at three.": [
+      [
+       "1StPro8S4b5_LUICHyivAkrFna1M1k3ao",
+       14.0,
+       1.0
+      ],
+      [
+       "site/3_piece_set_colour_black.jpg",
+       0,
+       1.0,
+       {
+        "zoom": [
+         1.0,
+         1.06
+        ]
+       }
+      ]
+     ],
+     "Sixty percent off three matching bags, in one Christmas box.": [
+      [
+       "1v8gKfP9ZYsuh7w5yBwlInmv_-U-pY2x_",
+       4.5,
+       1.0,
+       {
+        "zoom": [
+         1.6,
+         1.66
+        ],
+        "focus": [
+         0.5,
+         0.42
+        ]
+       }
+      ],
+      [
+       "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+       9.0,
+       1.0,
+       {
+        "zoom": [
+         1.3,
+         1.36
+        ],
+        "focus": [
+         0.5,
+         0.55
+        ]
+       }
+      ]
+     ]
+    }
+   },
+   "est_seconds": 62.0,
+   "project": "P01",
+   "hook_text": "Sixty percent off three matching bags, in one Christmas box.",
+   "hook_label": "60% OFF",
+   "hook_type": "price",
+   "opening_shot": [
+    "1v8gKfP9ZYsuh7w5yBwlInmv_-U-pY2x_",
+    4.5
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_P02_H1_onetotethree",
+   "id": "P02H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "ugc": {
+    "script": "U02",
+    "angle": "onetotethree",
+    "words": 181,
+    "structure": "swap",
+    "hook": {
+     "type": "question",
+     "label": "ONE TOTE?",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "A tote against this set: watch what the zip does.",
+      "type": "promise",
+      "label": "WATCH THE ZIP",
+      "feature": null,
+      "show": [
+       "zip",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Your cards at the bottom of an open tote again?",
+      "type": "problem",
+      "label": "CARDS LOOSE?",
+      "feature": null,
+      "show": [
+       "pouch",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Before you carry that tote to the Christmas shops, see this.",
+      "type": "warning",
+      "label": "SEE THIS",
+      "feature": null,
+      "show": [
+       "strap",
+       "worn"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "A tote against this set: watch what the zip does.": [
+      [
+       "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+       1.0,
+       1.0
+      ],
+      [
+       "site/3_piece_set_11.jpg",
+       0,
+       1.0,
+       {
+        "zoom": [
+         1.0,
+         1.06
+        ]
+       }
+      ]
+     ],
+     "Your cards at the bottom of an open tote again?": [
+      [
+       "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+       9.0,
+       1.0,
+       {
+        "zoom": [
+         1.3,
+         1.36
+        ],
+        "focus": [
+         0.5,
+         0.55
+        ]
+       }
+      ],
+      [
+       "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+       12.0,
+       1.0,
+       {
+        "zoom": [
+         1.3,
+         1.36
+        ],
+        "focus": [
+         0.5,
+         0.55
+        ]
+       }
+      ]
+     ],
+     "Before you carry that tote to the Christmas shops, see this.": [
+      [
+       "site/3_piece_set_15.jpg",
+       0,
+       1.0,
+       {
+        "zoom": [
+         1.0,
+         1.06
+        ]
+       }
+      ],
+      [
+       "1MtOonVbf-pqmrcU5DUgY6995LObDfwn7",
+       8.0,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 60.3,
+   "project": "P02",
+   "hook_text": "Still carrying one big tote to every single plan?",
+   "hook_label": "ONE TOTE?",
+   "hook_type": "question",
+   "opening_shot": [
+    "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+    16.0
+   ]
+  },
+  {
+   "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_P02_H2_onetotethree",
+   "id": "P02H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "ugc": {
+    "script": "U02",
+    "angle": "onetotethree",
+    "words": 181,
+    "structure": "swap",
+    "hook": {
+     "type": "question",
+     "label": "ONE TOTE?",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "A tote against this set: watch what the zip does.",
+      "type": "promise",
+      "label": "WATCH THE ZIP",
+      "feature": null,
+      "show": [
+       "zip",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Your cards at the bottom of an open tote again?",
+      "type": "problem",
+      "label": "CARDS LOOSE?",
+      "feature": null,
+      "show": [
+       "pouch",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Before you carry that tote to the Christmas shops, see this.",
+      "type": "warning",
+      "label": "SEE THIS",
+      "feature": null,
+      "show": [
+       "strap",
+       "worn"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "A tote against this set: watch what the zip does.": [
+      [
+       "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+       1.0,
+       1.0
+      ],
+      [
+       "site/3_piece_set_11.jpg",
+       0,
+       1.0,
+       {
+        "zoom": [
+         1.0,
+         1.06
+        ]
+       }
+      ]
+     ],
+     "Your cards at the bottom of an open tote again?": [
+      [
+       "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+       9.0,
+       1.0,
+       {
+        "zoom": [
+         1.3,
+         1.36
+        ],
+        "focus": [
+         0.5,
+         0.55
+        ]
+       }
+      ],
+      [
+       "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+       12.0,
+       1.0,
+       {
+        "zoom": [
+         1.3,
+         1.36
+        ],
+        "focus": [
+         0.5,
+         0.55
+        ]
+       }
+      ]
+     ],
+     "Before you carry that tote to the Christmas shops, see this.": [
+      [
+       "site/3_piece_set_15.jpg",
+       0,
+       1.0,
+       {
+        "zoom": [
+         1.0,
+         1.06
+        ]
+       }
+      ],
+      [
+       "1MtOonVbf-pqmrcU5DUgY6995LObDfwn7",
+       8.0,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 60.6,
+   "project": "P02",
+   "hook_text": "A tote against this set: watch what the zip does.",
+   "hook_label": "WATCH THE ZIP",
+   "hook_type": "promise",
+   "opening_shot": [
+    "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+    1.0
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_P02_H3_onetotethree",
+   "id": "P02H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "ugc": {
+    "script": "U02",
+    "angle": "onetotethree",
+    "words": 181,
+    "structure": "swap",
+    "hook": {
+     "type": "question",
+     "label": "ONE TOTE?",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "A tote against this set: watch what the zip does.",
+      "type": "promise",
+      "label": "WATCH THE ZIP",
+      "feature": null,
+      "show": [
+       "zip",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Your cards at the bottom of an open tote again?",
+      "type": "problem",
+      "label": "CARDS LOOSE?",
+      "feature": null,
+      "show": [
+       "pouch",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Before you carry that tote to the Christmas shops, see this.",
+      "type": "warning",
+      "label": "SEE THIS",
+      "feature": null,
+      "show": [
+       "strap",
+       "worn"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "A tote against this set: watch what the zip does.": [
+      [
+       "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+       1.0,
+       1.0
+      ],
+      [
+       "site/3_piece_set_11.jpg",
+       0,
+       1.0,
+       {
+        "zoom": [
+         1.0,
+         1.06
+        ]
+       }
+      ]
+     ],
+     "Your cards at the bottom of an open tote again?": [
+      [
+       "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+       9.0,
+       1.0,
+       {
+        "zoom": [
+         1.3,
+         1.36
+        ],
+        "focus": [
+         0.5,
+         0.55
+        ]
+       }
+      ],
+      [
+       "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+       12.0,
+       1.0,
+       {
+        "zoom": [
+         1.3,
+         1.36
+        ],
+        "focus": [
+         0.5,
+         0.55
+        ]
+       }
+      ]
+     ],
+     "Before you carry that tote to the Christmas shops, see this.": [
+      [
+       "site/3_piece_set_15.jpg",
+       0,
+       1.0,
+       {
+        "zoom": [
+         1.0,
+         1.06
+        ]
+       }
+      ],
+      [
+       "1MtOonVbf-pqmrcU5DUgY6995LObDfwn7",
+       8.0,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 60.6,
+   "project": "P02",
+   "hook_text": "Your cards at the bottom of an open tote again?",
+   "hook_label": "CARDS LOOSE?",
+   "hook_type": "problem",
+   "opening_shot": [
+    "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+    9.0
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_P02_H4_onetotethree",
+   "id": "P02H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "ugc": {
+    "script": "U02",
+    "angle": "onetotethree",
+    "words": 181,
+    "structure": "swap",
+    "hook": {
+     "type": "question",
+     "label": "ONE TOTE?",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "A tote against this set: watch what the zip does.",
+      "type": "promise",
+      "label": "WATCH THE ZIP",
+      "feature": null,
+      "show": [
+       "zip",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Your cards at the bottom of an open tote again?",
+      "type": "problem",
+      "label": "CARDS LOOSE?",
+      "feature": null,
+      "show": [
+       "pouch",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Before you carry that tote to the Christmas shops, see this.",
+      "type": "warning",
+      "label": "SEE THIS",
+      "feature": null,
+      "show": [
+       "strap",
+       "worn"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "A tote against this set: watch what the zip does.": [
+      [
+       "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+       1.0,
+       1.0
+      ],
+      [
+       "site/3_piece_set_11.jpg",
+       0,
+       1.0,
+       {
+        "zoom": [
+         1.0,
+         1.06
+        ]
+       }
+      ]
+     ],
+     "Your cards at the bottom of an open tote again?": [
+      [
+       "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+       9.0,
+       1.0,
+       {
+        "zoom": [
+         1.3,
+         1.36
+        ],
+        "focus": [
+         0.5,
+         0.55
+        ]
+       }
+      ],
+      [
+       "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+       12.0,
+       1.0,
+       {
+        "zoom": [
+         1.3,
+         1.36
+        ],
+        "focus": [
+         0.5,
+         0.55
+        ]
+       }
+      ]
+     ],
+     "Before you carry that tote to the Christmas shops, see this.": [
+      [
+       "site/3_piece_set_15.jpg",
+       0,
+       1.0,
+       {
+        "zoom": [
+         1.0,
+         1.06
+        ]
+       }
+      ],
+      [
+       "1MtOonVbf-pqmrcU5DUgY6995LObDfwn7",
+       8.0,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 60.9,
+   "project": "P02",
+   "hook_text": "Before you carry that tote to the Christmas shops, see this.",
+   "hook_label": "SEE THIS",
+   "hook_type": "warning",
+   "opening_shot": [
+    "site/3_piece_set_15.jpg",
+    0
+   ],
+   "hook_source": "script"
+  }
+ ],
+ "tts_lines": 18,
+ "tts_dupes": {},
+ "est_credits": 6.3,
+ "budget": 100.0,
+ "colour_images": {
+  "Black": "/tmp/run/xmas-set3/site/3_piece_set_colour_black.jpg",
+  "Blue": "/tmp/run/xmas-set3/site/3_piece_set_colour_blue.jpg",
+  "Grey": "/tmp/run/xmas-set3/site/3_piece_set_colour_grey.jpg",
+  "Purple Red": "/tmp/run/xmas-set3/site/3_piece_set_colour_purple_red.jpg",
+  "Red": "/tmp/run/xmas-set3/site/3_piece_set_colour_red.jpg"
+ },
+ "packshots": [
+  "/tmp/run/xmas-set3/site/3_piece_set_colour_black.jpg",
+  "/tmp/run/xmas-set3/site/3_piece_set_colour_blue.jpg",
+  "/tmp/run/xmas-set3/site/3_piece_set_colour_grey.jpg",
+  "/tmp/run/xmas-set3/site/3_piece_set_colour_purple_red.jpg",
+  "/tmp/run/xmas-set3/site/3_piece_set_colour_red.jpg"
+ ],
+ "brief": null,
+ "ai": {
+  "stills": 8,
+  "clips": 7,
+  "est_credits": 52.5,
+  "budget": {
+   "cap": 100.0,
+   "tts_est": 9.0,
+   "reserve": 8.0
+  },
+  "scenes": [
+   "p01_s01_swing_tag",
+   "p01_s03_pov_sticker",
+   "p01_s05_under_tree",
+   "p01_s07",
+   "p02_s02_window_display",
+   "p02_s04_gift_unbox",
+   "p02_s06",
+   "p02_s08",
+   "xmas_mantel",
+   "xmas_market_walk",
+   "xmas_party_table",
+   "xmas_shop_street",
+   "xmas_station_walk",
+   "xmas_tree_floor",
+   "xmas_wrapping_hand"
+  ],
+  "next": "python3 pipeline/ai_gen.py show --out /tmp/run/xmas-set3"
+ },
+ "winners_source": null,
+ "winners_note": null,
+ "winners_used": [],
+ "unmatched_winners": [],
+ "warnings": [
+  "Hobo Bag 3-Piece Set: reviews [7, 8, 9, 6] left out: reviews.json does not say they are about this bag (Julian 2026-11-19: quotes only from reviews of the bag in the ad)",
+  "ideas: 8 AI statics of 10 (5 designed ads, 3 studio scenes; about 8 credits plus retries)",
+  "re-plan: keeps batch number B056 (planned in this --out, not uploaded yet)",
+  "Hobo Bag 3-Piece Set has 5 earlier batch(es) in the novelty log: the statics start 5 step(s) further in their photo / headline cycle (other photos and captions than before)",
+  "AI b-roll (--ai): 8 clips of the real bag (xmas_party_table, xmas_shop_street, xmas_mantel, xmas_wrapping_hand, xmas_tree_floor, xmas_market_walk, xmas_station_walk, xmas_door_hand), ~51.5 credits with their start stills"
+ ],
+ "winner_reviews": false,
+ "seed": 1,
+ "hooks": 4,
+ "pipeline": "catalog",
+ "video_format": "ugc",
+ "ugc_numbers": [],
+ "voice": {
+  "voice_type": "element",
+  "voice_id": "241459b6-b4e8-4a2a-9868-da8bcdcd0558",
+  "speed": 1.12
+ },
+ "projects": [
+  {
+   "id": "P01",
+   "from_id": "V01",
+   "angle": "threeinone",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P01H1",
+     "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_P01_H1_threeinone",
+     "hook_text": "Buying for someone who changes bags three times a day?",
+     "label": "THREE BAGS",
+     "type": "question",
+     "shot": [
+      "1MtOonVbf-pqmrcU5DUgY6995LObDfwn7",
+      12.0
+     ],
+     "est_seconds": 62.0
+    },
+    {
+     "hook": "H2",
+     "id": "P01H2",
+     "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_P01_H2_threeinone",
+     "hook_text": "Watch one box open into three matching bags.",
+     "label": "ONE BOX",
+     "type": "promise",
+     "shot": [
+      "1StPro8S4b5_LUICHyivAkrFna1M1k3ao",
+      8.5
+     ],
+     "est_seconds": 61.4
+    },
+    {
+     "hook": "H3",
+     "id": "P01H3",
+     "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_P01_H3_threeinone",
+     "hook_text": "Before you buy her one bag this Christmas, look at three.",
+     "label": "LOOK AT THREE",
+     "type": "warning",
+     "shot": [
+      "1StPro8S4b5_LUICHyivAkrFna1M1k3ao",
+      14.0
+     ],
+     "est_seconds": 62.3
+    },
+    {
+     "hook": "H4",
+     "id": "P01H4",
+     "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_P01_H4_threeinone",
+     "hook_text": "Sixty percent off three matching bags, in one Christmas box.",
+     "label": "60% OFF",
+     "type": "price",
+     "shot": [
+      "1v8gKfP9ZYsuh7w5yBwlInmv_-U-pY2x_",
+      4.5
+     ],
+     "est_seconds": 62.0
+    }
+   ]
+  },
+  {
+   "id": "P02",
+   "from_id": "V02",
+   "angle": "onetotethree",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P02H1",
+     "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_P02_H1_onetotethree",
+     "hook_text": "Still carrying one big tote to every single plan?",
+     "label": "ONE TOTE?",
+     "type": "question",
+     "shot": [
+      "1no4sfl12SIUF-IWkBX4Xo2ri58deQxsx",
+      16.0
+     ],
+     "est_seconds": 60.3
+    },
+    {
+     "hook": "H2",
+     "id": "P02H2",
+     "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_P02_H2_onetotethree",
+     "hook_text": "A tote against this set: watch what the zip does.",
+     "label": "WATCH THE ZIP",
+     "type": "promise",
+     "shot": [
+      "1ftNQdXFnvgYmcLhN12OdbC0R3YQur16X",
+      1.0
+     ],
+     "est_seconds": 60.6
+    },
+    {
+     "hook": "H3",
+     "id": "P02H3",
+     "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_P02_H3_onetotethree",
+     "hook_text": "Your cards at the bottom of an open tote again?",
+     "label": "CARDS LOOSE?",
+     "type": "problem",
+     "shot": [
+      "1pwD5FXA8_dLwraTdrWKc0HJ8tZzzDD06",
+      9.0
+     ],
+     "est_seconds": 60.6
+    },
+    {
+     "hook": "H4",
+     "id": "P02H4",
+     "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_P02_H4_onetotethree",
+     "hook_text": "Before you carry that tote to the Christmas shops, see this.",
+     "label": "SEE THIS",
+     "type": "warning",
+     "shot": [
+      "site/3_piece_set_15.jpg",
+      0
+     ],
+     "est_seconds": 60.9
+    }
+   ]
+  }
+ ],
+ "hooks_seed": 1
+}

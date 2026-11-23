@@ -1,0 +1,336 @@
+{
+ "mode": "ugc",
+ "voice_speed": 1.12,
+ "blocks": [
+  {
+   "talk": "talk/P01H3_hook.mp4",
+   "text": "Before you wrap another scarf for her, look at this gift.",
+   "scene": "tree",
+   "broll": [
+    [
+     "TALK",
+     0,
+     1.0
+    ]
+   ]
+  },
+  {
+   "talk": "talk/P01_c1.mp4",
+   "text": "Shopping for the woman on your list who always has her hands full? The wrapping paper, the coffee, the gloves, the keys. Give her a bag that keeps up with all of it.",
+   "scene": "tree",
+   "broll": [
+    [
+     "TALK",
+     0,
+     1.0,
+     {
+      "at": 0
+     }
+    ],
+    [
+     "TALK",
+     0,
+     1.0,
+     {
+      "at": 13
+     }
+    ],
+    [
+     "TALK",
+     0,
+     1.0,
+     {
+      "at": 22
+     }
+    ]
+   ],
+   "spare": [
+    [
+     "1LyryrXa2Haxk8f1x29x3jDkEn8Y3Dh-A",
+     2.86,
+     1.0
+    ],
+    [
+     "1ADfvEWAKMrFQiOui9z0_DXf_SQoGOEzc",
+     0.3,
+     1.0
+    ],
+    [
+     "1LyryrXa2Haxk8f1x29x3jDkEn8Y3Dh-A",
+     0.3,
+     1.0
+    ]
+   ],
+   "pace": "slow"
+  },
+  {
+   "talk": "talk/P01_c2.mp4",
+   "text": "Here it is, out of the tissue paper. Watch the clasp. One snap with one hand and it's shut, even with a coffee in the other hand.",
+   "scene": "table",
+   "broll": [
+    [
+     "TALK",
+     0,
+     1.0,
+     {
+      "at": 0
+     }
+    ],
+    [
+     "1n_iVN9Lf1dKnL9Mo1ixhZiHX-MBBv7gp",
+     9.12,
+     1.0,
+     {
+      "at": 8
+     }
+    ],
+    [
+     "1PqOCKXPzIB5F2F_GE0pGM34NXUDiS3au",
+     0.3,
+     1.0,
+     {
+      "at": 19
+     }
+    ]
+   ],
+   "spare": [
+    [
+     "1R252UTrxdvK5bBTBSgBNWv04zCDUs5KK",
+     9.6,
+     1.0
+    ],
+    [
+     "17iFr-T6Hmi4mhwk5ZAaeEt3rIeZ1G1Rj",
+     7.56,
+     1.0
+    ]
+   ],
+   "proof": true
+  },
+  {
+   "talk": "talk/P01_c3.mp4",
+   "text": "Now open it up. There's a spot for her phone, her wallet and her keys, each in its own place, so nothing ends up lost at the bottom.",
+   "scene": "table",
+   "broll": [
+    [
+     "TALK",
+     0,
+     1.0,
+     {
+      "at": 0
+     }
+    ],
+    [
+     "TALK",
+     0,
+     1.0,
+     {
+      "at": 10
+     }
+    ],
+    [
+     "TALK",
+     0,
+     1.0,
+     {
+      "at": 20
+     }
+    ]
+   ],
+   "spare": [
+    [
+     "10aSieQA3Lb3YEflOG3dXN2sIgckqMv4f",
+     9.3,
+     1.0
+    ],
+    [
+     "1MvdPIZHiVIGTM7oedtSmDPBNcj7zMq2y",
+     19.72,
+     1.0
+    ]
+   ]
+  },
+  {
+   "talk": "talk/P01_c4.mp4",
+   "text": "And the strap adjusts. Short, she carries it as a handbag to Christmas lunch. Long, it goes crossbody for a walk round the Christmas market, both hands on the shopping.",
+   "scene": "tree",
+   "broll": [
+    [
+     "1-rzfYRYKmmUocjp-CfJnrVDnsUBGq_t-",
+     0.5,
+     1.0,
+     {
+      "at": 0
+     }
+    ],
+    [
+     "TALK",
+     0,
+     1.0,
+     {
+      "at": 4
+     }
+    ],
+    [
+     "1jiKMP1UF2l5BJcWaYsZycc3JyU4DKf0V",
+     0.3,
+     1.0,
+     {
+      "at": 14
+     }
+    ],
+    [
+     "TALK",
+     0,
+     1.0,
+     {
+      "at": 25
+     }
+    ]
+   ],
+   "spare": [
+    [
+     "1ADfvEWAKMrFQiOui9z0_DXf_SQoGOEzc",
+     3.88,
+     1.0
+    ],
+    [
+     "1n_iVN9Lf1dKnL9Mo1ixhZiHX-MBBv7gp",
+     13.17,
+     1.0
+    ]
+   ]
+  },
+  {
+   "talk": "talk/P01_c5.mp4",
+   "text": "The Vintage Bag is fifty percent off right now, with free shipping. One gift crossed off your list, and one she can carry every day. Tap the link below.",
+   "scene": "tree",
+   "broll": [
+    [
+     "TALK",
+     0,
+     1.0,
+     {
+      "at": 0
+     }
+    ],
+    [
+     "TALK",
+     0,
+     1.0,
+     {
+      "at": 9
+     }
+    ],
+    [
+     "TALK",
+     0,
+     1.0,
+     {
+      "at": 18
+     }
+    ],
+    [
+     "TALK",
+     0,
+     1.0,
+     {
+      "at": 25
+     }
+    ]
+   ],
+   "spare": [
+    [
+     "1xvNFMVbihfFP4c9swMaLYL2avwwmOYy4",
+     0.3,
+     1.0
+    ],
+    [
+     "156yw4fhlcKn3WYbzwjndnYzsDh9xw5TI",
+     0.3,
+     1.0
+    ]
+   ]
+  }
+ ],
+ "overlays": [
+  {
+   "type": "tag",
+   "text": "ONE-HAND CLASP",
+   "block": 2,
+   "at": 0.15,
+   "dur": 2.6,
+   "y": 960
+  },
+  {
+   "type": "tag",
+   "text": "ROOM FOR EVERYTHING",
+   "block": 3,
+   "at": 0.15,
+   "dur": 2.6,
+   "y": 960
+  },
+  {
+   "type": "tag",
+   "text": "ADJUSTABLE STRAP",
+   "block": 4,
+   "at": 0.15,
+   "dur": 2.6,
+   "y": 960
+  }
+ ],
+ "end_title": "The Vintage Bag",
+ "offer": {
+  "block": 5,
+  "word": "50",
+  "title": "50% OFF",
+  "sub": ""
+ },
+ "presenter": "maya",
+ "overlay_y": 960,
+ "end_photo": "site/vintage_colour_black.jpg",
+ "end_offer": "50% OFF",
+ "keywords": [
+  "50%",
+  "hidden",
+  "pocket",
+  "leather",
+  "gift",
+  "christmas"
+ ],
+ "spare_broll": [
+  [
+   "17iFr-T6Hmi4mhwk5ZAaeEt3rIeZ1G1Rj",
+   10.98,
+   1.0
+  ],
+  [
+   "1kvkyYZCu3c60QKlGQNEDDbrMp_gzaf40",
+   8.25,
+   1.0
+  ],
+  [
+   "1jgkCse4uMTSToBBDAFFpF0gx_6qI4Zo6",
+   9.37,
+   1.0
+  ],
+  [
+   "16tPrjwInS7Kzcvs17bMHBP4OwEjFc_Yn",
+   2.48,
+   1.0
+  ],
+  [
+   "1SBRzm0fRWJXbrCIPZ4sgGku8WfO72vRp",
+   9.12,
+   1.0
+  ],
+  [
+   "1xWaBIVn543CxSr0WmqHEuasUJJGPcb55",
+   23.97,
+   1.0
+  ]
+ ],
+ "music": {
+  "seed": 1
+ }
+}

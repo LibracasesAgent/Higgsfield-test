@@ -1,0 +1,308 @@
+{
+ "stills": [
+  {
+   "id": "AS01",
+   "use": "static",
+   "scene": "p01_s01_note_card",
+   "kind": "object",
+   "colour": "Dark Sienna",
+   "layout": "ad",
+   "format": "note_card",
+   "tag": "note",
+   "words": [
+    "For her: bag + wallet.",
+    "50% OFF"
+   ],
+   "ref": "/tmp/run/xmas-hobo/site/hobo_bag_colour_dark_sienna.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS01.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 0,
+   "prompt": "A candid close photo of a real home corner in soft daylight (a hallway console with keys and a small plant, a kitchen counter, a desk by a window): the bag standing there zipped, and in the foreground a large cream note card (about a quarter of the frame, close to the camera, facing it squarely) leaning against the bag, its short reminder written by hand in big bold pen strokes that read easily on a phone; the offer printed big on a red paper tag tied to the handle with string. Lived-in, natural colours, nothing glossy, no mirror. The brown Hobo Bag closed with its matching pouch wallet beside it on a wooden table, red and green wrapping paper and twine around them, a large cream note card propped in front, close to the camera, warm lamp light. The exact handbag from the reference image, unchanged: same colour (dark sienna), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"For her: bag + wallet.\" / \"50% OFF\". Set them as the note in natural handwriting in dark blue ink; the tag's offer in a heavy bold sans-serif, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. The offer \"50% OFF\" is the boldest, largest wording in the picture, read in under a second, with perfectly drawn numerals and percent sign. The line \"For her: bag + wallet.\" is the second voice of the ad: smaller than the offer but clearly readable on a phone, never tiny or faint; the picture shows the moment it tells. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS02",
+   "use": "static",
+   "scene": "p02_s02_carry_map",
+   "kind": "object",
+   "colour": "Galaxy Black",
+   "layout": "ad",
+   "format": "carry_map",
+   "tag": "carrymap",
+   "words": [
+    "Keys: side zip",
+    "Cards: pouch wallet",
+    "50% OFF"
+   ],
+   "ref": "/tmp/run/xmas-hobo/site/hobo_bag_colour_galaxy_black.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS02.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 1,
+   "prompt": "A top-down flat lay on a warm plain surface (linen, oak or a coloured paper backdrop): the bag lying flat and zipped in the middle with its pouch wallet beside it, the everyday things laid neatly around them (a phone, keys on a ring, a card holder, a lip balm), each joined to the part it goes in by a thin hand-drawn white arrow with a short handwritten label, and the offer in a bold circle stamp in one corner. Even soft daylight, real shadows, a real photo. Top-down view of the black Hobo Bag closed on a dark green tablecloth, its matching pouch wallet beside it, a few pine sprigs and a red bauble at the edge, soft daylight. The exact handbag from the reference image, unchanged: same colour (galaxy black), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. Each arrow points exactly at the part it names (a side zip, the pouch wallet); nothing points at a part this view does not show. The only words in the image, each exactly once and spelled exactly as written: \"Keys: side zip\" / \"Cards: pouch wallet\" / \"50% OFF\". Set them as the labels in neat white handwriting, the offer in a bold condensed sans-serif inside a circle, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. The offer \"50% OFF\" is the boldest, largest wording in the picture, read in under a second, with perfectly drawn numerals and percent sign. The lines \"Keys: side zip\" / \"Cards: pouch wallet\" are the second voice of the ad: smaller than the offer but clearly readable on a phone, never tiny or faint; the picture shows the moment they tell. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS03",
+   "use": "static",
+   "scene": "p01_s03_pov_sticker",
+   "kind": "behind",
+   "colour": "Grey",
+   "layout": "ad",
+   "format": "pov_sticker",
+   "tag": "povsticker",
+   "words": [
+    "Packed station. Cards flat against you.",
+    "50% OFF"
+   ],
+   "ref": "/tmp/run/xmas-hobo/site/hobo_bag_colour_grey.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS03.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 2,
+   "prompt": "A candid phone photo taken a few steps behind her in a busy real place (a packed train platform, a street market, an airport queue, a school gate): slightly off-centre, natural mixed light, a little motion blur in the passers-by, real clothes with creases; the bag worn on the shoulder or crossbody towards the camera, zipped. One caption in bold white sans-serif with a soft shadow across the empty upper part, the way people caption a photo, and a round glossy sale sticker slapped on a lower corner as if stuck onto the print. A woman seen from behind on a busy train station platform decorated for Christmas, the grey Hobo Bag on her shoulder, wrapped presents in her arms, warm station lights and a garland softly blurred, a real candid phone photo. The exact handbag from the reference image, unchanged: same colour (grey), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"Packed station. Cards flat against you.\" / \"50% OFF\". Set them as the caption in a bold white sans-serif with a soft dark shadow, sentence case; the sticker's offer in heavy white type on red, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. The offer \"50% OFF\" is the boldest, largest wording in the picture, read in under a second, with perfectly drawn numerals and percent sign. The line \"Packed station. Cards flat against you.\" is the second voice of the ad: smaller than the offer but clearly readable on a phone, never tiny or faint; the picture shows the moment it tells. She is seen only from behind, walking away from the camera, her head turned forward, the bag towards the camera; nobody else faces the camera. No face is visible anywhere: nobody looks at the camera, every other person is far away, blurred and facing away. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS04",
+   "use": "static",
+   "scene": "p02_s04_door_wreath",
+   "kind": "object",
+   "colour": "Burgundy",
+   "layout": "ad",
+   "format": "door_wreath",
+   "tag": "doorwreath",
+   "words": [
+    "50% OFF",
+    "Keys in the side zip. Home."
+   ],
+   "ref": "/tmp/run/xmas-hobo/site/hobo_bag_colour_burgundy.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS04.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 3,
+   "prompt": "A real photograph of a painted front door at Christmas: a full green wreath with a red ribbon hangs on the door, the real bag hangs closed by its strap from the door handle below it, a paper tag tied to the wreath carries the offer in big bold letters, the story line set in clean serif type on the calm door panel above; winter daylight, real wood grain and pine needles, nothing glossy. A dark green painted front door with a full Christmas wreath and red ribbon, the burgundy Hobo Bag hanging closed by its strap from the brass door handle, a paper tag on the wreath, winter daylight. The exact handbag from the reference image, unchanged: same colour (burgundy), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"50% OFF\" / \"Keys in the side zip. Home.\". Set them as clean, legible type, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. The offer \"50% OFF\" is the boldest, largest wording in the picture, read in under a second, with perfectly drawn numerals and percent sign. The line \"Keys in the side zip. Home.\" is the second voice of the ad: smaller than the offer but clearly readable on a phone, never tiny or faint; the picture shows the moment it tells. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS05",
+   "use": "static",
+   "scene": "p01_s05_christmas_card",
+   "kind": "object",
+   "colour": "Blue",
+   "layout": "ad",
+   "format": "christmas_card",
+   "tag": "christmascar",
+   "words": [
+    "Merry Christmas",
+    "50% OFF",
+    "Bag + matching wallet."
+   ],
+   "ref": "/tmp/run/xmas-hobo/site/hobo_bag_colour_blue.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS05.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 4,
+   "prompt": "A real photograph of a printed Christmas greeting card standing open on a table next to the real bag: the card's front is a simple red card printed with the offer in big gold letters, the story line set large in clean serif type on the calm tablecloth below; a candle, a few pine sprigs, warm evening light, real paper texture, nothing glossy. The blue Hobo Bag closed on a white linen tablecloth with its matching pouch wallet, a printed red Christmas card standing open beside it, a lit candle and pine sprigs, warm evening light. The exact handbag from the reference image, unchanged: same colour (blue), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The handbag is closed and zipped; its inside is never shown. The only words in the image, each exactly once and spelled exactly as written: \"Merry Christmas\" / \"50% OFF\" / \"Bag + matching wallet.\". Set them as clean, legible type, big, sharp and easy to read on a small phone screen (the main line spans most of the picture's width), never over the handbag. No other text anywhere: no logos, no brand names, no labels or writing on the handbag, no watermark. The offer \"50% OFF\" is the boldest, largest wording in the picture, read in under a second, with perfectly drawn numerals and percent sign. The lines \"Merry Christmas\" / \"Bag + matching wallet.\" are the second voice of the ad: smaller than the offer but clearly readable on a phone, never tiny or faint; the picture shows the moment they tell. Nobody is in the picture, not even blurred in the background. Every photographic part looks like a real photograph: true-to-life light and colour, real textures and materials, small natural imperfections, nothing glossy, plastic or computer-generated. Portrait 4:5 composition, the handbag large and clearly visible.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS06",
+   "use": "static",
+   "scene": "p02_s06",
+   "kind": "worn",
+   "colour": "Dark Sienna",
+   "layout": "story",
+   "ref": "/tmp/run/xmas-hobo/site/hobo_bag_colour_dark_sienna.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS06.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 5,
+   "prompt": "Photorealistic candid lifestyle photograph, natural light, shot on a 35mm lens, shallow depth of field, true-to-life colours, fine film grain, no text, no logos, no watermark. The exact handbag from the reference image, unchanged: same colour (dark sienna), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. A woman seen from behind at a busy shop counter in December, the brown Hobo Bag on her shoulder, festive shelves and fairy lights softly blurred. Composition: the bag large in the middle of the frame; the top third is calm and simple (a plain wall, sky or soft background) and both lower corners are calm, for the words. No other person is in the picture. The picture contains no face at all: nobody is looking at the camera and no eyes, nose or mouth are visible; the top edge of the frame cuts the person off at shoulder height. Portrait 4:5 composition, the handbag clearly visible and large in the frame.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS07",
+   "use": "static",
+   "scene": "p01_s07",
+   "kind": "object",
+   "colour": "Galaxy Black",
+   "layout": "story",
+   "ref": "/tmp/run/xmas-hobo/site/hobo_bag_colour_galaxy_black.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS07.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 6,
+   "prompt": "Photorealistic candid lifestyle photograph, natural light, shot on a 35mm lens, shallow depth of field, true-to-life colours, fine film grain, no text, no logos, no watermark. The exact handbag from the reference image, unchanged: same colour (galaxy black), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The black Hobo Bag closed on a dark wooden sideboard beside a small decorated Christmas tree with warm lights, evening, the lower part of the frame a darker plain wood surface. Composition: the bag large in the upper half of the frame; the bottom 40% is calm, simple and a little darker (a plain floor, table top or soft shadow), for the words. Nobody is in the picture, not even blurred in the background. Portrait 4:5 composition, the handbag clearly visible and large in the frame.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AS08",
+   "use": "static",
+   "scene": "p02_s08",
+   "kind": "object",
+   "colour": "Red",
+   "layout": "story",
+   "ref": "/tmp/run/xmas-hobo/site/hobo_bag_colour_red.jpg",
+   "aspect": "4:5",
+   "file": "ai/AS08.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "4:5"
+   },
+   "slot": 7,
+   "prompt": "Photorealistic candid lifestyle photograph, natural light, shot on a 35mm lens, shallow depth of field, true-to-life colours, fine film grain, no text, no logos, no watermark. The exact handbag from the reference image, unchanged: same colour (red), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The red Hobo Bag closed with its matching pouch wallet on a white table in front of a soft red wall, a gold ribbon and tissue paper beside them, clean daylight. Composition: the whole bag fits inside the middle half of the frame's height with calm space above and below it (the top fifth and the bottom third are cropped away), nothing important at the very top or bottom. Nobody is in the picture, not even blurred in the background. Portrait 4:5 composition, the handbag clearly visible and large in the frame.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AV06",
+   "use": "clip",
+   "scene": "xmas_market_walk",
+   "kind": "worn",
+   "colour": "Blue",
+   "ref": "/tmp/run/xmas-hobo/site/hobo_bag_colour_blue.jpg",
+   "aspect": "9:16",
+   "file": "ai/AV06.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "9:16"
+   },
+   "prompt": "Photorealistic candid lifestyle photograph, natural light, shot on a 35mm lens, shallow depth of field, true-to-life colours, fine film grain, no text, no logos, no watermark. The exact handbag from the reference image, unchanged: same colour (blue), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. A woman seen from behind walking slowly through an evening Christmas market, the handbag worn at her hip, warm string lights and wooden stalls softly blurred around her. The picture contains no face at all: nobody is looking at the camera and no eyes, nose or mouth are visible; the top edge of the frame cuts the person off at shoulder height. Vertical 9:16 composition, the handbag clearly visible, large in the frame, with space around it.",
+   "est_credits": 1.0
+  },
+  {
+   "id": "AV07",
+   "use": "clip",
+   "scene": "xmas_station_walk",
+   "kind": "worn",
+   "colour": "Grey",
+   "ref": "/tmp/run/xmas-hobo/site/hobo_bag_colour_grey.jpg",
+   "aspect": "9:16",
+   "file": "ai/AV07.png",
+   "model": "gpt_image_2_5",
+   "params": {
+    "quality": "medium",
+    "resolution": "2k",
+    "aspect_ratio": "9:16"
+   },
+   "prompt": "Photorealistic candid lifestyle photograph, natural light, shot on a 35mm lens, shallow depth of field, true-to-life colours, fine film grain, no text, no logos, no watermark. The exact handbag from the reference image, unchanged: same colour (grey), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. A woman seen from behind on a busy train station platform decorated for Christmas, the handbag on her shoulder, wrapped presents in her arms, warm station lights and a garland softly blurred. The picture contains no face at all: nobody is looking at the camera and no eyes, nose or mouth are visible; the top edge of the frame cuts the person off at shoulder height. Vertical 9:16 composition, the handbag clearly visible, large in the frame, with space around it.",
+   "est_credits": 1.0
+  }
+ ],
+ "clips": [
+  {
+   "id": "AC06",
+   "scene": "xmas_market_walk",
+   "kind": "worn",
+   "tags": [
+    "christmas",
+    "market",
+    "stalls",
+    "walking",
+    "worn",
+    "crossbody",
+    "street",
+    "evening",
+    "shopping",
+    "outdoor"
+   ],
+   "start": "AV06",
+   "file": "ai/clips/AC06.mp4",
+   "model": "minimax_hailuo",
+   "params": {
+    "variant": "minimax-2.3",
+    "duration": 6,
+    "resolution": "768",
+    "aspect_ratio": "9:16"
+   },
+   "trim": 3.2,
+   "prompt": "Candid footage, steady camera follows the woman as she walks away from the camera, the handbag sways gently on her shoulder, background softly blurred. The handbag stays exactly the same shape, colour and details, no morphing. The frame stays cut at shoulder height: no face visible.",
+   "est_credits": 6.0
+  },
+  {
+   "id": "AC07",
+   "scene": "xmas_station_walk",
+   "kind": "worn",
+   "tags": [
+    "christmas",
+    "station",
+    "train",
+    "platform",
+    "crowd",
+    "travel",
+    "walking",
+    "worn",
+    "shoulder",
+    "presents"
+   ],
+   "start": "AV07",
+   "file": "ai/clips/AC07.mp4",
+   "model": "minimax_hailuo",
+   "params": {
+    "variant": "minimax-2.3",
+    "duration": 6,
+    "resolution": "768",
+    "aspect_ratio": "9:16"
+   },
+   "trim": 3.2,
+   "prompt": "Candid footage, steady camera follows the woman as she walks away from the camera, the handbag sways gently on her shoulder, background softly blurred. The handbag stays exactly the same shape, colour and details, no morphing. The frame stays cut at shoulder height: no face visible.",
+   "est_credits": 6.0
+  }
+ ],
+ "est_credits": 22.0,
+ "notes": [],
+ "grade_refs": [],
+ "budget": {
+  "cap": 100.0,
+  "tts_est": 9.0,
+  "reserve": 8.0
+ },
+ "steps": [
+  "1. Upload each distinct `ref` once (media_upload, curl PUT, media_confirm); generate every still with generate_image_batch (model/params/prompt as listed, medias [{value: media_id, role: image_references}], max 12 per call); jobs_wait; download each result to $OUT/<file>.",
+  "2. python3 pipeline/ai_gen.py gate --out $OUT ; LOOK at $OUT/qa/ai_stills.jpg (reference | still): reject any still where the bag's shape, colour, handles or hardware differ from the reference, or that looks AI: python3 pipeline/ai_gen.py reject --out $OUT AS03 ...",
+  "3. For every clip whose start still passed: generate_video_batch (start_image = that still's job id, model/params/prompt as listed); jobs_wait; download to $OUT/<file>. Clips of a rejected still are skipped. If a submission comes back with a preset recommendation instead of a job, send it again with `declined_preset_id` = that preset's id (the project never uses presets).",
+  "3b. Motion stills (AM.. clips, `use: motion`): generate_video_batch with medias [{value: <the still's job id>, role: start_image}, {value: <the same job id>, role: end_image}] (the same still first and last, so the loop has no seam), model/params/prompt as listed.",
+  "4. python3 pipeline/ai_gen.py clips --out $OUT ; LOOK at $OUT/qa/ai_clips.jpg; reject morphing / odd-hand clips with `reject` (a motion still where the bag changes shape, opens, or anything morphs: `reject AM02`). Then render as usual (it applies the result; a motion still whose clip failed ships as the still static alone).",
+  "Report: credits before -> after (balance), how many AI assets passed. Never ship a still or clip you would not believe is real."
+ ]
+}

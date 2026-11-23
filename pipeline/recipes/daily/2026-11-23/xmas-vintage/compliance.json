@@ -1,0 +1,16 @@
+{
+ "ok": true,
+ "product": "Vintage Bag",
+ "offer": "50% off",
+ "checked": 245,
+ "problems": [],
+ "allowed": [],
+ "raw_story": [],
+ "raw_cuts": [],
+ "playbook_warnings": [
+  "LC_261123_VintageBag_Christmas_B054_S01_ribbon primary_text_2: hype_soft: 'perfect': Halbert's hype words date the copy and Meta's ranking reads them as low quality; show the thing instead",
+  "LC_261123_VintageBag_Christmas_B054_S08_versus primary_text_2: hype_soft: 'perfect': Halbert's hype words date the copy and Meta's ranking reads them as low quality; show the thing instead",
+  "LC_261123_VintageBag_Christmas_B054_P01_H3_hersgift hook_first_line: hook_third_person: 'Before you wrap another scarf for her, look at this gift.' talks about 'her' / 'him': the viewer is 'you'"
+ ],
+ "report": "/tmp/run/xmas-vintage/compliance.json"
+}

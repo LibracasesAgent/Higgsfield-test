@@ -1,0 +1,234 @@
+{
+ "ok": true,
+ "created": "2026-11-23",
+ "product": "Vintage Bag",
+ "theme": "christmas",
+ "theme_name": "Christmas",
+ "offer": "50% off",
+ "seed": 1,
+ "cta": "Shop Now",
+ "rows": 18,
+ "csv": "/tmp/run/xmas-vintage/ad_copy.csv",
+ "statics": [
+  {
+   "id": "S01",
+   "ad_name": "LC_261123_VintageBag_Christmas_B054_S01_ribbon",
+   "angle": "ad",
+   "primary_text_1": "Most gifts end up in a drawer. Not this one.\nThe Vintage Bag: 50% off.",
+   "primary_text_2": "Still looking for the perfect Christmas gift?\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nA clasp that snaps shut with one hand.\nIt's 50% off right now. 🎁\nTap Shop Now to get one for her.",
+   "headline_1": "Christmas Gift Sorted: The Vintage Bag",
+   "headline_2": "Now 50% Off: The Vintage Bag",
+   "description": "50% off + free shipping",
+   "cta": "Shop Now",
+   "cta_type": "SHOP_NOW"
+  },
+  {
+   "id": "S02",
+   "ad_name": "LC_261123_VintageBag_Christmas_B054_S02_window",
+   "angle": "window_display",
+   "primary_text_1": "Classic on the outside. Organised on the inside.\n50% off the Vintage Bag.",
+   "primary_text_2": "The gift she'll use every day.\nOpen it up and there's room for your phone, wallet and keys, all in their own spot.\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nNow 50% off. 🎁\nTap Shop Now to get one for her.",
+   "headline_1": "Christmas Gift Sorted",
+   "headline_2": "The Vintage Bag: Room for Everything",
+   "description": "Now 50% off",
+   "cta": "Shop Now",
+   "cta_type": "SHOP_NOW"
+  },
+  {
+   "id": "S03",
+   "ad_name": "LC_261123_VintageBag_Christmas_B054_S03_note",
+   "angle": "ad",
+   "primary_text_1": "One hand, one snap, and it's shut.\nThe Vintage Bag: 50% off.",
+   "primary_text_2": "Take a closer look at the Vintage Bag.\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nA clasp that snaps shut with one hand.\nIt's 50% off right now. 🎁\nTap Shop Now to get one for her.",
+   "headline_1": "The Gift She'll Use Every Day",
+   "headline_2": "Vintage Bag: 50% Off",
+   "description": "4 colours + free shipping",
+   "cta": "Shop Now",
+   "cta_type": "SHOP_NOW"
+  },
+  {
+   "id": "S04",
+   "ad_name": "LC_261123_VintageBag_Christmas_B054_S04_mantelmornin",
+   "angle": "ad",
+   "primary_text_1": "Does your bag close with one hand?\n50% off the Vintage Bag.",
+   "primary_text_2": "Phone, wallet and keys all loose at the bottom of your bag?\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nA clasp that snaps shut with one hand.\nIt's 50% off right now. 🎁\nTap Shop Now to get one for her.",
+   "headline_1": "Room for Everything + Adjustable Strap",
+   "headline_2": "50% Off the Vintage Bag",
+   "description": "Free shipping",
+   "cta": "Shop Now",
+   "cta_type": "SHOP_NOW"
+  },
+  {
+   "id": "S05",
+   "ad_name": "LC_261123_VintageBag_Christmas_B054_S05_povsticker",
+   "angle": "ad",
+   "primary_text_1": "Looking for a gift with a vintage look?\nThe Vintage Bag, now 50% off.",
+   "primary_text_2": "Handbag or crossbody? With this one, you don't have to choose.\nOpen it up and there's room for your phone, wallet and keys, all in their own spot.\nA clasp that snaps shut with one hand.\nIt's 50% off right now. 🎁\nTap Shop Now to get one for her.",
+   "headline_1": "Christmas Gift Sorted: The Vintage Bag",
+   "headline_2": "Now 50% Off: The Vintage Bag",
+   "description": "4 colours to choose from",
+   "cta": "Shop Now",
+   "cta_type": "SHOP_NOW"
+  },
+  {
+   "id": "S06",
+   "ad_name": "LC_261123_VintageBag_Christmas_B054_S06_hook",
+   "angle": "story",
+   "primary_text_1": "Day trip? Adjust the strap and wear it crossbody.\n50% off the Vintage Bag.",
+   "primary_text_2": "Have you seen the Vintage Bag yet?\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nA clasp that snaps shut with one hand.\nIt's 50% off right now. 🎁\nTap Shop Now to get one for her.",
+   "headline_1": "Adjustable Strap + One-Hand Clasp",
+   "headline_2": "Meet the Vintage Bag: Adjustable Strap",
+   "description": "50% off + free shipping",
+   "cta": "Shop Now",
+   "cta_type": "SHOP_NOW"
+  },
+  {
+   "id": "S07",
+   "ad_name": "LC_261123_VintageBag_Christmas_B054_S07_list",
+   "angle": "story",
+   "primary_text_1": "You snap it shut with one hand and you're out the door.\nThe Vintage Bag, now 50% off.",
+   "primary_text_2": "Looking for a gift? Meet the Vintage Bag.\nOpen it up and there's room for your phone, wallet and keys, all in their own spot.\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nIt's 50% off right now. 🎁\nTap Shop Now to get one for her.",
+   "headline_1": "Christmas Gift Sorted",
+   "headline_2": "50% Off the Vintage Bag",
+   "description": "Free shipping",
+   "cta": "Shop Now",
+   "cta_type": "SHOP_NOW"
+  },
+  {
+   "id": "S08",
+   "ad_name": "LC_261123_VintageBag_Christmas_B054_S08_versus",
+   "angle": "story",
+   "primary_text_1": "Most gifts end up in a drawer. Not this one.\nThe Vintage Bag, now 50% off.",
+   "primary_text_2": "Still looking for the perfect Christmas gift?\nA clasp that snaps shut with one hand.\nOpen it up and there's room for your phone, wallet and keys, all in their own spot.\nNow 50% off. 🎁\nTap Shop Now to get one for her.",
+   "headline_1": "Meet the Vintage Bag: One-Hand Clasp",
+   "headline_2": "One-Hand Clasp + Room for Everything",
+   "description": "Now 50% off",
+   "cta": "Shop Now",
+   "cta_type": "SHOP_NOW"
+  },
+  {
+   "id": "S09",
+   "ad_name": "LC_261123_VintageBag_Christmas_B054_S09_colours",
+   "angle": "colours",
+   "primary_text_1": "Be honest. Which colour are you?\nThe Vintage Bag: 50% off.",
+   "primary_text_2": "Which colour would you pick?\nChoose from Ginger Brown, Black, Chocolate or Red.\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nNow 50% off. 🎁\nTap Shop Now to pick your colour.",
+   "headline_1": "Which Colour Are You?",
+   "headline_2": "Vintage Bag: 50% Off",
+   "description": "4 colours + free shipping",
+   "cta": "Shop Now",
+   "cta_type": "SHOP_NOW"
+  },
+  {
+   "id": "S10",
+   "ad_name": "LC_261123_VintageBag_Christmas_B054_S10_value",
+   "angle": "value",
+   "primary_text_1": "Classic on the outside. Organised on the inside.\nThe Vintage Bag, now 50% off.",
+   "primary_text_2": "The gift she'll use every day.\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nA clasp that snaps shut with one hand.\nNow 50% off. 🎁\nTap Shop Now to get one for her.",
+   "headline_1": "The Gift She'll Use Every Day",
+   "headline_2": "The Vintage Bag: Adjustable Strap",
+   "description": "4 colours to choose from",
+   "cta": "Shop Now",
+   "cta_type": "SHOP_NOW"
+  }
+ ],
+ "projects": [
+  {
+   "id": "P01",
+   "angle": "hersgift",
+   "engine": "storyboard",
+   "product": "Vintage Bag",
+   "winner": null,
+   "primary_text_1": "One hand, one snap, and it's shut.\nThe Vintage Bag, now 50% off.",
+   "primary_text_2": "Take a closer look at the Vintage Bag.\nA clasp that snaps shut with one hand.\nOpen it up and there's room for your phone, wallet and keys, all in their own spot.\nIt's 50% off right now. 🎁\nTap Shop Now to get one for her.",
+   "headline_1": "The Vintage Bag: One-Hand Clasp",
+   "headline_2": "One-Hand Clasp + Room for Everything",
+   "description": "50% off + free shipping",
+   "cta": "Shop Now",
+   "cta_type": "SHOP_NOW",
+   "versions": [
+    {
+     "hook": "H1",
+     "id": "P01H1",
+     "ad_name": "LC_261123_VintageBag_Christmas_B054_P01_H1_hersgift",
+     "hook_text": "Know someone whose hands are always full of shopping bags?",
+     "hook_first_line": "Know someone whose hands are always full of shopping bags?",
+     "primary_text_2_hook": "Know someone whose hands are always full of shopping bags?\nA clasp that snaps shut with one hand.\nOpen it up and there's room for your phone, wallet and keys, all in their own spot.\nIt's 50% off right now. 🎁\nTap Shop Now to get one for her."
+    },
+    {
+     "hook": "H2",
+     "id": "P01H2",
+     "ad_name": "LC_261123_VintageBag_Christmas_B054_P01_H2_hersgift",
+     "hook_text": "Watch the clasp on this Christmas gift: one snap, one hand.",
+     "hook_first_line": "Watch the clasp on this Christmas gift: one snap, one hand.",
+     "primary_text_2_hook": "Watch the clasp on this Christmas gift: one snap, one hand.\nA clasp that snaps shut with one hand.\nOpen it up and there's room for your phone, wallet and keys, all in their own spot.\nIt's 50% off right now. 🎁\nTap Shop Now to get one for her."
+    },
+    {
+     "hook": "H3",
+     "id": "P01H3",
+     "ad_name": "LC_261123_VintageBag_Christmas_B054_P01_H3_hersgift",
+     "hook_text": "Before you wrap another scarf for her, look at this gift.",
+     "hook_first_line": "Before you wrap another scarf for her, look at this gift.",
+     "primary_text_2_hook": "Before you wrap another scarf for her, look at this gift.\nA clasp that snaps shut with one hand.\nOpen it up and there's room for your phone, wallet and keys, all in their own spot.\nIt's 50% off right now. 🎁\nTap Shop Now to get one for her."
+    },
+    {
+     "hook": "H4",
+     "id": "P01H4",
+     "ad_name": "LC_261123_VintageBag_Christmas_B054_P01_H4_hersgift",
+     "hook_text": "How to pick a gift for the woman who carries everything.",
+     "hook_first_line": "How to pick a gift for the woman who carries everything.",
+     "primary_text_2_hook": "How to pick a gift for the woman who carries everything.\nA clasp that snaps shut with one hand.\nOpen it up and there's room for your phone, wallet and keys, all in their own spot.\nIt's 50% off right now. 🎁\nTap Shop Now to get one for her."
+    }
+   ]
+  },
+  {
+   "id": "P02",
+   "angle": "decemberplaces",
+   "engine": "storyboard",
+   "product": "Vintage Bag",
+   "winner": null,
+   "primary_text_1": "Does your bag close with one hand?\nThe Vintage Bag: 50% off.",
+   "primary_text_2": "Phone, wallet and keys all loose at the bottom of your bag?\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nIt's 50% off right now. 🎁\nTap Shop Now to get one for her.",
+   "headline_1": "Meet the Vintage Bag: Adjustable Strap",
+   "headline_2": "Adjustable Strap + One-Hand Clasp",
+   "description": "Now 50% off",
+   "cta": "Shop Now",
+   "cta_type": "SHOP_NOW",
+   "versions": [
+    {
+     "hook": "H1",
+     "id": "P02H1",
+     "ad_name": "LC_261123_VintageBag_Christmas_B054_P02_H1_decemberplaces",
+     "hook_text": "Christmas market, hot chocolate in one hand. Where's your bag?",
+     "hook_first_line": "Christmas market, hot chocolate in one hand. Where's your bag?",
+     "primary_text_2_hook": "Christmas market, hot chocolate in one hand. Where's your bag?\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nIt's 50% off right now. 🎁\nTap Shop Now to get one for her."
+    },
+    {
+     "hook": "H2",
+     "id": "P02H2",
+     "ad_name": "LC_261123_VintageBag_Christmas_B054_P02_H2_decemberplaces",
+     "hook_text": "Watch one hand snap this bag shut at a busy market stall.",
+     "hook_first_line": "Watch one hand snap this bag shut at a busy market stall.",
+     "primary_text_2_hook": "Watch one hand snap this bag shut at a busy market stall.\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nIt's 50% off right now. 🎁\nTap Shop Now to get one for her."
+    },
+    {
+     "hook": "H3",
+     "id": "P02H3",
+     "ad_name": "LC_261123_VintageBag_Christmas_B054_P02_H3_decemberplaces",
+     "hook_text": "Fifty percent off the bag that goes from market to party.",
+     "hook_first_line": "Fifty percent off the bag that goes from market to party.",
+     "primary_text_2_hook": "Fifty percent off the bag that goes from market to party.\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nIt's 50% off right now. 🎁\nTap Shop Now to get one for her."
+    },
+    {
+     "hook": "H4",
+     "id": "P02H4",
+     "ad_name": "LC_261123_VintageBag_Christmas_B054_P02_H4_decemberplaces",
+     "hook_text": "Can one small bag do the market, lunch and the office party?",
+     "hook_first_line": "Can one small bag do the market, lunch and the office party?",
+     "primary_text_2_hook": "Can one small bag do the market, lunch and the office party?\nAn adjustable strap, so you can wear it as a handbag or crossbody.\nIt's 50% off right now. 🎁\nTap Shop Now to get one for her."
+    }
+   ]
+  }
+ ],
+ "notes": [],
+ "problems": []
+}
