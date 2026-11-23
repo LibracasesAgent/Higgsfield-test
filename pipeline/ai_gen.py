@@ -278,7 +278,7 @@ def plan_ai(*, name, slug, refs, n_statics, n_clips, tts_est, seed, out, grade_r
                            model=IMG["model"], params=dict(IMG["params"], aspect_ratio="4:5"),
                            prompt=build_prompt(lib, sc, noun, r.get("colour"), False), est_credits=IMG["cost"]))
     avoid_c = [s["scene"] for s in stills] + list(avoid_s)             # (this batch's static scenes count as the newest)
-    c_scenes = pick_scenes(lib, noun, n_c, ["worn", "object", "hand", "worn"], avoid_c, rng, theme)
+    c_scenes = pick_scenes(lib, noun, n_c, ["object", "worn", "object", "hand"], avoid_c, rng, theme)
     for k, sc in enumerate(c_scenes):
         r = ref_for(k + 3)
         cm = CLIP_MODELS[clip_model_for(sc)]
