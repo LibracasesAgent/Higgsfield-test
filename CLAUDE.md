@@ -363,7 +363,11 @@ python3 pipeline/ideas.py packet --product "<name>" [--theme "<words>"] --projec
 3. `python3 pipeline/ideas.py check $OUT/ideas.json --product "<name>" --projects M --statics N`: fix every PROBLEM (warnings: read them;
    a `playbook <rule>:` line is the rulebook: docs/RULEBOOK.md says why and how to rewrite: a hook on a formula of section 3, a claim word the
    facts back, a line the footage can show (`the words name ... has only N good moments`: write it around a packet section 2 tag),
-   check again. Then `plan --ideas $OUT/ideas.json ...` (section 5); `plan` copies the sheet and makes `strategy_sheet.md/.csv`, which
+   check again. **Footage first (owner 2026-11-24, PLAYBOOK 4r):** every line's picture shows exactly what the line says; a place or
+   thing the library cannot show (a station, a market stall, a till, a box under the tree, a plain tote) gets an AI scene clip of that
+   scene, never a stand-in packing shot. **No hook is the offer or a CTA** (no %, sale, price, tap / link / shop in a hook: the story
+   opens, the offer and "Tap the link below." close it; docs/research/2026-11-story-and-cta.md). **Presenter paused** (her takes look
+   fake): no presenter projects until a better lip-sync model is tested. Then `plan --ideas $OUT/ideas.json ...` (section 5); `plan` copies the sheet and makes `strategy_sheet.md/.csv`, which
    `upload` puts in the Drive batch folder.
 4. The reply names the ideas (one line per project: title, structure, why it is new) and links the strategy sheet.
 5. **A request that names a blueprint sheet** (`docs/research/blueprints/<name>.json`, from `docs/research/2026-11-all-time-best-ad.md`):

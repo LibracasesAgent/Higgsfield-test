@@ -749,6 +749,8 @@ def cmd_clips(out):
             continue
         r = gate_clip(done, tmp, c["kind"])
         r.update(grade=dict(saturation=sat, contrast=con))
+        if was.get("accepted") and was.get("mtime") == os.path.getmtime(raw) and not r["ok"]:
+            r.update(ok=True, accepted=True, mtime=was["mtime"], problems=r["problems"] + ["passed by eye"])
         if was.get("rejected"):
             r.update(ok=False, rejected=True, problems=r["problems"] + ["rejected by eye"])
         g["clips"][c["id"]] = r
@@ -784,13 +786,18 @@ def cmd_accept(out, ids):
     """Pass stills the automatic gate failed on a false alarm that the agent LOOKED at on the contact sheet and the person who
     asked for the batch approved (2026-11-23: the colour check misses dark leather, the face check fires on a wreath or an empty
     chair, OCR reads 50% as 90%). Only for a still that shows the real bag, the right words and no face; a new file at that id (a
-    remake) is gated afresh. Never for clips."""
+    remake) is gated afresh. Clips too (2026-11-24, owner-approved: the face check fires on hair seen from behind and on scenes
+    with nobody in them), after their 4 frames on qa/ai_clips.jpg were looked at."""
     g = load_gate(out)
-    need = {s["id"]: s for s in (load_needed(out) or {}).get("stills") or []}
+    nd = load_needed(out) or {}
+    need = {s["id"]: s for s in (nd.get("stills") or []) + (nd.get("clips") or [])}
     for i in ids:
         if i not in need or not os.path.exists(os.path.join(out, need[i]["file"])):
-            sys.exit(f"{i}: no generated still with this id in ai_needed.json (accept is for stills only)")
-        e = g.setdefault("stills", {}).setdefault(i, {})
+            sys.exit(f"{i}: no generated still or clip with this id in ai_needed.json")
+        sec = "clips" if i.startswith(("AC", "AM")) else "stills"
+        if sec == "clips" and not os.path.exists(os.path.join(out, need[i]["file"])[:-4] + "_c.mp4"):
+            sys.exit(f"{i}: run `clips` first (a clip is passed by eye after its 4 frames were looked at)")
+        e = g.setdefault(sec, {}).setdefault(i, {})
         e.update(ok=True, accepted=True, rejected=False, mtime=os.path.getmtime(os.path.join(out, need[i]["file"])))
         e["problems"] = list(dict.fromkeys((e.get("problems") or []) + ["passed by eye"]))
     save_gate(out, g)

@@ -1600,7 +1600,8 @@ def plan(a):
         clips.append(fetch(c, os.path.join(out, "clips", f"{i:02d}_{safe_name(c.get('name', 'clip.mp4'))}")))
     packs = packs + file_packs
     pool = list(dict.fromkeys(packs + clean_site + file_photos))
-    fits = set(file_photos) | {c for c in clips if c}    # the product file's own media: framed whole when not 9:16
+    fits = set(file_photos) | set(packs) | set(clean_site) | {c for c in clips if c}   # every photo and the product file's clips: framed
+    #     whole when not 9:16 (owner 2026-11-24: "stills are too zoomed in, the whole bag is not visible"; site photos were cropped)
     pnum, dot_rgb = {f: n for n, f in pfile.items()}, {}
     pkind = {n: pr["photos"][n].get("kind") for n in pfile}     # packshot / worn / detail / other (new_product intake)
     if need and pr["source"] != "built-in" and not colour_imgs:    # no site swatches: the client's packshots, by shade
@@ -3653,6 +3654,7 @@ def footage_match(out, v):
     try:
         import shotmatch
         lf = json.load(open(os.path.join(out, f"_{v['name']}_longform.json")))
+        shotmatch.AI_TAGS = shotmatch.ai_tags(out)          # (the AI scene clips are judged by what their scene shows)
     except (OSError, ValueError, ImportError):
         return [], [], []
     rows = shotmatch.audit(lf)
@@ -3923,6 +3925,11 @@ def render(a):
     p = load_plan(out)
     if os.path.exists(os.path.join(out, "ai_needed.json")):     # AI scenes: what failed its gate (or was never made) goes back to
         rep_ = ai_gen.apply(out)                                 # the real photo / footage it replaced (ai_gen.py)
+        try:                                                     # the shot planner and the blocker see what each AI scene shows
+            import shotmatch
+            shotmatch.AI_TAGS = shotmatch.ai_tags(out)
+        except Exception:  # noqa: BLE001
+            pass
         print("AI scenes: " + json.dumps({k: v for k, v in (rep_ or {}).items() if v not in ([], 0, False)}), file=sys.stderr, flush=True)
         if rep_ and rep_["changed"]:
             p = load_plan(out)

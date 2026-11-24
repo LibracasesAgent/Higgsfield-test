@@ -31,7 +31,7 @@ WANT = {
     "leather": (r"leather|soft|scratch\w*|water[- ]resistant|stitch\w*|hardware|texture|grain|material|finish", 3),
     "pouch": (r"pouch\w*|matching", 4),
     "colours": (r"colou?rs?|shades?|red|brown|black|blue|gr[ae]y|burgundy|beige|ginger|chocolate", 3),
-    "cafe": (r"caf[eé]|coffee|latte|your table", 3),
+    "cafe": (r"caf[eé]|coffee|latte|your table", 4),
     "coffee": (r"coffees?|lattes?|cups?|tumblers?|takeaway|to-go", 4),           # (Julian 2026-11-04: 'one hand holds the coffee' shows the cup)
     "closing": (r"shut\w*|clos(?:e|es|ing)|press(?:es|ed)?|clicks? (?:shut|closed)|fasten\w*", 4),       # the act of closing it (a hand
     #                                                       at the clasp / zip), not a frame where the clasp is merely visible ('snap')
@@ -42,10 +42,21 @@ WANT = {
     "office": (r"desk|office|work|lunch", 2),
     "car": (r"car|driv\w*|travel\w*|trip|airport|flight|train|journey", 3),
     "shop": (r"shop\w*|store|checkout", 3),
-    "crowd": (r"crowd\w*|busy|rush hour|packed (?:train|platform|station|street|market)", 3),
+    "crowd": (r"crowd\w*|rush hour|packed (?:train|platform|station|street|market|high street)", 4),
     "door": (r"door|leaving|out the door|hurry", 2),
     "handheld": (r"by the handle|by its handle|in your hand", 2),
     "outdoor": (r"outside|outdoors?|park|garden|sunshine|weekend", 2),
+    # scenes and things a line names that the picture must show (owner 2026-11-24, after B054-B056: "if she says tote, a tote should
+    # be shown, but our bag is showing"; before this a line about a place was free and got any packing shot). Only AI scene clips and
+    # clips labelled with these tags answer them; a photo / unlabelled clip under them is 'unverified'.
+    "station": (r"stations?|platforms?|trains?|ticket gates?|the gate", 4),
+    "market": (r"(?:christmas )?markets?|stalls?", 4),
+    "till": (r"till|checkout|card reader|counter|queue\w*", 4),
+    "party": (r"part(?:y|ies)|dinner|restaurant", 4),
+    "tree": (r"(?:christmas )?tree", 4),
+    "gift": (r"gifts? box|gift[- ]wrap\w*|presents?|wrap(?:ped|ping)? (?:it|them)|the lid|box open|unwrap\w*", 4),
+    "tote": (r"totes?", 5),
+    "night": (r"tonight|the night|bedroom|suitcase|before a (?:christmas )?trip", 4),
 }
 # what a chapter's feature tag asks for ('ONE-HAND CLASP' -> the clasp), always on top of the words of the phrase
 FEATURE = [
@@ -208,9 +219,35 @@ def src_key(src):
     return b.rsplit(".", 1)[0] if "." in b else b
 
 
+SCENES = {"station", "market", "till", "party", "tree", "gift", "tote", "night", "crowd", "cafe"}   # place / thing wants: the real
+#                              library rarely has them; an AI scene clip of that scene answers them (ai_tags), the blocker judges them
+AI_TAGS = {}                 # {src: tags} of the batch's AI scene clips (ai_tags(out)): what the scene's own description shows
+
+
+def ai_tags(out):
+    """{'ai/clips/ACnn_c.mp4': tags} of a batch's AI scene clips, read from ai_needed.json: the clip's tags and its scene's own words
+    (scene_text: the strategist's / rework scene, never the keep-the-real-bag text, which names straps and zips of every bag)."""
+    import json
+    import os
+    try:
+        need = json.load(open(os.path.join(out, "ai_needed.json")))
+    except (OSError, ValueError):
+        return {}
+    st = {s["id"]: s for s in need.get("stills") or []}
+    res = {}
+    for c in need.get("clips") or []:
+        s = st.get(c.get("start")) or {}
+        txt = " ".join([str(c.get("scene") or "").replace("_", " "), " ".join(c.get("tags") or ()), s.get("scene_text") or "",
+                        c.get("scene_text") or ""])
+        res[f"ai/clips/{c['id']}_c.mp4"] = tags_of_text(txt) | set(c.get("tags") or ()) & set(WANT)
+    return res
+
+
 def shows(src, start, dur, speed=1.0, idx=None):
     """The tags the picture of a shot shows (the clip from `start` for dur*speed s), or None when the source has no labels (a photo,
-    an AI clip, a new product's clip, a presenter take): then the shot is unverified."""
+    a new product's clip, a presenter take): then the shot is unverified. An AI scene clip shows its scene (AI_TAGS)."""
+    if str(src) in AI_TAGS:
+        return set(AI_TAGS[str(src)])
     ms = (idx if idx is not None else moment_index()).get(src_key(src))
     if not ms:
         return None

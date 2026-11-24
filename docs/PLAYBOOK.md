@@ -752,6 +752,35 @@ Julian launched B053 P01, B051 P01, B051 P03 and B049 P02 and held the rest. Wha
   talking head (`never`), `black_door` shows her profile before 0.6 s (`good` 0.7); Hobo clip `1NyzIbBW` turns to camera at 3.3 s.
   `clip_index` 1PqOCKXP (Vintage in the car) now carries `coffee` (the cup is in every frame; the check called it a mismatch).
 
+### 4r. The owner on the Christmas batches B054-B056 (2026-11-24): the footage must match the voiceover, every time
+
+"Our main issue is footage not matching the voiceovers. Julian said it multiple times ... every time you make a batch, focus more on
+matching the footage than generating beautiful footage." Seen in B054-B056: "a packed station" over the bag's lining at home,
+"one big tote" over OUR bag, "at the till" over a kitchen table, "presents in both arms" over a lipstick.
+- **Why it happened:** `shotmatch` judged only lines naming a FEATURE (pocket, zip, strap); a line about a place or a thing was "free"
+  and took any packing shot; AI clips carried no labels; and a phrase longer than its shot was filled with the NEXT spares in the
+  block's list (pictures meant for later words), so even a correct shot list slid a phrase early.
+- **Fixed in the engine:** scene / thing words are wants now (`shotmatch.WANT`: station, market, till, party, tree, gift, tote, night,
+  crowd, cafe; `SCENES`); an AI scene clip shows what its scene text says (`shotmatch.ai_tags`, `scene_text` in ai_needed.json), for the
+  planner and the blocker; in a block whose shots are pinned to words (`{"at": n}`), a long phrase keeps ITS shot (the same clip on in a
+  closer framing, or one shot slowed / held when the clip is short) instead of taking the next spare (`storyboard.plan_block`).
+- **How a batch is cut now:** every line gets a shot that shows exactly what it says. Feature lines: the real footage of that action
+  (clip_index `desc`). Scene lines the library cannot show (Christmas market, station, till, office party, a box under the tree, a
+  plain tote): an AI scene clip of the real bag in that scene (people from behind, no face; a tote is a generic unbranded tote).
+  Scene words in the script are fine (ideas.check no longer refuses them for low real coverage) but each needs its scene clip.
+  After render, `scratchpad audit` style check: shot / words / what the clip shows, line by line, before upload.
+- **The whole bag in every picture:** "stills are too zoomed in, the whole bag is not visible": every photo in a video is framed whole
+  (`fit: auto` for site photos and packshots too, make_batch `fits`); AI prompts say "the whole bag fully in the frame, never cut off".
+- **Hooks are never the offer or a CTA** ("the hook should not be a CTA"; the research: docs/research/2026-11-story-and-cta.md):
+  `rulebook hooks.offer_hooks_max = 0` for sheets from 2026-11-24 (ideas.check: a % / sale / price hook or a tap / link / shop hook
+  is a problem); the offer and "Tap the link below." close the story. Story videos tell a real story (situation, tension, turn,
+  payoff); the owner: "it should feel like, yo, I want to buy this".
+- **Presenter paused:** "the presenter videos look very fake ... the mouth movement is not good enough": `presenter.per_batch` = 0
+  until a better lip-sync model is tested; B054 P01 stays in Drive, marked not to launch.
+- **Christmas statics:** research docs/research/2026-11-christmas-statics.md: the bag AS the gift (tissue box, under the tree, a
+  wish list, a shop window with frost), one or two Christmas touches, the offer big, one short line; 10 new AI-designed statics a bag
+  (B054-B056 S11-S20) replace the templated ones.
+
 ### 4i. Closers: the 25-35 s offer video (Lalith 2026-11-06, from the 30-day winners)
 
 The account's biggest ad of the last 30 days (Nov 2026) is ACH-SVIT-190-H3: $19.9k, ROAS 2.36, **27 s** (docs/research/2026-11-winners-30d.md).

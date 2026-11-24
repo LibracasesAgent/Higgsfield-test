@@ -167,6 +167,8 @@ STORY_MAX_FEATURES = 3                               # features one video may ta
 PROOF_TAGS = {"zip", "zip_hand", "side_zip", "snap", "lock", "pocket", "packing", "strap", "tie", "inside"}   # a movement the shot proves
 PEOPLE_TAGS = {"worn", "walking"}                    # the bag on a person
 STILL_TAGS = {"hero", "placed", "colours"}           # the bag just sitting there: never a hook's opening picture
+NO_OFFER_HOOK_FROM = "2026-11-24"   # sheets from this day: no hook opens on the offer or asks to buy (owner 2026-11-24)
+CTA_WORDS = re.compile(r"\btap\b|\blink\b|\bshop now\b|\bbuy now\b|\border (?:now|today|yours)\b|\bget yours\b|\bclaim\b", re.I)
 PRICE_WORDS = re.compile(r"\d+\s?%|\bpercent\b|\bhalf[- ]price\b|\bsale\b|\bblack friday\b|\bcyber monday\b|\bdiscount\w*|\$\s?\d|"
                          r"\bbundles?\b|\bprices?\b|\bfree (?:gifts?|shipping|pouch|wallet|jewell?e?ry)", re.I)
 
@@ -273,8 +275,15 @@ def story_problems(p, pid, pr, cov, keys, slib, P, W, date=""):
         P.append(f"{pid}: hooks {', '.join(f'H{k}' for k in priced)} open the presenter's video on the sale: a UGC host does not open "
                  f"with Black Friday or the % (Julian 2026-11-05: 'less aggressive'; B028 P02 H4 'Black Friday prices are live now' had the "
                  f"project's lowest hook rate, 33%); open on the moment, the sale is the close")
-    if len(priced) > 1:
-        P.append(f"{pid}: hooks {', '.join(f'H{k}' for k in priced)} open on the price: one price hook at most, the others a moment or a question")
+    maxp = int((_rules("hooks") or {}).get("offer_hooks_max", 0)) if (date or "") >= NO_OFFER_HOOK_FROM else 1
+    if len(priced) > maxp:            # (owner 2026-11-24: "the hook should not be a CTA"; a story opens the story, the offer is its end)
+        P.append(f"{pid}: hooks {', '.join(f'H{k}' for k in priced)} open on the price or the sale: " +
+                 ("one price hook at most, the others a moment or a question" if maxp == 1 else f"{maxp} price hooks at most" if maxp else "a hook never opens on the offer (owner 2026-11-24: 'the hook should not be a CTA'); "
+                  "open on the situation, the tension or a question; the % and the sale come in the last chapter"))
+    cta = [] if (date or "") < NO_OFFER_HOOK_FROM else [k for k, h in enumerate(hooks[:4], 1) if CTA_WORDS.search(h.get("text") or "") or CTA_WORDS.search(h.get("label") or "")]
+    if cta:
+        P.append(f"{pid}: hooks {', '.join(f'H{k}' for k in cta)} ask the viewer to buy (tap / link / shop / order): the call to action "
+                 f"belongs to the end only (owner 2026-11-24)")
     if (date or "") >= SOFT_OPEN_FROM:
         soft = priced if pres else [k for k in priced if k == 1]
         if soft:
@@ -511,8 +520,8 @@ def footage_problem(text, tag, cov, pr):
     what else shows it: shotmatch.ALSO) has fewer good labelled moments for the product than the rulebook's minimum. Then the video
     would put a stand-in under the line (owner 2026-11-05: footage that does not match the captions must never happen)."""
     import shotmatch
-    sp = shotmatch.specific_wants(text, tag)
-    if not sp:
+    sp = {t: w for t, w in shotmatch.specific_wants(text, tag).items() if t not in shotmatch.SCENES}
+    if not sp:                        # (a scene the line names: an AI scene clip shows it; the render blocker checks it, 2026-11-24)
         return None
     need = int(FOOTAGE_RULES.get("min_moments_for_show_tag", MIN_MOMENTS))
     best = {t: max([cov.get(t, [0])[0]] + [cov.get(x, [0])[0] for x in shotmatch.ALSO.get(t, ())]) for t in sp}

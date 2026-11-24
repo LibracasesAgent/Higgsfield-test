@@ -540,6 +540,11 @@ def plan_block(sh, t0, L, lead, ws, picks, pools, drop=None, talk=None, ideal=SH
     for a, b in groups:
         pts = ugc_pieces(a, b, ws, lead, long)
         gp = [TALK, 0, 1.0] if tail_talk and (a, b) == groups[-1] else (body[gi] if gi < len(body) else None)
+        own = bool(anc) and gp is not None and not is_t(gp)      # (owner 2026-11-24: the picture of a phrase is ITS pick, never the next
+        if own and len(pts) > 2:                                 # spare in the list) a long phrase stays on its own shot: the same clip
+            D = 0.0 if str(gp[0]).lower().endswith(STILL) else float(clip_dur(sh.d, gp[0]) or 0)   # on (a closer framing), or one
+            if D < float(gp[1]) + (b - a) + 0.2:                 # shot, slowed / held, when the clip cannot run that long (an AI
+                pts = [a, b]                                     # scene clip, a photo)
         for j, (x, y) in enumerate(zip(pts, pts[1:])):
             if talk and is_t(gp):
                 out.append(talk_seg(talk, x, y, nt))
@@ -550,7 +555,8 @@ def plan_block(sh, t0, L, lead, ws, picks, pools, drop=None, talk=None, ideal=SH
                 pick = next((p for p in left if all(t in said for t in p[3]["say"].split())), left[0] if left else None)
                 left = [p for p in left if p is not pick]
             else:
-                pick = gp if j == 0 else None
+                pick = gp if j == 0 else ([gp[0], round(float(gp[1]) + (x - a), 2), gp[2] if len(gp) > 2 else 1.0,
+                                          dict((gp[3] if len(gp) > 3 else {}), **CLOSER[(j - 1) % len(CLOSER)])] if own else None)
                 words_ = _said(ws, lead, x, y)
                 if shotmatch.specific_wants(words_):           # a line that names a feature: the picture must show it
                     later = [] if anc else body[gi + 1:]          # (anchored picks already sit on their own words)

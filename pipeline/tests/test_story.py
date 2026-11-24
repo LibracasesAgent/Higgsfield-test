@@ -66,6 +66,17 @@ def test_the_price_only_at_the_end_and_one_price_hook():
     assert has(P, "c2", "only in the last chapter") and has(P, "H1", "H4", "one price hook"), P
 
 
+def test_no_hook_is_the_offer_or_a_cta_from_2026_11_24():
+    """(owner 2026-11-24: 'the hook should not be a CTA': the story opens, the CTA ends it.) Older sheets keep one price hook."""
+    s = sheet()
+    s["date"] = "2026-11-24"
+    P = problems(s, day="2026-11-24")
+    assert has(P, "H4", "never opens on the offer"), P
+    s["projects"][0]["hooks"][3].update(text="Tap the link before your next packed platform.", type="promise", label="TAP NOW")
+    P = problems(s, day="2026-11-24")
+    assert has(P, "H4", "ask the viewer to buy"), P
+
+
 def test_the_lead_hook_and_a_presenter_never_open_on_the_sale():
     """(Julian 2026-11-04: 'I would not introduce with Black Friday immediately'.) From 2026-11-05 the lead hook H1 opens on the story,
     and a presenter project has no sale / price hook at all; earlier sheets keep the old rule (one price hook, anywhere)."""

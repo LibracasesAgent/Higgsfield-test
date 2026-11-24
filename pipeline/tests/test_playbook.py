@@ -79,7 +79,7 @@ def test_the_rulebook_reads_and_every_regex_compiles():
 
 
 def test_presenters_per_batch():
-    assert [ideas.presenters_wanted(n, "2026-11-05") for n in (1, 2, 3, 4, 5)] == [0, 1, 2, 2, 3]
+    assert [ideas.presenters_wanted(n, "2026-11-24") for n in (1, 2, 3, 4, 5)] == [0, 0, 0, 0, 0]   # (paused 2026-11-24: takes look fake)
     assert ideas.presenters_wanted(5, "2026-10-30") == 1              # an older sheet keeps its day's rule
 
 

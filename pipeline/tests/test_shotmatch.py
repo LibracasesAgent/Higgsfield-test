@@ -22,7 +22,7 @@ def test_phrase_wants():
     w = sm.wants("Open it, close it, move on.")                                         # ('close' alone is not the clasp: a hand closing
     assert w["closing"] == 4 and w["snap"] == w["zip"] == 2.0, w                        # it, on whatever closes the bag)
     assert "closing" not in sm.wants("Up close, the leather is soft.")
-    assert sm.wants("One hand holds a coffee.") == {"cafe": 3, "coffee": 4}             # (Julian 2026-11-04: the cup, not the clasp)
+    assert sm.wants("One hand holds a coffee.") == {"cafe": 4, "coffee": 4}             # (Julian 2026-11-04: the cup, not the clasp)
     w = sm.wants("The other has to find your things and shut the bag again,")
     assert w["search"] == 4 and w["closing"] == 4 and w["snap"] == w["zip"] == 2.0 and w["inside"] > 0, w
     assert sm.desc_tags("black crossbody bag on hip, hand with coffee, stairs") >= {"coffee", "worn", "walking"}
