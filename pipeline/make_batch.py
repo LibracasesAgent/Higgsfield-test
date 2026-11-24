@@ -3920,9 +3920,31 @@ def body_flags(out, p, sheets, rows):
             r["ok"] = not r["problems"]
 
 
+def render_lock(out):
+    """One render per $OUT at a time (2026-11-24: a render queued before a container restart and one started after it wrote into the
+    same files at once: every Hobo video of B055 played as one frozen frame). Exits 2 while another live render holds the folder."""
+    lk = os.path.join(out, ".render.lock")
+    try:
+        pid = int(open(lk).read().strip() or 0)
+    except (OSError, ValueError):
+        pid = 0
+    if pid and pid != os.getpid():
+        try:
+            os.kill(pid, 0)
+            sys.exit(f"render: another render (pid {pid}) is working in {out}; wait for it (one render per folder at a time)")
+        except ProcessLookupError:
+            pass                                                # (a stale lock: that process is gone)
+        except PermissionError:
+            sys.exit(f"render: another render (pid {pid}) is working in {out}")
+    open(lk, "w").write(str(os.getpid()))
+    import atexit
+    atexit.register(lambda: os.path.exists(lk) and open(lk).read().strip() == str(os.getpid()) and os.remove(lk))
+
+
 def render(a):
     out = os.path.abspath(a.out)
     p = load_plan(out)
+    render_lock(out)
     if os.path.exists(os.path.join(out, "ai_needed.json")):     # AI scenes: what failed its gate (or was never made) goes back to
         rep_ = ai_gen.apply(out)                                 # the real photo / footage it replaced (ai_gen.py)
         try:                                                     # the shot planner and the blocker see what each AI scene shows
@@ -4268,6 +4290,15 @@ def whole_video(f, seconds=None):
         if read < frames:
             return [f"broken file: only {read} of its {frames} frames are in the file (a cut-short render or copy): render it again"]
     except (subprocess.SubprocessError, ValueError, IndexError, OSError):
+        pass
+    try:          # (2026-11-24: two renders of one folder at once wrote into the same files: whole headers, every frame counted,
+        #          but the picture data was garbage and the video played as one frozen frame) the picture must DECODE
+        r = subprocess.run(["ffmpeg", "-v", "error", "-xerror", "-i", f, "-map", "0:v:0", "-f", "null", "-"],
+                           capture_output=True, text=True, timeout=600)
+        if r.returncode != 0 or (r.stderr or "").strip():
+            first = ((r.stderr or "").strip().splitlines() or ["decoder error"])[0][:120]
+            return [f"broken file: the video does not decode ({first}): render it again (one render per folder at a time)"]
+    except (subprocess.SubprocessError, OSError):
         pass
     return []
 

@@ -777,6 +777,12 @@ matching the footage than generating beautiful footage." Seen in B054-B056: "a p
   payoff); the owner: "it should feel like, yo, I want to buy this".
 - **Presenter paused:** "the presenter videos look very fake ... the mouth movement is not good enough": `presenter.per_batch` = 0
   until a better lip-sync model is tested; B054 P01 stays in Drive, marked not to launch.
+- **Frozen videos (B055, 2026-11-24):** a render queued before a container restart and a second one started after it rendered the
+  same folder at once; the Hobo videos had whole headers and every frame counted, but the picture did not decode and played as one
+  frozen frame. `make_batch.whole_video` now DECODES every video before upload (hard: not uploaded), and `render` holds a lock on its
+  $OUT (`.render.lock`: a second render of the same folder exits). Never queue two renders of one folder.
+- **No packshot slideshows:** the Set videos held white-background site photos 2-4.5 s each (14 s a video): they read as static.
+  Product lines show moving footage (a real clip or an AI scene clip of the product); a photo only as the end card.
 - **Christmas statics:** research docs/research/2026-11-christmas-statics.md: the bag AS the gift (tissue box, under the tree, a
   wish list, a shop window with frost), one or two Christmas touches, the offer big, one short line; 10 new AI-designed statics a bag
   (B054-B056 S11-S20) replace the templated ones.
