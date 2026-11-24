@@ -4540,7 +4540,7 @@
      "label": "Christmas Eve, a packed station. Where are your cards right now?",
      "flags": [
       "length 55.0s (want 55-85s)",
-      "scorecard: speech 82% (target >= 85%); pause 0.87s (target <= 0.8 s); shot 4.3s (target <= 4 s); -70.0 LUFS (target -15 to -13 LUFS); 25 repeated shots (target <= 0); 1 held cards (target <= 0)"
+      "scorecard: speech 82% (target >= 85%); pause 0.87s (target <= 0.8 s); shot 4.3s (target <= 4 s); 1 repeated shots (target <= 0)"
      ]
     },
     {
@@ -4550,8 +4550,7 @@
      "label": "How to pack your bag the night before a Christmas trip.",
      "flags": [
       "length 54.1s (want 55-85s)",
-      "scorecard: speech 83% (target >= 85%); pause 0.87s (target <= 0.8 s); shot 4.3s (target <= 4 s); -64.4 LUFS (target -15 to -13 LUFS); 24 repeated shots (target <= 0); 1 held cards (target <= 0)",
-      "body differs from H1 (body match 122.6; under 10 = the same body): look at qa/P01.jpg"
+      "scorecard: speech 83% (target >= 85%); pause 0.87s (target <= 0.8 s); shot 4.3s (target <= 4 s); 1 repeated shots (target <= 0)"
      ]
     },
     {
@@ -4561,8 +4560,7 @@
      "label": "Half price, plus a matching wallet, for your Christmas travels.",
      "flags": [
       "length 54.8s (want 55-85s)",
-      "scorecard: speech 83% (target >= 85%); pause 0.87s (target <= 0.8 s); shot 4.3s (target <= 4 s); 10.0 LUFS (target -15 to -13 LUFS); peak 99.5 dBTP (target <= -1 dBTP); 24 repeated shots (target <= 0); 1 held cards (target <= 0)",
-      "body differs from H1 (body match 122.6; under 10 = the same body): look at qa/P01.jpg"
+      "scorecard: speech 83% (target >= 85%); pause 0.87s (target <= 0.8 s); shot 4.3s (target <= 4 s); 1 repeated shots (target <= 0)"
      ]
     },
     {
@@ -4572,8 +4570,7 @@
      "label": "The pocket nobody behind you can reach in a Christmas crowd.",
      "flags": [
       "length 55.0s (want 55-85s)",
-      "scorecard: speech 83% (target >= 85%); pause 0.87s (target <= 0.8 s); shot 4.3s (target <= 4 s); 1 repeated shots (target <= 0)",
-      "body differs from H1 (body match 140.7; under 10 = the same body): look at qa/P01.jpg"
+      "scorecard: speech 83% (target >= 85%); pause 0.87s (target <= 0.8 s); shot 4.3s (target <= 4 s); 1 repeated shots (target <= 0)"
      ]
     },
     {
@@ -4582,7 +4579,7 @@
      "fp": "v|pov: a packed christmas crowd, and your bag keeps slipping off.|",
      "label": "POV: a packed Christmas crowd, and your bag keeps slipping off.",
      "flags": [
-      "scorecard: speech 83% (target >= 85%); shot 4.4s (target <= 4 s); 25 repeated shots (target <= 0); 1 held cards (target <= 0)"
+      "scorecard: speech 83% (target >= 85%); shot 4.4s (target <= 4 s); 1 repeated shots (target <= 0)"
      ]
     },
     {
@@ -4591,7 +4588,7 @@
      "fp": "v|shopping bags in both hands? wear your bag crossbody instead.|",
      "label": "Shopping bags in both hands? Wear your bag crossbody instead.",
      "flags": [
-      "scorecard: speech 82% (target >= 85%); shot 4.4s (target <= 4 s); -10.7 LUFS (target -15 to -13 LUFS); LRA 20.0 (target <= 4 LU); peak 12.5 dBTP (target <= -1 dBTP); 25 repeated shots (target <= 0); 1 held cards (target <= 0)"
+      "scorecard: speech 82% (target >= 85%); shot 4.4s (target <= 4 s); 1 repeated shots (target <= 0)"
      ]
     },
     {
@@ -4599,14 +4596,18 @@
      "kind": "video",
      "fp": "v|before you hit the christmas shops, switch this bag's strap.|",
      "label": "Before you hit the Christmas shops, switch this bag's strap.",
-     "flags": []
+     "flags": [
+      "scorecard: speech 82% (target >= 85%); shot 4.4s (target <= 4 s); 1 repeated shots (target <= 0)"
+     ]
     },
     {
      "name": "LC_261123_HoboBag_Christmas_B055_P02_H4_lastsaturday",
      "kind": "video",
      "fp": "v|where's your card when both hands hold the shopping?|",
      "label": "Where's your card when both hands hold the shopping?",
-     "flags": []
+     "flags": [
+      "scorecard: speech 82% (target >= 85%); shot 4.4s (target <= 4 s); 1 repeated shots (target <= 0)"
+     ]
     },
     {
      "name": "LC_261123_HoboBag_Christmas_B055_S11_tissuebox",
@@ -4704,8 +4705,7 @@
      "label": "Buying for someone who changes bags three times a day?",
      "flags": [
       "length 54.4s (want 55-85s)",
-      "scorecard: speech 80% (target >= 85%); pause 0.87s (target <= 0.8 s); shot 4.5s (target <= 4 s); 3 repeated shots (target <= 0)",
-      "footage unverified: 1 shot(s) under a feature line come from unlabelled sources: look at qa/P01H1.jpg"
+      "scorecard: speech 80% (target >= 85%); pause 0.87s (target <= 0.8 s); shot 4.5s (target <= 4 s); 1 repeated shots (target <= 0)"
      ]
     },
     {
@@ -4714,8 +4714,7 @@
      "fp": "v|watch one box open into three matching bags.|",
      "label": "Watch one box open into three matching bags.",
      "flags": [
-      "scorecard: speech 80% (target >= 85%); pause 0.87s (target <= 0.8 s); shot 4.5s (target <= 4 s); 4 repeated shots (target <= 0)",
-      "footage unverified: 2 shot(s) under a feature line come from unlabelled sources: look at qa/P01H2.jpg"
+      "scorecard: speech 80% (target >= 85%); pause 0.87s (target <= 0.8 s); shot 4.5s (target <= 4 s); 2 repeated shots (target <= 0)"
      ]
     },
     {
@@ -4724,8 +4723,7 @@
      "fp": "v|before you buy her one bag this christmas, look at three.|",
      "label": "Before you buy her one bag this Christmas, look at three.",
      "flags": [
-      "scorecard: speech 79% (target >= 85%); pause 0.87s (target <= 0.8 s); shot 4.5s (target <= 4 s); 3 repeated shots (target <= 0)",
-      "footage unverified: 1 shot(s) under a feature line come from unlabelled sources: look at qa/P01H3.jpg"
+      "scorecard: speech 79% (target >= 85%); pause 0.87s (target <= 0.8 s); shot 4.5s (target <= 4 s); 1 repeated shots (target <= 0)"
      ]
     },
     {
@@ -4734,8 +4732,7 @@
      "fp": "v|sixty percent off three matching bags, in one christmas box.|",
      "label": "Sixty percent off three matching bags, in one Christmas box.",
      "flags": [
-      "scorecard: speech 80% (target >= 85%); pause 0.88s (target <= 0.8 s); shot 4.5s (target <= 4 s); 3 repeated shots (target <= 0)",
-      "footage unverified: 1 shot(s) under a feature line come from unlabelled sources: look at qa/P01H4.jpg"
+      "scorecard: speech 80% (target >= 85%); pause 0.88s (target <= 0.8 s); shot 4.5s (target <= 4 s); 1 repeated shots (target <= 0)"
      ]
     },
     {
@@ -4744,8 +4741,7 @@
      "fp": "v|still carrying one big tote to every single plan?|",
      "label": "Still carrying one big tote to every single plan?",
      "flags": [
-      "scorecard: speech 82% (target >= 85%); avg shot 2.63s (target 1.4 to 2.6 s); 4 repeated shots (target <= 0)",
-      "footage unverified: 2 shot(s) under a feature line come from unlabelled sources: look at qa/P02H1.jpg"
+      "scorecard: speech 82% (target >= 85%); avg shot 2.63s (target 1.4 to 2.6 s); 1 repeated shots (target <= 0)"
      ]
     },
     {
@@ -4754,8 +4750,7 @@
      "fp": "v|a tote against this set: watch what the zip does.|",
      "label": "A tote against this set: watch what the zip does.",
      "flags": [
-      "scorecard: speech 81% (target >= 85%); 4 repeated shots (target <= 0)",
-      "footage unverified: 2 shot(s) under a feature line come from unlabelled sources: look at qa/P02H2.jpg"
+      "scorecard: speech 81% (target >= 85%); 1 repeated shots (target <= 0)"
      ]
     },
     {
@@ -4765,8 +4760,7 @@
      "label": "Your cards at the bottom of an open tote again?",
      "flags": [
       "length 54.4s (want 55-85s)",
-      "scorecard: speech 81% (target >= 85%); 4 repeated shots (target <= 0)",
-      "footage unverified: 2 shot(s) under a feature line come from unlabelled sources: look at qa/P02H3.jpg"
+      "scorecard: speech 81% (target >= 85%); 1 repeated shots (target <= 0)"
      ]
     },
     {
@@ -4775,8 +4769,7 @@
      "fp": "v|before you carry that tote to the christmas shops, see this.|",
      "label": "Before you carry that tote to the Christmas shops, see this.",
      "flags": [
-      "scorecard: speech 81% (target >= 85%); avg shot 2.63s (target 1.4 to 2.6 s); 4 repeated shots (target <= 0)",
-      "footage unverified: 2 shot(s) under a feature line come from unlabelled sources: look at qa/P02H4.jpg"
+      "scorecard: speech 81% (target >= 85%); avg shot 2.63s (target 1.4 to 2.6 s); 1 repeated shots (target <= 0)"
      ]
     },
     {

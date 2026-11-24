@@ -242,7 +242,8 @@
     "aspect_ratio": "9:16"
    },
    "prompt": "Photorealistic candid lifestyle photograph, natural light, shot on a 35mm lens, shallow depth of field, true-to-life colours, fine film grain, no text, no logos, no watermark. The exact bag set from the reference image, unchanged: same colour (black), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The bag set hangs closed by its strap from a brass hook on a white fireplace mantel beside knitted Christmas stockings, pine garland and warm fairy lights. No people. Vertical 9:16 composition, the bag set clearly visible, large in the frame, with space around it.",
-   "est_credits": 1.0
+   "est_credits": 1.0,
+   "scene_text": "the three matching pieces of the bag set (hobo bag, crossbody and pouch) hanging on a Christmas mantel with stockings"
   },
   {
    "id": "AV04",
@@ -260,7 +261,8 @@
     "aspect_ratio": "9:16"
    },
    "prompt": "Photorealistic candid lifestyle photograph, natural light, shot on a 35mm lens, shallow depth of field, true-to-life colours, fine film grain, no text, no logos, no watermark. The exact bag set from the reference image, unchanged: same colour (blue), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. Two hands tie a red ribbon on wrapping paper on a wooden table, the bag set closed beside the paper, rolls of red and gold wrapping paper and twine around, warm lamp light. The picture contains no face at all: nobody is looking at the camera and no eyes, nose or mouth are visible; the top edge of the frame cuts the person off at shoulder height. Vertical 9:16 composition, the bag set clearly visible, large in the frame, with space around it.",
-   "est_credits": 1.0
+   "est_credits": 1.0,
+   "scene_text": "the three matching pieces of the bag set (hobo bag, crossbody and pouch) on a table beside a gift being wrapped"
   },
   {
    "id": "AV05",
@@ -278,7 +280,8 @@
     "aspect_ratio": "9:16"
    },
    "prompt": "Photorealistic candid lifestyle photograph, natural light, shot on a 35mm lens, shallow depth of field, true-to-life colours, fine film grain, no text, no logos, no watermark. The exact bag set from the reference image, unchanged: same colour (grey), same shape and proportions, same handles or straps, same zipper pulls and hardware, same stitching and finish. Do not redesign it. The bag set stands closed on a wooden floor under a decorated Christmas tree among a few wrapped presents, warm fairy lights glowing above, soft morning light. No people. Vertical 9:16 composition, the bag set clearly visible, large in the frame, with space around it.",
-   "est_credits": 1.0
+   "est_credits": 1.0,
+   "scene_text": "the three matching pieces of the bag set (hobo bag, crossbody and pouch) under a Christmas tree"
   },
   {
    "id": "AV06",
