@@ -52,7 +52,7 @@ WANT = {
     "station": (r"stations?|platforms?|trains?|ticket gates?|the gate", 4),
     "market": (r"(?:christmas )?markets?|stalls?", 4),
     "till": (r"till|checkout|card reader|counter|queue\w*", 4),
-    "party": (r"part(?:y|ies)|dinner|restaurant", 4),
+    "party": (r"part(?:y|ies)|dinner (?:out|party)|restaurant", 4),      # ('work, errands, dinner' is a list of plans, not a scene)
     "tree": (r"(?:christmas )?tree", 4),
     "gift": (r"gifts? box|gift[- ]wrap\w*|presents?|wrap(?:ped|ping)? (?:it|them)|the lid|box open|unwrap\w*", 4),
     "tote": (r"totes?", 5),
@@ -262,8 +262,8 @@ def shows(src, start, dur, speed=1.0, idx=None):
 
 
 # what else shows a want well enough (a line about the compartments over a hand at the inner zip pocket is the right picture)
-ALSO = {"inside": {"pocket", "packing", "zip_hand"}, "pocket": {"inside"}, "packing": {"inside", "pocket"}, "lock": {"zip", "side_zip", "zip_hand"},
-        "strap": {"worn"}, "side_zip": {"zip"}, "zip": {"side_zip", "zip_hand"}, "zip_hand": {"zip", "side_zip"}, "tie": {"placed"},
+ALSO = {"inside": {"pocket", "packing", "zip_hand"}, "pocket": {"inside", "pouch"}, "packing": {"inside", "pocket"}, "lock": {"zip", "side_zip", "zip_hand"},
+        "strap": {"worn"}, "side_zip": {"zip"}, "zip": {"side_zip", "zip_hand"}, "zip_hand": {"zip", "side_zip"}, "tie": {"placed", "gift"},
         "pouch": set(), "snap": set(), "leather": {"hero"}}
 
 
