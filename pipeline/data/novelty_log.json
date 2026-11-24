@@ -3720,6 +3720,87 @@
       },
       {
        "clip_id": "1W1gMBCM_B2eg8yRqDMuGZFKMFu4EeJPI"
+      },
+      {
+       "scene": "h_queue_gate"
+      },
+      {
+       "scene": "h_night_pack"
+      },
+      {
+       "scene": "h_gate_tap"
+      },
+      {
+       "scene": "h_crowd_back"
+      },
+      {
+       "scene": "h_bag_night"
+      },
+      {
+       "scene": "h_morning_door"
+      },
+      {
+       "scene": "h_gift_box"
+      },
+      {
+       "scene": "h_slip_crowd"
+      },
+      {
+       "scene": "h_bags_full"
+      },
+      {
+       "scene": "h_crossbody_shop"
+      },
+      {
+       "scene": "h_till_card"
+      },
+      {
+       "scene": "h_till_tap"
+      },
+      {
+       "scene": "h_dinner_chair"
+      },
+      {
+       "clip_id": "12Ec7mfUk6Ys9vxFA04eGQpmpcsLiPcbS"
+      },
+      {
+       "clip_id": "1JIEAwHHQq-euKPoS9A91KQSmMEGg7EPj"
+      },
+      {
+       "clip_id": "1JlS7-GlKLkqklk0xTO2jwXZ2VezE4us4"
+      },
+      {
+       "clip_id": "1BidTuA7vhnKJ0W923VLBYlXX0LIIueg5"
+      },
+      {
+       "clip_id": "1TeEFWPEZ_jATN9so2DZNeyg-mOPQe8jL"
+      },
+      {
+       "clip_id": "1JOPtTWzfttXuNFzJ7KI7ciQyfAKYu4x0"
+      },
+      {
+       "clip_id": "1SCQdB1Bi9TpZSHUCsI3PLZvoyzXtbxHZ"
+      },
+      {
+       "clip_id": "13WPNZDUpQdyDm4VKoJezn1StKDv4ixu4"
+      },
+      {
+       "clip_id": "1WaL0dHM7G48sEIpt1UkACI4B1THjJAQC"
+      },
+      {
+       "clip_id": "1kwAc6Xtu3LbED3dcTHGW18raXZuzqxNj"
+      },
+      {
+       "clip_id": "1pvfDGeb5u1umKgTKeBxI18dXDGkCTSeF"
+      },
+      {
+       "clip_id": "1NuCVbKCrAGKgLyGpaVgNohAbss7I4zMS"
+      },
+      {
+       "clip_id": "1D8Of_SA-AeqK_TBqlsKcjZn_uFNdNXvV"
+      },
+      {
+       "clip_id": "10uhhKdeKztcGarl-uoLMO4kJk8phF54N"
       }
      ],
      "date": "2026-11-23",
@@ -3786,6 +3867,76 @@
        "format": "door_wreath",
        "layout": "ad",
        "scene": "p02_s04_door_wreath"
+      },
+      {
+       "caption": "Her bag + wallet, wrapped.",
+       "colour": "Burgundy",
+       "format": "tissue_box",
+       "layout": "ad",
+       "scene": "xmas2_tissue_box"
+      },
+      {
+       "caption": "Christmas, sorted.",
+       "colour": "Galaxy Black",
+       "format": "red_studio",
+       "layout": "ad",
+       "scene": "xmas2_red_studio"
+      },
+      {
+       "caption": "Cards close in the Christmas crowd.",
+       "colour": "Dark Sienna",
+       "format": "snowy_street",
+       "layout": "ad",
+       "scene": "xmas2_snowy_street"
+      },
+      {
+       "caption": "Bag and wallet under the tree.",
+       "colour": "Grey",
+       "format": "under_tree",
+       "layout": "ad",
+       "scene": "xmas2_under_tree"
+      },
+      {
+       "caption": "Packed for Christmas.",
+       "colour": "Dark Sienna",
+       "format": "platform_behind",
+       "layout": "ad",
+       "scene": "xmas2_platform_behind"
+      },
+      {
+       "caption": "Top of her list.",
+       "colour": "Red",
+       "format": "wishlist",
+       "layout": "ad",
+       "scene": "xmas2_wishlist"
+      },
+      {
+       "caption": "+ matching wallet",
+       "colour": "Blue",
+       "format": "window_decal",
+       "layout": "ad",
+       "scene": "xmas2_window_decal"
+      },
+      {
+       "caption": "Wrap it for her.",
+       "colour": "Dark Sienna",
+       "format": "kraft_flatlay",
+       "layout": "ad",
+       "scene": "xmas2_kraft_flatlay"
+      },
+      {
+       "caption": "The gift she'll use every day.",
+       "colour": "Burgundy",
+       "format": "hands_unwrap",
+       "layout": "ad",
+       "scene": "xmas2_hands_unwrap"
+      },
+      {
+       "caption": "Shopping done. Hot chocolate time.",
+       "colour": "Galaxy Black",
+       "format": "cafe_window",
+       "layout": "ad",
+       "scene": "xmas2_cafe_window"
       }
      ],
      "videos": [
@@ -4906,6 +5057,57 @@
       },
       {
        "clip_id": "1v8gKfP9ZYsuh7w5yBwlInmv_-U-pY2x_"
+      },
+      {
+       "scene": "s_bed_three"
+      },
+      {
+       "scene": "s_work_desk"
+      },
+      {
+       "scene": "s_evening_table"
+      },
+      {
+       "scene": "s_box_tree"
+      },
+      {
+       "scene": "s_lid_open"
+      },
+      {
+       "scene": "s_crossbody_walk"
+      },
+      {
+       "scene": "s_crossbody_market"
+      },
+      {
+       "scene": "s_tote_walk"
+      },
+      {
+       "scene": "s_tote_open"
+      },
+      {
+       "scene": "s_pouch_till"
+      },
+      {
+       "scene": "s_hobo_home"
+      },
+      {
+       "clip_id": "12qiyl7FV85hnSYait8tRRCuxovMyad1L"
+      },
+      {
+       "clip_id": "1f7uQE4ewrad8utPEPVYK5qDEafvfBD7n"
+      },
+      {
+       "clip_id": "1GQ2ZD0p_Gjpu6vmjXYAxMCOEJqfX1IL-"
+      },
+      {
+       "clip_id": "18wOkQ9ToI66y133XanUgEZT0I4Q25Ea1"
+      },
+      {
+       "clip_id": "1pvfDGeb5u1umKgTKeBxI18dXDGkCTSeF"
+      },
+      {
+       "clip_id": "1NuCVbKCrAGKgLyGpaVgNohAbss7I4zMS"
       }
      ],
      "date": "2026-11-23",
@@ -4970,6 +5172,76 @@
        "colour": "Blue",
        "layout": "story",
        "scene": "p01_s07"
+      },
+      {
+       "caption": "Three gifts in one box.",
+       "colour": "Red",
+       "format": "tissue_box",
+       "layout": "ad",
+       "scene": "xmas2_tissue_box"
+      },
+      {
+       "caption": "3 bags. 1 gift.",
+       "colour": "Black",
+       "format": "red_studio",
+       "layout": "ad",
+       "scene": "xmas2_red_studio"
+      },
+      {
+       "caption": "Three bags under the tree.",
+       "colour": "Grey",
+       "format": "under_tree",
+       "layout": "ad",
+       "scene": "xmas2_under_tree"
+      },
+      {
+       "caption": "Lift the lid: all three.",
+       "colour": "Blue",
+       "format": "hands_unwrap",
+       "layout": "ad",
+       "scene": "xmas2_hands_unwrap"
+      },
+      {
+       "caption": "Her whole list, one set.",
+       "colour": "Purple Red",
+       "format": "wishlist",
+       "layout": "ad",
+       "scene": "xmas2_wishlist"
+      },
+      {
+       "caption": "The Christmas set.",
+       "colour": "Red",
+       "format": "window_decal",
+       "layout": "ad",
+       "scene": "xmas2_window_decal"
+      },
+      {
+       "caption": "Wrap one. Gift three.",
+       "colour": "Grey",
+       "format": "kraft_flatlay",
+       "layout": "ad",
+       "scene": "xmas2_kraft_flatlay"
+      },
+      {
+       "caption": "The crossbody for Christmas shopping.",
+       "colour": "Black",
+       "format": "snowy_street",
+       "layout": "ad",
+       "scene": "xmas2_snowy_street"
+      },
+      {
+       "caption": "One for every plan.",
+       "colour": "Blue",
+       "format": "car_presents",
+       "layout": "ad",
+       "scene": "xmas2_car_presents"
+      },
+      {
+       "caption": "Shopping day, sorted.",
+       "colour": "Purple Red",
+       "format": "cafe_window",
+       "layout": "ad",
+       "scene": "xmas2_cafe_window"
       }
      ],
      "videos": [
@@ -6818,6 +7090,45 @@
       },
       {
        "clip_id": "1U7takMV_RL2IwrLVrNXY2DajI6Jx9-1J"
+      },
+      {
+       "scene": "v_market_crowd"
+      },
+      {
+       "scene": "v_market_cocoa"
+      },
+      {
+       "scene": "v_stall_pay"
+      },
+      {
+       "scene": "v_cafe_table"
+      },
+      {
+       "scene": "v_office_party"
+      },
+      {
+       "scene": "v_gift_box"
+      },
+      {
+       "scene": "v_keys_in"
+      },
+      {
+       "clip_id": "19ppUzbQeGxUQvZWpmf6HN9Bj8P_MC_t4"
+      },
+      {
+       "clip_id": "1u_BcAe6ont2BTbyK5uSi7-QFbgZ8sgML"
+      },
+      {
+       "clip_id": "1yjKHIr6LOVpOrPFMQHasYMjttUsFd2uW"
+      },
+      {
+       "clip_id": "1VYOz6vWCsY5iQ6DuiIrqaCkR7HsDLrM6"
+      },
+      {
+       "clip_id": "1aJoixN_KNw1NiTQ8YYlPlWFzVv5aKnVn"
+      },
+      {
+       "clip_id": "14oOeN39Y0BC0tL1c5RgNLhfX9fOWUxnR"
       }
      ],
      "date": "2026-11-23",
@@ -6884,6 +7195,76 @@
        "caption": "Her Christmas gift, half price.",
        "layout": "value",
        "photo": "vintage_colour_black.jpg"
+      },
+      {
+       "caption": "Her Christmas bag, ready.",
+       "colour": "Red",
+       "format": "tissue_box",
+       "layout": "ad",
+       "scene": "xmas2_tissue_box"
+      },
+      {
+       "caption": "Small bag. Big Christmas.",
+       "colour": "Black",
+       "format": "red_studio",
+       "layout": "ad",
+       "scene": "xmas2_red_studio"
+      },
+      {
+       "caption": "Both hands for the Christmas market.",
+       "colour": "Ginger Brown",
+       "format": "snowy_street",
+       "layout": "ad",
+       "scene": "xmas2_snowy_street"
+      },
+      {
+       "caption": "Under the tree, for her.",
+       "colour": "Chocolate",
+       "format": "under_tree",
+       "layout": "ad",
+       "scene": "xmas2_under_tree"
+      },
+      {
+       "caption": "One snap. Ready to go.",
+       "colour": "Black",
+       "format": "cafe_window",
+       "layout": "ad",
+       "scene": "xmas2_cafe_window"
+      },
+      {
+       "caption": "Top of her list.",
+       "colour": "Red",
+       "format": "wishlist",
+       "layout": "ad",
+       "scene": "xmas2_wishlist"
+      },
+      {
+       "caption": "Christmas, wrapped.",
+       "colour": "Ginger Brown",
+       "format": "window_decal",
+       "layout": "ad",
+       "scene": "xmas2_window_decal"
+      },
+      {
+       "caption": "Wrap it for her.",
+       "colour": "Chocolate",
+       "format": "kraft_flatlay",
+       "layout": "ad",
+       "scene": "xmas2_kraft_flatlay"
+      },
+      {
+       "caption": "All the presents. One small bag.",
+       "colour": "Black",
+       "format": "car_presents",
+       "layout": "ad",
+       "scene": "xmas2_car_presents"
+      },
+      {
+       "caption": "The one she opens first.",
+       "colour": "Red",
+       "format": "hands_unwrap",
+       "layout": "ad",
+       "scene": "xmas2_hands_unwrap"
       }
      ],
      "videos": [

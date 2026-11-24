@@ -15,16 +15,16 @@
  "theme_name": "Christmas",
  "offer": "60% off",
  "statics": [
-  "LC_261123_HoboBag3PieceSet_Christmas_B056_S01_swingtag",
-  "LC_261123_HoboBag3PieceSet_Christmas_B056_S02_window",
-  "LC_261123_HoboBag3PieceSet_Christmas_B056_S03_povsticker",
-  "LC_261123_HoboBag3PieceSet_Christmas_B056_S04_unbox",
-  "LC_261123_HoboBag3PieceSet_Christmas_B056_S05_studio",
-  "LC_261123_HoboBag3PieceSet_Christmas_B056_S06_hook",
-  "LC_261123_HoboBag3PieceSet_Christmas_B056_S07_list",
-  "LC_261123_HoboBag3PieceSet_Christmas_B056_S08_versus",
-  "LC_261123_HoboBag3PieceSet_Christmas_B056_S09_colours",
-  "LC_261123_HoboBag3PieceSet_Christmas_B056_S10_value"
+  "LC_261123_HoboBag3PieceSet_Christmas_B056_S11_tissuebox",
+  "LC_261123_HoboBag3PieceSet_Christmas_B056_S12_redstudio",
+  "LC_261123_HoboBag3PieceSet_Christmas_B056_S13_undertree",
+  "LC_261123_HoboBag3PieceSet_Christmas_B056_S14_handsunwrap",
+  "LC_261123_HoboBag3PieceSet_Christmas_B056_S15_wishlist",
+  "LC_261123_HoboBag3PieceSet_Christmas_B056_S16_windowdecal",
+  "LC_261123_HoboBag3PieceSet_Christmas_B056_S17_kraftflatlay",
+  "LC_261123_HoboBag3PieceSet_Christmas_B056_S18_snowystreet",
+  "LC_261123_HoboBag3PieceSet_Christmas_B056_S19_carpresents",
+  "LC_261123_HoboBag3PieceSet_Christmas_B056_S20_cafewindow"
  ],
  "videos": [
   {
@@ -1223,5 +1223,17 @@
    ]
   }
  ],
- "hooks_seed": 1
+ "hooks_seed": 1,
+ "statics_replaced": [
+  "LC_261123_HoboBag3PieceSet_Christmas_B056_S01_swingtag",
+  "LC_261123_HoboBag3PieceSet_Christmas_B056_S02_window",
+  "LC_261123_HoboBag3PieceSet_Christmas_B056_S03_povsticker",
+  "LC_261123_HoboBag3PieceSet_Christmas_B056_S04_unbox",
+  "LC_261123_HoboBag3PieceSet_Christmas_B056_S05_studio",
+  "LC_261123_HoboBag3PieceSet_Christmas_B056_S06_hook",
+  "LC_261123_HoboBag3PieceSet_Christmas_B056_S07_list",
+  "LC_261123_HoboBag3PieceSet_Christmas_B056_S08_versus",
+  "LC_261123_HoboBag3PieceSet_Christmas_B056_S09_colours",
+  "LC_261123_HoboBag3PieceSet_Christmas_B056_S10_value"
+ ]
 }

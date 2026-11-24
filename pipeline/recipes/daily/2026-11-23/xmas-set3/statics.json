@@ -2,189 +2,183 @@
  "ads": [
   {
    "layout": "ad",
-   "photo": "ai/AS01.png",
-   "format": "swing_tag",
+   "photo": "ai/AS40.png",
+   "format": "tissue_box",
    "words": [
-    "60% OFF",
-    "One gift. Three bags."
-   ],
-   "headline": "One gift. Three bags.",
-   "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_S01_swingtag",
-   "ai": {
-    "id": "AS01",
-    "scene": "p01_s01_swing_tag",
-    "colour": "Red",
-    "format": "swing_tag"
-   }
-  },
-  {
-   "layout": "ad",
-   "photo": "ai/AS02.png",
-   "format": "window_display",
-   "words": [
-    "60% OFF",
-    "Her whole list, one set."
-   ],
-   "headline": "Her whole list, one set.",
-   "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_S02_window",
-   "ai": {
-    "id": "AS02",
-    "scene": "p02_s02_window_display",
-    "colour": "Black",
-    "format": "window_display"
-   }
-  },
-  {
-   "layout": "ad",
-   "photo": "ai/AS03.png",
-   "format": "pov_sticker",
-   "words": [
-    "Market day: the crossbody goes.",
+    "Three gifts in one box.",
     "60% OFF"
    ],
-   "headline": "Market day: the crossbody goes.",
-   "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_S03_povsticker",
+   "headline": "Three gifts in one box.",
+   "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_S11_tissuebox",
    "ai": {
-    "id": "AS03",
-    "scene": "p01_s03_pov_sticker",
-    "colour": "Grey",
-    "format": "pov_sticker"
+    "id": "AS40",
+    "scene": "xmas2_tissue_box",
+    "colour": "Red",
+    "format": "tissue_box",
+    "kind": "object"
    }
   },
   {
    "layout": "ad",
-   "photo": "ai/AS04.png",
-   "format": "gift_unbox",
+   "photo": "ai/AS41.png",
+   "format": "red_studio",
+   "words": [
+    "3 bags. 1 gift.",
+    "60% OFF"
+   ],
+   "headline": "3 bags. 1 gift.",
+   "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_S12_redstudio",
+   "ai": {
+    "id": "AS41",
+    "scene": "xmas2_red_studio",
+    "colour": "Black",
+    "format": "red_studio",
+    "kind": "object"
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS42.png",
+   "format": "under_tree",
+   "words": [
+    "Three bags under the tree.",
+    "60% OFF"
+   ],
+   "headline": "Three bags under the tree.",
+   "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_S13_undertree",
+   "ai": {
+    "id": "AS42",
+    "scene": "xmas2_under_tree",
+    "colour": "Grey",
+    "format": "under_tree",
+    "kind": "object"
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS43.png",
+   "format": "hands_unwrap",
+   "words": [
+    "Lift the lid: all three.",
+    "60% OFF"
+   ],
+   "headline": "Lift the lid: all three.",
+   "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_S14_handsunwrap",
+   "ai": {
+    "id": "AS43",
+    "scene": "xmas2_hands_unwrap",
+    "colour": "Blue",
+    "format": "hands_unwrap",
+    "kind": "hand"
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS44.png",
+   "format": "wishlist",
+   "words": [
+    "Her whole list, one set.",
+    "60% OFF"
+   ],
+   "headline": "Her whole list, one set.",
+   "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_S15_wishlist",
+   "ai": {
+    "id": "AS44",
+    "scene": "xmas2_wishlist",
+    "colour": "Purple Red",
+    "format": "wishlist",
+    "kind": "object"
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS45.png",
+   "format": "window_decal",
    "words": [
     "60% OFF",
-    "Three pieces under the paper."
+    "The Christmas set."
    ],
-   "headline": "Three pieces under the paper.",
-   "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_S04_unbox",
+   "headline": "The Christmas set.",
+   "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_S16_windowdecal",
    "ai": {
-    "id": "AS04",
-    "scene": "p02_s04_gift_unbox",
+    "id": "AS45",
+    "scene": "xmas2_window_decal",
+    "colour": "Red",
+    "format": "window_decal",
+    "kind": "object"
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS46.png",
+   "format": "kraft_flatlay",
+   "words": [
+    "Wrap one. Gift three.",
+    "60% OFF"
+   ],
+   "headline": "Wrap one. Gift three.",
+   "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_S17_kraftflatlay",
+   "ai": {
+    "id": "AS46",
+    "scene": "xmas2_kraft_flatlay",
     "colour": "Grey",
-    "format": "gift_unbox"
+    "format": "kraft_flatlay",
+    "kind": "object"
    }
   },
   {
-   "layout": "studio",
-   "photo": "site/3_piece_set_colour_red.jpg",
-   "headline": "Three plans. Three bags. One box.",
-   "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_S05_studio",
-   "pct": 60
-  },
-  {
-   "look": "hook",
-   "hook": "Cash and cards all over your bag?",
-   "sub": "The matching pouch keeps them together.",
-   "kicker": "THIS CHRISTMAS",
-   "highlight": [
-    "cards"
+   "layout": "ad",
+   "photo": "ai/AS47.png",
+   "format": "snowy_street",
+   "words": [
+    "The crossbody for Christmas shopping.",
+    "60% OFF"
    ],
-   "layout": "story",
-   "photo": "ai/AS06.png",
-   "headline": "Cash and cards all over your bag?",
-   "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_S06_hook",
-   "us": "3-Piece Set",
-   "pct": 60,
+   "headline": "The crossbody for Christmas shopping.",
+   "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_S18_snowystreet",
    "ai": {
-    "id": "AS06",
-    "scene": "p02_s06",
-    "colour": "Blue"
+    "id": "AS47",
+    "scene": "xmas2_snowy_street",
+    "colour": "Black",
+    "format": "snowy_street",
+    "kind": "behind"
    }
   },
   {
-   "look": "list",
-   "hook": "One for each part of her day.",
-   "points": [
-    "The hobo for every day.",
-    "The crossbody for going light.",
-    "The pouch for cards and cash."
+   "layout": "ad",
+   "photo": "ai/AS48.png",
+   "format": "car_presents",
+   "words": [
+    "One for every plan.",
+    "60% OFF"
    ],
-   "layout": "story",
-   "photo": "ai/AS07.png",
-   "headline": "One for each part of her day.",
-   "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_S07_list",
-   "us": "3-Piece Set",
-   "pct": 60,
+   "headline": "One for every plan.",
+   "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_S19_carpresents",
    "ai": {
-    "id": "AS07",
-    "scene": "p01_s07",
+    "id": "AS48",
+    "scene": "xmas2_car_presents",
     "colour": "Blue",
-    "eye_ok": true
+    "format": "car_presents",
+    "kind": "object"
    }
   },
   {
-   "look": "versus",
-   "hook": "One tote, or the whole set?",
-   "rows": [
-    [
-     "One look",
-     "Hobo or crossbody"
-    ],
-    [
-     "Cards loose",
-     "Pouch for cards"
-    ],
-    [
-     "Scuffs easily",
-     "Scratch-proof leather"
-    ]
+   "layout": "ad",
+   "photo": "ai/AS49.png",
+   "format": "cafe_window",
+   "words": [
+    "Shopping day, sorted.",
+    "60% OFF"
    ],
-   "them": "One tote",
-   "us": "3-Piece Set",
-   "layout": "story",
-   "photo": "ai/AS08.png",
-   "headline": "One tote, or the whole set?",
-   "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_S08_versus",
-   "pct": 60,
+   "headline": "Shopping day, sorted.",
+   "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_S20_cafewindow",
    "ai": {
-    "id": "AS08",
-    "scene": "p02_s08",
-    "colour": "Black"
+    "id": "AS49",
+    "scene": "xmas2_cafe_window",
+    "colour": "Purple Red",
+    "format": "cafe_window",
+    "kind": "object"
    }
-  },
-  {
-   "layout": "colours",
-   "photos": [
-    {
-     "src": "site/3_piece_set_colour_black.jpg",
-     "name": "Black"
-    },
-    {
-     "src": "site/3_piece_set_colour_blue.jpg",
-     "name": "Blue"
-    },
-    {
-     "src": "site/3_piece_set_colour_grey.jpg",
-     "name": "Grey"
-    },
-    {
-     "src": "site/3_piece_set_colour_purple_red.jpg",
-     "name": "Purple Red"
-    },
-    {
-     "src": "site/3_piece_set_colour_red.jpg",
-     "name": "Red"
-    }
-   ],
-   "headline": "Which set is hers?",
-   "sub": "Bag, crossbody and pouch in one set.",
-   "cta": "Shop the gift",
-   "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_S09_colours",
-   "pct": 60
-  },
-  {
-   "layout": "value",
-   "photo": "site/3_piece_set_colour_red.jpg",
-   "price": "$69.95",
-   "was": "$174.88",
-   "pct": 60,
-   "headline": "Three bags. One gift.",
-   "cta": "Shop the gift",
-   "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_S10_value"
   }
  ],
  "card_photos": []

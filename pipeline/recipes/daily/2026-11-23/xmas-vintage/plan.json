@@ -15,16 +15,16 @@
  "theme_name": "Christmas",
  "offer": "50% off",
  "statics": [
-  "LC_261123_VintageBag_Christmas_B054_S01_ribbon",
-  "LC_261123_VintageBag_Christmas_B054_S02_window",
-  "LC_261123_VintageBag_Christmas_B054_S03_note",
-  "LC_261123_VintageBag_Christmas_B054_S04_mantelmornin",
-  "LC_261123_VintageBag_Christmas_B054_S05_povsticker",
-  "LC_261123_VintageBag_Christmas_B054_S06_hook",
-  "LC_261123_VintageBag_Christmas_B054_S07_list",
-  "LC_261123_VintageBag_Christmas_B054_S08_versus",
-  "LC_261123_VintageBag_Christmas_B054_S09_colours",
-  "LC_261123_VintageBag_Christmas_B054_S10_value"
+  "LC_261123_VintageBag_Christmas_B054_S11_tissuebox",
+  "LC_261123_VintageBag_Christmas_B054_S12_redstudio",
+  "LC_261123_VintageBag_Christmas_B054_S13_snowystreet",
+  "LC_261123_VintageBag_Christmas_B054_S14_undertree",
+  "LC_261123_VintageBag_Christmas_B054_S15_cafewindow",
+  "LC_261123_VintageBag_Christmas_B054_S16_wishlist",
+  "LC_261123_VintageBag_Christmas_B054_S17_windowdecal",
+  "LC_261123_VintageBag_Christmas_B054_S18_kraftflatlay",
+  "LC_261123_VintageBag_Christmas_B054_S19_carpresents",
+  "LC_261123_VintageBag_Christmas_B054_S20_handsunwrap"
  ],
  "videos": [
   {
@@ -932,5 +932,17 @@
    ]
   }
  ],
- "hooks_seed": 1
+ "hooks_seed": 1,
+ "statics_replaced": [
+  "LC_261123_VintageBag_Christmas_B054_S01_ribbon",
+  "LC_261123_VintageBag_Christmas_B054_S02_window",
+  "LC_261123_VintageBag_Christmas_B054_S03_note",
+  "LC_261123_VintageBag_Christmas_B054_S04_mantelmornin",
+  "LC_261123_VintageBag_Christmas_B054_S05_povsticker",
+  "LC_261123_VintageBag_Christmas_B054_S06_hook",
+  "LC_261123_VintageBag_Christmas_B054_S07_list",
+  "LC_261123_VintageBag_Christmas_B054_S08_versus",
+  "LC_261123_VintageBag_Christmas_B054_S09_colours",
+  "LC_261123_VintageBag_Christmas_B054_S10_value"
+ ]
 }

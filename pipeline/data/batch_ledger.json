@@ -4482,7 +4482,7 @@
      "fp": "v|christmas market, hot chocolate in one hand. where's your bag?|",
      "label": "Christmas market, hot chocolate in one hand. Where's your bag?",
      "flags": [
-      "scorecard: speech 81% (target >= 85%); 2 repeated shots (target <= 0)"
+      "scorecard: speech 81% (target >= 85%); shot 4.2s (target <= 4 s); 1 repeated shots (target <= 0)"
      ]
     },
     {
@@ -4491,8 +4491,8 @@
      "fp": "v|watch one hand snap this bag shut at a busy market stall.|",
      "label": "Watch one hand snap this bag shut at a busy market stall.",
      "flags": [
-      "length 55.0s (want 55-85s)",
-      "scorecard: speech 82% (target >= 85%); 1 repeated shots (target <= 0)"
+      "length 54.9s (want 55-85s)",
+      "scorecard: speech 82% (target >= 85%); shot 4.2s (target <= 4 s); 1 repeated shots (target <= 0)"
      ]
     },
     {
@@ -4501,8 +4501,8 @@
      "fp": "v|fifty percent off the bag that goes from market to party.|",
      "label": "Fifty percent off the bag that goes from market to party.",
      "flags": [
-      "length 54.6s (want 55-85s)",
-      "scorecard: speech 82% (target >= 85%); 2 repeated shots (target <= 0)"
+      "length 54.7s (want 55-85s)",
+      "scorecard: speech 82% (target >= 85%); shot 4.2s (target <= 4 s); 1 repeated shots (target <= 0)"
      ]
     },
     {
@@ -4511,8 +4511,78 @@
      "fp": "v|can one small bag do the market, lunch and the office party?|",
      "label": "Can one small bag do the market, lunch and the office party?",
      "flags": [
-      "scorecard: speech 81% (target >= 85%); 2 repeated shots (target <= 0)"
+      "scorecard: speech 81% (target >= 85%); shot 4.2s (target <= 4 s); 1 repeated shots (target <= 0)"
      ]
+    },
+    {
+     "name": "LC_261123_VintageBag_Christmas_B054_S11_tissuebox",
+     "kind": "static",
+     "fp": "s|ad|AS40.png|her christmas bag, ready.",
+     "label": "Her Christmas bag, ready.",
+     "flags": []
+    },
+    {
+     "name": "LC_261123_VintageBag_Christmas_B054_S12_redstudio",
+     "kind": "static",
+     "fp": "s|ad|AS41.png|small bag. big christmas.",
+     "label": "Small bag. Big Christmas.",
+     "flags": []
+    },
+    {
+     "name": "LC_261123_VintageBag_Christmas_B054_S13_snowystreet",
+     "kind": "static",
+     "fp": "s|ad|AS42.png|both hands for the christmas market.",
+     "label": "Both hands for the Christmas market.",
+     "flags": []
+    },
+    {
+     "name": "LC_261123_VintageBag_Christmas_B054_S14_undertree",
+     "kind": "static",
+     "fp": "s|ad|AS43.png|under the tree, for her.",
+     "label": "Under the tree, for her.",
+     "flags": []
+    },
+    {
+     "name": "LC_261123_VintageBag_Christmas_B054_S15_cafewindow",
+     "kind": "static",
+     "fp": "s|ad|AS44.png|one snap. ready to go.",
+     "label": "One snap. Ready to go.",
+     "flags": []
+    },
+    {
+     "name": "LC_261123_VintageBag_Christmas_B054_S16_wishlist",
+     "kind": "static",
+     "fp": "s|ad|AS45.png|top of her list.",
+     "label": "Top of her list.",
+     "flags": []
+    },
+    {
+     "name": "LC_261123_VintageBag_Christmas_B054_S17_windowdecal",
+     "kind": "static",
+     "fp": "s|ad|AS46.png|christmas, wrapped.",
+     "label": "Christmas, wrapped.",
+     "flags": []
+    },
+    {
+     "name": "LC_261123_VintageBag_Christmas_B054_S18_kraftflatlay",
+     "kind": "static",
+     "fp": "s|ad|AS47.png|wrap it for her.",
+     "label": "Wrap it for her.",
+     "flags": []
+    },
+    {
+     "name": "LC_261123_VintageBag_Christmas_B054_S19_carpresents",
+     "kind": "static",
+     "fp": "s|ad|AS48.png|all the presents. one small bag.",
+     "label": "All the presents. One small bag.",
+     "flags": []
+    },
+    {
+     "name": "LC_261123_VintageBag_Christmas_B054_S20_handsunwrap",
+     "kind": "static",
+     "fp": "s|ad|AS49.png|the one she opens first.",
+     "label": "The one she opens first.",
+     "flags": []
     }
    ]
   },
@@ -4603,7 +4673,7 @@
      "label": "Christmas Eve, a packed station. Where are your cards right now?",
      "flags": [
       "length 55.0s (want 55-85s)",
-      "scorecard: speech 82% (target >= 85%); pause 0.87s (target <= 0.8 s); 1 repeated shots (target <= 0)"
+      "scorecard: speech 82% (target >= 85%); pause 0.87s (target <= 0.8 s); shot 4.3s (target <= 4 s); -70.0 LUFS (target -15 to -13 LUFS); 25 repeated shots (target <= 0); 1 held cards (target <= 0)"
      ]
     },
     {
@@ -4612,8 +4682,9 @@
      "fp": "v|how to pack your bag the night before a christmas trip.|",
      "label": "How to pack your bag the night before a Christmas trip.",
      "flags": [
-      "length 54.0s (want 55-85s)",
-      "scorecard: speech 83% (target >= 85%); pause 0.87s (target <= 0.8 s); 1 repeated shots (target <= 0)"
+      "length 54.1s (want 55-85s)",
+      "scorecard: speech 83% (target >= 85%); pause 0.87s (target <= 0.8 s); shot 4.3s (target <= 4 s); -64.4 LUFS (target -15 to -13 LUFS); 24 repeated shots (target <= 0); 1 held cards (target <= 0)",
+      "body differs from H1 (body match 122.6; under 10 = the same body): look at qa/P01.jpg"
      ]
     },
     {
@@ -4622,8 +4693,9 @@
      "fp": "v|half price, plus a matching wallet, for your christmas travels.|",
      "label": "Half price, plus a matching wallet, for your Christmas travels.",
      "flags": [
-      "length 54.7s (want 55-85s)",
-      "scorecard: speech 83% (target >= 85%); pause 0.87s (target <= 0.8 s); 1 repeated shots (target <= 0)"
+      "length 54.8s (want 55-85s)",
+      "scorecard: speech 83% (target >= 85%); pause 0.87s (target <= 0.8 s); shot 4.3s (target <= 4 s); 10.0 LUFS (target -15 to -13 LUFS); peak 99.5 dBTP (target <= -1 dBTP); 24 repeated shots (target <= 0); 1 held cards (target <= 0)",
+      "body differs from H1 (body match 122.6; under 10 = the same body): look at qa/P01.jpg"
      ]
     },
     {
@@ -4633,8 +4705,8 @@
      "label": "The pocket nobody behind you can reach in a Christmas crowd.",
      "flags": [
       "length 55.0s (want 55-85s)",
-      "scorecard: speech 83% (target >= 85%); pause 0.87s (target <= 0.8 s); 1 repeated shots (target <= 0)",
-      "body differs from H1 (body match 10.5; under 10 = the same body): look at qa/P01.jpg"
+      "scorecard: speech 83% (target >= 85%); pause 0.87s (target <= 0.8 s); shot 4.3s (target <= 4 s); 1 repeated shots (target <= 0)",
+      "body differs from H1 (body match 140.7; under 10 = the same body): look at qa/P01.jpg"
      ]
     },
     {
@@ -4643,7 +4715,7 @@
      "fp": "v|pov: a packed christmas crowd, and your bag keeps slipping off.|",
      "label": "POV: a packed Christmas crowd, and your bag keeps slipping off.",
      "flags": [
-      "scorecard: speech 83% (target >= 85%); 1 repeated shots (target <= 0)"
+      "scorecard: speech 83% (target >= 85%); shot 4.4s (target <= 4 s); 25 repeated shots (target <= 0); 1 held cards (target <= 0)"
      ]
     },
     {
@@ -4652,7 +4724,7 @@
      "fp": "v|shopping bags in both hands? wear your bag crossbody instead.|",
      "label": "Shopping bags in both hands? Wear your bag crossbody instead.",
      "flags": [
-      "scorecard: speech 82% (target >= 85%); 1 repeated shots (target <= 0)"
+      "scorecard: speech 82% (target >= 85%); shot 4.4s (target <= 4 s); -10.7 LUFS (target -15 to -13 LUFS); LRA 20.0 (target <= 4 LU); peak 12.5 dBTP (target <= -1 dBTP); 25 repeated shots (target <= 0); 1 held cards (target <= 0)"
      ]
     },
     {
@@ -4660,18 +4732,14 @@
      "kind": "video",
      "fp": "v|before you hit the christmas shops, switch this bag's strap.|",
      "label": "Before you hit the Christmas shops, switch this bag's strap.",
-     "flags": [
-      "scorecard: speech 82% (target >= 85%); 1 repeated shots (target <= 0)"
-     ]
+     "flags": []
     },
     {
      "name": "LC_261123_HoboBag_Christmas_B055_P02_H4_lastsaturday",
      "kind": "video",
      "fp": "v|where's your card when both hands hold the shopping?|",
      "label": "Where's your card when both hands hold the shopping?",
-     "flags": [
-      "scorecard: speech 82% (target >= 85%); 1 repeated shots (target <= 0)"
-     ]
+     "flags": []
     },
     {
      "name": "LC_261123_HoboBag_Christmas_B055_S04_doorwreath",
@@ -4681,6 +4749,76 @@
      "flags": [
       "passed by eye: the face check had 1 hit(s) on this AI still (look at it)"
      ]
+    },
+    {
+     "name": "LC_261123_HoboBag_Christmas_B055_S11_tissuebox",
+     "kind": "static",
+     "fp": "s|ad|AS40.png|her bag + wallet, wrapped.",
+     "label": "Her bag + wallet, wrapped.",
+     "flags": []
+    },
+    {
+     "name": "LC_261123_HoboBag_Christmas_B055_S12_redstudio",
+     "kind": "static",
+     "fp": "s|ad|AS41.png|christmas, sorted.",
+     "label": "Christmas, sorted.",
+     "flags": []
+    },
+    {
+     "name": "LC_261123_HoboBag_Christmas_B055_S13_snowystreet",
+     "kind": "static",
+     "fp": "s|ad|AS42.png|cards close in the christmas crowd.",
+     "label": "Cards close in the Christmas crowd.",
+     "flags": []
+    },
+    {
+     "name": "LC_261123_HoboBag_Christmas_B055_S14_undertree",
+     "kind": "static",
+     "fp": "s|ad|AS43.png|bag and wallet under the tree.",
+     "label": "Bag and wallet under the tree.",
+     "flags": []
+    },
+    {
+     "name": "LC_261123_HoboBag_Christmas_B055_S15_platformbehind",
+     "kind": "static",
+     "fp": "s|ad|AS44.png|packed for christmas.",
+     "label": "Packed for Christmas.",
+     "flags": []
+    },
+    {
+     "name": "LC_261123_HoboBag_Christmas_B055_S16_wishlist",
+     "kind": "static",
+     "fp": "s|ad|AS45.png|top of her list.",
+     "label": "Top of her list.",
+     "flags": []
+    },
+    {
+     "name": "LC_261123_HoboBag_Christmas_B055_S17_windowdecal",
+     "kind": "static",
+     "fp": "s|ad|AS46.png|+ matching wallet",
+     "label": "+ matching wallet",
+     "flags": []
+    },
+    {
+     "name": "LC_261123_HoboBag_Christmas_B055_S18_kraftflatlay",
+     "kind": "static",
+     "fp": "s|ad|AS47.png|wrap it for her.",
+     "label": "Wrap it for her.",
+     "flags": []
+    },
+    {
+     "name": "LC_261123_HoboBag_Christmas_B055_S19_handsunwrap",
+     "kind": "static",
+     "fp": "s|ad|AS48.png|the gift she'll use every day.",
+     "label": "The gift she'll use every day.",
+     "flags": []
+    },
+    {
+     "name": "LC_261123_HoboBag_Christmas_B055_S20_cafewindow",
+     "kind": "static",
+     "fp": "s|ad|AS49.png|shopping done. hot chocolate time.",
+     "label": "Shopping done. Hot chocolate time.",
+     "flags": []
     }
    ]
   },
@@ -4771,7 +4909,8 @@
      "label": "Buying for someone who changes bags three times a day?",
      "flags": [
       "length 54.4s (want 55-85s)",
-      "scorecard: speech 80% (target >= 85%); pause 0.87s (target <= 0.8 s); 2 repeated shots (target <= 0)"
+      "scorecard: speech 80% (target >= 85%); pause 0.87s (target <= 0.8 s); shot 4.5s (target <= 4 s); 3 repeated shots (target <= 0)",
+      "footage unverified: 1 shot(s) under a feature line come from unlabelled sources: look at qa/P01H1.jpg"
      ]
     },
     {
@@ -4780,7 +4919,8 @@
      "fp": "v|watch one box open into three matching bags.|",
      "label": "Watch one box open into three matching bags.",
      "flags": [
-      "scorecard: speech 80% (target >= 85%); pause 0.87s (target <= 0.8 s); 2 repeated shots (target <= 0)"
+      "scorecard: speech 80% (target >= 85%); pause 0.87s (target <= 0.8 s); shot 4.5s (target <= 4 s); 4 repeated shots (target <= 0)",
+      "footage unverified: 2 shot(s) under a feature line come from unlabelled sources: look at qa/P01H2.jpg"
      ]
     },
     {
@@ -4789,7 +4929,8 @@
      "fp": "v|before you buy her one bag this christmas, look at three.|",
      "label": "Before you buy her one bag this Christmas, look at three.",
      "flags": [
-      "scorecard: speech 79% (target >= 85%); pause 0.87s (target <= 0.8 s); 2 repeated shots (target <= 0)"
+      "scorecard: speech 79% (target >= 85%); pause 0.87s (target <= 0.8 s); shot 4.5s (target <= 4 s); 3 repeated shots (target <= 0)",
+      "footage unverified: 1 shot(s) under a feature line come from unlabelled sources: look at qa/P01H3.jpg"
      ]
     },
     {
@@ -4798,7 +4939,8 @@
      "fp": "v|sixty percent off three matching bags, in one christmas box.|",
      "label": "Sixty percent off three matching bags, in one Christmas box.",
      "flags": [
-      "scorecard: speech 80% (target >= 85%); pause 0.88s (target <= 0.8 s); 2 repeated shots (target <= 0)"
+      "scorecard: speech 80% (target >= 85%); pause 0.88s (target <= 0.8 s); shot 4.5s (target <= 4 s); 3 repeated shots (target <= 0)",
+      "footage unverified: 1 shot(s) under a feature line come from unlabelled sources: look at qa/P01H4.jpg"
      ]
     },
     {
@@ -4807,8 +4949,8 @@
      "fp": "v|still carrying one big tote to every single plan?|",
      "label": "Still carrying one big tote to every single plan?",
      "flags": [
-      "scorecard: speech 82% (target >= 85%); 1 repeated shots (target <= 0)",
-      "footage unverified: 1 shot(s) under a feature line come from unlabelled sources: look at qa/P02H1.jpg"
+      "scorecard: speech 82% (target >= 85%); avg shot 2.63s (target 1.4 to 2.6 s); 4 repeated shots (target <= 0)",
+      "footage unverified: 2 shot(s) under a feature line come from unlabelled sources: look at qa/P02H1.jpg"
      ]
     },
     {
@@ -4817,8 +4959,8 @@
      "fp": "v|a tote against this set: watch what the zip does.|",
      "label": "A tote against this set: watch what the zip does.",
      "flags": [
-      "scorecard: speech 81% (target >= 85%); 2 repeated shots (target <= 0)",
-      "footage unverified: 1 shot(s) under a feature line come from unlabelled sources: look at qa/P02H2.jpg"
+      "scorecard: speech 81% (target >= 85%); 4 repeated shots (target <= 0)",
+      "footage unverified: 2 shot(s) under a feature line come from unlabelled sources: look at qa/P02H2.jpg"
      ]
     },
     {
@@ -4828,8 +4970,8 @@
      "label": "Your cards at the bottom of an open tote again?",
      "flags": [
       "length 54.4s (want 55-85s)",
-      "scorecard: speech 81% (target >= 85%); 1 repeated shots (target <= 0)",
-      "footage unverified: 1 shot(s) under a feature line come from unlabelled sources: look at qa/P02H3.jpg"
+      "scorecard: speech 81% (target >= 85%); 4 repeated shots (target <= 0)",
+      "footage unverified: 2 shot(s) under a feature line come from unlabelled sources: look at qa/P02H3.jpg"
      ]
     },
     {
@@ -4838,8 +4980,8 @@
      "fp": "v|before you carry that tote to the christmas shops, see this.|",
      "label": "Before you carry that tote to the Christmas shops, see this.",
      "flags": [
-      "scorecard: speech 81% (target >= 85%); 1 repeated shots (target <= 0)",
-      "footage unverified: 1 shot(s) under a feature line come from unlabelled sources: look at qa/P02H4.jpg"
+      "scorecard: speech 81% (target >= 85%); avg shot 2.63s (target 1.4 to 2.6 s); 4 repeated shots (target <= 0)",
+      "footage unverified: 2 shot(s) under a feature line come from unlabelled sources: look at qa/P02H4.jpg"
      ]
     },
     {
@@ -4847,6 +4989,76 @@
      "kind": "static",
      "fp": "s|story|AS07.png|one for each part of her day.",
      "label": "One for each part of her day.",
+     "flags": []
+    },
+    {
+     "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_S11_tissuebox",
+     "kind": "static",
+     "fp": "s|ad|AS40.png|three gifts in one box.",
+     "label": "Three gifts in one box.",
+     "flags": []
+    },
+    {
+     "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_S12_redstudio",
+     "kind": "static",
+     "fp": "s|ad|AS41.png|3 bags. 1 gift.",
+     "label": "3 bags. 1 gift.",
+     "flags": []
+    },
+    {
+     "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_S13_undertree",
+     "kind": "static",
+     "fp": "s|ad|AS42.png|three bags under the tree.",
+     "label": "Three bags under the tree.",
+     "flags": []
+    },
+    {
+     "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_S14_handsunwrap",
+     "kind": "static",
+     "fp": "s|ad|AS43.png|lift the lid: all three.",
+     "label": "Lift the lid: all three.",
+     "flags": []
+    },
+    {
+     "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_S15_wishlist",
+     "kind": "static",
+     "fp": "s|ad|AS44.png|her whole list, one set.",
+     "label": "Her whole list, one set.",
+     "flags": []
+    },
+    {
+     "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_S16_windowdecal",
+     "kind": "static",
+     "fp": "s|ad|AS45.png|the christmas set.",
+     "label": "The Christmas set.",
+     "flags": []
+    },
+    {
+     "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_S17_kraftflatlay",
+     "kind": "static",
+     "fp": "s|ad|AS46.png|wrap one. gift three.",
+     "label": "Wrap one. Gift three.",
+     "flags": []
+    },
+    {
+     "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_S18_snowystreet",
+     "kind": "static",
+     "fp": "s|ad|AS47.png|the crossbody for christmas shopping.",
+     "label": "The crossbody for Christmas shopping.",
+     "flags": []
+    },
+    {
+     "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_S19_carpresents",
+     "kind": "static",
+     "fp": "s|ad|AS48.png|one for every plan.",
+     "label": "One for every plan.",
+     "flags": []
+    },
+    {
+     "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_S20_cafewindow",
+     "kind": "static",
+     "fp": "s|ad|AS49.png|shopping day, sorted.",
+     "label": "Shopping day, sorted.",
      "flags": []
     }
    ]

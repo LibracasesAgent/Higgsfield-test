@@ -15,16 +15,16 @@
  "theme_name": "Christmas",
  "offer": "50% off + free matching pouch wallet",
  "statics": [
-  "LC_261123_HoboBag_Christmas_B055_S01_note",
-  "LC_261123_HoboBag_Christmas_B055_S02_carrymap",
-  "LC_261123_HoboBag_Christmas_B055_S03_povsticker",
-  "LC_261123_HoboBag_Christmas_B055_S04_doorwreath",
-  "LC_261123_HoboBag_Christmas_B055_S05_christmascar",
-  "LC_261123_HoboBag_Christmas_B055_S06_hook",
-  "LC_261123_HoboBag_Christmas_B055_S07_quote",
-  "LC_261123_HoboBag_Christmas_B055_S08_stack",
-  "LC_261123_HoboBag_Christmas_B055_S09_colours",
-  "LC_261123_HoboBag_Christmas_B055_S10_value"
+  "LC_261123_HoboBag_Christmas_B055_S11_tissuebox",
+  "LC_261123_HoboBag_Christmas_B055_S12_redstudio",
+  "LC_261123_HoboBag_Christmas_B055_S13_snowystreet",
+  "LC_261123_HoboBag_Christmas_B055_S14_undertree",
+  "LC_261123_HoboBag_Christmas_B055_S15_platformbehind",
+  "LC_261123_HoboBag_Christmas_B055_S16_wishlist",
+  "LC_261123_HoboBag_Christmas_B055_S17_windowdecal",
+  "LC_261123_HoboBag_Christmas_B055_S18_kraftflatlay",
+  "LC_261123_HoboBag_Christmas_B055_S19_handsunwrap",
+  "LC_261123_HoboBag_Christmas_B055_S20_cafewindow"
  ],
  "videos": [
   {
@@ -1010,5 +1010,17 @@
    ]
   }
  ],
- "hooks_seed": 1
+ "hooks_seed": 1,
+ "statics_replaced": [
+  "LC_261123_HoboBag_Christmas_B055_S01_note",
+  "LC_261123_HoboBag_Christmas_B055_S02_carrymap",
+  "LC_261123_HoboBag_Christmas_B055_S03_povsticker",
+  "LC_261123_HoboBag_Christmas_B055_S04_doorwreath",
+  "LC_261123_HoboBag_Christmas_B055_S05_christmascar",
+  "LC_261123_HoboBag_Christmas_B055_S06_hook",
+  "LC_261123_HoboBag_Christmas_B055_S07_quote",
+  "LC_261123_HoboBag_Christmas_B055_S08_stack",
+  "LC_261123_HoboBag_Christmas_B055_S09_colours",
+  "LC_261123_HoboBag_Christmas_B055_S10_value"
+ ]
 }
