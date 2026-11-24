@@ -403,9 +403,10 @@ class Shots:
         self.last = s
         return s
 
-    def place(self, t0, L, pick, pools, prev=None):
+    def place(self, t0, L, pick, pools, prev=None, own=False):
         """One shot of L s at ad second t0 (see the class). pick: [src, start, weight?, extra?] or None; pools: the lists
-        spares are taken (removed) from, in order; prev: the shot before, for a slot without a pick."""
+        spares are taken (removed) from, in order; prev: the shot before, for a slot without a pick. own: the pick was chosen
+        for these words (pinned to them): a clash takes a closer framing / another moment of the SAME clip before any spare."""
         t1 = t0 + L
         if pick is not None:
             src, st, *r = pick
@@ -413,6 +414,18 @@ class Shots:
             s = self.mk(src, st, ex, L)
             if not self.clash(s, t0, t1):
                 return self.add(s, t0)
+            if own:                                 # (2026-11-24: a hook's market shot must stay a market shot)
+                D = clip_dur(self.d, src)
+                for cl in CLOSER:
+                    s = self.mk(src, st, dict(ex, **cl), L)
+                    if not self.clash(s, t0, t1):
+                        return self.add(s, t0)
+                for off in MOMENTS if D else ():
+                    if 0 <= st + off <= D - L - 0.1:
+                        for e in [ex] + [dict(ex, **cl) for cl in CLOSER]:
+                            s = self.mk(src, round(st + off, 2), e, L)
+                            if not self.clash(s, t0, t1):
+                                return self.add(s, t0)
         for pool in pools:
             for x in pool:
                 s = self.mk(x[0], x[1], x[3] if len(x) > 3 else {}, L)
@@ -509,6 +522,9 @@ def anchored_groups(ws, picks, lead, L, text=None):
     for p in picks:
         i = min(int(anchor(p)), len(idx) - 1) if idx else 0
         c = 0.0 if not cuts else round(lead + ws[idx[i]]["s"] - CUT_LEAD, 3) if ws else 0.0
+        if cuts and cuts[-1] + SHOT_MIN <= L - SHOT_MIN and c < cuts[-1] + SHOT_MIN <= c + 1.0:
+            c = round(cuts[-1] + SHOT_MIN, 3)     # (2026-11-24) a pick a little too close to the cut before comes a little late,
+            #                                       rather than not at all: its words still get their picture
         if cuts and (c < cuts[-1] + SHOT_MIN or c > L - SHOT_MIN):
             kept.append(None)                     # (too close to the cut before, or to the block's end: no shot of its own)
             continue
@@ -574,7 +590,7 @@ def plan_block(sh, t0, L, lead, ws, picks, pools, drop=None, talk=None, ideal=SH
                         if src_l is not None:
                             src_l.remove(alt)
                             pick = alt
-            seg = sh.place(t0 + x, y - x, pick, pools, out[-1] if out else sh.last)
+            seg = sh.place(t0 + x, y - x, pick, pools, out[-1] if out else sh.last, own=own and pick is not None and pick[0] == gp[0])
             if not (talk and is_t(gp)) and not named:
                 w_ = _said(ws, lead, x, y)
                 if w_ and _verdict([seg["src"], seg["start"]], w_, float(seg["dur"]) * float(seg.get("speed", 1.0) or 1.0)) == "mismatch":

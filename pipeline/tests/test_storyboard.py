@@ -268,7 +268,8 @@ def test_named_picks(sb, d):
 def test_anchored_picks_land_on_their_words(sb, d):
     """(Julian 2026-11-04: 'one hand holds the coffee' showed the coffee a phrase later.) Picks that carry the word their phrase starts
     on ({"at": i}) cut CUT_LEAD s before that word on the voice's REAL timing, whatever pace plan estimated: pick i is on screen while
-    its own words are said; a pick whose word comes under SHOT_MIN after the cut before shares that shot and goes to the spares."""
+    its own words are said; a pick whose word comes under SHOT_MIN after the cut before comes SHOT_MIN after it (2026-11-24; before:
+    it shared that shot and went to the spares, and its words lost their picture)."""
     text = "Here's a test every bag should pass. One hand holds a coffee. The other has to find your things and shut the bag again."
     toks = text.split()
     ws, t = [], 0.1                       # a slow start, then fast: plan's even pace would put every cut in the wrong place
@@ -286,7 +287,8 @@ def test_anchored_picks_land_on_their_words(sb, d):
     assert starts["s1.jpg"] == round(ws[7]["s"] - sb.CUT_LEAD, 3), (starts, ws[7])       # the coffee shot starts on 'One'
     assert starts["s2.jpg"] == round(ws[12]["s"] - sb.CUT_LEAD, 3), starts               # 'The other has to find ...'
     assert all("at" not in g for g in got)
-    assert drop == [["s3.jpg", 0, 1.0, dict(still, at=14)]], drop                         # 'find' 0.56 s after 'The': no shot
+    assert drop == [], drop                       # 'find' 0.56 s after 'The': its shot comes SHOT_MIN after the cut, not never
+    assert starts["s3.jpg"] == round(starts["s2.jpg"] + sb.SHOT_MIN, 3), starts          # (2026-11-24: its words keep their picture)
     assert abs(sum(g["dur"] for g in got) - L) < 0.01
     ws2 = [dict(w=w, s=round(0.1 + i * 0.3, 3), e=round(0.3 + i * 0.3, 3)) for i, w in enumerate(toks)]
     old = sb.plan_block(sb.Shots(d), 0.0, L, 0.0, ws2, [p[:3] for p in picks], [], [])     # (no anchors: the old grouping)
