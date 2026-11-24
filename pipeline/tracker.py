@@ -361,7 +361,7 @@ def replace(du, tok, sid, wb):
 
 
 # ---------------------------------------------------------------- sync
-def sync(batches=(), refresh_all=False, notes=None, dry=False, quiet=False, status=None):
+def sync(batches=(), refresh_all=False, notes=None, dry=False, quiet=False, status=None, prune=False):
     """Add / refresh the given batch ids (and every batch folder in Drive the sheet lacks) -> summary dict. (notes: accepted for
     the callers of the old format; the run report carries them.) status = {batch: Status} sets our Status column of every row of that
     batch (a batch replaced by a new version: '⛔ Skip')."""
@@ -412,6 +412,12 @@ def sync(batches=(), refresh_all=False, notes=None, dry=False, quiet=False, stat
         if new and bid not in have:
             added_b.append(bid)
         day = meta.get("Delivered")
+        if prune and bid in {b for b in batches if b} and new:   # (owner 2026-11-24: "only put the updated ones"): rows of this batch
+            gone = [k for k in keyed if k.split("|", 1)[0] == bid and k not in new]   # whose file left Drive (trashed old versions)
+            for k in gone:
+                del keyed[k]
+            if gone:
+                say(f"tracker: {bid}: {len(gone)} row(s) whose file is no longer in Drive removed")
         for k, x in new.items():
             o = keyed.get(k)
             ad = k.split("|", 1)[1]
@@ -458,6 +464,8 @@ def main():
     s.add_argument("--batch", action="append", default=[], help="a batch id to add / refresh (repeatable)")
     s.add_argument("--all", action="store_true", help="refresh the file details of every batch")
     s.add_argument("--dry-run", action="store_true")
+    s.add_argument("--prune", action="store_true", help="for the --batch batches: remove the rows whose file is no longer in Drive "
+                   "(old versions moved to the trash)")
     s.add_argument("--status", help="set our Status column of every row of the --batch batches (e.g. '⛔ Skip' for a batch a new version "
                    "replaces): " + ", ".join(STATUS))
     sub.add_parser("show")
@@ -471,7 +479,7 @@ def main():
                               tabs=wb.sheetnames), indent=1))
         return 0
     st = {x.upper(): a.status for x in a.batch} if a.status else None
-    print(json.dumps(sync([x.upper() for x in a.batch], refresh_all=a.all, dry=a.dry_run, status=st), indent=1, default=str))
+    print(json.dumps(sync([x.upper() for x in a.batch], refresh_all=a.all, dry=a.dry_run, status=st, prune=a.prune), indent=1, default=str))
     return 0
 
 

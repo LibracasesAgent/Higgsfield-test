@@ -4366,76 +4366,6 @@
    "link": "https://drive.google.com/drive/folders/1K7PFUUcA25lz2JdwQqSnJEeyWjXD06lW",
    "ads": [
     {
-     "name": "LC_261123_VintageBag_Christmas_B054_S01_ribbon",
-     "kind": "static",
-     "fp": "s|ad|AS01.png|her christmas bag, wrapped.",
-     "label": "Her Christmas bag, wrapped.",
-     "flags": []
-    },
-    {
-     "name": "LC_261123_VintageBag_Christmas_B054_S02_window",
-     "kind": "static",
-     "fp": "s|ad|AS02.png|one snap, one hand.",
-     "label": "One snap, one hand.",
-     "flags": []
-    },
-    {
-     "name": "LC_261123_VintageBag_Christmas_B054_S03_note",
-     "kind": "static",
-     "fp": "s|ad|AS03.png|for mum, with love.",
-     "label": "For Mum, with love.",
-     "flags": []
-    },
-    {
-     "name": "LC_261123_VintageBag_Christmas_B054_S04_mantelmornin",
-     "kind": "static",
-     "fp": "s|ad|AS04.png|hang it by her stocking.",
-     "label": "Hang it by her stocking.",
-     "flags": []
-    },
-    {
-     "name": "LC_261123_VintageBag_Christmas_B054_S05_povsticker",
-     "kind": "static",
-     "fp": "s|ad|AS05.png|christmas market. crossbody on.",
-     "label": "Christmas market. Crossbody on.",
-     "flags": []
-    },
-    {
-     "name": "LC_261123_VintageBag_Christmas_B054_S06_hook",
-     "kind": "static",
-     "fp": "s|story|AS06.png|hands full of shopping again?",
-     "label": "Hands full of shopping again?",
-     "flags": []
-    },
-    {
-     "name": "LC_261123_VintageBag_Christmas_B054_S07_list",
-     "kind": "static",
-     "fp": "s|story|AS07.png|why it makes a good christmas gift.",
-     "label": "Why it makes a good Christmas gift.",
-     "flags": []
-    },
-    {
-     "name": "LC_261123_VintageBag_Christmas_B054_S08_versus",
-     "kind": "static",
-     "fp": "s|story|AS08.png|big open tote, or this one?",
-     "label": "Big open tote, or this one?",
-     "flags": []
-    },
-    {
-     "name": "LC_261123_VintageBag_Christmas_B054_S09_colours",
-     "kind": "static",
-     "fp": "s|colours||which colour is hers?",
-     "label": "Which colour is hers?",
-     "flags": []
-    },
-    {
-     "name": "LC_261123_VintageBag_Christmas_B054_S10_value",
-     "kind": "static",
-     "fp": "s|value|vintage_colour_black.jpg|her christmas gift, half price.",
-     "label": "Her Christmas gift, half price.",
-     "flags": []
-    },
-    {
      "name": "LC_261123_VintageBag_Christmas_B054_P01_H1_hersgift",
      "kind": "video",
      "fp": "v|know someone whose hands are always full of shopping bags?|",
@@ -4604,69 +4534,6 @@
    "link": "https://drive.google.com/drive/folders/1PBVVbYsLPQY0DeMoXJHcF5egyZQFbtw1",
    "ads": [
     {
-     "name": "LC_261123_HoboBag_Christmas_B055_S01_note",
-     "kind": "static",
-     "fp": "s|ad|AS01.png|for her: bag + wallet.",
-     "label": "For her: bag + wallet.",
-     "flags": []
-    },
-    {
-     "name": "LC_261123_HoboBag_Christmas_B055_S02_carrymap",
-     "kind": "static",
-     "fp": "s|ad|AS02.png|keys: side zip. cards: pouch wallet.",
-     "label": "Keys: side zip. Cards: pouch wallet.",
-     "flags": []
-    },
-    {
-     "name": "LC_261123_HoboBag_Christmas_B055_S03_povsticker",
-     "kind": "static",
-     "fp": "s|ad|AS03.png|packed station. cards flat against you.",
-     "label": "Packed station. Cards flat against you.",
-     "flags": []
-    },
-    {
-     "name": "LC_261123_HoboBag_Christmas_B055_S05_christmascar",
-     "kind": "static",
-     "fp": "s|ad|AS05.png|bag + matching wallet.",
-     "label": "Bag + matching wallet.",
-     "flags": []
-    },
-    {
-     "name": "LC_261123_HoboBag_Christmas_B055_S06_hook",
-     "kind": "static",
-     "fp": "s|story|AS06.png|card at the bottom at the till?",
-     "label": "Card at the bottom at the till?",
-     "flags": []
-    },
-    {
-     "name": "LC_261123_HoboBag_Christmas_B055_S07_quote",
-     "kind": "static",
-     "fp": "s|story|AS07.png|it's spacious, lightweight, and super functional with lots of pockets.",
-     "label": "It's spacious, lightweight, and super functional with lots of pockets.",
-     "flags": []
-    },
-    {
-     "name": "LC_261123_HoboBag_Christmas_B055_S08_stack",
-     "kind": "static",
-     "fp": "s|story|AS08.png|everything she unwraps.",
-     "label": "Everything she unwraps.",
-     "flags": []
-    },
-    {
-     "name": "LC_261123_HoboBag_Christmas_B055_S09_colours",
-     "kind": "static",
-     "fp": "s|colours||which colour is hers?",
-     "label": "Which colour is hers?",
-     "flags": []
-    },
-    {
-     "name": "LC_261123_HoboBag_Christmas_B055_S10_value",
-     "kind": "static",
-     "fp": "s|value|hobo_bag_colour_grey.jpg|her gift, wallet included.",
-     "label": "Her gift, wallet included.",
-     "flags": []
-    },
-    {
      "name": "LC_261123_HoboBag_Christmas_B055_P01_H1_christmaseve",
      "kind": "video",
      "fp": "v|christmas eve, a packed station. where are your cards right now?|",
@@ -4740,15 +4607,6 @@
      "fp": "v|where's your card when both hands hold the shopping?|",
      "label": "Where's your card when both hands hold the shopping?",
      "flags": []
-    },
-    {
-     "name": "LC_261123_HoboBag_Christmas_B055_S04_doorwreath",
-     "kind": "static",
-     "fp": "s|ad|AS04.png|keys in the side zip. home.",
-     "label": "Keys in the side zip. Home.",
-     "flags": [
-      "passed by eye: the face check had 1 hit(s) on this AI still (look at it)"
-     ]
     },
     {
      "name": "LC_261123_HoboBag_Christmas_B055_S11_tissuebox",
@@ -4840,69 +4698,6 @@
    "link": "https://drive.google.com/drive/folders/1qre1NaNGbTeT_gqxGtzehMfdv4EALNpi",
    "ads": [
     {
-     "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_S01_swingtag",
-     "kind": "static",
-     "fp": "s|ad|AS01.png|one gift. three bags.",
-     "label": "One gift. Three bags.",
-     "flags": []
-    },
-    {
-     "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_S02_window",
-     "kind": "static",
-     "fp": "s|ad|AS02.png|her whole list, one set.",
-     "label": "Her whole list, one set.",
-     "flags": []
-    },
-    {
-     "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_S03_povsticker",
-     "kind": "static",
-     "fp": "s|ad|AS03.png|market day: the crossbody goes.",
-     "label": "Market day: the crossbody goes.",
-     "flags": []
-    },
-    {
-     "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_S04_unbox",
-     "kind": "static",
-     "fp": "s|ad|AS04.png|three pieces under the paper.",
-     "label": "Three pieces under the paper.",
-     "flags": []
-    },
-    {
-     "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_S05_studio",
-     "kind": "static",
-     "fp": "s|studio|3_piece_set_colour_red.jpg|three plans. three bags. one box.",
-     "label": "Three plans. Three bags. One box.",
-     "flags": []
-    },
-    {
-     "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_S06_hook",
-     "kind": "static",
-     "fp": "s|story|AS06.png|cash and cards all over your bag?",
-     "label": "Cash and cards all over your bag?",
-     "flags": []
-    },
-    {
-     "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_S08_versus",
-     "kind": "static",
-     "fp": "s|story|AS08.png|one tote, or the whole set?",
-     "label": "One tote, or the whole set?",
-     "flags": []
-    },
-    {
-     "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_S09_colours",
-     "kind": "static",
-     "fp": "s|colours||which set is hers?",
-     "label": "Which set is hers?",
-     "flags": []
-    },
-    {
-     "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_S10_value",
-     "kind": "static",
-     "fp": "s|value|3_piece_set_colour_red.jpg|three bags. one gift.",
-     "label": "Three bags. One gift.",
-     "flags": []
-    },
-    {
      "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_P01_H1_threeinone",
      "kind": "video",
      "fp": "v|buying for someone who changes bags three times a day?|",
@@ -4983,13 +4778,6 @@
       "scorecard: speech 81% (target >= 85%); avg shot 2.63s (target 1.4 to 2.6 s); 4 repeated shots (target <= 0)",
       "footage unverified: 2 shot(s) under a feature line come from unlabelled sources: look at qa/P02H4.jpg"
      ]
-    },
-    {
-     "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_S07_list",
-     "kind": "static",
-     "fp": "s|story|AS07.png|one for each part of her day.",
-     "label": "One for each part of her day.",
-     "flags": []
     },
     {
      "name": "LC_261123_HoboBag3PieceSet_Christmas_B056_S11_tissuebox",
