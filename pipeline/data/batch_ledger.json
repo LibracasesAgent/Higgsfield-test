@@ -4843,7 +4843,37 @@
      "flags": []
     }
    ]
+  },
+  {
+   "id": "B057",
+   "n": 57,
+   "rev": 2,
+   "date": "2026-11-28",
+   "product": "Vintage Bag",
+   "theme": "Christmas",
+   "pipeline": "catalog",
+   "request": "Christmas batch for the winners brief's top product: every line shown in the footage, real stories with the offer and CTA only at the end, no presenter, the whole bag visible",
+   "statics": 12,
+   "projects": 3,
+   "hooks": 4,
+   "seed": 1,
+   "status": "planned"
+  },
+  {
+   "id": "B058",
+   "n": 58,
+   "rev": 1,
+   "date": "2026-11-28",
+   "product": "Vintage Bag",
+   "theme": "Christmas",
+   "pipeline": "catalog",
+   "request": "Christmas batch for the winners brief's top product: every line shown in the footage, real stories with the offer and CTA only at the end, no presenter, the whole bag visible",
+   "statics": 12,
+   "projects": 3,
+   "hooks": 4,
+   "seed": 1,
+   "status": "planned"
   }
  ],
- "next": 57
+ "next": 59
 }
