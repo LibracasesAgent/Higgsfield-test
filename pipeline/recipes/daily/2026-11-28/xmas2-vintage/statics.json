@@ -1,0 +1,208 @@
+{
+ "ads": [
+  {
+   "layout": "ad",
+   "photo": "ai/AS01.png",
+   "format": "giant_numerals",
+   "words": [
+    "50%",
+    "OFF",
+    "One snap. Shut."
+   ],
+   "headline": "One snap. Shut.",
+   "name": "LC_261128_VintageBag_Christmas_B058_S01_numerals",
+   "ai": {
+    "id": "AS01",
+    "scene": "p02_s01_giant_numerals",
+    "colour": "Red",
+    "format": "giant_numerals"
+   }
+  },
+  {
+   "layout": "native",
+   "photo": "photos/frames/F_1Vmnc83ejq_1.5.jpg",
+   "caption": "Handbag or crossbody. Her call.",
+   "pct": 50,
+   "name": "LC_261128_VintageBag_Christmas_B058_S02_native",
+   "frame": {
+    "clip": "1Vmnc83ejq0iUAhhxmKpOq0gn8OnvM0W6",
+    "t": 1.5
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS03.png",
+   "format": "rubber_stamp",
+   "words": [
+    "HALF PRICE",
+    "Christmas for Mum, sorted."
+   ],
+   "headline": "Christmas for Mum, sorted.",
+   "name": "LC_261128_VintageBag_Christmas_B058_S03_stamp",
+   "ai": {
+    "id": "AS03",
+    "scene": "p03_s03_rubber_stamp",
+    "colour": "Black",
+    "format": "rubber_stamp",
+    "eye_ok": true
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS04.png",
+   "format": "paper_shopping_bag",
+   "words": [
+    "50% OFF",
+    "Phone, wallet, keys. A spot each."
+   ],
+   "headline": "Phone, wallet, keys. A spot each.",
+   "name": "LC_261128_VintageBag_Christmas_B058_S04_shopper",
+   "ai": {
+    "id": "AS04",
+    "scene": "p01_s04_paper_shopping_bag",
+    "colour": "Ginger Brown",
+    "format": "paper_shopping_bag",
+    "eye_ok": true
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS05.png",
+   "format": "chalkboard_sign",
+   "words": [
+    "50% OFF",
+    "Christmas drinks? Crossbody on."
+   ],
+   "headline": "Christmas drinks? Crossbody on.",
+   "name": "LC_261128_VintageBag_Christmas_B058_S05_chalkboardsi",
+   "ai": {
+    "id": "AS05",
+    "scene": "p02_s05_chalkboard_sign",
+    "colour": "Red",
+    "format": "chalkboard_sign"
+   }
+  },
+  {
+   "layout": "ad",
+   "photo": "ai/AS06.png",
+   "format": "advent_calendar",
+   "words": [
+    "50% OFF",
+    "The last door: her new bag."
+   ],
+   "headline": "The last door: her new bag.",
+   "name": "LC_261128_VintageBag_Christmas_B058_S06_adventcalend",
+   "ai": {
+    "id": "AS06",
+    "scene": "p03_s06_advent_calendar",
+    "colour": "Chocolate",
+    "format": "advent_calendar",
+    "eye_ok": true
+   }
+  },
+  {
+   "look": "hook",
+   "hook": "Keys at the bottom again?",
+   "sub": "Phone, wallet, keys: a spot each.",
+   "kicker": "CHRISTMAS EVE",
+   "highlight": [
+    "Keys"
+   ],
+   "layout": "story",
+   "photo": "site/vintage_08.jpg",
+   "headline": "Keys at the bottom again?",
+   "name": "LC_261128_VintageBag_Christmas_B058_S07_hook",
+   "us": "Vintage Bag",
+   "pct": 50
+  },
+  {
+   "look": "stack",
+   "hook": "One small bag for all of December.",
+   "kicker": "THIS CHRISTMAS",
+   "points": [
+    "Snaps shut with one hand",
+    "A spot for phone, wallet, keys",
+    "Handbag or crossbody",
+    "Free shipping"
+   ],
+   "layout": "story",
+   "photo": "site/vintage_10.jpg",
+   "headline": "One small bag for all of December.",
+   "name": "LC_261128_VintageBag_Christmas_B058_S08_stack",
+   "us": "Vintage Bag",
+   "pct": 50
+  },
+  {
+   "look": "list",
+   "hook": "What to check before you buy Mum a bag.",
+   "points": [
+    "The strap goes handbag or crossbody.",
+    "The clasp shuts with one hand.",
+    "Phone, wallet, keys: a spot each."
+   ],
+   "layout": "story",
+   "photo": "site/vintage_04.jpg",
+   "headline": "What to check before you buy Mum a bag.",
+   "name": "LC_261128_VintageBag_Christmas_B058_S09_list",
+   "us": "Vintage Bag",
+   "pct": 50
+  },
+  {
+   "look": "hook",
+   "hook": "Hands full at Mum's door?",
+   "sub": "Strap long. It goes crossbody.",
+   "kicker": "CHRISTMAS EVE",
+   "highlight": [
+    "Hands"
+   ],
+   "layout": "story",
+   "photo": "ai/AS07.png",
+   "headline": "Hands full at Mum's door?",
+   "name": "LC_261128_VintageBag_Christmas_B058_S10_hook",
+   "us": "Vintage Bag",
+   "pct": 50,
+   "ai": {
+    "id": "AS07",
+    "scene": "p01_s10",
+    "colour": "Black"
+   }
+  },
+  {
+   "layout": "colours",
+   "photos": [
+    {
+     "src": "site/vintage_colour_ginger_brown.jpg",
+     "name": "Ginger Brown"
+    },
+    {
+     "src": "site/vintage_colour_black.jpg",
+     "name": "Black"
+    },
+    {
+     "src": "site/vintage_colour_chocolate.jpg",
+     "name": "Chocolate"
+    },
+    {
+     "src": "site/vintage_colour_red.jpg",
+     "name": "Red"
+    }
+   ],
+   "headline": "Which colour are you?",
+   "sub": "Now 50% off.",
+   "cta": "Shop the gift",
+   "name": "LC_261128_VintageBag_Christmas_B058_S11_colours",
+   "pct": 50
+  },
+  {
+   "layout": "value",
+   "photo": "site/vintage_colour_red.jpg",
+   "price": "$44.95",
+   "was": "$89.95",
+   "pct": 50,
+   "headline": "Her Christmas bag, half price.",
+   "cta": "Shop the gift",
+   "name": "LC_261128_VintageBag_Christmas_B058_S12_value"
+  }
+ ],
+ "card_photos": []
+}

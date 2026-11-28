@@ -1,0 +1,20 @@
+{
+ "ok": true,
+ "product": "Vintage Bag",
+ "offer": "50% off",
+ "checked": 318,
+ "problems": [],
+ "allowed": [],
+ "raw_story": [],
+ "raw_cuts": [],
+ "playbook_warnings": [
+  "LC_261128_VintageBag_Christmas_B058_S01_numerals primary_text_2: hype_soft: 'perfect': Halbert's hype words date the copy and Meta's ranking reads them as low quality; show the thing instead",
+  "LC_261128_VintageBag_Christmas_B058_S08_stack primary_text_2: hype_soft: 'perfect': Halbert's hype words date the copy and Meta's ranking reads them as low quality; show the thing instead",
+  "LC_261128_VintageBag_Christmas_B058_P02_H3_onehandtest hook_first_line: hook_formula: 'A one-hand test for December: table, car, street.' follows none of the rulebook's hook formulas (how to, a question, a number, a warning, a contrast, watch, a moment, at last, the truth about, imagine, if you, who else, hidden, the offer)",
+  "LC_261128_VintageBag_Christmas_B058_P03_H2_askyoursister hook_first_line: hook_formula: 'For the mum who carries her bag by hand and crossbody.' follows none of the rulebook's hook formulas (how to, a question, a number, a warning, a contrast, watch, a moment, at last, the truth about, imagine, if you, who else, hidden, the offer)",
+  "LC_261128_VintageBag_Christmas_B058_P03_H2_askyoursister hook_first_line: hook_third_person: 'For the mum who carries her bag by hand and crossbody.' talks about 'her' / 'him': the viewer is 'you'",
+  "LC_261128_VintageBag_Christmas_B058_P03_H3_askyoursister hook_first_line: hook_concrete: 'What to check before you buy Mum a bag this Christmas.' names nothing a picture can show and no number: the opening shot cannot prove it",
+  "LC_261128_VintageBag_Christmas_B058_P03_H4_askyoursister hook_first_line: hook_third_person: 'Before you buy Mum a bag, picture it on her car seat.' talks about 'her' / 'him': the viewer is 'you'"
+ ],
+ "report": "/tmp/run/xmas2v/compliance.json"
+}

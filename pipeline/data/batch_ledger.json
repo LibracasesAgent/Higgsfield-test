@@ -4872,7 +4872,203 @@
    "projects": 3,
    "hooks": 4,
    "seed": 1,
-   "status": "planned"
+   "status": "uploaded",
+   "folder": "B058 – 2026-11-28 – Vintage Bag Christmas – 12 statics + 3 projects",
+   "link": "https://drive.google.com/drive/folders/1rqvwYv8Mfdee7_Oq6yBR1kEr32xNrD84",
+   "ads": [
+    {
+     "name": "LC_261128_VintageBag_Christmas_B058_S01_numerals",
+     "kind": "static",
+     "fp": "s|ad|AS01.png|one snap. shut.",
+     "label": "One snap. Shut.",
+     "flags": []
+    },
+    {
+     "name": "LC_261128_VintageBag_Christmas_B058_S02_native",
+     "kind": "static",
+     "fp": "s|native|F_1Vmnc83ejq_1.5.jpg|handbag or crossbody. her call.",
+     "label": "Handbag or crossbody. Her call.",
+     "flags": []
+    },
+    {
+     "name": "LC_261128_VintageBag_Christmas_B058_S03_stamp",
+     "kind": "static",
+     "fp": "s|ad|AS03.png|christmas for mum, sorted.",
+     "label": "Christmas for Mum, sorted.",
+     "flags": []
+    },
+    {
+     "name": "LC_261128_VintageBag_Christmas_B058_S04_shopper",
+     "kind": "static",
+     "fp": "s|ad|AS04.png|phone, wallet, keys. a spot each.",
+     "label": "Phone, wallet, keys. A spot each.",
+     "flags": []
+    },
+    {
+     "name": "LC_261128_VintageBag_Christmas_B058_S05_chalkboardsi",
+     "kind": "static",
+     "fp": "s|ad|AS05.png|christmas drinks? crossbody on.",
+     "label": "Christmas drinks? Crossbody on.",
+     "flags": []
+    },
+    {
+     "name": "LC_261128_VintageBag_Christmas_B058_S06_adventcalend",
+     "kind": "static",
+     "fp": "s|ad|AS06.png|the last door: her new bag.",
+     "label": "The last door: her new bag.",
+     "flags": []
+    },
+    {
+     "name": "LC_261128_VintageBag_Christmas_B058_S07_hook",
+     "kind": "static",
+     "fp": "s|story|vintage_08.jpg|keys at the bottom again?",
+     "label": "Keys at the bottom again?",
+     "flags": []
+    },
+    {
+     "name": "LC_261128_VintageBag_Christmas_B058_S08_stack",
+     "kind": "static",
+     "fp": "s|story|vintage_10.jpg|one small bag for all of december.",
+     "label": "One small bag for all of December.",
+     "flags": []
+    },
+    {
+     "name": "LC_261128_VintageBag_Christmas_B058_S09_list",
+     "kind": "static",
+     "fp": "s|story|vintage_04.jpg|what to check before you buy mum a bag.",
+     "label": "What to check before you buy Mum a bag.",
+     "flags": []
+    },
+    {
+     "name": "LC_261128_VintageBag_Christmas_B058_S10_hook",
+     "kind": "static",
+     "fp": "s|story|AS07.png|hands full at mum's door?",
+     "label": "Hands full at Mum's door?",
+     "flags": []
+    },
+    {
+     "name": "LC_261128_VintageBag_Christmas_B058_S11_colours",
+     "kind": "static",
+     "fp": "s|colours||which colour are you?",
+     "label": "Which colour are you?",
+     "flags": []
+    },
+    {
+     "name": "LC_261128_VintageBag_Christmas_B058_S12_value",
+     "kind": "static",
+     "fp": "s|value|vintage_colour_red.jpg|her christmas bag, half price.",
+     "label": "Her Christmas bag, half price.",
+     "flags": []
+    },
+    {
+     "name": "LC_261128_VintageBag_Christmas_B058_P01_H1_evepacked",
+     "kind": "video",
+     "fp": "v|how to pack one small bag for all of christmas eve.|",
+     "label": "How to pack one small bag for all of Christmas Eve.",
+     "flags": [
+      "scorecard: speech 81% (target >= 85%); pause 0.92s (target <= 0.8 s); shot 4.0s (target <= 4 s); 1 repeated shots (target <= 0)"
+     ]
+    },
+    {
+     "name": "LC_261128_VintageBag_Christmas_B058_P01_H2_evepacked",
+     "kind": "video",
+     "fp": "v|watch your phone, wallet and keys each find their own spot.|",
+     "label": "Watch your phone, wallet and keys each find their own spot.",
+     "flags": [
+      "scorecard: speech 80% (target >= 85%); pause 0.92s (target <= 0.8 s); shot 4.0s (target <= 4 s); 1 repeated shots (target <= 0)"
+     ]
+    },
+    {
+     "name": "LC_261128_VintageBag_Christmas_B058_P01_H3_evepacked",
+     "kind": "video",
+     "fp": "v|christmas eve is tomorrow. is your small bag packed yet?|",
+     "label": "Christmas Eve is tomorrow. Is your small bag packed yet?",
+     "flags": [
+      "scorecard: speech 80% (target >= 85%); pause 0.92s (target <= 0.8 s); shot 4.0s (target <= 4 s); 1 repeated shots (target <= 0)"
+     ]
+    },
+    {
+     "name": "LC_261128_VintageBag_Christmas_B058_P01_H4_evepacked",
+     "kind": "video",
+     "fp": "v|christmas eve tomorrow. where do your keys go in your bag?|",
+     "label": "Christmas Eve tomorrow. Where do your keys go in your bag?",
+     "flags": [
+      "scorecard: speech 80% (target >= 85%); pause 0.92s (target <= 0.8 s); shot 4.0s (target <= 4 s); 1 repeated shots (target <= 0)"
+     ]
+    },
+    {
+     "name": "LC_261128_VintageBag_Christmas_B058_P02_H1_onehandtest",
+     "kind": "video",
+     "fp": "v|can you snap your bag with one hand, the other one full?|",
+     "label": "Can you snap your bag with one hand, the other one full?",
+     "flags": [
+      "scorecard: 184 wpm (target 185 to 215); speech 77% (target >= 85%); shot 5.9s (target <= 4 s); 1 repeated shots (target <= 0)"
+     ]
+    },
+    {
+     "name": "LC_261128_VintageBag_Christmas_B058_P02_H2_onehandtest",
+     "kind": "video",
+     "fp": "v|most small bags need both hands. watch this clasp instead.|",
+     "label": "Most small bags need both hands. Watch this clasp instead.",
+     "flags": [
+      "scorecard: 181 wpm (target 185 to 215); speech 77% (target >= 85%); shot 5.9s (target <= 4 s); 1 repeated shots (target <= 0)"
+     ]
+    },
+    {
+     "name": "LC_261128_VintageBag_Christmas_B058_P02_H3_onehandtest",
+     "kind": "video",
+     "fp": "v|a one-hand test for december: table, car, street.|",
+     "label": "A one-hand test for December: table, car, street.",
+     "flags": [
+      "scorecard: 180 wpm (target 185 to 215); speech 76% (target >= 85%); shot 5.9s (target <= 4 s); 2 repeated shots (target <= 0)"
+     ]
+    },
+    {
+     "name": "LC_261128_VintageBag_Christmas_B058_P02_H4_onehandtest",
+     "kind": "video",
+     "fp": "v|both hands busy this december? watch this flap snap shut.|",
+     "label": "Both hands busy this December? Watch this flap snap shut.",
+     "flags": [
+      "scorecard: 182 wpm (target 185 to 215); speech 78% (target >= 85%); shot 5.9s (target <= 4 s); 1 repeated shots (target <= 0)"
+     ]
+    },
+    {
+     "name": "LC_261128_VintageBag_Christmas_B058_P03_H1_askyoursister",
+     "kind": "video",
+     "fp": "v|buying mum a bag for christmas? does its strap adjust?|",
+     "label": "Buying Mum a bag for Christmas? Does its strap adjust?",
+     "flags": [
+      "scorecard: speech 79% (target >= 85%); pause 0.90s (target <= 0.8 s); 2 repeated shots (target <= 0)"
+     ]
+    },
+    {
+     "name": "LC_261128_VintageBag_Christmas_B058_P03_H2_askyoursister",
+     "kind": "video",
+     "fp": "v|for the mum who carries her bag by hand and crossbody.|",
+     "label": "For the mum who carries her bag by hand and crossbody.",
+     "flags": [
+      "scorecard: speech 80% (target >= 85%); pause 0.90s (target <= 0.8 s); 2 repeated shots (target <= 0)"
+     ]
+    },
+    {
+     "name": "LC_261128_VintageBag_Christmas_B058_P03_H3_askyoursister",
+     "kind": "video",
+     "fp": "v|what to check before you buy mum a bag this christmas.|",
+     "label": "What to check before you buy Mum a bag this Christmas.",
+     "flags": [
+      "scorecard: speech 80% (target >= 85%); pause 0.90s (target <= 0.8 s); 1 repeated shots (target <= 0)"
+     ]
+    },
+    {
+     "name": "LC_261128_VintageBag_Christmas_B058_P03_H4_askyoursister",
+     "kind": "video",
+     "fp": "v|before you buy mum a bag, picture it on her car seat.|",
+     "label": "Before you buy Mum a bag, picture it on her car seat.",
+     "flags": [
+      "scorecard: speech 79% (target >= 85%); pause 0.90s (target <= 0.8 s); 3 repeated shots (target <= 0)"
+     ]
+    }
+   ]
   }
  ],
  "next": 59

@@ -1,0 +1,1491 @@
+{
+ "prefix": "LC_261128_VintageBag_Christmas_B058",
+ "rev": 1,
+ "batch_id": {
+  "id": "B058",
+  "n": 58,
+  "rev": 1
+ },
+ "created": "2026-11-28",
+ "request": "Christmas batch for the winners brief's top product: every line shown in the footage, real stories with the offer and CTA only at the end, no presenter, the whole bag visible",
+ "product": "Vintage Bag",
+ "product_key": "vintage",
+ "product_source": "built-in",
+ "theme": "christmas",
+ "theme_name": "Christmas",
+ "offer": "50% off",
+ "statics": [
+  "LC_261128_VintageBag_Christmas_B058_S01_numerals",
+  "LC_261128_VintageBag_Christmas_B058_S02_native",
+  "LC_261128_VintageBag_Christmas_B058_S03_stamp",
+  "LC_261128_VintageBag_Christmas_B058_S04_shopper",
+  "LC_261128_VintageBag_Christmas_B058_S05_chalkboardsi",
+  "LC_261128_VintageBag_Christmas_B058_S06_adventcalend",
+  "LC_261128_VintageBag_Christmas_B058_S07_hook",
+  "LC_261128_VintageBag_Christmas_B058_S08_stack",
+  "LC_261128_VintageBag_Christmas_B058_S09_list",
+  "LC_261128_VintageBag_Christmas_B058_S10_hook",
+  "LC_261128_VintageBag_Christmas_B058_S11_colours",
+  "LC_261128_VintageBag_Christmas_B058_S12_value"
+ ],
+ "videos": [
+  {
+   "name": "LC_261128_VintageBag_Christmas_B058_P01_H1_evepacked",
+   "id": "P01H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "ugc": {
+    "script": "U01",
+    "angle": "evepacked",
+    "words": 197,
+    "structure": "night_before",
+    "hook": {
+     "type": "warning",
+     "label": "PACK IT ONCE",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Watch your phone, wallet and keys each find their own spot.",
+      "type": "promise",
+      "label": "A SPOT EACH",
+      "feature": null,
+      "show": [
+       "inside",
+       "pocket"
+      ]
+     },
+     {
+      "text": "Christmas Eve is tomorrow. Is your small bag packed yet?",
+      "type": "question",
+      "label": "TOMORROW",
+      "feature": null,
+      "show": [
+       "snap",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Christmas Eve tomorrow. Where do your keys go in your bag?",
+      "type": "problem",
+      "label": "YOUR KEYS",
+      "feature": null,
+      "show": [
+       "worn",
+       "walking"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Watch your phone, wallet and keys each find their own spot.": [
+      [
+       "10aSieQA3Lb3YEflOG3dXN2sIgckqMv4f",
+       9.3,
+       1.0,
+       {
+        "zoom": [
+         1.3,
+         1.36
+        ],
+        "focus": [
+         0.5,
+         0.55
+        ]
+       }
+      ],
+      [
+       "1dKZIPJdzTK5XalUeYccAQqTH-jLEkPt2",
+       11.0,
+       1.0
+      ]
+     ],
+     "Christmas Eve is tomorrow. Is your small bag packed yet?": [
+      [
+       "1VYOz6vWCsY5iQ6DuiIrqaCkR7HsDLrM6",
+       0.3,
+       1.0
+      ],
+      [
+       "1u_BcAe6ont2BTbyK5uSi7-QFbgZ8sgML",
+       15.05,
+       1.0
+      ]
+     ],
+     "Christmas Eve tomorrow. Where do your keys go in your bag?": [
+      [
+       "1R252UTrxdvK5bBTBSgBNWv04zCDUs5KK",
+       3.57,
+       1.0
+      ],
+      [
+       "1LvvnZKxAdkdxoYbD7CWAttjNbFgG_SRF",
+       7.78,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 65.7,
+   "project": "P01",
+   "hook_text": "How to pack one small bag for all of Christmas Eve.",
+   "hook_label": "PACK IT ONCE",
+   "hook_type": "warning",
+   "opening_shot": [
+    "1nCg9ulE1ZcwawGVIaGZvkMOcrZi_CrAG",
+    10.81
+   ]
+  },
+  {
+   "name": "LC_261128_VintageBag_Christmas_B058_P01_H2_evepacked",
+   "id": "P01H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "ugc": {
+    "script": "U01",
+    "angle": "evepacked",
+    "words": 197,
+    "structure": "night_before",
+    "hook": {
+     "type": "warning",
+     "label": "PACK IT ONCE",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Watch your phone, wallet and keys each find their own spot.",
+      "type": "promise",
+      "label": "A SPOT EACH",
+      "feature": null,
+      "show": [
+       "inside",
+       "pocket"
+      ]
+     },
+     {
+      "text": "Christmas Eve is tomorrow. Is your small bag packed yet?",
+      "type": "question",
+      "label": "TOMORROW",
+      "feature": null,
+      "show": [
+       "snap",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Christmas Eve tomorrow. Where do your keys go in your bag?",
+      "type": "problem",
+      "label": "YOUR KEYS",
+      "feature": null,
+      "show": [
+       "worn",
+       "walking"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Watch your phone, wallet and keys each find their own spot.": [
+      [
+       "10aSieQA3Lb3YEflOG3dXN2sIgckqMv4f",
+       9.3,
+       1.0,
+       {
+        "zoom": [
+         1.3,
+         1.36
+        ],
+        "focus": [
+         0.5,
+         0.55
+        ]
+       }
+      ],
+      [
+       "1dKZIPJdzTK5XalUeYccAQqTH-jLEkPt2",
+       11.0,
+       1.0
+      ]
+     ],
+     "Christmas Eve is tomorrow. Is your small bag packed yet?": [
+      [
+       "1VYOz6vWCsY5iQ6DuiIrqaCkR7HsDLrM6",
+       0.3,
+       1.0
+      ],
+      [
+       "1u_BcAe6ont2BTbyK5uSi7-QFbgZ8sgML",
+       15.05,
+       1.0
+      ]
+     ],
+     "Christmas Eve tomorrow. Where do your keys go in your bag?": [
+      [
+       "1R252UTrxdvK5bBTBSgBNWv04zCDUs5KK",
+       3.57,
+       1.0
+      ],
+      [
+       "1LvvnZKxAdkdxoYbD7CWAttjNbFgG_SRF",
+       7.78,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 65.7,
+   "project": "P01",
+   "hook_text": "Watch your phone, wallet and keys each find their own spot.",
+   "hook_label": "A SPOT EACH",
+   "hook_type": "promise",
+   "opening_shot": [
+    "10aSieQA3Lb3YEflOG3dXN2sIgckqMv4f",
+    9.3
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261128_VintageBag_Christmas_B058_P01_H3_evepacked",
+   "id": "P01H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "ugc": {
+    "script": "U01",
+    "angle": "evepacked",
+    "words": 197,
+    "structure": "night_before",
+    "hook": {
+     "type": "warning",
+     "label": "PACK IT ONCE",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Watch your phone, wallet and keys each find their own spot.",
+      "type": "promise",
+      "label": "A SPOT EACH",
+      "feature": null,
+      "show": [
+       "inside",
+       "pocket"
+      ]
+     },
+     {
+      "text": "Christmas Eve is tomorrow. Is your small bag packed yet?",
+      "type": "question",
+      "label": "TOMORROW",
+      "feature": null,
+      "show": [
+       "snap",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Christmas Eve tomorrow. Where do your keys go in your bag?",
+      "type": "problem",
+      "label": "YOUR KEYS",
+      "feature": null,
+      "show": [
+       "worn",
+       "walking"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Watch your phone, wallet and keys each find their own spot.": [
+      [
+       "10aSieQA3Lb3YEflOG3dXN2sIgckqMv4f",
+       9.3,
+       1.0,
+       {
+        "zoom": [
+         1.3,
+         1.36
+        ],
+        "focus": [
+         0.5,
+         0.55
+        ]
+       }
+      ],
+      [
+       "1dKZIPJdzTK5XalUeYccAQqTH-jLEkPt2",
+       11.0,
+       1.0
+      ]
+     ],
+     "Christmas Eve is tomorrow. Is your small bag packed yet?": [
+      [
+       "1VYOz6vWCsY5iQ6DuiIrqaCkR7HsDLrM6",
+       0.3,
+       1.0
+      ],
+      [
+       "1u_BcAe6ont2BTbyK5uSi7-QFbgZ8sgML",
+       15.05,
+       1.0
+      ]
+     ],
+     "Christmas Eve tomorrow. Where do your keys go in your bag?": [
+      [
+       "1R252UTrxdvK5bBTBSgBNWv04zCDUs5KK",
+       3.57,
+       1.0
+      ],
+      [
+       "1LvvnZKxAdkdxoYbD7CWAttjNbFgG_SRF",
+       7.78,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 65.4,
+   "project": "P01",
+   "hook_text": "Christmas Eve is tomorrow. Is your small bag packed yet?",
+   "hook_label": "TOMORROW",
+   "hook_type": "question",
+   "opening_shot": [
+    "1VYOz6vWCsY5iQ6DuiIrqaCkR7HsDLrM6",
+    0.3
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261128_VintageBag_Christmas_B058_P01_H4_evepacked",
+   "id": "P01H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "ugc": {
+    "script": "U01",
+    "angle": "evepacked",
+    "words": 197,
+    "structure": "night_before",
+    "hook": {
+     "type": "warning",
+     "label": "PACK IT ONCE",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Watch your phone, wallet and keys each find their own spot.",
+      "type": "promise",
+      "label": "A SPOT EACH",
+      "feature": null,
+      "show": [
+       "inside",
+       "pocket"
+      ]
+     },
+     {
+      "text": "Christmas Eve is tomorrow. Is your small bag packed yet?",
+      "type": "question",
+      "label": "TOMORROW",
+      "feature": null,
+      "show": [
+       "snap",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Christmas Eve tomorrow. Where do your keys go in your bag?",
+      "type": "problem",
+      "label": "YOUR KEYS",
+      "feature": null,
+      "show": [
+       "worn",
+       "walking"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Watch your phone, wallet and keys each find their own spot.": [
+      [
+       "10aSieQA3Lb3YEflOG3dXN2sIgckqMv4f",
+       9.3,
+       1.0,
+       {
+        "zoom": [
+         1.3,
+         1.36
+        ],
+        "focus": [
+         0.5,
+         0.55
+        ]
+       }
+      ],
+      [
+       "1dKZIPJdzTK5XalUeYccAQqTH-jLEkPt2",
+       11.0,
+       1.0
+      ]
+     ],
+     "Christmas Eve is tomorrow. Is your small bag packed yet?": [
+      [
+       "1VYOz6vWCsY5iQ6DuiIrqaCkR7HsDLrM6",
+       0.3,
+       1.0
+      ],
+      [
+       "1u_BcAe6ont2BTbyK5uSi7-QFbgZ8sgML",
+       15.05,
+       1.0
+      ]
+     ],
+     "Christmas Eve tomorrow. Where do your keys go in your bag?": [
+      [
+       "1R252UTrxdvK5bBTBSgBNWv04zCDUs5KK",
+       3.57,
+       1.0
+      ],
+      [
+       "1LvvnZKxAdkdxoYbD7CWAttjNbFgG_SRF",
+       7.78,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 66.0,
+   "project": "P01",
+   "hook_text": "Christmas Eve tomorrow. Where do your keys go in your bag?",
+   "hook_label": "YOUR KEYS",
+   "hook_type": "problem",
+   "opening_shot": [
+    "1R252UTrxdvK5bBTBSgBNWv04zCDUs5KK",
+    3.57
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261128_VintageBag_Christmas_B058_P02_H1_onehandtest",
+   "id": "P02H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "ugc": {
+    "script": "U02",
+    "angle": "onehandtest",
+    "words": 180,
+    "structure": "live_test",
+    "hook": {
+     "type": "question",
+     "label": "ONE HAND ONLY",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Most small bags need both hands. Watch this clasp instead.",
+      "type": "problem",
+      "label": "WATCH THIS",
+      "feature": null,
+      "show": [
+       "handheld",
+       "snap"
+      ]
+     },
+     {
+      "text": "A one-hand test for December: table, car, street.",
+      "type": "promise",
+      "label": "ONE-HAND TEST",
+      "feature": null,
+      "show": [
+       "strap",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Both hands busy this December? Watch this flap snap shut.",
+      "type": "question",
+      "label": "HANDS FULL",
+      "feature": null,
+      "show": [
+       "worn",
+       "walking"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Most small bags need both hands. Watch this clasp instead.": [
+      [
+       "12R_5x3r6xr7pbM8CY0xYyLVlY9pOojDJ",
+       4.02,
+       1.0
+      ],
+      [
+       "1D4E7XWSZLSRqsrzK9KkWxSXmzg7s2xcm",
+       0.3,
+       1.0
+      ]
+     ],
+     "A one-hand test for December: table, car, street.": [
+      [
+       "1wH3lCTftcdmIwiSxtqv8UvqKMvggB6NJ",
+       0.3,
+       1.0
+      ]
+     ],
+     "Both hands busy this December? Watch this flap snap shut.": [
+      [
+       "1n_iVN9Lf1dKnL9Mo1ixhZiHX-MBBv7gp",
+       9.12,
+       1.0
+      ],
+      [
+       "1qNOv5frbrbN4JAtBuqHDqxjXb15gEeuc",
+       8.06,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 60.3,
+   "project": "P02",
+   "hook_text": "Can you snap your bag with one hand, the other one full?",
+   "hook_label": "ONE HAND ONLY",
+   "hook_type": "question",
+   "opening_shot": [
+    "1IK-BMAv3pIGvwccmmPtRGxuAvTltpiwx",
+    0.3
+   ]
+  },
+  {
+   "name": "LC_261128_VintageBag_Christmas_B058_P02_H2_onehandtest",
+   "id": "P02H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "ugc": {
+    "script": "U02",
+    "angle": "onehandtest",
+    "words": 180,
+    "structure": "live_test",
+    "hook": {
+     "type": "question",
+     "label": "ONE HAND ONLY",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Most small bags need both hands. Watch this clasp instead.",
+      "type": "problem",
+      "label": "WATCH THIS",
+      "feature": null,
+      "show": [
+       "handheld",
+       "snap"
+      ]
+     },
+     {
+      "text": "A one-hand test for December: table, car, street.",
+      "type": "promise",
+      "label": "ONE-HAND TEST",
+      "feature": null,
+      "show": [
+       "strap",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Both hands busy this December? Watch this flap snap shut.",
+      "type": "question",
+      "label": "HANDS FULL",
+      "feature": null,
+      "show": [
+       "worn",
+       "walking"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Most small bags need both hands. Watch this clasp instead.": [
+      [
+       "12R_5x3r6xr7pbM8CY0xYyLVlY9pOojDJ",
+       4.02,
+       1.0
+      ],
+      [
+       "1D4E7XWSZLSRqsrzK9KkWxSXmzg7s2xcm",
+       0.3,
+       1.0
+      ]
+     ],
+     "A one-hand test for December: table, car, street.": [
+      [
+       "1wH3lCTftcdmIwiSxtqv8UvqKMvggB6NJ",
+       0.3,
+       1.0
+      ]
+     ],
+     "Both hands busy this December? Watch this flap snap shut.": [
+      [
+       "1n_iVN9Lf1dKnL9Mo1ixhZiHX-MBBv7gp",
+       9.12,
+       1.0
+      ],
+      [
+       "1qNOv5frbrbN4JAtBuqHDqxjXb15gEeuc",
+       8.06,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 59.7,
+   "project": "P02",
+   "hook_text": "Most small bags need both hands. Watch this clasp instead.",
+   "hook_label": "WATCH THIS",
+   "hook_type": "problem",
+   "opening_shot": [
+    "12R_5x3r6xr7pbM8CY0xYyLVlY9pOojDJ",
+    4.02
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261128_VintageBag_Christmas_B058_P02_H3_onehandtest",
+   "id": "P02H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "ugc": {
+    "script": "U02",
+    "angle": "onehandtest",
+    "words": 180,
+    "structure": "live_test",
+    "hook": {
+     "type": "question",
+     "label": "ONE HAND ONLY",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Most small bags need both hands. Watch this clasp instead.",
+      "type": "problem",
+      "label": "WATCH THIS",
+      "feature": null,
+      "show": [
+       "handheld",
+       "snap"
+      ]
+     },
+     {
+      "text": "A one-hand test for December: table, car, street.",
+      "type": "promise",
+      "label": "ONE-HAND TEST",
+      "feature": null,
+      "show": [
+       "strap",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Both hands busy this December? Watch this flap snap shut.",
+      "type": "question",
+      "label": "HANDS FULL",
+      "feature": null,
+      "show": [
+       "worn",
+       "walking"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Most small bags need both hands. Watch this clasp instead.": [
+      [
+       "12R_5x3r6xr7pbM8CY0xYyLVlY9pOojDJ",
+       4.02,
+       1.0
+      ],
+      [
+       "1D4E7XWSZLSRqsrzK9KkWxSXmzg7s2xcm",
+       0.3,
+       1.0
+      ]
+     ],
+     "A one-hand test for December: table, car, street.": [
+      [
+       "1wH3lCTftcdmIwiSxtqv8UvqKMvggB6NJ",
+       0.3,
+       1.0
+      ]
+     ],
+     "Both hands busy this December? Watch this flap snap shut.": [
+      [
+       "1n_iVN9Lf1dKnL9Mo1ixhZiHX-MBBv7gp",
+       9.12,
+       1.0
+      ],
+      [
+       "1qNOv5frbrbN4JAtBuqHDqxjXb15gEeuc",
+       8.06,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 59.0,
+   "project": "P02",
+   "hook_text": "A one-hand test for December: table, car, street.",
+   "hook_label": "ONE-HAND TEST",
+   "hook_type": "promise",
+   "opening_shot": [
+    "1wH3lCTftcdmIwiSxtqv8UvqKMvggB6NJ",
+    0.3
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261128_VintageBag_Christmas_B058_P02_H4_onehandtest",
+   "id": "P02H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "ugc": {
+    "script": "U02",
+    "angle": "onehandtest",
+    "words": 180,
+    "structure": "live_test",
+    "hook": {
+     "type": "question",
+     "label": "ONE HAND ONLY",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "Most small bags need both hands. Watch this clasp instead.",
+      "type": "problem",
+      "label": "WATCH THIS",
+      "feature": null,
+      "show": [
+       "handheld",
+       "snap"
+      ]
+     },
+     {
+      "text": "A one-hand test for December: table, car, street.",
+      "type": "promise",
+      "label": "ONE-HAND TEST",
+      "feature": null,
+      "show": [
+       "strap",
+       "handheld"
+      ]
+     },
+     {
+      "text": "Both hands busy this December? Watch this flap snap shut.",
+      "type": "question",
+      "label": "HANDS FULL",
+      "feature": null,
+      "show": [
+       "worn",
+       "walking"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "Most small bags need both hands. Watch this clasp instead.": [
+      [
+       "12R_5x3r6xr7pbM8CY0xYyLVlY9pOojDJ",
+       4.02,
+       1.0
+      ],
+      [
+       "1D4E7XWSZLSRqsrzK9KkWxSXmzg7s2xcm",
+       0.3,
+       1.0
+      ]
+     ],
+     "A one-hand test for December: table, car, street.": [
+      [
+       "1wH3lCTftcdmIwiSxtqv8UvqKMvggB6NJ",
+       0.3,
+       1.0
+      ]
+     ],
+     "Both hands busy this December? Watch this flap snap shut.": [
+      [
+       "1n_iVN9Lf1dKnL9Mo1ixhZiHX-MBBv7gp",
+       9.12,
+       1.0
+      ],
+      [
+       "1qNOv5frbrbN4JAtBuqHDqxjXb15gEeuc",
+       8.06,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 59.7,
+   "project": "P02",
+   "hook_text": "Both hands busy this December? Watch this flap snap shut.",
+   "hook_label": "HANDS FULL",
+   "hook_type": "question",
+   "opening_shot": [
+    "1n_iVN9Lf1dKnL9Mo1ixhZiHX-MBBv7gp",
+    9.12
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261128_VintageBag_Christmas_B058_P03_H1_askyoursister",
+   "id": "P03H1",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H1",
+   "ugc": {
+    "script": "U03",
+    "angle": "askyoursister",
+    "words": 180,
+    "structure": "friend_advice",
+    "hook": {
+     "type": "question",
+     "label": "FOR MUM",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "For the mum who carries her bag by hand and crossbody.",
+      "type": "promise",
+      "label": "BOTH WAYS",
+      "feature": null,
+      "show": [
+       "handheld",
+       "strap"
+      ]
+     },
+     {
+      "text": "What to check before you buy Mum a bag this Christmas.",
+      "type": "warning",
+      "label": "CHECK FIRST",
+      "feature": null,
+      "show": [
+       "inside",
+       "pocket"
+      ]
+     },
+     {
+      "text": "Before you buy Mum a bag, picture it on her car seat.",
+      "type": "warning",
+      "label": "CHECK THIS",
+      "feature": null,
+      "show": [
+       "snap",
+       "handheld"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "For the mum who carries her bag by hand and crossbody.": [
+      [
+       "1ni45Zrqs01boihMG9jmX7TP95mIh9WvJ",
+       4.06,
+       1.0
+      ],
+      [
+       "17pDJceUeFQwkPdvcEbyheppSWHKA7lrx",
+       0.53,
+       1.0
+      ]
+     ],
+     "What to check before you buy Mum a bag this Christmas.": [
+      [
+       "17iFr-T6Hmi4mhwk5ZAaeEt3rIeZ1G1Rj",
+       4.13,
+       1.0
+      ],
+      [
+       "1n_iVN9Lf1dKnL9Mo1ixhZiHX-MBBv7gp",
+       5.07,
+       1.0
+      ]
+     ],
+     "Before you buy Mum a bag, picture it on her car seat.": [
+      [
+       "1D4E7XWSZLSRqsrzK9KkWxSXmzg7s2xcm",
+       0.3,
+       1.0
+      ],
+      [
+       "1BE8DQgDuyDicXUgHyeY1LI-tYBjvLfQv",
+       0.3,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 60.2,
+   "project": "P03",
+   "hook_text": "Buying Mum a bag for Christmas? Does its strap adjust?",
+   "hook_label": "FOR MUM",
+   "hook_type": "question",
+   "opening_shot": [
+    "1lK1opuMdsqZd7C-4QKlUCeiFcP4MS7BB",
+    7.11
+   ]
+  },
+  {
+   "name": "LC_261128_VintageBag_Christmas_B058_P03_H2_askyoursister",
+   "id": "P03H2",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H2",
+   "ugc": {
+    "script": "U03",
+    "angle": "askyoursister",
+    "words": 180,
+    "structure": "friend_advice",
+    "hook": {
+     "type": "question",
+     "label": "FOR MUM",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "For the mum who carries her bag by hand and crossbody.",
+      "type": "promise",
+      "label": "BOTH WAYS",
+      "feature": null,
+      "show": [
+       "handheld",
+       "strap"
+      ]
+     },
+     {
+      "text": "What to check before you buy Mum a bag this Christmas.",
+      "type": "warning",
+      "label": "CHECK FIRST",
+      "feature": null,
+      "show": [
+       "inside",
+       "pocket"
+      ]
+     },
+     {
+      "text": "Before you buy Mum a bag, picture it on her car seat.",
+      "type": "warning",
+      "label": "CHECK THIS",
+      "feature": null,
+      "show": [
+       "snap",
+       "handheld"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "For the mum who carries her bag by hand and crossbody.": [
+      [
+       "1ni45Zrqs01boihMG9jmX7TP95mIh9WvJ",
+       4.06,
+       1.0
+      ],
+      [
+       "17pDJceUeFQwkPdvcEbyheppSWHKA7lrx",
+       0.53,
+       1.0
+      ]
+     ],
+     "What to check before you buy Mum a bag this Christmas.": [
+      [
+       "17iFr-T6Hmi4mhwk5ZAaeEt3rIeZ1G1Rj",
+       4.13,
+       1.0
+      ],
+      [
+       "1n_iVN9Lf1dKnL9Mo1ixhZiHX-MBBv7gp",
+       5.07,
+       1.0
+      ]
+     ],
+     "Before you buy Mum a bag, picture it on her car seat.": [
+      [
+       "1D4E7XWSZLSRqsrzK9KkWxSXmzg7s2xcm",
+       0.3,
+       1.0
+      ],
+      [
+       "1BE8DQgDuyDicXUgHyeY1LI-tYBjvLfQv",
+       0.3,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 60.5,
+   "project": "P03",
+   "hook_text": "For the mum who carries her bag by hand and crossbody.",
+   "hook_label": "BOTH WAYS",
+   "hook_type": "promise",
+   "opening_shot": [
+    "1ni45Zrqs01boihMG9jmX7TP95mIh9WvJ",
+    4.06
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261128_VintageBag_Christmas_B058_P03_H3_askyoursister",
+   "id": "P03H3",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H3",
+   "ugc": {
+    "script": "U03",
+    "angle": "askyoursister",
+    "words": 180,
+    "structure": "friend_advice",
+    "hook": {
+     "type": "question",
+     "label": "FOR MUM",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "For the mum who carries her bag by hand and crossbody.",
+      "type": "promise",
+      "label": "BOTH WAYS",
+      "feature": null,
+      "show": [
+       "handheld",
+       "strap"
+      ]
+     },
+     {
+      "text": "What to check before you buy Mum a bag this Christmas.",
+      "type": "warning",
+      "label": "CHECK FIRST",
+      "feature": null,
+      "show": [
+       "inside",
+       "pocket"
+      ]
+     },
+     {
+      "text": "Before you buy Mum a bag, picture it on her car seat.",
+      "type": "warning",
+      "label": "CHECK THIS",
+      "feature": null,
+      "show": [
+       "snap",
+       "handheld"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "For the mum who carries her bag by hand and crossbody.": [
+      [
+       "1ni45Zrqs01boihMG9jmX7TP95mIh9WvJ",
+       4.06,
+       1.0
+      ],
+      [
+       "17pDJceUeFQwkPdvcEbyheppSWHKA7lrx",
+       0.53,
+       1.0
+      ]
+     ],
+     "What to check before you buy Mum a bag this Christmas.": [
+      [
+       "17iFr-T6Hmi4mhwk5ZAaeEt3rIeZ1G1Rj",
+       4.13,
+       1.0
+      ],
+      [
+       "1n_iVN9Lf1dKnL9Mo1ixhZiHX-MBBv7gp",
+       5.07,
+       1.0
+      ]
+     ],
+     "Before you buy Mum a bag, picture it on her car seat.": [
+      [
+       "1D4E7XWSZLSRqsrzK9KkWxSXmzg7s2xcm",
+       0.3,
+       1.0
+      ],
+      [
+       "1BE8DQgDuyDicXUgHyeY1LI-tYBjvLfQv",
+       0.3,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 60.5,
+   "project": "P03",
+   "hook_text": "What to check before you buy Mum a bag this Christmas.",
+   "hook_label": "CHECK FIRST",
+   "hook_type": "warning",
+   "opening_shot": [
+    "17iFr-T6Hmi4mhwk5ZAaeEt3rIeZ1G1Rj",
+    4.13
+   ],
+   "hook_source": "script"
+  },
+  {
+   "name": "LC_261128_VintageBag_Christmas_B058_P03_H4_askyoursister",
+   "id": "P03H4",
+   "format": "ugc",
+   "engine": "storyboard",
+   "hook": "H4",
+   "ugc": {
+    "script": "U03",
+    "angle": "askyoursister",
+    "words": 180,
+    "structure": "friend_advice",
+    "hook": {
+     "type": "question",
+     "label": "FOR MUM",
+     "feature": null
+    },
+    "alt_hooks": [
+     {
+      "text": "For the mum who carries her bag by hand and crossbody.",
+      "type": "promise",
+      "label": "BOTH WAYS",
+      "feature": null,
+      "show": [
+       "handheld",
+       "strap"
+      ]
+     },
+     {
+      "text": "What to check before you buy Mum a bag this Christmas.",
+      "type": "warning",
+      "label": "CHECK FIRST",
+      "feature": null,
+      "show": [
+       "inside",
+       "pocket"
+      ]
+     },
+     {
+      "text": "Before you buy Mum a bag, picture it on her car seat.",
+      "type": "warning",
+      "label": "CHECK THIS",
+      "feature": null,
+      "show": [
+       "snap",
+       "handheld"
+      ]
+     }
+    ],
+    "numbers": [],
+    "alt_shots": {
+     "For the mum who carries her bag by hand and crossbody.": [
+      [
+       "1ni45Zrqs01boihMG9jmX7TP95mIh9WvJ",
+       4.06,
+       1.0
+      ],
+      [
+       "17pDJceUeFQwkPdvcEbyheppSWHKA7lrx",
+       0.53,
+       1.0
+      ]
+     ],
+     "What to check before you buy Mum a bag this Christmas.": [
+      [
+       "17iFr-T6Hmi4mhwk5ZAaeEt3rIeZ1G1Rj",
+       4.13,
+       1.0
+      ],
+      [
+       "1n_iVN9Lf1dKnL9Mo1ixhZiHX-MBBv7gp",
+       5.07,
+       1.0
+      ]
+     ],
+     "Before you buy Mum a bag, picture it on her car seat.": [
+      [
+       "1D4E7XWSZLSRqsrzK9KkWxSXmzg7s2xcm",
+       0.3,
+       1.0
+      ],
+      [
+       "1BE8DQgDuyDicXUgHyeY1LI-tYBjvLfQv",
+       0.3,
+       1.0
+      ]
+     ]
+    }
+   },
+   "est_seconds": 60.2,
+   "project": "P03",
+   "hook_text": "Before you buy Mum a bag, picture it on her car seat.",
+   "hook_label": "CHECK THIS",
+   "hook_type": "warning",
+   "opening_shot": [
+    "1D4E7XWSZLSRqsrzK9KkWxSXmzg7s2xcm",
+    0.3
+   ],
+   "hook_source": "script"
+  }
+ ],
+ "tts_lines": 31,
+ "tts_dupes": {},
+ "est_credits": 10.8,
+ "budget": 100.0,
+ "colour_images": {
+  "Ginger Brown": "/tmp/run/xmas2v/site/vintage_colour_ginger_brown.jpg",
+  "Black": "/tmp/run/xmas2v/site/vintage_colour_black.jpg",
+  "Chocolate": "/tmp/run/xmas2v/site/vintage_colour_chocolate.jpg",
+  "Red": "/tmp/run/xmas2v/site/vintage_colour_red.jpg"
+ },
+ "packshots": [
+  "/tmp/run/xmas2v/site/vintage_colour_ginger_brown.jpg",
+  "/tmp/run/xmas2v/site/vintage_colour_black.jpg",
+  "/tmp/run/xmas2v/site/vintage_colour_chocolate.jpg",
+  "/tmp/run/xmas2v/site/vintage_colour_red.jpg"
+ ],
+ "brief": null,
+ "ai": {
+  "stills": 7,
+  "clips": 0,
+  "est_credits": 7.0,
+  "budget": {
+   "cap": 100.0,
+   "tts_est": 13.5,
+   "reserve": 8.0
+  },
+  "scenes": [
+   "p01_s04_paper_shopping_bag",
+   "p01_s10",
+   "p02_s01_giant_numerals",
+   "p02_s02_swing_tag",
+   "p02_s05_chalkboard_sign",
+   "p03_s03_rubber_stamp",
+   "p03_s06_advent_calendar"
+  ],
+  "next": "python3 pipeline/ai_gen.py show --out /tmp/run/xmas2v"
+ },
+ "winners_source": null,
+ "winners_note": null,
+ "winners_used": [],
+ "unmatched_winners": [],
+ "warnings": [
+  "Vintage Bag: reviews [6, 7, 9] left out: reviews.json does not say they are about this bag (Julian 2026-11-19: quotes only from reviews of the bag in the ad)",
+  "ideas: P01 c6: an earlier batch already said: 'The Vintage Bag is fifty percent off right now, with free shipping.'",
+  "ideas: P02 c7: an earlier batch already said: 'The Vintage Bag is fifty percent off right now, with free shipping.'",
+  "ideas: P03 c6: an earlier batch already said: 'The Vintage Bag is fifty percent off right now, with free shipping.'",
+  "ideas: playbook hook_formula: P02 H3: 'A one-hand test for December: table, car, street.' follows none of the rulebook's hook formulas (how to, a question, a number, a warning, a contrast, watch, a moment, at last, the truth about, imagine, if you, who else, hidden, the offer)",
+  "ideas: playbook hook_formula: P03 H2: 'For the mum who carries her bag by hand and crossbody.' follows none of the rulebook's hook formulas (how to, a question, a number, a warning, a contrast, watch, a moment, at last, the truth about, imagine, if you, who else, hidden, the offer)",
+  "ideas: playbook hook_concrete: P03 H3: 'What to check before you buy Mum a bag this Christmas.' names nothing a picture can show and no number: the opening shot cannot prove it",
+  "ideas: 7 AI statics of 12 (6 designed ads, 1 studio scenes; about 7 credits plus retries)",
+  "re-plan: keeps batch number B058 (planned in this --out, not uploaded yet)",
+  "Vintage Bag has 12 earlier batch(es) in the novelty log: the statics start 12 step(s) further in their photo / headline cycle (other photos and captions than before)",
+  "P02: hook types repeat (question, problem, promise, question)",
+  "P03: hook types repeat (question, promise, warning, warning)",
+  "repeat: S11_colours was already made in B050 (2026-11-15): don't launch it twice (re-plan with another --seed for other ads)"
+ ],
+ "winner_reviews": false,
+ "seed": 1,
+ "hooks": 4,
+ "pipeline": "catalog",
+ "video_format": "ugc",
+ "ugc_numbers": [],
+ "voice": {
+  "voice_type": "element",
+  "voice_id": "241459b6-b4e8-4a2a-9868-da8bcdcd0558",
+  "speed": 1.12
+ },
+ "projects": [
+  {
+   "id": "P01",
+   "from_id": "V01",
+   "angle": "evepacked",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P01H1",
+     "name": "LC_261128_VintageBag_Christmas_B058_P01_H1_evepacked",
+     "hook_text": "How to pack one small bag for all of Christmas Eve.",
+     "label": "PACK IT ONCE",
+     "type": "warning",
+     "shot": [
+      "1nCg9ulE1ZcwawGVIaGZvkMOcrZi_CrAG",
+      10.81
+     ],
+     "est_seconds": 65.7
+    },
+    {
+     "hook": "H2",
+     "id": "P01H2",
+     "name": "LC_261128_VintageBag_Christmas_B058_P01_H2_evepacked",
+     "hook_text": "Watch your phone, wallet and keys each find their own spot.",
+     "label": "A SPOT EACH",
+     "type": "promise",
+     "shot": [
+      "10aSieQA3Lb3YEflOG3dXN2sIgckqMv4f",
+      9.3
+     ],
+     "est_seconds": 65.7
+    },
+    {
+     "hook": "H3",
+     "id": "P01H3",
+     "name": "LC_261128_VintageBag_Christmas_B058_P01_H3_evepacked",
+     "hook_text": "Christmas Eve is tomorrow. Is your small bag packed yet?",
+     "label": "TOMORROW",
+     "type": "question",
+     "shot": [
+      "1VYOz6vWCsY5iQ6DuiIrqaCkR7HsDLrM6",
+      0.3
+     ],
+     "est_seconds": 65.4
+    },
+    {
+     "hook": "H4",
+     "id": "P01H4",
+     "name": "LC_261128_VintageBag_Christmas_B058_P01_H4_evepacked",
+     "hook_text": "Christmas Eve tomorrow. Where do your keys go in your bag?",
+     "label": "YOUR KEYS",
+     "type": "problem",
+     "shot": [
+      "1R252UTrxdvK5bBTBSgBNWv04zCDUs5KK",
+      3.57
+     ],
+     "est_seconds": 66.0
+    }
+   ]
+  },
+  {
+   "id": "P02",
+   "from_id": "V02",
+   "angle": "onehandtest",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P02H1",
+     "name": "LC_261128_VintageBag_Christmas_B058_P02_H1_onehandtest",
+     "hook_text": "Can you snap your bag with one hand, the other one full?",
+     "label": "ONE HAND ONLY",
+     "type": "question",
+     "shot": [
+      "1IK-BMAv3pIGvwccmmPtRGxuAvTltpiwx",
+      0.3
+     ],
+     "est_seconds": 60.3
+    },
+    {
+     "hook": "H2",
+     "id": "P02H2",
+     "name": "LC_261128_VintageBag_Christmas_B058_P02_H2_onehandtest",
+     "hook_text": "Most small bags need both hands. Watch this clasp instead.",
+     "label": "WATCH THIS",
+     "type": "problem",
+     "shot": [
+      "12R_5x3r6xr7pbM8CY0xYyLVlY9pOojDJ",
+      4.02
+     ],
+     "est_seconds": 59.7
+    },
+    {
+     "hook": "H3",
+     "id": "P02H3",
+     "name": "LC_261128_VintageBag_Christmas_B058_P02_H3_onehandtest",
+     "hook_text": "A one-hand test for December: table, car, street.",
+     "label": "ONE-HAND TEST",
+     "type": "promise",
+     "shot": [
+      "1wH3lCTftcdmIwiSxtqv8UvqKMvggB6NJ",
+      0.3
+     ],
+     "est_seconds": 59.0
+    },
+    {
+     "hook": "H4",
+     "id": "P02H4",
+     "name": "LC_261128_VintageBag_Christmas_B058_P02_H4_onehandtest",
+     "hook_text": "Both hands busy this December? Watch this flap snap shut.",
+     "label": "HANDS FULL",
+     "type": "question",
+     "shot": [
+      "1n_iVN9Lf1dKnL9Mo1ixhZiHX-MBBv7gp",
+      9.12
+     ],
+     "est_seconds": 59.7
+    }
+   ]
+  },
+  {
+   "id": "P03",
+   "from_id": "V03",
+   "angle": "askyoursister",
+   "engine": "storyboard",
+   "format": "ugc",
+   "hooks": [
+    {
+     "hook": "H1",
+     "id": "P03H1",
+     "name": "LC_261128_VintageBag_Christmas_B058_P03_H1_askyoursister",
+     "hook_text": "Buying Mum a bag for Christmas? Does its strap adjust?",
+     "label": "FOR MUM",
+     "type": "question",
+     "shot": [
+      "1lK1opuMdsqZd7C-4QKlUCeiFcP4MS7BB",
+      7.11
+     ],
+     "est_seconds": 60.2
+    },
+    {
+     "hook": "H2",
+     "id": "P03H2",
+     "name": "LC_261128_VintageBag_Christmas_B058_P03_H2_askyoursister",
+     "hook_text": "For the mum who carries her bag by hand and crossbody.",
+     "label": "BOTH WAYS",
+     "type": "promise",
+     "shot": [
+      "1ni45Zrqs01boihMG9jmX7TP95mIh9WvJ",
+      4.06
+     ],
+     "est_seconds": 60.5
+    },
+    {
+     "hook": "H3",
+     "id": "P03H3",
+     "name": "LC_261128_VintageBag_Christmas_B058_P03_H3_askyoursister",
+     "hook_text": "What to check before you buy Mum a bag this Christmas.",
+     "label": "CHECK FIRST",
+     "type": "warning",
+     "shot": [
+      "17iFr-T6Hmi4mhwk5ZAaeEt3rIeZ1G1Rj",
+      4.13
+     ],
+     "est_seconds": 60.5
+    },
+    {
+     "hook": "H4",
+     "id": "P03H4",
+     "name": "LC_261128_VintageBag_Christmas_B058_P03_H4_askyoursister",
+     "hook_text": "Before you buy Mum a bag, picture it on her car seat.",
+     "label": "CHECK THIS",
+     "type": "warning",
+     "shot": [
+      "1D4E7XWSZLSRqsrzK9KkWxSXmzg7s2xcm",
+      0.3
+     ],
+     "est_seconds": 60.2
+    }
+   ]
+  }
+ ],
+ "hooks_seed": 1
+}
